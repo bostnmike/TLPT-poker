@@ -19,6 +19,8 @@ for (const event of history) {
   const compact = events.find(e => e.eventId === event.eventId);
   assert.ok(compact, event.eventId);
   assert.deepEqual(compact.players, event.players);
+  assert.equal(compact.date, event.date);
+  assert.equal(compact.title, event.title);
   assert.deepEqual(compact.knockouts, archive[event.eventId]);
   assert.equal(compact.format, formats[event.eventId]);
   assert.equal(compact.bounty, Boolean(event.summary.bounty?.amount));
@@ -67,10 +69,44 @@ assert.equal(mtt.find(p => p.slug === 'wild-bill').settlementAdjustment, 10);
 assert.equal(mtt.find(p => p.slug === 'providencemike').totalWinnings, 490);
 assert.equal(mtt.find(p => p.slug === 'ai-dave').hits, 2, 'Opt-out hands still count');
 assert.equal(mtt.find(p => p.slug === 'liam-o').buyIns, 1, 'Single-appearance players are included');
-for (const page of ['dashboard','standings','player','knockouts','form-lab']) {
+for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/data-stat-scope /g) || []).length, 1, `${page}: shared controls`);
-  assert.match(html, /stats-scope\.js\?v=20261025-1/);
+  assert.match(html, /stats-scope\.js\?v=20261025-2/);
   assert.match(html, /stats-scope\.css\?v=20261025-1/);
 }
-console.log(`PASS: ${combinations} filter combinations, source parity, all financial/rate/knockout totals, opt-outs, chops, settlement, career immutability and five page integrations.`);
+const streakContext = vm.createContext({ document: { addEventListener() {} } });
+vm.runInContext(fs.readFileSync(new URL('../streaks.js', import.meta.url), 'utf8'), streakContext);
+const buildStreakView = vm.runInContext('buildStreakView', streakContext);
+const allStreaks = plain(buildStreakView(career.players, events));
+for (const key of Object.keys(allStreaks)) assert.deepEqual(allStreaks[key], career.streaks[key], `Combined streak parity: ${key}`);
+const movementContext = vm.createContext({ console });
+vm.runInContext(fs.readFileSync(new URL('../player-movement.js', import.meta.url), 'utf8').replace(/\ninit\(\);\s*$/, ''), movementContext);
+const buildAnalytics = vm.runInContext('buildAnalytics', movementContext);
+for (const format of ['all', 'single', 'mtt']) for (const bounty of ['all', 'with', 'without']) {
+  const selected = scope.select(events, { format, bounty });
+  const streaks = buildStreakView(career.players, selected);
+  const ids = new Set(selected.map(e => e.eventId));
+  const heaters = buildAnalytics(career.players, history.filter(e => ids.has(e.eventId)));
+  for (const player of career.players) {
+    const rows = selected.flatMap(e => e.players.filter(p => p.slug === player.slug && p.entries > 0));
+    assert.equal(streaks.players[player.slug].playedEvents, rows.length);
+    assert.equal(streaks.players[player.slug].eligible, rows.length >= 2);
+    for (const [cash, bestKey, currentKey] of [[true,'bestCashStreak','currentCashStreak'], [false,'bestDroughtStreak','currentDroughtStreak']]) {
+      let run=0, best=0;
+      for (const row of rows) { run = (row.timesPlaced > 0) === cash ? run+1 : 0; best = Math.max(best,run); }
+      assert.equal(streaks.players[player.slug][bestKey]?.length || 0, best >= 2 ? best : 0);
+      assert.equal(streaks.players[player.slug][currentKey]?.length || 0, run >= 2 ? run : 0);
+    }
+    const heater = heaters.find(p => p.slug === player.slug);
+    assert.equal(Boolean(heater), rows.length >= 4, `${format}/${bounty}: heater eligibility ${player.slug}`);
+    if (heater) {
+      assert.equal(heater.eventsPlayedForForm, rows.length);
+      assert.ok(heater.recentEvents.every(e => ids.has(e.eventId)));
+      assert.equal(heater.recentEvents.length, Math.min(6,rows.length));
+      for (const key of ratingKeys) assert.deepEqual(plain(heater[key] ?? null), player[key] ?? null);
+    }
+  }
+}
+assert.equal(JSON.stringify(career), before, 'Trend views must not mutate career records');
+console.log(`PASS: ${combinations} filter combinations, financial/knockout/streak parity, heater windows and thresholds, career immutability and seven page integrations.`);

@@ -29,7 +29,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         assert.ok(b.x >= 0 && b.x + b.width <= width + 1, 'Menu must fit viewport');
         await menu.locator(`[data-value="${value}"]`).click();
       }
-      for (const file of ['dashboard.html', 'standings.html', 'knockouts.html', 'player.html?name=ProvidenceMike', 'form-lab.html']) {
+      for (const file of ['dashboard.html', 'standings.html', 'knockouts.html', 'player.html?name=ProvidenceMike', 'form-lab.html', 'streaks.html', 'player-movement.html']) {
         await page.goto(`${base}/${file}`);
         await page.evaluate(() => document.fonts.ready);
         await page.locator('#stat-format-trigger').waitFor();
@@ -45,7 +45,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
           await page.locator('[data-dashboard-category="results"]').click();
         }
         if (file.startsWith('standings')) assert.equal(await page.locator('#standings-table tbody .standings-row-link').count(), mttPlayers.size);
-        if (file.startsWith('player')) {
+        if (file.startsWith('player.html')) {
           await page.locator('.player-body-count-card').waitFor();
           assert.ok((await page.locator('#player-stats').innerText()).includes(`$${providenceCash.toLocaleString('en-US')}`));
           assert.equal(await page.locator('.player-dna-card').count(), 1);
@@ -54,6 +54,14 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
           await page.locator('#fl-player-select').selectOption({ label: 'Liam O' }, { force: true });
           const liamCount = mttBounty.filter(e => e.players.some(p => p.slug === 'liam-o' && p.entries > 0)).length;
           assert.ok((await page.locator('#fl-player-card').innerText()).includes(`${Math.min(6,liamCount)} shown / ${liamCount} matching event`));
+        }
+        if (file.startsWith('streaks')) {
+          assert.match(await page.locator('#streak-longest-title').innerText(), /in This View/);
+          if (mttBounty.length < 2) assert.match(await page.locator('#streak-player-detail').innerText(), /two matching appearances/);
+        }
+        if (file.startsWith('player-movement')) {
+          await page.locator('.pm-btn[data-sort="cold"]').click();
+          if (mttBounty.length < 4) assert.match(await page.locator('#pm-top-movers').innerText(), /four matching appearances/);
         }
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
         assert.equal(overflow, false, `${file} overflows at ${width}px`);
@@ -68,6 +76,14 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         await page.locator('[data-stat-reset]').click();
         assert.match(await page.locator('#stat-format-trigger').innerText(), /All Formats/);
         assert.match(await page.locator('#stat-bounty-trigger').innerText(), /All Events/);
+        if (file.startsWith('streaks')) {
+          assert.match(await page.locator('#streak-longest-title').innerText(), /All-Time Heaters/);
+          assert.ok(await page.locator('#streak-player-select option').count() > 1);
+        }
+        if (file.startsWith('player-movement')) {
+          assert.equal(await page.locator('.pm-btn[data-sort="cold"]').getAttribute('aria-pressed'), 'true');
+          assert.ok(await page.locator('#pm-player-grid .pm-player-card').count() > 0);
+        }
         console.log(`PASS ${width}px ${file}: filters, empty state, reset, overlay and width`);
       }
       await choose('format', 'mtt');

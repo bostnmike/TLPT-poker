@@ -49,6 +49,7 @@
   <link rel="stylesheet" href="player-movement.css?v=20261012-1" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
+  <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
 </head>
 
 <body>
@@ -146,6 +147,8 @@
       </div>
     </section>
 
+    <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
+
     <!-- CONTROLS -->
     <section class="pm-controls-shell">
       <div class="pm-controls-left">
@@ -168,10 +171,10 @@
 
         <div class="pm-formula">
           <div class="pm-formula-line1">
-            <strong>How The Heater Meter works:</strong> Each player is scored from their last 6 events using finish position, field size, knockouts, rebuys, bubbles, and clean runs.
+            <strong>How The Heater Meter works:</strong> Each player is scored from their last 6 matching appearances using finish position, field size, knockouts, rebuys, bubbles, and clean runs.
           </div>
           <div class="pm-formula-line2">
-            Better finishes in larger fields help most. Knockouts and bubbles add heat. Rebuys and early exits cool the score. More recent events carry more weight, and players qualify after 4 total events played.
+            Better finishes in larger fields help most. Knockouts and bubbles add heat. Rebuys and early exits cool the score. More recent events carry more weight, and players qualify after 4 matching appearances. These are filtered form rankings, not changes to career ratings or earned awards.
           </div>
         </div>
 
@@ -211,7 +214,8 @@
 
 <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
-<script src="player-movement.js?v=20261018-1"></script>
+<script src="stats-scope.js?v=20261025-2"></script>
+<script src="player-movement.js?v=20261025-1"></script>
 
 </body>
 </html>

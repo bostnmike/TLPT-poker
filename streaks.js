@@ -1,6 +1,50 @@
 const DATA_URL = "data/generated/site-data.json";
 let streakPlayerMap = new Map();
 
+// Replay selected appearances only. Bounty returns alone do not count as a cash.
+function buildStreakView(players, events) {
+  const payload = { players: {}, eligiblePlayers: [], cashLeaders: [], droughtLeaders: [], activeCashLeaders: [], activeDroughtLeaders: [] };
+  const chronological = [...events].sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  for (const player of players) {
+    const played = chronological.flatMap(event => {
+      const row = event.players.find(row => row.slug === player.slug && row.entries > 0);
+      return row ? [{ date: event.date, title: event.title, cashed: Number(row.timesPlaced) > 0 }] : [];
+    });
+    function runs(cashed) {
+      let best = [], current = [];
+      for (const event of played) {
+        current = event.cashed === cashed ? [...current, event] : [];
+        if (current.length > best.length) best = [...current];
+      }
+      function record(window, active) {
+        if (window.length < 2) return null;
+        return { player: player.name, slug: player.slug, image: player.image,
+          type: cashed ? 'cash' : 'drought', length: window.length,
+          startDate: window[0].date, endDate: window.at(-1).date,
+          startTitle: window[0].title, endTitle: window.at(-1).title, active, events: window };
+      }
+      return [record(best, false), record(current, true)];
+    }
+    const [bestCashStreak, currentCashStreak] = runs(true);
+    const [bestDroughtStreak, currentDroughtStreak] = runs(false);
+    const eligible = played.length >= 2;
+    payload.players[player.slug] = { playedEvents: played.length, eligible,
+      bestCashStreak, currentCashStreak, bestDroughtStreak, currentDroughtStreak };
+    if (!eligible) continue;
+    payload.eligiblePlayers.push({ name: player.name, slug: player.slug, image: player.image, playedEvents: played.length });
+    for (const [key, value] of [['cashLeaders', bestCashStreak], ['droughtLeaders', bestDroughtStreak],
+      ['activeCashLeaders', currentCashStreak], ['activeDroughtLeaders', currentDroughtStreak]]) {
+      if (value) payload[key].push(value);
+    }
+  }
+  const compareText = (a, b) => a < b ? -1 : a > b ? 1 : 0;
+  for (const key of ['cashLeaders', 'droughtLeaders', 'activeCashLeaders', 'activeDroughtLeaders']) {
+    payload[key].sort((a, b) => b.length - a.length || compareText(a.player.toLowerCase(), b.player.toLowerCase()) || compareText(a.endDate, b.endDate));
+  }
+  payload.eligiblePlayers.sort((a, b) => compareText(a.name.toLowerCase(), b.name.toLowerCase()));
+  return payload;
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -152,7 +196,7 @@ function renderPlayerDetail(streaks, slug) {
   const meta = eligibleList.find(p => p.slug === slug);
 
   if (!player || !meta) {
-    container.innerHTML = `<div class="streak-empty">No eligible player selected.</div>`;
+    container.innerHTML = `<div class="streak-empty">No player has two matching appearances yet. Change the filters or Reset to All.</div>`;
     return;
   }
 
@@ -161,7 +205,7 @@ function renderPlayerDetail(streaks, slug) {
       ${renderAvatar(meta)}
       <div>
         <div class="streak-player-name">${escapeHtml(meta.name)}</div>
-        <div class="streak-player-sub">Full streak profile for the eligible sample.</div>
+        <div class="streak-player-sub">Streaks within the selected events.</div>
       </div>
       <div class="streak-played-pill">${escapeHtml(meta.playedEvents)} played events</div>
     </div>
@@ -180,6 +224,8 @@ function initPlayerSelect(streaks) {
   if (!select) return;
 
   const eligiblePlayers = Array.isArray(streaks?.eligiblePlayers) ? streaks.eligiblePlayers : [];
+  const previousSelection = select.value;
+  select.onchange = null;
 
   if (!eligiblePlayers.length) {
     select.innerHTML = `<option value="">No eligible players</option>`;
@@ -195,9 +241,10 @@ function initPlayerSelect(streaks) {
       </option>
     `);
 
-  select.addEventListener("change", (event) => {
+  if (eligiblePlayers.some(player => player.slug === previousSelection)) select.value = previousSelection;
+  select.onchange = (event) => {
     renderPlayerDetail(streaks, event.target.value);
-  });
+  };
 
   renderPlayerDetail(streaks, select.value);
 }
@@ -209,18 +256,24 @@ async function initStreakTracker() {
 
     const data = await res.json();
     streakPlayerMap = new Map((data.players || []).map(player => [player.slug, player]));
-    const streaks = data.streaks || {};
+    if (window.TLPTStats) await window.TLPTStats.init();
+    const render = () => {
+    const streaks = window.TLPTStats?.active()
+      ? buildStreakView(data.players || [], window.TLPTStats.selectedEvents())
+      : data.streaks || {};
+    const title = document.getElementById('streak-longest-title');
+    if (title) title.textContent = window.TLPTStats?.active() ? '🚀 Longest Cash Runs in This View' : '🚀 All-Time Heaters';
 
     renderLeaderboard(
       streaks.activeCashLeaders || [],
       "active-cash-board",
-      "No active cash streaks of 2+ among eligible players."
+      "No active cash streaks of 2+ matching appearances. Change the filters or Reset to All."
     );
 
     renderLeaderboard(
       streaks.activeDroughtLeaders || [],
       "active-drought-board",
-      "No active droughts of 2+ among eligible players.",
+      "No active droughts of 2+ matching appearances. Change the filters or Reset to All.",
       null,
       true
     );
@@ -240,6 +293,9 @@ async function initStreakTracker() {
     );
 
     initPlayerSelect(streaks);
+    };
+    window.addEventListener('tlpt:stat-scope-change', render);
+    render();
   } catch (error) {
     console.error("Streak Tracker failed to load:", error);
 

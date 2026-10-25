@@ -24,7 +24,7 @@ def build():
         bounty = bool(financials.get(event_id, {}).get('bounty', {}).get('amount', 0))
         if bounty != bool(event['summary'].get('bounty', {}).get('amount', 0)):
             raise ValueError(f'{event_id}: bounty classification disagrees with audited summary')
-        events.append(dict(eventId=event_id, format=format_key, bounty=bounty,
+        events.append(dict(eventId=event_id, date=event['date'], title=event['title'], format=format_key, bounty=bounty,
                            players=event['players'], knockouts=archive[event_id]))
     output = ROOT / 'data/generated/stat-events.json'
     output.write_text(json.dumps({'version': 1, 'events': events}, separators=(',', ':')) + '\n')

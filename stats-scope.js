@@ -111,7 +111,7 @@
     })();
     return ready;
   }
-  window.TLPTStats = { init, active, players, knockouts, eventIds, isFactual: key => factualKeys.has(key),
+  window.TLPTStats = { init, active, players, knockouts, eventIds, selectedEvents: () => select(), isFactual: key => factualKeys.has(key),
     // Pure functions shared with regression tests.
     select, aggregate, knockoutView, normalize };
 })();

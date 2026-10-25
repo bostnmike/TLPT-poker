@@ -420,8 +420,8 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
 }
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261024-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20261025-1"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261018-1"
-EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261018-1"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261025-1"
+EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261025-1"
 EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261024-1"
 INTERACTIVE_CONTROL_RADIUS_CONTRACTS = {
     "style.css": (
@@ -1234,7 +1234,7 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Player Movement must contain exactly two JSON fetch operations"
             )
-        for expected_fetch in ("fetch(DATA_URL)", "fetch(EVENT_HISTORY_URL)"):
+        for expected_fetch in ('fetch(DATA_URL, { cache: "no-store" })', 'fetch(EVENT_HISTORY_URL, { cache: "no-store" })'):
             if expected_fetch not in text:
                 errors.append(
                     f"Player Movement data loader is missing `{expected_fetch}`"

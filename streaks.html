@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="streaks.css?v=20261012-1" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
+  <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
 </head>
 
 <body>
@@ -138,20 +139,22 @@
       </div>
     </section>
 
+    <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
+
     <section class="site-page-companion streak-hero-companion" aria-label="Streak definitions">
       <div class="site-page-hero-lower streak-hero-lower">
         <div class="streak-definition-grid">
           <div class="streak-definition-pill">
             <strong>Cash Streak</strong>
-            <span>Consecutive played events that ended in a cash.</span>
+            <span>Consecutive matching appearances that ended in a tournament cash.</span>
           </div>
           <div class="streak-definition-pill">
             <strong>Drought</strong>
-            <span>Consecutive played events without a cash.</span>
+            <span>Consecutive matching appearances without a tournament cash.</span>
           </div>
           <div class="streak-definition-pill">
             <strong>Qualification</strong>
-            <span>Minimum 2 played events. Only streaks of 2+ count.</span>
+            <span>Minimum 2 matching appearances. Only runs of 2+ count. Excluded and skipped events neither break nor extend a run.</span>
           </div>
         </div>
       </div>
@@ -167,7 +170,7 @@
 
       <section class="streak-section-shell streak-shell-hot">
         <div class="section-head page-title-row compact-page-title-row">
-          <h2 class="streak-title-hot">🚀 All-Time Heaters</h2>
+          <h2 id="streak-longest-title" class="streak-title-hot">🚀 All-Time Heaters</h2>
         </div>
         <div id="top-cash-board" class="streak-leaderboard"></div>
       </section>
@@ -222,6 +225,7 @@
 
 <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
-<script src="streaks.js?v=20261018-1"></script>
+<script src="stats-scope.js?v=20261025-2"></script>
+<script src="streaks.js?v=20261025-1"></script>
 </body>
 </html>

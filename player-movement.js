@@ -82,13 +82,13 @@ function isSamePlayerRow(player, row) {
 
 async function init() {
   try {
-    const res = await fetch(DATA_URL);
+    const res = await fetch(DATA_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load ${DATA_URL} (${res.status})`);
     const data = await res.json();
 
     players = data.players || [];
 
-    const historyRes = await fetch(EVENT_HISTORY_URL);
+    const historyRes = await fetch(EVENT_HISTORY_URL, { cache: "no-store" });
     if (!historyRes.ok) {
       throw new Error(`Failed to load event history (${historyRes.status})`);
     }
@@ -104,8 +104,16 @@ async function init() {
       new Date(a.date || a.eventId) - new Date(b.date || b.eventId)
     );
 
-    const enriched = buildAnalytics(players, eventData);
-    bindControls(enriched);
+    if (window.TLPTStats) await window.TLPTStats.init();
+    const render = () => {
+      const ids = window.TLPTStats?.eventIds();
+      const selected = ids ? eventData.filter(event => ids.has(event.eventId)) : eventData;
+      const enriched = buildAnalytics(players, selected);
+      previousRanks = {};
+      bindControls(enriched);
+    };
+    window.addEventListener('tlpt:stat-scope-change', render);
+    render();
 
   } catch (err) {
     console.error("Player Form init failed:", err);
@@ -575,6 +583,9 @@ function applyRanking(players, mode) {
 
 function bindControls(players) {
   const buttons = document.querySelectorAll(".pm-btn");
+  const selectedMode = document.querySelector('.pm-btn.active')?.dataset.sort || 'momentum';
+  const modes = { momentum: ['5 Biggest Heaters', '🔥'], cold: ['5 Coldest Decks', '❄️'],
+    consistent: ['5 Steadiest Grinders', '🟢'], volatile: ['5 Chaos Engines', '🎢'] };
 
   const setActiveButton = activeButton => {
     buttons.forEach(button => {
@@ -598,7 +609,7 @@ function bindControls(players) {
   };
 
   buttons.forEach(button => {
-    button.addEventListener("click", () => {
+    button.onclick = () => {
       setActiveButton(button);
 
       const type = button.dataset.sort;
@@ -607,7 +618,7 @@ function bindControls(players) {
       if (type === "cold") update(type, "5 Coldest Decks", "❄️");
       if (type === "consistent") update(type, "5 Steadiest Grinders", "🟢");
       if (type === "volatile") update(type, "5 Chaos Engines", "🎢");
-    });
+    };
   });
 
   /*
@@ -616,12 +627,12 @@ function bindControls(players) {
   */
   seedRankBaseline(players, "consistent");
 
-  const hotButton = document.querySelector('.pm-btn[data-sort="momentum"]');
+  const hotButton = document.querySelector(`.pm-btn[data-sort="${selectedMode}"]`);
   if (hotButton) {
     setActiveButton(hotButton);
   }
 
-  update("momentum", "5 Biggest Heaters", "🔥");
+  update(selectedMode, ...modes[selectedMode]);
 }
 
 /* =========================================
@@ -671,7 +682,7 @@ function createCard(player, options = {}) {
         />
         <div class="pm-player-heading">
           <strong>${escapeHtml(player.name)}</strong>
-          <div class="pm-player-subhead">#${player.rank}</div>
+          <div class="pm-player-subhead">#${player.rank} · ${player.recentEvents.length} recent / ${player.eventsPlayedForForm} matching appearances</div>
         </div>
       </div>
 
@@ -772,6 +783,10 @@ function drawAllSparklines() {
 function renderTopMovers(players) {
   const el = document.getElementById("pm-top-movers");
   if (!el) return;
+  if (!players.length) {
+    el.innerHTML = '<p class="muted">Not enough matching results yet. Heater Meter requires four matching appearances per player. Change the filters or Reset to All.</p>';
+    return;
+  }
 
   el.innerHTML = window.TLPTRoster.sections(players.slice(0, 5),
     player => createCard(player, { imageLoading: "eager" }), { ranked: true });
@@ -780,6 +795,10 @@ function renderTopMovers(players) {
 function renderAllPlayers(players) {
   const el = document.getElementById("pm-player-grid");
   if (!el) return;
+  if (!players.length) {
+    el.innerHTML = '<p class="muted">No players qualify in this view yet.</p>';
+    return;
+  }
 
   el.innerHTML = window.TLPTRoster.sections(players,
     player => createCard(player, { imageLoading: "lazy" }), { ranked: true });
