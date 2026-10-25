@@ -1,0 +1,26 @@
+// Disposable actual Cloudflare Worker + D1. Never uses a remote DB.
+import assert from 'node:assert/strict';
+import {spawn,spawnSync} from 'node:child_process';
+import {writeFileSync,rmSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+process.chdir(fileURLToPath(new URL('..',import.meta.url)));
+const wrangler='../cashier/node_modules/wrangler/bin/wrangler.js',state='.wrangler/test-'+Date.now(),base='http://127.0.0.1:8794',env={...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},key='c'.repeat(64),h=createHash('sha256').update(key).digest('hex');let server,output='';
+function run(args){const r=spawnSync(process.execPath,[wrangler,...args],{env,encoding:'utf8'});assert.equal(r.status,0,r.stderr+'\n'+r.stdout);}
+const fixture={revision:1,sequence:0,updatedAt:new Date().toISOString(),adminHash:h,adminGeneration:1,players:['bostnmike','red'].map(slug=>({slug,name:slug,linkHash:null,generation:0,rosterStatus:slug==='red'?'alumni':'active'})),events:[{id:'fixture-event',capacity:1,open:true,archived:false,metadata:{title:'Disposable QA',date:'2026-10-30',slot:'friday'},responses:{}}],audit:[]};
+try{
+ run(['d1','migrations','apply','DB','--local','--config','wrangler.jsonc','--persist-to',state]);
+ writeFileSync('integration.local.sql',`INSERT INTO rsvp_state VALUES(1,1,'${JSON.stringify(fixture)}');`);run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--file','integration.local.sql']);
+ server=spawn(process.execPath,[wrangler,'dev','--local','--config','wrangler.jsonc','--persist-to',state,'--port','8794','--inspector-port','0'],{env,stdio:['ignore','pipe','pipe']});server.stdout.on('data',d=>output+=d);server.stderr.on('data',d=>output+=d);
+ let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/api/version')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output);
+ const post=(path,b,cookie,origin=base)=>fetch(base+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(b)});
+ assert.equal((await fetch(base+'/api/me')).status,401);assert.equal((await post('exchange',{key},null,'https://evil.test')).status,403);
+ let r=await post('exchange',{key});assert.equal(r.status,200);const admin=r.headers.get('set-cookie').split(';')[0];assert.match(r.headers.get('set-cookie'),/HttpOnly; SameSite=Strict/);
+ r=await post('action',{type:'link',slug:'red'},admin);const link=(await r.json()).privateLink;const privateKey=new URL(link).hash.slice(5);r=await post('exchange',{key:privateKey});const red=r.headers.get('set-cookie').split(';')[0];
+ assert.equal((await post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},red)).status,403);
+ await Promise.all([post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},admin),post('action',{type:'respond',eventId:'fixture-event',answer:'yes'},red)]);
+ let feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events[0].waitlist.length,1);assert.equal(Object.values(feed.events[0].rsvps).filter(x=>x==='yes').length,1);assert.ok(!JSON.stringify(feed).includes(privateKey));
+ await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
+ assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
+ console.log('PASS: actual local Worker/D1 — secure exchange, ownership, last-seat concurrency, waitlist, revocation, privacy, CSRF and static app.');
+}finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}

@@ -19,11 +19,51 @@ async function loadSiteData() {
   }
 
   const eventsData = await eventsRes.json();
+  const attendance = await loadLiveRsvpEvents(eventsData.events || []);
 
   return {
     ...baseData,
-    events: eventsData.events || []
+    events: attendance.events,
+    rsvpUnavailable: attendance.unavailable,
+    rsvpRevision: attendance.revision
   };
+}
+
+const LIVE_RSVP_FEED = "https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events";
+async function loadLiveRsvpEvents(fallback) {
+  try {
+    const response = await fetch(LIVE_RSVP_FEED, { cache: "no-store", signal: AbortSignal.timeout(8000) });
+    if (!response.ok) throw new Error("RSVP feed unavailable");
+    const feed = await response.json();
+    if (feed.schemaVersion !== 1 || !Array.isArray(feed.events)) throw new Error("Invalid RSVP feed");
+    const dateKey = value => {
+      if (/^(?:date\s+)?tbd$/i.test(String(value).trim())) return "pending";
+      if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
+      const match = String(value).match(/(?:^|,\s*)([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
+      const month = match && ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"].indexOf(match[1]) + 1;
+      return month ? `${match[3]}-${String(month).padStart(2, "0")}-${match[2].padStart(2, "0")}` : String(value);
+    };
+    const events = feed.events.map(event => {
+      // Manual preview positions remain in the existing site workflow, separate from live RSVP ownership.
+      const reference = fallback.find(saved => saved.slot === event.slot && dateKey(saved.date) === dateKey(event.date));
+      return reference && Object.prototype.hasOwnProperty.call(reference, "seatAssignments") ? { ...event, seatAssignments: reference.seatAssignments } : event;
+    });
+    return { events, unavailable: false, revision: feed.revision };
+  } catch {
+    // Static answers are an import snapshot, never a second live authority.
+    return { events: fallback.map(event => ({ ...event, rsvps: {}, waitlist: [], apple_invite_url: "", rsvp_url: "https://tlpt-rsvp.tlpt-bostnmike.workers.dev/", rsvpUnavailable: true })), unavailable: true };
+  }
+}
+function renderLiveRsvpStatus(unavailable) {
+  if (!document.getElementById("home-events-list") && !document.getElementById("schedule-list")) return;
+  const main = document.getElementById("main-content");
+  if (!main) return;
+  let notice = document.getElementById("live-rsvp-status");
+  if (!notice) {
+    notice = document.createElement("p"); notice.id = "live-rsvp-status";
+    notice.className = "muted"; notice.setAttribute("role", "status"); main.prepend(notice);
+  }
+  notice.textContent = unavailable ? "Live RSVPs are unavailable. Seat counts are hidden until the connection returns." : "Live RSVPs · confirmed seats and waitlist sync every minute. RSVP is not payment or recorded attendance.";
 }
 
 function renderSiteLoadFailure() {
@@ -1664,7 +1704,7 @@ function getRsvpCounts(event) {
 
   return {
     yes: statuses.filter(status => status === "yes").length,
-    maybe: statuses.filter(status => status === "maybe").length,
+    maybe: statuses.filter(status => status === "maybe").length - (event?.waitlist?.length || 0),
     tbd: statuses.filter(status => status === "tbd").length,
     no: statuses.filter(status => status === "no").length
   };
@@ -1672,7 +1712,7 @@ function getRsvpCounts(event) {
 
 function formatRsvpLine(event) {
   const counts = getRsvpCounts(event);
-  return `At the Table = ${counts.yes} • On the Rail = ${counts.maybe} • In the Tank = ${counts.tbd} • Folded Pre = ${counts.no}`;
+  return `At the Table = ${counts.yes} • On the Rail = ${counts.maybe} • In the Tank = ${counts.tbd} • Folded Pre = ${counts.no}${event?.waitlist?.length ? ` • Waitlisted = ${event.waitlist.length}` : ""}`;
 }
 
 function getPlayerBySlug(slug, data) {
@@ -1710,7 +1750,7 @@ function getRsvpPlayersByStatus(event, data, statusKey) {
   const targetStatus = String(statusKey || "").toLowerCase();
 
   return Object.entries(rsvps)
-    .filter(([, status]) => String(status || "tbd").toLowerCase() === targetStatus)
+    .filter(([slug, status]) => String(status || "tbd").toLowerCase() === targetStatus && !(targetStatus === "maybe" && event?.waitlist?.some(item => item.slug === slug)))
     .map(([slug]) => getPlayerBySlug(slug, data) || { slug, name: getDisplayNameForRsvpSlug(slug, data) })
     .sort(compareEventRosterPlayers)
     .map(displayPlayerNamePlain)
@@ -1738,6 +1778,7 @@ function formatRsvpNameList(names, emptyText = "Nobody yet", options = {}) {
 }
 
 function eventRsvpForecastMarkup(event, data) {
+  if (event?.rsvpUnavailable) return `<p class="muted">The live lineup will return when the RSVP connection recovers.</p>`;
   // Event attendance stays together regardless of league membership status.
   const namesForStatus = (status, options) => escapeHtmlAttr(formatRsvpNameList(
     getRsvpPlayersByStatus(event, data, status), "Nobody yet", options
@@ -1746,6 +1787,7 @@ function eventRsvpForecastMarkup(event, data) {
   return `
     <div class="event-rsvp-forecast" aria-label="Table forecast">
       <div class="event-rsvp-forecast-title">Table Forecast</div>
+      ${event?.waitlist?.length ? `<div class="event-rsvp-forecast-row"><span class="event-rsvp-forecast-label">Waitlist</span><span class="event-rsvp-forecast-names">${event.waitlist.map(item => `${item.position}. ${escapeHtmlAttr(getDisplayNameForRsvpSlug(item.slug, data))}`).join(", ")}</span></div>` : ""}
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-maybe">
         <span class="event-rsvp-forecast-label">On the Rail</span>
@@ -1788,6 +1830,7 @@ function getConfirmedRsvpPlayers(event, data) {
 }
 
 function buildRsvpSummaryMarkup(event, extraClass = "") {
+  if (event?.rsvpUnavailable) return `<p class="muted" role="status">Live RSVP counts unavailable</p>`;
   const counts = getRsvpCounts(event);
   const summaryClass = ["event-rsvp-summary", extraClass].filter(Boolean).join(" ");
 
@@ -1978,12 +2021,13 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
 }
 
 function buildEventAdminStatusMarkup(event) {
+  if (event?.rsvpUnavailable) return "";
   if (getEventSlot(event) !== "mtt") return "";
 
   const counts = getRsvpCounts(event);
   const capacity = getEventCapacity(event);
   const openSeats = Math.max(capacity - counts.yes, 0);
-  const overflow = Math.max(counts.yes - capacity, 0);
+  const overflow = event?.waitlist?.length || Math.max(counts.yes - capacity, 0);
   const mergeAt = Number(event?.mergeAt) || 9;
 
   return `
@@ -2012,6 +2056,7 @@ function tableFillPercent(event, maxSeats = 9) {
 }
 
 function tableFillMarkup(event, maxSeats = 9) {
+  if (event?.rsvpUnavailable) return `<p class="muted">Seat availability unavailable</p>`;
   const counts = getRsvpCounts(event);
   const seatCapacity = maxSeats * getEventTableCount(event);
   const fillPct = tableFillPercent(event, maxSeats);
@@ -2055,13 +2100,13 @@ function getEventThemeClass(event) {
 
 function buildEventRsvpButtonMarkup(event, extraClasses = "") {
   const className = ["btn", "btn-rsvp", extraClasses].filter(Boolean).join(" ");
-  const inviteUrl = String(event?.apple_invite_url || "").trim();
+  const inviteUrl = event?.rsvp_url ? `https://tlpt-rsvp.tlpt-bostnmike.workers.dev/${event.id ? `?event=${encodeURIComponent(event.id)}` : ""}` : String(event?.apple_invite_url || "").trim();
 
   if (!inviteUrl) {
-    return `<span class="${className} is-disabled" aria-disabled="true">${getEventDayLabel(event)} Invite Coming Soon</span>`;
+    return `<span class="${className} is-disabled" aria-disabled="true">${escapeHtmlAttr(getEventDayLabel(event))} Invite Coming Soon</span>`;
   }
 
-  return `<a class="${className}" href="${inviteUrl}" target="_blank" rel="noopener">${getEventButtonLabel(event)}</a>`;
+  return `<a class="${className}" href="${inviteUrl}" target="_blank" rel="noopener">${escapeHtmlAttr(getEventButtonLabel(event))}</a>`;
 }
 
 function getCurrentEvents(data) {
@@ -2074,6 +2119,16 @@ function getCurrentEvents(data) {
       day: getEventDayLabel(event)
     }))
     .sort((a, b) => EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot));
+}
+
+function getHomeEvents(data) {
+  const current = getCurrentEvents(data);
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const dateOf = event => /^\d{4}-\d{2}-\d{2}$/.test(event.date) ? event.date : /tbd/i.test(event.date) ? "9999-12-31" : new Date(event.date).toISOString().slice(0, 10);
+  return EVENT_SLOT_ORDER.map(slot => {
+    const list = current.filter(event => event.slot === slot).sort((a, b) => dateOf(a).localeCompare(dateOf(b)));
+    return list.find(event => dateOf(event) >= today) || list.at(-1);
+  }).filter(Boolean);
 }
 
 function getHomeEventRotationIndex(events) {
@@ -2093,7 +2148,7 @@ function buildHomeEventButtonsMarkup(event) {
 
 function buildHomeRotatorDotsMarkup(events, activeIndex) {
   return events.map((dotEvent, dotIndex) => {
-    const dayLabel = getEventDayLabel(dotEvent);
+    const dayLabel = escapeHtmlAttr(getEventDayLabel(dotEvent));
     const eventSlot = getEventSlot(dotEvent);
     const isActive = dotIndex === activeIndex;
 
@@ -2111,7 +2166,7 @@ function buildHomeRotatorDotsMarkup(events, activeIndex) {
 }
 
 function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
-  const dayLabel = getEventDayLabel(event);
+  const dayLabel = escapeHtmlAttr(getEventDayLabel(event));
   const eventSlot = getEventSlot(event);
   const themeClass = getEventThemeClass(event);
 
@@ -2127,7 +2182,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
       data-event-slot="${eventSlot}"
     >
       <div class="event-card-topline">
-        <div class="kicker event-title-kicker">${event.title}</div>
+        <div class="kicker event-title-kicker">${escapeHtmlAttr(event.title)}</div>
 
         <div class="home-event-top-right">
           <div class="schedule-day-pill">${dayLabel}</div>
@@ -2136,13 +2191,13 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
 
       <div class="event-layout-grid">
         <div class="event-details-col">
-          <div class="event-format-title">${event.format || ""}</div>
-          <div class="event-structure">${event.structure || ""}</div>
-          <h3>${event.date}</h3>
-          <p class="muted"><strong>Start:</strong> ${event.time}</p>
-          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-          <p class="muted"><strong>Location:</strong> ${event.location}</p>
-          <p class="muted">${event.address || ""}</p>
+          <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
+          <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
+          <h3>${escapeHtmlAttr(event.date)}</h3>
+          <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${escapeHtmlAttr(event.endTime || "")}</p>
+          <p class="muted"><strong>Location:</strong> ${escapeHtmlAttr(event.location)}</p>
+          <p class="muted">${escapeHtmlAttr(event.address || "")}</p>
           ${buildEventAdminStatusMarkup(event)}
           ${eventRsvpForecastMarkup(event, data)}
           ${buttonsMarkup}
@@ -2746,24 +2801,24 @@ function buildEventCard(event, data, options = {}) {
   } = options;
 
   return `
-    <div class="event-card home-event-card home-event-hero compact-event-card${homeMode ? " rotating-home-event-card" : ""}${isActive ? " is-active" : ""}" data-event-day="${getEventDayLabel(event)}">
+    <div class="event-card home-event-card home-event-hero compact-event-card${homeMode ? " rotating-home-event-card" : ""}${isActive ? " is-active" : ""}" data-event-day="${escapeHtmlAttr(getEventDayLabel(event))}">
       <div class="event-card-topline">
-        <div class="kicker event-title-kicker">${event.title}</div>
+        <div class="kicker event-title-kicker">${escapeHtmlAttr(event.title)}</div>
 
         <div class="home-event-top-right">
-          <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
+          <div class="schedule-day-pill">${escapeHtmlAttr(getEventDayLabel(event))}</div>
         </div>
       </div>
 
       <div class="event-layout-grid">
         <div class="event-details-col">
-          <div class="event-format-title">${event.format || ""}</div>
-          <div class="event-structure">${event.structure || ""}</div>
-          <h3>${event.date}</h3>
-          <p class="muted"><strong>Start:</strong> ${event.time}</p>
-          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-          <p class="muted"><strong>Location:</strong> ${event.location}</p>
-          <p class="muted">${event.address || ""}</p>
+          <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
+          <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
+          <h3>${escapeHtmlAttr(event.date)}</h3>
+          <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${escapeHtmlAttr(event.endTime || "")}</p>
+          <p class="muted"><strong>Location:</strong> ${escapeHtmlAttr(event.location)}</p>
+          <p class="muted">${escapeHtmlAttr(event.address || "")}</p>
           ${eventRsvpForecastMarkup(event, data)}
           ${rsvpButtonsMarkup || buildEventRsvpButtonMarkup(event)}
         </div>
@@ -2789,7 +2844,7 @@ function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
 
 if (eventsEl) {
-  const homeEvents = getCurrentEvents(data).slice(0, 3);
+  const homeEvents = getHomeEvents(data);
 
   if (SHOW_HOME_COMMISSIONER_REPORT) {
     ensureHomeCommissionerSection();
@@ -2808,7 +2863,7 @@ if (eventsEl) {
         </div>
       `;
     } else {
-      const activeIndex = 0;
+      const activeIndex = Math.min(Number(eventsEl.querySelector("[data-home-event-panel].is-active")?.dataset.homeEventPanel || 0), homeEvents.length - 1);
 
       eventsEl.innerHTML = `
         <div class="home-event-rotator-shell multi-event-week">
@@ -6151,24 +6206,24 @@ function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-  const events = getCurrentEvents(data).slice(0, 3);
+  const events = getCurrentEvents(data);
 
   list.innerHTML = events.map(event => `
     <div class="event-card compact-event-card home-event-hero schedule-event-card ${getEventThemeClass(event)}" data-event-slot="${getEventSlot(event)}">
       <div class="event-card-topline">
-        <h2 class="kicker event-title-kicker">${event.title}</h2>
-        <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
+        <h2 class="kicker event-title-kicker">${escapeHtmlAttr(event.title)}</h2>
+        <div class="schedule-day-pill">${escapeHtmlAttr(getEventDayLabel(event))}</div>
       </div>
 
       <div class="event-layout-grid">
         <div class="event-details-col">
-          <div class="event-format-title">${event.format || ""}</div>
-          <div class="event-structure">${event.structure || ""}</div>
-          <h3>${event.date}</h3>
-          <p class="muted"><strong>Start:</strong> ${event.time}</p>
-          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-          <p class="muted"><strong>Location:</strong> ${event.location}</p>
-          <p class="muted">${event.address || ""}</p>
+          <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
+          <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
+          <h3>${escapeHtmlAttr(event.date)}</h3>
+          <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${escapeHtmlAttr(event.endTime || "")}</p>
+          <p class="muted"><strong>Location:</strong> ${escapeHtmlAttr(event.location)}</p>
+          <p class="muted">${escapeHtmlAttr(event.address || "")}</p>
           ${buildEventAdminStatusMarkup(event)}
           ${eventRsvpForecastMarkup(event, data)}
           ${buildEventRsvpButtonMarkup(event)}
@@ -7218,6 +7273,7 @@ async function main() {
     });
   }
 
+  renderLiveRsvpStatus(data.rsvpUnavailable);
   renderHomePage(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
@@ -7231,6 +7287,15 @@ async function main() {
   initCrewViewToggle();
   initCrewSearch();
   initEventRsvpNameHover();
+  if (document.getElementById("home-events-list") || document.getElementById("schedule-list")) {
+    setInterval(async () => {
+      if (document.hidden) return;
+      const live = await loadLiveRsvpEvents(data.events);
+      if (live.unavailable === data.rsvpUnavailable && !live.unavailable && live.revision === data.rsvpRevision) return;
+      data.events = live.events; data.rsvpUnavailable = live.unavailable; data.rsvpRevision = live.revision;
+      renderLiveRsvpStatus(live.unavailable); renderHomePage(data); renderSchedule(data);
+    }, 60000);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

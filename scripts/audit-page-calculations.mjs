@@ -1025,6 +1025,16 @@ for (const page of ["index", "champions", "dashboard", "standings", "players", "
   check(html.indexOf('roster-display.js') > html.indexOf('site-shell.js'), `${page}: shared shell must initialize before roster helpers`);
 }
 
+// Live event metadata is editable text, and multiple weeks must not hide slots.
+const unsafeEvent = { ...unscheduledMtt, title: '<img src=x onerror=alert(1)>', day: '\" autofocus onfocus=alert(1) x=\"', rsvp_url: 'https://tlpt-rsvp.tlpt-bostnmike.workers.dev/', id: 'safe-id' };
+const unsafeMarkup = app.get("buildHomeEventCard")(unsafeEvent, data, [unsafeEvent], 0, 0);
+check(!unsafeMarkup.includes('<img src=x') && unsafeMarkup.includes('&lt;img src=x'), 'Editable event titles must render as text, never executable HTML');
+const unsafeLegacyMarkup = app.get("buildEventCard")(unsafeEvent, data);
+check(!unsafeLegacyMarkup.includes('data-event-day="\" autofocus') && unsafeLegacyMarkup.includes('&quot;'), 'Editable day labels must be escaped inside attributes');
+const futureEvents = { events: [{ title: 'Friday one', slot: 'friday', date: '2099-01-02' }, { title: 'Friday two', slot: 'friday', date: '2099-01-09' }, { title: 'Saturday', slot: 'saturday', date: '2099-01-03' }, { title: 'MTT', slot: 'mtt', date: 'Date TBD' }] };
+check(JSON.stringify(app.get("getHomeEvents")(futureEvents).map(e => e.title)) === JSON.stringify(['Friday one', 'Saturday', 'MTT']), 'Home must select the next event per slot even when multiple weeks are published');
+check(app.get("getCurrentEvents")(futureEvents).length === 4, 'Full schedule must retain all live event identities');
+
 const result = { status: errors.length ? "FAIL" : "PASS", checks, errorCount: errors.length, errors, warningCount: warnings.length, warnings };
 process.stdout.write(JSON.stringify(result));
 if (errors.length) process.exitCode = 2;

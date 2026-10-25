@@ -267,3 +267,24 @@ Routine maintenance must not casually alter:
 If a maintenance path, authoritative runner, page count, shared cache key, or required quality gate drifts from that contract, validation must fail before deployment.
 
 This is intentional: change the baseline only when the maintenance architecture itself is deliberately changed.
+
+## Live private-link RSVP service
+
+The new RSVP service and its website/cashier integration are documented in
+[rsvp/README.md](rsvp/README.md). D1 is the one live RSVP authority after cutover;
+`data/events.json` remains the seed/reference and audited Cashier payment-schedule
+input. Changing its RSVP answers is not a live update. The Commish manages event
+metadata, capacity, open state, player links and queue overrides in the private
+browser app. New payable dates still require the existing financial workflow.
+
+Home/schedule and manual seating previews consume only runtime confirmed seats;
+explicit waitlists are separate. Runtime failure shows unavailable/stale labels,
+never a silent return to obsolete static confirmations. Cashier's independent
+attendance cache cannot invoke ledger selection/cleanup. Keep its private database,
+password, session key, receipt reader and payment history completely separate.
+Alumni retain their canonical slugs and RSVP access. Nothing in the RSVP app
+records payment, actual attendance, results, or official Tournament Director seats.
+
+Use the documented loopback owner-link recovery, credential-free backup download,
+separate database, free-plan guard and validation/release procedure. Do not send
+player links automatically or put any private link in Git, chat, logs or screenshots.

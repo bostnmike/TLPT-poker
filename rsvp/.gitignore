@@ -1,0 +1,4 @@
+.wrangler/
+*.local.json
+*.local.sql
+*.private.*

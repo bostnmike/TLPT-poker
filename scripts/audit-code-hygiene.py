@@ -387,7 +387,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20261018-1"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261025-1"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261025-4"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261025-5"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1579,11 +1579,11 @@ def audit_javascript(path: Path) -> list[str]:
             if fragment not in current_events_source:
                 errors.append(message)
         home_events_source = function_source("renderHomePage")
-        if "getCurrentEvents(data).slice(0, 3)" not in home_events_source:
+        if "getHomeEvents(data)" not in home_events_source:
             errors.append("Home schedule selector must expose all three event slots")
         schedule_source = function_source("renderSchedule")
-        if "getCurrentEvents(data).slice(0, 3)" not in schedule_source:
-            errors.append("Schedule page must render all three event slots")
+        if "const events = getCurrentEvents(data);" not in schedule_source:
+            errors.append("Schedule page must render every live event without a three-event cap")
         if "Tournament Director software assigns official seats" not in rsvp_source:
             errors.append(
                 "Two-table RSVP previews must identify Tournament Director as the official seating source"
