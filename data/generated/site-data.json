@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T03:55:08.143961Z",
+  "generatedAt": "2026-10-25T03:58:52.556820Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -38,7 +38,6 @@
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
         "providencemike": "tbd",
-        "red": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
         "vic": "tbd",
@@ -47,7 +46,8 @@
         "big-tim": "tbd",
         "rob-f": "tbd",
         "brad-r": "tbd",
-        "gilmore": "tbd"
+        "gilmore": "tbd",
+        "red": "tbd"
       }
     },
     {
@@ -87,7 +87,6 @@
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
         "providencemike": "tbd",
-        "red": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
         "vic": "tbd",
@@ -96,7 +95,8 @@
         "big-tim": "tbd",
         "rob-f": "tbd",
         "brad-r": "tbd",
-        "gilmore": "tbd"
+        "gilmore": "tbd",
+        "red": "tbd"
       }
     },
     {
@@ -162,7 +162,6 @@
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
         "providencemike": "tbd",
-        "red": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
         "vic": "tbd",
@@ -171,7 +170,8 @@
         "big-tim": "tbd",
         "rob-f": "tbd",
         "brad-r": "tbd",
-        "gilmore": "tbd"
+        "gilmore": "tbd",
+        "red": "tbd"
       }
     }
   ],
@@ -13593,7 +13593,7 @@
           }
         }
       ],
-      "rosterStatus": "active",
+      "rosterStatus": "alumni",
       "featuredCardEdition": "leader-knockouts",
       "featuredCardMode": "automatic"
     },

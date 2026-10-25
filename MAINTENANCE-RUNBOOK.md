@@ -124,9 +124,9 @@ continue to use the complete league. A guest appearance updates the same player
 identity and does not automatically change their membership status.
 
 The initial alumni are Brad R, Gilmore, Hayden D, Yann, Big Tim, Fabian, and Bob
-(slug `rob-f`). Red remains active through the MTT. Do not schedule or infer an
-automatic status change from a date or RSVP; review his status after the event is
-finalized.
+(slug `rob-f`). After the October 24 MTT was finalized, Mike explicitly approved
+moving Red to Alumni. His existing identity, history, cards and RSVP eligibility
+remain intact. Never infer other membership changes from dates or RSVP answers.
 
 Mixed player lists use `roster-display.js` and `roster-display.css`: active players
 first, then a labeled Alumni subsection. Preserve the original sort order and
