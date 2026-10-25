@@ -4,6 +4,7 @@ import vm from 'node:vm';
 
 const read = path => JSON.parse(fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const source = fs.readFileSync(new URL('../stats-scope.js', import.meta.url), 'utf8');
+assert.doesNotMatch(source, /sessionStorage|localStorage/, 'Event filters must not restore previous choices');
 const ctx = vm.createContext({ window: {} });
 vm.runInContext(source, ctx);
 const scope = ctx.window.TLPTStats;
@@ -72,7 +73,7 @@ assert.equal(mtt.find(p => p.slug === 'liam-o').buyIns, 1, 'Single-appearance pl
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/data-stat-scope /g) || []).length, 1, `${page}: shared controls`);
-  assert.match(html, /stats-scope\.js\?v=20261025-2/);
+  assert.match(html, /stats-scope\.js\?v=20261025-3/);
   assert.match(html, /stats-scope\.css\?v=20261025-1/);
 }
 const streakContext = vm.createContext({ document: { addEventListener() {} } });

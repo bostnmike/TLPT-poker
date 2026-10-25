@@ -12,6 +12,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
   try {
     for (const width of [1440, 820, 390]) {
       const context = await browser.newContext({ viewport: { width, height: 950 }, reducedMotion: 'reduce' });
+      // Legacy saved choices must never change the default on any page.
+      await context.addInitScript(() => sessionStorage.setItem('tlpt-stat-scope', JSON.stringify({format:'mtt',bounty:'with'})));
       const page = await context.newPage();
       const errors = [];
       page.on('pageerror', e => errors.push(e.message));
@@ -33,6 +35,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         await page.goto(`${base}/${file}`);
         await page.evaluate(() => document.fonts.ready);
         await page.locator('#stat-format-trigger').waitFor();
+        assert.match(await page.locator('#stat-format-trigger').innerText(), /All Formats/);
+        assert.match(await page.locator('#stat-bounty-trigger').innerText(), /All Events/);
         await page.locator('[data-stat-reset]').click();
         await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} qualifying event`), events.length);
         await choose('format', 'mtt');
@@ -87,9 +91,17 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         console.log(`PASS ${width}px ${file}: filters, empty state, reset, overlay and width`);
       }
       await choose('format', 'mtt');
+      await choose('bounty', 'with');
+      await page.reload();
+      await page.locator('#stat-format-trigger').waitFor();
+      assert.match(await page.locator('#stat-format-trigger').innerText(), /All Formats/);
+      assert.match(await page.locator('#stat-bounty-trigger').innerText(), /All Events/);
+      await choose('format', 'mtt');
+      await choose('bounty', 'with');
       await page.goto(`${base}/standings.html`);
       await page.locator('#stat-format-trigger').waitFor();
-      assert.match(await page.locator('#stat-format-trigger').innerText(), /Multi-Table/);
+      assert.match(await page.locator('#stat-format-trigger').innerText(), /All Formats/);
+      assert.match(await page.locator('#stat-bounty-trigger').innerText(), /All Events/);
       await page.locator('#stat-format-trigger').focus();
       await page.keyboard.press('Home');
       await page.keyboard.press('Enter');

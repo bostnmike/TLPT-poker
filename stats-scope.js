@@ -71,7 +71,6 @@
     const normalized = normalize(next);
     if (state.format === normalized.format && state.bounty === normalized.bounty) return;
     state = normalized;
-    try { sessionStorage.setItem('tlpt-stat-scope', JSON.stringify(state)); } catch { /* private browsing */ }
     document.querySelectorAll('[data-stat-scope] select').forEach(select => {
       select.value = state[select.dataset.scopeKey];
     });
@@ -101,7 +100,8 @@
   }
   async function init() {
     if (!ready) ready = (async () => {
-      try { state = normalize(JSON.parse(sessionStorage.getItem('tlpt-stat-scope') || '{}')); } catch { state = normalize(); }
+      // Every page load starts combined, regardless of a previous page's selection.
+      state = normalize();
       const response = await fetch(`data/generated/stat-events.json?v=${Date.now()}`, { cache: 'no-store' });
       if (!response.ok) throw new Error('Could not load statistical event filters');
       const data = await response.json();

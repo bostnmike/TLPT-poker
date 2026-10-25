@@ -31,8 +31,9 @@ or the current schedule. Bounty status comes from audited financial rules and is
 checked against the parsed event summary. This does not affect RSVP edits.
 
 `stats-scope.js` shares two filters across Dashboard, Standings, player statistics,
-Knockout Central, Form Lab, Streak Tracker and Heater Meter. Selection persists for the browser tab/session;
-Reset to All restores combined results. Aggregate factual totals and rates from
+Knockout Central, Form Lab, Streak Tracker and Heater Meter. Every page load starts
+with All Formats + All Events; selections are page-local and are not restored
+from browser storage. Reset to All restores combined results. Aggregate factual totals and rates from
 selected event records. Include opted-out players in bounty-enabled events. Never
 filter or reissue career ratings, tiers, archetypes, cards, awards or milestones.
 Profile career snapshots remain explicitly career-wide; event-result tiles and
