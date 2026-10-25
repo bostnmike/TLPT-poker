@@ -151,6 +151,17 @@ for (const event of readJson("data/events.json").events) {
   warnings.push(...report.warnings);
 }
 // Exercise ordinary edits in combinations, rather than locking today's roster.
+const unscheduledMtt = { title: "Next MTT | 18-Max", slot: "mtt", day: "Next MTT", date: "Date TBD",
+  tables: 2, capacity: 18, apple_invite_url: "", seatAssignments: [Array(9).fill(""), Array(9).fill("")],
+  rsvps: Object.fromEntries(data.players.map(player => [player.slug, "tbd"])) };
+const unscheduledSnapshot = JSON.stringify(unscheduledMtt);
+const unscheduledMarkup = app.get("buildHomeEventCard")(unscheduledMtt, data, [unscheduledMtt], 0, 0);
+check(unscheduledMarkup.includes("Date TBD") && unscheduledMarkup.includes("Next MTT Invite Coming Soon")
+    && unscheduledMarkup.includes('aria-disabled="true"') && !unscheduledMarkup.includes("Invalid Date")
+    && !unscheduledMarkup.includes("data-player-name=")
+    && (unscheduledMarkup.match(/class="event-empty-seat"/g) || []).length === 18,
+  "Unscheduled MTT must show Date TBD, a disabled invite and 18 empty preview chairs");
+check(JSON.stringify(unscheduledMtt) === unscheduledSnapshot, "Rendering an unscheduled MTT must preserve RSVP and manual-preview data");
 const editingData = { players: data.players.filter(p => ["bostnmike", "ahmed", "hiro", "p", "rob-f", "wild-bill"].includes(p.slug)) };
 const editingLayouts = [undefined, [], [[], []], [["BostnMike", "", "HIRO"], ["P", ""]],
   [["P", "AHMED", ""], ["hiro", "rob-f"]], [["ahmed", "ahmed", ""], ["AHMED", "P", ""]],

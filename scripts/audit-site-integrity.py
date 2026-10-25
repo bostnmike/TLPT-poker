@@ -681,12 +681,20 @@ def audit_event_financial_config(audit, event_financials, schedule):
 
     mtt = next((event for event in schedule.get("events", []) if event.get("slot") == "mtt"), None)
     if mtt:
+        date_text = str(mtt.get("date") or "").strip()
+        # A reusable schedule placeholder is not a dated financial event.
+        # Historical configurations above remain validated even in this state.
+        if date_text.casefold() in ("tbd", "date tbd"):
+            return
         try:
-            mtt_date = datetime.strptime(mtt.get("date", ""), "%A, %B %d, %Y").date().isoformat()
+            mtt_date = datetime.strptime(date_text, "%A, %B %d, %Y").date().isoformat()
         except ValueError:
-            mtt_date = ""
+            audit.check(False, section, 'MTT date must be a complete date (e.g. Saturday, October 24, 2026) or "Date TBD"')
+            return
         mtt_rule = overrides.get(mtt_date, {})
         audit.check(bool(mtt_rule), section, "Scheduled MTT is missing an event-financial rule")
+        if not mtt_rule:
+            return
         audit.check(Decimal(str(mtt_rule.get("entryAmount", 0))) == Decimal("40"), section, "Scheduled MTT entry must remain $40")
         audit.check(Decimal(str((mtt_rule.get("bounty") or {}).get("amount", 0))) == Decimal("10"), section, "Scheduled MTT bounty must remain $10")
         completed_chop = (PARSED_DIR / f"{mtt_date}.json").is_file() and bool(mtt_rule.get("chopFinalists"))

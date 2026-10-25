@@ -286,6 +286,35 @@ class OptionalBountiesTests(unittest.TestCase):
         self.assertEqual(rows['the-architect']['bubbles'], 1)
         self.assertEqual(sum(r['timesPlaced'] for r in rows.values()), 6)
 
+    def test_unscheduled_mtt_placeholder_does_not_require_a_dated_financial_rule(self):
+        financials = parser.load_json(parser.EVENT_FINANCIALS_PATH)
+        for date in ('Date TBD', 'TBD', ' date tbd '):
+            with self.subTest(date=date):
+                result = Audit()
+                integrity.audit_event_financial_config(result, financials, {'events': [{'slot': 'mtt', 'date': date}]})
+                self.assertEqual(result.failures, [])
+        # Even with a placeholder, completed-event configuration is never exempt.
+        invalid = copy.deepcopy(financials)
+        invalid['events']['2026-10-24']['entryAmount'] = 0
+        result = Audit()
+        integrity.audit_event_financial_config(result, invalid, {'events': [{'slot': 'mtt', 'date': 'Date TBD'}]})
+        self.assertTrue(any('entryAmount must be positive' in e for e in result.failures))
+
+    def test_mtt_schedule_rejects_partial_dates_and_requires_rules_when_dated(self):
+        financials = parser.load_json(parser.EVENT_FINANCIALS_PATH)
+        for date in ('Saturday, 2026', '', None, 'Saturday, February 30, 2027'):
+            with self.subTest(date=date):
+                result = Audit()
+                integrity.audit_event_financial_config(result, financials, {'events': [{'slot': 'mtt', 'date': date}]})
+                self.assertEqual(len(result.failures), 1)
+                self.assertIn('complete date', result.failures[0])
+        result = Audit()
+        integrity.audit_event_financial_config(result, financials, {'events': [{'slot': 'mtt', 'date': 'Saturday, November 14, 2026'}]})
+        self.assertEqual(result.failures, ['Scheduled MTT is missing an event-financial rule'])
+        result = Audit()
+        integrity.audit_event_financial_config(result, financials, {'events': [{'slot': 'mtt', 'date': 'Saturday, October 24, 2026'}]})
+        self.assertEqual(result.failures, [])
+
     def test_mtt_requires_each_explicit_confirmation(self):
         for key, error in [('chopFinalists', 'ambiguous chops'), ('rolloverRecipient', 'recipient'),
                            ('reloads', 'ENTRY_WHILE_ACTIVE'), ('allowOmittedZeroReceipts', 'receipt'),

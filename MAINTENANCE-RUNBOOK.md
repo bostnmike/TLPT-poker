@@ -79,6 +79,15 @@ Python packages used by the shared-site gates are pinned in `requirements-qualit
 
 ## Editing event RSVPs and manual previews
 
+For an unscheduled next MTT, use title `Next MTT | 18-Max` and date `Date TBD`
+(`TBD` is also accepted). Clear the old invite URL; preserve or reset RSVPs and
+manual preview positions as desired. The placeholder does not require a dated
+financial rule and never changes the completed MTT's results or financial rule.
+Once a complete date is assigned, supply that new date's event-financial rule.
+Incomplete dates such as `Saturday, 2026` fail with one explicit date error,
+not a cascade of unrelated money errors. All existing financial configurations
+remain validated even while the schedule is TBD.
+
 Edit `data/events.json`; the data pipeline rebuilds the published copy. RSVP
 answers are `yes`, `no`, `maybe`, or `tbd`, case-insensitive. A blank or null
 answer is treated as TBD. Missing player entries are allowed. Use existing roster
