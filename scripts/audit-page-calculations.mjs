@@ -98,6 +98,9 @@ const app = loadScript("app.js");
 // Crew's compact counts and optional map are views of existing career data.
 const crewSnapshot = JSON.stringify(data.players);
 const countTier = app.get("crewCountTier");
+for (const [key, emoji] of Object.entries({ s:'🦈', a:'⚔️', b:'☄️', c:'🎲', d:'🍣', provisional:'🧪', rookie:'🌱', unscouted:'🔭' })) {
+  check(app.get("CREW_COUNT_TIERS").find(tier => tier[0] === key)?.[2] === emoji, `${key}: lineup button must retain its tier emoji`);
+}
 const mapPoints = app.get("crewMapPoints");
 const allMapPoints = mapPoints(data.players, data.players);
 const mapModule = loadScript("crew-map.js").context.window.TLPTCrewMap;

@@ -154,9 +154,9 @@ let currentCrewDisplay = "cards";
 let currentCrewTier = "all";
 
 const CREW_COUNT_TIERS = [
-  ['all', 'All tiers'], ['s', 'Apex Predators'], ['a', 'Table Crushers'],
-  ['b', 'Shot Makers'], ['c', 'Gamblers'], ['d', 'League Sponsors'],
-  ['provisional', 'Provisional'], ['rookie', 'Rookie'], ['unscouted', 'Unscouted']
+  ['all', 'All tiers', ''], ['s', 'Apex Predators', '🦈'], ['a', 'Table Crushers', '⚔️'],
+  ['b', 'Shot Makers', '☄️'], ['c', 'Gamblers', '🎲'], ['d', 'League Sponsors', '🍣'],
+  ['provisional', 'Provisional', '🧪'], ['rookie', 'Rookie', '🌱'], ['unscouted', 'Unscouted', '🔭']
 ];
 
 function crewCountTier(player, allPlayers) {
@@ -169,9 +169,9 @@ function crewCountTier(player, allPlayers) {
 function renderCrewCounts(roster, data) {
   const host = document.getElementById('crew-tier-counts');
   if (!host) return;
-  host.innerHTML = CREW_COUNT_TIERS.map(([key, label]) => {
+  host.innerHTML = CREW_COUNT_TIERS.map(([key, label, emoji]) => {
     const count = key === 'all' ? roster.length : roster.filter(p => crewCountTier(p, data.players) === key).length;
-    return `<button type="button" class="crew-count-btn crew-count-${key}" data-crew-tier="${key}" aria-pressed="${key === currentCrewTier}" aria-controls="players-grid" ${count ? '' : 'disabled'}><span>${label}</span><strong>${count}</strong></button>`;
+    return `<button type="button" class="crew-count-btn crew-count-${key}" data-crew-tier="${key}" aria-pressed="${key === currentCrewTier}" aria-controls="players-grid" ${count ? '' : 'disabled'}><span>${emoji ? `<span aria-hidden="true">${emoji}</span> ` : ''}${label}</span><strong>${count}</strong></button>`;
   }).join('');
   host.querySelectorAll('[data-crew-tier]').forEach(button => button.addEventListener('click', () => {
     currentCrewTier = button.dataset.crewTier;
