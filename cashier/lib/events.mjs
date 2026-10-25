@@ -8,12 +8,19 @@ export function dateKey(value){const s=String(value||'');let y,m,d;let x=s.match
 export function addDay(day,n=1){return new Date(Date.parse(day+'T12:00:00Z')+n*86400000).toISOString().slice(0,10);}
 export function easternEpoch(day,hour=0,minute=0){const [y,m,d]=day.split('-').map(Number),target=Date.UTC(y,m-1,d,hour,minute);let guess=target;for(let i=0;i<3;i++){const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(guess));const get=t=>Number(p.find(x=>x.type===t).value);const observed=Date.UTC(get('year'),get('month')-1,get('day'),get('hour'),get('minute'),get('second'));guess+=target-observed;}return guess;}
 function cents(v,fallback){if(v===undefined||v===null)return fallback;if(typeof v!=='number'||!Number.isFinite(v)||v<0||v>10000||Math.abs(v*100-Math.round(v*100))>1e-7)throw Error('Invalid event payment amount');return Math.round(v*100);}
-export function normalizeSchedule(source,financials,now=Date.now()){
+function datePending(raw){return /^(?:date\s+)?tbd$/i.test(String(raw.date||'').trim());}
+export function normalizeSchedule(source,financials,now=Date.now(),previous=[]){
  if(!source||!Array.isArray(source.events)||source.events.length>500||!financials||typeof financials.events!=='object'||Array.isArray(financials.events))throw Error('Invalid schedule source');
- const today=easternDay(now),groups={friday:[],saturday:[],mtt:[]};
- for(const raw of source.events){if(!SLOTS.includes(raw.slot))continue;if(raw.active===false||raw.cancelled===true||/^(cancelled|canceled|inactive)$/i.test(raw.status||''))continue;const date=dateKey(raw.date);if(typeof raw.title!=='string'||!raw.title.trim())throw Error('Missing event title');groups[raw.slot].push({...raw,key:date});}
+ const today=easternDay(now),groups={friday:[],saturday:[],mtt:[]},pending=new Set();
+ for(const raw of source.events){if(!SLOTS.includes(raw.slot))continue;if(raw.active===false||raw.cancelled===true||/^(cancelled|canceled|inactive)$/i.test(raw.status||''))continue;if(datePending(raw)){pending.add(raw.slot);continue;}const date=dateKey(raw.date);if(typeof raw.title!=='string'||!raw.title.trim())throw Error('Missing event title');groups[raw.slot].push({...raw,key:date});}
  const selected=[];
- for(const slot of SLOTS){const list=groups[slot].sort((a,b)=>a.key.localeCompare(b.key));const e=list.find(x=>x.key>=today)||list.at(-1);if(!e)continue;
+ for(const slot of SLOTS){const list=groups[slot].sort((a,b)=>a.key.localeCompare(b.key));const e=list.find(x=>x.key>=today)||list.at(-1);if(!e){
+   // A placeholder is not a dated replacement: keep that slot's ledger and
+   // receipt window until a real date is published. Never invent a date.
+   const saved=pending.has(slot)&&previous.find(event=>event.slot===slot);
+   if(saved)selected.push({...saved,schedulePending:true});
+   continue;
+  }
   const f={...(financials.events[e.key]||{}),...(e.payments||{})},mtt=slot==='mtt'||Number(e.tables)>1;
   const prize=cents(f.entryAmount,mtt?4000:3000),bounty=cents(f.bounty?.amount,mtt?1000:0),rebuy=cents(f.rebuyAmount,prize),food=cents(f.foodAmount,1500);
   const rules={entry:prize+bounty,rebuy,food,entryPrize:prize,bounty};if(rules.entry<=0||rules.rebuy<=0)throw Error('Missing entry price');
@@ -24,7 +31,7 @@ export function normalizeSchedule(source,financials,now=Date.now()){
 // Refresh RSVP metadata even when an unchanged source keeps the selected event dates pinned.
 export function refreshScheduleAttendance(events,source){
  return events.map(event=>{
-  const raw=source.events.find(raw=>raw.slot===event.slot&&dateKey(raw.date)===event.date);
+  const raw=source.events.find(raw=>raw.slot===event.slot&&!datePending(raw)&&dateKey(raw.date)===event.date);
   return raw?{...event,...eventAttendance(raw)}:event;
  });
 }

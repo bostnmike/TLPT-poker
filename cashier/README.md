@@ -18,6 +18,18 @@ The owner approved cutover before the first real Venmo receipts, expected during
 the October 16–17 games. Genuine receipt format verification remains pending;
 synthetic tests and the successful real mailbox connection do not replace it.
 
+## Dates awaiting confirmation
+
+An active event with `date: "Date TBD"` (or `"TBD"`) is a placeholder,
+not a dated replacement. Other slots and their RSVPs continue refreshing.
+If that slot already has a verified event, Cashier retains its identity, prices,
+RSVPs, receipt window and payments, and labels it as a saved event with the next
+date pending. On first load, a placeholder alone does not create an event tab.
+A real published replacement date resumes normal event retention/cleanup.
+Explicit cancellation/removal still retires the event; malformed dates still
+fail safely and preserve the last verified schedule. No date is invented and
+future receipts cannot match the retained event through its old receipt window.
+
 ## Architecture
 
 - React/Vite supplies the existing iPad interface as static assets.

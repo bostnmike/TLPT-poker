@@ -14,7 +14,7 @@ async function getBaseSchedule(force=false):Promise<any>{
   if(responses.some(r=>!r.ok))throw Error('Schedule source unavailable');
   const bodies=await Promise.all(responses.map(r=>r.text()));if(bodies.some(s=>s.length>500000))throw Error('Schedule source too large');
   const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(bodies.join('\n'))))).map(x=>x.toString(16).padStart(2,'0')).join('');
-  const source=JSON.parse(bodies[0]),parsed=normalizeSchedule(source,JSON.parse(bodies[1]),now);
+  const source=JSON.parse(bodies[0]),parsed=normalizeSchedule(source,JSON.parse(bodies[1]),now,state?JSON.parse(state.events_json):[]);
   // Selection rolls only after the published JSON changes, never solely with time.
   const events=state?.source_hash===hash?refreshScheduleAttendance(JSON.parse(state.events_json),source):parsed;
   const at=new Date(now).toISOString(),predicate=stalePaymentPredicate(events.map((e:any)=>e.id));
