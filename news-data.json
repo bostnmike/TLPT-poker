@@ -14,11 +14,142 @@
   },
   "weeks": [
 {
+      "id": "week-10-24-2026",
+      "date": "10/24/2026",
+      "eventName": "Re-Buy Hard: A TLPT Muti-Table Event",
+      "title": "Re-Buy Hard: A TLPT Multi-Table Event",
+      "featured": true,
+      "dek": "Seventeen players, eighteen rebuys, and a welcome package best described as financially hostile.",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "🏆 The Big Winner",
+          "player": "Liam O / ProvidenceMike",
+          "value": "Shared first",
+          "copy": "Liam’s second appearance ended in a chop; Providence finished with the highest net profit.",
+          "avatars": [
+            {
+              "src": "images/players/liam-o.jpg",
+              "slug": "liam-o",
+              "alt": "Liam O",
+              "fallback": "LO"
+            },
+            {
+              "src": "images/players/providencemike.jpg",
+              "slug": "providencemike",
+              "alt": "ProvidenceMike",
+              "fallback": "PM"
+            }
+          ]
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killer",
+          "player": "Li-Fo",
+          "value": "7 knockouts · 6 bounties",
+          "copy": "First busted, then back to lead the demolition and finish third.",
+          "avatar": "images/players/li-fo.jpg",
+          "fallback": "LF"
+        },
+        {
+          "tone": "purple",
+          "label": "👋 Welcome to TLPT",
+          "player": "P",
+          "value": "4 rebuys",
+          "copy": "A first recorded appearance, five bullets and a $250 introduction.",
+          "avatar": "images/players/piercen-craig-v2.webp",
+          "fallback": "P"
+        },
+        {
+          "tone": "blue",
+          "label": "👋 We’ll Miss You, Red",
+          "player": "Red",
+          "value": "2 rebuys",
+          "copy": "Moving out of state. The league and its cashier are taking it hard.",
+          "avatar": "images/players/red.jpg",
+          "fallback": "RE"
+        }
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "35"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "18"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$1,410"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "9h 15m"
+        }
+      ],
+      "summary": {
+        "startTime": "1:05:03 pm 10/24/2026",
+        "endTime": "10:20:25 pm 10/24/2026",
+        "durationLabel": "9h 15m",
+        "buyIns": 17,
+        "rebuys": 18,
+        "entries": 35,
+        "totalPot": 1410,
+        "paidSpots": 6,
+        "winner": "Liam O, ProvidenceMike",
+        "firstOut": "Li-Fo",
+        "firstPermanentOut": "Cougar"
+      },
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-24.jpg\" alt=\"Poster for the 10/24/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The plan anticipated nine rebuys. TLPT produced eighteen. More rebuys than original players. DONKEYS. Seventeen people assembled for Re-Buy Hard and managed to purchase admission thirty-five times, which suggests the league’s most reliable tournament strategy remains “perhaps another payment will fix this.” New arrival P embraced the culture immediately: four rebuys, $250 committed, twelfth place. Most clubs give newcomers a welcome packet. TLPT apparently gives them a routing number.</p><p>Liam O took a considerably cheaper route through his second recorded league appearance, although the cards still found time to introduce him to suffering. The quote of the night began with “I have a full house,” followed by the much less comforting “Which one?” Boat over boat brought Liam some temporary pain. Announcing a full house should inspire confidence; being asked to identify the model is generally a sign that the warranty has expired. Liam survived that little housing crisis without a rebuy, eliminated Alex C and A.I. Dave, then stopped Li-Fo in third before agreeing to chop first with ProvidenceMike. Liam took home $400. Providence collected $490 and finished $400 ahead without recording a single knockout. Apparently the secret to a bounty tournament is having other people handle the unpleasantness.</p><p>Li-Fo volunteered for plenty of that unpleasantness. Ahmed busted him first, Tony rebought forty-three seconds later, and the resurrection department finally delivered something worth the invoice: seven knockouts, six paid bounties, third place and $180 profit. His late run removed Nasa Al, Ahmed and Hiro before Liam finally made the burial stick. The performance also earned Tony the Bounty Hunter Ultimate Player Card. Alex C and Chris F each collected four bounties and still finished in the red, proving that even a productive afternoon of eliminating your friends can come with operating losses.</p><p>Speaking of Red: he is moving out of state, and the league will miss him—and ALL his rebuys. He contributed another two to the farewell fund, with Alex C collecting his first two exits and Ahmed handling the third. His results were only slightly less dumpster-fire-like than his beloved Manchester United, although Red at least had the decency to stop asking for money after three attempts. At least he’s got the Bills. Unless they’re playing the Pats, in which case apparently even his football teams struggle to get paid in Buffalo. We’ll miss you, Red. Your seat, your loyalty and your breathtaking willingness to fund another attempt. Whoever runs your next game is acquiring a friend; TLPT is losing a recurring revenue stream. Somebody give the cashier a minute.</p>",
+      "spotlight": {
+        "player": "Liam O / ProvidenceMike / P",
+        "fallback": "LPP",
+        "pills": [
+          "Liam: Shared First · No Rebuy",
+          "ProvidenceMike: 0 Knockouts",
+          "ProvidenceMike: +$400 Net",
+          "P: Debut · 4 Rebuys"
+        ],
+        "avatars": [
+          {
+            "src": "images/players/liam-o.jpg",
+            "slug": "liam-o",
+            "alt": "Liam O",
+            "fallback": "LO"
+          },
+          {
+            "src": "images/players/providencemike.jpg",
+            "slug": "providencemike",
+            "alt": "ProvidenceMike",
+            "fallback": "PM"
+          },
+          {
+            "src": "images/players/piercen-craig-v2.webp",
+            "slug": "p",
+            "alt": "P",
+            "fallback": "P"
+          }
+        ]
+      },
+      "numbersThatMatter": [
+        "17 players + 18 rebuys/reloads = 35 total purchases. The event ran from 1:05 pm to 10:20 pm, about 9h 15m.",
+        "$1,400 regular prize pool: ProvidenceMike $470, Liam O $370, Li-Fo $220, Hiro $165, Ahmed $135 and Nasa Al $40.",
+        "$300 bounty pool: $270 collected, $20 retained by the two finalists and $10 forfeited to ProvidenceMike as a separate winner-only prize bonus.",
+        "The Architect reached ten appearances, earning his Milestone Edition Ultimate Player Card. Hiro then eliminated him on the bubble. The league commemorated his attendance and declined to validate his parking."
+      ],
+      "roastHtml": "<p>BostnMike expanded to two tables and six paid places, then finished fifteenth with zero knockouts. Last week’s host collected four bounties; this week’s host apparently specialized in venue management. The Commissioner spent months preparing a bigger tournament and successfully created more places for other people to finish ahead of him.</p>"
+    },
+    {
   "id": "week-10-17-2026",
   "date": "10/17/2026",
   "eventName": "ALL-E-IN - 9-Max",
   "title": "ALL-E-IN - 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "The DeckMate went full video poker, Red barely survived introductions, and the Commissioner found a way to monetize the guest list.",
   "summaryCards": [
     {
