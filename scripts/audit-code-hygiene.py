@@ -1579,11 +1579,11 @@ def audit_javascript(path: Path) -> list[str]:
             if fragment not in current_events_source:
                 errors.append(message)
         home_events_source = function_source("renderHomePage")
-        if "getCurrentEvents(data).slice(0, 3)" not in home_events_source:
+        if "getHomeEvents(data)" not in home_events_source:
             errors.append("Home schedule selector must expose all three event slots")
         schedule_source = function_source("renderSchedule")
-        if "getCurrentEvents(data).slice(0, 3)" not in schedule_source:
-            errors.append("Schedule page must render all three event slots")
+        if "const events = getCurrentEvents(data);" not in schedule_source:
+            errors.append("Schedule page must render every live event without a three-event cap")
         if "Tournament Director software assigns official seats" not in rsvp_source:
             errors.append(
                 "Two-table RSVP previews must identify Tournament Director as the official seating source"

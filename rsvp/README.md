@@ -16,7 +16,7 @@ D1 owns all live upcoming event metadata, capacities, open/closed state, queue
 order and answers. `data/events.json` is the initial import and compatibility
 snapshot, not an ongoing writable RSVP source. Do not edit its answers expecting
 live changes. The website fetches `/api/public/events` on load and every minute
-on home/schedule. On failure it shows schedule reference metadata with live
+on home/schedule. Home selects the next game per event type; the full schedule and RSVP app list all unarchived games. On failure it shows schedule reference metadata with live
 counts unavailable. It never silently substitutes obsolete static confirmations.
 
 Each event has a stable ID independent of its slot; dates/types of existing
@@ -44,8 +44,9 @@ seats. Cashier's minute refresh remains unchanged.
 `requestedIn`. New consumers must use the waitlist separately. The website removes
 these players from the Maybe forecast; Cashier excludes them from its checklist.
 RSVP does not imply payment, attendance, a result, or official seating. Existing
-manual preview positions are preserved on seed; editing preview positions remains
-in the established site workflow. Tournament Director owns official seating.
+manual preview positions stay in `data/events.json`; the website overlays only
+those positions by exact type/date while live answers remain authoritative.
+Editing preview positions remains in the established site workflow. Tournament Director owns official seating.
 
 ## Queue rules
 
