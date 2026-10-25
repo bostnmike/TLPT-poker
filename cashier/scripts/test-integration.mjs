@@ -14,7 +14,7 @@ async function post(body,expected=200,origin=base){const r=await workerFetch(bas
 async function intake(messages,mode='live'){const r=await fetch(base+'/api/import',{method:'POST',headers:{'Content-Type':'application/json','X-Register-Token':secret},body:JSON.stringify({messages,mode,readerMode:'rolling'})});const j=await r.json();assert.equal(r.status,200,JSON.stringify(j));return j;}
 try{
  start(['scripts/local-dev.mjs','--api-only']);await ready(base+'/api/health');
- const first=await get();assert.equal(first.r.status,200,JSON.stringify(first.data));const event=first.data.events.find(e=>e.rules.entry>0&&e.rules.food>0);assert.ok(event,'A real TLPT event is required for this integration check');
+ const first=await get();assert.equal(first.r.status,200,JSON.stringify(first.data));assert.equal(first.data.scheduleError,'','The live schedule, including Date TBD placeholders, must refresh successfully');const event=first.data.events.find(e=>e.rules.entry>0&&e.rules.food>0);assert.ok(event,'A real TLPT event is required for this integration check');
  assert.equal(first.data.totals.collected,0);const unchanged=await get(first.data.selectedEventId,first.r.headers.get('ETag'));assert.equal(unchanged.r.status,304,'Unchanged polling should avoid rereading the ledger');
  const originFailure=await post({action:'format',eventId:event.id,mode:'standard',bountyCents:500},403,'https://attacker.example');assert.ok(originFailure.error);
  const cents=event.rules.entry+event.rules.food,requestId=crypto.randomUUID();
