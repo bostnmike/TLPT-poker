@@ -1,10 +1,11 @@
 import {db} from './api';
+import {getLiveAttendance} from './live-rsvp.mjs';
 import {normalizeSchedule,refreshScheduleAttendance,stalePaymentPredicate,applyPaymentFormat,SCHEDULE_URL,FINANCIALS_URL} from './events.mjs';
 export async function getSchedule(force=false):Promise<any>{
  const schedule=await getBaseSchedule(force);
  const overrides=(await db().prepare('SELECT event_id,mode,bounty_cents FROM event_payment_formats').all()).results;
  const cleared=(await db().prepare('SELECT event_id,cleared_at FROM event_history_clears').all()).results;
- return {...schedule,events:schedule.events.map((e:any)=>({...applyPaymentFormat(e,overrides.find((o:any)=>o.event_id===e.id)),historyClearedAt:cleared.find((c:any)=>c.event_id===e.id)?.cleared_at||null}))};
+ return {...schedule,events:(await getLiveAttendance(db(),schedule.events)).map((e:any)=>({...applyPaymentFormat(e,overrides.find((o:any)=>o.event_id===e.id)),historyClearedAt:cleared.find((c:any)=>c.event_id===e.id)?.cleared_at||null}))};
 }
 async function getBaseSchedule(force=false):Promise<any>{
  const state:any=await db().prepare('SELECT * FROM schedule_state WHERE id=?').bind('schedule').first();

@@ -19,11 +19,38 @@ async function loadSiteData() {
   }
 
   const eventsData = await eventsRes.json();
+  const attendance = await loadLiveRsvpEvents(eventsData.events || []);
 
   return {
     ...baseData,
-    events: eventsData.events || []
+    events: attendance.events,
+    rsvpUnavailable: attendance.unavailable
   };
+}
+
+const LIVE_RSVP_FEED = "https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events";
+async function loadLiveRsvpEvents(fallback) {
+  try {
+    const response = await fetch(LIVE_RSVP_FEED, { cache: "no-store", signal: AbortSignal.timeout(8000) });
+    if (!response.ok) throw new Error("RSVP feed unavailable");
+    const feed = await response.json();
+    if (feed.schemaVersion !== 1 || !Array.isArray(feed.events)) throw new Error("Invalid RSVP feed");
+    return { events: feed.events, unavailable: false };
+  } catch {
+    // Static answers are an import snapshot, never a second live authority.
+    return { events: fallback.map(event => ({ ...event, rsvps: {}, waitlist: [], apple_invite_url: "", rsvp_url: "https://tlpt-rsvp.tlpt-bostnmike.workers.dev/", rsvpUnavailable: true })), unavailable: true };
+  }
+}
+function renderLiveRsvpStatus(unavailable) {
+  if (!document.getElementById("home-events-list") && !document.getElementById("schedule-list")) return;
+  const main = document.getElementById("main-content");
+  if (!main) return;
+  let notice = document.getElementById("live-rsvp-status");
+  if (!notice) {
+    notice = document.createElement("p"); notice.id = "live-rsvp-status";
+    notice.className = "muted"; notice.setAttribute("role", "status"); main.prepend(notice);
+  }
+  notice.textContent = unavailable ? "Live RSVPs are unavailable. Seat counts are hidden until the connection returns." : "Live RSVPs · confirmed seats and waitlist sync every minute. RSVP is not payment or recorded attendance.";
 }
 
 function renderSiteLoadFailure() {
@@ -1664,7 +1691,7 @@ function getRsvpCounts(event) {
 
   return {
     yes: statuses.filter(status => status === "yes").length,
-    maybe: statuses.filter(status => status === "maybe").length,
+    maybe: statuses.filter(status => status === "maybe").length - (event?.waitlist?.length || 0),
     tbd: statuses.filter(status => status === "tbd").length,
     no: statuses.filter(status => status === "no").length
   };
@@ -1672,7 +1699,7 @@ function getRsvpCounts(event) {
 
 function formatRsvpLine(event) {
   const counts = getRsvpCounts(event);
-  return `At the Table = ${counts.yes} • On the Rail = ${counts.maybe} • In the Tank = ${counts.tbd} • Folded Pre = ${counts.no}`;
+  return `At the Table = ${counts.yes} • On the Rail = ${counts.maybe} • In the Tank = ${counts.tbd} • Folded Pre = ${counts.no}${event?.waitlist?.length ? ` • Waitlisted = ${event.waitlist.length}` : ""}`;
 }
 
 function getPlayerBySlug(slug, data) {
@@ -1710,7 +1737,7 @@ function getRsvpPlayersByStatus(event, data, statusKey) {
   const targetStatus = String(statusKey || "").toLowerCase();
 
   return Object.entries(rsvps)
-    .filter(([, status]) => String(status || "tbd").toLowerCase() === targetStatus)
+    .filter(([slug, status]) => String(status || "tbd").toLowerCase() === targetStatus && !(targetStatus === "maybe" && event?.waitlist?.some(item => item.slug === slug)))
     .map(([slug]) => getPlayerBySlug(slug, data) || { slug, name: getDisplayNameForRsvpSlug(slug, data) })
     .sort(compareEventRosterPlayers)
     .map(displayPlayerNamePlain)
@@ -1738,6 +1765,7 @@ function formatRsvpNameList(names, emptyText = "Nobody yet", options = {}) {
 }
 
 function eventRsvpForecastMarkup(event, data) {
+  if (event?.rsvpUnavailable) return `<p class="muted">The live lineup will return when the RSVP connection recovers.</p>`;
   // Event attendance stays together regardless of league membership status.
   const namesForStatus = (status, options) => escapeHtmlAttr(formatRsvpNameList(
     getRsvpPlayersByStatus(event, data, status), "Nobody yet", options
@@ -1746,6 +1774,7 @@ function eventRsvpForecastMarkup(event, data) {
   return `
     <div class="event-rsvp-forecast" aria-label="Table forecast">
       <div class="event-rsvp-forecast-title">Table Forecast</div>
+      ${event?.waitlist?.length ? `<div class="event-rsvp-forecast-row"><span class="event-rsvp-forecast-label">Waitlist</span><span class="event-rsvp-forecast-names">${event.waitlist.map(item => `${item.position}. ${escapeHtmlAttr(getDisplayNameForRsvpSlug(item.slug, data))}`).join(", ")}</span></div>` : ""}
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-maybe">
         <span class="event-rsvp-forecast-label">On the Rail</span>
@@ -1788,6 +1817,7 @@ function getConfirmedRsvpPlayers(event, data) {
 }
 
 function buildRsvpSummaryMarkup(event, extraClass = "") {
+  if (event?.rsvpUnavailable) return `<p class="muted" role="status">Live RSVP counts unavailable</p>`;
   const counts = getRsvpCounts(event);
   const summaryClass = ["event-rsvp-summary", extraClass].filter(Boolean).join(" ");
 
@@ -1978,12 +2008,13 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
 }
 
 function buildEventAdminStatusMarkup(event) {
+  if (event?.rsvpUnavailable) return "";
   if (getEventSlot(event) !== "mtt") return "";
 
   const counts = getRsvpCounts(event);
   const capacity = getEventCapacity(event);
   const openSeats = Math.max(capacity - counts.yes, 0);
-  const overflow = Math.max(counts.yes - capacity, 0);
+  const overflow = event?.waitlist?.length || Math.max(counts.yes - capacity, 0);
   const mergeAt = Number(event?.mergeAt) || 9;
 
   return `
@@ -2012,6 +2043,7 @@ function tableFillPercent(event, maxSeats = 9) {
 }
 
 function tableFillMarkup(event, maxSeats = 9) {
+  if (event?.rsvpUnavailable) return `<p class="muted">Seat availability unavailable</p>`;
   const counts = getRsvpCounts(event);
   const seatCapacity = maxSeats * getEventTableCount(event);
   const fillPct = tableFillPercent(event, maxSeats);
@@ -2055,7 +2087,7 @@ function getEventThemeClass(event) {
 
 function buildEventRsvpButtonMarkup(event, extraClasses = "") {
   const className = ["btn", "btn-rsvp", extraClasses].filter(Boolean).join(" ");
-  const inviteUrl = String(event?.apple_invite_url || "").trim();
+  const inviteUrl = event?.rsvp_url ? `https://tlpt-rsvp.tlpt-bostnmike.workers.dev/${event.id ? `?event=${encodeURIComponent(event.id)}` : ""}` : String(event?.apple_invite_url || "").trim();
 
   if (!inviteUrl) {
     return `<span class="${className} is-disabled" aria-disabled="true">${getEventDayLabel(event)} Invite Coming Soon</span>`;
@@ -7218,6 +7250,7 @@ async function main() {
     });
   }
 
+  renderLiveRsvpStatus(data.rsvpUnavailable);
   renderHomePage(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
@@ -7231,6 +7264,14 @@ async function main() {
   initCrewViewToggle();
   initCrewSearch();
   initEventRsvpNameHover();
+  if (document.getElementById("home-events-list") || document.getElementById("schedule-list")) {
+    setInterval(async () => {
+      if (document.hidden) return;
+      const live = await loadLiveRsvpEvents(data.events);
+      data.events = live.events; data.rsvpUnavailable = live.unavailable;
+      renderLiveRsvpStatus(live.unavailable); renderHomePage(data); renderSchedule(data);
+    }, 60000);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

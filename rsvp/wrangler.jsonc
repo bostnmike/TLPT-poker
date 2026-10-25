@@ -1,0 +1,26 @@
+{
+  "name": "tlpt-rsvp",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-05-15",
+  "account_id": "4d5ea071300fa71b8fa947c06d8ba314",
+  "workers_dev": true,
+  "observability": {
+    "enabled": false
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tlpt-rsvp",
+      "database_id": "79de1ed8-302a-4d25-b7f1-5f423e6ea321",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "REVISION": "local"
+  }
+}

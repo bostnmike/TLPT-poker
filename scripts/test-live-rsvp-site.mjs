@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+const source=readFileSync('app.js','utf8');
+const functions=['loadLiveRsvpEvents','getRsvpCounts','getRsvpPlayersByStatus','buildEventRsvpButtonMarkup','buildRsvpSummaryMarkup'];
+let liveFunctions=functions.map(name=>source.match(new RegExp('^(?:async )?function '+name+'\\([^]*?^}', 'm'))?.[0]).join('\n');
+assert.equal(functions.filter(n=>liveFunctions.includes('function '+n)).length,functions.length);
+const feed={schemaVersion:1,events:[{id:'friday-2026-10-30',slot:'friday',date:'2026-10-30',rsvp_url:'https://tlpt-rsvp.tlpt-bostnmike.workers.dev/',rsvps:{bostnmike:'yes',red:'maybe',ahmed:'maybe'},waitlist:[{slug:'red',position:1}]}]};
+const ctx={fetch:async()=>({ok:true,json:async()=>feed}),AbortSignal,encodeURIComponent,LIVE_RSVP_FEED:'https://feed.test',getEventButtonLabel:()=> 'RSVP for Friday',getEventDayLabel:()=> 'Friday',getPlayerBySlug:(s,d)=>d.players.find(p=>p.slug===s),getDisplayNameForRsvpSlug:s=>s,compareEventRosterPlayers:(a,b)=>a.slug.localeCompare(b.slug),displayPlayerNamePlain:p=>p.name};
+vm.createContext(ctx);vm.runInContext(liveFunctions+'\nthis.api={'+functions.join(',')+'};',ctx);const a=ctx.api;
+let live=await a.loadLiveRsvpEvents([]);assert.equal(live.unavailable,false);assert.equal(live.events[0].id,feed.events[0].id);
+const counts=a.getRsvpCounts(feed.events[0]);assert.equal(counts.yes,1);assert.equal(counts.maybe,1);assert.deepEqual([...a.getRsvpPlayersByStatus(feed.events[0],{players:[{slug:'red',name:'Red'},{slug:'ahmed',name:'Ahmed'}]},'maybe')],['Ahmed']);
+assert.match(a.buildEventRsvpButtonMarkup(feed.events[0]),/\?event=friday-2026-10-30/);
+const fallback=[{title:'Saved schedule',apple_invite_url:'https://old.test',rsvps:{red:'yes'}}];ctx.fetch=async()=>{throw Error('quota');};live=await a.loadLiveRsvpEvents(fallback);assert.equal(live.unavailable,true);assert.deepEqual(Object.keys(live.events[0].rsvps),[]);assert.equal(live.events[0].apple_invite_url,'');assert.match(a.buildRsvpSummaryMarkup(live.events[0]),/unavailable/);assert.equal(fallback[0].rsvps.red,'yes');
+ctx.fetch=async()=>({ok:true,json:async()=>feed});assert.equal((await a.loadLiveRsvpEvents(fallback)).unavailable,false);
+console.log('PASS: live site feed recovery, stable event links, confirmed seats, distinct waitlist/Maybe and no obsolete static confirmations.');
