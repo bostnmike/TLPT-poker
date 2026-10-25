@@ -824,6 +824,16 @@ for (const player of movementRows) {
 }
 
 const formLab = loadScript("form-lab.js");
+const formLabRequests = [];
+formLab.set("fetch", async (url, options) => {
+  formLabRequests.push({ url, options });
+  return { ok: true, json: async () => url.includes("event-history.json") ? eventHistory : data };
+});
+const freshlyLoadedFormLab = await formLab.get("loadFormLabData")();
+check(formLabRequests.length === 2 && formLabRequests.every(r => /\?v=\d+$/.test(r.url) && r.options.cache === "no-store")
+    && formLabRequests[0].url.split("?")[1] === formLabRequests[1].url.split("?")[1]
+    && freshlyLoadedFormLab.events.length === events.length,
+  "Form Lab must bypass stale cached data for both current players and the event history");
 formLab.context.__events = events;
 formLab.get("FL_STATE").events = events;
 const getFormRows = formLab.get("getPlayerEventRowsForPlayer");

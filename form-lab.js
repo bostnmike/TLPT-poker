@@ -223,7 +223,8 @@ async function initFormLab() {
 ========================================= */
 
 async function loadFormLabData() {
-  const siteRes = await fetch("data/generated/site-data.json");
+  const version = `?v=${Date.now()}`;
+  const siteRes = await fetch(`data/generated/site-data.json${version}`, { cache: "no-store" });
 
   if (!siteRes.ok) {
     throw new Error(`Could not load data/generated/site-data.json (${siteRes.status})`);
@@ -231,7 +232,7 @@ async function loadFormLabData() {
 
   const siteData = await siteRes.json();
 
-  const historyRes = await fetch("data/generated/event-history.json");
+  const historyRes = await fetch(`data/generated/event-history.json${version}`, { cache: "no-store" });
 
   if (!historyRes.ok) {
     throw new Error(`Could not load data/generated/event-history.json (${historyRes.status})`);
