@@ -1,0 +1,14 @@
+.stat-scope { position: relative; margin: 20px 0; padding: 20px; border: 1px solid rgba(255,184,28,.28); border-radius: 18px; background: #101820; }
+.stat-scope-controls { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr) auto; gap: 16px; align-items: end; }
+.stat-scope-controls label { display: block; min-width: 0; }
+.stat-scope-controls label > span { display: block; margin-bottom: 8px; color: #ffcf70; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.stat-scope-controls select { width: 100%; min-height: 44px; color: #f3f5f7; background: #18212b; border: 1px solid #586370; border-radius: 10px; padding: 10px; font: inherit; }
+.stat-scope-controls .btn { min-height: 44px; white-space: nowrap; }
+.stat-scope-summary { margin: 14px 0 6px; font-size: 15px; font-weight: 700; color: #f3f5f7; }
+.stat-scope-note, .stat-career-note { color: #b5c3d0; font-size: 14px; line-height: 1.5; margin: 6px 0 0; }
+.stat-results-heading { margin: 24px 0 10px; }
+@media (max-width: 600px) {
+  .stat-scope { padding: 16px; }
+  .stat-scope-controls { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .stat-scope-controls .btn { width: 100%; }
+}

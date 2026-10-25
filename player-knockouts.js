@@ -221,7 +221,10 @@ function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
     if (!profileShell || !dnaCard || !statGrid) return;
 
     const existingTopWrap = profileRoot.querySelector(".player-dna-nemesis-wrap");
-    if (existingTopWrap) existingTopWrap.remove();
+    if (existingTopWrap) {
+      existingTopWrap.before(dnaCard);
+      existingTopWrap.remove();
+    }
 
     const existingBodyCount = profileRoot.querySelector(".player-body-count-card");
     if (existingBodyCount) existingBodyCount.remove();
@@ -291,7 +294,11 @@ function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
       const currentPlayer = findPlayerByRequest(players, requestedName);
       if (!currentPlayer?.slug) return;
 
-      injectKnockoutCards(currentPlayer, knockouts || {}, players);
+      if (window.TLPTStats) await window.TLPTStats.init();
+      const render = () => injectKnockoutCards(currentPlayer,
+        window.TLPTStats?.knockouts(knockouts) || knockouts || {}, players);
+      window.addEventListener('tlpt:stat-scope-change', render);
+      render();
     } catch (err) {
       console.warn("Knockout profile enhancement skipped:", err);
     }

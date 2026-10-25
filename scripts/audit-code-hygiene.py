@@ -379,15 +379,15 @@ EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261018-1"
 EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261012-1"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261024-1"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261025-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261012-2"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261012-1"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20261018-1"
-EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261018-3"
+EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261025-1"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261024-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261025-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -419,7 +419,7 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "rotate-shared-css-cache.yml": ["22"],
 }
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261024-1"
-EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20261018-1"
+EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20261025-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261018-1"
 EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261018-1"
 EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261024-1"
@@ -1425,7 +1425,7 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(message)
 
         dashboard_render_source = function_source("renderDashboard")
-        if "dashboardPlayersForMetric(window.siteData.players, sortKey)" not in dashboard_render_source:
+        if "dashboardPlayersForMetric(scopedPlayers, sortKey)" not in dashboard_render_source or "Number(player[sortKey]) !== 0" not in dashboard_render_source:
             errors.append("Dashboard rendering must apply the non-zero metric filter")
 
         metadata_source = function_source("updatePlayerProfileMetadata")

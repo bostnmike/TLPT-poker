@@ -18,8 +18,27 @@ That runner performs, in order:
 2. Generate the parsed-event index.
 3. Build generated site data.
 4. Build knockout data.
+5. Build compact classified statistical event data.
 
-Do not copy those four commands into another workflow or script.
+Do not copy those commands into another workflow or script.
+
+### Statistical event filters
+
+For every newly imported result, add its event ID to `data/event-formats.json`:
+`single` for a single-table / Sit & Go event (both 40K and 500K), or `mtt` for a
+multi-table event. Classification is explicit, never inferred from entry counts
+or the current schedule. Bounty status comes from audited financial rules and is
+checked against the parsed event summary. This does not affect RSVP edits.
+
+`stats-scope.js` shares two filters across Dashboard, Standings, player statistics,
+Knockout Central and Form Lab. Selection persists for the browser tab/session;
+Reset to All restores combined results. Aggregate factual totals and rates from
+selected event records. Include opted-out players in bounty-enabled events. Never
+filter or reissue career ratings, tiers, archetypes, cards, awards or milestones.
+Profile career snapshots remain explicitly career-wide; event-result tiles and
+knockout relationships follow the filters. Form Lab applies its last-N window
+after filtering. `scripts/test-stat-scopes.mjs` checks every filter combination,
+financial/knockout parity and preservation of all career fields.
 
 After the build, run:
 

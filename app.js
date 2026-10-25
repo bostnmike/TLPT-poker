@@ -62,6 +62,8 @@ function renderSiteLoadFailure() {
 
 const DEFAULT_STANDINGS_SORT = "totalWinnings";
 const DEFAULT_DASHBOARD_SORT = "hits";
+let standingsStatSelection = DEFAULT_STANDINGS_SORT;
+let dashboardStatSelection = DEFAULT_DASHBOARD_SORT;
 const DASHBOARD_CATEGORY_DEFAULTS = Object.freeze({
   results: "hits",
   bankroll: "profit",
@@ -2211,7 +2213,7 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
 
   strip.innerHTML = `
     <div class="standings-race-context">
-      <strong>Qualified Field:</strong> ${sortedPlayers.length} players with 2+ entries
+      <strong>Qualified Field:</strong> ${sortedPlayers.length} players ${window.TLPTStats?.active() ? 'with results in this view' : 'with 2+ entries'}
     </div>
   `;
 }
@@ -2236,7 +2238,7 @@ strip.innerHTML = `
   <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
 
   <div class="dashboard-studio-context">
-    <strong>Ranked Field:</strong> ${sortedPlayers.length} players with 2+ entries and non-zero ${meta.label}
+    <strong>Ranked Field:</strong> ${sortedPlayers.length} players ${window.TLPTStats?.active() && window.TLPTStats.isFactual(sortKey) ? 'with results in this view' : 'with 2+ career entries'} and non-zero ${meta.label}
   </div>
 `;
 }
@@ -3226,11 +3228,13 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const table = document.getElementById("standings-table");
   const tbody = table?.querySelector("tbody");
   if (!table || !tbody || !window.siteData?.players) return;
+  standingsStatSelection = sortKey;
 
   ensureStandingsHeadline(sortKey);
 
-  const eligiblePlayers = window.siteData.players.filter(
-    player => Number(player?.entries ?? 0) >= 2
+  const scopedPlayers = window.TLPTStats?.players(window.siteData.players) || window.siteData.players;
+  const eligiblePlayers = scopedPlayers.filter(
+    player => window.TLPTStats?.active() ? Number(player.buyIns) > 0 : Number(player?.entries ?? 0) >= 2
   );
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
@@ -3264,6 +3268,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
       <td>${player.entries ?? "-"}</td>
     </tr>
   `, { columns: 10, ranked: true });
+  if (!sorted.length) tbody.innerHTML = '<tr><td colspan="10">No results match these event filters. Try another selection or Reset to All.</td></tr>';
 
   setActiveSortButton("standings", sortKey);
 
@@ -3315,22 +3320,29 @@ function dashboardCardMarkup(player, sortKey, rank = null) {
 function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const grid = document.getElementById("dashboard-grid");
   if (!grid || !window.siteData?.players) return;
+  dashboardStatSelection = sortKey;
 
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
 
-  const eligiblePlayers = dashboardPlayersForMetric(window.siteData.players, sortKey);
+  const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
+  const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
+  const eligiblePlayers = !careerMetric && window.TLPTStats?.active()
+    ? scopedPlayers.filter(player => player.buyIns > 0 && Number.isFinite(Number(player[sortKey])) && Number(player[sortKey]) !== 0)
+    : dashboardPlayersForMetric(scopedPlayers, sortKey);
+  const careerNote = document.getElementById('dashboard-career-note');
+  if (careerNote) careerNote.hidden = !careerMetric;
 
-  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(window.siteData.players)) {
+  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
     const strip = document.getElementById("dashboard-studio-strip");
     if (strip) {
       strip.innerHTML = `
-        <div class="dashboard-studio-copy">Bounty leaderboards begin with the first recorded bounty event.</div>
-        <div class="dashboard-studio-context"><strong>Awaiting Results</strong></div>
+        <div class="dashboard-studio-copy">No bounty results in the selected events.</div>
+        <div class="dashboard-studio-context"><strong>No Bounty Results</strong></div>
       `;
     }
 
-    grid.innerHTML = dashboardBountyEmptyMarkup();
+    grid.innerHTML = '<p class="muted">No bounty results match these filters. Try With Bounties or Reset to All.</p>';
     setActiveSortButton("dashboard", sortKey);
     return;
   }
@@ -5949,19 +5961,20 @@ function renderPlayerProfile(data) {
   const featuredEditionId = playerCardFeaturedEditionId(player, data);
   const specialEdition = playerCardSpecialEdition(player, data);
 
-  const profileStats = PROFILE_STAT_CONFIG.filter(config => !config.nonzeroOnly || (Number(player?.[config.key]) || 0) !== 0).map(config => {
+  const resultPlayer = window.TLPTStats?.players(data.players).find(p => p.slug === player.slug) || player;
+  const profileStats = PROFILE_STAT_CONFIG.filter(config => !config.nonzeroOnly || (Number(resultPlayer?.[config.key]) || 0) !== 0).map(config => {
     let valueClass = "";
 
     if (config.profitClass) {
-      valueClass = statValueClass(player, config.key);
+      valueClass = statValueClass(resultPlayer, config.key);
     } else if (config.profitClassFromValue) {
-      valueClass = statValueClass({ profit: player?.[config.key] }, "profit");
+      valueClass = statValueClass({ profit: resultPlayer?.[config.key] }, "profit");
     }
 
     return {
       key: config.key,
-      label: config.label,
-      value: formatProfileStatValue(player, config),
+      label: config.label + (window.TLPTStats && !window.TLPTStats.isFactual(config.key) ? ' (Career)' : ''),
+      value: formatProfileStatValue(resultPlayer, config),
       valueClass
     };
   });
@@ -6024,6 +6037,8 @@ function renderPlayerProfile(data) {
 
             <p class="player-formula-help muted">Mouse over or focus any stat to reveal the calculation.</p>
 
+      <h2 class="stat-results-heading">${window.TLPTStats?.active() ? 'Selected Event Results' : 'All Event Results'}</h2>
+      <p class="stat-career-note">${resultPlayer.buyIns} appearance${resultPlayer.buyIns === 1 ? '' : 's'} in this view.${window.TLPTStats?.active() && !resultPlayer.buyIns ? ' This player has no results in the selected events.' : ''} Profile cards, career snapshot, DNA and awards remain career-wide.</p>
       <div id="player-stats" class="profile-grid player-stat-grid-enhanced">
         ${statsMarkup}
       </div>
@@ -7121,6 +7136,14 @@ function initEventRsvpNameHover() {
 async function main() {
   const data = await loadSiteData();
   window.siteData = data;
+  if (window.TLPTStats) {
+    await window.TLPTStats.init();
+    window.addEventListener('tlpt:stat-scope-change', () => {
+      renderStandings(standingsStatSelection);
+      renderDashboard(dashboardStatSelection);
+      renderPlayerProfile(data);
+    });
+  }
 
   renderHomePage(data);
   renderLeagueSnapshot(data);

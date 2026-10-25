@@ -27,4 +27,7 @@ echo "📊 Building site data..."
 echo "💀 Building knockout data..."
 "$PYTHON_BIN" scripts/build-knockouts.py
 
+echo "🔎 Building classified statistical event views..."
+"$PYTHON_BIN" scripts/build-stat-events.py
+
 echo "✅ TLPT data build complete."

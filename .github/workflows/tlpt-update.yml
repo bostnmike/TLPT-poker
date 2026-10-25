@@ -26,6 +26,7 @@ on:
       - "data/events.json"
       - "data/player-metadata.json"
       - "data/event-financials.json"
+      - "data/event-formats.json"
       - "data/raw/events/**"
       - "requirements-quality.txt"
       - "scripts/**"
@@ -101,6 +102,7 @@ jobs:
           echo "📦 Staging generated outputs..."
           git add data/parsed/events/
           git add data/generated/event-history.json
+          git add data/generated/stat-events.json
           git add data/generated/site-data.json
           git add data/generated/validation-report.json
           git add data/generated/integrity-report.json

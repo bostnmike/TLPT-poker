@@ -17,8 +17,6 @@ const FL_STATE = {
   selectedEventId: ""
 };
 
-const FL_MIN_EVENTS_PLAYED = 4;
-
 const FL_PRESETS = {
   "form-volatility": {
     label: "Form vs. Volatility",
@@ -189,8 +187,12 @@ async function initFormLab() {
 
     const allPlayers = normalizePlayers(data.players || []);
 
-    FL_STATE.players = allPlayers.filter(player => {
-      return getPlayerEventRowsForPlayer(player).length >= FL_MIN_EVENTS_PLAYED;
+    // Keep one-appearance MTT players available; small samples are labeled, not hidden.
+    FL_STATE.players = allPlayers.filter(player => getPlayerEventRowsForPlayer(player).length > 0);
+    if (window.TLPTStats) await window.TLPTStats.init();
+    window.addEventListener('tlpt:stat-scope-change', () => {
+      FL_STATE.selectedEventId = '';
+      renderFormLab();
     });
 
     populatePlayerSelect();
@@ -623,7 +625,7 @@ function renderFormLab() {
   const player = getSelectedPlayer();
 
   if (!player) {
-    renderFatalError(new Error(`No players have at least ${FL_MIN_EVENTS_PLAYED} played events yet.`));
+    renderFatalError(new Error('No players have recorded event results yet.'));
     return;
   }
 
@@ -696,7 +698,7 @@ function renderNoRows(player, allRows) {
   const quadrant = document.getElementById("fl-quadrant-legend");
 
   if (title) title.textContent = "No event dots found.";
-  if (subtitle) subtitle.textContent = `${displayName(player)} was found, but no parsed event rows matched this player.`;
+  if (subtitle) subtitle.textContent = `${displayName(player)} has no results in the selected events.`;
   if (chart) chart.innerHTML = "";
   if (playerCard) {
     playerCard.innerHTML = `
@@ -711,7 +713,7 @@ function renderNoRows(player, allRows) {
     `;
   }
   if (detail) detail.innerHTML = `<p class="fl-empty-state">No event selected.</p>`;
-  if (readout) readout.innerHTML = `<p class="fl-empty-state">Try another player or check parsed event player slugs.</p>`;
+  if (readout) readout.innerHTML = `<p class="fl-empty-state">Try another player, change the event filters, or Reset to All.</p>`;
   if (list) list.innerHTML = "";
   if (quadrant) quadrant.innerHTML = "";
 }
@@ -745,7 +747,7 @@ function renderPlayerCard(player, allRows, rows) {
       <div>
         <div class="fl-kicker">Selected Player</div>
         <h3>${escapeHtml(displayName(player))}</h3>
-        <p>${rows.length} shown / ${allRows.length} total event${allRows.length === 1 ? "" : "s"}</p>
+        <p>${rows.length} shown / ${allRows.length} matching event${allRows.length === 1 ? "" : "s"}${rows.length < 5 ? ' · Small sample' : ''}</p>
       </div>
     </div>
 
@@ -1083,16 +1085,17 @@ function getSelectedPlayer() {
 }
 
 function getPlayerEventRows(player) {
-  return getPlayerEventRowsForPlayer(player);
+  return getPlayerEventRowsForPlayer(player, window.TLPTStats?.eventIds());
 }
 
-function getPlayerEventRowsForPlayer(player) {
+function getPlayerEventRowsForPlayer(player, allowedIds = null) {
   if (!player) return [];
 
   const playerSlug = canonicalSlug(player.slug || player.name);
   const rows = [];
 
   FL_STATE.events.forEach(event => {
+    if (allowedIds && !allowedIds.has(event.eventId)) return;
     const row = buildPlayerEventRow(event, player, playerSlug);
     if (row) rows.push(row);
   });

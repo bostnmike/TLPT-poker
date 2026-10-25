@@ -28,6 +28,7 @@ on:
       - "data/featured-cards.json"
       - "data/events.json"
       - "data/event-financials.json"
+      - "data/event-formats.json"
       - "data/raw/events/**"
       - ".github/workflows/**"
   workflow_dispatch:

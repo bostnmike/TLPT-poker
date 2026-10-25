@@ -735,8 +735,8 @@ const emptyBountyMarkup = knockoutAudit.renderBountyView(
 );
 check(
   !knockoutAudit.hasBountyData(noBountyPlayers)
-    && emptyBountyMarkup.includes("Bounty board awaiting its first claims")
-    && !emptyBountyMarkup.includes("Career Bounty Ledger"),
+    && emptyBountyMarkup.includes("No bounty results in this view")
+    && !emptyBountyMarkup.includes("Bounty Ledger"),
   "Knockout Central must keep the bounty view closed until real bounty data exists"
 );
 const actualBountyMarkup = knockoutAudit.renderBountyView(
@@ -745,7 +745,7 @@ const actualBountyMarkup = knockoutAudit.renderBountyView(
   knockoutData
 );
 check(
-  actualBountyMarkup.includes("Career Bounty Ledger")
+  actualBountyMarkup.includes("Bounty Ledger")
     === players.some(player => Number(player.bountyPaid || 0) > 0),
   "Knockout Central must open its bounty ledger when actual bounty events exist"
 );
@@ -769,7 +769,7 @@ const syntheticBountyMarkup = knockoutAudit.renderBountyView(
   { ...knockoutData, bounties: { claims: syntheticClaims, eventsProcessed: ["2026-10-24"] } }
 );
 check(
-  syntheticBountyMarkup.includes("Career Bounty Ledger")
+  syntheticBountyMarkup.includes("Bounty Ledger")
     && syntheticBountyMarkup.includes("Verified Bounty Claims")
     && syntheticBountyMarkup.includes("10/24/26")
     && syntheticBountyMarkup.includes("2 bounties"),

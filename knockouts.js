@@ -559,8 +559,8 @@ const KNOCKOUTS_URLS = [
       return `
         <section class="section knockouts-shell knockouts-bounty-empty-state">
           <div class="knockouts-bounty-empty-icon" aria-hidden="true">🏷️</div>
-          <h2>Bounty board awaiting its first claims</h2>
-          <p>The first MTT bounty results will open this view automatically. Bounty money has its own ledger and counts toward overall profit.</p>
+          <h2>No bounty results in this view</h2>
+          <p>Try With Bounties or Reset to All. Bounty money has its own ledger and counts toward overall profit.</p>
         </section>
       `;
     }
@@ -577,7 +577,7 @@ const KNOCKOUTS_URLS = [
 
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head">
-          <h2>💰 Career Bounty Ledger</h2>
+          <h2>💰 Bounty Ledger</h2>
           <p class="muted">Prize-pool payouts and bounty returns stay separate. Overall take-home and profit include both; retained bounties offset the original bounty cost.</p>
         </div>
         ${renderBountyLedger(players)}
@@ -741,7 +741,13 @@ const KNOCKOUTS_URLS = [
         throw new Error("knockouts.json loaded but byVictim/byKiller is missing");
       }
 
-      renderKnockoutCentral(siteData, knockouts);
+      if (window.TLPTStats) await window.TLPTStats.init();
+      const render = () => renderKnockoutCentral(
+        { ...siteData, players: window.TLPTStats?.players(siteData.players) || siteData.players },
+        window.TLPTStats?.knockouts(knockouts) || knockouts
+      );
+      window.addEventListener('tlpt:stat-scope-change', render);
+      render();
     } catch (err) {
       console.error("Failed to initialize Knockout Central:", err);
       showKnockoutsError();
