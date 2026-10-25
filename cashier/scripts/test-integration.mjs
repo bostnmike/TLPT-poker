@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {spawn} from 'node:child_process';
+import {spawn,spawnSync} from 'node:child_process';
 import {readFileSync,writeFileSync,rmSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {pbkdf2Sync,randomBytes} from 'node:crypto';
@@ -81,11 +81,37 @@ try{
  batchState=(await get(batchEvent.id)).data;assert.equal(batchState.payments.some(p=>voids.some(v=>v.id===p.id)),false);assert.equal(batchState.payments.some(p=>p.source_id==='gmail:'+late[0].id),false,'Bulk deletion must suppress the shared email');
  console.log('PASS: actual Worker/D1 batch — five mixed-method players, three food allocations, atomic concurrent retries, changed-payload rejection, shared receipts, multi-target and partial late matches, over-coverage rejection, stale protection, shared-receipt deletion suppression and bulk voids.');
  }
+ { // Permanent clearing runs only against this separate disposable database.
+ const historyState=state+'-history',historyBase='http://127.0.0.1:8792',mttId='mtt:2020-01-01';
+ const historyConfig=JSON.parse(readFileSync('wrangler.local.json','utf8'));historyConfig.name='tlpt-cashier-history-test';historyConfig.main='tests/fixtures/history-worker.ts';writeFileSync('wrangler.history.local.json',JSON.stringify(historyConfig));
+ const migration=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js','d1','migrations','apply','DB','--local','--config','wrangler.history.local.json','--persist-to',historyState],{encoding:'utf8',env:{...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'}});assert.equal(migration.status,0,migration.stderr);
+ start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8792','--config','wrangler.history.local.json','--persist-to',historyState,'--inspector-port','0']);await ready(historyBase+'/api/health');
+ const hget=async(id=mttId)=>await (await fetch(historyBase+'/api/register?eventId='+encodeURIComponent(id))).json();
+ const hpost=async(body,expected=200)=>{const r=await workerFetch(historyBase+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:historyBase},body:JSON.stringify(body)}),j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;};
+ const hintake=async(messages,mode='live')=>{const r=await fetch(historyBase+'/api/import',{method:'POST',headers:{'Content-Type':'application/json','X-Register-Token':secret},body:JSON.stringify({messages,mode,readerMode:'rolling'})});assert.equal(r.status,200);return r.json();};
+ const entry=(eventId,items=['entry'])=>({action:'manual',eventId,items,player:'History test player',method:'venmo',cents:items.includes('food')?6500:eventId===mttId?5000:3000,checked:true,requestId:crypto.randomUUID()});
+ for(const id of [mttId,'friday:2099-01-02','saturday:2099-01-03'])await hpost(entry(id));
+ const mail={id:'CLEAR_'+crypto.randomUUID().replaceAll('-',''),from:'Venmo <venmo@venmo.com>',authenticationResults:'mx.google.com; dkim=pass header.i=@venmo.com',subject:'Test Payer paid you $50.00',body:'TLPT mtt 2020-01-01 entry',internalDate:String(Date.parse('2020-01-01T18:00:00Z'))};
+ await hintake([mail]);let h=await hget();assert.equal(h.clearHistory.eligible,true);
+ const receipt=h.payments.find(p=>p.source_id==='gmail:'+mail.id),target=h.payments.find(p=>p.source_id.startsWith('manual:'));
+ await hpost({action:'link',eventId:mttId,id:receipt.id,linkId:target.id,player:target.player,checked:true,requestId:crypto.randomUUID()});h=await hget();
+ const clear={action:'clear-history',eventId:mttId,checked:true,confirmationDate:'2020-01-01',expectedRevision:h.clearHistory.revision};
+ await hpost({...clear,checked:false},400);await hpost({...clear,confirmationDate:'2099-01-02'},400);await hpost({...clear,eventId:'friday:2099-01-02'},400);
+ await hpost(entry(mttId,['entry','food']));await hpost(clear,409);assert.equal((await hget()).payments.length,3,'Stale clearing must preserve accounting rows and the receipt');
+ h=await hget();await hpost({...clear,expectedRevision:h.clearHistory.revision});h=await hget();
+ assert.equal(h.payments.length,0);assert.equal(h.totals.collected,0);assert.equal(h.receiptLinks.length,0);assert.equal(h.clearHistory.eligible,false);assert.ok(h.events.find(e=>e.id===mttId).historyClearedAt);
+ await hpost(entry(mttId),409);await hpost({action:'batch',eventId:mttId,requestId:crypto.randomUUID(),checked:true,groups:[]},409);
+ const ignored=await hintake([mail,{...mail,id:'CLEAR_NEW_'+crypto.randomUUID().replaceAll('-','')}]);assert.equal(ignored.ignoredIds.length,2);assert.equal((await hget()).payments.length,0);
+ const reader=await hintake([],'config');assert.ok(!reader.events.some(e=>e.id===mttId),'Reader configuration must exclude the cleared event');
+ for(const id of ['friday:2099-01-02','saturday:2099-01-03']){const other=await hget(id);assert.equal(other.totals.collected,3000);assert.equal(other.payments.length,1);}
+ console.log('PASS: isolated Worker/D1 history clearing — finished MTT only, exact-date confirmation, stale-ledger rollback, receipt cleanup, zero totals, other events preserved, reader exclusion and no stale manual/batch or email resurrection.');
+ }
  const config=JSON.parse(readFileSync('wrangler.local.json','utf8'));config.name='tlpt-cashier-locked-test';config.vars={...config.vars,CASHIER_ENV:'staging',CF_ACCESS_TEAM_DOMAIN:'https://tlpt-test.cloudflareaccess.com',CF_ACCESS_AUD:'test-audience'};writeFileSync('wrangler.locked.local.json',JSON.stringify(config));
  start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8789','--config','wrangler.locked.local.json','--persist-to',state,'--inspector-port','0']);await ready('http://127.0.0.1:8789/api/health');
  for(const headers of [{},{'oai-authenticated-user-id':'fake'},{'x-tlpt-authenticated-user-id':'fake'},{'Cf-Access-Jwt-Assertion':'fake.jwt.value'}])assert.equal((await fetch('http://127.0.0.1:8789/api/register',{headers})).status,401);
  assert.equal((await fetch('http://127.0.0.1:8789/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:'{"messages":[]}'})).status,401);
  assert.equal((await fetch('http://127.0.0.1:8789/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:'http://127.0.0.1:8789','x-tlpt-authenticated-user-id':'fake'},body:JSON.stringify({action:'batch',groups:[]})})).status,401);
+ assert.equal((await fetch('http://127.0.0.1:8789/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:'http://127.0.0.1:8789'},body:JSON.stringify({action:'clear-history',eventId:'mtt:2020-01-01',checked:true,confirmationDate:'2020-01-01',expectedRevision:0})})).status,401);
  console.log('PASS: deployed-mode Worker rejects anonymous access, spoofed identity headers, forged Access JWTs, and unauthenticated import requests; loopback development identity cannot bypass staging auth.');
  const password='disposable integration password',salt=randomBytes(16);config.name='tlpt-cashier-password-test';config.vars={...config.vars,AUTH_MODE:'password',CASHIER_PASSWORD_HASH:`v1:100000:${salt.toString('base64url')}:${pbkdf2Sync(password,salt,100000,32,'sha256').toString('base64url')}`,SESSION_SECRET:randomBytes(32).toString('base64url')};
  config.assets.run_worker_first=JSON.parse(readFileSync('wrangler.jsonc','utf8')).assets.run_worker_first;
@@ -120,5 +146,7 @@ try{
  for(const child of children)child.kill('SIGTERM');
  await Promise.all(children.map(c=>c.exitCode===null?new Promise(resolve=>{c.once('exit',resolve);setTimeout(()=>{c.kill('SIGKILL');resolve();},3000).unref();}):Promise.resolve()));
  rmSync(state,{recursive:true,force:true});
+ rmSync(state+'-history',{recursive:true,force:true});
+ rmSync('wrangler.history.local.json',{force:true});
  rmSync('wrangler.password.local.json',{force:true});
 }

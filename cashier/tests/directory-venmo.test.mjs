@@ -30,3 +30,13 @@ test('a directory match puts a receipt on its RSVP row without crediting or alte
  assert.equal(model.rows[0].pending[0].id,'test');assert.equal(model.rows[0].status,'review');assert.equal(model.paid,0);
  assert.equal(receipt.player,'');assert.equal(receipt.status,'review');
 });
+test('observed MTT payment names resolve to P, Griff and Chris F without rewriting any payment',()=>{
+ for(const [name,slug]of [['Pushin Craig','p'],['Griffin Goralski','griffin'],['Christopher Fiander','chris-f']]){
+  for(const payment of [{payer:name,player:'',method:'venmo'},{payer:name,player:name,method:'venmo'},{payer:'Someone else',player:name,method:'cash'}]){
+   const before=JSON.stringify(payment),profile=resolvePaymentPlayer(payment,players);
+   assert.equal(profile?.slug,slug);assert.ok(profile.image.startsWith('https://tlpt.org/images/players/'));assert.equal(JSON.stringify(payment),before);
+  }
+ }
+ assert.match(players.find(p=>p.slug==='p').image,/piercen-craig-v2\.webp$/);
+ assert.match(players.find(p=>p.slug==='griffin').image,/grif\.jpg$/);
+});
