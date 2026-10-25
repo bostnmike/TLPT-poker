@@ -3179,7 +3179,7 @@ function renderLeagueSnapshot(data) {
     },
     {
       icon:"💰",
-      label:"Historical Prize Pool",
+      label:"Total Prize & Bounty Pools",
       value:fmtMoney(totalEntryFees),
       valueClass:"money",
       className:"snapshot-green",
