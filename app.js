@@ -150,6 +150,47 @@ let currentArchetypeFilter = "all";
 let currentCrewSearch = "";
 let currentCrewRoster = "active";
 let currentCrewVisibleCount = 0;
+let currentCrewDisplay = "cards";
+let currentCrewTier = "all";
+
+const CREW_COUNT_TIERS = [
+  ['all', 'All tiers'], ['s', 'Apex Predators'], ['a', 'Table Crushers'],
+  ['b', 'Shot Makers'], ['c', 'Gamblers'], ['d', 'League Sponsors'],
+  ['provisional', 'Provisional'], ['rookie', 'Rookie'], ['unscouted', 'Unscouted']
+];
+
+function crewCountTier(player, allPlayers) {
+  if (isPlayerUnscouted(player)) return 'unscouted';
+  if (isCrewRookie(player)) return 'rookie';
+  if (isCrewProvisional(player)) return 'provisional';
+  return playerCardTierMeta(player, allPlayers).className;
+}
+
+function renderCrewCounts(roster, data) {
+  const host = document.getElementById('crew-tier-counts');
+  if (!host) return;
+  host.innerHTML = CREW_COUNT_TIERS.map(([key, label]) => {
+    const count = key === 'all' ? roster.length : roster.filter(p => crewCountTier(p, data.players) === key).length;
+    return `<button type="button" class="crew-count-btn crew-count-${key}" data-crew-tier="${key}" aria-pressed="${key === currentCrewTier}" aria-controls="players-grid" ${count ? '' : 'disabled'}><span>${label}</span><strong>${count}</strong></button>`;
+  }).join('');
+  host.querySelectorAll('[data-crew-tier]').forEach(button => button.addEventListener('click', () => {
+    currentCrewTier = button.dataset.crewTier;
+    currentCrewView = 'tier';
+    renderPlayers(data);
+    host.querySelector(`[data-crew-tier="${currentCrewTier}"]`)?.focus({ preventScroll: true });
+  }));
+}
+
+function crewMapPoints(players, allPlayers) {
+  return players.filter(isCrewEstablished).flatMap(player => {
+    const views = playerCardViewData(player, allPlayers);
+    if (!views.lastFive || player.cardForm?.recent?.eventCount !== 5) return [];
+    const tier = playerCardTierMeta(player, allPlayers);
+    return [{ slug: player.slug, name: player.name, image: player.image, rosterStatus: player.rosterStatus,
+      career: views.career.overall, form: views.lastFive.overall, appearances: player.buyIns,
+      tier: tier.name, colorKey: tier.className, url: playerUrl(player) }];
+  });
+}
 
 const STAT_FORMULAS = {
   tournamentWinnings: "Tournament Winnings: Prize-pool payouts only, excluding all bounty returns",
@@ -3745,6 +3786,14 @@ function renderPlayers(data) {
   if (crewViewSwitch) crewViewSwitch.checked = currentCrewView === "archetype";
 
   if (!grid || !data?.players) return;
+  window.TLPTCrewMap?.destroy();
+  document.querySelectorAll('[data-crew-display]').forEach(button => {
+    const active = button.dataset.crewDisplay === currentCrewDisplay;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
+  const grouping = document.querySelector('.crew-view-toolbar');
+  if (grouping) grouping.hidden = currentCrewDisplay === 'map';
 
   document.querySelectorAll("[data-crew-roster]").forEach(button => {
     const selected = button.dataset.crewRoster === currentCrewRoster;
@@ -3760,16 +3809,18 @@ function renderPlayers(data) {
       ? "The whole league, past and present. Career ratings and history stay together."
       : "The regular lineup. Alumni remain part of TLPT and are always welcome back.";
 
-  const matchingRosterPlayers = crewRosterPlayers(data.players, currentCrewRoster)
+  const searchedRosterPlayers = crewRosterPlayers(data.players, currentCrewRoster)
     .filter(player => {
       if (!currentCrewSearch) return true;
       const haystack = `${player?.name || ""} ${player?.slug || ""}`.toLowerCase();
       return haystack.includes(currentCrewSearch);
     })
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+  renderCrewCounts(searchedRosterPlayers, data);
+  const matchingRosterPlayers = searchedRosterPlayers.filter(player => currentCrewTier === 'all' || crewCountTier(player, data.players) === currentCrewTier);
   const rankedRosterPlayers = matchingRosterPlayers.filter(isCrewEstablished);
   const developingRosterPlayers = matchingRosterPlayers.filter(player => !isCrewEstablished(player));
-  const rosterPlayers = currentCrewRoster === "active" && currentCrewView === "tier" && !currentCrewSearch
+  const rosterPlayers = currentCrewDisplay === 'cards' && currentCrewTier === 'all' && currentCrewRoster === "active" && currentCrewView === "tier" && !currentCrewSearch
     ? [
         ...rankedRosterPlayers,
         ...developingRosterPlayers.slice(0, currentCrewVisibleCount)
@@ -3785,6 +3836,19 @@ function renderPlayers(data) {
         : `Showing all ${matchingRosterPlayers.length} players`;
   }
 
+  if (currentCrewDisplay === 'map' && window.TLPTCrewMap) {
+    if (helpCopy) helpCopy.hidden = true;
+    if (visual) { visual.innerHTML = ''; visual.hidden = true; }
+    const points = crewMapPoints(matchingRosterPlayers, data.players);
+    if (searchStatus) searchStatus.textContent = `${points.length} established players on the map; ${matchingRosterPlayers.length - points.length} developing players available in Cards`;
+    window.TLPTCrewMap.render(grid, points, crewMapPoints(data.players, data.players), matchingRosterPlayers.length - points.length, () => {
+      currentCrewDisplay = 'cards';
+      currentCrewVisibleCount = developingRosterPlayers.length;
+      renderPlayers(data);
+    });
+    return;
+  }
+
   if (!rosterPlayers.length) {
     if (visual) visual.innerHTML = "";
     grid.innerHTML = `
@@ -3797,6 +3861,7 @@ function renderPlayers(data) {
   }
 
   if (currentCrewView === "archetype") {
+    if (visual) visual.hidden = false;
     const archetypeGroups = groupPlayersByArchetype(rosterPlayers, currentArchetypeMode, data.players);
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
@@ -3938,15 +4003,9 @@ function renderPlayers(data) {
     explainer.hidden = true;
   }
 
-  if (visual) {
-    visual.innerHTML = `
-      <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
-      ${tierDistributionMarkup(tierGroups)}
-    `;
-  }
+  if (visual) { visual.innerHTML = ''; visual.hidden = true; }
 
   grid.innerHTML = `
-    ${crewTierJumpNavMarkup(tierGroups)}
     ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
     ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
     ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
@@ -6959,8 +7018,19 @@ function initCrewViewToggle() {
   const crewViewSwitch = document.getElementById("crew-view-switch-input");
 
   if (!tierBtn || !archetypeBtn) return;
+  const summary = document.getElementById('crew-tier-summary');
+  if (summary && typeof window.matchMedia === 'function') {
+    const desktop = window.matchMedia('(min-width: 760px)');
+    summary.open = desktop.matches;
+    desktop.addEventListener('change', event => { summary.open = event.matches; });
+  }
+  document.querySelectorAll('[data-crew-display]').forEach(button => button.addEventListener('click', () => {
+    currentCrewDisplay = button.dataset.crewDisplay;
+    renderPlayers(window.siteData);
+  }));
 
   tierBtn.addEventListener("click", () => {
+    currentCrewTier = 'all';
     currentCrewView = "tier";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
@@ -6970,6 +7040,7 @@ function initCrewViewToggle() {
   });
 
   archetypeBtn.addEventListener("click", () => {
+    currentCrewTier = 'all';
     currentCrewView = "archetype";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
@@ -6993,6 +7064,7 @@ function initCrewSearch() {
   document.querySelectorAll("[data-crew-roster]").forEach(button => {
     button.addEventListener("click", () => {
       currentCrewRoster = button.dataset.crewRoster;
+      currentCrewTier = 'all';
       currentArchetypeFilter = "all";
       currentCrewVisibleCount = 0;
       renderPlayers(window.siteData);
@@ -7003,6 +7075,7 @@ function initCrewSearch() {
 
   search.addEventListener("input", () => {
     currentCrewSearch = String(search.value || "").trim().toLowerCase();
+    currentCrewTier = 'all';
     currentArchetypeFilter = "all";
     currentCrewVisibleCount = 0;
     renderPlayers(window.siteData);

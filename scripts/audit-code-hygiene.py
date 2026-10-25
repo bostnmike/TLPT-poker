@@ -387,7 +387,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20261018-1"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261025-1"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261025-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261025-3"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -680,13 +680,7 @@ EXPECTED_CONTROLLED_RESULTS = {
     "players.html": "players-visual players-grid",
     "player-movement.html": "pm-top-movers pm-player-grid",
 }
-EXPECTED_SWITCH_INPUT_LABELS = {
-    "players.html": (
-        "crew-view-switch-input",
-        "Archetype crew view",
-        "players-visual players-grid",
-    ),
-}
+EXPECTED_SWITCH_INPUT_LABELS = {}  # Crew grouping now uses two directly selectable buttons.
 EXPECTED_LIVE_STATUSES = {
     "dashboard.html": "dashboard-current-stat",
     "player-movement.html": "pm-top-title",

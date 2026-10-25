@@ -1,0 +1,74 @@
+/* Crew-only layout: never alter the home page's shared player-card artwork. */
+.crew-page .crew-header-shell { position:relative; padding:24px 28px; margin-bottom:14px; min-height:0; }
+.crew-page .crew-header-shell .site-page-hero-copy { max-width:calc(100% - 100px); }
+.crew-page .crew-header-shell .site-page-hero-title { font-size:clamp(32px,4vw,52px); }
+.crew-page .crew-header-shell .site-page-hero-brand { position:absolute; top:24px; right:24px; width:80px; height:80px; min-height:0; }
+.crew-page .crew-header-shell .site-page-hero-chip { width:80px; height:80px; }
+.crew-page .crew-header-shell .site-page-hero-watermark { display:none; }
+.crew-page .crew-control-deck { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:24px; padding:18px; margin-bottom:16px; }
+.crew-page .crew-header-controls { grid-column:auto; grid-template-columns:1fr 1fr; gap:10px 12px; align-content:start; }
+.crew-page .crew-roster-filter, .crew-page .crew-search-row, .crew-page #crew-roster-note { grid-column:1 / -1; }
+.crew-page #crew-roster-note { font-size:13px; line-height:1.4; }
+.crew-page .crew-roster-filter { flex-wrap:nowrap; gap:8px; }
+.crew-page .crew-roster-filter .btn { flex:1; padding:8px; font-size:14px; min-width:0; }
+.crew-page .crew-presentation-controls, .crew-page .crew-view-toolbar { display:flex; flex-wrap:nowrap; gap:6px; padding:0; margin:0; background:none; border:0; box-shadow:none; }
+.crew-page .crew-view-toolbar::before { display:none; }
+.crew-page .crew-presentation-controls .btn, .crew-page .crew-view-toolbar .btn { flex:1; min-width:0; min-height:44px; padding:8px; font-size:14px; white-space:normal; }
+.crew-page .crew-presentation-controls .btn.active, .crew-page .crew-view-toolbar .btn.active { background:#8f2428; border-color:#f87171; color:#fff; box-shadow:none; }
+.crew-page .crew-presentation-controls .btn:not(.active), .crew-page .crew-view-toolbar .btn:not(.active) { background:#151b23; border-color:rgba(239,68,68,.4); color:#fecaca; }
+.crew-page #players-help-copy { grid-column:1 / -1; font-size:13px; }
+.crew-page .crew-search-row { display:grid; grid-template-columns:minmax(0,1fr); gap:6px; justify-content:stretch; }
+.crew-page .crew-search-row label { width:100%; }
+.crew-page #crew-search-status { margin:0; font-size:12px; }
+.crew-page [hidden], .crew-page #players-visual:empty { display:none !important; }
+.crew-page .crew-count-heading { font-size:17px; margin:0 0 10px; }
+.crew-page .crew-tier-summary > summary { min-height:44px; cursor:pointer; color:#fecaca; font-weight:750; }
+.crew-page .crew-count-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+.crew-page .crew-count-btn { min-height:44px; display:flex; align-items:center; justify-content:space-between; gap:6px; background:#121a23; color:#e7eef5; border:1px solid #364150; border-left:3px solid var(--tier-color,#64748b); border-radius:10px; padding:8px; font:inherit; font-size:12px; text-align:left; cursor:pointer; }
+.crew-page .crew-count-btn strong { font-size:18px; color:var(--tier-color,#f8fafc); }
+.crew-page .crew-count-s { --tier-color:#c084fc; }.crew-page .crew-count-a { --tier-color:#60a5fa; }.crew-page .crew-count-b { --tier-color:#4ade80; }.crew-page .crew-count-c { --tier-color:#facc15; }.crew-page .crew-count-d { --tier-color:#fb7185; }
+.crew-page .crew-count-btn[aria-pressed="true"] { background:#312125; outline:1px solid #f87171; }
+.crew-page .crew-count-btn:disabled { opacity:.45; cursor:default; }
+.crew-page .crew-count-note { color:#aebdca; font-size:12px; line-height:1.5; margin:10px 0 0; }
+.crew-page .crew-results-shell { padding:0; border:0; background:none; box-shadow:none; }
+.crew-page .crew-results-shell .tier-section:first-child { margin-top:0; }
+.crew-page .crew-results-shell .tier-strength { display:none; }
+.crew-page .crew-count-btn:focus-visible, .crew-page [data-crew-display]:focus-visible, .crew-page .crew-map-bubble:focus-visible, .crew-page .crew-tier-summary > summary:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+.crew-map { padding:20px; background:#101820; border:1px solid #3b4653; border-radius:18px; }
+.crew-map-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.crew-map h2 { margin:0; font-size:24px; }.crew-map p { color:#bdc9d5; font-size:14px; line-height:1.5; }
+.crew-map-heading p { margin:6px 0 14px; }.crew-map-heading .btn { white-space:nowrap; }
+.crew-map-plot { position:relative; height:360px; overflow:hidden; border:1px solid #566171; border-radius:12px; background:#0b1119; --cut-x:50%; --cut-y:50%; }
+.crew-map-quadrant { position:absolute; padding:12px; color:#b9c8d8; font-size:12px; font-weight:750; pointer-events:none; }
+.crew-map .q-tl { left:0; top:0; width:var(--cut-x); height:var(--cut-y); background:rgba(59,130,246,.06); }
+.crew-map .q-tr { left:var(--cut-x); top:0; right:0; height:var(--cut-y); background:rgba(34,197,94,.07); text-align:right; }
+.crew-map .q-bl { left:0; top:var(--cut-y); bottom:0; width:var(--cut-x); background:rgba(148,163,184,.03); display:flex; align-items:end; }
+.crew-map .q-br { left:var(--cut-x); top:var(--cut-y); right:0; bottom:0; background:rgba(239,68,68,.06); display:flex; justify-content:end; align-items:end; text-align:right; }
+.crew-map-cross-x { position:absolute; top:0; bottom:0; left:var(--cut-x); border-left:1px dashed #738293; }
+.crew-map-cross-y { position:absolute; left:0; right:0; top:var(--cut-y); border-top:1px dashed #738293; }
+.crew-map-connectors { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.crew-map-connectors line { stroke:#b8c6d6; stroke-width:1; opacity:.6; }.crew-map-connectors circle { fill:#edf3fa; }
+.crew-map-bubble { position:absolute; width:var(--hit-size); height:var(--hit-size); min-width:44px; min-height:44px; transform:translate(-50%,-50%); padding:0; border:0; border-radius:50%; background:transparent; display:grid; place-items:center; cursor:pointer; }
+.crew-map-bubble > span { width:var(--bubble-size); height:var(--bubble-size); display:grid; place-items:center; border:2px solid var(--map-color); border-radius:50%; background:#182331; color:#fff; font-size:12px; font-weight:800; box-shadow:inset 0 0 10px color-mix(in srgb,var(--map-color) 20%,transparent); }
+.crew-map-bubble[aria-pressed="true"] { z-index:2; }.crew-map-bubble[aria-pressed="true"] > span { outline:2px solid #fff; outline-offset:2px; }
+.crew-map-y-label, .crew-map-x-label { color:#d9e3ee; font-size:13px; margin:10px 0; }.crew-map-x-label { display:flex; justify-content:space-between; }
+.crew-map-key { display:flex; flex-wrap:wrap; gap:12px; color:#d9e3ee; font-size:12px; }.crew-map-key span::before { content:''; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--map-color); margin-right:5px; }
+.crew-map-player-label { display:block; max-width:360px; color:#fca5a5; font-size:13px; font-weight:750; }.crew-map-player-label > span { display:block; margin-bottom:7px; }.crew-map-player-label select { width:100%; min-height:44px; font:inherit; background:#18212b; color:#fff; }
+.crew-map-detail { display:flex; align-items:center; flex-wrap:wrap; gap:20px; margin-top:14px; padding:16px; background:#18212b; border-radius:12px; }.crew-map-detail strong { font-size:20px; }.crew-map-detail span { display:block; color:#bdc9d5; font-size:13px; margin-top:4px; }
+.crew-map-detail dl { display:flex; gap:20px; margin:0; }.crew-map-detail dt { font-size:12px; color:#bdc9d5; }.crew-map-detail dd { font-size:22px; margin:0; font-weight:750; }
+@media(min-width:760px) { .crew-page .crew-tier-summary > summary { display:none; } }
+@media(min-width:760px) and (max-width:1100px) {
+  .crew-page .crew-presentation-controls, .crew-page .crew-view-toolbar { grid-column:1 / -1; }
+  .crew-page .crew-count-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:759px) {
+  .crew-page .crew-control-deck { grid-template-columns:minmax(0,1fr); gap:10px; padding:14px; }
+  .crew-page .crew-header-controls { grid-template-columns:minmax(0,1fr); gap:9px; }
+  .crew-page .crew-header-shell { padding:20px; }.crew-page .crew-header-shell .site-page-hero-copy { max-width:calc(100% - 60px); }
+  .crew-page .crew-header-shell .site-page-hero-title { font-size:32px; }.crew-page .crew-header-shell .site-page-hero-kicker { font-size:10px; }
+  .crew-page .crew-header-shell .site-page-hero-brand { width:48px; height:48px; right:14px; top:24px; }.crew-page .crew-header-shell .site-page-hero-chip { width:48px; height:48px; }
+  .crew-page .crew-tier-summary { border-top:1px solid #364150; padding-top:8px; }.crew-page .crew-count-heading { display:none; }
+  .crew-page .crew-count-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .crew-map { padding:14px; }.crew-map-heading { display:block; }.crew-map-heading .btn { margin-bottom:8px; }.crew-map-plot { height:380px; }
+  .crew-map-quadrant { font-size:11px; padding:8px; }.crew-map-detail { gap:12px; }.crew-map-detail dl { width:100%; justify-content:space-between; }
+}

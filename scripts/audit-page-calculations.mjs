@@ -95,6 +95,38 @@ function loadScript(relative, transform = source => source) {
 }
 
 const app = loadScript("app.js");
+// Crew's compact counts and optional map are views of existing career data.
+const crewSnapshot = JSON.stringify(data.players);
+const countTier = app.get("crewCountTier");
+const mapPoints = app.get("crewMapPoints");
+const allMapPoints = mapPoints(data.players, data.players);
+const mapModule = loadScript("crew-map.js").context.window.TLPTCrewMap;
+for (const membership of ["active", "alumni", "all"]) {
+  const members = app.get("crewRosterPlayers")(data.players, membership);
+  const categories = ["s", "a", "b", "c", "d", "provisional", "rookie", "unscouted"];
+  check(categories.reduce((sum, tier) => sum + members.filter(p => countTier(p, data.players) === tier).length, 0) === members.length,
+    `${membership}: tier counts must cover the full roster, including hidden developing players`);
+  const points = mapPoints(members, data.players);
+  check(points.length === members.filter(p => app.get("isCrewEstablished")(p) && p.cardForm?.recent?.eventCount === 5).length,
+    `${membership}: Crew Map needs five recorded appearances`);
+  for (const point of points) {
+    const source = data.players.find(p => p.slug === point.slug);
+    const views = app.get("playerCardViewData")(source, data.players);
+    check(point.career === views.career.overall && point.form === views.lastFive.overall,
+      `${point.slug}: Crew Map must use the original career and Last Five card ratings`);
+    check(JSON.stringify(point) === JSON.stringify(allMapPoints.find(p => p.slug === point.slug)),
+      `${point.slug}: membership filtering must not recalculate map ratings`);
+  }
+  for (const width of [240, 270, 660, 1120]) {
+    const nodes = mapModule.layout(points, width, 380);
+    check(nodes.every(p => Number.isFinite(p.x) && Number.isFinite(p.y) && p.x >= p.hit / 2 && p.x <= width - p.hit / 2 && p.y >= p.hit / 2 && p.y <= 380 - p.hit / 2 && p.hit >= 44),
+      `${membership}: map targets must fit a ${width}px chart and retain 44px hit areas`);
+    check(nodes.every((a, i) => nodes.slice(i + 1).every(b => Math.hypot(a.x - b.x, a.y - b.y) >= (a.hit + b.hit) / 2 - .5)),
+      `${membership}: map bubbles must not overlap at ${width}px`);
+  }
+}
+check(mapModule.median([90, 60, 70, 80]) === 75, "Crew Map references use a deterministic median");
+check(JSON.stringify(data.players) === crewSnapshot, "Crew Map and counts must never mutate career records");
 // White is the unscouted starter; the 100 Club owns the black/gold finish.
 for (const [file, selector, prefix] of [
   ["player.css", ".tlpt-compare-card-edition-milestone-100", ""],

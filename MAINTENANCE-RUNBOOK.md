@@ -166,6 +166,26 @@ Event finish orders, historical stories, matchup pairs, and seating previews kee
 their meaningful order; RSVP forecasts and player/opponent directories are grouped.
 Do not apply public membership presentation rules to cashier eligibility or imports.
 
+### Crew cards and optional map
+
+The Crew page defaults to Cards with all established active players. Compact tier
+counts cover the full selected membership/search roster, including developing
+players hidden by progressive disclosure. Selecting a tier reveals its full list.
+Desktop counts sit beside controls; on phones they are expandable.
+
+`crew-map.js` and `crew-map.css` provide an optional replacement view, not another
+block above the cards. Coordinates use the existing career and Last Five card OVR;
+five recorded appearances are required. Bubble area represents appearances up to
+60, colors retain career tiers, and collision leader lines preserve exact ratings.
+Median reference lines use the full established league, including alumni, regardless
+of display filters. Quadrant names are descriptive only: no rating, award, or
+qualification rules change. Developing players remain available in Cards.
+
+The calculation audit tests rating parity, roster coverage, target bounds and
+collision spacing. `node scripts/test-crew-browser.cjs <base URL>` (with Playwright
+available) verifies desktop, tablet and phone controls, shared dropdown behavior,
+keyboard selection, search, and data immutability.
+
 ## Prize and bounty accounting
 
 Event prize pools and `winners[].payout` contain tournament prize money only.
