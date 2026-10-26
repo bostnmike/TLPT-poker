@@ -1,4 +1,4 @@
-import {Rejected,requireValue,publicFeed,publicPlayer,playerView,applyOperation} from './model.mjs';
+import {Rejected,requireValue,publicFeed,publicPlayer,playerView,applyOperation,compareEvents} from './model.mjs';
 const encoder=new TextEncoder();
 export const hash=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');
 export const random=()=>Array.from(crypto.getRandomValues(new Uint8Array(32))).map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -52,7 +52,7 @@ export default {async fetch(req,env,ctx){
    return json({role:admin?'admin':'player'},200,{'Set-Cookie':`tlpt_rsvp=${token}; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=604800`});
   }
   const actor=await identity(req,env,state);
-  if(path==='/api/me'&&req.method==='GET')return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state).events,allEvents:state.events.map(e=>({id:e.id,archived:e.archived,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug)});
+  if(path==='/api/me'&&req.method==='GET')return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug)});
   if(path==='/api/logout'&&req.method==='POST'){
    await env.DB.prepare('DELETE FROM sessions WHERE hash=?').bind(actor.hash).run();return json({ok:true},200,{'Set-Cookie':'tlpt_rsvp=; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});
   }

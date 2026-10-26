@@ -31,7 +31,7 @@ function render(){
  document.body.classList.toggle('is-commish',controls);document.body.classList.toggle('is-player-preview',commish&&playerPreview);
  $('#player-picker').hidden=commish;$('#player-picker').innerHTML=commish?'':`<label>Your name<select id="shared-player" ${busy?'disabled':''}><option value="">Choose your name…</option>${playerOptions(selectedSlug)}</select></label><p>Pick your name. Call your shot.</p>`;
  $('#view-controls').hidden=!commish;$('#view-controls').innerHTML=commish?`<div class="view-switch" role="group" aria-label="Page view"><button type="button" data-view="commish" aria-pressed="${!playerPreview}">Commish view</button><button type="button" data-view="player" aria-pressed="${playerPreview}">Player view</button></div>${playerPreview?`<div class="preview-details"><label>Preview as<select id="preview-player">${playerOptions(previewSlug)}</select></label><p>Player preview · Replies are disabled here. Switch back to Commish view to manage responses.</p></div>`:''}`:'';
- const events=feed?.events||[];$('#events').innerHTML=(controls?'<h2 class="lineup-heading">Upcoming lineups</h2>':'')+[...events].sort((a,b)=>a.id===chosen?-1:b.id===chosen?1:0).map(eventCard).join('')||'<p>No upcoming games are published.</p>';
+ const events=feed?.events||[];$('#events').innerHTML=(controls?'<h2 class="lineup-heading">Upcoming lineups</h2>':'')+events.map(eventCard).join('')||'<p>No upcoming games are published.</p>';
  const viewer=viewingPlayer();
  $('#identity').innerHTML=viewer?.role==='player'?`${person(viewer.player.slug)} <span class="tag">${playerPreview?'Player preview':'Your RSVP'}</span>`:commishMode()?'<span class="tag">THE COMMISH · No Bostn, No Party</span>':'';
  $('#logout').hidden=!me;
