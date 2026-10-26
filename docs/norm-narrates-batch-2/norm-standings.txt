@@ -4,8 +4,6 @@ Choose a button to rank the table by take-home, profit, cashes, bubbles, hits, o
 
 Take-home is what came back. Profit subtracts what went in, including bounty costs. Those are different numbers, despite what your postgame explanation may suggest.
 
-Buy-ins count tournament appearances. Entries also include rebuys and reloads. Chris O, a reload is another investment, not a fresh start for the accountant.
+Buy-ins count tournament appearances. Entries also include rebuys and reloads. Chris O and ProvidenceMike, just remember: a reload is another investment, not a fresh start for the accountant.
 
 Use the event filters to compare formats or bounty events. They change the results shown, not career ratings or awards.
-
-And remember: leading the bubble column is still technically leading something.

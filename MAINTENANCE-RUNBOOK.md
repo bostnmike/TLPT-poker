@@ -320,8 +320,13 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   `docs/norm-narrates-batch-2/`. On receiving recordings, add the matching assets,
   set each guide's audio path and rotate cache versions on the consuming pages.
   Run `scripts/test-stats-guides-browser.cjs` for all guide dialogs, portraits,
-  focus/close behavior, narrow layouts and audio teardown. Update its
-  unrecorded-guide assertions when those recordings are actually enabled.
+  focus/close behavior, narrow layouts and audio teardown. All eight batch-two
+  recordings are enabled.
+  The supplied file named norm-form-lab.mp3 was identified by its spoken content
+  as Bounty Hunters and copied unchanged under norm-bounty-hunters.mp3.
+  The replacement norm-form-lab2.mp3 is copied unchanged as norm-form-lab.mp3.
+  The browser checks validate each file mapping and duration, no eager audio
+  loading, dismissal during playback, reopening, and both Knockout Central views.
 - Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
   the local preview, and again against production after deployment. It covers all
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,

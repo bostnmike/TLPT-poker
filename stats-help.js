@@ -63,10 +63,9 @@
   const key = opener.dataset.statsHelpOpen;
   const currentView = () => window.TLPTStatsGuides[key === 'knockouts' && document.querySelector('[data-knockouts-view="bounties"]')?.getAttribute('aria-pressed') === 'true' ? 'bounties' : key];
   invitation(opener, Boolean(currentView().audio));
+  const viewObserver = new MutationObserver(() => invitation(opener, Boolean(currentView().audio)));
   document.querySelectorAll('[data-knockouts-view]').forEach(button => {
-    button.addEventListener('click', () => {
-      queueMicrotask(() => invitation(opener, Boolean(currentView().audio)));
-    });
+    viewObserver.observe(button, {attributes:true, attributeFilter:['aria-pressed']});
   });
   const dialog = document.getElementById('stats-help');
   const title = document.getElementById('stats-help-title');

@@ -86,14 +86,18 @@ for (const page of ['standings','form-lab','player-movement','streaks','knockout
   const markup = fs.readFileSync(new URL('../'+page+'.html',import.meta.url),'utf8');
   assert.ok(markup.includes('data-stats-help-open="'+page+'"'), page+': contextual help invitation');
   assert.match(markup, /stats-help\.css\?v=20261026-1/);
-  assert.match(markup, /stats-help-content\.js\?v=20261026-1/);
-  assert.match(markup, /stats-help\.js\?v=20261026-1/);
+  assert.match(markup, /stats-help-content\.js\?v=20261026-2/);
+  assert.match(markup, /stats-help\.js\?v=20261026-2/);
 }
 assert.ok(fs.statSync(new URL('../images/site/norm-headshot.png',import.meta.url)).size>1000);
 assert.equal(Object.keys(guideContext.window.TLPTStatsGuides).length,8);
 for (const guide of Object.values(guideContext.window.TLPTStatsGuides)) {
   assert.ok(guide.title && guide.intro && guide.sections.length>=4);
-  if(guide.audio) assert.ok(fs.existsSync(new URL('../'+guide.audio,import.meta.url)), 'Only shipped recordings may be enabled');
+  if(guide.audio) {
+    const recording = fs.readFileSync(new URL('../'+guide.audio,import.meta.url));
+    assert.ok(recording.length>1000, 'Enabled narration has audio data');
+    assert.equal(recording.subarray(0,3).toString(),'ID3','Enabled narration is an MP3');
+  }
 }
 for (const category of ['results', 'bankroll', 'rates', 'player-dna']) {
   const recording = fs.readFileSync(new URL(`../media/norm-narrates/norm-dashboard-${category}.mp3`, import.meta.url));

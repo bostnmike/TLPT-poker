@@ -12,7 +12,11 @@ const durations = {results:40.91, bankroll:41.95, rates:43.55, 'player-dna':47.9
       page.on('request', r => { if (r.url().includes('/media/norm-narrates/')) requests.push(r.url()); });
       page.on('pageerror', e => errors.push(e.message));
       await page.goto(base + '/dashboard.html');
-      await page.locator('#dashboard-metric-select-trigger').waitFor();
+      await page.locator('#dashboard-metric-select-trigger').waitFor().catch(async error => {
+        console.error('Dashboard readiness:',width,errors,await page.locator('#dashboard-metric-panel').innerHTML());
+        await page.screenshot({path:'/tmp/dashboard-narration-readiness-'+width+'.png'});
+        throw error;
+      });
       await page.locator('#dashboard-grid .dashboard-card').first().waitFor();
       assert.equal(requests.length,0,'Page load must not request narration');
       for (const [category,duration] of Object.entries(durations)) {

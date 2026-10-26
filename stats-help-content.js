@@ -1,7 +1,7 @@
 /* Written guides reflect the existing calculations; audio is enabled only after review. */
 window.TLPTStatsGuides = {
   standings: {
-    title: 'Standings', audio: null, scope: true,
+    title: 'Standings', audio: 'media/norm-narrates/norm-standings.mp3', scope: true,
     intro: 'The league ledger: compare the numbers side by side, then choose what determines the order.',
     sections: [
       ['Start here', 'Choose a metric button to sort the table from highest to lowest. Select a player name to open their profile. On a narrow screen, swipe the table sideways to see every column.'],
@@ -11,7 +11,7 @@ window.TLPTStatsGuides = {
     ]
   },
   'form-lab': {
-    title: 'The Form Lab', audio: null, scope: true,
+    title: 'The Form Lab', audio: 'media/norm-narrates/norm-form-lab.mp3', scope: true,
     intro: 'Explore one player’s event results as a scatter plot. Each point is an appearance, not another player.',
     sections: [
       ['Start here', 'Choose a Player, a Preset comparison and a Window: the last six, last ten, or all matching appearances. Select a point or an event-history card to inspect that night. Keyboard users can focus a point and press Enter or Space.'],
@@ -21,7 +21,7 @@ window.TLPTStatsGuides = {
     ]
   },
   'player-movement': {
-    title: 'The Heater Meter', audio: null, scope: true,
+    title: 'The Heater Meter', audio: 'media/norm-narrates/norm-heater-meter.mp3', scope: true,
     intro: 'Recent form and direction—not a replacement for the career rankings.',
     sections: [
       ['Start here', 'Choose Hot, Cold, Consistent or Volatile. The leaders and full board use your selected mode. Players need four matching appearances to qualify; the calculations use their last six matching appearances, or all available if fewer than six.'],
@@ -31,7 +31,7 @@ window.TLPTStatsGuides = {
     ]
   },
   streaks: {
-    title: 'The Streak Tracker', audio: null, scope: true,
+    title: 'The Streak Tracker', audio: 'media/norm-narrates/norm-streaks.mp3', scope: true,
     intro: 'Follow consecutive tournament cashes and consecutive misses across appearances a player actually made.',
     sections: [
       ['Start here', 'Compare Active Cash Streaks and Active Droughts with the longest historical runs. Use Player Streak Lookup for an individual’s run lengths, dates and events.'],
@@ -41,7 +41,7 @@ window.TLPTStatsGuides = {
     ]
   },
   knockouts: {
-    title: 'Knockout Central', audio: null, scope: true,
+    title: 'Knockout Central', audio: 'media/norm-narrates/norm-knockouts.mp3', scope: true,
     intro: 'Who eliminated whom, how often, and which rivalries have receipts.',
     sections: [
       ['Start here', 'Use Knockouts for the full elimination picture, or Bounty Hunters for the bounty subset. The jump links take you to leaders, rivalries, nemeses and the Body Count ledger. Select player links for the full profile.'],
@@ -51,7 +51,7 @@ window.TLPTStatsGuides = {
     ]
   },
   bounties: {
-    title: 'Bounty Hunters', audio: null, scope: true,
+    title: 'Bounty Hunters', audio: 'media/norm-narrates/norm-bounty-hunters.mp3', scope: true,
     intro: 'The bounty subset of the knockout story, with the money kept straight.',
     sections: [
       ['Start here', 'Compare the Bounty Leaders, review the Bounty Ledger, then inspect Verified Bounty Claims to see who collected whose bounty. Switch to Knockouts for all eliminations, including those without bounty credit.'],
@@ -61,7 +61,7 @@ window.TLPTStatsGuides = {
     ]
   },
   players: {
-    title: 'Meet the Crew', audio: null, scope: false,
+    title: 'Meet the Crew', audio: 'media/norm-narrates/norm-meet-the-crew.mp3', scope: false,
     intro: 'Find the players, explore their career cards, or compare career reputation with recent form.',
     sections: [
       ['Start here', 'Choose Active, Alumni or All, then search by name. Use Cards or Crew Map for the display, and By Tier or By Archetype for grouping. Tier buttons narrow the lineup. Developing players remain available through their tiers and the additional-player controls.'],
@@ -71,7 +71,7 @@ window.TLPTStatsGuides = {
     ]
   },
   player: {
-    title: 'Player Profiles', audio: null, scope: true,
+    title: 'Player Profiles', audio: 'media/norm-narrates/norm-player-profile.mp3', scope: true,
     intro: 'One player’s career identity and event results, with the distinction kept visible.',
     sections: [
       ['Start here', 'Use Previous Player, Next Player or The Crew to move through profiles. Explore the player’s card, statistical tiles and knockout history. Focus or hover a stat tile to see its calculation.'],
