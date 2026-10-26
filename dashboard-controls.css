@@ -23,7 +23,7 @@ body .dashboard-controls-compact .stat-scope { margin: 0; padding: 0; border: 0;
 body .dashboard-controls-compact .stat-scope-controls { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
 body .dashboard-controls-compact .stat-scope-feedback { margin-top: 4px; gap: 0 12px; align-items: center; justify-content: flex-start; }
 body .dashboard-controls-compact .stat-scope-summary { font-size: .8rem; }
-body .dashboard-controls-compact .stat-scope-help { margin-left: auto; }
+body .dashboard-controls-compact .stat-scope-help { display: none; }
 body .dashboard-controls-compact .stat-scope-help > summary { font-size: .8rem; font-weight: 500; }
 body .dashboard-controls-compact [data-stat-reset] { min-height: 44px; padding: 6px 10px; border: 0; background: none; box-shadow: none; }
 body .dashboard-controls-compact .dashboard-studio-strip {
@@ -31,6 +31,26 @@ body .dashboard-controls-compact .dashboard-studio-strip {
   color: #c3d1dd; font-size: .9rem; line-height: 1.5; font-weight: 500;
 }
 body .dashboard-controls-compact .stat-career-note { margin: 12px 0 8px; color: #d7b4fa; font-size: .84rem; }
+.dashboard-summary-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; margin-top: 8px; border-top: 1px solid #34414d; }
+body .dashboard-controls-compact .dashboard-summary-row .dashboard-studio-strip { border: 0; padding-top: 6px; flex: 1 1 420px; }
+.dashboard-help-button { min-height: 44px; padding: 8px 0; border: 0; background: none; color: #ffcf70; font: inherit; font-size: .84rem; font-weight: 650; cursor: pointer; }
+.dashboard-help-dialog { width: min(720px, calc(100% - 32px)); max-height: min(85dvh,900px); box-sizing: border-box; padding: 0 24px 24px; border: 1px solid #786132; border-radius: 18px; background: #111b24; color: #d5dfe8; box-shadow: 0 24px 80px #0009; overflow: auto; }
+.dashboard-help-dialog::backdrop { background: #03080dd9; }
+.dashboard-help-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; position: sticky; top: 0; padding: 20px 0 14px; background: #111b24; border-bottom: 1px solid #34414d; z-index: 1; }
+.dashboard-help-header h2 { color: #fff; font-size: 1.25rem; line-height: 1.3; margin: 0; }
+.dashboard-help-header .btn { flex-shrink: 0; min-height: 44px; }
+.dashboard-help-dialog h3 { margin: 24px 0 8px; color: #ffcf70; font-size: 1rem; }
+.dashboard-help-dialog p, .dashboard-help-dialog dd { font-size: .94rem; line-height: 1.6; }
+.dashboard-help-dialog dt { margin: 16px 0 4px; font-weight: 750; color: #f3f6f8; }
+.dashboard-help-dialog dd { margin: 0; }
+.dashboard-help-dialog .dashboard-help-selected { color: #ffcf70; }
+.dashboard-help-dialog details { margin-top: 18px; padding: 8px 12px; border: 1px solid #40505f; border-radius: 10px; }
+.dashboard-help-dialog summary { min-height: 44px; align-content: center; cursor: pointer; font-size: .9rem; color: #e4ecf3; }
+.dashboard-help-dialog :focus-visible { outline: 2px solid #ffcf70; outline-offset: 3px; }
+@media (max-width:700px) {
+  .dashboard-help-dialog { padding: 0 16px 16px; }
+  .dashboard-help-header h2 { font-size: 1.1rem; }
+}
 .dashboard-filter-toggle {
   display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 12px; align-items: center;
   width: 100%; min-height: 52px; padding: 10px 0; text-align: left;

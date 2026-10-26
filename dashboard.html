@@ -52,7 +52,7 @@
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
   <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
-  <link rel="stylesheet" href="dashboard-controls.css?v=20261026-2" />
+  <link rel="stylesheet" href="dashboard-controls.css?v=20261026-3" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -166,7 +166,10 @@
           </div>
 
           <p id="dashboard-career-note" class="stat-career-note" hidden>Career-wide ratings · Event filters don’t apply.</p>
-          <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
+          <div class="dashboard-summary-row">
+            <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
+            <button class="dashboard-help-button" type="button" data-dashboard-help-open aria-haspopup="dialog" aria-controls="dashboard-help">ⓘ How to use this view</button>
+          </div>
 
           <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
             <div id="dashboard-current-stat" class="dashboard-current-stat" role="status" aria-live="polite" aria-atomic="true"></div>
@@ -200,10 +203,18 @@
   </div>
 </footer>
 
+  <dialog id="dashboard-help" class="dashboard-help-dialog" aria-labelledby="dashboard-help-title">
+    <div class="dashboard-help-header">
+      <h2 id="dashboard-help-title">Dashboard help</h2>
+      <button class="btn" type="button" data-dashboard-help-close autofocus>Close</button>
+    </div>
+    <div id="dashboard-help-content"></div>
+  </dialog>
   <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
   <script src="stats-scope.js?v=20261026-1"></script>
   <script src="app.js?v=20261026-3"></script>
   <script src="dashboard-controls.js?v=20261026-2"></script>
+  <script src="dashboard-help.js?v=20261026-1"></script>
 </body>
 </html>

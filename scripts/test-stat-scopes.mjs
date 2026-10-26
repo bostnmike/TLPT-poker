@@ -77,6 +77,9 @@ for (const page of ['dashboard','standings','player','knockouts','form-lab','str
   assert.match(html, /stats-scope\.css\?v=20261025-1/);
 }
 const streakContext = vm.createContext({ document: { addEventListener() {} } });
+const dashboardMarkup = fs.readFileSync(new URL('../dashboard.html', import.meta.url),'utf8');
+assert.match(dashboardMarkup, /<dialog id="dashboard-help"/, 'Dashboard includes accessible contextual help');
+assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-1/, 'Contextual help is loaded');
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement','players','trophy-room','gallery','voice-of-god','structures']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/class="[^"]*\btlpt-control-deck\b/g) || []).length, 1, `${page}: one consolidated control surface`);

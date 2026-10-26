@@ -297,6 +297,11 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   Player DNA hides event controls without clearing their selections; returning to
   an event-results tab restores them. The Dashboard shows one live ranking sentence
   based on the actual ranked players and selected event count, not duplicate counters.
+  The “How to use this view” modal is defined in `dashboard-help.js`. It uses the
+  live metric names and calculation definitions from `app.js`; keep explanatory
+  copy aligned with those rules. Modal tests cover all four views, Escape, focus
+  containment/return, backdrop dismissal, and narrow screens. Narration is not
+  enabled until the matching audio files are supplied.
 - Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
   the local preview, and again against production after deployment. It covers all
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,

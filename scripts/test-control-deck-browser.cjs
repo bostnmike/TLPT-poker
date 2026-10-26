@@ -95,6 +95,29 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           await page.locator('[data-crew-roster="active"]').click();
         }
         if (name === 'dashboard') {
+          for (const category of ['results','bankroll','rates','player-dna']) {
+            await page.locator('[data-dashboard-category="' + category + '"]').click();
+            await page.locator('[data-dashboard-help-open]').click();
+            const dialog = page.locator('#dashboard-help');
+            await dialog.waitFor({state:'visible'});
+            assert.match(await dialog.locator('h2').textContent(), /How to use this view/);
+            assert.ok(await dialog.locator('dt').count() >= 2);
+            assert.equal(await dialog.evaluate(el => el.scrollWidth > el.clientWidth + 1), false, 'Help has no horizontal overflow');
+            const bounds = await dialog.boundingBox();
+            assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1 && bounds.y + bounds.height <= 1001);
+            await page.keyboard.press('Tab');
+            assert.equal(await dialog.evaluate(el => el.contains(document.activeElement)),true,'Modal keeps keyboard focus');
+            if (category === 'results') await page.screenshot({path:'/tmp/tlpt-help-results-' + width + '.png'});
+            await page.keyboard.press('Escape');
+            assert.equal(await dialog.isVisible(),false);
+            assert.equal(await page.locator('[data-dashboard-help-open]').evaluate(el => el === document.activeElement),true);
+          }
+          await page.locator('[data-dashboard-category="results"]').click();
+          await page.locator('[data-dashboard-help-open]').click();
+          await page.locator('[data-dashboard-help-close]').click();
+          await page.locator('[data-dashboard-help-open]').click();
+          await page.mouse.click(2,2);
+          assert.equal(await page.locator('#dashboard-help').isVisible(),false);
           assert.equal(await page.locator('#dashboard-metric-select-trigger').textContent(), 'Knockouts (Hits)');
           assert.match(await page.locator('#dashboard-studio-strip').textContent(), /Ranking \d+ players? by knockouts \(hits\) across \d+ events?\./);
           await page.locator('#stat-format').selectOption('mtt', {force:true});
