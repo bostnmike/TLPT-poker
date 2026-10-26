@@ -64,6 +64,23 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+      const scheduleMenu = page.locator('.nav-dropdown:has(> a[href="schedule.html"])');
+      if (width > 900) {
+        await scheduleMenu.locator('.nav-dropdown-parent').hover();
+        assert.equal(await scheduleMenu.locator('.nav-dropdown-menu').isVisible(), true);
+        await scheduleMenu.locator('.nav-dropdown-parent').focus();
+        await scheduleMenu.locator('a[href="rsvp-app.html"]').waitFor({ state:'visible' });
+        await page.keyboard.press('Tab');
+        assert.equal(await page.evaluate(() => document.activeElement.textContent.trim()), 'RSVP App', 'Keyboard reaches Schedule subpage');
+      } else {
+        await page.locator('.site-nav-toggle').click();
+        await scheduleMenu.locator('.nav-submenu-toggle').click();
+        assert.equal(await scheduleMenu.locator('.nav-submenu-toggle').getAttribute('aria-expanded'), 'true');
+      }
+      await scheduleMenu.locator('a[href="rsvp-app.html"]').click();
+      assert.ok(page.url().endsWith('/rsvp-app.html'));
+      assert.equal(await page.locator('.nav a.is-active').allTextContents().then(a => a.map(s => s.trim()).join(' / ')), 'Schedule / RSVP App');
+      assert.equal((await page.locator('.nav a[aria-current="page"]').textContent()).trim(), 'RSVP App');
       assert.deepEqual(errors, []);
       console.log('PASS ' + width + 'px: guide, playback, captions, download, home order and Schedule link');
       await page.close();

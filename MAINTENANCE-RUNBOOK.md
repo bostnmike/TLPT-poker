@@ -143,7 +143,10 @@ renderer regressions. Warnings appear in both the page and integrity reports.
 
 ## Public RSVP App guide
 
-`rsvp-app.html` is the public, shareable setup guide linked from Home and Schedule.
+`rsvp-app.html` is the public, shareable setup guide linked from Home and Schedule,
+and from the shared Schedule navigation dropdown. Schedule itself remains a direct
+link to upcoming games; RSVP App is its child, with matching desktop, keyboard and
+mobile navigation behavior. Isolated Lily and Marchand navigation stays separate.
 The homepage promo pair keeps the RSVP app first (left on desktop, above on phones)
 and the existing Norm poem second. Both reuse the same owned home-card styling.
 The guide uses the standard TLPT header, hero, yellow chip, buttons and footer;

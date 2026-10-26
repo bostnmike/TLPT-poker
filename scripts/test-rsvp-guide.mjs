@@ -37,4 +37,8 @@ assert.ok(promo.indexOf('href="rsvp-app.html"') < promo.indexOf('href="rebuy-har
 assert.match(promo, /images\/rebuy-hard\/norm-santa-tlpt.png/);
 assert.match(schedule, /href="rsvp-app.html"/);
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
+for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') && !['marchand.html','lily.html','cashier.html'].includes(name))) {
+  const html = read(file);
+  assert.match(html, /<div class="nav-dropdown">\s*<a href="\/?schedule.html" class="nav-dropdown-parent[^"]*"[^>]*>Schedule<\/a>\s*<div class="nav-dropdown-menu">\s*<a href="\/?rsvp-app.html"[^>]*>RSVP App<\/a>/, file + ': RSVP App must be a child of Schedule');
+}
 console.log('PASS: approved RSVP video, verified public QR, captions, player-only links and app-before-poem placement.');

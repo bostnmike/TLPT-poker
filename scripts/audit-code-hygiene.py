@@ -158,6 +158,7 @@ EXPECTED_NAV_LABELS = [
     "Player Profiles",
     "Trophy Room",
     "Schedule",
+    "RSVP App",
     "Roast Zone",
     "Hall of Fame",
     "Felt Whispers",
@@ -175,7 +176,7 @@ EXPECTED_SHELL_REVISION_MARKERS = {
     "streaks.html": "20260825-3g3",
 }
 EXPECTED_NAV_ACTIVE_LABELS = {
-    "rsvp-app.html": [],
+    "rsvp-app.html": ["Schedule", "RSVP App"],
     "rebuy-hard.html": ["Roast Zone", "Re-Buy Hard"],
     "404.html": [],
     "champions.html": ["Roast Zone", "Hall of Fame"],
