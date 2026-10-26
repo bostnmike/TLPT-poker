@@ -7,7 +7,8 @@ payment method, SMS, native app, or Cloudflare Access enrollment is needed.
 Player entry: https://tlpt-rsvp.tlpt-bostnmike.workers.dev/
 Commish entry: https://tlpt-rsvp.tlpt-bostnmike.workers.dev/?commish=1
 The player entry is one shared link: choose a canonical roster name, then tap In,
-Maybe or Out. The browser remembers the selected name locally. No player sign-in
+Maybe or Out. The browser remembers the selected name locally. The root URL always opens this
+player flow, including for a signed-in Commish; `?commish=1` opens private controls. No player sign-in
 or private link is required. Anyone with the URL can update a selected player's
 RSVP; this is the league's explicitly requested trust-based flow. The main
 website's RSVP buttons point to the relevant event in this app. Commish controls
