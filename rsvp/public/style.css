@@ -196,3 +196,21 @@ input:disabled,select:disabled { opacity:.65; }
 #player-picker label { max-width: 400px; margin: 0; }
 #player-picker p { color: var(--gold-soft); font-size: 14px; margin-bottom: 0; }
 #shared-copy-status { color: var(--gold-soft); }
+
+#install-banner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px 20px; border:1px solid var(--line); border-radius:14px; background:var(--card); padding:16px 20px; margin-top:20px; }
+#install-banner strong { color:var(--gold-soft); font-size:15px; }
+#install-banner p { color:var(--muted); font-size:13px; margin:5px 0 0; }
+#install-banner button { font-size:14px; }
+.is-commish #install-banner { display:none; }
+.install-close { display:flex; justify-content:flex-end; }
+.install-close button { margin:0; }
+.install-icon { display:block; border-radius:16px; margin-bottom:16px; }
+.install-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0; }
+.install-tabs button { font-size:13px; padding:9px 12px; margin:0; }
+#install-dialog { max-width:620px; max-height:92dvh; overflow:auto; }
+#install-dialog h3 { color:var(--gold-soft); font-size:18px; margin-top:24px; }
+#install-dialog ol { padding-left:24px; color:#c5d2e0; line-height:1.7; font-size:15px; }
+#install-dialog li { margin:12px 0; padding-left:4px; }
+#install-dialog .install-note { border-top:1px solid var(--line); padding-top:16px; font-size:13px; }
+#install-status:empty { display:none; }
+#install-status { color:var(--gold-soft); }

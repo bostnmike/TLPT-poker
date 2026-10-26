@@ -19,10 +19,37 @@ and backups still require the separate private Commish session.
 The RSVP app uses TLPT.org’s Arial typography, navy palette, `#ffb81c` gold,
 league wordmark/tagline, Bruins Centennial poker chip and Friday purple /
 Saturday green / MTT blue event accents. The local 16/32 pixel favicons,
-Apple touch icon and chip image are exact copies of the canonical
+original Apple touch icon and chip image are exact copies of the canonical
 `images/site/` assets. Refresh these copies deliberately when those originals
 change. The app keeps its own stylesheet rather than importing the full site
 shell into the authenticated forms. Its theme is self-contained on workers.dev.
+
+## Installation on players’ phones
+
+The root page offers **Add to Home Screen**, with an **Installation** link in
+both player and Commish footers. The manifest launches the public root as
+**TLPT RSVP** in a standalone window. The 180/192/512 pixel app icons are scaled
+from the existing canonical T-100 chip, with a navy background. No QR credentials
+or event-specific URL enter the manifest.
+
+On eligible Chromium browsers the button uses a captured, single-use native
+install prompt after the player's click. Otherwise it opens device-specific
+instructions; players can choose iPhone/iPad, Android or Computer. iPhone uses
+Safari Share → Add to Home Screen and Open as Web App when offered. Android uses
+Chrome's install/home-screen menu. Every phone owner confirms installation.
+An accepted browser prompt alone is not reported as installed; `appinstalled`
+or an actual standalone launch hides installation controls.
+
+The service worker does **not** cache pages, assets, feeds, sessions, private
+links or responses. Every navigation uses the network, and API requests bypass
+it. A failed navigation gets a clear offline page with a Retry link. There is
+no offline RSVP queue or background replay; live lineups and saving still need
+an internet connection. This preserves the app's existing no-store behavior.
+
+Platform references checked October 25, 2026:
+- https://web.dev/articles/install-criteria
+- https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios
+- https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&hl=en
 
 ## Authority and event identities
 
