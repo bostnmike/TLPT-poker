@@ -157,3 +157,30 @@ small { color: var(--muted); }
 @media (prefers-reduced-motion: no-preference) {
   button, a { transition: color .15s, background .15s, border-color .15s; }
 }
+/* Commish controls lead; player pages keep the league hero. */
+.is-commish .hero { display: none; }
+.is-commish main { padding-top: 6px; }
+.is-commish #notice { margin: 16px 0; }
+.is-commish #identity { margin: 14px 0; }
+.is-commish .response-panel { margin-top: 12px; border-color: rgba(255,184,28,.4); }
+.panel-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.panel-heading a { min-height:44px; display:inline-flex; align-items:center; font-size:13px; }
+.lineup-heading { grid-column:1/-1; margin:30px 0 0; color:var(--gold-soft); font-size:24px; }
+.people h4 { margin:14px 0 0; font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+.people ul { margin-top:6px; }
+.event-poster-layout { display:flex; gap:16px; justify-content:space-between; align-items:start; }
+.event-poster-layout > div { min-width:0; }
+.poster-button { display:flex; flex-direction:column; flex:0 0 94px; width:94px; max-width:100%; gap:7px; margin-top:16px; padding:5px; background:#090d13; border-color:rgba(255,184,28,.3); border-radius:10px; color:var(--gold-soft); font-size:11px; }
+.poster-thumbnail { width:100%; height:auto; aspect-ratio:2/3; object-fit:contain; display:block; border-radius:5px; }
+.poster-button span { padding:3px 0; }
+.poster-preview .poster-button { width:90px; margin:10px 0; }
+#poster-dialog { max-width:820px; max-height:94dvh; overflow:auto; }
+#poster-dialog form { display:flex; justify-content:flex-end; }
+#poster-full { display:block; max-width:100%; max-height:73dvh; width:auto; height:auto; margin:12px auto; object-fit:contain; }
+#poster-caption { color:var(--gold-soft); font-weight:800; }
+.pending-date { align-self:center; }
+#event-date { min-width:0; }
+#pick-date { margin-top:8px; }
+input:disabled,select:disabled { opacity:.65; }
+#cancel-event,#delete-event { color:#ffb4b4; border-color:#71414b; }
+@media(max-width:650px){.poster-button{flex-basis:78px;width:78px}.event-poster-layout{gap:12px}.panel-heading{gap:0}.is-commish .admin-panel{margin-top:18px}}
