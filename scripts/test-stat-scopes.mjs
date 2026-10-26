@@ -78,6 +78,8 @@ for (const page of ['dashboard','standings','player','knockouts','form-lab','str
 }
 const streakContext = vm.createContext({ document: { addEventListener() {} } });
 const dashboardMarkup = fs.readFileSync(new URL('../dashboard.html', import.meta.url),'utf8');
+const dashboardControls = fs.readFileSync(new URL('../dashboard-controls.js', import.meta.url),'utf8');
+assert.doesNotMatch(dashboardControls, /With or without|option\[value="all"\].*textContent/, 'Dashboard preserves shared bounty labels');
 assert.match(dashboardMarkup, /<dialog id="dashboard-help"/, 'Dashboard includes accessible contextual help');
 assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-4/, 'Contextual help is loaded');
 const guideContext = vm.createContext({window:{}});

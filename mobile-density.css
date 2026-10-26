@@ -1,0 +1,16 @@
+/* Compact mobile introductions; desktop copy and league identity stay intact. */
+.hero-mobile-copy, .mobile-hero-more { display:none; }
+@media (max-width:700px) {
+  .mobile-compact-hero .hero-desktop-copy { display:none; }
+  .mobile-compact-hero .hero-mobile-copy { display:inline; }
+  body .site-page-hero.mobile-compact-hero,
+  body .trophy-room-hero.mobile-compact-hero { padding:18px 16px; gap:8px; }
+  body .mobile-compact-hero .site-page-hero-title,
+  body .trophy-room-hero.mobile-compact-hero h1 { font-size:clamp(1.8rem,8vw,2.2rem); line-height:1.12; }
+  .mobile-compact-hero .mobile-hero-more { display:block; margin-top:6px; }
+  .mobile-hero-more summary { color:#ffcf70; cursor:pointer; min-height:44px; display:flex; align-items:center; gap:8px; font-size:.85rem; font-weight:700; }
+  .mobile-hero-more summary::before { content:"+"; }
+  .mobile-hero-more[open] summary::before { content:"−"; }
+  .mobile-hero-more summary:focus-visible { outline:2px solid #ffcf70; outline-offset:3px; }
+  .mobile-hero-more p { margin:0 0 8px; }
+}

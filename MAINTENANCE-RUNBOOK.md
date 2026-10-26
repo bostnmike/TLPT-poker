@@ -24,6 +24,13 @@ Do not copy those commands into another workflow or script.
 
 ### Statistical event filters
 
+Keep bounty labels shared across pages: All Events / With Bounties / Without Bounties.
+Dashboard must not rename the shared options. Mobile introductions use
+`mobile-density.css` on six primary pages; desktop copy is retained and Trophy
+Room's full explanation remains in “How cards work” on phones. Mobile nemesis
+matchups stay horizontal with visible names, without removing active players or
+alumni. Run `scripts/test-mobile-density-browser.cjs` for responsive regressions.
+
 For every newly imported result, add its event ID to `data/event-formats.json`:
 `single` for a single-table / Sit & Go event (both 40K and 500K), or `mtt` for a
 multi-table event. Classification is explicit, never inferred from entry counts

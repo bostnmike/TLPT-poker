@@ -27,11 +27,10 @@
     const count = window.TLPTStats?.selectedEvents().length || 0;
     label.textContent = active ? [
       format.value === 'all' ? 'All formats' : format.value === 'single' ? 'Sit & Go' : 'Multi-table',
-      bounty.value === 'all' ? 'With or without bounties' : bounty.selectedOptions[0].textContent
+      bounty.selectedOptions[0].textContent
     ].join(' · ') : `All ${count} events`;
     const formatLabel = host.querySelector('label > span');
     if (formatLabel) formatLabel.textContent = 'Event format';
-    bounty.querySelector('option[value="all"]').textContent = 'With or without';
     const formatTrigger = document.getElementById('stat-format-trigger');
     if (formatTrigger) {
       formatTrigger.dataset.fieldLabel = 'Event format';

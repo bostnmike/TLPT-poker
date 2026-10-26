@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
+  <link rel="stylesheet" href="mobile-density.css?v=20261026-1" />
 </head>
 <body class="trophy-room-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -123,15 +124,20 @@
 </header>
 
 <main id="main-content" class="wrap trophy-room-main">
-  <section class="trophy-room-hero site-page-hero-chip-25000" aria-labelledby="trophy-room-title">
+  <section class="trophy-room-hero mobile-compact-hero site-page-hero-chip-25000" aria-labelledby="trophy-room-title">
     <div class="trophy-room-hero-copy">
       <span class="trophy-room-kicker">TLPT Collectible Card Archive</span>
       <h1 id="trophy-room-title">The Trophy Room</h1>
       <p>
-        Every Rookie Card and earned edition, preserved with the rating, tier, attributes,
+        <span class="hero-desktop-copy">Every Rookie Card and earned edition, preserved with the rating, tier, attributes,
         and date it carried when it entered the collection. Each player’s highest-priority
-        achievement edition becomes their Active Crew Skin automatically; Rookie Cards stay as debut keepsakes.
+        achievement edition becomes their Active Crew Skin automatically; Rookie Cards stay as debut keepsakes.</span>
+        <span class="hero-mobile-copy">Rookie cards and earned editions. Your league history, collected.</span>
       </p>
+      <details class="mobile-hero-more">
+        <summary>How cards work</summary>
+        <p>Cards preserve their original rating, tier, attributes, and award date. Your highest-priority achievement edition becomes your Active Crew Skin; your Rookie Card stays a debut keepsake.</p>
+      </details>
     </div>
 
     <div class="site-page-hero-brand trophy-room-brand" aria-hidden="true">

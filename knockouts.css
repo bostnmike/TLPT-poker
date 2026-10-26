@@ -920,12 +920,23 @@
   }
 
   .knockouts-nemesis-card{
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
     justify-items:center;
     justify-content:center;
     text-align:center;
-    gap:14px;
+    gap:8px;
+    padding:12px 10px;
   }
+  .knockouts-nemesis-avatar-wrap{ width:64px; max-width:100%; }
+  .knockouts-nemesis-avatar-wrap .knockouts-avatar-md,
+  .knockouts-nemesis-avatar-wrap .knockouts-avatar-fallback{ width:52px; height:52px; min-width:52px; }
+  .knockouts-nemesis-count-pill{ min-width:0; padding:8px; font-size:.95rem; white-space:nowrap; }
+  .knockouts-nemesis-hover-name{
+    position:static; opacity:1; transform:none; white-space:normal;
+    overflow-wrap:anywhere; font-size:.75rem; line-height:1.25; margin-top:5px;
+    padding:0; border:0; border-radius:0; background:none; color:#f2f5f8;
+  }
+  .knockouts-nemesis-avatar-wrap:hover .knockouts-nemesis-hover-name{ transform:none; }
   .knockouts-nemesis-side,
   .knockouts-nemesis-side-right{
     justify-content:center;
