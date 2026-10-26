@@ -1,8 +1,54 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101512"><meta name="referrer" content="no-referrer"><title>TLPT • Your seat at the table</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
-<body><header><a href="https://tlpt.org" class="brand"><span class="chip">♠</span><span>TLPT<small>TWIN LAKES POKER TOUR</small></span></a><a href="https://tlpt.org/schedule.html">League schedule ↗</a></header>
-<main><div class="eyebrow">THE CAAHHD ROOM · CARY, NC</div><h1>Your seat.<br><em>Your next game.</em></h1><p class="intro">A few good friends. A little friendly competition.<br>Let The Commish know if you’re in.</p>
-<div id="notice" role="status" aria-live="polite">Loading the table…</div><section id="identity"></section><section id="events" aria-label="Upcoming games"></section><section id="admin" hidden></section>
-<footer>RSVP reserves a place in the lineup. It isn’t payment or recorded attendance.<br>Table layouts are previews. Tournament Director assigns official seats.<p><a href="/?commish=1">Commish view</a> · <a href="https://tlpt.org">Back to TLPT</a><button id="logout" hidden class="text-button">Sign out</button></p></footer></main>
-<dialog id="link-dialog"><form method="dialog"><h2>Private player link</h2><p>The previous link and its sessions have been revoked. Share this only with the named player. It works across events and devices.</p><label>Copy this link<input id="private-link" readonly autocomplete="off"></label><button id="copy-link" type="button">Copy link</button><button>Done</button><p id="copy-status" role="status"></p></form></dialog>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0a0d12">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Your next game at the Caahhd Room. View upcoming Twin Lakes Poker Tour games and respond with your private player link.">
+  <title>TLPT RSVP | Twin Lakes Poker Tour</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20261025-1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261025-1">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261025-1">
+  <link rel="stylesheet" href="/style.css?v=20261025-1">
+  <script src="/app.js?v=20261025-1" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header>
+  <div class="header-inner">
+    <a href="https://tlpt.org" class="brand" aria-label="TLPT Poker League home">TLPT Poker League<small>The League. The Players. The Tilt.</small></a>
+    <a href="https://tlpt.org/schedule.html" class="schedule-link">League schedule <span aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<main id="main-content">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="hero-copy">
+      <div class="eyebrow">THE CAAHHD ROOM · CARY, NC</div>
+      <h1 id="page-title">Your seat.<span>Your next game.</span></h1>
+      <p class="intro">A few good friends. A little friendly competition.<br>Let The Commish know if you’re in.</p>
+    </div>
+    <img class="hero-chip" src="/assets/chip-T-100.png" alt="TLPT Bruins Centennial $100 poker chip" width="120" height="120" fetchpriority="high">
+  </section>
+  <div id="notice" role="status" aria-live="polite">Loading the table…</div>
+  <section id="identity" aria-label="Your RSVP access"></section>
+  <section id="events" aria-label="Upcoming games"></section>
+  <section id="admin" hidden></section>
+  <footer>
+    <p class="production">TLPT is a BostnMike Production... and all that, that entails.</p>
+    <p>RSVP reserves a place in the lineup. It isn’t payment or recorded attendance.<br>Table layouts are previews. Tournament Director assigns official seats.</p>
+    <p class="footer-links"><a href="/?commish=1">Commish view</a><span aria-hidden="true">·</span><a href="https://tlpt.org">Back to TLPT</a><button id="logout" hidden class="text-button">Sign out</button></p>
+  </footer>
+</main>
+<dialog id="link-dialog">
+  <form method="dialog">
+    <h2>Private player link</h2>
+    <p>The previous link and its sessions have been revoked. Share this only with the named player. It works across events and devices.</p>
+    <label>Copy this link<input id="private-link" readonly autocomplete="off"></label>
+    <button id="copy-link" type="button">Copy link</button>
+    <button>Done</button>
+    <p id="copy-status" role="status"></p>
+  </form>
+</dialog>
+</body>
+</html>
