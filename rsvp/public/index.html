@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0a0d12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="TLPT RSVP">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="referrer" content="no-referrer">
   <meta name="description" content="Your next game at the Caahhd Room. View upcoming Twin Lakes Poker Tour games and pick your name and RSVP.">
   <title>TLPT RSVP | Twin Lakes Poker Tour</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20261025-1">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261025-1">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=20261025-1">
-  <link rel="stylesheet" href="/style.css?v=20261025-4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/rsvp-icon-180.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/style.css?v=20261025-6">
   <script src="/app.js?v=20261025-5" defer></script>
+  <script type="module" src="/install.mjs?v=20261025-1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -31,6 +36,7 @@
     </div>
     <img class="hero-chip" src="/assets/chip-T-100.png" alt="TLPT Bruins Centennial $100 poker chip" width="120" height="120" fetchpriority="high">
   </section>
+  <section id="install-banner" aria-label="Install TLPT RSVP" hidden><div><strong>Keep TLPT in your pocket.</strong><p>Add the app to your Home Screen.</p></div><button id="add-to-home-screen" type="button">Add to Home Screen</button></section>
   <section id="player-picker" aria-label="Choose your player name" hidden></section>
   <div id="notice" role="status" aria-live="polite">Loading the table…</div>
   <section id="identity" aria-label="Your RSVP access"></section>
@@ -39,7 +45,7 @@
   <footer>
     <p class="production">TLPT is a BostnMike Production... and all that, that entails.</p>
     <p>RSVP reserves a place in the lineup. It isn’t payment or recorded attendance.<br>Table layouts are previews. Tournament Director assigns official seats.</p>
-    <p class="footer-links"><a href="/?commish=1">Commish view</a><span aria-hidden="true">·</span><a href="https://tlpt.org">Back to TLPT</a><button id="logout" hidden class="text-button">Sign out</button></p>
+    <p class="footer-links"><a href="/?commish=1">Commish view</a><span aria-hidden="true">·</span><a href="https://tlpt.org">Back to TLPT</a><button id="installation-help" type="button" class="text-button">Installation</button><button id="logout" hidden class="text-button">Sign out</button></p>
   </footer>
 </main>
 <dialog id="link-dialog">
@@ -53,5 +59,37 @@
   </form>
 </dialog>
 <dialog id="poster-dialog"><form method="dialog"><button aria-label="Close poster viewer">Close</button></form><img id="poster-full" alt=""><p id="poster-caption"></p><a href="https://tlpt.org/gallery.html" target="_blank" rel="noopener">Open the Art Gallery ↗</a></dialog>
+<dialog id="install-dialog" aria-labelledby="install-title">
+  <form method="dialog" class="install-close"><button aria-label="Close installation instructions">Close</button></form>
+  <img class="install-icon" src="/rsvp-icon-192.png" alt="TLPT poker chip app icon" width="72" height="72">
+  <h2 id="install-title">Add TLPT RSVP</h2>
+  <p>Your next game, one tap away. Keep the name <strong>TLPT RSVP</strong> when you add it.</p>
+  <button id="native-install" type="button" class="primary" hidden>Install TLPT RSVP</button>
+  <p id="install-status" role="status" aria-live="polite"></p>
+  <div class="install-tabs" role="group" aria-label="Installation device">
+    <button type="button" data-install-platform="ios" aria-pressed="false">iPhone / iPad</button>
+    <button type="button" data-install-platform="android" aria-pressed="false">Android</button>
+    <button type="button" data-install-platform="desktop" aria-pressed="false">Computer</button>
+  </div>
+  <section data-install-steps="ios" hidden><h3>On iPhone or iPad</h3><ol>
+    <li>Open this app in <strong>Safari</strong>. If you scanned a QR code inside another app, open its menu and choose Open in Safari.</li>
+    <li>Tap <strong>Share</strong> (the square with an upward arrow). In Safari’s compact layout, open the Page Menu first.</li>
+    <li>Choose <strong>Add to Home Screen</strong>. If it is missing, scroll to <strong>Edit Actions</strong> and add that action.</li>
+    <li>Leave <strong>Open as Web App</strong> on, if shown, then tap <strong>Add</strong>.</li>
+    <li>Open the new <strong>TLPT RSVP</strong> icon on your Home Screen.</li>
+  </ol></section>
+  <section data-install-steps="android" hidden><h3>On Android</h3><ol>
+    <li>Open this app in <strong>Chrome</strong>. If you scanned inside another app, choose Open in Chrome from its menu.</li>
+    <li>Tap Chrome’s <strong>three-dot menu</strong> beside the address bar.</li>
+    <li>Choose <strong>Install and create shortcut → Install</strong>. Some versions call this <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li>
+    <li>Confirm the phone’s prompt, then open the <strong>TLPT RSVP</strong> icon.</li>
+  </ol></section>
+  <section data-install-steps="desktop" hidden><h3>On a computer</h3><ol>
+    <li>In Chrome or Edge, look for <strong>Install TLPT RSVP</strong> in the address bar or browser menu.</li>
+    <li>On a Mac in Safari, choose <strong>File → Add to Dock</strong>.</li>
+    <li>Confirm the browser’s prompt, then open <strong>TLPT RSVP</strong> from your apps.</li>
+  </ol></section>
+  <p class="install-note">Internet is needed for live lineups and saving RSVPs. Once the app opens, pick your name and tap In, Maybe or Out.</p>
+</dialog>
 </body>
 </html>
