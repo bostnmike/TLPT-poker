@@ -289,6 +289,11 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
 - Select menus retain the shared below-field overlay behavior. Never put menus
   inside clipped card containers.
 - Trophy Room's reset restores edition, search, player, year and sort together.
+- Dashboard's lighter variant uses `dashboard-controls.css` and
+  `dashboard-controls.js`: view tabs first, then rank/format/bounties; below 700px,
+  event scope collapses behind a summary that retains the current selection.
+  Reset is visible only for an active event filter. These are presentation-only
+  overrides; do not move calculations out of the shared statistical scope.
 - Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
   the local preview, and again against production after deployment. It covers all
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,

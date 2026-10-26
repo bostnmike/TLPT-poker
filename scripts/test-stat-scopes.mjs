@@ -81,7 +81,7 @@ for (const page of ['dashboard','standings','player','knockouts','form-lab','str
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/class="[^"]*\btlpt-control-deck\b/g) || []).length, 1, `${page}: one consolidated control surface`);
   assert.match(html, /control-deck\.css\?v=20261026-1/, `${page}: shared control styling`);
-  assert.match(html, /control-deck-heading/, `${page}: visible control heading`);
+  assert.match(html, page === 'dashboard' ? /dashboard-controls-compact/ : /control-deck-heading/, `${page}: control layout`);
 }
 for (const page of ['lily.html','marchand.html','register.html']) {
   const url = new URL(`../${page}`, import.meta.url);

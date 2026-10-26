@@ -23,6 +23,10 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           structures: '#format-content table', player: '#player-profile .profile-shell'
         }[name];
         if (ready) await page.locator(ready).first().waitFor({state:'attached'});
+        if (name === 'dashboard' && width <= 700) {
+          assert.equal(await page.locator('#dashboard-event-scope').isVisible(), false);
+          await page.locator('#dashboard-filter-toggle').click();
+        }
         if (await page.locator('[data-stat-scope]').count()) {
           await page.locator('#stat-format-trigger').waitFor();
           assert.equal(await deck.locator('[data-stat-scope]').count(), 1, name + ': event filters consolidated');
@@ -35,6 +39,7 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           await page.locator('[data-stat-reset]').click();
           assert.equal(await page.locator('#stat-format').inputValue(), 'all');
           assert.equal(await page.locator('#stat-format-trigger').textContent(), 'All Formats');
+          if (name === 'dashboard') assert.equal(await page.locator('[data-stat-reset]').isVisible(),false);
         }
         if (name === 'form-lab') {
           await page.locator('#fl-preset-select').selectOption('custom', {force:true});
@@ -94,6 +99,21 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           assert.equal(await page.locator('#dashboard-career-note').isVisible(),true);
           await page.locator('[data-dashboard-category="results"]').click();
           assert.equal(await page.locator('#dashboard-career-note').isVisible(),false);
+          if (width <= 700) {
+            await page.locator('#stat-format').selectOption('mtt', {force:true});
+            await page.locator('#dashboard-filter-toggle').click();
+            assert.equal(await page.locator('#dashboard-event-scope').isVisible(),false);
+            assert.match(await page.locator('[data-dashboard-filter-label]').textContent(), /Multi-table/);
+            await page.setViewportSize({width:1440,height:1000});
+            assert.equal(await page.locator('#stat-format').inputValue(),'mtt');
+            await page.locator('#stat-format-trigger').waitFor();
+            await page.setViewportSize({width,height:1000});
+            await page.locator('#dashboard-filter-toggle').click();
+            await page.locator('[data-stat-reset]').click();
+            assert.equal(await page.locator('#stat-format-trigger').evaluate(el=>document.activeElement===el),true);
+            await page.locator('#dashboard-filter-toggle').click();
+            assert.match(await page.locator('[data-dashboard-filter-label]').textContent(), /All formats · All events/);
+          }
         }
         if (name === 'structures') {
           await page.locator('#format-btn-500k').click();
