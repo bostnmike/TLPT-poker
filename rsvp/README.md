@@ -27,16 +27,28 @@ shell into the authenticated forms. Its theme is self-contained on workers.dev.
 ## Installation on players’ phones
 
 The root page offers **Add to Home Screen**, with an **Installation** link in
-both player and Commish footers. The manifest launches the public root as
-**TLPT RSVP** in a standalone window. The 180/192/512 pixel app icons are scaled
-from the existing canonical T-100 chip, with a navy background. No QR credentials
-or event-specific URL enter the manifest.
+both player and Commish footers. The Player manifest launches the public root.
+The Commish entry serves a distinct manifest identity and start URL at
+`/?commish=1`, so installing that page launches Commish view. Both are named
+**TLPT RSVP** and use the yellow T-1000 chip on a navy background. No private
+key or event-specific URL enters either manifest.
+
+An installed app may have a separate session from the browser. If it shows
+**Unlock Commish**, copy the complete private link from the password or website
+field of **TLPT RSVP — Commish** in Bitwarden, paste it into the form, and unlock.
+The form accepts only this origin's full private Commish link, clears the input,
+and uses the existing same-origin exchange endpoint. Only a validated admin
+session opens controls. The private link is never saved in web storage or the
+manifest. Existing seven-day sessions and revocation rules are unchanged.
+Old Home Screen icons installed with the Player manifest should be replaced by
+adding the updated Commish entry. The old app's footer can also open Commish view
+and its unlock form immediately.
 
 On eligible Chromium browsers the button uses a captured, single-use native
 install prompt after the player's click. Otherwise it opens device-specific
-instructions; players can choose iPhone/iPad, Android or Computer. iPhone uses
-Safari Share → Add to Home Screen and Open as Web App when offered. Android uses
-Chrome's install/home-screen menu. Every phone owner confirms installation.
+instructions; players can choose iPhone/iPad, Android or Computer. The guides use
+the web browser's Share or install/home-screen menu, with supported browsers
+listed as fallback help. Every phone owner confirms installation.
 An accepted browser prompt alone is not reported as installed; `appinstalled`
 or an actual standalone launch hides installation controls.
 
@@ -170,10 +182,12 @@ Git, logs or Actions secrets. Anyone possessing it can act as Commish.
 
 Commish **Create / replace private link** returns a fresh link for the selected
 canonical player, immediately revoking the previous link and sessions. Copy it
-before dismissing the dialog; clear text is not recoverable later. All 36 player links issued on October 25, 2026 are saved in the personal
-Bitwarden folder **TLPT RSVP — Players**. Each item’s password field contains the
-complete private URL for individual sharing. Reuse that saved link; only replace
-it if lost or compromised, and update Bitwarden after replacing it. Clipboard failure on Safari/Android falls back
+before dismissing the dialog; clear text is not recoverable later. On October 26,
+2026, the 36 individual player items were moved to Bitwarden Trash and replaced
+by **TLPT RSVP — Player**, containing the shared public root URL. The private
+**TLPT RSVP — Commish** item retains the verified admin link in both its website
+and password fields. Vault cleanup did not revoke existing legacy player links.
+Clipboard failure on Safari/Android falls back
 to a selected input for manual copying. The app never messages players.
 
 Origin checks, JSON/size limits, host-bound cookies, indexed session lookup and
