@@ -63,7 +63,7 @@ function renderLiveRsvpStatus(unavailable) {
     notice = document.createElement("p"); notice.id = "live-rsvp-status";
     notice.className = "muted"; notice.setAttribute("role", "status"); main.prepend(notice);
   }
-  notice.textContent = unavailable ? "Live RSVPs are unavailable. Seat counts are hidden until the connection returns." : "Live RSVPs · confirmed seats and waitlist sync every minute. RSVP is not payment or recorded attendance.";
+  notice.textContent = unavailable ? "Live schedule unavailable. Reconnect or refresh to see games open for RSVPs." : "Games open for RSVPs · schedule and lineups sync every minute. RSVP is not payment or recorded attendance.";
 }
 
 function renderSiteLoadFailure() {
@@ -2112,6 +2112,7 @@ function buildEventRsvpButtonMarkup(event, extraClasses = "") {
 function getCurrentEvents(data) {
   return [...(data?.events || [])]
     .filter(Boolean)
+    .filter(event => event.rsvpOpen !== false && !event.rsvpUnavailable)
     .filter(event => String(event?.title || "").trim() !== "")
     .map(event => ({
       ...event,
