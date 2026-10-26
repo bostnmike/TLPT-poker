@@ -15,10 +15,13 @@ try{
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/api/version')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output);
  const post=(path,b,cookie,origin=base)=>fetch(base+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(b)});
  assert.equal((await fetch(base+'/api/me')).status,401);assert.equal((await post('exchange',{key},null,'https://evil.test')).status,403);
+ assert.equal((await post('respond',{slug:'red',eventId:'fixture-event',answer:'maybe'})).status,200);
+ assert.equal((await post('respond',{slug:'red',eventId:'fixture-event',answer:'yes'},null,'https://evil.test')).status,403);
+ assert.equal((await post('respond',{slug:'bostnmike',eventId:'fixture-event',answer:'no'})).status,409);
  let r=await post('exchange',{key});assert.equal(r.status,200);const admin=r.headers.get('set-cookie').split(';')[0];assert.match(r.headers.get('set-cookie'),/HttpOnly; SameSite=Strict/);
  r=await post('action',{type:'link',slug:'red'},admin);const link=(await r.json()).privateLink;const privateKey=new URL(link).hash.slice(5);r=await post('exchange',{key:privateKey});const red=r.headers.get('set-cookie').split(';')[0];
  assert.equal((await post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},red)).status,403);
- await Promise.all([post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},admin),post('action',{type:'respond',eventId:'fixture-event',answer:'yes'},red)]);
+ await Promise.all([post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},admin),post('respond',{type:'delete',eventId:'fixture-event',slug:'red',answer:'yes'})]);
  let feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events[0].waitlist.length,1);assert.equal(Object.values(feed.events[0].rsvps).filter(x=>x==='yes').length,1);assert.ok(!JSON.stringify(feed).includes(privateKey));
  assert.equal(feed.events[0].rsvps.bostnmike,'yes');
  assert.equal((await post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'no'},admin)).status,409);
@@ -26,10 +29,11 @@ try{
   assert.equal((await post('action',{type,eventId:'fixture-event'},admin)).status,200);
   feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events.length,0);
   assert.equal((await post('action',{type:'respond',eventId:'fixture-event',answer:'no'},red)).status,404);
+  assert.equal((await post('respond',{eventId:'fixture-event',slug:'red',answer:'no'})).status,404);
   assert.equal((await post('action',{type:'restore',eventId:'fixture-event'},admin)).status,200);
   feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events[0].rsvpOpen,false);assert.equal(feed.events[0].waitlist[0].slug,'red');
  }
  await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
  assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
- console.log('PASS: actual local Worker/D1 — secure exchange, ownership, host lock, last-seat concurrency, cancel/delete/restore, waitlist retention, revocation, privacy, CSRF and static app.');
+ console.log('PASS: actual local Worker/D1 — shared RSVP, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, waitlist retention, revocation, privacy, CSRF and static app.');
 }finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}

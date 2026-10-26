@@ -54,7 +54,8 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
    let e=state.events.find(e=>e.id===op.eventId);
    if(e){
     requireValue(liveEvent(e),'Restore this event before editing it.',409);
-    requireValue(e.metadata.slot===metadata.slot&&e.metadata.date===metadata.date,'Event date/type cannot change. Create a new event to protect ledger identities.');
+    requireValue(e.metadata.slot===metadata.slot,'Event type cannot change. Create a new event for a different game type.');
+    requireValue(!state.events.some(other=>other!==e&&liveEvent(other)&&other.metadata.slot===metadata.slot&&other.metadata.date===metadata.date),'This event type and date already exist.',409);
     e.metadata={...e.metadata,...metadata};e.capacity=op.capacity;e.open=op.open;
    }else{
     requireValue(!op.eventId,'Unknown event.');requireValue(state.events.length<100,'Event archive is full. Export a backup and contact maintenance.');
@@ -78,6 +79,6 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
  // Host reservation is enforced on every successful save, including legacy records.
  if(state.players.some(p=>p.slug===HOST))for(const e of state.events.filter(liveEvent))e.responses[HOST]={...(e.responses[HOST]||{}),answer:'yes',order:0,updatedAt:e.responses[HOST]?.answer==='yes'?e.responses[HOST].updatedAt:now};
  state.revision++;state.updatedAt=now;
- state.audit.push({at:now,actor:admin?'commish':actor.slug,type:op.type,eventId:op.eventId||null,slug:op.slug||actor.slug||null});state.audit=state.audit.slice(-500);
+ state.audit.push({at:now,actor:admin?'commish':actor.role==='shared'?'shared:'+actor.slug:actor.slug,type:op.type,eventId:op.eventId||null,slug:op.slug||actor.slug||null});state.audit=state.audit.slice(-500);
  return state;
 }
