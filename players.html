@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="crew-map.css?v=20261025-2" />
+  <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
 </head>
 <body class="crew-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -147,11 +148,13 @@
       </div>
     </section>
 
-    <section class="site-page-companion crew-hero-companion crew-control-deck" aria-label="Crew view controls">
+    <section class="site-page-companion crew-hero-companion crew-control-deck tlpt-control-deck" aria-label="Crew view controls">
+    <div class="control-deck-heading"><h2>Find your crew</h2><span>Changes apply instantly</span></div>
       <div class="site-page-hero-lower crew-header-controls">
         <div id="players-explainer" class="page-kicker" hidden></div>
 
         <div class="crew-roster-filter" role="group" aria-label="League membership">
+          <span class="control-deck-label">Roster</span>
           <button class="btn active" type="button" data-crew-roster="active" aria-pressed="true" aria-controls="players-visual players-grid">Active <span data-roster-count></span></button>
           <button class="btn" type="button" data-crew-roster="alumni" aria-pressed="false" aria-controls="players-visual players-grid">Alumni <span data-roster-count></span></button>
           <button class="btn" type="button" data-crew-roster="all" aria-pressed="false" aria-controls="players-visual players-grid">All <span data-roster-count></span></button>
@@ -159,10 +162,12 @@
         <p id="crew-roster-note" class="muted">The regular lineup. Alumni remain part of TLPT and are always welcome back.</p>
 
         <div class="crew-presentation-controls" role="group" aria-label="Crew presentation">
+          <span class="control-deck-label">Display</span>
           <button class="btn active" type="button" data-crew-display="cards" aria-pressed="true" aria-controls="players-grid">Cards</button>
           <button class="btn" type="button" data-crew-display="map" aria-pressed="false" aria-controls="players-grid">Crew Map</button>
         </div>
         <div class="crew-view-toolbar" data-sort-scope="crew-view" role="group" aria-label="Crew view">
+          <span class="control-deck-label">Group by</span>
           <button id="crew-view-tier" class="btn active" type="button" aria-pressed="true" aria-controls="players-visual players-grid">By Tier</button>
 
           <button id="crew-view-archetype" class="btn" type="button" aria-pressed="false" aria-controls="players-visual players-grid">By Archetype</button>

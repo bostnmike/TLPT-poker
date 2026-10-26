@@ -73,10 +73,20 @@ assert.equal(mtt.find(p => p.slug === 'liam-o').buyIns, 1, 'Single-appearance pl
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/data-stat-scope /g) || []).length, 1, `${page}: shared controls`);
-  assert.match(html, /stats-scope\.js\?v=20261025-3/);
+  assert.match(html, /stats-scope\.js\?v=20261026-1/);
   assert.match(html, /stats-scope\.css\?v=20261025-1/);
 }
 const streakContext = vm.createContext({ document: { addEventListener() {} } });
+for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement','players','trophy-room','gallery','voice-of-god','structures']) {
+  const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
+  assert.equal((html.match(/class="[^"]*\btlpt-control-deck\b/g) || []).length, 1, `${page}: one consolidated control surface`);
+  assert.match(html, /control-deck\.css\?v=20261026-1/, `${page}: shared control styling`);
+  assert.match(html, /control-deck-heading/, `${page}: visible control heading`);
+}
+for (const page of ['lily.html','marchand.html','register.html']) {
+  const url = new URL(`../${page}`, import.meta.url);
+  if (fs.existsSync(url)) assert.doesNotMatch(fs.readFileSync(url,'utf8'), /control-deck\.css/, `${page}: unrelated forms and microsites stay isolated`);
+}
 vm.runInContext(fs.readFileSync(new URL('../streaks.js', import.meta.url), 'utf8'), streakContext);
 const buildStreakView = vm.runInContext('buildStreakView', streakContext);
 const allStreaks = plain(buildStreakView(career.players, events));

@@ -531,6 +531,8 @@ function wireControls() {
   if (presetSelect) {
     presetSelect.addEventListener("change", () => {
       applyPreset(presetSelect.value, true);
+      const chartOptions = document.querySelector(".fl-chart-options");
+      if (chartOptions && presetSelect.value === "custom") chartOptions.open = true;
       FL_STATE.selectedEventId = "";
       renderFormLab();
     });

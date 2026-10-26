@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
+  <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -141,9 +142,10 @@
       </div>
     </section>
 
-    <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
-
     <div id="knockouts-page" class="knockouts-page">
+      <section class="tlpt-control-deck" aria-label="Knockout filters and views">
+        <div class="control-deck-heading"><h2>Explore the knockouts</h2><span>Changes apply instantly</span></div>
+    <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
       <div class="knockouts-view-switch" role="group" aria-label="Knockout Central view">
         <button class="knockouts-view-button is-active" type="button" data-knockouts-view="knockouts" aria-controls="knockouts-panel-knockouts" aria-pressed="true">
           <span class="knockouts-view-icon" aria-hidden="true">🥊</span>
@@ -154,6 +156,8 @@
           <span>Bounty Hunters</span>
         </button>
       </div>
+
+      </section>
 
       <div id="knockouts-panel-knockouts" class="knockouts-view-panel is-active" data-knockouts-panel="knockouts">
         <nav class="knockouts-jump-nav" aria-label="Jump through Knockout Central">
@@ -205,7 +209,7 @@
 
   <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
-  <script src="stats-scope.js?v=20261025-3"></script>
+  <script src="stats-scope.js?v=20261026-1"></script>
 <script src="knockouts.js?v=20261025-1"></script>
 
   <footer class="site-footer">

@@ -65,7 +65,10 @@
   function updateSummary() {
     const count = select().length;
     const summary = document.querySelector('[data-stat-scope-summary]');
-    if (summary) summary.textContent = `${formats[state.format]} · ${bounties[state.bounty]} · ${count} qualifying event${count === 1 ? '' : 's'}.${count === 0 ? ' No events match these filters.' : count < 5 ? ' Small sample—brag responsibly.' : ''}`;
+    if (summary) summary.textContent = `${count} matching event${count === 1 ? '' : 's'}${active() ? ' · Filtered view' : ' · All league events'}${count === 0 ? ' · No matches. Try resetting the filters.' : count < 5 ? ' · Small sample—brag responsibly.' : ''}`;
+    const host = document.querySelector('[data-stat-scope]');
+    host?.classList.toggle('is-filtered', active());
+    host?.querySelector('[data-stat-reset]')?.setAttribute('aria-disabled', String(!active()));
   }
   function setScope(next) {
     const normalized = normalize(next);
@@ -84,9 +87,10 @@
     host.innerHTML = `<div class="stat-scope-controls">
       <label for="stat-format"><span>Format</span><select id="stat-format" data-scope-key="format">${Object.entries(formats).map(([key, label]) => `<option value="${key}">${label}</option>`).join('')}</select></label>
       <label for="stat-bounty"><span>Bounties</span><select id="stat-bounty" data-scope-key="bounty">${Object.entries(bounties).map(([key, label]) => `<option value="${key}">${label}</option>`).join('')}</select></label>
-      <button type="button" class="btn" data-stat-reset>Reset to All</button>
-      </div><p class="stat-scope-summary" data-stat-scope-summary role="status" aria-live="polite"></p>
-      <p class="stat-scope-note">Filters apply to event results, not career ratings, cards or awards. “With Bounties” includes everyone at those events, including opt-outs.</p>`;
+      <button type="button" class="btn" data-stat-reset>Reset event filters</button>
+      </div><div class="stat-scope-feedback"><p class="stat-scope-summary" data-stat-scope-summary role="status" aria-live="polite"></p>
+      <details class="control-deck-help stat-scope-help"><summary>What do these filters affect?</summary>
+      <p class="stat-scope-note">Event results only. Career ratings, cards and awards stay unchanged. “With Bounties” includes everyone at those events, including opt-outs.</p></details></div>`;
     host.querySelectorAll('select').forEach(select => {
       select.value = state[select.dataset.scopeKey];
       select.addEventListener('change', () => setScope({ ...state, [select.dataset.scopeKey]: select.value }));

@@ -49,6 +49,7 @@
   <link rel="stylesheet" href="trophy-room.css?v=20261024-1" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
+  <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
 </head>
 <body class="trophy-room-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -157,7 +158,9 @@
       <div><span>Latest Addition</span><strong id="trophy-latest-card">—</strong></div>
   </section>
 
-  <section class="trophy-room-controls" aria-label="Filter the Trophy Room">
+  <section class="trophy-room-controls tlpt-control-deck" aria-label="Filter the Trophy Room">
+    <div class="control-deck-heading"><h2>Explore the collection</h2><button class="btn control-deck-reset" type="button" id="trophy-reset">Reset filters</button></div>
+    <div class="control-deck-label">Edition</div>
     <div class="trophy-filter-family" role="group" aria-label="Card edition type">
       <button type="button" class="is-active" data-trophy-type="all" aria-pressed="true">All Cards</button>
       <button type="button" data-trophy-type="hall" aria-pressed="false">🏛️ Hall</button>
@@ -241,6 +244,6 @@
 
 <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
-<script src="trophy-room.js?v=20261024-1"></script>
+<script src="trophy-room.js?v=20261026-1"></script>
 </body>
 </html>

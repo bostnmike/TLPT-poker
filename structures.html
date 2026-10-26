@@ -49,6 +49,7 @@
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
+  <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -142,7 +143,8 @@
     </section>
 
     <section class="section rules-table-bg">
-      <div class="page-kicker">Choose a format to view the full blind sheet and available chip-set details</div>
+      <div class="tlpt-control-deck structures-controls" aria-label="Choose a tournament structure">
+        <div class="control-deck-heading"><h2>Choose your structure</h2><span>Blind levels, chips &amp; payouts</span></div>
 
       <div class="format-toggle" role="group" aria-label="Tournament structure">
         <button class="btn btn-format active" id="format-btn-40k" type="button" data-rules-format="40k" aria-pressed="true" aria-controls="format-content">Friday's 40K Structure</button>
@@ -151,6 +153,8 @@
           <button class="btn btn-format" id="format-btn-two-table" type="button" data-rules-format="two-table" aria-pressed="false" aria-controls="format-content">Two-Table 50K Deep Stack</button>
           <button class="btn btn-format mtt-guide-button" type="button" data-mtt-guide-toggle aria-expanded="false" aria-controls="mtt-guide-panel">MTT Know Before You Go</button>
         </div>
+      </div>
+
       </div>
 
       <section id="mtt-guide-panel" class="mtt-guide-panel" aria-labelledby="mtt-guide-title" hidden>

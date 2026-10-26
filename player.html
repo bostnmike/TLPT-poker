@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
+  <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
 </head>
 <body class="player-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -96,6 +97,8 @@
 
   <main id="main-content" class="wrap">
   <section class="section">
+    <section class="tlpt-control-deck" aria-label="Player navigation and event filters">
+    <div class="control-deck-heading"><h2>Explore this player</h2><span>Career identity stays unchanged</span></div>
     <div class="player-page-links player-page-links-top" aria-label="Player profile navigation">
       <a id="player-top-prev" class="player-page-link player-page-link-cycle" href="players.html" hidden>← Previous Player</a>
       <a class="player-page-link player-page-link-cycle player-page-link-crew" href="players.html">The Crew</a>
@@ -111,6 +114,7 @@
     </div>
 
     <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
+    </section>
     <div id="player-profile">
       <h1 class="player-profile-loading-title">Loading player profile…</h1>
     </div>
@@ -136,7 +140,7 @@
   
   <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
-  <script src="stats-scope.js?v=20261025-3"></script>
+  <script src="stats-scope.js?v=20261026-1"></script>
   <script src="app.js?v=20261026-2"></script>
   <script src="player-knockouts.js?v=20261025-1"></script>
 </body>

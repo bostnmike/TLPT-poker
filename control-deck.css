@@ -1,0 +1,151 @@
+/* TLPT control panels: one surface, clear groups, no changes to data or card art.
+   Loaded only by TLPT pages with filters; separate microsites never load it. */
+body .tlpt-control-deck.tlpt-control-deck {
+  --deck-accent: #ffcf70;
+  position: relative;
+  display: block;
+  min-width: 0;
+  margin: 18px 0 22px;
+  padding: 20px;
+  border: 1px solid #3b4550;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #151e26, #10161d);
+  box-shadow: none;
+  overflow: visible;
+}
+body .tlpt-control-deck::before { display: none; }
+body .tlpt-control-deck .control-deck-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  grid-column: 1 / -1;
+  margin: 0 0 16px;
+}
+body .tlpt-control-deck .control-deck-heading h2 {
+  margin: 0;
+  color: #f4f7fa;
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.control-deck-heading > span { color: #aebfce; font-size: .8rem; }
+body .tlpt-control-deck .stat-scope {
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+  border: 0;
+  border-bottom: 1px solid #34414d;
+  border-radius: 0;
+  background: none;
+}
+body .tlpt-control-deck .stat-scope:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+.tlpt-control-deck .stat-scope-controls { grid-template-columns: minmax(0,1fr) minmax(0,1fr) auto; gap: 12px; }
+.tlpt-control-deck .stat-scope-feedback { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-top: 10px; }
+.tlpt-control-deck .stat-scope-summary { margin: 0; font-size: .84rem; color: #c3d1dd; line-height: 1.5; }
+.tlpt-control-deck .is-filtered .stat-scope-summary { color: var(--deck-accent); }
+body .tlpt-control-deck .control-deck-label,
+body .tlpt-control-deck label > span:first-child,
+body .tlpt-control-deck .fl-field > label,
+body .tlpt-control-deck .dashboard-metric-selector > label {
+  display: block; margin: 0 0 7px; color: #bacbd8;
+  font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; line-height: 1.4;
+}
+body .tlpt-control-deck :is(.site-select-trigger, .fl-select-trigger, input[type="search"]) {
+  min-height: 44px; width: 100%; border-radius: 10px;
+  border: 1px solid #586777; background: #0d151e; color: #f4f7fa;
+  box-shadow: none; font-size: .94rem; font-weight: 650;
+}
+body .tlpt-control-deck :is(.site-select-trigger, .fl-select-trigger)[aria-expanded="true"] { border-color: var(--deck-accent); }
+.tlpt-control-deck input[type="search"] { padding: 10px 14px; }
+.tlpt-control-deck [aria-disabled="true"] { opacity: .5; cursor: default; }
+.tlpt-control-deck .control-deck-help { margin: 0; min-width: 0; color: #c3d1dd; font-size: .84rem; }
+.tlpt-control-deck .control-deck-help > summary {
+  display: flex; align-items: center; gap: 10px; min-height: 44px;
+  cursor: pointer; color: #c3d1dd; font-weight: 600; list-style: none;
+}
+.tlpt-control-deck .control-deck-help > summary::-webkit-details-marker { display: none; }
+.tlpt-control-deck .control-deck-help > summary::after { content: "+"; color: var(--deck-accent); font-size: 1.2rem; }
+.tlpt-control-deck .control-deck-help[open] > summary::after { content: "−"; }
+.tlpt-control-deck .stat-scope-help[open] { flex-basis: 100%; }
+.tlpt-control-deck .stat-scope-note { max-width: 850px; margin: 0 0 4px; }
+.tlpt-control-deck :is(.btn, .pm-btn, .dashboard-category-tab, .knockouts-view-button, .trophy-filter-family button) {
+  min-height: 44px; border-radius: 10px; font-size: .94rem; line-height: 1.3;
+}
+.tlpt-control-deck :is(button, input, summary):focus-visible { outline: 2px solid #fff4cc; outline-offset: 3px; box-shadow: none; }
+/* View choices remain next to the event filters, without extra boxed shells. */
+body .tlpt-control-deck :is(.dashboard-buttons-shell, .standings-buttons-shell, .dashboard-metric-selector, .format-toggle) {
+  padding: 0; margin: 0; border: 0; background: none; box-shadow: none;
+}
+body .tlpt-control-deck .dashboard-button-groups { display: grid; grid-template-columns: minmax(0,1fr) minmax(200px, .4fr); gap: 18px; align-items: end; }
+body .tlpt-control-deck .dashboard-category-tabs { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); width: 100%; gap: 8px; overflow: visible; }
+body .tlpt-control-deck .dashboard-category-tab { min-width: 0; padding: 10px 8px; white-space: normal; box-shadow: none; }
+body .tlpt-control-deck .dashboard-category-tab:not(.active) { color: #c7d3df; background: #16212b; border-color: #44505c; }
+body .tlpt-control-deck .dashboard-category-tab.active { color: #fff; border-color: #31bd77; background: #155b39; }
+body .tlpt-control-deck .dashboard-metric-selector { display: block; width: 100%; }
+body .tlpt-control-deck .dashboard-metric-selector > label { border: 0; padding: 0; }
+body .tlpt-control-deck .dashboard-metric-select-wrap { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 8px; width: 100%; }
+body .tlpt-control-deck .dashboard-metric-select-wrap::after { display: none; }
+body .tlpt-control-deck .dashboard-metric-icon { width: 28px; height: 28px; border: 0; background: none; box-shadow: none; }
+body .tlpt-control-deck .dashboard-studio-strip { margin: 14px 0 0; padding: 12px 0 0; border: 0; border-top: 1px solid #34414d; border-radius: 0; background: none; box-shadow: none; }
+body .tlpt-control-deck .standings-buttons { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; }
+body .tlpt-control-deck .standings-buttons .btn { flex: 0 1 auto; }
+body .tlpt-control-deck .standings-race-strip { margin-top: 14px; }
+body .tlpt-control-deck .knockouts-view-switch { justify-content: flex-start; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; }
+body .tlpt-control-deck .pm-controls-left { display: block; width: 100%; }
+body .tlpt-control-deck .pm-button-row { justify-content: flex-start; flex-wrap: wrap; gap: 8px; }
+body .tlpt-control-deck .pm-formula { width: 100%; text-align: left; padding: 12px 0 0; border: 0; background: none; box-shadow: none; }
+body .tlpt-control-deck .pm-legend { justify-content: flex-start; margin-top: 8px; }
+body .tlpt-control-deck .fl-control-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+body .tlpt-control-deck .fl-field-player { grid-column: auto; }
+.tlpt-control-deck .fl-chart-options { margin-top: 10px; }
+.tlpt-control-deck .fl-advanced-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.tlpt-control-deck .fl-toggle-row { gap: 8px 20px; margin-top: 10px; }
+.tlpt-control-deck .fl-toggle-row label { min-height: 44px; display: flex; align-items: center; }
+/* Collection and roster controls use the same geometry, with their own accent. */
+body .trophy-room-controls.tlpt-control-deck { --deck-accent: #ff9b9b; }
+body .tlpt-control-deck .trophy-filter-family { gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+body .tlpt-control-deck .trophy-filter-family button { box-shadow: none; }
+body .tlpt-control-deck .trophy-filter-family button.is-active { background: #a72a3b; color: #fff; border-color: #ff9b9b; }
+body.crew-page .tlpt-control-deck.tlpt-control-deck { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 0 24px; }
+.crew-control-deck .control-deck-heading { grid-column: 1 / -1; }
+body .tlpt-control-deck .crew-tier-summary { margin: 0; }
+body .tlpt-control-deck :is(.crew-roster-filter, .crew-presentation-controls, .crew-view-toolbar) { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+body .tlpt-control-deck :is(.crew-roster-filter, .crew-presentation-controls, .crew-view-toolbar) > .control-deck-label { flex-basis: 68px; margin: 0; }
+body .tlpt-control-deck :is(.crew-presentation-controls, .crew-view-toolbar) > .control-deck-label { flex-basis: 100%; }
+body .tlpt-control-deck :is(.standings-buttons, .pm-button-row, .knockouts-view-switch, .crew-roster-filter, .crew-presentation-controls, .crew-view-toolbar, .format-toggle) button[aria-pressed="false"] {
+  background: #16212b; color: #c7d3df; border-color: #44505c; box-shadow: none;
+}
+body .tlpt-control-deck :is(.standings-buttons, .pm-button-row, .knockouts-view-switch, .crew-roster-filter, .crew-presentation-controls, .crew-view-toolbar, .format-toggle) button[aria-pressed="true"] { box-shadow: none; }
+body .tlpt-control-deck .crew-search-row { margin: 0; }
+body .gallery-filter-bar.tlpt-control-deck { display: grid; grid-template-columns: minmax(200px,320px) minmax(0,1fr); gap: 0 20px; align-items: end; }
+body .vog-filters.tlpt-control-deck { display: grid; grid-template-columns: minmax(0,1.5fr) repeat(3,minmax(0,1fr)); gap: 12px; }
+body .tlpt-control-deck .vog-clear-button { min-height: 44px; justify-self: start; border-radius: 10px; }
+body .structures-controls.tlpt-control-deck { margin: 0 0 16px; }
+body .tlpt-control-deck .format-toggle { display: flex; flex-wrap: wrap; gap: 10px; }
+body .tlpt-control-deck .player-page-links { margin: 0 0 16px; }
+@media (max-width: 1000px) {
+  body .tlpt-control-deck .dashboard-button-groups { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  body .tlpt-control-deck .dashboard-metric-selector { max-width: 400px; }
+  body .vog-filters.tlpt-control-deck { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 700px) {
+  body .tlpt-control-deck.tlpt-control-deck { margin: 14px 0 18px; padding: 16px; }
+  body.crew-page .tlpt-control-deck.tlpt-control-deck { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .tlpt-control-deck .stat-scope-controls { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .tlpt-control-deck .stat-scope-controls .btn { grid-column: 1 / -1; justify-self: start; width: auto; }
+  body .tlpt-control-deck .dashboard-category-tabs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  body .tlpt-control-deck .dashboard-metric-selector { max-width: none; }
+  body .tlpt-control-deck .fl-control-grid { grid-template-columns: minmax(0,1fr); }
+  .tlpt-control-deck .fl-advanced-grid { grid-template-columns: minmax(0,1fr); }
+  body .tlpt-control-deck .control-deck-heading { margin-bottom: 12px; }
+  body .tlpt-control-deck .trophy-filter-fields { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  body .gallery-filter-bar.tlpt-control-deck { grid-template-columns: minmax(0,1fr); gap: 8px; }
+}
+@media (max-width: 380px) {
+  .tlpt-control-deck .stat-scope-controls,
+  body .tlpt-control-deck .trophy-filter-fields,
+  body .vog-filters.tlpt-control-deck { grid-template-columns: minmax(0,1fr); }
+}

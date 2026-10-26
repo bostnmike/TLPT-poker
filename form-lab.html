@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
+  <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
 </head>
 
 <body>
@@ -142,9 +143,9 @@
     </div>
   </section>
 
+  <section class="fl-control-shell tlpt-control-deck" aria-label="Form Lab controls">
+    <div class="control-deck-heading"><h2>Build your comparison</h2><span>Changes apply instantly</span></div>
     <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
-
-  <section class="fl-control-shell" aria-label="Form Lab controls">
     <div class="fl-control-grid">
       <div class="fl-field fl-field-player">
         <label id="fl-player-label" for="fl-player-select">Player</label>
@@ -157,16 +158,6 @@
       </div>
 
       <div class="fl-field">
-        <label id="fl-x-label" for="fl-x-select">X-Axis</label>
-        <select id="fl-x-select"></select>
-      </div>
-
-      <div class="fl-field">
-        <label id="fl-y-label" for="fl-y-select">Y-Axis</label>
-        <select id="fl-y-select"></select>
-      </div>
-
-      <div class="fl-field">
         <label id="fl-window-label" for="fl-window-select">Window</label>
         <select id="fl-window-select">
           <option value="6">Last 6 events</option>
@@ -176,6 +167,18 @@
       </div>
     </div>
 
+    <details class="control-deck-help fl-chart-options">
+      <summary>Customize axes &amp; chart options</summary>
+      <div class="fl-advanced-grid">
+        <div class="fl-field">
+          <label id="fl-x-label" for="fl-x-select">X-Axis</label>
+          <select id="fl-x-select"></select>
+        </div>
+        <div class="fl-field">
+          <label id="fl-y-label" for="fl-y-select">Y-Axis</label>
+          <select id="fl-y-select"></select>
+        </div>
+      </div>
     <div class="fl-toggle-row" aria-label="Chart options">
       <label>
         <input id="fl-show-labels" type="checkbox" checked />
@@ -192,6 +195,7 @@
         Show player average
       </label>
     </div>
+    </details>
   </section>
 
   <section class="fl-lab-shell">
@@ -260,7 +264,7 @@
 
 <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
-  <script src="stats-scope.js?v=20261025-3"></script>
-<script src="form-lab.js?v=20261025-1"></script>
+  <script src="stats-scope.js?v=20261026-1"></script>
+<script src="form-lab.js?v=20261026-1"></script>
 </body>
 </html>

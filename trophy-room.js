@@ -411,6 +411,8 @@
     if (!grid) return;
 
     const cards = window.TLPTRoster.ordered(filteredCards(), card => card.player);
+    document.getElementById("trophy-reset")?.setAttribute("aria-disabled",
+      String(state.type === "all" && state.player === "all" && state.year === "all" && !state.query && state.sort === "prestige"));
     const visibleCards = cards.slice(0, state.visibleCount);
     grid.innerHTML = window.TLPTRoster.sections(visibleCards, cardMarkup, {
       playerOf: card => card.player, activeLabel: "Active players’ cards", alumniLabel: "Alumni cards"
@@ -517,6 +519,23 @@
     });
     document.getElementById("trophy-search")?.addEventListener("input", event => {
       state.query = String(event.target.value || "").trim().toLowerCase();
+      resetVisibleCards();
+      render();
+    });
+    document.getElementById("trophy-reset")?.addEventListener("click", event => {
+      if (event.currentTarget.getAttribute("aria-disabled") === "true") return;
+      Object.assign(state, { type: "all", player: "all", year: "all", query: "", sort: "prestige" });
+      document.querySelectorAll("[data-trophy-type]").forEach(button => {
+        const active = button.dataset.trophyType === "all";
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      for (const [id, value] of [["trophy-player-filter", "all"], ["trophy-year-filter", "all"], ["trophy-sort", "prestige"]]) {
+        const select = document.getElementById(id);
+        select.value = value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+      document.getElementById("trophy-search").value = "";
       resetVisibleCards();
       render();
     });

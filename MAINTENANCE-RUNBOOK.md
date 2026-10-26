@@ -274,6 +274,26 @@ The root file is only a compatibility launcher. Do not add audit logic to it.
 5. For generated-data work, confirm the rebuild changes only expected generated fields.
 6. Deploy only the intended replacement files.
 
+## Consolidated TLPT controls
+
+The 12 filter/view pages use one `.tlpt-control-deck` surface and
+`control-deck.css`. Keep event scope and page view controls together; retain
+context-specific tools (for example, individual streak lookup) beside their results.
+Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSVP app.
+
+- Format and Bounties always start at All / All. Reset event filters changes only
+  those two fields; it does not reset the chosen ranking or player.
+- Career ratings, awards, cards and eligibility calculations are unchanged.
+- Details disclosures hold explanations and advanced Form Lab axes/options, not
+  the main player/preset/window choices.
+- Select menus retain the shared below-field overlay behavior. Never put menus
+  inside clipped card containers.
+- Trophy Room's reset restores edition, search, player, year and sort together.
+- Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
+  the local preview, and again against production after deployment. It covers all
+  12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,
+  category changes, dropdown bounds/occlusion, and page overflow.
+
 ## Locked behavior
 
 Routine maintenance must not casually alter:
