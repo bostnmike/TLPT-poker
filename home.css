@@ -17,9 +17,15 @@
     0 0 22px rgba(255,184,28,.10);
 }
 
+.home-promo-pair{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+
 .home-rebuy-teaser{
   display:grid;
-  grid-template-columns:88px minmax(0,1fr) auto;
+  grid-template-columns:88px minmax(0,1fr);
   align-items:center;
   gap:18px;
   padding:16px 20px;
@@ -67,11 +73,16 @@
 }
 
 .home-rebuy-cta{
+  grid-column:2;
   color:var(--gold);
   font-size:14px;
   font-weight:800;
   white-space:nowrap;
 }
+
+.home-rsvp-teaser .home-rebuy-image{border:0;background:transparent;overflow:visible;grid-row:1 / 3;}
+.home-rebuy-teaser:not(.home-rsvp-teaser) .home-rebuy-image{grid-row:1 / 3;}
+@media(max-width:700px){.home-promo-pair{grid-template-columns:minmax(0,1fr);}}
 
 .home-rebuy-teaser:hover{
   border-color:var(--gold);

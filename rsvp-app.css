@@ -1,0 +1,32 @@
+/* RSVP guide only: use the shared TLPT shell, typography and buttons. */
+.rsvp-setup-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:40px; align-items:start; }
+.rsvp-setup-grid h2 { margin:0 0 12px; }
+.rsvp-setup-copy > p { max-width:490px; line-height:1.6; }
+.rsvp-qr { margin:20px 0; }
+.rsvp-qr a { display:inline-block; background:#fff; padding:12px; border-radius:14px; }
+.rsvp-qr img { display:block; width:240px; max-width:100%; height:auto; }
+.rsvp-qr figcaption { margin-top:10px; font-size:14px; line-height:1.5; color:var(--muted); }
+.rsvp-app-actions, .rsvp-video-actions { display:flex; flex-wrap:wrap; gap:10px; margin:16px 0; }
+.rsvp-setup-note { font-size:14px; line-height:1.5; }
+.rsvp-video-panel { text-align:center; }
+.rsvp-video-panel > p { margin:0 0 16px; }
+.rsvp-video-panel video { display:block; width:100%; max-width:292.5px; height:auto; aspect-ratio:9 / 16; margin:0 auto; background:#070d12; border:1px solid var(--line); border-radius:14px; }
+.rsvp-video-actions { justify-content:center; }
+.rsvp-video-panel .rsvp-setup-note { max-width:400px; margin:0 auto; }
+.rsvp-phone-guides { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:20px; }
+.rsvp-phone-guides details { border:1px solid var(--line); border-radius:14px; background:var(--panel); padding:0 16px; }
+.rsvp-phone-guides summary { padding:16px 0; cursor:pointer; font-weight:750; color:var(--gold); min-height:48px; }
+.rsvp-phone-guides li { margin-bottom:12px; line-height:1.55; }
+.rsvp-phone-guides ol { padding-left:22px; }
+.rsvp-phone-guides p, .rsvp-finish { line-height:1.6; }
+.rsvp-finish { margin:24px 0 0; }
+.rsvp-qr a:focus-visible, .rsvp-phone-guides summary:focus-visible, .rsvp-video-panel video:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
+@media(max-width:700px) {
+  .rsvp-setup-grid, .rsvp-phone-guides { grid-template-columns:minmax(0,1fr); }
+  .rsvp-setup-grid { gap:28px; }
+  .rsvp-setup-copy { text-align:center; }
+  .rsvp-setup-copy > p { margin-left:auto; margin-right:auto; }
+  .rsvp-app-actions { justify-content:center; }
+  .rsvp-qr img { width:208px; }
+  .rsvp-video-panel { border-top:1px solid var(--line); padding-top:24px; }
+}

@@ -1266,7 +1266,7 @@ def audit_knockouts(audit, events, site_data):
 def audit_pages(audit, metadata):
     # Lily is validated separately; hygiene validates the unlisted cashier redirect.
     html_files = sorted(path for path in ROOT.glob("*.html") if path.name not in {"lily.html", "cashier.html"})
-    audit.check(len(html_files) == 22, "pages", f"Expected 22 public HTML pages; found {len(html_files)}")
+    audit.check(len(html_files) == 23, "pages", f"Expected 23 public HTML pages; found {len(html_files)}")
     local_ref_pattern = re.compile(r'(?:href|src)=["\']([^"\']+)["\']', re.IGNORECASE)
     for path in html_files:
         text = path.read_text(encoding="utf-8")

@@ -141,6 +141,28 @@ The page-calculation suite covers 640 status/layout combinations, single- and
 two-table resets, over-capacity attendance, malformed input, and deliberate
 renderer regressions. Warnings appear in both the page and integrity reports.
 
+## Public RSVP App guide
+
+`rsvp-app.html` is the public, shareable setup guide linked from Home and Schedule.
+The homepage promo pair keeps the RSVP app first (left on desktop, above on phones)
+and the existing Norm poem second. Both reuse the same owned home-card styling.
+The guide uses the standard TLPT header, hero, yellow chip, buttons and footer;
+its scoped layout places the QR and portrait video side by side above 700px.
+
+Approved media lives in `media/rsvp-app/`: the exact reviewed 83.75-second MP4,
+poster and WebVTT captions converted from the final paced narration SRT. Originals
+remain in `output/video/tlpt-rsvp-install/paced/` outside the site repository.
+Do not substitute older cuts. Playback is user-initiated with `preload="none"`,
+native controls and inline/fullscreen support; captions and an MP4 download are available.
+
+`images/site/tlpt-rsvp-qr.png` was decoded to
+`https://tlpt-rsvp.tlpt-bostnmike.workers.dev/`. The QR, direct buttons and written
+instructions must use the public player root, never a Commish or event-specific link.
+The guide is not itself the installable app. Installation remains optional, and live
+lineups and saving replies require internet. Changes here do not deploy the RSVP Worker.
+`scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
+`scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
+
 ## Player membership: Active and Alumni
 
 `data/player-metadata.json` owns the optional `rosterStatus` field (`active` or

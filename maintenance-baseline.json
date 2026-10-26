@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "phase": "3I.1",
-  "publicPageCount": 22,
+  "publicPageCount": 23,
   "sharedCssAsset": "site-tail.css",
   "sharedCssVersion": "20260826-10",
   "authoritative": {
@@ -44,6 +44,7 @@
     "scripts/test-register-page.mjs",
     "scripts/test-app-load-failure.mjs",
     "scripts/test-live-rsvp-site.mjs",
+    "scripts/test-rsvp-guide.mjs",
     "scripts/test-news-layout.mjs",
     "scripts/test-marchand-page.mjs",
     "scripts/test-marchand-source-record.mjs",
