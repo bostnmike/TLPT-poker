@@ -32,7 +32,9 @@ module.exports=async function run(kind,base){
      await page.waitForFunction(size=>Math.round(document.querySelector('.norm-page-guide .norm-headshot').getBoundingClientRect().width)===size,width<=600?80:96);
      assert.equal(Math.round((await portrait.boundingBox()).width),width<=600?80:96);
      const bounds=await card.boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width+1);assert.equal(await card.evaluate(e=>e.scrollWidth>e.clientWidth+1),false);
-     const footer=card.locator('.norm-page-footer'),text=await footer.locator('p').boundingBox(),link=await opener.boundingBox();assert.ok(link.x>=text.x+text.width-1,'Read-me remains to the right');assert.ok(link.height>=44);
+     const playerBounds=await audio.boundingBox(),link=await opener.boundingBox();assert.ok(link.x>=playerBounds.x+playerBounds.width-1,'Read-me remains beside the audio');assert.ok(Math.abs(link.y+link.height/2-playerBounds.y-playerBounds.height/2)<2,'Read-me shares the player row');assert.ok(link.height>=44);
+     assert.equal(await card.locator('.norm-page-footer').count(),0,'No separate footer row');
+     assert.ok(bounds.height<(width<=600?200:170),'Narration stays compact');
      const before=requests.length;await page.waitForTimeout(100);assert.equal(requests.length,before,'View switch does not prefetch');
      await audio.evaluate(async e=>{e.muted=true;await e.play();});await page.waitForFunction(()=>document.querySelector('.norm-page-guide audio').currentTime>.15);
      assert.ok(Math.abs(await audio.evaluate(e=>e.duration)-duration)<1,'Correct recording duration');

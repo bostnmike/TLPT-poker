@@ -25,27 +25,27 @@
     const intro = add(section, 'div', '', 'norm-page-intro');
     add(intro, 'h3', 'Norm Narrates');
     const description = add(intro, 'p');
-    const audio = add(section, 'audio', '', 'norm-page-audio');
+    const controls = add(section, 'div', '', 'norm-page-controls');
+    const audio = add(controls, 'audio', '', 'norm-page-audio');
     audio.controls = true;
     audio.preload = 'none';
     const status = add(section, 'p', '', 'norm-narration-status');
     status.hidden = true;
     status.setAttribute('role', 'status');
-    const footer = add(section, 'div', '', 'norm-page-footer');
-    add(footer, 'p', 'If Norm’s not enough, open the read-me using the link on the right.');
     opener.textContent = 'Read-me guide ↗';
+    opener.title = 'If Norm’s not enough, open the written guide.';
     opener.classList.add('norm-read-guide');
-    footer.append(opener);
+    controls.append(opener);
     opener.addEventListener('click', () => audio.pause());
     audio.addEventListener('error', () => {
       if (!audio.getAttribute('src')) return;
-      status.textContent = 'Norm’s microphone is taking a break. The written guide is still available through the link below.';
+      status.textContent = 'Norm’s microphone is taking a break. The written guide is still available through the Read-me guide link.';
       status.hidden = false;
     });
     const sync = () => {
       const view = currentView();
       section.setAttribute('aria-label', 'Norm Narrates: ' + view.title);
-      description.textContent = view.audio ? 'Press play for Norm’s take on ' + view.title + '.' : 'The recording is on the way. Open the written guide below.';
+      description.textContent = view.audio ? 'Norm’s take on ' + view.title + '.' : 'The recording is on the way. Open the Read-me guide.';
       audio.setAttribute('aria-label', 'Listen to Norm explain ' + view.title);
       opener.setAttribute('aria-label', 'Read-me guide: ' + view.title);
       audio.hidden = !view.audio;

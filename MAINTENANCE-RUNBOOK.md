@@ -312,7 +312,8 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   write-ups or user direction; spread them around and do not force the joke.
   The supplied Player DNA recording includes the user's Cougar/loud-raises jab.
   Shared inline players and read-me links live in `stats-help.js/css`. Portraits
-  are 96px on desktop/tablet and 80px on phones, with the read-me link on the right.
+  are 96px on desktop/tablet and 80px on phones, with the read-me link immediately
+  beside the audio player on the same row. Do not add a separate help footer.
   The supplied, unchanged headshot is `images/site/norm-headshot.png`; crop only
   through CSS. Dashboard retains its view-specific metric definitions.
   `stats-help-content.js` adds eight written guides across Standings, Form Lab,

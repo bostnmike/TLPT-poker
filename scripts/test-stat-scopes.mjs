@@ -85,9 +85,9 @@ vm.runInContext(fs.readFileSync(new URL('../stats-help-content.js', import.meta.
 for (const page of ['standings','form-lab','player-movement','streaks','knockouts','players','player']) {
   const markup = fs.readFileSync(new URL('../'+page+'.html',import.meta.url),'utf8');
   assert.ok(markup.includes('data-stats-help-open="'+page+'"'), page+': contextual help invitation');
-  assert.match(markup, /stats-help\.css\?v=20261026-2/);
+  assert.match(markup, /stats-help\.css\?v=20261026-3/);
   assert.match(markup, /stats-help-content\.js\?v=20261026-2/);
-  assert.match(markup, /stats-help\.js\?v=20261026-3/);
+  assert.match(markup, /stats-help\.js\?v=20261026-4/);
 }
 assert.ok(fs.statSync(new URL('../images/site/norm-headshot.png',import.meta.url)).size>1000);
 assert.equal(Object.keys(guideContext.window.TLPTStatsGuides).length,8);
