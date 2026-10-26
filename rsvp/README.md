@@ -79,6 +79,13 @@ state and Commish queue control; they are not a new financial or league policy.
 
 ## Commish controls and gallery
 
+The Commish can toggle **Player view** to preview the hero, posters, lineups and
+response controls, with a **Preview as** player selector. Preview replies are
+disabled and the action handler rejects preview writes. The existing Commish
+session and unsaved event form are retained; switching back restores controls.
+The toggle is only offered to authenticated Commish users and does not exchange
+or replace player credentials.
+
 Manage a response is the first Commish panel. Player selectors and lineups list
 active players before alumni, with BostnMike first. Waitlists retain queue order.
 New events use a native calendar date picker, with a Date TBD option that keeps
