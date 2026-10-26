@@ -69,8 +69,19 @@ D1 owns all live upcoming event metadata, capacities, open/closed state, queue
 order and answers. `data/events.json` is the initial import and compatibility
 snapshot, not an ongoing writable RSVP source. Do not edit its answers expecting
 live changes. The website fetches `/api/public/events` on load and every minute
-on home/schedule. Home selects the next game per event type; the full schedule and RSVP app list all upcoming games. On failure it shows schedule reference metadata with live
-counts unavailable. It never silently substitutes obsolete static confirmations.
+on home/schedule. Home selects the next open game per event type; the full public
+schedule and Player app list all games open for RSVPs. On failure the website
+hides unverified event cards until the connection returns. It never silently
+substitutes obsolete static confirmations.
+
+**Open RSVPs** is the public event on/off switch. A closed game is hidden from
+the Player app, Commish's Player preview, and TLPT.org home/schedule. It remains
+in Commish management and lineups so it can be edited or reopened with the same
+ID and saved responses. A direct player link to a closed game shows a notice
+without displaying its card. The website hides unverified fallback cards when
+the live feed is unavailable. The feed retains closed games for existing lineup
+consumers, including Cashier; closing a game does not erase its saved lineup or
+alter financial records. After changing the checkbox, save the event.
 
 Each event has a stable ID independent of its date. Commish can correct an
 existing date while retaining responses and ID; game type remains fixed and a
