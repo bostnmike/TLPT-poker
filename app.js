@@ -24,6 +24,7 @@ async function loadSiteData() {
   return {
     ...baseData,
     events: attendance.events,
+    noGameDays: attendance.noGameDays,
     rsvpUnavailable: attendance.unavailable,
     rsvpRevision: attendance.revision
   };
@@ -48,7 +49,7 @@ async function loadLiveRsvpEvents(fallback) {
       const reference = fallback.find(saved => saved.slot === event.slot && dateKey(saved.date) === dateKey(event.date));
       return reference && Object.prototype.hasOwnProperty.call(reference, "seatAssignments") ? { ...event, seatAssignments: reference.seatAssignments } : event;
     });
-    return { events, unavailable: false, revision: feed.revision };
+    return { events, noGameDays: Array.isArray(feed.noGameDays) ? feed.noGameDays : [], unavailable: false, revision: feed.revision };
   } catch {
     // Static answers are an import snapshot, never a second live authority.
     return { events: fallback.map(event => ({ ...event, rsvps: {}, waitlist: [], apple_invite_url: "", rsvp_url: "https://tlpt-rsvp.tlpt-bostnmike.workers.dev/", rsvpUnavailable: true })), unavailable: true };
@@ -60,6 +61,16 @@ function renderLiveRsvpStatus(unavailable) {
   const notice = document.getElementById("live-rsvp-status");
   if (!notice) return;
   notice.textContent = unavailable ? "Live schedule unavailable. Reconnect or refresh to see games open for RSVPs." : "Games open for RSVPs · schedule and lineups sync every minute. RSVP is not payment or recorded attendance.";
+}
+
+function renderNoGameNotices(data) {
+  const target = document.getElementById("no-game-notices");
+  if (!target) return;
+  const notices = data.rsvpUnavailable ? [] : (data.noGameDays || []);
+  target.innerHTML = notices.map(item => {
+    const date = new Date(item.date + "T12:00:00Z").toLocaleDateString("en-US", {timeZone:"America/New_York",month:"long",day:"numeric",year:"numeric"});
+    return `<div class="no-game-notice"><span class="no-game-icon" aria-hidden="true">♠</span><div><strong>${escapeHtmlAttr(item.label)}</strong><p>${escapeHtmlAttr(date)} · The felt gets the night off.</p></div></div>`;
+  }).join("");
 }
 
 function renderSiteLoadFailure() {
@@ -7261,6 +7272,7 @@ async function main() {
   }
 
   renderLiveRsvpStatus(data.rsvpUnavailable);
+  renderNoGameNotices(data);
   renderHomePage(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
@@ -7278,8 +7290,10 @@ async function main() {
     setInterval(async () => {
       if (document.hidden) return;
       const live = await loadLiveRsvpEvents(data.events);
-      if (live.unavailable === data.rsvpUnavailable && !live.unavailable && live.revision === data.rsvpRevision) return;
+      if (live.unavailable === data.rsvpUnavailable && !live.unavailable && live.revision === data.rsvpRevision && JSON.stringify(live.noGameDays) === JSON.stringify(data.noGameDays)) return;
       data.events = live.events; data.rsvpUnavailable = live.unavailable; data.rsvpRevision = live.revision;
+      data.noGameDays = live.noGameDays;
+      renderNoGameNotices(data);
       renderLiveRsvpStatus(live.unavailable); renderHomePage(data); renderSchedule(data);
     }, 60000);
   }

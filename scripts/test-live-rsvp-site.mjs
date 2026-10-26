@@ -52,3 +52,19 @@ off.rsvpOpen=true;assert.deepEqual([...a.getHomeEvents(schedule)].map(e=>e.id),[
 off.rsvpOpen=false;on.rsvpOpen=false;assert.equal(a.getCurrentEvents(schedule).length,0);assert.equal(a.getHomeEvents(schedule).length,0);
 ctx.fetch=async()=>{throw Error('offline');};const unavailable=await a.loadLiveRsvpEvents([{...on,rsvpOpen:true}]);assert.equal(a.getCurrentEvents(unavailable).length,0,'Unverified fallback games must not reappear while the public switch cannot be checked');
 console.log('PASS: Open RSVPs switches home/schedule visibility off and on, retains responses, hides undated closed MTT, and does not resurrect unverified fallback games.');
+
+feed.noGameDays=[{date:'2026-10-30',day:'Friday',label:'NO GAME THIS FRIDAY'}];
+ctx.fetch=async()=>({ok:true,json:async()=>feed});
+assert.deepEqual(JSON.parse(JSON.stringify((await a.loadLiveRsvpEvents([])).noGameDays)),feed.noGameDays);
+const noGameTarget={innerHTML:''};
+const noGameContext={document:{getElementById:()=>noGameTarget},escapeHtmlAttr:ctx.escapeHtmlAttr};
+vm.createContext(noGameContext);
+vm.runInContext(source.match(/^function renderNoGameNotices\([^]*?^}/m)[0],noGameContext);
+noGameContext.renderNoGameNotices({noGameDays:feed.noGameDays});
+assert.match(noGameTarget.innerHTML,/NO GAME THIS FRIDAY/);
+assert.match(noGameTarget.innerHTML,/October 30, 2026/);
+noGameContext.renderNoGameNotices({noGameDays:feed.noGameDays,rsvpUnavailable:true});
+assert.equal(noGameTarget.innerHTML,'','Outage must remove unverified no-game notices');
+noGameContext.renderNoGameNotices({noGameDays:[]});assert.equal(noGameTarget.innerHTML,'');
+assert.match(source,/JSON\.stringify\(live.noGameDays\) === JSON\.stringify\(data.noGameDays\)/,'Midnight notice changes must bypass unchanged revision optimization');
+console.log('PASS: dated no-game notices, empty-state cleanup, outage suppression and revision-independent rollover.');

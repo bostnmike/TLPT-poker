@@ -1,0 +1,7 @@
+.schedule-notices:empty { display:none; }
+.schedule-notices { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:12px; margin:0 0 20px; }
+.no-game-notice { display:flex; align-items:center; gap:14px; padding:18px 20px; border:1px solid #8c6b25; border-left:4px solid #ffb81c; border-radius:14px; background:#141b22; color:#eef2f7; min-width:0; }
+.no-game-notice .no-game-icon { flex:0 0 auto; font-size:26px; color:#ffb81c; line-height:1; }
+.no-game-notice strong { display:block; color:#ffd36b; font:800 16px/1.4 Arial,sans-serif; letter-spacing:.035em; }
+.no-game-notice p { margin:5px 0 0; color:#c0cbd7; font:400 14px/1.5 Arial,sans-serif; }
+@media(max-width:400px) { .no-game-notice { padding:14px; gap:10px; } .no-game-notice strong { font-size:15px; } }

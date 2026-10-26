@@ -114,6 +114,16 @@ Editing preview positions remains in the established site workflow. Tournament D
 
 ## Queue rules
 
+Home, Schedule and the RSVP app show dated **NO GAME THIS FRIDAY/SATURDAY**
+notices when no scheduled game exists on that upcoming weekend day. The live
+feed calculates these using America/New_York dates; all formats count, including
+closed-RSVP games. Cancelled/removed games do not count. Elapsed notices clear at
+Eastern midnight; Sunday starts the next weekend. Feed failure hides the notices
+rather than claiming a cancellation from missing data. This is display-only: no
+fake event, RSVP, payment or history entry is created. Shared notice styling is
+mirrored in `schedule-notices.css` and `rsvp/public/schedule-notices.css`, with a
+parity test. Notice refresh must not depend only on the event-data revision.
+
 BostnMike always holds the first confirmed host seat: **No Bostn, No Party**.
 This is enforced on reads for legacy events and persisted on every successful
 save; even Commish cannot set the host to Maybe, Out or unanswered.

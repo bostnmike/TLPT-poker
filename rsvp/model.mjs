@@ -1,3 +1,4 @@
+import {noGameDays} from './schedule-notices.mjs';
 // No contact, financial, or historical result data belongs in this service.
 export class Rejected extends Error { constructor(message,status=400){super(message);this.status=status;} }
 export function requireValue(ok,message,status=400){if(!ok)throw new Rejected(message,status);}
@@ -16,9 +17,9 @@ export function eventPoster(metadata){
  const file=choice==='auto'?(/^\d{4}-\d{2}-\d{2}$/.test(metadata.date)?`fw${metadata.date.slice(2)}.jpg`:null):choice;
  return file&&/^fw\d{2}-\d{2}-\d{2}\.jpg$/.test(file)?{file,url:`https://tlpt.org/images/fw/${file}`,thumbnailUrl:`https://tlpt.org/images/fw/thumbs/${file}`}:null;
 }
-export function publicFeed(state){
+export function publicFeed(state, now = new Date()){
  const players=[...state.players].sort(comparePlayers);
- return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).sort(compareEvents).map(e=>{
+  return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,noGameDays:noGameDays(state.events,now),players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).sort(compareEvents).map(e=>{
   const responses=eventResponses(state,e);
   const queue=Object.entries(responses).filter(([,r])=>r.answer==='yes').sort((a,b)=>a[0]===HOST?-1:b[0]===HOST?1:a[1].order-b[1].order||a[0].localeCompare(b[0]));
   const confirmed=new Set(queue.slice(0,e.capacity).map(([s])=>s));
