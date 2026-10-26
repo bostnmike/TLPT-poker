@@ -26,7 +26,7 @@ D1 owns all live upcoming event metadata, capacities, open/closed state, queue
 order and answers. `data/events.json` is the initial import and compatibility
 snapshot, not an ongoing writable RSVP source. Do not edit its answers expecting
 live changes. The website fetches `/api/public/events` on load and every minute
-on home/schedule. Home selects the next game per event type; the full schedule and RSVP app list all unarchived games. On failure it shows schedule reference metadata with live
+on home/schedule. Home selects the next game per event type; the full schedule and RSVP app list all upcoming games. On failure it shows schedule reference metadata with live
 counts unavailable. It never silently substitutes obsolete static confirmations.
 
 Each event has a stable ID independent of its slot; dates/types of existing
@@ -43,7 +43,7 @@ rollover. A live-only event is not automatically a payable event: the existing
 site/financial configuration must publish that date through the ordinary reviewed
 workflow before Cashier offers it. This is a deliberate financial safety limit.
 The Commish can create/manage RSVP events without assigning financial policy.
-Archived/missing live events show no current confirmed lineup for a retained
+Cancelled/deleted/archived/missing live events show no current confirmed lineup for a retained
 payment event; they do not delete its payments. Refresh failure retains only the
 last verified runtime lineup, labels it stale and displays its check time. With
 no cached runtime lineup, the checklist says unavailable and shows no confirmed
@@ -60,16 +60,40 @@ Editing preview positions remains in the established site workflow. Tournament D
 
 ## Queue rules
 
-First In gets first priority. Atomic revision-checked saves serialize competing
+BostnMike always holds the first confirmed host seat: **No Bostn, No Party**.
+This is enforced on reads for legacy events and persisted on every successful
+save; even Commish cannot set the host to Maybe, Out or unanswered.
+Other In requests get first-come priority. Atomic revision-checked saves serialize competing
 requests for the last seat. Repeating In preserves priority; leaving In releases
 it, automatically promoting the first waiting player. Returning In joins the end.
 Maybe/Out do not hold seats. Capacity changes apply the same queue immediately;
 reducing capacity moves the last confirmed players to the waitlist. Commish
-**Move In to front** overrides priority and can displace the last confirmed player
+**Move In to front** overrides priority after the host and can displace the last confirmed player
 when full; the UI explains this before saving. Closed events reject all player
-changes; Commish can correct answers. Archive retains answers and hides the event.
-Restore leaves it closed. These defaults are event-specific via capacity, open
+changes; Commish can correct answers. Cancel closes and removes a game from the live schedule; a direct link explains
+that it was cancelled. Delete moves the event to the private removed list
+(soft deletion). Both retain answers, identity and Cashier payment history.
+Restore rejects duplicate slot/date identities and leaves RSVPs closed.
+Legacy archived events are also restorable. These defaults are event-specific via capacity, open
 state and Commish queue control; they are not a new financial or league policy.
+
+## Commish controls and gallery
+
+Manage a response is the first Commish panel. Player selectors and lineups list
+active players before alumni, with BostnMike first. Waitlists retain queue order.
+New events use a native calendar date picker, with a Date TBD option that keeps
+RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
+structure, times and capacity; these can be adjusted before saving. Selecting a
+Friday/Saturday calendar date also selects its matching game preset, unless MTT
+was explicitly chosen. Date and slot
+remain locked after creation to protect financial identities.
+
+Posters match `fwYY-MM-DD.jpg` in the existing TLPT Art Gallery automatically.
+The Commish can select a different gallery date or No poster. The public gallery
+catalog endpoint only returns validated filenames from the canonical manifest;
+no arbitrary image URL or upload is accepted. Thumbnails open the original art
+in a modal. Missing art falls back to the original, then hides the thumbnail;
+an undated game has no automatic poster. Gallery failure never blocks RSVP.
 
 ## Access and recovery
 
@@ -90,8 +114,10 @@ Git, logs or Actions secrets. Anyone possessing it can act as Commish.
 
 Commish **Create / replace private link** returns a fresh link for the selected
 canonical player, immediately revoking the previous link and sessions. Copy it
-before dismissing the dialog; clear text is not recoverable later. To share again,
-replace it and copy the new link. Clipboard failure on Safari/Android falls back
+before dismissing the dialog; clear text is not recoverable later. All 36 player links issued on October 25, 2026 are saved in the personal
+Bitwarden folder **TLPT RSVP — Players**. Each item’s password field contains the
+complete private URL for individual sharing. Reuse that saved link; only replace
+it if lost or compromised, and update Bitwarden after replacing it. Clipboard failure on Safari/Android falls back
 to a selected input for manual copying. The app never messages players.
 
 Origin checks, JSON/size limits, host-bound cookies, indexed session lookup and
