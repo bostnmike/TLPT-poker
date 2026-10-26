@@ -10,6 +10,15 @@
   color:#d8c1ce;
 }
 
+.schedule-rsvp-status{
+  grid-column:1 / -1;
+  position:relative;
+  z-index:1;
+  margin:0;
+  font-size:.875rem;
+  line-height:1.5;
+}
+
 @media (max-width:560px){
   .section.schedule-hero .site-page-hero-copy{
     padding-right:68px;
