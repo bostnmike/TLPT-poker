@@ -3,6 +3,11 @@ export class Rejected extends Error { constructor(message,status=400){super(mess
 export function requireValue(ok,message,status=400){if(!ok)throw new Rejected(message,status);}
 export const HOST='bostnmike';
 export const liveEvent=e=>!e.archived&&!e.cancelled&&!e.deletedAt;
+export function compareEvents(a,b){
+ const x=a.metadata||a,y=b.metadata||b,date=m=>m.date==='Date TBD'?'9999-99-99':m.date;
+ const minutes=m=>{const t=m.time?.match(/^(\d{1,2}):(\d{2}) ([AP])M$/);return t?(Number(t[1])%12+(t[3]==='P'?12:0))*60+Number(t[2]):0;};
+ return date(x).localeCompare(date(y))||minutes(x)-minutes(y)||a.id.localeCompare(b.id);
+}
 export const publicPlayer=p=>({slug:p.slug,name:p.name,image:p.image,rosterStatus:p.rosterStatus});
 export function comparePlayers(a,b){const rank=p=>p.slug===HOST?-1:p.rosterStatus==='alumni'?1:0;return rank(a)-rank(b)||a.name.localeCompare(b.name,'en',{sensitivity:'base'});}
 export function eventResponses(state,event){const responses={...event.responses};if(state.players.some(p=>p.slug===HOST))responses[HOST]={...(responses[HOST]||{}),answer:'yes',order:0};return responses;}
@@ -13,7 +18,7 @@ export function eventPoster(metadata){
 }
 export function publicFeed(state){
  const players=[...state.players].sort(comparePlayers);
- return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).map(e=>{
+ return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).sort(compareEvents).map(e=>{
   const responses=eventResponses(state,e);
   const queue=Object.entries(responses).filter(([,r])=>r.answer==='yes').sort((a,b)=>a[0]===HOST?-1:b[0]===HOST?1:a[1].order-b[1].order||a[0].localeCompare(b[0]));
   const confirmed=new Set(queue.slice(0,e.capacity).map(([s])=>s));

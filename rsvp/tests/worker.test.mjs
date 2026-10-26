@@ -85,3 +85,12 @@ test('correcting a date retains event ID and responses, updates its poster and k
  state.events.push({...structuredClone(event),id:'other',metadata:{...event.metadata,date:'2026-11-13'}});
  assert.throws(()=>applyOperation(state,actor,{type:'event',eventId:event.id,metadata:{...event.metadata,date:'2026-11-13'},capacity:2,open:true}),/already exist/);
 });
+test('MTT stays last while undated and joins chronological date/time order once scheduled',async()=>{
+ const {state,db,env}=await fixture(),template=state.events[0];
+ state.events=[['late','friday','2026-12-04','7:00 PM'],['pending','mtt','Date TBD','1:00 PM'],['first','friday','2026-11-06','7:00 PM'],['saturday','saturday','2026-11-07','7:00 PM'],['dated-mtt','mtt','2026-11-07','1:00 PM']].map(([id,slot,date,time])=>({...structuredClone(template),id,metadata:{...template.metadata,slot,date,time}}));
+ assert.deepEqual(publicFeed(state).events.map(e=>e.id),['first','dated-mtt','saturday','late','pending']);
+ db.sql.prepare('UPDATE rsvp_state SET body=?').run(JSON.stringify(state));const admin=await login(env,adminKey);
+ assert.deepEqual((await call(env,'me',null,admin)).body.allEvents.map(e=>e.id),['first','dated-mtt','saturday','late','pending']);
+ state.events.find(e=>e.id==='pending').metadata.date='2026-11-20';
+ assert.deepEqual(publicFeed(state).events.map(e=>e.id),['first','dated-mtt','saturday','pending','late']);
+});

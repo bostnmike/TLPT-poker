@@ -90,6 +90,10 @@ session and unsaved event form are retained; switching back restores controls.
 The toggle is only offered to authenticated Commish users and does not exchange
 or replace player credentials.
 
+Dated events are listed by date and Eastern start time in both player and
+Commish lists. An undated MTT stays last; assigning its date puts it into the
+normal chronological sequence. An event-specific URL does not reorder the list.
+
 Manage a response is the first Commish panel. Player selectors and lineups list
 active players before alumni, with BostnMike first. Waitlists retain queue order.
 New events use a native calendar date picker, with a Date TBD option that keeps
