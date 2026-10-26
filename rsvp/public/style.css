@@ -191,3 +191,8 @@ input:disabled,select:disabled { opacity:.65; }
 .preview-details label { flex: 0 1 260px; max-width: 100%; margin: 0; }
 .preview-details p { flex: 1 1 220px; color: var(--muted); font-size: 13px; line-height: 1.6; margin: 0; }
 .is-player-preview .choices button:disabled { opacity: 1; cursor: default; }
+
+#player-picker { margin: 22px 0; padding: 16px 20px; border: 1px solid rgba(255,184,28,.35); background: var(--card); border-radius: 16px; }
+#player-picker label { max-width: 400px; margin: 0; }
+#player-picker p { color: var(--gold-soft); font-size: 14px; margin-bottom: 0; }
+#shared-copy-status { color: var(--gold-soft); }

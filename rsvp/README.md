@@ -6,9 +6,12 @@ payment method, SMS, native app, or Cloudflare Access enrollment is needed.
 
 Player entry: https://tlpt-rsvp.tlpt-bostnmike.workers.dev/
 Commish entry: https://tlpt-rsvp.tlpt-bostnmike.workers.dev/?commish=1
-The entry URL alone cannot sign anyone in. The Commish gives each player a
-private link; no player chooser grants write access. The main website's RSVP
-buttons point to the relevant event in this app.
+The player entry is one shared link: choose a canonical roster name, then tap In,
+Maybe or Out. The browser remembers the selected name locally. No player sign-in
+or private link is required. Anyone with the URL can update a selected player's
+RSVP; this is the league's explicitly requested trust-based flow. The main
+website's RSVP buttons point to the relevant event in this app. Commish controls
+and backups still require the separate private Commish session.
 
 ## TLPT visual identity
 
@@ -29,11 +32,11 @@ live changes. The website fetches `/api/public/events` on load and every minute
 on home/schedule. Home selects the next game per event type; the full schedule and RSVP app list all upcoming games. On failure it shows schedule reference metadata with live
 counts unavailable. It never silently substitutes obsolete static confirmations.
 
-Each event has a stable ID independent of its slot; dates/types of existing
-events cannot change. Create a new event each week. Initial IDs include their
+Each event has a stable ID independent of its date. Commish can correct an
+existing date while retaining responses and ID; game type remains fixed and a
+duplicate live slot/date is rejected. Create a new event each week. Initial IDs include their
 original date; new IDs are UUIDs. The undated Next MTT remains `Date TBD`, closed,
-and has its own placeholder ID. Once its date is known, archive the placeholder
-and create a new dated event. Never invent a date to make an event payable.
+and has its own placeholder ID. Once its date is known, set its date and deliberately open RSVPs. Never invent a date to make an event payable.
 
 Cashier retains its existing audited `data/events.json` and financial feed for
 payment-event selection, receipt windows, prices and cleanup. A separate
@@ -92,8 +95,10 @@ New events use a native calendar date picker, with a Date TBD option that keeps
 RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
 structure, times and capacity; these can be adjusted before saving. Selecting a
 Friday/Saturday calendar date also selects its matching game preset, unless MTT
-was explicitly chosen. Date and slot
-remain locked after creation to protect financial identities.
+was explicitly chosen. Dates can be corrected; slot remains locked. Changing an RSVP date does not
+rewrite Cashier schedule configuration or move any payment. Old payment events
+remain retained; attendance overlays only the exact corrected slot/date and new
+payable dates still require the existing financial setup.
 
 Posters match `fwYY-MM-DD.jpg` in the existing TLPT Art Gallery automatically.
 The Commish can select a different gallery date or No poster. The public gallery
@@ -102,7 +107,17 @@ no arbitrary image URL or upload is accepted. Thumbnails open the original art
 in a modal. Missing art falls back to the original, then hides the thumbnail;
 an undated game has no automatic poster. Gallery failure never blocks RSVP.
 
-## Access and recovery
+## Shared player entry and private Commish access
+
+`POST /api/respond` accepts only a canonical roster slug, existing event ID, and
+In/Maybe/Out answer. It ignores caller-supplied operation types, role and event
+settings. Same-origin JSON, rate limits, atomic queue saves, closed/removed-event
+checks and the host lock apply. Successful audit entries use `shared:<slug>` to
+distinguish this unverified name selection from private-session actions. Expired
+rate-limit rows are cleaned during writes, without requiring player sign-ins.
+Private `/api/action`, `/api/me` and `/api/backup` retain their auth boundaries.
+
+### Legacy private player links and recovery
 
 32 random bytes identify each player link. Only SHA-256 hashes are durably stored.
 The browser strips the URL fragment, exchanges it for a secure HttpOnly,
@@ -110,7 +125,9 @@ SameSite=Strict cookie, and never puts link material into a query string, referr
 public feed, source repository or audit. Sessions last seven days; reopen the
 private link on another device or after expiry. Link revocation/replacement
 invalidates all that player's sessions, checked on every request. Links cover
-all that player's upcoming games. Alumni use their original canonical identities.
+all that player's upcoming games. Alumni use their original canonical identities. These legacy links remain valid,
+but are no longer needed to RSVP. Revoking a legacy link does not remove access
+to the shared-name flow.
 
 The separate Commish link grants admin access. It never reuses Cashier credentials.
 Create or recover it locally with `node rsvp/scripts/owner-link.mjs --remote`.
@@ -144,7 +161,8 @@ Time Travel; these contain authentication hashes/session records and must never
 enter Git or chat. Time Travel on Free is limited; consult current Cloudflare docs.
 Restore requires reconciling responses received after the snapshot. Never restore
 a database as an automatic code rollback. After a sanitized backup restore,
-issue new Commish/player links. No automatic restore endpoint is exposed.
+recover Commish access and replace any legacy private links still in use. Shared
+player RSVP does not require credential recovery. No automatic restore endpoint is exposed.
 
 The model is intentionally bounded to 100 event records and 500 audit entries.
 Archiving hides events but retains them; when 100 total events are reached,

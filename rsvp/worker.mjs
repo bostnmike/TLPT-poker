@@ -7,7 +7,7 @@ function json(value,status=200,extra={}){return new Response(JSON.stringify(valu
 async function read(db){const row=await db.prepare('SELECT body FROM rsvp_state WHERE id=1').first();requireValue(row,'RSVP service awaiting setup.',503);return JSON.parse(row.body);}
 async function update(db,actor,op){
  for(let i=0;i<10;i++){
-  const state=await read(db),revision=state.revision;requireValue(actor.role==='admin'?actor.generation===state.adminGeneration:state.players.some(p=>p.slug===actor.slug&&p.generation===actor.generation),'Your private link was replaced. Ask The Commish for the new link.',401);
+  const state=await read(db),revision=state.revision;requireValue(actor.role==='shared'?state.players.some(p=>p.slug===actor.slug):actor.role==='admin'?actor.generation===state.adminGeneration:state.players.some(p=>p.slug===actor.slug&&p.generation===actor.generation),'Your private link was replaced. Ask The Commish for the new link.',401);
   applyOperation(state,actor,op);
   const result=await db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision).run();if(result.meta.changes)return state;
  }
@@ -22,6 +22,7 @@ async function identity(req,env,state){
 async function body(req){requireValue(req.headers.get('Content-Type')?.split(';')[0]==='application/json','JSON required.',415);requireValue(Number(req.headers.get('Content-Length')||0)<=12000,'Request too large.',413);const t=await req.text();requireValue(t.length<=12000,'Request too large.',413);try{return JSON.parse(t);}catch{throw new Rejected('Invalid request.');}}
 async function limited(req,env){
  const key=await hash((req.headers.get('CF-Connecting-IP')||'local')+':'+Math.floor(Date.now()/60000));
+ await env.DB.prepare('DELETE FROM rate_limits WHERE expires<?').bind(Date.now()).run();
  const row=await env.DB.prepare('INSERT INTO rate_limits(key,count,expires) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count').bind(key,Date.now()+120000).first();requireValue(row.count<=60,'Too many attempts. Try again in a minute.',429);
 }
 export default {async fetch(req,env,ctx){
@@ -38,6 +39,12 @@ export default {async fetch(req,env,ctx){
   requireValue(['GET','POST'].includes(req.method),'Method not allowed.',405);
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);
+  if(path==='/api/respond'&&req.method==='POST'){
+   const b=await body(req);requireValue(b&&typeof b==='object'&&!Array.isArray(b),'Choose your name.');requireValue(typeof b.slug==='string'&&state.players.some(p=>p.slug===b.slug),'Choose your name.');
+   requireValue(['yes','maybe','no'].includes(b.answer),'Choose In, Maybe or Out.');
+   const saved=await update(env.DB,{role:'shared',slug:b.slug},{type:'respond',slug:b.slug,eventId:b.eventId,answer:b.answer});
+   return json({ok:true,revision:saved.revision});
+  }
   if(path==='/api/exchange'&&req.method==='POST'){
    const b=await body(req);requireValue(typeof b.key==='string'&&/^[a-f0-9]{64}$/.test(b.key),'Invalid private link.',401);
    const h=await hash(b.key),admin=state.adminHash===h,p=state.players.find(p=>p.linkHash===h);requireValue(admin||p,'This private link is invalid or was replaced.',401);
