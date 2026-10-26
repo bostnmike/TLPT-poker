@@ -79,7 +79,12 @@ for (const page of ['dashboard','standings','player','knockouts','form-lab','str
 const streakContext = vm.createContext({ document: { addEventListener() {} } });
 const dashboardMarkup = fs.readFileSync(new URL('../dashboard.html', import.meta.url),'utf8');
 assert.match(dashboardMarkup, /<dialog id="dashboard-help"/, 'Dashboard includes accessible contextual help');
-assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-1/, 'Contextual help is loaded');
+assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-2/, 'Contextual help is loaded');
+for (const category of ['results', 'bankroll', 'rates', 'player-dna']) {
+  const recording = fs.readFileSync(new URL(`../media/norm-narrates/norm-dashboard-${category}.mp3`, import.meta.url));
+  assert.ok(recording.length > 1000, `${category}: narration asset is present`);
+  assert.equal(recording.subarray(0, 3).toString(), 'ID3', `${category}: narration is an MP3`);
+}
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement','players','trophy-room','gallery','voice-of-god','structures']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/class="[^"]*\btlpt-control-deck\b/g) || []).length, 1, `${page}: one consolidated control surface`);

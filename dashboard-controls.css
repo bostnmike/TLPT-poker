@@ -47,6 +47,11 @@ body .dashboard-controls-compact .dashboard-summary-row .dashboard-studio-strip 
 .dashboard-help-dialog details { margin-top: 18px; padding: 8px 12px; border: 1px solid #40505f; border-radius: 10px; }
 .dashboard-help-dialog summary { min-height: 44px; align-content: center; cursor: pointer; font-size: .9rem; color: #e4ecf3; }
 .dashboard-help-dialog :focus-visible { outline: 2px solid #ffcf70; outline-offset: 3px; }
+.dashboard-narration { margin: 18px 0; padding: 14px 16px; border: 1px solid #635434; border-radius: 12px; background: #19232b; }
+.dashboard-help-dialog .dashboard-narration h3 { margin: 0 0 6px; }
+.dashboard-help-dialog .dashboard-narration p { margin: 6px 0 12px; font-size: .85rem; }
+.dashboard-narration audio { display: block; width: 100%; max-width: 440px; min-height: 44px; }
+.dashboard-help-dialog .dashboard-narration .dashboard-narration-status { margin-bottom: 0; color: #ffcf70; }
 @media (max-width:700px) {
   .dashboard-help-dialog { padding: 0 16px 16px; }
   .dashboard-help-header h2 { font-size: 1.1rem; }

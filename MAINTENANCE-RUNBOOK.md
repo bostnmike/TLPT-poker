@@ -300,8 +300,15 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   The “How to use this view” modal is defined in `dashboard-help.js`. It uses the
   live metric names and calculation definitions from `app.js`; keep explanatory
   copy aligned with those rules. Modal tests cover all four views, Escape, focus
-  containment/return, backdrop dismissal, and narrow screens. Narration is not
-  enabled until the matching audio files are supplied.
+  containment/return, backdrop dismissal, and narrow screens.
+  “Norm Narrates” uses the user-supplied MP3s in `media/norm-narrates/`, one per
+  Dashboard view. Keep recordings unchanged, use `preload="none"`, never autoplay,
+  and stop/unload audio when the dialog closes. Written help remains available
+  when audio fails. Run `scripts/test-norm-narration-browser.cjs` to check playback,
+  view-to-file mapping, close/reopen behavior, and mobile layout.
+  Future scripts may include occasional player-specific barbs grounded in league
+  write-ups or user direction; spread them around and do not force the joke.
+  The supplied Player DNA recording includes the user's Cougar/loud-raises jab.
 - Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
   the local preview, and again against production after deployment. It covers all
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,
