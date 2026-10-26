@@ -10,6 +10,16 @@ The entry URL alone cannot sign anyone in. The Commish gives each player a
 private link; no player chooser grants write access. The main website's RSVP
 buttons point to the relevant event in this app.
 
+## TLPT visual identity
+
+The RSVP app uses TLPT.org’s Arial typography, navy palette, `#ffb81c` gold,
+league wordmark/tagline, Bruins Centennial poker chip and Friday purple /
+Saturday green / MTT blue event accents. The local 16/32 pixel favicons,
+Apple touch icon and chip image are exact copies of the canonical
+`images/site/` assets. Refresh these copies deliberately when those originals
+change. The app keeps its own stylesheet rather than importing the full site
+shell into the authenticated forms. Its theme is self-contained on workers.dev.
+
 ## Authority and event identities
 
 D1 owns all live upcoming event metadata, capacities, open/closed state, queue
