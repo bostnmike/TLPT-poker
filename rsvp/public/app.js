@@ -1,13 +1,13 @@
 'use strict';
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const HOST='bostnmike',chosen=new URLSearchParams(location.search).get('event'),commishEntry=new URLSearchParams(location.search).has('commish');
-let me=null,feed=null,busy=false,players=[],posterCatalog=[],catalogLoading=false,playerPreview=false,previewSlug=HOST,selectedSlug='';
-try{selectedSlug=localStorage.getItem('tlpt-rsvp-player')||'';}catch{}
+let me=null,feed=null,busy=false,players=[],posterCatalog=[],catalogLoading=false,playerPreview=false,previewSlug='',selectedSlug='';
+try{selectedSlug=localStorage.getItem('tlpt-rsvp-player')||'';if(selectedSlug===HOST){selectedSlug='';localStorage.removeItem('tlpt-rsvp-player');}}catch{}
 const msg=(s,error=false)=>{$('#notice').textContent=s;$('#notice').className=error?'error':'';};
 async function api(path,data){const r=await fetch('/api/'+path,{cache:'no-store',...(data?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}:{})});const b=await r.json();if(!r.ok){const e=new Error(b.error||'Service unavailable.');e.status=r.status;throw e;}return b;}
 const playerName=slug=>players.find(p=>p.slug===slug)?.name||slug;
 function sortedPlayers(){const rank=p=>p.slug===HOST?-1:p.rosterStatus==='alumni'?1:0;return [...players].sort((a,b)=>rank(a)-rank(b)||a.name.localeCompare(b.name,'en',{sensitivity:'base'}));}
-function playerOptions(selected){return ['active','alumni'].map(group=>`<optgroup label="${group==='alumni'?'Alumni':'Active'}">${sortedPlayers().filter(p=>(p.rosterStatus||'active')===group).map(p=>`<option value="${esc(p.slug)}" ${p.slug===selected?'selected':''}>${esc(p.name)}</option>`).join('')}</optgroup>`).join('');}
+function playerOptions(selected,includeHost=true){return ['active','alumni'].map(group=>`<optgroup label="${group==='alumni'?'Alumni':'Active'}">${sortedPlayers().filter(p=>(includeHost||p.slug!==HOST)&&(p.rosterStatus||'active')===group).map(p=>`<option value="${esc(p.slug)}" ${p.slug===selected?'selected':''}>${esc(p.name)}</option>`).join('')}</optgroup>`).join('');}
 function person(slug){const p=players.find(p=>p.slug===slug);return `${p?.image?`<img src="https://tlpt.org/${esc(p.image)}" alt="" loading="lazy">`:''}${esc(playerName(slug))}`;}
 function lineup(slugs){if(!slugs.length)return '<p>Nobody yet.</p>';return `<ul>${sortedPlayers().filter(p=>slugs.includes(p.slug)).map(p=>`<li>${person(p.slug)}</li>`).join('')}</ul>`;}
 function dateLabel(date){return date==='Date TBD'?'Date to be confirmed':new Date(date+'T12:00:00Z').toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric',year:'numeric'});}
@@ -17,7 +17,7 @@ function commishMode(){return me?.role==='admin'&&commishEntry;}
 function eventsForView(){return (feed?.events||[]).filter(e=>commishMode()&&!playerPreview||e.rsvpOpen===true);}
 function viewingPlayer(){
  if(commishMode()&&!playerPreview)return me;
- const slug=playerPreview?previewSlug:selectedSlug,player=players.find(p=>p.slug===slug);
+ const slug=playerPreview?previewSlug:selectedSlug,player=players.find(p=>p.slug===slug&&p.slug!==HOST);
  return player?{role:'player',player,responses:Object.fromEntries(feed.events.map(e=>[e.id,e.requestedIn.includes(player.slug)?'yes':e.rsvps[player.slug]]))}:null;
 }
 function eventCard(e){
@@ -28,11 +28,11 @@ function eventCard(e){
  return `<article class="event" data-slot="${esc(e.slot)}" id="event-${esc(e.id)}"><div class="event-topline"><div class="date">${esc(dateLabel(e.date))}</div><span class="event-kind">${esc(e.day||e.slot)}</span></div><div class="event-poster-layout"><div><h2>${esc(e.title)}</h2><div class="details">${esc(e.time)} – ${esc(e.endTime)} · Eastern<br>${esc(e.format)}<br>${esc(e.location)}</div></div>${posterMarkup(e.poster,e.title)}</div><progress class="meter" aria-label="Confirmed seat capacity" max="${e.capacity}" value="${count}"></progress><div class="counts"><span>${count} / ${e.capacity} confirmed</span><span>${e.waitlist.length} waiting · ${e.rsvpOpen?'RSVPs open':'RSVPs closed'}</span></div><div class="answer">${esc(answer)}</div>${viewer?.role!=='admin'&&!host&&e.rsvpOpen?`<div class="choices" role="group" aria-label="Your response for ${esc(e.title)}">${[['yes','I’m In'],['maybe','Maybe'],['no','I’m Out']].map(([a,l])=>`<button ${playerPreview||!viewer?.player?'disabled':''} data-answer="${a}" data-event="${esc(e.id)}" aria-pressed="${own===a}">${l}</button>`).join('')}</div>`:''}<details class="people"><summary>See the lineup</summary><strong>Confirmed seats</strong>${lineup(statusSlugs('yes'))}${e.waitlist.length?`<strong>Waitlist · in order</strong><ol>${e.waitlist.map(w=>`<li>${person(w.slug)}</li>`).join('')}</ol>`:''}<strong>Maybe</strong>${lineup(statusSlugs('maybe'))}<strong>Out</strong>${lineup(statusSlugs('no'))}<small>No Bostn, No Party. Host seat reserved. RSVP isn’t payment.</small></details></article>`;
 }
 function render(){
- const commish=commishMode();if(!commish)playerPreview=false;const controls=commish&&!playerPreview;
+ const commish=commishMode();if(!commish)playerPreview=false;if(commish&&!players.some(p=>p.slug===previewSlug&&p.slug!==HOST))previewSlug=sortedPlayers().find(p=>p.slug!==HOST)?.slug||'';const controls=commish&&!playerPreview;
  document.body.classList.toggle('is-commish',controls);document.body.classList.toggle('is-player-preview',commish&&playerPreview);
  $('#commish-sign-in').hidden=!commishEntry||commish;$('#commish-install-help').hidden=!commishEntry;
- $('#player-picker').hidden=commishEntry;$('#player-picker').innerHTML=commishEntry?'':`<label>Your name<select id="shared-player" ${busy?'disabled':''}><option value="">Choose your name…</option>${playerOptions(selectedSlug)}</select></label><p>Pick your name. Call your shot.</p>`;
- $('#view-controls').hidden=!commish;$('#view-controls').innerHTML=commish?`<div class="view-switch" role="group" aria-label="Page view"><button type="button" data-view="commish" aria-pressed="${!playerPreview}">Commish view</button><button type="button" data-view="player" aria-pressed="${playerPreview}">Player view</button></div>${playerPreview?`<div class="preview-details"><label>Preview as<select id="preview-player">${playerOptions(previewSlug)}</select></label><p>Player preview · Replies are disabled here. Switch back to Commish view to manage responses.</p></div>`:''}`:'';
+ $('#player-picker').hidden=commishEntry;$('#player-picker').innerHTML=commishEntry?'':`<label>Your name<select id="shared-player" ${busy?'disabled':''}><option value="">Choose your name…</option>${playerOptions(selectedSlug,false)}</select></label><p>Pick your name. Call your shot.</p>`;
+ $('#view-controls').hidden=!commish;$('#view-controls').innerHTML=commish?`<div class="view-switch" role="group" aria-label="Page view"><button type="button" data-view="commish" aria-pressed="${!playerPreview}">Commish view</button><button type="button" data-view="player" aria-pressed="${playerPreview}">Player view</button></div>${playerPreview?`<div class="preview-details"><label>Preview as<select id="preview-player">${playerOptions(previewSlug,false)}</select></label><p>Player preview · Replies are disabled here. Switch back to Commish view to manage responses.</p></div>`:''}`:'';
  const events=eventsForView();$('#events').innerHTML=events.length?(controls?'<h2 class="lineup-heading">Upcoming lineups</h2>':'')+events.map(eventCard).join(''):controls?'<p>No upcoming games are published.</p>':'<p>No games are open for RSVPs right now.</p>';
  const viewer=viewingPlayer();
  $('#identity').innerHTML=viewer?.role==='player'?`${person(viewer.player.slug)} <span class="tag">${playerPreview?'Player preview':'Your RSVP'}</span>`:commishMode()?'<span class="tag">THE COMMISH · No Bostn, No Party</span>':'';
@@ -40,7 +40,7 @@ function render(){
  if(controls){renderAdmin();loadPosters();}else{$('#admin').hidden=true;if(!commish)$('#admin').innerHTML='';}
 }
 async function refresh(quiet=false){try{
- feed=await api('public/events');try{me=await api('me');}catch(e){if(e.status!==401)throw e;me=null;}players=feed.players;if(!selectedSlug&&me?.role==='player')selectedSlug=me.player.slug;render();
+ feed=await api('public/events');try{me=await api('me');}catch(e){if(e.status!==401)throw e;me=null;}players=feed.players;if(!selectedSlug&&me?.role==='player'&&me.player.slug!==HOST)selectedSlug=me.player.slug;render();
  if(!quiet){const cancelled=feed.cancelledEvents?.find(e=>e.id===chosen);msg(cancelled?'This game was cancelled by The Commish. Pick another game below.':chosen&&!(commishMode()&&!playerPreview)&&feed.events.find(e=>e.id===chosen)?.rsvpOpen===false?'This game isn’t open for RSVPs. Games that are open are listed below.':chosen&&!feed.events.some(e=>e.id===chosen)?'That game is no longer available. Upcoming games are listed below.':(commishMode()||viewingPlayer()?.player)?'Live lineup checked '+new Date().toLocaleTimeString([], {hour:'numeric',minute:'2-digit'})+'.':new URLSearchParams(location.search).has('commish')?'Commish sign-in needs your separate private Commish link.':'Choose your name, then tap In, Maybe or Out for each game.');}return true;
  }catch(e){msg(e.message+' Displayed information may be out of date.',true);$('#events').querySelectorAll('button').forEach(b=>b.disabled=true);return false;}}
 function statusOf(e){return e.deletedAt?'Deleted':e.cancelled?'Cancelled':e.archived?'Archived':'Upcoming';}
