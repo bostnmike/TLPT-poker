@@ -303,13 +303,16 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   containment/return, backdrop dismissal, and narrow screens.
   “Norm Narrates” uses the user-supplied MP3s in `media/norm-narrates/`, one per
   Dashboard view. Keep recordings unchanged, use `preload="none"`, never autoplay,
-  and stop/unload audio when the dialog closes. Written help remains available
+  and keep the player on the actual page, not inside the written guide. Switching
+  views stops/resets the old recording; opening the read-me pauses playback without
+  losing position, and closing it never auto-resumes. Written help remains available
   when audio fails. Run `scripts/test-norm-narration-browser.cjs` to check playback,
-  view-to-file mapping, close/reopen behavior, and mobile layout.
+  view-to-file mapping, pause/resume behavior, and mobile layout.
   Future scripts may include occasional player-specific barbs grounded in league
   write-ups or user direction; spread them around and do not force the joke.
   The supplied Player DNA recording includes the user's Cougar/loud-raises jab.
-  Shared portrait invitations and audio rendering live in `stats-help.js/css`.
+  Shared inline players and read-me links live in `stats-help.js/css`. Portraits
+  are 96px on desktop/tablet and 80px on phones, with the read-me link on the right.
   The supplied, unchanged headshot is `images/site/norm-headshot.png`; crop only
   through CSS. Dashboard retains its view-specific metric definitions.
   `stats-help-content.js` adds eight written guides across Standings, Form Lab,
@@ -320,7 +323,7 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   `docs/norm-narrates-batch-2/`. On receiving recordings, add the matching assets,
   set each guide's audio path and rotate cache versions on the consuming pages.
   Run `scripts/test-stats-guides-browser.cjs` for all guide dialogs, portraits,
-  focus/close behavior, narrow layouts and audio teardown. All eight batch-two
+  focus/close behavior, narrow layouts and view-change audio teardown. All eight batch-two
   recordings are enabled.
   The supplied file named norm-form-lab.mp3 was identified by its spoken content
   as Bounty Hunters and copied unchanged under norm-bounty-hunters.mp3.

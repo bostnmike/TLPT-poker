@@ -79,15 +79,15 @@ for (const page of ['dashboard','standings','player','knockouts','form-lab','str
 const streakContext = vm.createContext({ document: { addEventListener() {} } });
 const dashboardMarkup = fs.readFileSync(new URL('../dashboard.html', import.meta.url),'utf8');
 assert.match(dashboardMarkup, /<dialog id="dashboard-help"/, 'Dashboard includes accessible contextual help');
-assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-3/, 'Contextual help is loaded');
+assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-4/, 'Contextual help is loaded');
 const guideContext = vm.createContext({window:{}});
 vm.runInContext(fs.readFileSync(new URL('../stats-help-content.js', import.meta.url),'utf8'), guideContext);
 for (const page of ['standings','form-lab','player-movement','streaks','knockouts','players','player']) {
   const markup = fs.readFileSync(new URL('../'+page+'.html',import.meta.url),'utf8');
   assert.ok(markup.includes('data-stats-help-open="'+page+'"'), page+': contextual help invitation');
-  assert.match(markup, /stats-help\.css\?v=20261026-1/);
+  assert.match(markup, /stats-help\.css\?v=20261026-2/);
   assert.match(markup, /stats-help-content\.js\?v=20261026-2/);
-  assert.match(markup, /stats-help\.js\?v=20261026-2/);
+  assert.match(markup, /stats-help\.js\?v=20261026-3/);
 }
 assert.ok(fs.statSync(new URL('../images/site/norm-headshot.png',import.meta.url)).size>1000);
 assert.equal(Object.keys(guideContext.window.TLPTStatsGuides).length,8);

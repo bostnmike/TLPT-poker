@@ -50,6 +50,13 @@
       }
     }
   };
+  const currentCategory = () => document.getElementById('dashboard-metric-panel')?.dataset.dashboardMetricGroup || 'results';
+  const syncNarration = window.TLPTGuide.mount(opener, () => {
+    const category = currentCategory();
+    return {title:(views[category] || views.results).title, audio:'media/norm-narrates/norm-dashboard-' + category + '.mp3'};
+  });
+  const panel = document.getElementById('dashboard-metric-panel');
+  if (panel) new MutationObserver(syncNarration).observe(panel, {attributes:true,attributeFilter:['data-dashboard-metric-group']});
   const add = (tag, text, parent = content) => {
     const element = document.createElement(tag);
     element.textContent = text;
@@ -66,10 +73,6 @@
     document.getElementById('dashboard-help-title').textContent = view.title + ' · How to use this view';
     content.replaceChildren();
     add('p', view.intro).className = 'dashboard-help-intro';
-    window.TLPTGuide.narration(content, {
-      title: view.title,
-      audio: 'media/norm-narrates/norm-dashboard-' + category + '.mp3'
-    });
     add('h3', 'Start here');
     add('p', view.tip);
     add('h3', 'What the numbers mean');
@@ -106,7 +109,6 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
   dialog.addEventListener('close', () => {
-    window.TLPTGuide.stopAudio(dialog);
     document.body.style.overflow = priorOverflow;
     opener.focus();
   });

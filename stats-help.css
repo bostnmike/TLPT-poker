@@ -1,15 +1,17 @@
-/* Norm invitations stay beside controls; portraits are decorative within named buttons. */
-body .norm-help-invite { display:flex; align-items:center; gap:12px; min-height:68px; max-width:100%; padding:8px 12px; border:1px solid #796339; border-radius:12px; background:#17222b; color:#f2f5f8; text-align:left; font:inherit; cursor:pointer; box-shadow:none; }
-body .norm-help-invite:hover { background:#22303a; border-color:#ffcf70; }
-body .norm-help-invite:focus-visible { outline:2px solid #ffcf70; outline-offset:3px; }
-.norm-headshot { display:block; width:52px; height:52px; flex:0 0 52px; object-fit:cover; object-position:center 35%; border:2px solid #d2ac53; border-radius:50%; box-sizing:border-box; }
-.norm-invite-copy { display:flex; flex-direction:column; gap:3px; min-width:0; }
-.norm-invite-copy strong { font-size:.95rem; color:#ffcf70; line-height:1.25; }
-.norm-invite-copy > span { font-size:.8rem; color:#d5dfe8; line-height:1.4; }
-.norm-invite-arrow { margin-left:auto; color:#ffcf70; }
-.control-deck-heading:has(.norm-help-invite) { align-items:center; flex-wrap:wrap; gap:12px; }
-.control-deck-heading .norm-help-invite { margin-left:auto; }
-.dashboard-summary-row:has(.norm-help-invite) { align-items:center; padding-top:12px; }
+/* One on-page player, with a separate written guide on the right. */
+.norm-page-guide { display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-areas:"portrait intro" "portrait audio" "status status" "footer footer"; align-items:center; gap:8px 20px; margin:14px 0 20px; padding:18px 20px; border:1px solid #796339; border-radius:14px; background:#17222b; color:#f2f5f8; min-width:0; text-align:left; }
+.norm-page-guide .norm-headshot { grid-area:portrait; display:block; width:96px; height:96px; object-fit:cover; object-position:center 35%; border:2px solid #d2ac53; border-radius:50%; box-sizing:border-box; }
+.norm-page-intro { grid-area:intro; min-width:0; }
+body .norm-page-intro h3 { margin:0 0 4px; color:#ffcf70; font-size:1.05rem; line-height:1.3; }
+body .norm-page-intro p { margin:0; color:#d5dfe8; font-size:.88rem; line-height:1.5; }
+.norm-page-audio { grid-area:audio; display:block; width:100%; max-width:440px; min-width:0; height:44px; }
+.norm-page-audio[hidden], .norm-narration-status[hidden] { display:none; }
+body .norm-narration-status { grid-area:status; margin:4px 0; color:#ffcf70; font-size:.88rem; }
+.norm-page-footer { grid-area:footer; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:12px; margin-top:6px; padding-top:12px; border-top:1px solid #3f4a50; }
+body .norm-page-footer p { margin:0; font-size:.85rem; line-height:1.5; color:#d5dfe8; }
+body .norm-page-footer .norm-read-guide { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:8px 10px; margin:0; border:0; border-radius:6px; background:transparent; color:#ffcf70; font:700 .9rem/1.4 Arial,sans-serif; text-decoration:underline; text-underline-offset:3px; white-space:normal; box-shadow:none; cursor:pointer; }
+body .norm-page-footer .norm-read-guide:hover { color:#fff0c2; background:#22303a; }
+.norm-page-guide :focus-visible { outline:2px solid #ffcf70; outline-offset:3px; }
 .stats-help-dialog { width:min(720px,calc(100% - 32px)); max-height:min(85dvh,900px); box-sizing:border-box; padding:0 24px 24px; border:1px solid #786132; border-radius:18px; background:#111b24; color:#d5dfe8; box-shadow:0 24px 80px #0009; overflow:auto; }
 .stats-help-dialog::backdrop { background:#03080dd9; }
 .stats-help-header { display:flex; align-items:center; justify-content:space-between; gap:16px; position:sticky; top:0; padding:20px 0 14px; background:#111b24; border-bottom:1px solid #34414d; z-index:1; }
@@ -18,16 +20,11 @@ body .norm-help-invite:focus-visible { outline:2px solid #ffcf70; outline-offset
 .stats-help-dialog h3 { margin:24px 0 8px; color:#ffcf70; font-size:1rem; }
 .stats-help-dialog p { font-size:.94rem; line-height:1.6; }
 .stats-help-dialog :focus-visible { outline:2px solid #ffcf70; outline-offset:3px; }
-.norm-narration { margin:18px 0; padding:14px 16px; border:1px solid #635434; border-radius:12px; background:#19232b; }
-.norm-narration-heading { display:flex; align-items:center; gap:12px; }
-.norm-narration-heading > div { min-width:0; }
-body .norm-narration h3 { margin:0 0 6px; }
-body .norm-narration p { margin:6px 0 0; font-size:.85rem; line-height:1.5; }
-.norm-narration audio { display:block; width:100%; max-width:440px; min-height:44px; margin-top:14px; }
-body .norm-narration .dashboard-narration-status { color:#ffcf70; }
-@media(max-width:700px) {
+@media(max-width:600px) {
+  .norm-page-guide { grid-template-columns:80px minmax(0,1fr); grid-template-areas:"portrait intro" "audio audio" "status status" "footer footer"; padding:14px; gap:12px; }
+  .norm-page-guide .norm-headshot { width:80px; height:80px; }
+  .norm-page-footer { gap:8px; }
+  body .norm-page-footer .norm-read-guide { max-width:104px; padding:8px 4px; font-size:.85rem; }
   .stats-help-dialog { padding:0 16px 16px; }
   .stats-help-header h2 { font-size:1.1rem; }
-  .control-deck-heading .norm-help-invite, .dashboard-summary-row .norm-help-invite { width:100%; margin-left:0; }
-  .norm-narration { padding:12px; }
 }
