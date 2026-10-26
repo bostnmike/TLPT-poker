@@ -35,7 +35,19 @@ export default {async fetch(req,env,ctx){
   if(path==='/api/public/posters'&&req.method==='GET'){
    try{const r=await fetch('https://tlpt.org/images/fw/gallery-manifest.json',{signal:AbortSignal.timeout(5000)});requireValue(r.ok,'Gallery unavailable.',503);const gallery=await r.json();requireValue(gallery.folder==='images/fw'&&Array.isArray(gallery.files),'Gallery unavailable.',503);return json({posters:gallery.files.filter(f=>typeof f==='string'&&/^fw\d{2}-\d{2}-\d{2}\.jpg$/.test(f)).slice(0,500).map(file=>({file,date:`20${file.slice(2,10)}`,url:`https://tlpt.org/images/fw/${file}`,thumbnailUrl:`https://tlpt.org/images/fw/thumbs/${file}`}))},200,{'Cache-Control':'public, max-age=300'});}catch{return json({posters:[],unavailable:true});}
   }
-  if(!path.startsWith('/api/')){const res=await env.ASSETS.fetch(req);return new Response(res.body,{status:res.status,headers:{...Object.fromEntries(res.headers),...headers}});}
+  if(path==='/commish.webmanifest'&&req.method==='GET'){
+   const res=await env.ASSETS.fetch(new Request(new URL('/manifest.webmanifest',url),req));
+   requireValue(res.ok,'Installation unavailable.',503);const manifest=await res.json();
+   return json({...manifest,id:'/?commish=1',start_url:'/?commish=1',description:'Manage TLPT events and RSVPs as The Commish.'},200,{'Content-Type':'application/manifest+json'});
+  }
+  if(!path.startsWith('/api/')){
+   const res=await env.ASSETS.fetch(req),outHeaders={...Object.fromEntries(res.headers),...headers};
+   if(req.method==='GET'&&res.status===200&&['/','/index.html'].includes(path)&&url.searchParams.has('commish')&&res.headers.get('Content-Type')?.includes('text/html')){
+    const html=(await res.text()).replace(/(<link rel="manifest" href=")\/manifest\.webmanifest/,'$1/commish.webmanifest').replace('<body>','<body class="is-commish-entry">');
+    delete outHeaders['content-length'];delete outHeaders['content-encoding'];delete outHeaders.etag;return new Response(html,{status:200,headers:outHeaders});
+   }
+   return new Response(res.body,{status:res.status,headers:outHeaders});
+  }
   requireValue(['GET','POST'].includes(req.method),'Method not allowed.',405);
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);

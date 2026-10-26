@@ -156,6 +156,9 @@ small { color: var(--muted); }
 }
 /* Commish controls lead; player pages keep the league hero. */
 .is-commish .hero { display: none; }
+.is-commish-entry:not(.is-player-preview) .hero { display: none; }
+#commish-sign-in { margin-top: 0; }
+#commish-sign-in-status:empty { display: none; }
 .is-commish main { padding-top: 6px; }
 .is-commish #notice { margin: 16px 0; }
 .is-commish #identity { margin: 14px 0; }

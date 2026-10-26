@@ -14,6 +14,9 @@ try{
  server=spawn(process.execPath,[wrangler,'dev','--local','--config','wrangler.jsonc','--persist-to',state,'--port','8794','--inspector-port','0'],{env,stdio:['ignore','pipe','pipe']});server.stdout.on('data',d=>output+=d);server.stderr.on('data',d=>output+=d);
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/api/version')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output);
  const post=(path,b,cookie,origin=base)=>fetch(base+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(b)});
+ const playerHtml=await(await fetch(base+'/')).text(),commishHtml=await(await fetch(base+'/?commish=1')).text();
+ assert.match(playerHtml,/href="\/manifest.webmanifest\?/);assert.match(commishHtml,/href="\/commish.webmanifest\?/);
+ const commishManifest=await(await fetch(base+'/commish.webmanifest')).json();assert.equal(commishManifest.start_url,'/?commish=1');assert.equal(commishManifest.id,'/?commish=1');assert.ok(!JSON.stringify(commishManifest).includes('#key='));
  assert.equal((await fetch(base+'/api/me')).status,401);assert.equal((await post('exchange',{key},null,'https://evil.test')).status,403);
  assert.equal((await post('respond',{slug:'red',eventId:'fixture-event',answer:'maybe'})).status,200);
  assert.equal((await post('respond',{slug:'red',eventId:'fixture-event',answer:'yes'},null,'https://evil.test')).status,403);

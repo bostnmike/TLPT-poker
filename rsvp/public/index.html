@@ -14,8 +14,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261026-2">
   <link rel="apple-touch-icon" sizes="180x180" href="/rsvp-icon-180.png?v=20261026-2">
   <link rel="manifest" href="/manifest.webmanifest?v=20261026-2">
-  <link rel="stylesheet" href="/style.css?v=20261025-7">
-  <script src="/app.js?v=20261026-1" defer></script>
+  <link rel="stylesheet" href="/style.css?v=20261026-3">
+  <script src="/app.js?v=20261026-3" defer></script>
+  <script type="module" src="/commish.mjs?v=20261026-3"></script>
   <script type="module" src="/install.mjs?v=20261025-1"></script>
 </head>
 <body>
@@ -26,6 +27,16 @@
   </div>
 </header>
 <main id="main-content">
+  <section id="commish-sign-in" class="admin-panel" aria-labelledby="commish-sign-in-title" hidden>
+    <h2 id="commish-sign-in-title">Unlock Commish</h2>
+    <p>Open <strong>TLPT RSVP — Commish</strong> in Bitwarden and copy its password or full website link. Paste it here to sign in on this phone.</p>
+    <form id="commish-sign-in-form">
+      <label>Private Commish link<input id="commish-sign-in-link" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required></label>
+      <button type="submit" class="primary">Unlock Commish</button>
+      <p id="commish-sign-in-status" role="status" aria-live="polite"></p>
+    </form>
+    <p>Your Home Screen app may need this sign-in even if you already signed in through your browser.</p>
+  </section>
   <section id="view-controls" aria-label="Commish view options" hidden></section>
   <section class="hero" aria-labelledby="page-title">
     <div class="hero-copy">
@@ -63,6 +74,7 @@
   <img class="install-icon" src="/rsvp-icon-192.png?v=20261026-2" alt="Yellow TLPT poker chip app icon" width="72" height="72">
   <h2 id="install-title">Add TLPT RSVP</h2>
   <p>Your next game, one tap away. Keep the name <strong>TLPT RSVP</strong> when you add it.</p>
+  <p id="commish-install-help" hidden>This shortcut opens Commish view. After adding it, open the new icon. If you see Unlock Commish, paste your private link from Bitwarden there to sign in.</p>
   <button id="native-install" type="button" class="primary" hidden>Install TLPT RSVP</button>
   <p id="install-status" role="status" aria-live="polite"></p>
   <div class="install-tabs" role="group" aria-label="Installation device">
