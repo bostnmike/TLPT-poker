@@ -4937,9 +4937,13 @@ def audit_rsvp_table_switch() -> list[str]:
 
     expected_slots = ["friday", "saturday", "mtt"]
     actual_slots = [str(event.get("slot", "")).strip().lower() for event in events]
-    if actual_slots != expected_slots:
+    # The live schedule can have multiple dates per format or no current Friday.
+    # Validate real format/order constraints, not an obsolete three-event fixture.
+    if any(slot not in expected_slots for slot in actual_slots) or actual_slots != sorted(
+        actual_slots, key=lambda slot: expected_slots.index(slot) if slot in expected_slots else -1
+    ):
         errors.append(
-            "data/events.json: events must be ordered as friday, saturday, mtt"
+            "data/events.json: use valid slots ordered as friday, saturday, mtt (multiple dates allowed)"
         )
 
     events_by_slot = {
@@ -4954,9 +4958,14 @@ def audit_rsvp_table_switch() -> list[str]:
             errors.append(
                 f"data/events.json: {event.get('day', 'event')} tables must be 1 or 2"
             )
+        slot = str(event.get("slot", "")).strip().lower()
+        if slot in ("friday", "saturday") and event.get("tables", 1) != 1:
+            errors.append(f"data/events.json: {slot} must be fixed at one table")
+        if slot == "mtt" and event.get("tables") != 2:
+            errors.append("data/events.json: MTT must be fixed at two tables")
 
     saturday_event = events_by_slot.get("saturday")
-    if not saturday_event or saturday_event.get("tables") != 1:
+    if saturday_event and saturday_event.get("tables") != 1:
         errors.append("data/events.json: Saturday must be fixed at one table")
 
     mtt_event = events_by_slot.get("mtt")

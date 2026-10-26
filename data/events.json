@@ -2,16 +2,17 @@
   "events": [
     {
       "title": "Top Stack | 9-Max",
-      "format": "40K Format",
-      "slot": "friday",
-      "day": "Friday",
-      "date": "Friday, October 30, 2026",
-      "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event",
+      "format": "500K Format",
+      "slot": "saturday",
+      "day": "Saturday",
+      "tables": 1,
+      "date": "Saturday, December 5, 2026",
+      "structure": "Blinds start 500/1000 • 20 min levels • ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:30 PM",
       "location": "The Caahhd Room",
       "address": "OCW, in Cary",
-      "apple_invite_url": "https://www.icloud.com/invites/04d70JggM851ghewY2GhFcUaA",
+      "apple_invite_url": "",
       "rsvps": {
         "bostnmike": "yes",
         "ai-dave": "tbd",
