@@ -95,10 +95,17 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           await page.locator('[data-crew-roster="active"]').click();
         }
         if (name === 'dashboard') {
+          assert.equal(await page.locator('#dashboard-metric-select-trigger').textContent(), 'Knockouts (Hits)');
+          assert.match(await page.locator('#dashboard-studio-strip').textContent(), /Ranking \d+ players? by knockouts \(hits\) across \d+ events?\./);
+          await page.locator('#stat-format').selectOption('mtt', {force:true});
           await page.locator('[data-dashboard-category="player-dna"]').click();
           assert.equal(await page.locator('#dashboard-career-note').isVisible(),true);
+          assert.equal(await page.locator('.dashboard-event-filters').isVisible(),false);
+          assert.match(await page.locator('#dashboard-studio-strip').textContent(), /using career-wide ratings/);
           await page.locator('[data-dashboard-category="results"]').click();
           assert.equal(await page.locator('#dashboard-career-note').isVisible(),false);
+          assert.equal(await page.locator('#stat-format').inputValue(),'mtt');
+          await page.locator('[data-stat-reset]').click();
           if (width <= 700) {
             await page.locator('#stat-format').selectOption('mtt', {force:true});
             await page.locator('#dashboard-filter-toggle').click();
@@ -112,7 +119,7 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
             await page.locator('[data-stat-reset]').click();
             assert.equal(await page.locator('#stat-format-trigger').evaluate(el=>document.activeElement===el),true);
             await page.locator('#dashboard-filter-toggle').click();
-            assert.match(await page.locator('[data-dashboard-filter-label]').textContent(), /All formats · All events/);
+            assert.match(await page.locator('[data-dashboard-filter-label]').textContent(), /All \d+ events/);
           }
         }
         if (name === 'structures') {

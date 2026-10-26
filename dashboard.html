@@ -52,7 +52,7 @@
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
   <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
-  <link rel="stylesheet" href="dashboard-controls.css?v=20261026-1" />
+  <link rel="stylesheet" href="dashboard-controls.css?v=20261026-2" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -144,12 +144,12 @@
               </div>
 
               <div class="dashboard-metric-selector" id="dashboard-metric-panel" data-dashboard-metric-group="results" role="tabpanel" aria-labelledby="dashboard-category-results">
-                <label for="dashboard-metric-select">Rank by</label>
+                <label for="dashboard-metric-select">Show me</label>
                 <div class="dashboard-metric-select-wrap">
                   <span class="dashboard-metric-icon" id="dashboard-metric-icon" aria-hidden="true">💥</span>
                   <select id="dashboard-metric-select" aria-label="Results metric" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid">
-                    <option value="hits" selected>Hits</option>
-                    <option value="bountiesWon">Bounties</option>
+                    <option value="hits" selected>Knockouts (Hits)</option>
+                    <option value="bountiesWon">Bounties won</option>
                     <option value="timesPlaced">Cashes</option>
                     <option value="bubbles">Bubbles</option>
                   </select>
@@ -158,14 +158,14 @@
               <div class="dashboard-event-filters">
                 <button class="dashboard-filter-toggle" id="dashboard-filter-toggle" type="button" aria-expanded="false" aria-controls="dashboard-event-scope" hidden>
                   <span>Filter events</span>
-                  <span data-dashboard-filter-label>All formats · All events</span>
+                  <span data-dashboard-filter-label>All league events</span>
                 </button>
                 <section class="stat-scope" id="dashboard-event-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
               </div>
             </div>
           </div>
 
-          <p id="dashboard-career-note" class="stat-career-note" hidden>Player DNA is career-wide. Event filters do not recalculate ratings or change the career ranking pool.</p>
+          <p id="dashboard-career-note" class="stat-career-note" hidden>Career-wide ratings · Event filters don’t apply.</p>
           <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
 
           <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
@@ -203,7 +203,7 @@
   <script src="site-shell.js?v=20261018-1"></script>
   <script src="roster-display.js?v=20261018-1"></script>
   <script src="stats-scope.js?v=20261026-1"></script>
-  <script src="app.js?v=20261026-2"></script>
-  <script src="dashboard-controls.js?v=20261026-1"></script>
+  <script src="app.js?v=20261026-3"></script>
+  <script src="dashboard-controls.js?v=20261026-2"></script>
 </body>
 </html>

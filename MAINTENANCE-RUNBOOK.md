@@ -294,6 +294,9 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   event scope collapses behind a summary that retains the current selection.
   Reset is visible only for an active event filter. These are presentation-only
   overrides; do not move calculations out of the shared statistical scope.
+  Player DNA hides event controls without clearing their selections; returning to
+  an event-results tab restores them. The Dashboard shows one live ranking sentence
+  based on the actual ranked players and selected event count, not duplicate counters.
 - Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
   the local preview, and again against production after deployment. It covers all
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,

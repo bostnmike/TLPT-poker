@@ -26,7 +26,11 @@ body .dashboard-controls-compact .stat-scope-summary { font-size: .8rem; }
 body .dashboard-controls-compact .stat-scope-help { margin-left: auto; }
 body .dashboard-controls-compact .stat-scope-help > summary { font-size: .8rem; font-weight: 500; }
 body .dashboard-controls-compact [data-stat-reset] { min-height: 44px; padding: 6px 10px; border: 0; background: none; box-shadow: none; }
-body .dashboard-controls-compact .dashboard-studio-strip { margin-top: 4px; padding-top: 10px; }
+body .dashboard-controls-compact .dashboard-studio-strip {
+  display: block; margin-top: 4px; padding-top: 10px;
+  color: #c3d1dd; font-size: .9rem; line-height: 1.5; font-weight: 500;
+}
+body .dashboard-controls-compact .stat-career-note { margin: 12px 0 8px; color: #d7b4fa; font-size: .84rem; }
 .dashboard-filter-toggle {
   display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 12px; align-items: center;
   width: 100%; min-height: 52px; padding: 10px 0; text-align: left;

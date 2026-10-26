@@ -108,18 +108,18 @@ const DASHBOARD_CATEGORY_DEFAULTS = Object.freeze({
 });
 const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
   results: Object.freeze([
-    { key: "hits", icon: "💥", label: "Hits" },
-    { key: "bountiesWon", icon: "🏷️", label: "Bounties" },
+    { key: "hits", icon: "💥", label: "Knockouts (Hits)" },
+    { key: "bountiesWon", icon: "🏷️", label: "Bounties won" },
     { key: "timesPlaced", icon: "💵", label: "Cashes" },
     { key: "bubbles", icon: "🫧", label: "Bubbles" }
   ]),
   bankroll: Object.freeze([
     { key: "profit", icon: "💰", label: "Profit" },
-    { key: "bountyNet", icon: "🧾", label: "Bounty Net" }
+    { key: "bountyNet", icon: "🧾", label: "Bounty profit / loss" }
   ]),
   rates: Object.freeze([
-    { key: "roi", icon: "📈", label: "ROI" },
-    { key: "hitRate", icon: "💥", label: "Hit Rate" },
+    { key: "roi", icon: "📈", label: "Return on investment (ROI)" },
+    { key: "hitRate", icon: "💥", label: "Knockouts per entry" },
     { key: "cashRate", icon: "💵", label: "Cash Rate" },
     { key: "bubbleRate", icon: "🫧", label: "Bubble Rate" }
   ]),
@@ -2311,29 +2311,25 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   `;
 }
 
+function dashboardMetricLabel(sortKey) {
+  return Object.values(DASHBOARD_METRICS_BY_CATEGORY).flat().find(metric => metric.key === sortKey)?.label || formatStatLabel(sortKey);
+}
+
 function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   const strip = document.getElementById("dashboard-studio-strip");
   if (!strip) return;
 
-  const meta = DASHBOARD_META[sortKey] || {
-    label: formatStatLabel(sortKey),
-    icon: statIcon(sortKey),
-    formula: ""
-  };
-
-  const leader = sortedPlayers[0];
-  if (!leader) {
-    strip.innerHTML = "";
-    return;
-  }
-
-strip.innerHTML = `
-  <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
-
-  <div class="dashboard-studio-context">
-    <strong>Ranked Field:</strong> ${sortedPlayers.length} players ${window.TLPTStats?.active() && window.TLPTStats.isFactual(sortKey) ? 'with results in this view' : 'with 2+ career entries'} and non-zero ${meta.label}
-  </div>
-`;
+  const count = sortedPlayers.length;
+  const career = !window.TLPTStats?.isFactual(sortKey);
+  const eventCount = window.TLPTStats?.selectedEvents().length || 0;
+  const metric = dashboardMetricLabel(sortKey).toLowerCase();
+  const context = career ? "using career-wide ratings" : `across ${eventCount} event${eventCount === 1 ? "" : "s"}`;
+  strip.textContent = count
+    ? `Ranking ${count} player${count === 1 ? "" : "s"} by ${metric} ${context}.`
+    : `No players to rank by ${metric} ${context}.`;
+  if (!career && eventCount > 0 && eventCount < 5) strip.textContent += " Small sample—brag responsibly.";
+  strip.setAttribute("role", "status");
+  strip.setAttribute("aria-live", "polite");
 }
 
 function ensureDashboardHeadline(sortKey) {
@@ -2361,7 +2357,7 @@ function ensureDashboardHeadline(sortKey) {
 
   headline.innerHTML = `
     <span class="dashboard-current-icon">${meta.icon}</span>
-    <span class="standings-current-label">${meta.label}</span>
+    <span class="standings-current-label">${dashboardMetricLabel(sortKey)}</span>
   `;
 
   if (formulaBox) {
@@ -3427,13 +3423,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   if (careerNote) careerNote.hidden = !careerMetric;
 
   if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
-    const strip = document.getElementById("dashboard-studio-strip");
-    if (strip) {
-      strip.innerHTML = `
-        <div class="dashboard-studio-copy">No bounty results in the selected events.</div>
-        <div class="dashboard-studio-context"><strong>No Bounty Results</strong></div>
-      `;
-    }
+    renderDashboardStudioStrip(sortKey, []);
 
     grid.innerHTML = '<p class="muted">No bounty results match these filters. Try With Bounties or Reset to All.</p>';
     setActiveSortButton("dashboard", sortKey);
