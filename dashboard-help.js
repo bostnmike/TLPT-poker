@@ -66,25 +66,9 @@
     document.getElementById('dashboard-help-title').textContent = view.title + ' · How to use this view';
     content.replaceChildren();
     add('p', view.intro).className = 'dashboard-help-intro';
-    const narration = add('section', '');
-    narration.className = 'dashboard-narration';
-    narration.setAttribute('aria-label', 'Norm Narrates: ' + view.title);
-    add('h3', '🎙️ Norm Narrates', narration);
-    add('p', 'Prefer the commentary? Press play. The full written guide is below.', narration);
-    const audio = document.createElement('audio');
-    audio.controls = true;
-    audio.preload = 'none';
-    audio.setAttribute('aria-label', 'Listen to Norm explain ' + view.title);
-    audio.src = 'media/norm-narrates/norm-dashboard-' + category + '.mp3';
-    narration.append(audio);
-    const audioStatus = add('p', '', narration);
-    audioStatus.className = 'dashboard-narration-status';
-    audioStatus.setAttribute('role', 'status');
-    audioStatus.hidden = true;
-    audio.addEventListener('error', () => {
-      if (!audio.getAttribute('src')) return;
-      audioStatus.textContent = 'Norm’s microphone is taking a break. The complete written guide is still below.';
-      audioStatus.hidden = false;
+    window.TLPTGuide.narration(content, {
+      title: view.title,
+      audio: 'media/norm-narrates/norm-dashboard-' + category + '.mp3'
     });
     add('h3', 'Start here');
     add('p', view.tip);
@@ -122,12 +106,7 @@
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
   dialog.addEventListener('close', () => {
-    const audio = content.querySelector('audio');
-    if (audio) {
-      audio.pause();
-      audio.removeAttribute('src');
-      audio.load();
-    }
+    window.TLPTGuide.stopAudio(dialog);
     document.body.style.overflow = priorOverflow;
     opener.focus();
   });

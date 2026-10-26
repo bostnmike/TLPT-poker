@@ -1,0 +1,33 @@
+NORM NARRATES — BATCH TWO
+
+Eight scripts, one reviewed recording per guide.
+Paste only the individual script text into your audio tool.
+Keep the conversational pacing of the four Dashboard recordings.
+Most scripts are about 125–145 words; allow roughly 45–60 seconds.
+No music or introductory sting is required.
+
+Return each MP3 with the same basename as its script:
+norm-standings.mp3 -> Standings
+norm-form-lab.mp3 -> Form Lab
+norm-heater-meter.mp3 -> Heater Meter
+norm-streaks.mp3 -> Streak Tracker
+norm-knockouts.mp3 -> Knockout Central / Knockouts view
+norm-bounty-hunters.mp3 -> Knockout Central / Bounty Hunters view
+norm-meet-the-crew.mp3 -> Meet the Crew
+norm-player-profile.mp3 -> Every individual player profile
+
+The live written guides work now. New audio is explicitly marked coming soon.
+No placeholder audio, autoplay, or missing-file requests are published.
+After review, recordings go in media/norm-narrates/ and the corresponding
+audio field in stats-help-content.js is set to that file path.
+Rotate the content/script cache versions and run the guide browser checks.
+The page invitation must say Listen or read only when a recording is enabled.
+
+Jokes are grounded in the existing house-rule copy or user directions:
+Chris O/reloads, BostnMike/site overkill, Ahmed/second tournament,
+Tony/tanking, Hiro/action policing, Kishan/bounties versus profit,
+Chris F/two opening cashes, Red/moving and alumni.
+These are occasional barbs, not claims about current rankings.
+
+Scripts explain existing calculations; they do not introduce new ratings.
+No live event counts, current leaders, or time-sensitive standings are named.

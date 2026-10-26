@@ -1,0 +1,11 @@
+Welcome to the Form Lab. BostnMike has given a weekend poker league a research department. Apparently, the group chat wasn’t producing enough unsupported conclusions.
+
+Start with a player, choose a preset, and pick the last six, last ten, or all matching appearances.
+
+Each dot is one event. Select it to inspect that night’s results. The default chart compares event volatility with form score. Upper-left means stronger form with less modeled chaos. Change the axes, and you change what a good-looking corner means.
+
+Open the chart options to customize the axes, labels, trend line, and player average.
+
+The event filters narrow the sample before the window is applied. These are event-level measures, not somebody’s career Power rating.
+
+Use the chart to ask better questions. A line through six dots is not a prophecy. Even if you drew it yourself.

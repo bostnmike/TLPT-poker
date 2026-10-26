@@ -309,6 +309,19 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   Future scripts may include occasional player-specific barbs grounded in league
   write-ups or user direction; spread them around and do not force the joke.
   The supplied Player DNA recording includes the user's Cougar/loud-raises jab.
+  Shared portrait invitations and audio rendering live in `stats-help.js/css`.
+  The supplied, unchanged headshot is `images/site/norm-headshot.png`; crop only
+  through CSS. Dashboard retains its view-specific metric definitions.
+  `stats-help-content.js` adds eight written guides across Standings, Form Lab,
+  Heater Meter, Streak Tracker, Knockouts/Bounty Hunters, Crew and player profiles.
+  An `audio: null` guide must show written help and an honest coming-soon label,
+  never a broken player or a request for a nonexistent recording.
+  Reviewed batch-two scripts and the exact MP3 filename mapping are in
+  `docs/norm-narrates-batch-2/`. On receiving recordings, add the matching assets,
+  set each guide's audio path and rotate cache versions on the consuming pages.
+  Run `scripts/test-stats-guides-browser.cjs` for all guide dialogs, portraits,
+  focus/close behavior, narrow layouts and audio teardown. Update its
+  unrecorded-guide assertions when those recordings are actually enabled.
 - Run `scripts/test-control-deck-browser.cjs` with the Playwright runtime against
   the local preview, and again against production after deployment. It covers all
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,

@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="roster-display.css?v=20261018-2" />
   <link rel="stylesheet" href="stats-scope.css?v=20261025-1" />
   <link rel="stylesheet" href="control-deck.css?v=20261026-1" />
+  <link rel="stylesheet" href="stats-help.css?v=20261026-1" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -144,7 +145,7 @@
 
     <div id="knockouts-page" class="knockouts-page">
       <section class="tlpt-control-deck" aria-label="Knockout filters and views">
-        <div class="control-deck-heading"><h2>Explore the knockouts</h2><span>Changes apply instantly</span></div>
+        <div class="control-deck-heading"><h2>Explore the knockouts</h2><button type="button" data-stats-help-open="knockouts" aria-haspopup="dialog" aria-controls="stats-help">How to use this page</button></div>
     <section class="stat-scope" data-stat-scope aria-label="Filter event results"><p>Loading event filters…</p></section>
       <div class="knockouts-view-switch" role="group" aria-label="Knockout Central view">
         <button class="knockouts-view-button is-active" type="button" data-knockouts-view="knockouts" aria-controls="knockouts-panel-knockouts" aria-pressed="true">
@@ -227,5 +228,14 @@
       </p>
     </div>
   </footer>
+  <dialog id="stats-help" class="stats-help-dialog" aria-labelledby="stats-help-title">
+    <div class="stats-help-header">
+      <h2 id="stats-help-title">How to use this page</h2>
+      <button class="btn" type="button" data-stats-help-close autofocus>Close</button>
+    </div>
+    <div class="stats-help-content"></div>
+  </dialog>
+  <script src="stats-help-content.js?v=20261026-1"></script>
+  <script src="stats-help.js?v=20261026-1"></script>
 </body>
 </html>

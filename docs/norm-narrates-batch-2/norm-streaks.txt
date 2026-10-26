@@ -1,0 +1,11 @@
+Welcome to the Streak Tracker, where we distinguish a heater from a fond memory with excellent publicity.
+
+A cash streak means consecutive matching appearances with a tournament cash. A drought means consecutive appearances without one. Collecting a bounty alone does not count as cashing.
+
+Players need two matching appearances, and runs start at two. Missing a game neither breaks nor extends a streak. Events outside your chosen filters are skipped too.
+
+Compare the active runs with the longest historical ones, then use Player Streak Lookup for dates and details.
+
+“Active” means the run reaches that player’s most recent matching appearance. It does not mean they’re sitting at the table tonight.
+
+Tony, the clock measures your tank. This page measures consecutive results. Even your third sequel does not qualify as another appearance.

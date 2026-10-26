@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T20:39:04.157857Z",
+  "generatedAt": "2026-10-26T21:08:30.564827Z",
   "status": "PASS",
   "scope": {
     "rawEvents": 56,
@@ -8,14 +8,14 @@
     "publicPages": 25,
     "collectibleCards": 104
   },
-  "checksRun": 59712,
+  "checksRun": 59737,
   "checksBySection": {
-    "assets": 952,
+    "assets": 975,
     "cardForm": 72,
     "cards": 716,
     "eventFinancials": 16,
     "eventMath": 21305,
-    "javascript": 23,
+    "javascript": 25,
     "knockouts": 175,
     "leaderboards": 2,
     "optionalBounties": 1019,

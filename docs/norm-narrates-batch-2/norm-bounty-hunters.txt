@@ -1,0 +1,11 @@
+Welcome to Bounty Hunters. Here, taking somebody out and getting paid for it are related, but not identical.
+
+Bounties Won counts qualifying opponent bounties. Collected is the money from those claims. Retained is your own surviving bounty coming back. Keeping your own does not count as defeating yourself.
+
+Paid is what you posted. Net is collected plus retained, minus paid. That net already contributes to overall profit. Do not add it twice.
+
+Winner-only forfeitures are prize money, not extra bounty wins. The claims list shows the verified collections.
+
+Kishan, the hit list and the profit statement remain separate documents. Enthusiasm cannot reconcile them.
+
+The bounty filter selects entire events, including players who opted out. For every elimination, paid or unpaid, switch back to Knockouts. For the entry rules, consult House Rules—not the loudest person at the table.
