@@ -13,9 +13,11 @@ const durations = {results:40.91, bankroll:41.95, rates:43.55, 'player-dna':47.9
       page.on('pageerror', e => errors.push(e.message));
       await page.goto(base + '/dashboard.html');
       await page.locator('#dashboard-metric-select-trigger').waitFor();
+      await page.locator('#dashboard-grid .dashboard-card').first().waitFor();
       assert.equal(requests.length,0,'Page load must not request narration');
       for (const [category,duration] of Object.entries(durations)) {
         await page.locator('[data-dashboard-category="' + category + '"]').click();
+        await page.waitForFunction(value => document.getElementById('dashboard-metric-panel').dataset.dashboardMetricGroup === value, category);
         const before = requests.length;
         await page.locator('[data-dashboard-help-open]').click();
         const audio = page.locator('#dashboard-help audio');
@@ -56,6 +58,7 @@ const durations = {results:40.91, bankroll:41.95, rates:43.55, 'player-dna':47.9
     await page.route('**/media/norm-narrates/**',route=>route.abort());
     await page.goto(base+'/dashboard.html');
     await page.locator('#dashboard-metric-select-trigger').waitFor();
+    await page.locator('#dashboard-grid .dashboard-card').first().waitFor();
     await page.locator('[data-dashboard-help-open]').click();
     await page.locator('#dashboard-help audio').evaluate(async el=>{el.muted=true;try{await el.play();}catch{}});
     await page.locator('.dashboard-narration-status').waitFor();

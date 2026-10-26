@@ -18,6 +18,7 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
         const deck = page.locator('.tlpt-control-deck');
         assert.equal(await deck.count(), 1, name + ': one control panel');
         const ready = {
+          dashboard: '#dashboard-grid .dashboard-card', standings: '.standings-row-link',
           players: '#crew-tier-counts button', 'trophy-room': '.trophy-card',
           gallery: '.gallery-poster-button', 'voice-of-god': '.vog-clip-card',
           structures: '#format-content table', player: '#player-profile .profile-shell'
