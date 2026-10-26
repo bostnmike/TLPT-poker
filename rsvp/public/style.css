@@ -184,3 +184,10 @@ small { color: var(--muted); }
 input:disabled,select:disabled { opacity:.65; }
 #cancel-event,#delete-event { color:#ffb4b4; border-color:#71414b; }
 @media(max-width:650px){.poster-button{flex-basis:78px;width:78px}.event-poster-layout{gap:12px}.panel-heading{gap:0}.is-commish .admin-panel{margin-top:18px}}
+
+#view-controls { margin: 12px 0 20px; }
+.view-switch { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+.preview-details { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; margin-top: 12px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.preview-details label { flex: 0 1 260px; max-width: 100%; margin: 0; }
+.preview-details p { flex: 1 1 220px; color: var(--muted); font-size: 13px; line-height: 1.6; margin: 0; }
+.is-player-preview .choices button:disabled { opacity: 1; cursor: default; }
