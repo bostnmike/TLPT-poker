@@ -55,14 +55,10 @@ async function loadLiveRsvpEvents(fallback) {
   }
 }
 function renderLiveRsvpStatus(unavailable) {
-  if (!document.getElementById("home-events-list") && !document.getElementById("schedule-list")) return;
-  const main = document.getElementById("main-content");
-  if (!main) return;
-  let notice = document.getElementById("live-rsvp-status");
-  if (!notice) {
-    notice = document.createElement("p"); notice.id = "live-rsvp-status";
-    notice.className = "muted"; notice.setAttribute("role", "status"); main.prepend(notice);
-  }
+  // This notice belongs only in the Schedule header, never on other pages.
+  if (!document.getElementById("schedule-list")) return;
+  const notice = document.getElementById("live-rsvp-status");
+  if (!notice) return;
   notice.textContent = unavailable ? "Live schedule unavailable. Reconnect or refresh to see games open for RSVPs." : "Games open for RSVPs · schedule and lineups sync every minute. RSVP is not payment or recorded attendance.";
 }
 
