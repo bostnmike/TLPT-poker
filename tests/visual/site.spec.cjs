@@ -47,9 +47,6 @@ async function snapshot(target, name, page) {
     }).map(img => img.decode().catch(() => {})));
   });
   const options = {mask: [target.locator('audio')], maskColor: '#c9d1d9'};
-  // The sticky header is tested separately. Hide it only during this tall
-  // component capture so it cannot cover the chapter heading in the image.
-  if (name === 'rules-money.png') options.style = '.site-header, .skip-link { visibility: hidden !important; }';
   // With updateSnapshots:none Playwright rejects missing references before
   // writing an actual image. Save a review candidate ONLY in the report folder;
   // never write or approve a baseline from this test.
@@ -72,6 +69,13 @@ for (const name of pages) test(name + ' page entrance', async ({page}) => {
 });
 test('rules badges and avatars', async ({page}) => {
   await ready(page, 'rules');
+  // This isolated case captures a chapter taller than the viewport. Remove
+  // only the unrelated fixed overlays before scrolling; screenshot-time style
+  // injection can race Chromium's sticky-layer repaint. Keep their layout space.
+  // Separate entrance/menu cases still compare the unmodified header/skip link.
+  await page.locator('.site-header, .skip-link').evaluateAll(elements => {
+    for (const element of elements) element.style.setProperty('opacity', '0', 'important');
+  });
   await snapshot(page.locator('#rules-money'), 'rules-money.png', page);
 });
 test('trophy dropdown above artwork', async ({page}) => {
