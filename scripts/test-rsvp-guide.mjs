@@ -45,6 +45,7 @@ assert.match(schedule, /Put the Yellow Chip on Your Phone\./);
 assert.match(schedule, /images\/site\/norm-rsvp-campaign.jpg/);
 assert.match(schedule, /class="rsvp-campaign-chip" src="images\/site\/chip-T-1000.png"/);
 assert.match(schedule, /Get the Yellow Chip/);
+for (const html of [home, schedule]) assert.doesNotMatch(html, /The TLPT RSVP campaign/i);
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') && !['marchand.html','lily.html','cashier.html'].includes(name))) {
   const html = read(file);
