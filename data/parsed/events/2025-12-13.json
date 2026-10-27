@@ -25,7 +25,7 @@
       "payout": 210
     },
     {
-      "name": "Li-Fo",
+      "name": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "rank": 2,
       "payout": 125
@@ -77,7 +77,7 @@
     {
       "type": "buyin",
       "time_raw": "10:47:14 pm 12/12/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo"
     },
     {
@@ -121,7 +121,7 @@
     {
       "type": "bustout",
       "time_raw": "8:23:02 pm 12/13/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "by": "Chris O",
       "bySlug": "chris-o",
@@ -131,7 +131,7 @@
     {
       "type": "rebuy",
       "time_raw": "8:23:08 pm 12/13/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo"
     },
     {
@@ -191,7 +191,7 @@
       "time_raw": "10:08:28 pm 12/13/2025",
       "player": "Gilmore",
       "slug": "gilmore",
-      "by": "Li-Fo",
+      "by": "ButtonMan: fka LiFo",
       "bySlug": "li-fo",
       "rawKillerText": "Li-Fo",
       "sharedKillerSource": false
@@ -239,7 +239,7 @@
     {
       "type": "bustout",
       "time_raw": "11:25:00 pm 12/13/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "by": "Chris O",
       "bySlug": "chris-o",
@@ -266,7 +266,7 @@
     {
       "type": "payout",
       "time_raw": "11:25:00 pm 12/13/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "rank": 2,
       "payout": 125
@@ -384,6 +384,19 @@
       "totalCost": 0,
       "totalWinnings": 0,
       "profit": 0
+    },
+    {
+      "name": "ButtonMan: fka LiFo",
+      "slug": "li-fo",
+      "buyIns": 1,
+      "rebuys": 1,
+      "entries": 2,
+      "hits": 1,
+      "timesPlaced": 1,
+      "bubbles": 0,
+      "totalCost": 60,
+      "totalWinnings": 125,
+      "profit": 65
     },
     {
       "name": "Chris F",
@@ -540,19 +553,6 @@
       "totalCost": 0,
       "totalWinnings": 0,
       "profit": 0
-    },
-    {
-      "name": "Li-Fo",
-      "slug": "li-fo",
-      "buyIns": 1,
-      "rebuys": 1,
-      "entries": 2,
-      "hits": 1,
-      "timesPlaced": 1,
-      "bubbles": 0,
-      "totalCost": 60,
-      "totalWinnings": 125,
-      "profit": 65
     },
     {
       "name": "Liam O",

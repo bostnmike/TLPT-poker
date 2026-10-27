@@ -71,7 +71,7 @@
     {
       "type": "buyin",
       "time_raw": "11:47:05 am 06/13/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo"
     },
     {
@@ -171,7 +171,7 @@
     {
       "type": "bustout",
       "time_raw": "11:13:21 pm 06/14/2025",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "by": "BostnMike",
       "bySlug": "bostnmike",
@@ -338,6 +338,19 @@
       "profit": 0
     },
     {
+      "name": "ButtonMan: fka LiFo",
+      "slug": "li-fo",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 1,
+      "totalCost": 30,
+      "totalWinnings": 0,
+      "profit": -30
+    },
+    {
       "name": "Chris F",
       "slug": "chris-f",
       "buyIns": 0,
@@ -492,19 +505,6 @@
       "totalCost": 0,
       "totalWinnings": 0,
       "profit": 0
-    },
-    {
-      "name": "Li-Fo",
-      "slug": "li-fo",
-      "buyIns": 1,
-      "rebuys": 0,
-      "entries": 1,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 1,
-      "totalCost": 30,
-      "totalWinnings": 0,
-      "profit": -30
     },
     {
       "name": "Liam O",

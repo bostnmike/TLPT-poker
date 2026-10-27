@@ -35,9 +35,15 @@ def historical_financial_payload(event, baseline_slugs):
         if player['slug'] not in baseline_slugs:
             if any(value != 0 for key, value in player.items() if key not in ('name', 'slug')):
                 raise ValueError(f"Unexpected historical activity for {player['slug']}")
+    # Keep the original hash labels/order while permitting an approved display
+    # rename. Stable slugs and every financial field still match the frozen hash.
+    historical_labels = {'li-fo': 'Li-Fo'}
+    def original_label(row):
+        return {**row, 'name': historical_labels.get(row.get('slug'), row['name'])}
     return {
-        'players': [p for p in event['players'] if p['slug'] in baseline_slugs],
-        'winners': event['winners'],
+        'players': sorted([original_label(p) for p in event['players'] if p['slug'] in baseline_slugs],
+                          key=lambda p: p['name'].lower()),
+        'winners': [original_label(p) for p in event['winners']],
         'summary': {k: v for k, v in event['summary'].items() if k in
                     ['buyIns', 'rebuys', 'entries', 'totalPot', 'paidSpots', 'entryAmount', 'bounty']}
     }

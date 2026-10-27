@@ -9,8 +9,9 @@ export function compareEvents(a,b){
  const minutes=m=>{const t=m.time?.match(/^(\d{1,2}):(\d{2}) ([AP])M$/);return t?(Number(t[1])%12+(t[3]==='P'?12:0))*60+Number(t[2]):0;};
  return date(x).localeCompare(date(y))||minutes(x)-minutes(y)||a.id.localeCompare(b.id);
 }
-export const publicPlayer=p=>({slug:p.slug,name:p.name,image:p.image,rosterStatus:p.rosterStatus});
-export function comparePlayers(a,b){const rank=p=>p.slug===HOST?-1:p.rosterStatus==='alumni'?1:0;return rank(a)-rank(b)||a.name.localeCompare(b.name,'en',{sensitivity:'base'});}
+// Display-only rename: saved responses, private links and player IDs stay intact.
+export const publicPlayer=p=>({slug:p.slug,name:p.slug==='li-fo'?'ButtonMan: fka LiFo':p.name,image:p.image,rosterStatus:p.rosterStatus});
+export function comparePlayers(a,b){const rank=p=>p.slug===HOST?-1:p.rosterStatus==='alumni'?1:0;return rank(a)-rank(b)||publicPlayer(a).name.localeCompare(publicPlayer(b).name,'en',{sensitivity:'base'});}
 export function eventResponses(state,event){const responses={...event.responses};if(state.players.some(p=>p.slug===HOST))responses[HOST]={...(responses[HOST]||{}),answer:'yes',order:0};return responses;}
 export function eventPoster(metadata){
  const choice=metadata.poster||'auto';if(choice==='none')return null;

@@ -924,6 +924,16 @@ def aggregate_players(metadata, events):
     return records
 
 
+def ranking_label(player):
+    # Independently honor the immutable tie-break label for renamed players.
+    names = getattr(ranking_label, "_names", None)
+    if names is None:
+        names = {p["slug"]: p["rankingName"] for p in load_json(DATA / "player-metadata.json")["players"] if p.get("rankingName")}
+        ranking_label._names = names
+    original = names.get(player["slug"])
+    return (original or player["name"]).lower()
+
+
 def audit_players(audit, expected_players, site_data, config):
     actual = site_data.get("players") or []
     expected_by_slug = {player["slug"]: player for player in expected_players}
@@ -955,7 +965,7 @@ def audit_players(audit, expected_players, site_data, config):
 
     qualified = [player for player in expected_players if player["entries"] >= config["qualification_thresholds"]["leaders_min_entries"]]
     def leader(pool, key, direction):
-        return sorted(pool, key=(lambda p: (float(p.get(key, 0)), p["name"].lower())) if direction == "asc" else (lambda p: (-float(p.get(key, 0)), p["name"].lower())))[0]
+        return sorted(pool, key=(lambda p: (float(p.get(key, 0)), ranking_label(p))) if direction == "asc" else (lambda p: (-float(p.get(key, 0)), ranking_label(p))))[0]
     expected_honors = [{"type": rule["type"], "name": leader(qualified, rule["key"], rule["direction"])["name"], "note": rule.get("note", "")} for rule in config["honors"]]
     record_pool = [
         player for player in expected_players
@@ -1115,7 +1125,7 @@ def audit_cards(audit, metadata, events, site_data):
             pool = established if pool_name == "leader" else hall
             if not pool:
                 continue
-            ordering = (lambda p: (float(p.get(key, 0)), p["name"].lower())) if direction == "asc" else (lambda p: (-float(p.get(key, 0)), p["name"].lower()))
+            ordering = (lambda p: (float(p.get(key, 0)), ranking_label(p))) if direction == "asc" else (lambda p: (-float(p.get(key, 0)), ranking_label(p)))
             owner = sorted(pool, key=ordering)[0]
             if key == "bountiesWon" and int(owner.get(key, 0) or 0) < 1:
                 continue

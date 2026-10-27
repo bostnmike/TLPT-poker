@@ -25,6 +25,7 @@ function findPlayerByRequest(players, requestedName) {
   return (
     players.find(p => String(p.slug || "") === requestedSlug) ||
     players.find(p => String(p.name || "").toLowerCase() === String(requestedName).toLowerCase()) ||
+    players.find(p => (p.aliases || []).some(alias => slugifyName(alias) === requestedSlug)) ||
     players[0] ||
     null
   );

@@ -348,6 +348,19 @@
       "profit": 105
     },
     {
+      "name": "ButtonMan: fka LiFo",
+      "slug": "li-fo",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
       "name": "Chris F",
       "slug": "chris-f",
       "buyIns": 0,
@@ -502,19 +515,6 @@
       "totalCost": 30,
       "totalWinnings": 65,
       "profit": 35
-    },
-    {
-      "name": "Li-Fo",
-      "slug": "li-fo",
-      "buyIns": 0,
-      "rebuys": 0,
-      "entries": 0,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 0,
-      "totalCost": 0,
-      "totalWinnings": 0,
-      "profit": 0
     },
     {
       "name": "Liam O",
