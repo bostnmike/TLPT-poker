@@ -59,7 +59,7 @@
     {
       "type": "buyin",
       "time_raw": "3:16:39 pm 04/17/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo"
     },
     {
@@ -119,7 +119,7 @@
     {
       "type": "bustout",
       "time_raw": "9:42:53 pm 04/17/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
@@ -129,7 +129,7 @@
     {
       "type": "rebuy",
       "time_raw": "9:42:57 pm 04/17/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo"
     },
     {
@@ -137,7 +137,7 @@
       "time_raw": "9:49:34 pm 04/17/2026",
       "player": "Red",
       "slug": "red",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "rawKillerText": "Li-Fo",
       "sharedKillerSource": false
@@ -145,7 +145,7 @@
     {
       "type": "bustout",
       "time_raw": "10:22:03 pm 04/17/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
@@ -322,7 +322,7 @@
       "profit": 0
     },
     {
-      "name": "ButtonMan: fka LiFo",
+      "name": "ButtonMan",
       "slug": "li-fo",
       "buyIns": 1,
       "rebuys": 1,

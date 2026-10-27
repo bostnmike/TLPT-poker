@@ -278,7 +278,7 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 
 ### Player display renames
 
-Tony's current label is **ButtonMan: fka LiFo**. Keep his permanent slug
+Tony's current label is **ButtonMan**. Keep his permanent slug
 `li-fo`, avatar `images/players/li-fo.jpg`, source report names, financial
 keys and RSVP identities unchanged. Metadata retains Li-Fo / LiFo / Li Fo /
 Tony and ButtonMan as aliases so old URLs, imports and payment records resolve

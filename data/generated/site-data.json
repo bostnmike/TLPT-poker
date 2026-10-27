@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T00:39:01.331042Z",
+  "generatedAt": "2026-10-27T20:33:26.686494Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -3921,7 +3921,7 @@
       ]
     },
     {
-      "name": "ButtonMan: fka LiFo",
+      "name": "ButtonMan",
       "slug": "li-fo",
       "image": "images/players/li-fo.jpg",
       "notes": "What's the wost that can happen?",
@@ -3972,7 +3972,7 @@
           "startDate": "2026-09-05",
           "endDate": "2026-10-24",
           "metrics": {
-            "name": "ButtonMan: fka LiFo",
+            "name": "ButtonMan",
             "slug": "li-fo",
             "image": "images/players/li-fo.jpg",
             "notes": "What's the wost that can happen?",
@@ -4133,7 +4133,7 @@
           "startDate": "2026-08-07",
           "endDate": "2026-09-04",
           "metrics": {
-            "name": "ButtonMan: fka LiFo",
+            "name": "ButtonMan",
             "slug": "li-fo",
             "image": "images/players/li-fo.jpg",
             "notes": "What's the wost that can happen?",
@@ -10938,7 +10938,7 @@
       "name": "Nitro",
       "slug": "nitro",
       "image": "images/players/nitro.jpg",
-      "notes": "I don't believe you, ButtonMan: fka LiFo.",
+      "notes": "I don't believe you, ButtonMan.",
       "entries": 16,
       "buyIns": 12,
       "rebuys": 4,
@@ -10989,7 +10989,7 @@
             "name": "Nitro",
             "slug": "nitro",
             "image": "images/players/nitro.jpg",
-            "notes": "I don't believe you, ButtonMan: fka LiFo.",
+            "notes": "I don't believe you, ButtonMan.",
             "entries": 5,
             "buyIns": 5,
             "rebuys": 0,
@@ -11150,7 +11150,7 @@
             "name": "Nitro",
             "slug": "nitro",
             "image": "images/players/nitro.jpg",
-            "notes": "I don't believe you, ButtonMan: fka LiFo.",
+            "notes": "I don't believe you, ButtonMan.",
             "entries": 8,
             "buyIns": 5,
             "rebuys": 3,
@@ -16017,7 +16017,7 @@
         ]
       },
       {
-        "player": "ButtonMan: fka LiFo",
+        "player": "ButtonMan",
         "slug": "li-fo",
         "image": "images/players/li-fo.jpg",
         "type": "cash",
@@ -16709,7 +16709,7 @@
         ]
       },
       {
-        "player": "ButtonMan: fka LiFo",
+        "player": "ButtonMan",
         "slug": "li-fo",
         "image": "images/players/li-fo.jpg",
         "type": "drought",
@@ -17700,7 +17700,7 @@
         "playedEvents": 2
       },
       {
-        "name": "ButtonMan: fka LiFo",
+        "name": "ButtonMan",
         "slug": "li-fo",
         "image": "images/players/li-fo.jpg",
         "playedEvents": 42
@@ -18335,7 +18335,7 @@
         "playedEvents": 42,
         "eligible": true,
         "bestCashStreak": {
-          "player": "ButtonMan: fka LiFo",
+          "player": "ButtonMan",
           "slug": "li-fo",
           "image": "images/players/li-fo.jpg",
           "type": "cash",
@@ -18375,7 +18375,7 @@
         },
         "currentCashStreak": null,
         "bestDroughtStreak": {
-          "player": "ButtonMan: fka LiFo",
+          "player": "ButtonMan",
           "slug": "li-fo",
           "image": "images/players/li-fo.jpg",
           "type": "drought",

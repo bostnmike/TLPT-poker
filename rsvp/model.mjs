@@ -10,7 +10,7 @@ export function compareEvents(a,b){
  return date(x).localeCompare(date(y))||minutes(x)-minutes(y)||a.id.localeCompare(b.id);
 }
 // Display-only rename: saved responses, private links and player IDs stay intact.
-export const publicPlayer=p=>({slug:p.slug,name:p.slug==='li-fo'?'ButtonMan: fka LiFo':p.name,image:p.image,rosterStatus:p.rosterStatus});
+export const publicPlayer=p=>({slug:p.slug,name:p.slug==='li-fo'?'ButtonMan':p.name,image:p.image,rosterStatus:p.rosterStatus});
 export function comparePlayers(a,b){const rank=p=>p.slug===HOST?-1:p.rosterStatus==='alumni'?1:0;return rank(a)-rank(b)||publicPlayer(a).name.localeCompare(publicPlayer(b).name,'en',{sensitivity:'base'});}
 export function eventResponses(state,event){const responses={...event.responses};if(state.players.some(p=>p.slug===HOST))responses[HOST]={...(responses[HOST]||{}),answer:'yes',order:0};return responses;}
 export function eventPoster(metadata){

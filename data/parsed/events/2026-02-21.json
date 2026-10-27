@@ -31,7 +31,7 @@
       "payout": 130
     },
     {
-      "name": "ButtonMan: fka LiFo",
+      "name": "ButtonMan",
       "slug": "li-fo",
       "rank": 3,
       "payout": 65
@@ -65,7 +65,7 @@
     {
       "type": "buyin",
       "time_raw": "8:05:35 pm 02/17/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo"
     },
     {
@@ -101,7 +101,7 @@
       "time_raw": "8:00:52 pm 02/21/2026",
       "player": "Red",
       "slug": "red",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "rawKillerText": "Li-Fo",
       "sharedKillerSource": false
@@ -117,7 +117,7 @@
       "time_raw": "8:15:40 pm 02/21/2026",
       "player": "Ahmed",
       "slug": "ahmed",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "rawKillerText": "Li-Fo",
       "sharedKillerSource": false
@@ -191,7 +191,7 @@
     {
       "type": "bustout_uncredited",
       "time_raw": "10:55:24 pm 02/21/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo"
     },
     {
@@ -222,7 +222,7 @@
     {
       "type": "payout",
       "time_raw": "10:55:57 pm 02/21/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "rank": 3,
       "payout": 65
@@ -334,7 +334,7 @@
       "profit": 0
     },
     {
-      "name": "ButtonMan: fka LiFo",
+      "name": "ButtonMan",
       "slug": "li-fo",
       "buyIns": 1,
       "rebuys": 0,

@@ -5,7 +5,7 @@ import {resolvePaymentPlayer} from '../lib/venmo-aliases.mjs';
 const players=JSON.parse(readFileSync(new URL('../lib/player-directory.json',import.meta.url)));
 test('historical Li-Fo payments resolve to ButtonMan without editing receipts or their payer names',()=>{
  const player=players.find(p=>p.slug==='li-fo');
- assert.equal(player.name,'ButtonMan: fka LiFo');
+ assert.equal(player.name,'ButtonMan');
  assert.match(player.image,/images\/players\/li-fo\.jpg$/);
  for(const name of ['Li-Fo','LiFo','Li Fo','Tony','ButtonMan','ButtonMan: fka LiFo']){
   const payment={player:name,payer:'Tony Kosturi',method:'venmo',cents:5000};

@@ -53,7 +53,7 @@
       "payout": 480
     },
     {
-      "name": "ButtonMan: fka LiFo",
+      "name": "ButtonMan",
       "slug": "li-fo",
       "rank": 3,
       "payout": 220
@@ -144,7 +144,7 @@
     {
       "time_raw": "11:45:08 pm 10/20/2026",
       "type": "buyin",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "entryFee": 40,
       "bountyPosted": 10,
@@ -238,7 +238,7 @@
     {
       "time_raw": "01:29:38 pm 10/24/2026",
       "type": "bustout",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "by": "Ahmed",
       "bySlug": "ahmed",
@@ -250,7 +250,7 @@
     {
       "time_raw": "01:30:21 pm 10/24/2026",
       "type": "rebuy",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "entryFee": 40,
       "bountyPosted": 10,
@@ -303,7 +303,7 @@
       "type": "bustout",
       "player": "P",
       "slug": "p",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 1,
       "killerEntry": 2,
@@ -515,7 +515,7 @@
       "type": "bustout",
       "player": "P",
       "slug": "p",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 3,
       "killerEntry": 2,
@@ -568,7 +568,7 @@
       "type": "bustout",
       "player": "P",
       "slug": "p",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 4,
       "killerEntry": 2,
@@ -670,7 +670,7 @@
       "type": "bustout",
       "player": "Griffin",
       "slug": "griffin",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 4,
       "killerEntry": 2,
@@ -730,7 +730,7 @@
       "type": "bustout",
       "player": "Nasa Al",
       "slug": "nasa-al",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 3,
       "killerEntry": 2,
@@ -742,7 +742,7 @@
       "type": "bustout",
       "player": "Ahmed",
       "slug": "ahmed",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 1,
       "killerEntry": 2,
@@ -754,7 +754,7 @@
       "type": "bustout",
       "player": "Hiro",
       "slug": "hiro",
-      "by": "ButtonMan: fka LiFo",
+      "by": "ButtonMan",
       "bySlug": "li-fo",
       "victimEntry": 1,
       "killerEntry": 2,
@@ -764,7 +764,7 @@
     {
       "time_raw": "10:10:00 pm 10/24/2026",
       "type": "bustout",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "by": "Liam O",
       "bySlug": "liam-o",
@@ -801,7 +801,7 @@
     {
       "type": "payout",
       "time_raw": "10:20:25 pm 10/24/2026",
-      "player": "ButtonMan: fka LiFo",
+      "player": "ButtonMan",
       "slug": "li-fo",
       "rank": 3,
       "payout": 280
@@ -1081,7 +1081,7 @@
       "settlementAdjustment": 0
     },
     {
-      "name": "ButtonMan: fka LiFo",
+      "name": "ButtonMan",
       "slug": "li-fo",
       "buyIns": 1,
       "rebuys": 1,

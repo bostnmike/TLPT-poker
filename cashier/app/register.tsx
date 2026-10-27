@@ -25,7 +25,7 @@ const money=(n:number)=>new Intl.NumberFormat('en-US',{style:'currency',currency
 const labels:Record<string,string>={entry:'Buy-in',rebuy:'Rebuy',food:'Food',unknown:'Choose payment type'};
 const paymentLabel=(p:Payment)=>paymentKinds(p.kind).map((k:string)=>k==='entry'&&p.bounty_cents>0?'Buy-in + bounty':labels[k]).join(' + ')||labels.unknown;
 const slots:Record<string,string>={friday:'Friday',saturday:'Saturday',mtt:'MTT'};
-const playerName=(s:string)=>({'bostnmike':'BostnMike','providencemike':'ProvidenceMike','ai-dave':'AI Dave','nasa-al':'NASA Al','li-fo':'ButtonMan: fka LiFo'}[s]||s.split('-').map(x=>x[0]?.toUpperCase()+x.slice(1)).join(' '));
+const playerName=(s:string)=>({'bostnmike':'BostnMike','providencemike':'ProvidenceMike','ai-dave':'AI Dave','nasa-al':'NASA Al','li-fo':'ButtonMan'}[s]||s.split('-').map(x=>x[0]?.toUpperCase()+x.slice(1)).join(' '));
 const time=(s:string)=>new Date(s).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'});
 function PosterLinks({event}:{event:Event}){
  const bounty=event.bountyOption||event.scheduledBounty||500;
