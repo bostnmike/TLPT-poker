@@ -49,7 +49,7 @@ async function snapshot(target, name, page) {
   const options = {mask: [target.locator('audio')], maskColor: '#c9d1d9'};
   // The sticky header is tested separately. Hide it only during this tall
   // component capture so it cannot cover the chapter heading in the image.
-  if (name === 'rules-money.png') options.style = '.site-header { visibility: hidden !important; }';
+  if (name === 'rules-money.png') options.style = '.site-header, .skip-link { visibility: hidden !important; }';
   // With updateSnapshots:none Playwright rejects missing references before
   // writing an actual image. Save a review candidate ONLY in the report folder;
   // never write or approve a baseline from this test.

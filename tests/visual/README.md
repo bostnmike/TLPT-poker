@@ -19,7 +19,7 @@ native controls vary independently of TLPT styling. Norm's portrait, text,
 read-me link and surrounding layout remain compared. The existing audio tests
 still check playback, responsive geometry and pause/resume behavior.
 Masks are scoped to the captured element, so an audio player behind a modal
-cannot mask the modal text. The sticky header is hidden only for the tall
+cannot mask the modal text. The sticky header and its out-of-component skip link are hidden only for the tall
 rules-chapter component capture; separate entrance/menu images test that header.
 Visible images are decoded after scrolling before screenshots are taken.
 
