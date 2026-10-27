@@ -5,7 +5,7 @@ import {writeFileSync,rmSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
-const wrangler='../cashier/node_modules/wrangler/bin/wrangler.js',state='.wrangler/test-'+Date.now(),base='http://127.0.0.1:8794',env={...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},key='c'.repeat(64),h=createHash('sha256').update(key).digest('hex');let server,output='';
+const wrangler='node_modules/wrangler/bin/wrangler.js',state='.wrangler/test-'+Date.now(),base='http://127.0.0.1:8794',env={...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},key='c'.repeat(64),h=createHash('sha256').update(key).digest('hex');let server,output='';
 function run(args){const r=spawnSync(process.execPath,[wrangler,...args],{env,encoding:'utf8'});assert.equal(r.status,0,r.stderr+'\n'+r.stdout);}
 const fixture={revision:1,sequence:0,updatedAt:new Date().toISOString(),adminHash:h,adminGeneration:1,players:['bostnmike','red'].map(slug=>({slug,name:slug,linkHash:null,generation:0,rosterStatus:slug==='red'?'alumni':'active'})),events:[{id:'fixture-event',capacity:1,open:true,archived:false,metadata:{title:'Disposable QA',date:'2026-10-30',slot:'friday'},responses:{}}],audit:[]};
 try{

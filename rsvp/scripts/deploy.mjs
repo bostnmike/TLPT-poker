@@ -8,5 +8,5 @@ if(config.account_id!=='4d5ea071300fa71b8fa947c06d8ba314'||config.name!=='tlpt-r
 const revision=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();config.vars.REVISION=revision;
 writeFileSync('deploy.local.json',JSON.stringify(config));
 const env={...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'};
-try{execFileSync(process.execPath,['--test',...readdirSync('tests').filter(f=>f.endsWith('.test.mjs')).map(f=>'tests/'+f)],{env,stdio:'inherit'});execFileSync(process.execPath,['../cashier/node_modules/wrangler/bin/wrangler.js','deploy','--config','deploy.local.json'],{env,stdio:'inherit'});}finally{unlinkSync('deploy.local.json');}
+try{execFileSync(process.execPath,['--test',...readdirSync('tests').filter(f=>f.endsWith('.test.mjs')).map(f=>'tests/'+f)],{env,stdio:'inherit'});execFileSync(process.execPath,['node_modules/wrangler/bin/wrangler.js','deploy','--config','deploy.local.json'],{env,stdio:'inherit'});}finally{unlinkSync('deploy.local.json');}
 execFileSync(process.execPath,['scripts/verify-release.mjs'],{env:{...env,EXPECTED_REVISION:revision},stdio:'inherit'});

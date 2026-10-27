@@ -5,7 +5,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
 const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-movement',
   'players','trophy-room','gallery','voice-of-god','player','structures'];
 (async () => {
-  const browser = await chromium.launch({ channel:'chrome', headless:true });
+  const browser = await chromium.launch({ ...(process.env.CI ? {} : {channel:'chrome'}), headless:true });
   try {
     for (const width of [1440,820,390,320]) {
       const page = await browser.newPage({ viewport:{width,height:1000}, reducedMotion:'reduce' });
@@ -57,7 +57,14 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           const id = await trigger.getAttribute('aria-controls');
           const menu = page.locator('#' + id);
           await menu.waitFor({state:'visible'});
-          await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+          // Opening a menu may scroll its anchor into view. Wait for the final
+          // anchored geometry rather than sampling halfway through that scroll.
+          await page.waitForFunction(id => {
+            const menu=document.getElementById(id), trigger=document.querySelector('[aria-controls="'+id+'"]');
+            if(!menu||!trigger)return false;
+            const m=menu.getBoundingClientRect(),t=trigger.getBoundingClientRect();
+            return m.y>=t.bottom-1&&m.bottom<=innerHeight+1;
+          },id);
           const fieldBox = await trigger.boundingBox(), menuBox = await menu.boundingBox();
           assert.ok(menuBox.y >= fieldBox.y + fieldBox.height - 1, name + ': dropdown below field');
           assert.ok(menuBox.x >= 0 && menuBox.x + menuBox.width <= width + 1, name + ': dropdown within width');

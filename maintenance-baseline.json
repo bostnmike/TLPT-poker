@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "phase": "3I.1",
+  "phase": "4-gated-artifact-release",
   "publicPageCount": 23,
   "sharedCssAsset": "site-tail.css",
   "sharedCssVersion": "20260826-10",
@@ -23,7 +23,13 @@
     "maintenance-baseline.json",
     "MAINTENANCE-RUNBOOK.md",
     "requirements-quality.txt",
-    "lily-site/**"
+    "lily-site/**",
+    "images/**",
+    "media/**",
+    "audio/**",
+    "fonts/**",
+    "package.json",
+    "pnpm-lock.yaml"
   ],
   "requiredQualityWorkflowCommands": [
     "python -m pip install --requirement requirements-quality.txt",
@@ -31,11 +37,12 @@
   ],
   "requiredDataPipelineCommands": {
     "python -m pip install --requirement requirements-quality.txt": 1,
-    "bash scripts/run-quality-gates.sh": 2
+    "bash scripts/run-quality-gates.sh": 1
   },
   "requiredQualityGates": [
     "scripts/verify-maintenance-baseline.py",
     "scripts/test-quality-coordination.py",
+    "scripts/test-release-tools.py",
     "scripts/test-event-currency.py",
     "scripts/test-optional-bounties.py",
     "scripts/audit-code-hygiene.py",
@@ -85,13 +92,30 @@
       "workflow": ".github/workflows/cashier-checks.yml",
       "triggerPaths": [
         "cashier/**",
+        "scripts/test-recovery.py",
         ".github/workflows/cashier-checks.yml"
       ],
       "requiredCommands": [
         "pnpm install --frozen-lockfile --ignore-scripts",
         "pnpm check",
         "pnpm test:integration",
+        "python scripts/test-recovery.py --product cashier",
         "pnpm exec wrangler deploy --dry-run --env=\"\" --outdir .wrangler/dry-run"
+      ]
+    },
+    "rsvp": {
+      "workflow": ".github/workflows/rsvp-checks.yml",
+      "triggerPaths": [
+        "rsvp/**",
+        "scripts/test-recovery.py",
+        ".github/workflows/rsvp-checks.yml"
+      ],
+      "requiredCommands": [
+        "pnpm install --frozen-lockfile --ignore-scripts",
+        "node --test rsvp/tests/*.test.mjs",
+        "node rsvp/scripts/test-integration.mjs",
+        "python scripts/test-recovery.py --product rsvp",
+        "node rsvp/node_modules/wrangler/bin/wrangler.js deploy --dry-run --config rsvp/wrangler.jsonc"
       ]
     }
   }

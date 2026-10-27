@@ -1,6 +1,6 @@
 # TLPT Maintenance Runbook
 
-This file is the operational closeout for the Phase 3 maintenance hardening work.
+This file owns the operating procedure for TLPT's gated artifact releases.
 
 ## Marchand puck photo intake
 
@@ -66,18 +66,44 @@ The weekly runner and GitHub data pipeline already call both authoritative runne
 
 ### Rebuild coordination
 
-Main-branch site and data changes enter through **TLPT Data Pipeline**. Its
-serialized build retains both existing full quality checks before publishing
-generated data. Only after that job succeeds does its **TLPT Site Quality Gate**
-job call `site-quality.yml`, passing the exact published commit SHA. The final gate
-checks that immutable revision, not whichever commit happens to be on main later.
-Build, validation, or push failures block the final gate; they are not ignored.
+Main-branch site, data and media changes enter through **TLPT Data Pipeline**:
 
-There is no separate site-quality push trigger to race the data rebuild. Its PR
-and manual runs first rebuild their own checked-out revision, then run the same
-full suite without publishing. Data-pipeline publication is restricted to main.
-Generated-only commits are excluded from the pipeline's trigger paths to avoid
-rebuild loops. The registration and cashier workflows remain independent.
+1. Check out the exact source commit; build data and the gallery manifest once.
+2. Run the complete static/data quality suite once.
+3. Package only public files and test that exact package in the browser.
+4. Commit any changed generated outputs with a normal fast-forward push.
+5. Upload the tested package, deploy it through GitHub Pages Actions, and verify
+   the public `release.json` source revision.
+
+GitHub Pages must use **GitHub Actions**, not “Deploy from a branch.” A source
+push is not a deployment. The deployment job requires the successful build job;
+failed data, browser, push or artifact steps cannot publish. The previous good
+site remains live. A new commit arriving during the build makes that build
+obsolete; it is explicitly not published. A second head check protects the
+deployment step. Do not force-push/rebase generated outputs or reset a checked
+release onto a moving branch. If a newer unrelated commit supersedes a run
+without triggering a replacement, manually run TLPT Data Pipeline on main.
+
+There is no competing gallery writer or standalone site-quality push trigger.
+The manual gallery workflow is a read-only diagnostic that fails if the
+manifest is stale. PR/manual Site Quality runs build, validate, package and
+browser-test without publishing. Generated-only commits do not cause loops.
+`generatedAt` records the last content change, so no-op rebuilds do not create
+timestamp-only commits. The single release concurrency group preserves order.
+
+Browser tooling is pinned in `package.json` / `pnpm-lock.yaml`. Run
+`pnpm install --frozen-lockfile --ignore-scripts`, then
+`pnpm exec playwright install chromium`. After building and validating, use
+`python scripts/package-site.py` and `CI=true node scripts/run-browser-gates.cjs`.
+The required suite covers 1440/820/390/320-pixel layouts, dropdown anchoring and
+occlusion, filters/reset, empty states, keyboard focus, mobile density, and
+Norm's inline audio/help interactions (including short landscape screens).
+The preview binds only to localhost and closes when the tests finish.
+
+The package excludes raw event imports, scripts, dependency folders, private
+app code, credentials and local/untracked files. It retains TLPT, Lily and
+Marchand public routes and assets, because these static pages still share
+one Pages deployment. Their designs and source ownership remain separate.
 
 ### Optional rebuy bounty intake
 
@@ -95,12 +121,13 @@ Do not duplicate its individual commands in other workflows.
 
 It verifies the maintenance baseline, code hygiene, shared-shell recovery, app data-load recovery, generated data, source-to-page integrity, rendered page calculations, and the complete Marchand puck suite.
 
-Registration and the cashier have independent quality workflows because they have separate hosting and dependency contracts:
+Registration, Cashier and RSVP have independent quality workflows because they have separate hosting and dependency contracts:
 
 - Registration → `.github/workflows/registration-checks.yml`
 - Cashier → `.github/workflows/cashier-checks.yml`
+- RSVP → `.github/workflows/rsvp-checks.yml`
 
-The maintenance baseline verifies that both workflows watch every relevant source and test file, and that their required test, build, integration, and deployment-validation commands remain wired. Run the shared-site, registration, and cashier suites when a change crosses component boundaries.
+The maintenance baseline verifies that all three workflows watch their source and test files, and that their required test, build, integration, and deployment-validation commands remain wired. Run each affected product's suite when a change crosses component boundaries.
 
 Registration changes on `main` also trigger the dedicated `tlpt-registration`
 publisher after validation. Its repository-scoped deploy key is stored as the
@@ -108,7 +135,69 @@ main repository's `REGISTRATION_PUBLISH_SSH_KEY` Actions secret. The registratio
 workflow is complete only when the exact source is verified at both
 `tlpt.org/register.html` and `register.tlpt.org`, including shared form CSS/JS.
 See `registration-domain/README.md` for recovery and key rotation. Cashier's
-workflow remains validation-only; its Cloudflare deployment is separate.
+workflow validates, builds, publishes and verifies its own tested Cloudflare
+artifact using the existing scoped CI credentials. It does not run unrelated
+TLPT/Lily/Marchand suites. See `cashier/DEPLOYMENT.md`; keep the existing
+production Worker, databases, secrets, gateway and Google reader unchanged.
+
+RSVP has its own `rsvp/package.json`, lockfile, Wrangler installation and date
+parser. It must not depend on `cashier/node_modules` or Cashier source modules.
+Its CI remains validation-only; its existing guarded manual release procedure
+is in `rsvp/README.md`. No unattended RSVP credentials were added.
+
+### Product ownership and change boundaries
+
+| Product | Canonical source/data | Validation and publishing |
+| --- | --- | --- |
+| TLPT public site | Root public assets; raw reports plus explicit financial/format metadata | TLPT Data Pipeline → tested Pages artifact |
+| Registration | Root register assets + registration-domain | Dedicated registration checks and dual-domain verification |
+| Cashier | cashier; existing private production D1 | Cashier checks, local integration/recovery, scoped Cloudflare release |
+| Live RSVP | rsvp; its separate private D1 | RSVP checks/local integration; guarded manual Worker release |
+| Lily | lily-site and lily.html | Isolated Lily validator; static assets retained in Pages bundle |
+| Marchand | marchand assets and data/marchand-* | Isolated Marchand tests; static assets retained in Pages bundle |
+
+Shared hosting is not shared ownership: never redesign or migrate Lily/Marchand
+as part of ordinary TLPT maintenance. Static package checks intentionally retain
+both products so an artifact release cannot erase their routes. Do not merge
+Cashier, RSVP or registration databases or seed live state from events.json.
+
+### Recovery rehearsal and incident procedure
+
+`python scripts/test-recovery.py` creates disposable local SQLite databases,
+applies every committed Cashier/RSVP migration, inserts **synthetic** records,
+exports SQL, restores into fresh databases and compares every table, row,
+index and trigger. It also checks payment-link totals, cleared-event write
+protection, revision updates and rejection of incomplete payment-link data.
+Use `--product cashier` or `--product rsvp` for one product.
+
+Rehearsed on 2026-10-26: Cashier **14 tables / 15 synthetic rows**, RSVP
+**3 tables / 3 synthetic rows**, all checks passed. No production database,
+credential, customer record or billing setting was read or changed.
+This proves the recovery method against current schemas; it does **not** prove
+that a current private production export exists or that Cloudflare Time Travel
+has been restored. A real production restore remains a separately authorized
+incident operation.
+
+For an incident:
+
+1. Stop the affected writer/importer; preserve the currently served release.
+2. Record the source revision from `release.json` (or that app's version endpoint).
+3. Code-only rollback: revert the faulty source commit and let normal checks
+   deploy it. Never restore a database to roll back frontend code.
+4. Data incident: obtain the affected app's complete private D1 export/Time
+   Travel point. Keep it outside Git and outside any public artifact.
+5. Restore to an isolated database first. Reconcile table counts, payment totals,
+   receipt links, batches, audit history, cleared-event markers and RSVP state.
+   The legacy seven-table Cashier backup is not a full current-schema backup.
+6. Obtain explicit approval before any production replacement. Preserve secrets,
+   sessions/credential policy and Google reader configuration. Verify read-only
+   totals and access denials before resuming writes.
+
+Retained Pages artifacts last seven days; Git retains source and generated
+history. The artifact's `release.json` includes the source revision, file count
+and a content digest. Source raw reports and financial overrides remain the
+authority for rebuilding statistics; live Cashier/RSVP D1 remains the authority
+for operational state.
 
 Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; both the site-quality workflow and automated data pipeline install that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
 

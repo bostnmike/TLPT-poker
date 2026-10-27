@@ -1,13 +1,7 @@
 name: TLPT Site Quality Gate
 
 on:
-  # Main pushes enter through tlpt-update.yml, after its rebuild has succeeded.
-  workflow_call:
-    inputs:
-      built_sha:
-        description: Exact commit published by the successful data rebuild
-        required: true
-        type: string
+  # Main publication is gated inside tlpt-update.yml; this is independent validation.
   pull_request:
     paths:
       - "*.html"
@@ -18,38 +12,53 @@ on:
       - "audit-code-hygiene.py"
       - "maintenance-baseline.json"
       - "MAINTENANCE-RUNBOOK.md"
-      - "requirements-quality.txt"
-      - "scripts/**"
       - "downloads/**"
-      - "vendor/pdfjs/**"
+      - "vendor/**"
       - "lily-site/**"
+      - "marchand-vault/**"
+      - "images/**"
+      - "media/**"
+      - "audio/**"
+      - "fonts/**"
+      - "*.png"
+      - "CNAME"
+      - ".nojekyll"
+      - "robots.txt"
+      - "sitemap.xml"
       - "data/league-config.json"
-      - "data/player-metadata.json"
       - "data/featured-cards.json"
+      - "data/player-metadata.json"
       - "data/events.json"
       - "data/event-financials.json"
       - "data/event-formats.json"
+      - "data/marchand-*.json"
       - "data/raw/events/**"
       - ".github/workflows/**"
+      - "requirements-quality.txt"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "scripts/**"
+      - "!images/fw/gallery-manifest.json"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: tlpt-site-quality-${{ inputs.built_sha || github.ref }}
+  group: tlpt-site-quality-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
           # Never move to a newer main commit while checking a completed rebuild.
-          ref: ${{ inputs.built_sha || github.sha }}
+          ref: ${{ github.sha }}
 
       - name: Setup Python
         uses: actions/setup-python@v7
@@ -65,8 +74,19 @@ jobs:
         run: python -m pip install --requirement requirements-quality.txt
 
       - name: Rebuild data for independent PR or manual checks
-        if: ${{ inputs.built_sha == '' }}
         run: bash scripts/run-data-build.sh
 
+      - name: Generate gallery manifest
+        run: node scripts/build-gallery-manifest.mjs
+      - name: Install locked browser test tools
+        run: |
+          npm install --global pnpm@11.25.0
+          pnpm install --frozen-lockfile --ignore-scripts
+          pnpm exec playwright install --with-deps chromium
       - name: Run complete TLPT quality gates
         run: bash scripts/run-quality-gates.sh
+
+      - name: Package and test the publishable artifact
+        run: |
+          python scripts/package-site.py
+          node scripts/run-browser-gates.cjs

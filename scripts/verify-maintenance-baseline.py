@@ -74,8 +74,8 @@ def main() -> int:
                 errors.append(f"weekly update bypasses data runner with `{token}`")
     if pipeline.is_file():
         text = pipeline.read_text(encoding="utf-8")
-        if text.count("bash scripts/run-data-build.sh") != 2:
-            errors.append("data pipeline must call run-data-build.sh exactly twice")
+        if text.count("bash scripts/run-data-build.sh") != 1:
+            errors.append("data pipeline must call run-data-build.sh exactly once")
         for token in build_tokens:
             if token in text:
                 errors.append(f"data pipeline bypasses data runner with `{token}`")
