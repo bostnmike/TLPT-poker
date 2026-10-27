@@ -1,0 +1,317 @@
+/* ===== EVENT THEME RESTORE + HOME BUTTON ANCHOR ===== */
+
+/* restore home-page event card shell colors */
+#home-events-list .schedule-event-card-top{
+  border:1px solid rgba(168,85,247,.24);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.05)),
+    radial-gradient(circle at top right, rgba(233,213,255,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#home-events-list .schedule-event-card-bottom{
+  border:1px solid rgba(34,197,94,.24);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.05)),
+    radial-gradient(circle at top right, rgba(134,239,172,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#home-events-list .schedule-event-card-mtt{
+  border:1px solid rgba(56,189,248,.54);
+  background:
+    linear-gradient(180deg, rgba(37,99,235,.24), rgba(8,47,73,.15)),
+    radial-gradient(circle at top right, rgba(56,189,248,.16), transparent 32%);
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,.18),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 24px rgba(56,189,248,.12);
+}
+
+/* restore schedule-page event card shell colors */
+#schedule-list .schedule-event-card-top{
+  border:1px solid rgba(168,85,247,.24);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.05)),
+    radial-gradient(circle at top right, rgba(233,213,255,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#schedule-list .schedule-event-card-bottom{
+  border:1px solid rgba(34,197,94,.24);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.05)),
+    radial-gradient(circle at top right, rgba(134,239,172,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#schedule-list .schedule-event-card-mtt{
+  border:1px solid rgba(56,189,248,.54);
+  background:
+    linear-gradient(180deg, rgba(37,99,235,.24), rgba(8,47,73,.15)),
+    radial-gradient(circle at top right, rgba(56,189,248,.16), transparent 32%);
+  box-shadow:
+    0 0 0 1px rgba(56,189,248,.18),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 24px rgba(56,189,248,.12);
+}
+
+/* Two-table RSVP mode: two compact nine-seat maps, selected by events.json. */
+.event-rsvp-tables-two{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  align-items:start;
+  gap:12px;
+  width:100%;
+  max-width:680px;
+  margin-top:20px;
+}
+
+.event-rsvp-table.is-two-table{
+  min-width:0;
+}
+
+.event-rsvp-table-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:0 6px 6px;
+  color:rgba(255,255,255,.72);
+  font-size:.76rem;
+  font-weight:850;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.event-rsvp-table-heading span:first-child{
+  color:#bbf7d0;
+  letter-spacing:.10em;
+}
+
+#home-events-list .schedule-event-card-mtt .event-rsvp-table-heading span:first-child,
+#schedule-list .schedule-event-card-mtt .event-rsvp-table-heading span:first-child{
+  color:#7dd3fc;
+}
+
+.event-rsvp-seating-note{
+  margin:8px 6px 0;
+  color:rgba(186,230,253,.78);
+  font-size:.72rem;
+  font-weight:720;
+  line-height:1.35;
+  text-align:center;
+}
+
+@media (min-width:641px){
+  .event-rsvp-avatar-row.is-two-table-row{
+    width:330px;
+    height:165px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row::before{
+    background-size:330px 165px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row::after{
+    inset:24px 40px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .event-rsvp-center-name{
+    min-width:120px;
+    font-size:1.02rem;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row > .event-rsvp-seat-player,
+  .event-rsvp-avatar-row.is-two-table-row > .event-empty-seat{
+    width:48px;
+    height:48px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .event-rsvp-seat-player .player-avatar-wrap{
+    width:48px;
+    height:48px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .player-avatar.table,
+  .event-rsvp-avatar-row.is-two-table-row .player-avatar-fallback.table{
+    width:48px;
+    height:48px;
+    border-width:2px;
+    font-size:.78rem;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .event-empty-seat{
+    font-size:1.65rem;
+  }
+}
+
+/* On wide screens, let both tables use the full height of the RSVP cell. */
+@media (min-width:981px){
+  #home-events-list .event-rsvp-block-two-table,
+  #schedule-list .event-rsvp-block-two-table{
+    display:grid;
+    grid-template-columns:456px minmax(0, 1fr);
+    align-items:center;
+    column-gap:14px;
+    width:100%;
+    max-width:680px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-tables-two,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-tables-two{
+    grid-template-columns:1fr;
+    gap:10px;
+    width:456px;
+    max-width:456px;
+    margin-top:20px;
+  }
+
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-tables-two{
+    grid-column:1;
+    grid-row:1;
+  }
+
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-summary-wrap{
+    grid-column:2;
+    grid-row:1;
+  }
+
+  #home-events-list .event-rsvp-block-two-table{
+    grid-template-rows:repeat(2, minmax(0, 1fr));
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-tables-two{
+    grid-column:1;
+    grid-row:1 / span 2;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-summary-wrap{
+    grid-column:2;
+    grid-row:1;
+    align-self:end;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .home-rotator-nav-inline{
+    grid-column:2;
+    grid-row:2;
+    align-self:start;
+    width:100%;
+    box-sizing:border-box;
+    margin-top:10px;
+    transform:none;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row{
+    width:456px;
+    height:228px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row::before,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row::before{
+    background-size:456px 228px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row::after,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row::after{
+    inset:33px 55px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .event-rsvp-center-name,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .event-rsvp-center-name{
+    min-width:170px;
+    font-size:1.3rem;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row > .event-rsvp-seat-player,
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row > .event-empty-seat,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row > .event-rsvp-seat-player,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row > .event-empty-seat{
+    width:68px;
+    height:68px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .event-rsvp-seat-player .player-avatar-wrap,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .event-rsvp-seat-player .player-avatar-wrap{
+    width:68px;
+    height:68px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .player-avatar.table,
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .player-avatar-fallback.table,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .player-avatar.table,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .player-avatar-fallback.table{
+    width:68px;
+    height:68px;
+    border-width:3px;
+    font-size:1rem;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .event-empty-seat,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row .event-empty-seat{
+    font-size:2.2rem;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-summary-wrap,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-summary-wrap{
+    width:100%;
+    transform:none;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-summary,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-summary{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    width:100%;
+    box-sizing:border-box;
+    gap:10px;
+    padding:12px;
+    border-radius:20px;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-pill,
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-pill{
+    justify-content:center;
+    width:100%;
+    box-sizing:border-box;
+    white-space:nowrap;
+  }
+}
+
+@media (max-width:760px){
+  .event-rsvp-tables-two{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:18px;
+  }
+
+  .event-rsvp-table.is-two-table{
+    width:100%;
+    max-width:342px;
+  }
+}
+
+  .event-title-kicker{
+    font-size:1.72rem;
+    font-weight:900;
+    letter-spacing:.01em;
+    line-height:1.1;
+  }
+
+.event-structure{
+  font-size:.82rem;
+  color:#ffffff;
+  margin:0 0 8px;
+  line-height:1.25;
+}
+

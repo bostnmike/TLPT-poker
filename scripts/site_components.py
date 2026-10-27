@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from source_bundles import OUTPUTS, render_bundles
 
 ROOT = Path(__file__).resolve().parents[1]
 # Explicit ownership: never rewrite Lily, Marchand, Cashier or the RSVP app.
@@ -18,6 +19,10 @@ PAGES = tuple(sorted((
 
 
 def asset_version(name, root=ROOT):
+    # Read-only satellite builds must hash the source-derived output, even before
+    # the main publisher has committed that generated delivery file.
+    if name in OUTPUTS and (root / 'site-src/manifest.json').is_file():
+        return hashlib.sha256(render_bundles(root)[name]).hexdigest()[:16]
     target = (root / name).resolve()
     if not target.is_relative_to(root.resolve()) or not target.is_file():
         raise ValueError(f'Missing or unsafe local asset: {name}')

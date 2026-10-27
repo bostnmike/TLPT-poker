@@ -7,6 +7,7 @@ from pathlib import Path
 import shutil
 import subprocess
 from site_components import synchronize
+from source_bundles import synchronize_bundles
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / ".site-release"
@@ -35,6 +36,9 @@ def public_path(name):
 
 
 def main():
+    stale_assets = synchronize_bundles(check=True)
+    if stale_assets:
+        raise RuntimeError('Build source assets before packaging: ' + ', '.join(stale_assets))
     stale = synchronize(check=True)
     if stale:
         raise RuntimeError('Build the shared shell before packaging: ' + ', '.join(stale))

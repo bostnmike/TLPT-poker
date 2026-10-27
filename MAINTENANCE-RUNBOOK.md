@@ -19,7 +19,8 @@ That runner performs, in order:
 3. Build generated site data.
 4. Build knockout data.
 5. Build compact classified statistical event data.
-6. Generate shared navigation/footer markup and content-based asset versions.
+6. Assemble app/style source sections, then generate shared navigation/footer
+   markup and content-based asset versions.
 
 Do not copy those commands into another workflow or script.
 
@@ -347,6 +348,32 @@ Power Index keeps its formula and uses the corrected overall ROI/profit inputs.
 October 17, 2026 started at 7:21 p.m. per Mike's correction; the raw summary and
 start action both use 7:21:00 p.m. because seconds were not provided.
 
+## Application and stylesheet source sections
+
+`app.js` and `style.css` are generated delivery bundles. Edit the files in
+`site-src/app/` and `site-src/styles/`; their explicit order is owned by
+`site-src/manifest.json`. Read `site-src/README.md` for the responsibility map.
+The initial split is byte-identical to release `2591dc23`; original hashes are
+recorded in `site-src/migration-baseline.json` as historical migration evidence.
+
+Run `python3 scripts/build-site-shell.py` to assemble both bundles and then
+update HTML versions. `scripts/run-data-build.sh` already invokes that command.
+Assembly adds no imports, wrappers, whitespace, minification or network requests.
+Script globals/startup timing, CSS rule order and root-relative asset resolution
+are preserved. Do not sort rules, deduplicate selectors or reorganize overriding
+media queries as part of a maintenance-only edit.
+
+The quality gate checks source inventory, syntax/complete CSS blocks, exact
+concatenation, no-op determinism and stale outputs. Packaging independently
+refuses stale bundles. The one gated publisher commits only tested `app.js`,
+`style.css`, generated HTML and data. New source sections require an explicit
+manifest entry; unlisted files fail instead of silently being ignored.
+
+Registration's read-only renderer derives shared asset hashes from the source
+sections, even before the generated bundles have been committed by the main
+publisher. Source/manifest changes trigger both site and registration workflows.
+Lily/Marchand files and Cashier/RSVP source are not included in these bundles.
+
 ## Shared navigation and automatic asset versions
 
 The 22 main TLPT pages use `templates/site/navigation.json`, `header.html`, and
@@ -400,6 +427,8 @@ The root file is only a compatibility launcher. Do not add audit logic to it.
 ## What must remain single-source
 
 - Generated-data build sequence → `scripts/run-data-build.sh`
+- App/style source order → `site-src/manifest.json`
+- Generated app/style assembly → `scripts/source_bundles.py`
 - Shared-site validation suite → `scripts/run-quality-gates.sh`
 - Registration validation suite → `.github/workflows/registration-checks.yml`
 - Cashier validation suite → `.github/workflows/cashier-checks.yml`

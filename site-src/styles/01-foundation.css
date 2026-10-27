@@ -1,0 +1,123 @@
+/* style.css */
+:root{
+  --bg:#0a0d12;
+  --panel:#11161e;
+  --panel-2:#18212c;
+  --panel-3:#0f141c;
+  --text:#ecf2f8;
+  --muted:#9eb0c3;
+  --line:#283444;
+  --accent:#d7263d;
+  --gold:#ffb81c;
+  --gold-soft:#f6c65b;
+  --gold-deep:#c88a00;
+  --green:#3ddc84;
+  --red:#ff6b6b;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+  --page-gutter:20px;
+  --control-radius:12px;
+  --control-inner-radius:8px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+/* Preserve the HTML hidden-state contract against component display rules. */
+[hidden]{
+  display:none !important;
+}
+
+html,
+body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  margin:0;
+  padding-top:96px;
+  font-family:Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.07), transparent 25%),
+    radial-gradient(circle at left center, rgba(215,38,61,.08), transparent 22%),
+    linear-gradient(180deg,#091018 0%,#0b0f14 100%);
+  color:var(--text);
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+a{
+  color:var(--gold);
+  text-decoration:none;
+}
+
+a:hover{
+  color:var(--gold-soft);
+}
+
+.skip-link{
+  position:fixed;
+  top:12px;
+  left:12px;
+  z-index:10000;
+  padding:12px 16px;
+  border:2px solid var(--gold);
+  border-radius:10px;
+  background:var(--panel);
+  color:var(--white);
+  box-shadow:var(--shadow);
+  font-weight:800;
+  transform:translateY(calc(-100% - 24px));
+  transition:transform .16s ease;
+}
+
+.skip-link:focus{
+  color:var(--white);
+  transform:translateY(0);
+  outline:3px solid var(--white);
+  outline-offset:2px;
+}
+
+.wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:25px var(--page-gutter) 0;
+}
+
+.site-footer{
+  margin-top:30px;
+  padding:0 20px 32px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+}
+
+.site-footer-inner{
+  max-width:1240px;
+  margin:0 auto;
+}
+
+.site-footer p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+main.wrap > .section:first-child,
+main.wrap > .crew-header-shell:first-child,
+main.wrap > .standings-page-stack:first-child,
+main.wrap > .dashboard-page-stack:first-child,
+main.wrap > .hero-stack:first-child{
+  margin-top:0;
+}
+
+main.wrap > .standings-page-stack:first-child > .section:first-child,
+main.wrap > .dashboard-page-stack:first-child > .section:first-child{
+  margin-top:0;
+}
+

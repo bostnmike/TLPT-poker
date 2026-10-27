@@ -4,6 +4,9 @@ on:
     paths:
       - 'registration-domain/**'
       - 'templates/site/**'
+      - 'site-src/**'
+      - 'scripts/source_bundles.py'
+      - 'scripts/build-site-assets.py'
       - 'scripts/site_components.py'
       - 'scripts/build-site-shell.py'
       - 'scripts/asset-reference-test.mjs'
@@ -18,6 +21,9 @@ on:
     paths:
       - 'registration-domain/**'
       - 'templates/site/**'
+      - 'site-src/**'
+      - 'scripts/source_bundles.py'
+      - 'scripts/build-site-assets.py'
       - 'scripts/site_components.py'
       - 'scripts/build-site-shell.py'
       - 'scripts/asset-reference-test.mjs'
