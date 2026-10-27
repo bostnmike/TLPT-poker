@@ -32,7 +32,14 @@ module.exports=async function run(kind,base){
      await page.waitForFunction(size=>Math.round(document.querySelector('.norm-page-guide .norm-headshot').getBoundingClientRect().width)===size,width<=600?80:96);
      assert.equal(Math.round((await portrait.boundingBox()).width),width<=600?80:96);
      const bounds=await card.boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width+1);assert.equal(await card.evaluate(e=>e.scrollWidth>e.clientWidth+1),false);
-     const playerBounds=await audio.boundingBox(),link=await opener.boundingBox();assert.ok(link.x>=playerBounds.x+playerBounds.width-1,'Read-me remains beside the audio');assert.ok(Math.abs(link.y+link.height/2-playerBounds.y-playerBounds.height/2)<2,'Read-me shares the player row');assert.ok(link.height>=44);
+     // Measure both controls in one browser frame: separate round trips can
+     // straddle scroll anchoring or a font/layout update on a busy CI runner.
+     await page.evaluate(()=>document.fonts.ready);
+     const {playerBounds,link}=await page.evaluate(selector=>({
+      playerBounds:document.querySelector('.norm-page-guide audio').getBoundingClientRect().toJSON(),
+      link:document.querySelector(selector).getBoundingClientRect().toJSON()
+     }),openSelector);
+     assert.ok(link.x>=playerBounds.x+playerBounds.width-1,'Read-me remains beside the audio');assert.ok(Math.abs(link.y+link.height/2-playerBounds.y-playerBounds.height/2)<2,'Read-me shares the player row');assert.ok(link.height>=44);
      assert.equal(await card.locator('.norm-page-footer').count(),0,'No separate footer row');
      assert.ok(bounds.height<(width<=600?200:170),'Narration stays compact');
      const before=requests.length;await page.waitForTimeout(100);assert.equal(requests.length,before,'View switch does not prefetch');

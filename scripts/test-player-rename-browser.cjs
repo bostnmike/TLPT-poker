@@ -27,6 +27,16 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    await page.goto(base+'/news.html');
    await page.locator('img[alt="ButtonMan: fka LiFo"]').first().waitFor();
    assert.ok(await page.locator('img[alt="ButtonMan: fka LiFo"]').first().evaluate(i=>i.getAttribute('src').includes('li-fo.jpg')));
+   for(const section of ['players','trophy-room']){
+    await page.goto(base+'/'+section+'.html');
+    if(section==='trophy-room'){
+     await page.locator('#trophy-player-filter option[value="li-fo"]').waitFor({state:'attached'});
+     await page.locator('#trophy-player-filter').selectOption('li-fo',{force:true});
+    }
+    const label=page.locator('.crew-ultimate-identity h3,.trophy-card-identity strong').filter({hasText:'ButtonMan: fka LiFo'}).first();
+    await label.waitFor();
+    assert.ok(await label.evaluate(e=>e.scrollWidth<=e.clientWidth+1),section+' displays the full name');
+   }
    await page.close();console.log('PASS ButtonMan '+width+': legacy links, current name, portrait and news avatar');
   }
  }finally{await browser.close();}
