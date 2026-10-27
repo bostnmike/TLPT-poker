@@ -132,9 +132,13 @@ requests for the last seat. Repeating In preserves priority; leaving In releases
 it, automatically promoting the first waiting player. Returning In joins the end.
 Maybe/Out do not hold seats. Capacity changes apply the same queue immediately;
 reducing capacity moves the last confirmed players to the waitlist. Commish
-**Move In to front** overrides priority after the host and can displace the last confirmed player
+**Move to front of line** overrides priority after the host and can displace the last confirmed player
 when full; the UI explains this before saving. Closed events reject all player
-changes; Commish can correct answers. Cancel closes and removes a game from the live schedule; a direct link explains
+changes. At capacity, each event card shows a separate Waitlist panel, including
+an empty state before anyone is waiting. The Commish response panel shows the
+same queue for its selected event. Player order comes directly from the saved
+queue. Once the table has free seats and no waiting players, the panel is hidden.
+Commish can correct answers. Cancel closes and removes a game from the live schedule; a direct link explains
 that it was cancelled. Delete moves the event to the private removed list
 (soft deletion). Both retain answers, identity and Cashier payment history.
 Restore rejects duplicate slot/date identities and leaves RSVPs closed.
