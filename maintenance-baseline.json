@@ -23,6 +23,7 @@
     "cacheRotationWorkflow": ".github/workflows/rotate-shared-css-cache.yml"
   },
   "qualityTriggerPaths": [
+    "tests/visual/**",
     "site-src/**",
     "templates/site/**",
     "audit-code-hygiene.py",
@@ -38,10 +39,12 @@
     "pnpm-lock.yaml"
   ],
   "requiredQualityWorkflowCommands": [
+    "pnpm test:visual",
     "python -m pip install --requirement requirements-quality.txt",
     "bash scripts/run-quality-gates.sh"
   ],
   "requiredDataPipelineCommands": {
+    "pnpm test:visual": 1,
     "python -m pip install --requirement requirements-quality.txt": 1,
     "bash scripts/run-quality-gates.sh": 1
   },

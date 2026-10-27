@@ -27,6 +27,13 @@ class ReleaseToolsTests(unittest.TestCase):
                      "templates/site/header.html", "templates/site/navigation.json"]:
             self.assertFalse(package.public_path(name), name)
 
+    def test_visual_assets_and_local_design_sources_stay_private(self):
+        for name in ['tests/visual/fixtures/data/generated/site-data.json',
+                     'tests/visual/baselines/linux/390/dashboard-entrance.png',
+                     'browser-results/visual-report/index.html',
+                     'design-assets/plaque-master.png', '.pnpm-store/cache.json']:
+            self.assertFalse(package.public_path(name), name)
+
     def test_authoring_sections_do_not_publish_individually(self):
         for name in ['site-src/manifest.json', 'site-src/app/01-data-loading.js',
                      'site-src/styles/01-foundation.css']:
