@@ -68,6 +68,9 @@ def main():
     try:
         config = environment()
         if args.mode == 'prepare':
+            for codepoint in ['2197', '25be', '25bc', '25b6']:
+                print('Host symbol font ' + codepoint + ':', flush=True)
+                subprocess.run(['fc-match', '-f', '%{file}\n', 'Arial:charset=' + codepoint], check=False)
             pull(config)
         code = execute(args.mode, config, repeats=args.repeat_each)
         if code:

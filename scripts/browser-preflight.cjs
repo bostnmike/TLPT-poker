@@ -17,7 +17,9 @@ const {chromium} = require('playwright');
     await page.screenshot();
     const receipt = {image:expected.image, playwright:expected.playwrightVersion,
       chromium:browser.version(), node:process.version,
-      arial:execFileSync('fc-match', ['Arial'], {encoding:'utf8'}).trim()};
+      arial:execFileSync('fc-match', ['Arial'], {encoding:'utf8'}).trim(),
+      symbolFonts:Object.fromEntries(['2197','25be','25bc','25b6'].map(code => [code,
+        execFileSync('fc-match', ['-f', '%{file}', `Arial:charset=${code}`], {encoding:'utf8'}).trim()]))};
     fs.mkdirSync('browser-results', {recursive:true});
     fs.writeFileSync('browser-results/environment.json', JSON.stringify(receipt, null, 2));
     console.log('PASS: pinned browser environment', receipt);
