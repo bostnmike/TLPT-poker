@@ -3,3 +3,10 @@
 /node_modules/
 /.site-release/
 /browser-results/
+# Disposable local metadata; keep design-assets visible and untouched.
+.DS_Store
+__pycache__/
+*.py[cod]
+/.pnpm-store/
+# Local Mac previews are not the reviewed Ubuntu CI baseline.
+/tests/visual/baselines/darwin/

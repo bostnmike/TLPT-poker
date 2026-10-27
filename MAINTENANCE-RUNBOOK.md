@@ -412,6 +412,25 @@ supports `BASE_URL capture SNAPSHOT_DIR` / `BASE_URL compare SNAPSHOT_DIR` acros
 all 22 pages at 1440, 820, 390 and 320 pixels. Keep CSS and rendering logic
 unchanged during shell-only maintenance; review any screenshot differences.
 
+## Permanent visual checks and bounded setup
+
+The PR and main release workflows also run `pnpm test:visual` on the tested
+public package. See `tests/visual/README.md` for coverage, fixed public fixtures
+and the reviewed-reference procedure. Missing/changed screenshots block
+publication; CI never updates baselines. Inspect the retained failure report
+before approving any reference change. Functional browser checks remain intact.
+
+Both build jobs pin Ubuntu 24.04 to avoid OS/font changes silently replacing the
+visual environment. Python downloads and lock-keyed pnpm package downloads are
+cached; installs remain frozen. Browser setup installs only the headless Chromium
+shell used by CI, plus required OS libraries. Setup steps have explicit time
+limits, as do functional and visual tests. A timeout fails the release; it never
+publishes unchecked output. Do not cache rendered assets or test results.
+
+Only disposable local OS/Python/package caches are ignored. The untracked
+`design-assets/` artwork is intentionally left untouched and visible, not
+deleted, moved, published or silently added to source control.
+
 ## Code hygiene audit
 
 The authoritative implementation is:

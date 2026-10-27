@@ -2,6 +2,6 @@
   "name": "tlpt-site-quality",
   "private": true,
   "packageManager": "pnpm@11.25.0",
-  "scripts": { "test:browser": "node scripts/run-browser-gates.cjs" },
+  "scripts": { "test:browser": "node scripts/run-browser-gates.cjs", "test:visual": "playwright test --config tests/visual/playwright.config.cjs" },
   "devDependencies": { "playwright": "1.62.1" }
 }
