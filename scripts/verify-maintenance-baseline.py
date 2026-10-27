@@ -7,6 +7,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from site_components import asset_version
 
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE_PATH = ROOT / "maintenance-baseline.json"
@@ -160,15 +161,17 @@ def main() -> int:
         )
 
     asset = baseline.get("sharedCssAsset")
-    version = baseline.get("sharedCssVersion")
+    version = asset_version(asset)
     ref_re = re.compile(
         rf'(?:/)?{re.escape(asset)}\?v=([^"\']+)'
     )
     for page in pages:
+        # The independent Marchand page keeps its frozen legacy reference.
+        expected_version = baseline.get("isolatedMarchandCssVersion") if page.name == "marchand.html" else version
         versions = ref_re.findall(page.read_text(encoding="utf-8"))
-        if versions != [version]:
+        if versions != [expected_version]:
             errors.append(
-                f"{page.name}: expected exactly `{asset}?v={version}`, found {versions}"
+                f"{page.name}: expected exactly `{asset}?v={expected_version}`, found {versions}"
             )
 
     if errors:

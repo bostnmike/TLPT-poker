@@ -1,12 +1,12 @@
 import {readFile} from 'node:fs/promises';
 import {setTimeout as delay} from 'node:timers/promises';
-import {registrationPage} from './build.mjs';
+import {registrationPage, canonicalSource} from './build.mjs';
 
 const revision = process.argv[2];
 if (!/^[a-f0-9]{40}$/.test(revision ?? '')) {
   throw new Error('Pass the full canonical source commit SHA');
 }
-const source = await readFile(new URL('../register.html', import.meta.url), 'utf8');
+const source = canonicalSource();
 const checks = [
   ['https://register.tlpt.org/source-revision.txt', `${revision}\n`],
   ['https://register.tlpt.org/', registrationPage(source)],

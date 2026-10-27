@@ -1,6 +1,13 @@
-import {readFile, mkdir, writeFile} from "node:fs/promises";
+import {mkdir, writeFile} from "node:fs/promises";
 import {resolve} from "node:path";
-import {pathToFileURL} from "node:url";
+import {pathToFileURL, fileURLToPath} from "node:url";
+import {execFileSync} from "node:child_process";
+
+// Render from the same templates/content hashes even when generated root HTML
+// has not yet been committed by the main site's build. No file mutations.
+export function canonicalSource() {
+  return execFileSync('python3', [fileURLToPath(new URL('../scripts/build-site-shell.py', import.meta.url)), '--page', 'register.html'], {encoding:'utf8'});
+}
 
 export function registrationPage(source) {
   const returnField = /(<input\b[^>]*\bname="_next"[^>]*\bvalue=")[^"]*(")/;
@@ -15,7 +22,7 @@ export function registrationPage(source) {
 }
 
 export async function build(output) {
-  const source = await readFile(new URL("../register.html", import.meta.url), "utf8");
+  const source = canonicalSource();
   const html = registrationPage(source);
   await mkdir(output, {recursive:true});
   await Promise.all(Object.entries({

@@ -3,6 +3,12 @@ on:
   push:
     paths:
       - 'registration-domain/**'
+      - 'templates/site/**'
+      - 'scripts/site_components.py'
+      - 'scripts/build-site-shell.py'
+      - 'scripts/asset-reference-test.mjs'
+      - '*.css'
+      - '*.js'
       - 'register.html'
       - 'register.js'
       - 'register.css'
@@ -11,6 +17,12 @@ on:
   pull_request:
     paths:
       - 'registration-domain/**'
+      - 'templates/site/**'
+      - 'scripts/site_components.py'
+      - 'scripts/build-site-shell.py'
+      - 'scripts/asset-reference-test.mjs'
+      - '*.css'
+      - '*.js'
       - 'register.html'
       - 'register.js'
       - 'register.css'
@@ -27,6 +39,10 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: '24'
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: python scripts/build-site-shell.py
       - run: node --test registration-domain/tests/*.test.mjs
       - run: node scripts/test-register-page.mjs
   publish:
@@ -43,6 +59,9 @@ jobs:
         with:
           ref: main
           persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
       - uses: actions/setup-node@v7
         with:
           node-version: '24'

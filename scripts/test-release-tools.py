@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import subprocess
+import sys
 from stable_generated import preserve_timestamp
 
 spec = importlib.util.spec_from_file_location("package_site", Path(__file__).with_name("package-site.py"))
@@ -12,11 +14,17 @@ spec.loader.exec_module(package)
 
 
 class ReleaseToolsTests(unittest.TestCase):
+    def test_root_compatibility_audit_resolves_shared_build_helpers(self):
+        result = subprocess.run([sys.executable, 'audit-code-hygiene.py'],
+                                cwd=package.ROOT, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_private_and_source_files_never_publish(self):
         for name in ["cashier/worker.ts", "cashier/private/backup.json", ".git/config",
                      "rsvp/owner.local.json", "registration-domain/worker.js",
                      "data/raw/events/Event Report.html", "scripts/test.js",
-                     "maintenance-baseline.json", "lily-site/build.py"]:
+                     "maintenance-baseline.json", "lily-site/build.py",
+                     "templates/site/header.html", "templates/site/navigation.json"]:
             self.assertFalse(package.public_path(name), name)
 
     def test_public_products_and_media_stay_available(self):

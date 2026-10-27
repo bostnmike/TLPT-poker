@@ -8,6 +8,11 @@ configuration must not change.
 The form's source of truth is still this repository's `register.html`.
 `build.mjs` generates static registration HTML for GitHub Pages: main-site
 assets/navigation, local skip link, and a branded FormSubmit success URL.
+Shared navigation and script/style versions are rendered through
+`scripts/build-site-shell.py --page register.html` (Python 3, standard library).
+This does not rewrite source files. The satellite therefore uses the same menu
+and content hashes even before the main publisher commits generated HTML.
+Template, renderer and shared CSS/JS changes also trigger registration checks.
 No Worker, proxy, runtime database or Cloudflare deployment is needed.
 
 After registration changes reach `main`, **TLPT Registration Quality Gate** runs

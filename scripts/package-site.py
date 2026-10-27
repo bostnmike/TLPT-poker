@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+from site_components import synchronize
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / ".site-release"
@@ -34,6 +35,9 @@ def public_path(name):
 
 
 def main():
+    stale = synchronize(check=True)
+    if stale:
+        raise RuntimeError('Build the shared shell before packaging: ' + ', '.join(stale))
     # Only this generated staging directory may be replaced.
     if DEST.is_symlink():
         raise RuntimeError("Refusing a symlink staging directory")

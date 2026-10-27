@@ -19,6 +19,7 @@ That runner performs, in order:
 3. Build generated site data.
 4. Build knockout data.
 5. Build compact classified statistical event data.
+6. Generate shared navigation/footer markup and content-based asset versions.
 
 Do not copy those commands into another workflow or script.
 
@@ -346,15 +347,43 @@ Power Index keeps its formula and uses the corrected overall ROI/profit inputs.
 October 17, 2026 started at 7:21 p.m. per Mike's correction; the raw summary and
 start action both use 7:21:00 p.m. because seconds were not provided.
 
-## Shared CSS changes
+## Shared navigation and automatic asset versions
 
-For changes to `site-tail.css`, rotate the cache key with the **Rotate Shared CSS Cache** GitHub Action rather than manually editing all public HTML pages.
+The 22 main TLPT pages use `templates/site/navigation.json`, `header.html`, and
+`footer.html`. Edit the menu once in the JSON; edit shared brand/footer markup
+in its template. The page's file name determines its active link and parent.
+`404.html` retains root-relative links so nested missing URLs work. Registration
+remains unlisted. No browser fetch or framework is required for navigation.
 
-The underlying helper is:
+Run `python3 scripts/build-site-shell.py` after changes (the canonical build
+already does this). Root HTML remains directly previewable and its generated
+regions are marked; do not manually edit inside those regions. Page-specific
+content outside them remains authored in its existing HTML file.
 
-`python scripts/rotate-shared-css-cache.py --version <NEW_VERSION>`
+The same build replaces local script/stylesheet `v` parameters with the first
+16 hexadecimal characters of SHA-256 of the referenced file's bytes. No date
+strings, manual increments, timestamps, or release-wide cache flushes. Unchanged
+assets retain their versions; changed assets update every consuming TLPT page.
+Other query parameters and fragments survive. Missing assets fail the build.
 
-It refuses partial page coverage and verifies all public pages use one cache key.
+`python3 scripts/build-site-shell.py --check` detects stale generated regions or
+versions without writing. Quality gates and packaging require it to pass. The
+single main publisher commits the exact tested generated HTML alongside data;
+there is no second cache-rotation writer. The old rotation script delegates to
+this build; its manual `--version` option is retired. The old workflow is now
+a read-only **Verify Automatic Asset Versions** diagnostic.
+
+Lily, Marchand, Cashier, the RSVP app, vendor files and downloads are excluded
+from this generator. Their own markup/version contracts are unchanged. The
+registration satellite renders the same canonical page from templates and file
+hashes, preserving its separate return URL and private/no-index form behavior.
+
+Tests cover idempotence, stale/missing assets, menu propagation, page indicators,
+absolute 404 links, no-JavaScript navigation, mobile menu/keyboard behavior, and
+product isolation. For visual maintenance checks, `test-shared-shell-browser.cjs`
+supports `BASE_URL capture SNAPSHOT_DIR` / `BASE_URL compare SNAPSHOT_DIR` across
+all 22 pages at 1440, 820, 390 and 320 pixels. Keep CSS and rendering logic
+unchanged during shell-only maintenance; review any screenshot differences.
 
 ## Code hygiene audit
 
@@ -375,13 +404,13 @@ The root file is only a compatibility launcher. Do not add audit logic to it.
 - Registration validation suite → `.github/workflows/registration-checks.yml`
 - Cashier validation suite → `.github/workflows/cashier-checks.yml`
 - Hygiene audit logic → `scripts/audit-code-hygiene.py`
-- Shared CSS cache rotation → `scripts/rotate-shared-css-cache.py`
+- Shared markup and asset versions → `scripts/site_components.py` / `templates/site/`
 - Maintenance contract → `maintenance-baseline.json`
 
 ## Before deploying a maintenance change
 
 1. Make the smallest targeted change.
-2. If shared CSS changed, rotate its cache key.
+2. Run `python3 scripts/build-site-shell.py` to regenerate markup and asset versions.
 3. Run `bash scripts/run-quality-gates.sh`.
 4. Confirm zero validation errors.
 5. For generated-data work, confirm the rebuild changes only expected generated fields.
@@ -435,7 +464,7 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   never a broken player or a request for a nonexistent recording.
   Reviewed batch-two scripts and the exact MP3 filename mapping are in
   `docs/norm-narrates-batch-2/`. On receiving recordings, add the matching assets,
-  set each guide's audio path and rotate cache versions on the consuming pages.
+  set each guide's audio path and rebuild the automatic asset versions.
   Run `scripts/test-stats-guides-browser.cjs` for all guide dialogs, portraits,
   focus/close behavior, narrow layouts and view-change audio teardown. All eight batch-two
   recordings are enabled.

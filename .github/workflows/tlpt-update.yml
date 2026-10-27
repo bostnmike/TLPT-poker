@@ -41,6 +41,7 @@ on:
       - "package.json"
       - "pnpm-lock.yaml"
       - "scripts/**"
+      - "templates/site/**"
       - "!images/fw/gallery-manifest.json"
   workflow_dispatch:
 
@@ -110,6 +111,8 @@ jobs:
           git add data/generated/knockouts-generated.json data/generated/knockouts.json
           git add knockouts.json knockout-events-full.json knockout-name-map-full.json
           git add images/fw/gallery-manifest.json
+          # These regions/versions were generated and tested with this artifact.
+          python -c 'import subprocess; from scripts.site_components import PAGES; subprocess.run(["git", "add", "--", *PAGES], check=True)'
           if ! git diff --cached --quiet; then
             git commit -m "Rebuild tested TLPT data and gallery"
             git push origin HEAD:main
