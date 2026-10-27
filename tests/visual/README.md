@@ -5,6 +5,12 @@ It screenshots the existing packaged site at 1440, 820, 390 and 320 pixels.
 The reviewed reference is the unchanged public design from release
 `2258ddf3cd261eef3f3ed00ca033fe6787dac165`.
 
+The four home entrance references were reviewed and updated on 2026-10-27 for
+the requested Norm / yellow-chip RSVP campaign (source `fdbad50c`, staging run
+`40524079496`). Only those four images changed; the other 52 scenarios passed
+unchanged. Campaign-before-poem order, image loading, link behavior and responsive
+bounds also pass `scripts/test-rsvp-guide-browser.cjs` at all four widths.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
