@@ -35,6 +35,11 @@ for (const match of times) {
 const promo = home.split('<div class="home-promo-pair"')[1].split('<section')[0];
 assert.ok(promo.indexOf('href="rsvp-app.html"') < promo.indexOf('href="rebuy-hard.html"'), 'App precedes Norm');
 assert.match(promo, /images\/rebuy-hard\/norm-santa-tlpt.png/);
+assert.match(promo, /images\/site\/norm-rsvp-campaign.jpg/);
+assert.match(promo, /Put the Yellow Chip on Your Phone\./);
+assert.match(promo, /class="home-rsvp-chip" src="images\/site\/chip-T-1000.png"/);
+assert.match(promo, /Get the Yellow Chip/);
+assert.doesNotMatch(promo, /The Commish made an app|TLPT RSVP\. Now on your phone\./);
 assert.match(schedule, /href="rsvp-app.html"/);
 assert.match(schedule, /Put the Yellow Chip on Your Phone\./);
 assert.match(schedule, /images\/site\/norm-rsvp-campaign.jpg/);

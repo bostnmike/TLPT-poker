@@ -51,7 +51,16 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await cards.count(), 2);
       assert.equal(await cards.first().getAttribute('href'), 'rsvp-app.html');
       assert.equal(await cards.last().getAttribute('href'), 'rebuy-hard.html');
+      await cards.first().locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
+      assert.match(await cards.first().innerText(), /Put the Yellow Chip on Your Phone\./);
+      assert.equal(await cards.first().locator('.home-rebuy-image img').getAttribute('src'), 'images/site/norm-rsvp-campaign.jpg');
       const appCard = await cards.first().boundingBox(), poem = await cards.last().boundingBox();
+      for (const selector of ['.home-rebuy-image', '.home-rebuy-copy', '.home-rsvp-chip', '.home-rebuy-cta']) {
+        const box = await cards.first().locator(selector).boundingBox();
+        assert.ok(box.x >= appCard.x && box.x + box.width <= appCard.x + appCard.width + 1, selector + ': fits home campaign');
+      }
+      assert.ok((await cards.first().locator('.home-rsvp-chip').boundingBox()).width <= 36);
+      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       if (width > 700) {
         assert.ok(Math.abs(appCard.y - poem.y) < 1);
         assert.ok(poem.x > appCard.x + appCard.width);
