@@ -20,6 +20,7 @@ echo "🧭 Verifying maintenance baseline..."
 
 echo "🔗 Testing rebuild and quality-gate coordination..."
 "$PYTHON_BIN" scripts/test-quality-coordination.py
+"$PYTHON_BIN" scripts/test-release-tools.py
 
 echo "💵 Testing event currency precision..."
 "$PYTHON_BIN" scripts/test-event-currency.py

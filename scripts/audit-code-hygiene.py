@@ -5003,7 +5003,7 @@ def audit_phase_3h2_validation_parity() -> list[str]:
     runner = "bash scripts/run-quality-gates.sh"
     targets = (
         (ROOT / ".github" / "workflows" / "site-quality.yml", 1),
-        (ROOT / ".github" / "workflows" / "tlpt-update.yml", 2),
+        (ROOT / ".github" / "workflows" / "tlpt-update.yml", 1),
         (ROOT / "scripts" / "run-weekly-update.sh", 1),
         (ROOT / ".github" / "workflows" / "rotate-shared-css-cache.yml", 1),
     )
@@ -5215,9 +5215,9 @@ def audit_phase_3h7_data_build_runner() -> list[str]:
         errors.append(
             "scripts/run-weekly-update.sh: must call the authoritative data-build runner exactly once"
         )
-    if pipeline_text.count("bash scripts/run-data-build.sh") != 2:
+    if pipeline_text.count("bash scripts/run-data-build.sh") != 1:
         errors.append(
-            ".github/workflows/tlpt-update.yml: data pipeline must call the authoritative data-build runner exactly twice"
+            ".github/workflows/tlpt-update.yml: data pipeline must call the authoritative data-build runner exactly once"
         )
     if 'data/generated/event-history.json' not in generator_text:
         errors.append(

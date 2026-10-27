@@ -1,10 +1,10 @@
-/* Optional responsive regression; supply the local or published base URL. */
+/* Required responsive regression; supply the local or published base URL. */
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const base=process.argv[2]||'http://127.0.0.1:8767';
 const pages=['dashboard','standings','form-lab','knockouts','schedule','trophy-room'];
 (async()=>{
- const browser=await chromium.launch({channel:'chrome',headless:true});
+ const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
  try{
   for(const width of [1440,820,390,320]){
    const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});

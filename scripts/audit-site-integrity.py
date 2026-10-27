@@ -1394,6 +1394,8 @@ def main():
         "errors": audit.errors,
         "warnings": audit.warnings,
     }
+    from stable_generated import preserve_timestamp
+    preserve_timestamp(REPORT_PATH, report)
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with REPORT_PATH.open("w", encoding="utf-8") as handle:
         json.dump(report, handle, indent=2, ensure_ascii=False)

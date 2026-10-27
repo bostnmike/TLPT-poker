@@ -11,7 +11,7 @@ const key=randomBytes(32).toString('hex'),hash=createHash('sha256').update(key).
 const sql=`UPDATE rsvp_state SET revision=revision+1,body=json_set(body,'$.revision',revision+1,'$.adminHash','${hash}','$.adminGeneration',json_extract(body,'$.adminGeneration')+1) WHERE id=1;`;
 // Hash only, no bearer secret is written to disk or child-process arguments.
 writeFileSync('owner-hash.local.sql',sql,{mode:0o600});
-try{const r=spawnSync(process.execPath,['../cashier/node_modules/wrangler/bin/wrangler.js','d1','execute','DB','--remote','--config','wrangler.jsonc','--file','owner-hash.local.sql'],{env:{...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},stdio:'ignore'});if(r.status!==0)throw Error('Owner link setup failed. Existing credentials were not intentionally changed.');}finally{unlinkSync('owner-hash.local.sql');}
+try{const r=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js','d1','execute','DB','--remote','--config','wrangler.jsonc','--file','owner-hash.local.sql'],{env:{...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},stdio:'ignore'});if(r.status!==0)throw Error('Owner link setup failed. Existing credentials were not intentionally changed.');}finally{unlinkSync('owner-hash.local.sql');}
 const link='https://tlpt-rsvp.tlpt-bostnmike.workers.dev/?commish=1#key='+key;
 const server=createServer((req,res)=>{
  if(req.headers.host!=='127.0.0.1:8795'||req.url!=='/setup'){res.writeHead(404);res.end();return;}

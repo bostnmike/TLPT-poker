@@ -1,81 +1,19 @@
-name: Build Gallery Manifest
+name: Check Gallery Manifest (manual diagnostic)
 
+# Production generation is owned by TLPT Data Pipeline. This never writes main.
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'images/fw/gallery-manifest.json'
   workflow_dispatch:
-
-concurrency:
-  group: build-gallery-manifest-main
-  cancel-in-progress: true
-
 permissions:
-  contents: write
-
+  contents: read
 jobs:
-  build-gallery-manifest:
+  check:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v7
-        with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Set up Node
-        uses: actions/setup-node@v7
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
-
-      - name: Verify gallery folders
+      - name: Check the published manifest matches its posters
         run: |
-          pwd
-          ls -la
-          ls -la images || true
-          ls -la images/fw || true
-
-      - name: Generate gallery manifest
-        run: node scripts/build-gallery-manifest.mjs
-
-      - name: Commit manifest if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add images/fw/gallery-manifest.json
-
-          if git diff --cached --quiet; then
-            echo "No manifest changes to commit."
-            exit 0
-          fi
-
-          git commit -m "Update gallery manifest"
-
-          for attempt in 1 2 3; do
-            echo "Push attempt $attempt..."
-
-            git fetch origin main
-
-            if ! git rebase origin/main; then
-              git rebase --abort || true
-              echo "Rebase failed on attempt $attempt. Retrying..."
-              sleep 3
-              continue
-            fi
-
-            if git push --force-with-lease origin HEAD:main; then
-              echo "Push succeeded."
-              exit 0
-            fi
-
-            echo "Push lease failed on attempt $attempt. Retrying..."
-            sleep 3
-          done
-
-          echo "Remote moved during all retry attempts. Skipping push."
-          exit 0
+          node scripts/build-gallery-manifest.mjs
+          git diff --exit-code -- images/fw/gallery-manifest.json

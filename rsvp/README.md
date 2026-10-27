@@ -257,9 +257,17 @@ Pricing references:
 Run from the repository root with Node 24 for the SQLite unit test adapter:
 
 ```
+cd rsvp
+pnpm install --frozen-lockfile --ignore-scripts
+cd ..
 node --test rsvp/tests/*.test.mjs
 node rsvp/scripts/test-integration.mjs
 ```
+
+RSVP owns its pinned Wrangler installation and date parser. No Cashier
+installation is needed. The offline recovery rehearsal is
+`python scripts/test-recovery.py --product rsvp`; it uses synthetic local data,
+never a production connection.
 
 The latter creates only disposable local Worker/D1 resources. Browser preview
 uses `wrangler dev --local` and a separate `.wrangler/preview` state. Test keys
@@ -294,8 +302,8 @@ publication requires a separately approved account-owned scoped token; the
 RSVP CI workflow is validation-only.
 
 Main website/cashier integration must not merge until the RSVP feed is published
-and verified. Follow TLPT Data Pipeline → exact revision Site Quality Gate →
-Pages, and the independent Cashier production workflow. Verify the same actual
+and verified. Follow TLPT Data Pipeline → data/static/browser checks →
+tested Pages artifact, and the independent Cashier production workflow. Verify the same actual
 RSVP lineup through the site feed and Cashier source integration. Authenticated
 Cashier inspection needs the owner's existing session; never create test payments
 or rotate credentials to perform verification.

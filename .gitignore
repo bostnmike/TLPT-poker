@@ -1,2 +1,5 @@
 # Wrangler's local account cache is never a source artifact.
 /.wrangler/
+/node_modules/
+/.site-release/
+/browser-results/

@@ -1331,6 +1331,9 @@ def main():
         "featuredCardConfig": featured_card_summary
     }
 
+    # Timestamp means last content change, not the last no-op validation run.
+    from stable_generated import preserve_timestamp
+    preserve_timestamp(OUTPUT_PATH, output)
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)

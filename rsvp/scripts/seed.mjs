@@ -1,7 +1,7 @@
 // Outputs SQL for an isolated new database. No private links are generated here.
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {dateKey} from '../../cashier/lib/events.mjs';
+import {dateKey} from '../lib/date-key.mjs';
 const events=JSON.parse(readFileSync(new URL('../../data/events.json',import.meta.url))).events;
 const players=JSON.parse(readFileSync(new URL('../../data/player-metadata.json',import.meta.url))).players.map(p=>({slug:p.slug,name:p.name,image:p.image,rosterStatus:p.rosterStatus||'active',generation:0,linkHash:null}));
 let seq=0;
