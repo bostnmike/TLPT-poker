@@ -3,7 +3,7 @@ const {test, expect} = require('playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
 const fixtures = path.join(__dirname, 'fixtures');
-test.beforeEach(async ({page}) => {
+async function prepare(page) {
   await page.clock.setFixedTime(new Date('2026-10-26T16:00:00-04:00'));
   await page.route('**/*', async route => {
     const url = new URL(route.request().url());
@@ -22,7 +22,8 @@ test.beforeEach(async ({page}) => {
     }
     return route.continue();
   });
-});
+}
+test.beforeEach(async ({page}) => prepare(page));
 async function ready(page, name) {
   await page.goto('/' + name + '.html');
   await page.waitForLoadState('networkidle');
@@ -109,15 +110,19 @@ test('shared navigation expanded and footer', async ({page}) => {
     await menu.getByRole('button').click();
     await snapshot(page.locator('.site-header'), 'navigation-expanded.png', page);
   }
-  // Footer capture gets a fresh document, rather than the sticky header/menu's
-  // focus and compositing state. Do not change or mask any footer styling.
-  await ready(page, 'rules');
-  await expect(page.locator('.site-footer a')).toHaveCSS('color', 'rgb(255, 184, 28)');
-  await test.info().attach('footer-render-state', {contentType:'application/json', body:JSON.stringify(await page.locator('.site-footer a').evaluate(link => {
+  // A new tab also discards the prior navigation's compositor/raster state;
+  // navigating the existing tab alone can retain colored text-edge differences.
+  // Reapply the same fixtures and clock. Do not change or mask footer styling.
+  const footerPage = await page.context().newPage();
+  await prepare(footerPage);
+  await ready(footerPage, 'rules');
+  await expect(footerPage.locator('.site-footer a')).toHaveCSS('color', 'rgb(255, 184, 28)');
+  await test.info().attach('footer-render-state', {contentType:'application/json', body:JSON.stringify(await footerPage.locator('.site-footer a').evaluate(link => {
     const box = link.getBoundingClientRect(), style = getComputedStyle(link);
     return {x:box.x, width:box.width, font:style.font, color:style.color,
       hovered:link.matches(':hover'), focused:document.activeElement === link,
       fonts:document.fonts.status, deviceScaleFactor:devicePixelRatio};
   }))});
-  await snapshot(page.locator('.site-footer'), 'footer.png', page);
+  await snapshot(footerPage.locator('.site-footer'), 'footer.png', footerPage);
+  await footerPage.close();
 });
