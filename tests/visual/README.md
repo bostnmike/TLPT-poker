@@ -18,6 +18,10 @@ Only the browser-owned audio-control rectangle is masked: Chromium's narrow
 native controls vary independently of TLPT styling. Norm's portrait, text,
 read-me link and surrounding layout remain compared. The existing audio tests
 still check playback, responsive geometry and pause/resume behavior.
+Masks are scoped to the captured element, so an audio player behind a modal
+cannot mask the modal text. The sticky header is hidden only for the tall
+rules-chapter component capture; separate entrance/menu images test that header.
+Visible images are decoded after scrolling before screenshots are taken.
 
 The fixture copies are public data captured from that release. They deliberately
 do not update when league results change. Keep private exports, player links,

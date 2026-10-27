@@ -412,9 +412,7 @@ supports `BASE_URL capture SNAPSHOT_DIR` / `BASE_URL compare SNAPSHOT_DIR` acros
 all 22 pages at 1440, 820, 390 and 320 pixels. Keep CSS and rendering logic
 unchanged during shell-only maintenance; review any screenshot differences.
 
-## Code hygiene audit
-
-### Permanent visual checks and bounded setup
+## Permanent visual checks and bounded setup
 
 The PR and main release workflows also run `pnpm test:visual` on the tested
 public package. See `tests/visual/README.md` for coverage, fixed public fixtures
@@ -432,6 +430,8 @@ publishes unchecked output. Do not cache rendered assets or test results.
 Only disposable local OS/Python/package caches are ignored. The untracked
 `design-assets/` artwork is intentionally left untouched and visible, not
 deleted, moved, published or silently added to source control.
+
+## Code hygiene audit
 
 The authoritative implementation is:
 

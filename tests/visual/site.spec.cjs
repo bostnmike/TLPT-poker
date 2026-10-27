@@ -39,7 +39,17 @@ async function snapshot(target, name, page) {
   // nondeterministically. Mask only that browser-owned rectangle, never TLPT's
   // headshot, caption, read-me or container. Functional gates verify playback,
   // dimensions and wrapping separately; all site-owned pixels stay compared.
-  const options = {mask: [page.locator('audio')], maskColor: '#c9d1d9'};
+  await page.waitForLoadState('networkidle');
+  await page.evaluate(async () => {
+    await Promise.all(Array.from(document.images).filter(img => {
+      const box = img.getBoundingClientRect();
+      return box.width && box.height && box.top < innerHeight && box.bottom > 0;
+    }).map(img => img.decode().catch(() => {})));
+  });
+  const options = {mask: [target.locator('audio')], maskColor: '#c9d1d9'};
+  // The sticky header is tested separately. Hide it only during this tall
+  // component capture so it cannot cover the chapter heading in the image.
+  if (name === 'rules-money.png') options.style = '.site-header { visibility: hidden !important; }';
   // With updateSnapshots:none Playwright rejects missing references before
   // writing an actual image. Save a review candidate ONLY in the report folder;
   // never write or approve a baseline from this test.

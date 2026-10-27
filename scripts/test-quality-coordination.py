@@ -82,7 +82,7 @@ class ReleaseTests(unittest.TestCase):
         self.assertIn("updateSnapshots: 'none'", config)
         self.assertIn('[1440, 820, 390, 320]', config)
         self.assertIn('maxDiffPixels: 30', config)
-        self.assertIn("mask: [page.locator('audio')]", suite)
+        self.assertIn("mask: [target.locator('audio')]", suite)
         self.assertIn('test.info().outputPath', suite)
         self.assertNotIn('writeFile', suite)
         for scene in ['rules badges and avatars', 'trophy dropdown above artwork',
