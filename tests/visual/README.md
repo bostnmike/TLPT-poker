@@ -6,8 +6,8 @@ The reviewed reference is the unchanged public design from release
 `2258ddf3cd261eef3f3ed00ca033fe6787dac165`.
 
 The four home entrance references were reviewed and updated on 2026-10-27 for
-the requested Norm / yellow-chip RSVP campaign (source `fdbad50c`, staging run
-`40524079496`). Only those four images changed; the other 52 scenarios passed
+the requested Norm / yellow-chip RSVP campaign, with its introductory label
+removed (source `3adf120f`, staging run `40562885387`). Only those four images changed; the other 52 scenarios passed
 unchanged. Campaign-before-poem order, image loading, link behavior and responsive
 bounds also pass `scripts/test-rsvp-guide-browser.cjs` at all four widths.
 
