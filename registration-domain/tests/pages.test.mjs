@@ -3,9 +3,18 @@ import {test} from "node:test";
 import {readFile, mkdtemp} from "node:fs/promises";
 import {tmpdir} from "node:os";
 import {join} from "node:path";
-import {registrationPage, build} from "../build.mjs";
+import {registrationPage, build, canonicalSource} from "../build.mjs";
 
-const source = await readFile(new URL("../../register.html", import.meta.url), "utf8");
+const source = canonicalSource();
+
+test("canonical rendering is deterministic and never mutates root HTML", async () => {
+  const file = new URL('../../register.html', import.meta.url);
+  const before = await readFile(file, 'utf8');
+  assert.equal(canonicalSource(), source);
+  assert.equal(await readFile(file, 'utf8'), before);
+  assert.match(source, /register\.js\?v=[a-f0-9]{16}/);
+  assert.match(source, /TLPT GENERATED HEADER/);
+});
 
 test("static registration preserves the form, attachments, privacy and branded return URL", () => {
   const html = registrationPage(source);

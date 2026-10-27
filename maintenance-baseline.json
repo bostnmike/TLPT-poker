@@ -1,15 +1,17 @@
 {
   "schemaVersion": 1,
-  "phase": "4-gated-artifact-release",
+  "phase": "5-shared-shell-content-versions",
   "publicPageCount": 23,
   "sharedCssAsset": "site-tail.css",
-  "sharedCssVersion": "20260826-10",
+  "assetVersionStrategy": "sha256-content-16",
+  "isolatedMarchandCssVersion": "20260826-10",
   "authoritative": {
     "dataBuild": "scripts/run-data-build.sh",
     "qualityGates": "scripts/run-quality-gates.sh",
     "codeHygiene": "scripts/audit-code-hygiene.py",
     "codeHygieneCompatibilityLauncher": "audit-code-hygiene.py",
-    "sharedCssCacheRotation": "scripts/rotate-shared-css-cache.py"
+    "sharedShellBuild": "scripts/build-site-shell.py",
+    "sharedShellComponents": "scripts/site_components.py"
   },
   "maintenancePaths": {
     "weeklyUpdate": "scripts/run-weekly-update.sh",
@@ -19,6 +21,7 @@
     "cacheRotationWorkflow": ".github/workflows/rotate-shared-css-cache.yml"
   },
   "qualityTriggerPaths": [
+    "templates/site/**",
     "audit-code-hygiene.py",
     "maintenance-baseline.json",
     "MAINTENANCE-RUNBOOK.md",
@@ -40,6 +43,8 @@
     "bash scripts/run-quality-gates.sh": 1
   },
   "requiredQualityGates": [
+    "scripts/build-site-shell.py --check",
+    "scripts/test-site-components.py",
     "scripts/verify-maintenance-baseline.py",
     "scripts/test-quality-coordination.py",
     "scripts/test-release-tools.py",
@@ -75,6 +80,12 @@
       "workflow": ".github/workflows/registration-checks.yml",
       "triggerPaths": [
         "registration-domain/**",
+        "templates/site/**",
+        "scripts/site_components.py",
+        "scripts/build-site-shell.py",
+        "scripts/asset-reference-test.mjs",
+        "*.css",
+        "*.js",
         "register.html",
         "register.js",
         "register.css",
@@ -82,6 +93,7 @@
         ".github/workflows/registration-checks.yml"
       ],
       "requiredCommands": [
+        "python scripts/build-site-shell.py",
         "node --test registration-domain/tests/*.test.mjs",
         "node scripts/test-register-page.mjs",
         "git -C publisher push origin HEAD:main",

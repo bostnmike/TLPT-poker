@@ -16,6 +16,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree
+from site_components import asset_reference
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -144,62 +145,26 @@ EXPECTED_FOOTER_TEXT = (
     "Site data fueled by The Tournament Director"
 )
 EXPECTED_FOOTER_URL = "https://thetournamentdirector.net/"
+# Read menu labels/order from the single authored manifest. The HTML parser
+# independently verifies every page's rendered links, classes and aria-current.
+NAVIGATION_ITEMS = json.loads((ROOT / "templates/site/navigation.json").read_text())
 EXPECTED_NAV_LABELS = [
-    "Home",
-    "Metrics",
-    "Dashboard",
-    "Form Lab",
-    "Heater Meter",
-    "Streak Tracker",
-    "Knockout Central",
-    "Standings",
-    "Members",
-    "TLPT Crew",
-    "Player Profiles",
-    "Trophy Room",
-    "Schedule",
-    "RSVP App",
-    "Roast Zone",
-    "Hall of Fame",
-    "Felt Whispers",
-    "Re-Buy Hard",
-    "Rules",
-    "House Rules",
-    "Blind Structures",
-    "Media",
-    "Film Room",
-    "Voice of God",
-    "Art Gallery",
+    link["label"] for item in NAVIGATION_ITEMS
+    for link in [item, *item.get("children", [])]
 ]
 EXPECTED_SHELL_REVISION_MARKERS = {
     "dashboard.html": "20260825-3g3",
     "streaks.html": "20260825-3g3",
 }
-EXPECTED_NAV_ACTIVE_LABELS = {
-    "rsvp-app.html": ["Schedule", "RSVP App"],
-    "rebuy-hard.html": ["Roast Zone", "Re-Buy Hard"],
-    "404.html": [],
-    "champions.html": ["Roast Zone", "Hall of Fame"],
-    "dashboard.html": ["Metrics", "Dashboard"],
-    "form-lab.html": ["Metrics", "Form Lab"],
-    "gallery.html": ["Media", "Art Gallery"],
-    "index.html": ["Home"],
-    "knockouts.html": ["Metrics", "Knockout Central"],
-    "marchand.html": [],
-    "media.html": ["Media", "Film Room"],
-    "news.html": ["Roast Zone", "Felt Whispers"],
-    "player-movement.html": ["Metrics", "Heater Meter"],
-    "player.html": ["Members", "Player Profiles"],
-    "players.html": ["Members", "TLPT Crew"],
-    "register.html": [],
-    "rules.html": ["Rules", "House Rules"],
-    "structures.html": ["Rules", "Blind Structures"],
-    "schedule.html": ["Schedule"],
-    "standings.html": ["Metrics", "Standings"],
-    "streaks.html": ["Metrics", "Streak Tracker"],
-    "trophy-room.html": ["Members", "Trophy Room"],
-    "voice-of-god.html": ["Media", "Voice of God"],
-}
+EXPECTED_NAV_ACTIVE_LABELS = {}
+for page_name in EXPECTED_PAGES:
+    labels = []
+    for item in NAVIGATION_ITEMS:
+        children = [child["label"] for child in item.get("children", [])
+                    if urlsplit(child["href"]).path == page_name]
+        if children or urlsplit(item["href"]).path == page_name:
+            labels.extend([item["label"], *children])
+    EXPECTED_NAV_ACTIVE_LABELS[page_name] = labels
 EXPECTED_NAV_CURRENT_LABEL = {
     page: labels[-1] if labels else ""
     for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
@@ -388,18 +353,18 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261018-1"
+EXPECTED_SHARED_STYLESHEET = asset_reference("style.css")
 EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
-EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261012-1"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261026-1"
-EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261012-2"
-EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261012-1"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20261018-1"
-EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261025-1"
-EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261026-1"
-EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261026-6"
+EXPECTED_FORM_LAB_STYLESHEET = asset_reference("form-lab.css")
+EXPECTED_FORM_LAB_SCRIPT = asset_reference("form-lab.js")
+EXPECTED_GALLERY_STYLESHEET = asset_reference("gallery.css")
+EXPECTED_GALLERY_SCRIPT = asset_reference("gallery.js")
+EXPECTED_VOICE_OF_GOD_STYLESHEET = asset_reference("voice-of-god.css")
+EXPECTED_VOICE_OF_GOD_SCRIPT = asset_reference("voice-of-god.js")
+EXPECTED_KNOCKOUTS_SCRIPT = asset_reference("knockouts.js")
+EXPECTED_KNOCKOUTS_STYLESHEET = asset_reference("knockouts.css")
+EXPECTED_NEWS_SCRIPT = asset_reference("news-render.js")
+EXPECTED_APP_SCRIPT_REFERENCE = asset_reference("app.js")
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -430,11 +395,11 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "tlpt-update.yml": ["22"],
     "rotate-shared-css-cache.yml": ["22"],
 }
-EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261026-1"
-EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20261026-1"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261025-1"
-EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261025-1"
-EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261026-1"
+EXPECTED_PLAYER_STYLESHEET = asset_reference("player.css")
+EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = asset_reference("player-knockouts.js")
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = asset_reference("player-movement.js")
+EXPECTED_STREAKS_SCRIPT = asset_reference("streaks.js")
+EXPECTED_TROPHY_ROOM_SCRIPT = asset_reference("trophy-room.js")
 INTERACTIVE_CONTROL_RADIUS_CONTRACTS = {
     "style.css": (
         (frozenset({".home-jump-pill", ".home-module-cta"}), "var(--control-radius)"),
@@ -640,8 +605,8 @@ GLOBAL_SHARED_ASSETS = (
     "ux-convergence.css",
     SHARED_SHELL_SCRIPT,
 )
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-10"
-EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261012-15"
+EXPECTED_SITE_TAIL_REFERENCE = asset_reference("site-tail.css")
+EXPECTED_UX_CONVERGENCE_REFERENCE = asset_reference("ux-convergence.css")
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -2817,7 +2782,7 @@ def audit_mtt_player_guide() -> list[str]:
                 rf'<a\b[^>]*href="{re.escape(href)}"[^>]*\bdownload>Download PDF</a>', source):
             errors.append(f"{page}: MTT guide needs an explicit download link")
         for token in ('id="mtt-guide-panel"', 'data-mtt-guide-print', 'data-mtt-guide-status',
-                      'src="mtt-guide.js?v=20261018-1"', 'rules.css?v=20261018-3',
+                      f'src="{asset_reference("mtt-guide.js")}"', asset_reference('rules.css'),
                       'data-src="downloads/mtt-guide-viewer.html?v=20261018-2"', 'title="MTT Know Before You Go — two-page PDF guide"'):
             if token not in source:
                 errors.append(f"{page}: inline MTT viewer is missing {token}")
@@ -4066,7 +4031,7 @@ def main() -> int:
                 for page_name, references in references_by_page.items()
                 if page_name != "marchand.html"
             }
-            if asset_path in {"style.css", "ux-convergence.css", SHARED_SHELL_SCRIPT}
+            if asset_path in {"style.css", "site-tail.css", "ux-convergence.css", SHARED_SHELL_SCRIPT}
             else references_by_page
         )
         single_asset_references: set[str] = set()
@@ -5074,7 +5039,7 @@ def audit_phase_3h3_home_dot_centering() -> list[str]:
 
 
 def audit_phase_3h4_cache_rotation_automation() -> list[str]:
-    """Phase 3H.4: cache rotation must remain one safe, audited maintenance action."""
+    """Automatic hashes replace manual cache keys; no competing writer survives."""
     errors: list[str] = []
     script = ROOT / "scripts" / "rotate-shared-css-cache.py"
     workflow = ROOT / ".github" / "workflows" / "rotate-shared-css-cache.yml"
@@ -5084,13 +5049,8 @@ def audit_phase_3h4_cache_rotation_automation() -> list[str]:
     else:
         text = script.read_text(encoding="utf-8")
         required = (
-            'ASSET = "site-tail.css"',
-            'ROOT.glob("*.html")',
-            "--version",
-            "--check",
-            "--dry-run",
-            "expected exactly one",
-            "post-write verification failed",
+            'runpy.run_path',
+            'build-site-shell.py',
         )
         for token in required:
             if token not in text:
@@ -5104,19 +5064,17 @@ def audit_phase_3h4_cache_rotation_automation() -> list[str]:
         text = workflow.read_text(encoding="utf-8")
         required = (
             "workflow_dispatch:",
-            "contents: write",
-            'python scripts/rotate-shared-css-cache.py --version "${{ inputs.version }}"',
-            'python scripts/rotate-shared-css-cache.py --check "${{ inputs.version }}"',
+            "contents: read",
+            'python scripts/build-site-shell.py --check',
             "bash scripts/run-quality-gates.sh",
-            'git add -- "*.html"',
-            "git diff --cached --quiet",
-            "git push origin HEAD:main",
         )
         for token in required:
             if token not in text:
                 errors.append(
                     f".github/workflows/rotate-shared-css-cache.yml: required automation contract missing: {token}"
                 )
+        if 'git push' in text or 'contents: write' in text:
+            errors.append('Automatic asset verification must not become a competing publisher')
     return errors
 
 
@@ -5279,9 +5237,9 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != len(EXPECTED_PAGES):
                 errors.append("maintenance-baseline.json: publicPageCount must match the approved page inventory")
-            if contract.get("sharedCssVersion") != "20260826-10":
+            if contract.get("assetVersionStrategy") != "sha256-content-16":
                 errors.append(
-                    "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
+                    "maintenance-baseline.json: asset versions must be derived from file contents"
                 )
     return errors
 

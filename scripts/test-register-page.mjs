@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
+import {assertAssetReference} from './asset-reference-test.mjs';
+import {canonicalSource} from '../registration-domain/build.mjs';
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -13,7 +15,9 @@ assert.ok(fs.existsSync(pagePath), "register.html must exist");
 assert.ok(fs.existsSync(scriptPath), "register.js must exist");
 assert.ok(fs.existsSync(stylePath), "register.css must exist");
 
-const page = fs.readFileSync(pagePath, "utf8");
+// The separate registration publisher may read a commit before generated root
+// markup is committed. Validate exactly the canonical page it will publish.
+const page = canonicalSource();
 const script = fs.readFileSync(scriptPath, "utf8");
 const style = fs.readFileSync(stylePath, "utf8");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
@@ -34,8 +38,8 @@ assert.match(page, /name="League humor acknowledged"[^>]+required/);
 assert.match(page, /name="Registration packet version" value="3"/);
 assert.match(page, /id="registration-packet" name="Registration packet JSON"/);
 assert.match(page, /ready-to-review player file/);
-assert.match(page, /href="register\.css\?v=20261016-2"/);
-assert.match(page, /src="register\.js\?v=20261020-1"/);
+assertAssetReference(page, 'register.css');
+assertAssetReference(page, 'register.js');
 assert.match(page, /<label for="invited-by">Who vouched for you\?/);
 assert.match(page, /id="invited-by" name="Vouched for by"/);
 assert.doesNotMatch(page, /Who invited you\?/);

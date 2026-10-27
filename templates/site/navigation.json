@@ -1,0 +1,33 @@
+[
+  {"label":"Home","href":"index.html"},
+  {"label":"Metrics","href":"dashboard.html","children":[
+    {"label":"Dashboard","href":"dashboard.html"},
+    {"label":"Form Lab","href":"form-lab.html"},
+    {"label":"Heater Meter","href":"player-movement.html"},
+    {"label":"Streak Tracker","href":"streaks.html"},
+    {"label":"Knockout Central","href":"knockouts.html"},
+    {"label":"Standings","href":"standings.html"}
+  ]},
+  {"label":"Members","href":"players.html","children":[
+    {"label":"TLPT Crew","href":"players.html"},
+    {"label":"Player Profiles","href":"player.html?name=BostnMike"},
+    {"label":"Trophy Room","href":"trophy-room.html"}
+  ]},
+  {"label":"Schedule","href":"schedule.html","children":[
+    {"label":"RSVP App","href":"rsvp-app.html"}
+  ]},
+  {"label":"Roast Zone","href":"champions.html","children":[
+    {"label":"Hall of Fame","href":"champions.html"},
+    {"label":"Felt Whispers","href":"news.html"},
+    {"label":"Re-Buy Hard","href":"rebuy-hard.html"}
+  ]},
+  {"label":"Rules","href":"rules.html","children":[
+    {"label":"House Rules","href":"rules.html"},
+    {"label":"Blind Structures","href":"structures.html"}
+  ]},
+  {"label":"Media","href":"media.html","children":[
+    {"label":"Film Room","href":"media.html"},
+    {"label":"Voice of God","href":"voice-of-god.html"},
+    {"label":"Art Gallery","href":"gallery.html"}
+  ]}
+]

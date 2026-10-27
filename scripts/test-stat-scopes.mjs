@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
+import {assertAssetReference} from './asset-reference-test.mjs';
 
 const read = path => JSON.parse(fs.readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
 const source = fs.readFileSync(new URL('../stats-scope.js', import.meta.url), 'utf8');
@@ -73,23 +74,23 @@ assert.equal(mtt.find(p => p.slug === 'liam-o').buyIns, 1, 'Single-appearance pl
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/data-stat-scope /g) || []).length, 1, `${page}: shared controls`);
-  assert.match(html, /stats-scope\.js\?v=20261026-1/);
-  assert.match(html, /stats-scope\.css\?v=20261025-1/);
+  assertAssetReference(html, 'stats-scope.js');
+  assertAssetReference(html, 'stats-scope.css');
 }
 const streakContext = vm.createContext({ document: { addEventListener() {} } });
 const dashboardMarkup = fs.readFileSync(new URL('../dashboard.html', import.meta.url),'utf8');
 const dashboardControls = fs.readFileSync(new URL('../dashboard-controls.js', import.meta.url),'utf8');
 assert.doesNotMatch(dashboardControls, /With or without|option\[value="all"\].*textContent/, 'Dashboard preserves shared bounty labels');
 assert.match(dashboardMarkup, /<dialog id="dashboard-help"/, 'Dashboard includes accessible contextual help');
-assert.match(dashboardMarkup, /dashboard-help\.js\?v=20261026-4/, 'Contextual help is loaded');
+assertAssetReference(dashboardMarkup, 'dashboard-help.js');
 const guideContext = vm.createContext({window:{}});
 vm.runInContext(fs.readFileSync(new URL('../stats-help-content.js', import.meta.url),'utf8'), guideContext);
 for (const page of ['standings','form-lab','player-movement','streaks','knockouts','players','player']) {
   const markup = fs.readFileSync(new URL('../'+page+'.html',import.meta.url),'utf8');
   assert.ok(markup.includes('data-stats-help-open="'+page+'"'), page+': contextual help invitation');
-  assert.match(markup, /stats-help\.css\?v=20261026-3/);
-  assert.match(markup, /stats-help-content\.js\?v=20261026-2/);
-  assert.match(markup, /stats-help\.js\?v=20261026-4/);
+  assertAssetReference(markup, 'stats-help.css');
+  assertAssetReference(markup, 'stats-help-content.js');
+  assertAssetReference(markup, 'stats-help.js');
 }
 assert.ok(fs.statSync(new URL('../images/site/norm-headshot.png',import.meta.url)).size>1000);
 assert.equal(Object.keys(guideContext.window.TLPTStatsGuides).length,8);
@@ -109,7 +110,7 @@ for (const category of ['results', 'bankroll', 'rates', 'player-dna']) {
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement','players','trophy-room','gallery','voice-of-god','structures']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/class="[^"]*\btlpt-control-deck\b/g) || []).length, 1, `${page}: one consolidated control surface`);
-  assert.match(html, /control-deck\.css\?v=20261026-1/, `${page}: shared control styling`);
+  assertAssetReference(html, 'control-deck.css');
   assert.match(html, page === 'dashboard' ? /dashboard-controls-compact/ : /control-deck-heading/, `${page}: control layout`);
 }
 for (const page of ['lily.html','marchand.html','register.html']) {

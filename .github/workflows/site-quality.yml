@@ -38,6 +38,7 @@ on:
       - "package.json"
       - "pnpm-lock.yaml"
       - "scripts/**"
+      - "templates/site/**"
       - "!images/fw/gallery-manifest.json"
   workflow_dispatch:
 

@@ -16,6 +16,8 @@ if ! command -v node >/dev/null 2>&1; then
 fi
 
 echo "🧭 Verifying maintenance baseline..."
+"$PYTHON_BIN" scripts/build-site-shell.py --check
+"$PYTHON_BIN" scripts/test-site-components.py
 "$PYTHON_BIN" scripts/verify-maintenance-baseline.py
 
 echo "🔗 Testing rebuild and quality-gate coordination..."

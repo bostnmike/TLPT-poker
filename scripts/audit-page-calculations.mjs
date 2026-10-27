@@ -6,6 +6,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { buildRsvpChecklist } from "../cashier/lib/rsvp.mjs";
 import { auditRsvpEvent } from "./audit-rsvp.mjs";
+import {assetReference} from './asset-reference-test.mjs';
 
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -1021,7 +1022,7 @@ for (const status of ["maybe", "tbd", "no"]) {
 }
 for (const page of ["index", "champions", "dashboard", "standings", "players", "player", "schedule", "structures", "form-lab", "trophy-room", "knockouts", "streaks", "player-movement", "voice-of-god"]) {
   const html = fs.readFileSync(path.join(root, `${page}.html`), "utf8");
-  check(html.includes('roster-display.css?v=20261018-2') && html.includes('roster-display.js?v=20261018-1'), `${page}: shared roster display assets missing`);
+  check(html.includes(assetReference('roster-display.css')) && html.includes(assetReference('roster-display.js')), `${page}: shared roster display assets missing or stale`);
   check(html.indexOf('roster-display.js') > html.indexOf('site-shell.js'), `${page}: shared shell must initialize before roster helpers`);
 }
 

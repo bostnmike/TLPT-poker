@@ -30,4 +30,7 @@ echo "💀 Building knockout data..."
 echo "🔎 Building classified statistical event views..."
 "$PYTHON_BIN" scripts/build-stat-events.py
 
+echo "🧭 Generating shared navigation and asset versions..."
+"$PYTHON_BIN" scripts/build-site-shell.py
+
 echo "✅ TLPT data build complete."

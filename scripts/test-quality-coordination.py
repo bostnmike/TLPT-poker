@@ -19,7 +19,7 @@ def coordination_errors(pipeline, quality):
     require("cancel-in-progress: false" in pipeline, "release order must be serialized")
     paths = lambda text: set(re.findall(r'^      - "([^"]+)"$', text, re.M))
     require(paths(pipeline) == paths(quality), "main and PR path coverage must match")
-    for path in ["images/**", "media/**", "audio/**", "fonts/**", "data/events.json", "pnpm-lock.yaml"]:
+    for path in ["images/**", "media/**", "audio/**", "fonts/**", "data/events.json", "pnpm-lock.yaml", "templates/site/**"]:
         require(path in paths(pipeline), f"missing release input: {path}")
     require('!images/fw/gallery-manifest.json' in paths(pipeline),
             "generated manifest must not trigger a publication loop")
@@ -89,6 +89,18 @@ class ReleaseTests(unittest.TestCase):
         for source in (ROOT / "rsvp/scripts").glob("*.mjs"):
             self.assertNotIn("../cashier/", source.read_text(), str(source))
         self.assertIn("working-directory: rsvp", (ROOT / ".github/workflows/rsvp-checks.yml").read_text())
+
+    def test_generated_shell_uses_single_guarded_publisher(self):
+        runner = (ROOT / 'scripts/run-data-build.sh').read_text()
+        self.assertEqual(runner.count('scripts/build-site-shell.py'), 1)
+        self.assertIn('from scripts.site_components import PAGES', self.pipeline)
+        self.assertIn('synchronize(check=True)', (ROOT / 'scripts/package-site.py').read_text())
+        diagnostic = (ROOT / '.github/workflows/rotate-shared-css-cache.yml').read_text()
+        self.assertNotIn('git push', diagnostic)
+        self.assertNotIn('contents: write', diagnostic)
+        registration = (ROOT / '.github/workflows/registration-checks.yml').read_text()
+        self.assertEqual(registration.count("'templates/site/**'"), 2)
+        self.assertIn('canonicalSource()', (ROOT / 'registration-domain/build.mjs').read_text())
 
 
 if __name__ == "__main__":

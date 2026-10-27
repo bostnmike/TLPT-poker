@@ -16,7 +16,8 @@ class ReleaseToolsTests(unittest.TestCase):
         for name in ["cashier/worker.ts", "cashier/private/backup.json", ".git/config",
                      "rsvp/owner.local.json", "registration-domain/worker.js",
                      "data/raw/events/Event Report.html", "scripts/test.js",
-                     "maintenance-baseline.json", "lily-site/build.py"]:
+                     "maintenance-baseline.json", "lily-site/build.py",
+                     "templates/site/header.html", "templates/site/navigation.json"]:
             self.assertFalse(package.public_path(name), name)
 
     def test_public_products_and_media_stay_available(self):
