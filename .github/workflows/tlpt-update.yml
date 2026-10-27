@@ -79,9 +79,11 @@ jobs:
         with:
           node-version: "22"
       - name: Install quality-gate dependencies
+        id: python_deps
         timeout-minutes: 3
         run: python -m pip install --requirement requirements-quality.txt
       - name: Install locked browser test tools
+        id: node_tools
         timeout-minutes: 3
         run: |
           npm install --global pnpm@11.25.0
@@ -91,27 +93,38 @@ jobs:
           path: .pnpm-store
           key: ${{ runner.os }}-24.04-${{ runner.arch }}-pnpm11-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Install locked packages
+        id: node_deps
         timeout-minutes: 3
         run: pnpm install --frozen-lockfile --ignore-scripts --prefer-offline --store-dir .pnpm-store
-      - name: Install headless browser and operating-system dependencies
-        timeout-minutes: 6
-        env:
-          PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT: 60000
-        run: pnpm exec playwright install --with-deps --only-shell chromium
+      - name: Prepare pinned browser environment (download retries only)
+        id: browser_environment
+        timeout-minutes: 11
+        run: python scripts/browser-ci.py prepare
       - name: Build all TLPT generated data
         run: bash scripts/run-data-build.sh
       - name: Build gallery in the same release
         run: node scripts/build-gallery-manifest.mjs
       - name: Run complete TLPT quality gates
+        id: quality
         run: bash scripts/run-quality-gates.sh
       - name: Package public files only
         run: python scripts/package-site.py
       - name: Test the actual publishable artifact on desktop, tablet and mobile
+        id: browser_checks
         timeout-minutes: 12
-        run: node scripts/run-browser-gates.cjs
+        run: python scripts/browser-ci.py functional
       - name: Compare approved visual baselines
+        id: visual_checks
         timeout-minutes: 10
-        run: pnpm test:visual
+        run: python scripts/browser-ci.py visual
+      - name: Explain release failure category
+        if: failure()
+        env:
+          PYTHON_DEPS: ${{ steps.python_deps.outcome }}
+          NODE_TOOLS: ${{ steps.node_tools.outcome }}
+          NODE_DEPS: ${{ steps.node_deps.outcome }}
+          BROWSER_ENVIRONMENT: ${{ steps.browser_environment.outcome }}
+        run: python scripts/report-release-failure.py
       - name: Preserve visual failure evidence
         if: failure()
         uses: actions/upload-artifact@v7.0.2

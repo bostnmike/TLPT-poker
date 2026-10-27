@@ -109,5 +109,15 @@ test('shared navigation expanded and footer', async ({page}) => {
     await menu.getByRole('button').click();
     await snapshot(page.locator('.site-header'), 'navigation-expanded.png', page);
   }
+  // Footer capture gets a fresh document, rather than the sticky header/menu's
+  // focus and compositing state. Do not change or mask any footer styling.
+  await ready(page, 'rules');
+  await expect(page.locator('.site-footer a')).toHaveCSS('color', 'rgb(255, 184, 28)');
+  await test.info().attach('footer-render-state', {contentType:'application/json', body:JSON.stringify(await page.locator('.site-footer a').evaluate(link => {
+    const box = link.getBoundingClientRect(), style = getComputedStyle(link);
+    return {x:box.x, width:box.width, font:style.font, color:style.color,
+      hovered:link.matches(':hover'), focused:document.activeElement === link,
+      fonts:document.fonts.status, deviceScaleFactor:devicePixelRatio};
+  }))});
   await snapshot(page.locator('.site-footer'), 'footer.png', page);
 });

@@ -11,12 +11,13 @@ module.exports = defineConfig({
   workers: 1,
   retries: 0,
   timeout: 45000,
+  globalTimeout: 8 * 60 * 1000,
   reporter: [['list'], ['html', {outputFolder: path.join(root, 'browser-results/visual-report'), open: 'never'}]],
   expect: {timeout: 10000, toHaveScreenshot: {animations: 'disabled', caret: 'hide', scale: 'css', threshold: 0.15, maxDiffPixels: 30}},
   use: {browserName: 'chromium', headless: true, baseURL: 'http://127.0.0.1:8775',
     locale: 'en-US', timezoneId: 'America/New_York', colorScheme: 'dark', reducedMotion: 'reduce',
     deviceScaleFactor: 1, serviceWorkers: 'block', trace: 'off'},
   projects: [1440, 820, 390, 320].map(width => ({name: String(width), use: {viewport: {width, height: 1000}}})),
-  webServer: {command: 'python3 -m http.server 8775 --bind 127.0.0.1 --directory .site-release',
+  webServer: {command: 'node scripts/serve-visual.cjs',
     cwd: root, url: 'http://127.0.0.1:8775/index.html', reuseExistingServer: false, timeout: 15000}
 });

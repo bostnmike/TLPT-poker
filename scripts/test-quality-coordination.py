@@ -3,6 +3,8 @@
 import re
 import json
 import unittest
+import subprocess
+import sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,31 +30,33 @@ def coordination_errors(pipeline, quality):
         require("ref: ${{ github.sha }}" in text, "checkout must pin source, never moving main")
         for command in ["bash scripts/run-data-build.sh", "bash scripts/run-quality-gates.sh",
                         "node scripts/build-gallery-manifest.mjs", "python scripts/package-site.py",
-                        "node scripts/run-browser-gates.cjs"]:
+                        "python scripts/browser-ci.py functional"]:
             require(text.count(command) == 1, f"exactly one canonical step required: {command}")
         require(text.find("bash scripts/run-data-build.sh") < text.find("bash scripts/run-quality-gates.sh") <
-                text.find("python scripts/package-site.py") < text.find("node scripts/run-browser-gates.cjs"),
+                text.find("python scripts/package-site.py") < text.find("python scripts/browser-ci.py functional"),
                 "build, validation, packaging and browser checks must stay ordered")
         require("pnpm install --frozen-lockfile --ignore-scripts" in text and
-                "pnpm exec playwright install --with-deps --only-shell chromium" in text,
+                "python scripts/browser-ci.py prepare" in text,
                 "browser dependencies must be locked and available")
+        require('playwright install --with-deps' not in text, 'browser CI must not reinstall Ubuntu packages per release')
         require("runs-on: ubuntu-24.04" in text, "visual runner OS must remain pinned")
-        require("pnpm test:visual" in text, "visual checks cannot be omitted")
-        require(text.find("node scripts/run-browser-gates.cjs") < text.find("pnpm test:visual"),
+        require("python scripts/browser-ci.py visual" in text, "visual checks cannot be omitted")
+        require(text.find("python scripts/browser-ci.py functional") < text.find("python scripts/browser-ci.py visual"),
                 "visual checks must run on the packaged, behavior-tested site")
         require("tests/visual/**" in paths(text), "visual baselines must trigger checks")
         require("--update-snapshots" not in text, "CI must never approve its own screenshots")
         require("cache: pip" in text and "hashFiles('pnpm-lock.yaml')" in text and
                 "--prefer-offline" in text, "dependency caches must stay lock-keyed")
-        require("timeout-minutes: 6" in text and "timeout-minutes: 12" in text,
+        require("timeout-minutes: 11" in text and "timeout-minutes: 12" in text,
                 "setup and browser checks must have bounded timeouts")
+        require('python scripts/report-release-failure.py' in text, 'failures must distinguish setup from site checks')
     require("needs: build" in pipeline.split("\n  deploy:")[-1], "deployment must wait for all checks")
     require("if: needs.build.outputs.ready == 'true'" in pipeline, "obsolete builds must not publish")
     require("uses: actions/upload-pages-artifact@v5" in pipeline and
             "uses: actions/deploy-pages@v5" in pipeline, "Pages must use the checked artifact")
-    require(pipeline.find("node scripts/run-browser-gates.cjs") < pipeline.find("git push origin HEAD:main") <
+    require(pipeline.find("python scripts/browser-ci.py functional") < pipeline.find("git push origin HEAD:main") <
             pipeline.find("uses: actions/upload-pages-artifact"), "never commit/upload before tests")
-    require(pipeline.find("pnpm test:visual") < pipeline.find("git push origin HEAD:main"),
+    require(pipeline.find("python scripts/browser-ci.py visual") < pipeline.find("git push origin HEAD:main"),
             "visual failures must block publishing")
     require('test "$CURRENT_SHA" = "$EXPECTED_SHA"' in pipeline and
             'git rev-parse origin/main' in pipeline, "stale revisions must be checked at commit and deployment")
@@ -73,6 +77,9 @@ class ReleaseTests(unittest.TestCase):
     def test_current_contract(self):
         self.assertEqual(coordination_errors(self.pipeline, self.quality), [])
 
+    def test_browser_environment_guards(self):
+        subprocess.run([sys.executable, str(ROOT/'scripts/test-browser-ci.py')], check=True)
+
     def test_visual_gate_keeps_review_and_coverage_contract(self):
         config = (ROOT / 'tests/visual/playwright.config.cjs').read_text()
         suite = (ROOT / 'tests/visual/site.spec.cjs').read_text()
@@ -82,6 +89,8 @@ class ReleaseTests(unittest.TestCase):
         self.assertIn("updateSnapshots: 'none'", config)
         self.assertIn('[1440, 820, 390, 320]', config)
         self.assertIn('maxDiffPixels: 30', config)
+        self.assertIn('threshold: 0.15', config)
+        self.assertIn('retries: 0', config)
         self.assertIn("mask: [target.locator('audio')]", suite)
         self.assertIn('test.info().outputPath', suite)
         self.assertNotIn('writeFile', suite)
@@ -97,8 +106,9 @@ class ReleaseTests(unittest.TestCase):
         for before, after in [
             ("needs: build", "needs: missing"),
             ("ref: ${{ github.sha }}", "ref: main"),
-            ("node scripts/run-browser-gates.cjs", "echo skipped"),
-            ("pnpm test:visual", "echo skipped-visual"),
+            ("python scripts/browser-ci.py functional", "echo skipped"),
+            ("python scripts/browser-ci.py visual", "echo skipped-visual"),
+            ("python scripts/browser-ci.py prepare", "echo skipped-setup"),
             ("runs-on: ubuntu-24.04", "runs-on: ubuntu-latest"),
             ("bash scripts/run-quality-gates.sh", "echo skipped"),
             ('test "$CURRENT_SHA" = "$EXPECTED_SHA"', 'echo unchecked'),

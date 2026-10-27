@@ -39,12 +39,16 @@
     "pnpm-lock.yaml"
   ],
   "requiredQualityWorkflowCommands": [
-    "pnpm test:visual",
+    "python scripts/browser-ci.py prepare",
+    "python scripts/browser-ci.py functional",
+    "python scripts/browser-ci.py visual",
     "python -m pip install --requirement requirements-quality.txt",
     "bash scripts/run-quality-gates.sh"
   ],
   "requiredDataPipelineCommands": {
-    "pnpm test:visual": 1,
+    "python scripts/browser-ci.py prepare": 1,
+    "python scripts/browser-ci.py functional": 1,
+    "python scripts/browser-ci.py visual": 1,
     "python -m pip install --requirement requirements-quality.txt": 1,
     "bash scripts/run-quality-gates.sh": 1
   },

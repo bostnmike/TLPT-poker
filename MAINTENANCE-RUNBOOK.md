@@ -102,6 +102,16 @@ occlusion, filters/reset, empty states, keyboard focus, mobile density, and
 Norm's inline audio/help interactions (including short landscape screens).
 The preview binds only to localhost and closes when the tests finish.
 
+CI browser runs use `scripts/browser-ci.py` and the immutable official Playwright
+image in `tests/visual/environment.json`. The image matches the locked package and
+contains its browsers/fonts/OS libraries; no per-run Ubuntu installation is needed.
+Only image downloads receive bounded retries. Failed assertions are never retried
+automatically, screenshot references never self-update, and both environment and
+site failures continue to block publication. Job summaries distinguish those two
+failure categories. The existing package/Python caches remain lock-keyed.
+Use the manual Site Quality input `visual_repeats=3` for a three-pass stability
+rehearsal on the same source revision before merging release-process changes.
+
 The package excludes raw event imports, scripts, dependency folders, private
 app code, credentials and local/untracked files. It retains TLPT, Lily and
 Marchand public routes and assets, because these static pages still share

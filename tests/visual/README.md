@@ -7,8 +7,15 @@ The reviewed reference is the unchanged public design from release
 
 ## Reproducibility
 
-CI uses Ubuntu 24.04, the exact Playwright version in the lockfile, headless
-Chromium, one worker, a fixed clock/timezone, reduced motion and public JSON
+CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
+in `environment.json`, matching the exact Playwright version in the lockfile.
+It contains the browser, fonts and OS libraries; CI does not reinstall Ubuntu
+dependencies on each release. Image pulls get at most three 180-second attempts.
+The preflight records the image, browser/Node versions and Arial font resolution
+in `browser-results/environment.json`. No credentials are passed into the
+disposable browser container, and it runs as the runner's non-root user.
+
+Tests use headless Chromium, one worker, a fixed clock/timezone, reduced motion and public JSON
 fixtures. Live RSVP responses are replaced only inside this test browser.
 External requests are blocked; no form is submitted and no payment/RSVP write
 is performed. All existing functional browser checks still run separately
@@ -22,6 +29,9 @@ Masks are scoped to the captured element, so an audio player behind a modal
 cannot mask the modal text. The sticky header and its out-of-component skip link are hidden only for the tall
 rules-chapter component capture; separate entrance/menu images test that header.
 Visible images are decoded after scrolling before screenshots are taken.
+Footer capture starts from a fresh document after the expanded-navigation shot,
+so menu focus/sticky compositing state cannot leak into the footer scene. It
+asserts the normal link color and attaches geometry/font/focus diagnostics.
 
 The fixture copies are public data captured from that release. They deliberately
 do not update when league results change. Keep private exports, player links,
@@ -39,6 +49,15 @@ After the normal build and `python3 scripts/package-site.py`:
 ```sh
 pnpm test:visual
 ```
+
+The Linux CI wrapper is `python scripts/browser-ci.py prepare`, followed by
+`python scripts/browser-ci.py functional` and `python scripts/browser-ci.py visual`.
+Only environment downloads are retried; test retries remain zero. A manual Site
+Quality run can request `visual_repeats=3` to repeat all 56 scenarios three times
+on one unchanged revision. Every repetition must pass, with the existing references
+and thresholds. Setup failure is reported separately from a site regression;
+neither can publish. The container image version/digest must be reviewed together
+with any future Playwright update, never replaced with a floating `latest` tag.
 
 Linux references are in `baselines/linux/`. Run authoritative comparisons on
 Ubuntu 24.04; macOS previews produce different font/emoji rendering and are not
