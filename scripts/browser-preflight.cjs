@@ -20,6 +20,10 @@ const {chromium} = require('playwright');
       arial:execFileSync('fc-match', ['Arial'], {encoding:'utf8'}).trim(),
       symbolFonts:Object.fromEntries(['2197','25be','25bc','25b6'].map(code => [code,
         execFileSync('fc-match', ['-f', '%{file}', `Arial:charset=${code}`], {encoding:'utf8'}).trim()]))};
+    for (const code of ['2197','25be','25b6']) {
+      assert.equal(receipt.symbolFonts[code], '/usr/local/share/fonts/tlpt-reference/DejaVuSans.ttf',
+        `Symbol ${code} must use the reviewed fallback font`);
+    }
     fs.mkdirSync('browser-results', {recursive:true});
     fs.writeFileSync('browser-results/environment.json', JSON.stringify(receipt, null, 2));
     console.log('PASS: pinned browser environment', receipt);

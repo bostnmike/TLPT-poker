@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Pinned, disposable CI browser environment. Retry downloads, NEVER assertions."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -20,6 +21,10 @@ def environment():
         raise ValueError('Browser image must match the exact locked Playwright version and immutable digest')
     if config['platform'] != 'linux/amd64':
         raise ValueError('Reviewed browser architecture must remain linux/amd64')
+    for name, digest in config['fonts'].items():
+        font = ROOT/'tests/visual/fonts'/name
+        if font.name != name or hashlib.sha256(font.read_bytes()).hexdigest() != digest:
+            raise ValueError('Reviewed browser font checksum mismatch: ' + name)
     return config
 
 
@@ -28,6 +33,7 @@ def container_command(config, command):
             '--shm-size=1g', '--user', f'{os.getuid()}:{os.getgid()}',
             '--env', 'HOME=/tmp', '--env', 'CI=true', '--env', 'TZ=America/New_York',
             '--env', 'TLPT_BROWSER_IMAGE=' + config['image'],
+            '--volume', f'{ROOT}/tests/visual/fonts:/usr/local/share/fonts/tlpt-reference:ro',
             '--volume', f'{ROOT}:/work', '--workdir', '/work', config['image'], *command]
 
 
@@ -68,9 +74,6 @@ def main():
     try:
         config = environment()
         if args.mode == 'prepare':
-            for codepoint in ['2197', '25be', '25bc', '25b6']:
-                print('Host symbol font ' + codepoint + ':', flush=True)
-                subprocess.run(['fc-match', '-f', '%{file}\n', 'Arial:charset=' + codepoint], check=False)
             pull(config)
         code = execute(args.mode, config, repeats=args.repeat_each)
         if code:

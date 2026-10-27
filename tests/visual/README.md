@@ -11,7 +11,9 @@ CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
 in `environment.json`, matching the exact Playwright version in the lockfile.
 It contains the browser, fonts and OS libraries; CI does not reinstall Ubuntu
 dependencies on each release. Image pulls get at most three 180-second attempts.
-The preflight records the image, browser/Node versions and Arial font resolution
+The two original DejaVu fallback fonts are checksum-pinned under `fonts/` and
+mounted read-only into the container; they are not website fonts or CSS overrides.
+The preflight records the image, browser/Node versions and Arial/symbol font resolution
 in `browser-results/environment.json`. No credentials are passed into the
 disposable browser container, and it runs as the runner's non-root user.
 

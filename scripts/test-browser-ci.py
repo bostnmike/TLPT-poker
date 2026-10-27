@@ -27,6 +27,11 @@ class BrowserCITests(unittest.TestCase):
     def test_image_is_digest_pinned_and_version_matched(self):
         self.assertIn('@sha256:', ci.environment()['image'])
 
+    def test_reference_fonts_are_checksum_verified(self):
+        with patch.object(Path, 'read_bytes', return_value=b'changed font'):
+            with self.assertRaisesRegex(ValueError, 'font checksum mismatch'):
+                ci.environment()
+
     def test_pull_success_needs_one_attempt(self):
         run = Mock(return_value=Mock(returncode=0)); sleep = Mock()
         ci.pull(ci.environment(), run, sleep)
@@ -63,6 +68,7 @@ class BrowserCITests(unittest.TestCase):
         self.assertNotIn('--privileged', command)
         self.assertFalse(any('docker.sock' in s or 'GITHUB_TOKEN' in s for s in command))
         self.assertIn('--user', command)
+        self.assertIn(f'{ci.ROOT}/tests/visual/fonts:/usr/local/share/fonts/tlpt-reference:ro', command)
 
     def test_failures_have_distinct_categories(self):
         self.assertEqual(report.classify({'BROWSER_ENVIRONMENT':'failure'})[0], 'TEST ENVIRONMENT UNAVAILABLE')
