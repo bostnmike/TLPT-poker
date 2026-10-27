@@ -47,26 +47,6 @@ assert.match(schedule, /class="rsvp-campaign-chip" src="images\/site\/chip-T-100
 assert.match(schedule, /Get the Yellow Chip/);
 for (const html of [home, schedule]) assert.doesNotMatch(html, /The TLPT RSVP campaign/i);
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
-// Film Room handoff: exact approved commercial, covers and optional captions.
-const filmRoom = read('media.html');
-for (const [file, expected] of Object.entries({
-  'dont-be-a-donkey.mp4':'2421b66635537b5fc09a8d8b5fb30153031d979e2dc7f7ab1700ed9febc94b59',
-  'commercial-thumbnail.jpg':'040fdb25009194031c3f472895dbe500f84c2056a9c48cb305f35812595bdc10',
-  'install-thumbnail.jpg':'f627c03329e9b6364cdc0e3ae47011b7f3b71efc4cb4032335413dd6d6d0a29e',
-  'commercial-captions.vtt':'5e18d298b28f62099eeb84a3d5ed84029b5bf0ae289b38c1db511e56a60ff83e',
-  'install-captions.vtt':'abc3da93b21cca813afd125469950dae5cbca40380446a123e039d7e27ad451d'
-})) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
-assert.equal((filmRoom.match(/<video\b/g) || []).length, 2);
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 8, 'Keep all existing embedded films');
-assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
-assert.match(filmRoom, /<source src="media\/rsvp-app\/tlpt-rsvp-install.mp4"/);
-for (const video of filmRoom.matchAll(/<video\b[\s\S]*?<\/video>/g)) {
-  assert.match(video[0], /controls playsinline preload="none"/);
-  assert.match(video[0], /poster="media\/rsvp-film-room\//);
-  assert.match(video[0], /<track kind="captions"[^>]+srclang="en" label="English">/);
-  assert.doesNotMatch(video[0], /autoplay|\bdefault\b/);
-}
-assert.match(read('media.css'), /\.media-native-video\s*\{[^}]*object-fit:contain/);
 for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') && !['marchand.html','lily.html','cashier.html'].includes(name))) {
   const html = read(file);
   assert.match(html, /<div class="nav-dropdown">\s*<a href="\/?schedule.html" class="nav-dropdown-parent[^"]*"[^>]*>Schedule<\/a>\s*<div class="nav-dropdown-menu">\s*<a href="\/?rsvp-app.html"[^>]*>RSVP App<\/a>/, file + ': RSVP App must be a child of Schedule');

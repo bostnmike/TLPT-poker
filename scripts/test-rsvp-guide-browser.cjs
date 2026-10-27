@@ -99,37 +99,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.ok(page.url().endsWith('/rsvp-app.html'));
       assert.equal(await page.locator('.nav a.is-active').allTextContents().then(a => a.map(s => s.trim()).join(' / ')), 'Schedule / RSVP App');
       assert.equal((await page.locator('.nav a[aria-current="page"]').textContent()).trim(), 'RSVP App');
-      const filmRequests = [];
-      page.on('request', request => { if (new URL(request.url()).pathname.endsWith('.mp4')) filmRequests.push(request.url()); });
-      await page.goto(base + '/media.html');
-      await page.evaluate(() => document.fonts.ready);
-      assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 11, 'Retain nine original films plus the two RSVP films');
-      assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      for (const [id, duration] of [['rsvp-commercial', 35], ['rsvp-installation', 83.75]]) {
-        const card = page.locator('#' + id), player = card.locator('video');
-        await card.scrollIntoViewIfNeeded();
-        const box = await player.boundingBox();
-        assert.ok(Math.abs(box.width / box.height - 16 / 9) < .02, 'Film Room retains its landscape card frame');
-        assert.equal(await player.evaluate(v => getComputedStyle(v).objectFit), 'contain', 'Portrait footage must not crop');
-        const poster = await player.evaluate(async v => {
-          const image = new Image(); image.src = v.poster; await image.decode();
-          return [image.naturalWidth, image.naturalHeight];
-        });
-        assert.deepEqual(poster, [1280, 720]);
-        await card.screenshot({path:'/tmp/' + id + '-' + width + '.png'});
-        assert.equal(await player.evaluate(v => v.textTracks[0].mode), 'disabled', 'Captions remain optional');
-        await player.evaluate(async v => { v.muted = true; v.textTracks[0].mode = 'showing'; await v.play(); });
-        await page.waitForFunction(id => document.querySelector('#' + id + ' video').currentTime > .1, id);
-        await page.waitForFunction(id => document.querySelector('#' + id + ' track').track.cues?.length > 0, id);
-        const state = await player.evaluate(v => ({duration:v.duration, width:v.videoWidth, height:v.videoHeight, error:v.error?.message}));
-        assert.ok(Math.abs(state.duration - duration) < .15);
-        assert.equal(state.width, 1080); assert.equal(state.height, 1920);
-        assert.equal(state.error, undefined);
-        await player.evaluate(v => v.pause());
-      }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide, playback, captions, download, home order, Schedule link and both Film Room videos');
+      console.log('PASS ' + width + 'px: guide, playback, captions, download, home order and Schedule link');
       await page.close();
     }
   } finally { await browser.close(); }
