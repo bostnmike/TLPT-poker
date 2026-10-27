@@ -5,6 +5,7 @@ const fs=require('node:fs');
 const path=require('node:path');
 const base=process.argv[2]||'http://127.0.0.1:8767';
 const mode=process.argv[3], snapshots=process.argv[4];
+const visualPages=process.argv[5]?.split(',');
 const menu=JSON.parse(fs.readFileSync(path.join(__dirname,'../templates/site/navigation.json'),'utf8'));
 const pages=['index','dashboard','form-lab','gallery','knockouts','media','news','player-movement',
  'player','players','rebuy-hard','register','rsvp-app','rules','schedule','standings','streaks','structures',
@@ -30,13 +31,14 @@ const expected=menu.flatMap(item=>[item,...item.children||[]]);
    // Visual comparisons isolate local markup/styles from changing external RSVP
    // responses and embeds. The normal release tests still exercise live loading.
    if(mode)await page.route('https://**/*',r=>r.abort());
-   for(const name of (mode?pages:['index','dashboard','schedule','rules','register','404'])){
+   for(const name of (mode?(visualPages||pages):['index','dashboard','schedule','rules','register','404'])){
     await page.goto(`${base}/${name}.html`+(name==='player'?'?name=BostnMike':''));
     await page.evaluate(()=>document.fonts.ready);
     if(mode)await page.waitForLoadState('networkidle');
     const header=page.locator('.site-header');
-    const menuButton=header.getByRole('button',{name:/menu/i}).first();
-    if(await menuButton.count())await menuButton.waitFor();
+    const menuButton=header.locator('.site-nav-toggle');
+    await menuButton.waitFor({state:'attached'});
+    if(mode)await page.mouse.move(1,1);
     assert.equal(await header.evaluate(e=>e.scrollWidth>e.clientWidth+1),false,`${name} header ${width}`);
     if(mode){
      fs.mkdirSync(snapshots,{recursive:true});
