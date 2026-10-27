@@ -30,11 +30,17 @@ async function ready(page, name) {
   await page.mouse.move(1, 1);
 }
 async function snapshot(target, name, page) {
+  if (typeof target.scrollIntoViewIfNeeded === 'function') {
+    await target.scrollIntoViewIfNeeded();
+    await page.waitForTimeout(250);
+    await target.scrollIntoViewIfNeeded();
+  }
   // Native Chromium audio chrome changes its own compact control selection
   // nondeterministically. Mask only that browser-owned rectangle, never TLPT's
   // headshot, caption, read-me or container. Functional gates verify playback,
   // dimensions and wrapping separately; all site-owned pixels stay compared.
-  await expect(target).toHaveScreenshot(name, {mask: [page.locator('audio')], maskColor: '#c9d1d9'});
+  // Collect all differences in a scene while still failing the test/run.
+  await expect.soft(target).toHaveScreenshot(name, {mask: [page.locator('audio')], maskColor: '#c9d1d9'});
 }
 const pages = ['index', 'dashboard', 'players', 'rules', 'structures', 'trophy-room', 'form-lab', 'register'];
 for (const name of pages) test(name + ' page entrance', async ({page}) => {
