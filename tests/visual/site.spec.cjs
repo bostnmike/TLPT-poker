@@ -39,8 +39,17 @@ async function snapshot(target, name, page) {
   // nondeterministically. Mask only that browser-owned rectangle, never TLPT's
   // headshot, caption, read-me or container. Functional gates verify playback,
   // dimensions and wrapping separately; all site-owned pixels stay compared.
+  const options = {mask: [page.locator('audio')], maskColor: '#c9d1d9'};
+  // With updateSnapshots:none Playwright rejects missing references before
+  // writing an actual image. Save a review candidate ONLY in the report folder;
+  // never write or approve a baseline from this test.
+  if (!fs.existsSync(test.info().snapshotPath(name))) {
+    const candidate = test.info().outputPath(name.replace('.png', '-candidate.png'));
+    await target.screenshot({...options, path: candidate, animations: 'disabled', caret: 'hide', scale: 'css'});
+    await test.info().attach(name, {path: candidate, contentType: 'image/png'});
+  }
   // Collect all differences in a scene while still failing the test/run.
-  await expect.soft(target).toHaveScreenshot(name, {mask: [page.locator('audio')], maskColor: '#c9d1d9'});
+  await expect.soft(target).toHaveScreenshot(name, options);
 }
 const pages = ['index', 'dashboard', 'players', 'rules', 'structures', 'trophy-room', 'form-lab', 'register'];
 for (const name of pages) test(name + ' page entrance', async ({page}) => {

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Regression guards: only a checked, immutable artifact may reach Pages."""
 import re
+import json
 import unittest
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
@@ -71,6 +72,26 @@ class ReleaseTests(unittest.TestCase):
 
     def test_current_contract(self):
         self.assertEqual(coordination_errors(self.pipeline, self.quality), [])
+
+    def test_visual_gate_keeps_review_and_coverage_contract(self):
+        config = (ROOT / 'tests/visual/playwright.config.cjs').read_text()
+        suite = (ROOT / 'tests/visual/site.spec.cjs').read_text()
+        package = json.loads((ROOT / 'package.json').read_text())
+        self.assertEqual(package['scripts']['test:visual'],
+                         'playwright test --config tests/visual/playwright.config.cjs')
+        self.assertIn("updateSnapshots: 'none'", config)
+        self.assertIn('[1440, 820, 390, 320]', config)
+        self.assertIn('maxDiffPixels: 30', config)
+        self.assertIn("mask: [page.locator('audio')]", suite)
+        self.assertIn('test.info().outputPath', suite)
+        self.assertNotIn('writeFile', suite)
+        for scene in ['rules badges and avatars', 'trophy dropdown above artwork',
+                      'form lab axis dropdown', 'dashboard help dialog',
+                      'Norm inline player and read-me', 'shared navigation expanded and footer']:
+            self.assertIn(scene, suite)
+        self.assertIn("return route.abort()", suite)
+        self.assertIn("page.clock.setFixedTime", suite)
+        self.assertNotIn('addStyleTag', suite)
 
     def test_regression_guards(self):
         for before, after in [

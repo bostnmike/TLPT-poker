@@ -45,7 +45,8 @@ interchangeable. To explore locally, explicitly run `pnpm test:visual
 
 Missing or changed references fail closed. CI NEVER uses an update option.
 The failure artifact contains actual/expected/difference images, a browsable
-report and traces (14-day retention). A reference update requires inspecting
+report (14-day retention). Full network traces are disabled to avoid duplicating
+the site's large media files in visual artifacts. A reference update requires inspecting
 those images and confirming an intentional, authorized design change; commit
 only the reviewed Linux PNGs. Do not accept every screenshot merely to pass CI,
 raise tolerances to hide drift, or update fixtures and references automatically.
