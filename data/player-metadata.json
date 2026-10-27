@@ -246,14 +246,19 @@
       "venmoUsername": "kcchangela"
     },
     {
-      "name": "Li-Fo",
+      "name": "ButtonMan: fka LiFo",
+      "rankingName": "Li-Fo",
       "slug": "li-fo",
       "image": "images/players/li-fo.jpg",
       "notes": "What's the wost that can happen?",
       "aliases": [
         "li-fo",
         "lifo",
-        "tony"
+        "li fo",
+        "tony",
+        "buttonman",
+        "button man",
+        "buttonman: fka lifo"
       ],
       "venmoNames": [
         "Tony Kosturi"
@@ -293,7 +298,7 @@
       "name": "Nitro",
       "slug": "nitro",
       "image": "images/players/nitro.jpg",
-      "notes": "I don't believe you, Tony.",
+      "notes": "I don't believe you, ButtonMan: fka LiFo.",
       "aliases": [
         "nitro",
         "lazar"

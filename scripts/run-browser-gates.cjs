@@ -41,7 +41,7 @@ const run=(script,base)=>new Promise((resolve,reject)=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const base='http://127.0.0.1:'+server.address().port;
   try {
-    for(const script of ['test-control-deck-browser.cjs','test-mobile-density-browser.cjs',
+    for(const script of ['test-player-rename-browser.cjs','test-control-deck-browser.cjs','test-mobile-density-browser.cjs',
       'test-norm-narration-browser.cjs','test-stats-guides-browser.cjs']) await run(script,base);
     console.log('PASS: required desktop, tablet, mobile, dropdown, help and audio gates');
   } finally {server.closeAllConnections();await new Promise(resolve=>server.close(resolve));}

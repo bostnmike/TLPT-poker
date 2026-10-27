@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T23:45:51.800699Z",
+  "generatedAt": "2026-10-27T00:39:01.331042Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -21,6 +21,7 @@
         "ahmed": "tbd",
         "alex-c": "tbd",
         "buffalomike": "tbd",
+        "li-fo": "tbd",
         "chris-f": "tbd",
         "chris-o": "tbd",
         "cougar": "tbd",
@@ -30,7 +31,6 @@
         "hiro": "tbd",
         "jeff-t": "tbd",
         "kishan": "tbd",
-        "li-fo": "tbd",
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
@@ -70,6 +70,7 @@
         "ahmed": "tbd",
         "alex-c": "tbd",
         "buffalomike": "tbd",
+        "li-fo": "tbd",
         "chris-f": "tbd",
         "chris-o": "tbd",
         "cougar": "tbd",
@@ -79,7 +80,6 @@
         "hiro": "tbd",
         "jeff-t": "tbd",
         "kishan": "tbd",
-        "li-fo": "tbd",
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
@@ -145,6 +145,7 @@
         "ahmed": "tbd",
         "alex-c": "tbd",
         "buffalomike": "tbd",
+        "li-fo": "tbd",
         "chris-f": "tbd",
         "chris-o": "tbd",
         "cougar": "tbd",
@@ -154,7 +155,6 @@
         "hiro": "tbd",
         "jeff-t": "tbd",
         "kishan": "tbd",
-        "li-fo": "tbd",
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
@@ -851,7 +851,12 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "a.i. dave",
+        "ai-dave",
+        "ai dave"
+      ]
     },
     {
       "name": "Ahmed",
@@ -1560,7 +1565,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "hall-billing-department",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "ahmed"
+      ]
     },
     {
       "name": "Alex C",
@@ -1884,7 +1892,12 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "alex",
+        "alex c",
+        "alex-c"
+      ]
     },
     {
       "name": "Big Tim",
@@ -2108,7 +2121,11 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "big tim",
+        "big-tim"
+      ]
     },
     {
       "name": "Bob",
@@ -2376,7 +2393,11 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "rob f",
+        "rob-f"
+      ]
     },
     {
       "name": "BostnMike",
@@ -3415,7 +3436,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "bostnmike"
+      ]
     },
     {
       "name": "Brad R",
@@ -3661,7 +3685,11 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "brad r",
+        "brad-r"
+      ]
     },
     {
       "name": "BuffaloMike",
@@ -3885,7 +3913,1060 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "buffalomike",
+        "buffalo mike",
+        "mike-g"
+      ]
+    },
+    {
+      "name": "ButtonMan: fka LiFo",
+      "slug": "li-fo",
+      "image": "images/players/li-fo.jpg",
+      "notes": "What's the wost that can happen?",
+      "entries": 70,
+      "buyIns": 42,
+      "rebuys": 28,
+      "hits": 63,
+      "timesPlaced": 23,
+      "bubbles": 6,
+      "profit": 440,
+      "roi": 0.20512820512820512,
+      "cashRate": 0.5476190476190477,
+      "bubbleRate": 0.14285714285714285,
+      "hitRate": 0.9,
+      "totalCost": 2145,
+      "totalWinnings": 2585,
+      "bountiesWon": 6,
+      "bountyPaid": 25,
+      "bountyCollected": 60,
+      "bountyRetained": 0,
+      "bountyWinnings": 60,
+      "bountyNet": 35,
+      "settlementAdjustment": 0,
+      "tournamentCost": 2120,
+      "tournamentWinnings": 2525,
+      "tournamentProfit": 405,
+      "expectedProfit": 151.5,
+      "luckIndex": 288.5,
+      "clutchIndex": 54.761904761904766,
+      "aggressionIndex": 15.0,
+      "survivorIndex": 25.738682569802116,
+      "tiltIndex": 49.0,
+      "trueSkillScore": 197.1233156464113,
+      "clutchRaw": 0.5476190476190477,
+      "aggressionRaw": 0.9,
+      "survivorRaw": 0.6954761904761906,
+      "tiltScoreDirect": 49.04761904761905,
+      "roi_norm": 17.216117216117215,
+      "luckIndex_norm": 34.73556651951874,
+      "clutchRaw_norm": 54.761904761904766,
+      "aggressionRaw_norm": 15.0,
+      "survivorRaw_norm": 25.738682569802116,
+      "tier": "A",
+      "cardForm": {
+        "windowSize": 5,
+        "recent": {
+          "eventCount": 5,
+          "startDate": "2026-09-05",
+          "endDate": "2026-10-24",
+          "metrics": {
+            "name": "ButtonMan: fka LiFo",
+            "slug": "li-fo",
+            "image": "images/players/li-fo.jpg",
+            "notes": "What's the wost that can happen?",
+            "entries": 11,
+            "buyIns": 5,
+            "rebuys": 6,
+            "hits": 13,
+            "timesPlaced": 3,
+            "bubbles": 1,
+            "profit": 50,
+            "roi": 0.13333333333333333,
+            "cashRate": 0.6,
+            "bubbleRate": 0.2,
+            "hitRate": 1.1818181818181819,
+            "totalCost": 375,
+            "totalWinnings": 425,
+            "bountiesWon": 6,
+            "bountyPaid": 25,
+            "bountyCollected": 60,
+            "bountyRetained": 0,
+            "bountyWinnings": 60,
+            "bountyNet": 35,
+            "settlementAdjustment": 0,
+            "tournamentCost": 350,
+            "tournamentWinnings": 365,
+            "tournamentProfit": 15,
+            "expectedProfit": 110.4,
+            "luckIndex": -60.4,
+            "clutchIndex": 60.0,
+            "aggressionIndex": 19.6969696969697,
+            "survivorIndex": 33.31695331695332,
+            "tiltIndex": 25.0,
+            "trueSkillScore": 184.0690452188112,
+            "clutchRaw": 0.6,
+            "aggressionRaw": 1.1818181818181819,
+            "survivorRaw": 0.7663636363636364,
+            "roi_norm": 16.19047619047619,
+            "luckIndex_norm": 22.776911076443056,
+            "clutchRaw_norm": 60.0,
+            "aggressionRaw_norm": 19.6969696969697,
+            "survivorRaw_norm": 33.31695331695332
+          },
+          "events": [
+            {
+              "date": "2026-09-05",
+              "title": "Bluff Runner | 9-Max",
+              "entries": 1,
+              "rebuys": 0,
+              "hits": 2,
+              "timesPlaced": 1,
+              "bubbles": 0,
+              "profit": 35,
+              "totalCost": 30,
+              "totalWinnings": 65,
+              "tournamentCost": 30,
+              "tournamentWinnings": 65,
+              "tournamentProfit": 35,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-10-03",
+              "title": "Inglorious Bluffs | 9-Max",
+              "entries": 3,
+              "rebuys": 2,
+              "hits": 2,
+              "timesPlaced": 1,
+              "bubbles": 0,
+              "profit": -10,
+              "totalCost": 90,
+              "totalWinnings": 80,
+              "tournamentCost": 90,
+              "tournamentWinnings": 80,
+              "tournamentProfit": -10,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-10-09",
+              "title": "Check Raise to Victory | 9-Max",
+              "entries": 2,
+              "rebuys": 1,
+              "hits": 1,
+              "timesPlaced": 0,
+              "bubbles": 0,
+              "profit": -60,
+              "totalCost": 60,
+              "totalWinnings": 0,
+              "tournamentCost": 60,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -60,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-10-17",
+              "title": "ALL-E-IN - 9-Max",
+              "entries": 3,
+              "rebuys": 2,
+              "hits": 1,
+              "timesPlaced": 0,
+              "bubbles": 1,
+              "profit": -95,
+              "totalCost": 95,
+              "totalWinnings": 0,
+              "tournamentCost": 90,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -90,
+              "bountiesWon": 0,
+              "bountyPaid": 5,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": -5,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-10-24",
+              "title": "Re-Buy Hard: A TLPT Muti-Table Event",
+              "entries": 2,
+              "rebuys": 1,
+              "hits": 7,
+              "timesPlaced": 1,
+              "bubbles": 0,
+              "profit": 180,
+              "totalCost": 100,
+              "totalWinnings": 280,
+              "tournamentCost": 80,
+              "tournamentWinnings": 220,
+              "tournamentProfit": 140,
+              "bountiesWon": 6,
+              "bountyPaid": 20,
+              "bountyCollected": 60,
+              "bountyRetained": 0,
+              "bountyWinnings": 60,
+              "bountyNet": 40,
+              "settlementAdjustment": 0
+            }
+          ]
+        },
+        "previous": {
+          "eventCount": 5,
+          "startDate": "2026-08-07",
+          "endDate": "2026-09-04",
+          "metrics": {
+            "name": "ButtonMan: fka LiFo",
+            "slug": "li-fo",
+            "image": "images/players/li-fo.jpg",
+            "notes": "What's the wost that can happen?",
+            "entries": 7,
+            "buyIns": 5,
+            "rebuys": 2,
+            "hits": 8,
+            "timesPlaced": 1,
+            "bubbles": 0,
+            "profit": -135,
+            "roi": -0.6428571428571429,
+            "cashRate": 0.2,
+            "bubbleRate": 0.0,
+            "hitRate": 1.1428571428571428,
+            "totalCost": 210,
+            "totalWinnings": 75,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
+            "settlementAdjustment": 0,
+            "tournamentCost": 210,
+            "tournamentWinnings": 75,
+            "tournamentProfit": -135,
+            "expectedProfit": 15.7,
+            "luckIndex": -150.7,
+            "clutchIndex": 20.0,
+            "aggressionIndex": 19.047619047619047,
+            "survivorIndex": 23.7065637065637,
+            "tiltIndex": 63.8,
+            "trueSkillScore": 129.93703989703988,
+            "clutchRaw": 0.2,
+            "aggressionRaw": 1.1428571428571428,
+            "survivorRaw": 0.5885714285714285,
+            "roi_norm": 5.10204081632653,
+            "luckIndex_norm": 0.0,
+            "clutchRaw_norm": 20.0,
+            "aggressionRaw_norm": 19.047619047619047,
+            "survivorRaw_norm": 23.7065637065637
+          },
+          "events": [
+            {
+              "date": "2026-08-07",
+              "title": "DRAWS! | 9-Max",
+              "entries": 1,
+              "rebuys": 0,
+              "hits": 2,
+              "timesPlaced": 0,
+              "bubbles": 0,
+              "profit": -30,
+              "totalCost": 30,
+              "totalWinnings": 0,
+              "tournamentCost": 30,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -30,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-08-21",
+              "title": "River Rocky | 9-Max",
+              "entries": 2,
+              "rebuys": 1,
+              "hits": 0,
+              "timesPlaced": 0,
+              "bubbles": 0,
+              "profit": -60,
+              "totalCost": 60,
+              "totalWinnings": 0,
+              "tournamentCost": 60,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -60,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-08-22",
+              "title": "Risky Rebuys | 9-Max",
+              "entries": 1,
+              "rebuys": 0,
+              "hits": 3,
+              "timesPlaced": 0,
+              "bubbles": 0,
+              "profit": -30,
+              "totalCost": 30,
+              "totalWinnings": 0,
+              "tournamentCost": 30,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -30,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-08-29",
+              "title": "The Shuffling | 9-Max",
+              "entries": 2,
+              "rebuys": 1,
+              "hits": 2,
+              "timesPlaced": 1,
+              "bubbles": 0,
+              "profit": 15,
+              "totalCost": 60,
+              "totalWinnings": 75,
+              "tournamentCost": 60,
+              "tournamentWinnings": 75,
+              "tournamentProfit": 15,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            },
+            {
+              "date": "2026-09-04",
+              "title": "Pot Predator | 9-Max",
+              "entries": 1,
+              "rebuys": 0,
+              "hits": 1,
+              "timesPlaced": 0,
+              "bubbles": 0,
+              "profit": -30,
+              "totalCost": 30,
+              "totalWinnings": 0,
+              "tournamentCost": 30,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -30,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0,
+              "settlementAdjustment": 0
+            }
+          ]
+        }
+      },
+      "cardCollection": [
+        {
+          "id": "hall-tax-collector",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "First claimed the Hall career-profit distinction at $305.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 238.579
+            }
+          }
+        },
+        {
+          "id": "hall-direct-deposit",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "First claimed the Hall cash-rate distinction at 70.0%.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 238.579
+            }
+          }
+        },
+        {
+          "id": "hall-billing-department",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "First claimed the Hall knockout-efficiency distinction at 1.13 knockouts per entry.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 238.579
+            }
+          }
+        },
+        {
+          "id": "leader-profit",
+          "earnedDate": "2025-11-01",
+          "earnedEvent": "Dia de los Muertos | 9-Max",
+          "reason": "First claimed the established-player career-profit lead at $205.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 80,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 5,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 80
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 80
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 82
+              }
+            ],
+            "metrics": {
+              "profit": 205,
+              "roi": 0.854167,
+              "cashRate": 0.571429,
+              "hitRate": 1.25,
+              "trueSkillScore": 236.362
+            }
+          }
+        },
+        {
+          "id": "leader-knockouts",
+          "earnedDate": "2025-12-13",
+          "earnedEvent": "Ohhh Fuuuudge | 9-Max",
+          "reason": "First claimed the established-player knockout lead at 18 hits.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 11,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 370,
+              "roi": 0.72549,
+              "cashRate": 0.727273,
+              "hitRate": 1.058824,
+              "trueSkillScore": 241.644
+            }
+          }
+        },
+        {
+          "id": "leader-roi",
+          "earnedDate": "2025-11-01",
+          "earnedEvent": "Dia de los Muertos | 9-Max",
+          "reason": "First claimed the established-player ROI lead at 85.4%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 80,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 5,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 80
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 80
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 82
+              }
+            ],
+            "metrics": {
+              "profit": 205,
+              "roi": 0.854167,
+              "cashRate": 0.571429,
+              "hitRate": 1.25,
+              "trueSkillScore": 236.362
+            }
+          }
+        },
+        {
+          "id": "leader-cash-rate",
+          "earnedDate": "2025-08-23",
+          "earnedEvent": "Honey, I'm Home | 9-Max",
+          "reason": "First claimed the established-player cash-rate lead at 60.0%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 77,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 2,
+            "totalRanked": 3,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 75
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 65
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 65
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 76
+              }
+            ],
+            "metrics": {
+              "profit": 130,
+              "roi": 0.722222,
+              "cashRate": 0.6,
+              "hitRate": 1.166667,
+              "trueSkillScore": 220.157
+            }
+          }
+        },
+        {
+          "id": "leader-bounties",
+          "earnedDate": "2026-10-24",
+          "earnedEvent": "Re-Buy Hard: A TLPT Muti-Table Event",
+          "reason": "First claimed the established-player bounty lead at 6 bounties.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 77,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 5,
+            "totalRanked": 16,
+            "appearances": 42,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 79
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 80
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 80
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 93
+              }
+            ],
+            "metrics": {
+              "profit": 440,
+              "roi": 0.205128,
+              "cashRate": 0.547619,
+              "hitRate": 0.9,
+              "trueSkillScore": 197.123
+            }
+          }
+        },
+        {
+          "id": "heater-5",
+          "earnedDate": "2025-06-28",
+          "earnedEvent": "Say My Name | 9-Max",
+          "reason": "Personal-best 5-appearance cash streak from 2025-11-01 through 2025-12-13.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 11,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 370,
+              "roi": 0.72549,
+              "cashRate": 0.727273,
+              "hitRate": 1.058824,
+              "trueSkillScore": 241.644
+            }
+          },
+          "streakLength": 5,
+          "upgradedDate": "2025-12-13",
+          "upgradeEvent": "Ohhh Fuuuudge | 9-Max"
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-05-16",
+          "earnedEvent": "Stranger Bluffs! | 9-Max",
+          "reason": "Joined the 25-Appearance Club at Stranger Bluffs! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 77,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 16,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 75
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 87
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 87
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 60
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 60
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 75
+              }
+            ],
+            "metrics": {
+              "profit": 365,
+              "roi": 0.276515,
+              "cashRate": 0.6,
+              "hitRate": 0.636364,
+              "trueSkillScore": 196.521
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "Joined the 10-Appearance Club at $hitter's Full | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 238.579
+            }
+          }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 78
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 59
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 59
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 84
+              }
+            ],
+            "metrics": {
+              "profit": 65,
+              "roi": 2.166667,
+              "cashRate": 1.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 295.798
+            }
+          }
+        }
+      ],
+      "rosterStatus": "active",
+      "featuredCardEdition": "hall-tax-collector",
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "li-fo",
+        "lifo",
+        "li fo",
+        "tony",
+        "buttonman",
+        "button man",
+        "buttonman: fka lifo"
+      ]
     },
     {
       "name": "Chris F",
@@ -4209,7 +5290,12 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "chris f",
+        "chris-f",
+        "Christopher Fiander"
+      ]
     },
     {
       "name": "Chris O",
@@ -4808,7 +5894,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "leader-roi",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "chris o",
+        "chris-o"
+      ]
     },
     {
       "name": "Cougar",
@@ -5405,7 +6495,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "leader-roi",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "cougar"
+      ]
     },
     {
       "name": "Dan K",
@@ -5695,7 +6788,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "dan k",
+        "dan-k"
+      ]
     },
     {
       "name": "David K",
@@ -5919,7 +7016,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "david k",
+        "david-k"
+      ]
     },
     {
       "name": "Fabian",
@@ -6143,7 +7244,10 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "fabian"
+      ]
     },
     {
       "name": "Gilmore",
@@ -6389,7 +7493,11 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "gilmore",
+        "matthew g"
+      ]
     },
     {
       "name": "Griffin",
@@ -6713,7 +7821,14 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "griffin",
+        "Griffin",
+        "Grif",
+        "grif",
+        "Griffin Goralski"
+      ]
     },
     {
       "name": "Hayden D",
@@ -6959,7 +8074,11 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "hayden d",
+        "hayden-d"
+      ]
     },
     {
       "name": "Hiro",
@@ -7941,7 +9060,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "hiro"
+      ]
     },
     {
       "name": "Jeff T",
@@ -8328,7 +9450,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "jeff t",
+        "jeff-t"
+      ]
     },
     {
       "name": "Kishan",
@@ -8674,1046 +9800,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
-      "featuredCardMode": "automatic"
-    },
-    {
-      "name": "Li-Fo",
-      "slug": "li-fo",
-      "image": "images/players/li-fo.jpg",
-      "notes": "What's the wost that can happen?",
-      "entries": 70,
-      "buyIns": 42,
-      "rebuys": 28,
-      "hits": 63,
-      "timesPlaced": 23,
-      "bubbles": 6,
-      "profit": 440,
-      "roi": 0.20512820512820512,
-      "cashRate": 0.5476190476190477,
-      "bubbleRate": 0.14285714285714285,
-      "hitRate": 0.9,
-      "totalCost": 2145,
-      "totalWinnings": 2585,
-      "bountiesWon": 6,
-      "bountyPaid": 25,
-      "bountyCollected": 60,
-      "bountyRetained": 0,
-      "bountyWinnings": 60,
-      "bountyNet": 35,
-      "settlementAdjustment": 0,
-      "tournamentCost": 2120,
-      "tournamentWinnings": 2525,
-      "tournamentProfit": 405,
-      "expectedProfit": 151.5,
-      "luckIndex": 288.5,
-      "clutchIndex": 54.761904761904766,
-      "aggressionIndex": 15.0,
-      "survivorIndex": 25.738682569802116,
-      "tiltIndex": 49.0,
-      "trueSkillScore": 197.1233156464113,
-      "clutchRaw": 0.5476190476190477,
-      "aggressionRaw": 0.9,
-      "survivorRaw": 0.6954761904761906,
-      "tiltScoreDirect": 49.04761904761905,
-      "roi_norm": 17.216117216117215,
-      "luckIndex_norm": 34.73556651951874,
-      "clutchRaw_norm": 54.761904761904766,
-      "aggressionRaw_norm": 15.0,
-      "survivorRaw_norm": 25.738682569802116,
-      "tier": "A",
-      "cardForm": {
-        "windowSize": 5,
-        "recent": {
-          "eventCount": 5,
-          "startDate": "2026-09-05",
-          "endDate": "2026-10-24",
-          "metrics": {
-            "name": "Li-Fo",
-            "slug": "li-fo",
-            "image": "images/players/li-fo.jpg",
-            "notes": "What's the wost that can happen?",
-            "entries": 11,
-            "buyIns": 5,
-            "rebuys": 6,
-            "hits": 13,
-            "timesPlaced": 3,
-            "bubbles": 1,
-            "profit": 50,
-            "roi": 0.13333333333333333,
-            "cashRate": 0.6,
-            "bubbleRate": 0.2,
-            "hitRate": 1.1818181818181819,
-            "totalCost": 375,
-            "totalWinnings": 425,
-            "bountiesWon": 6,
-            "bountyPaid": 25,
-            "bountyCollected": 60,
-            "bountyRetained": 0,
-            "bountyWinnings": 60,
-            "bountyNet": 35,
-            "settlementAdjustment": 0,
-            "tournamentCost": 350,
-            "tournamentWinnings": 365,
-            "tournamentProfit": 15,
-            "expectedProfit": 110.4,
-            "luckIndex": -60.4,
-            "clutchIndex": 60.0,
-            "aggressionIndex": 19.6969696969697,
-            "survivorIndex": 33.31695331695332,
-            "tiltIndex": 25.0,
-            "trueSkillScore": 184.0690452188112,
-            "clutchRaw": 0.6,
-            "aggressionRaw": 1.1818181818181819,
-            "survivorRaw": 0.7663636363636364,
-            "roi_norm": 16.19047619047619,
-            "luckIndex_norm": 22.776911076443056,
-            "clutchRaw_norm": 60.0,
-            "aggressionRaw_norm": 19.6969696969697,
-            "survivorRaw_norm": 33.31695331695332
-          },
-          "events": [
-            {
-              "date": "2026-09-05",
-              "title": "Bluff Runner | 9-Max",
-              "entries": 1,
-              "rebuys": 0,
-              "hits": 2,
-              "timesPlaced": 1,
-              "bubbles": 0,
-              "profit": 35,
-              "totalCost": 30,
-              "totalWinnings": 65,
-              "tournamentCost": 30,
-              "tournamentWinnings": 65,
-              "tournamentProfit": 35,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-10-03",
-              "title": "Inglorious Bluffs | 9-Max",
-              "entries": 3,
-              "rebuys": 2,
-              "hits": 2,
-              "timesPlaced": 1,
-              "bubbles": 0,
-              "profit": -10,
-              "totalCost": 90,
-              "totalWinnings": 80,
-              "tournamentCost": 90,
-              "tournamentWinnings": 80,
-              "tournamentProfit": -10,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-10-09",
-              "title": "Check Raise to Victory | 9-Max",
-              "entries": 2,
-              "rebuys": 1,
-              "hits": 1,
-              "timesPlaced": 0,
-              "bubbles": 0,
-              "profit": -60,
-              "totalCost": 60,
-              "totalWinnings": 0,
-              "tournamentCost": 60,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -60,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-10-17",
-              "title": "ALL-E-IN - 9-Max",
-              "entries": 3,
-              "rebuys": 2,
-              "hits": 1,
-              "timesPlaced": 0,
-              "bubbles": 1,
-              "profit": -95,
-              "totalCost": 95,
-              "totalWinnings": 0,
-              "tournamentCost": 90,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -90,
-              "bountiesWon": 0,
-              "bountyPaid": 5,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": -5,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-10-24",
-              "title": "Re-Buy Hard: A TLPT Muti-Table Event",
-              "entries": 2,
-              "rebuys": 1,
-              "hits": 7,
-              "timesPlaced": 1,
-              "bubbles": 0,
-              "profit": 180,
-              "totalCost": 100,
-              "totalWinnings": 280,
-              "tournamentCost": 80,
-              "tournamentWinnings": 220,
-              "tournamentProfit": 140,
-              "bountiesWon": 6,
-              "bountyPaid": 20,
-              "bountyCollected": 60,
-              "bountyRetained": 0,
-              "bountyWinnings": 60,
-              "bountyNet": 40,
-              "settlementAdjustment": 0
-            }
-          ]
-        },
-        "previous": {
-          "eventCount": 5,
-          "startDate": "2026-08-07",
-          "endDate": "2026-09-04",
-          "metrics": {
-            "name": "Li-Fo",
-            "slug": "li-fo",
-            "image": "images/players/li-fo.jpg",
-            "notes": "What's the wost that can happen?",
-            "entries": 7,
-            "buyIns": 5,
-            "rebuys": 2,
-            "hits": 8,
-            "timesPlaced": 1,
-            "bubbles": 0,
-            "profit": -135,
-            "roi": -0.6428571428571429,
-            "cashRate": 0.2,
-            "bubbleRate": 0.0,
-            "hitRate": 1.1428571428571428,
-            "totalCost": 210,
-            "totalWinnings": 75,
-            "bountiesWon": 0,
-            "bountyPaid": 0,
-            "bountyCollected": 0,
-            "bountyRetained": 0,
-            "bountyWinnings": 0,
-            "bountyNet": 0,
-            "settlementAdjustment": 0,
-            "tournamentCost": 210,
-            "tournamentWinnings": 75,
-            "tournamentProfit": -135,
-            "expectedProfit": 15.7,
-            "luckIndex": -150.7,
-            "clutchIndex": 20.0,
-            "aggressionIndex": 19.047619047619047,
-            "survivorIndex": 23.7065637065637,
-            "tiltIndex": 63.8,
-            "trueSkillScore": 129.93703989703988,
-            "clutchRaw": 0.2,
-            "aggressionRaw": 1.1428571428571428,
-            "survivorRaw": 0.5885714285714285,
-            "roi_norm": 5.10204081632653,
-            "luckIndex_norm": 0.0,
-            "clutchRaw_norm": 20.0,
-            "aggressionRaw_norm": 19.047619047619047,
-            "survivorRaw_norm": 23.7065637065637
-          },
-          "events": [
-            {
-              "date": "2026-08-07",
-              "title": "DRAWS! | 9-Max",
-              "entries": 1,
-              "rebuys": 0,
-              "hits": 2,
-              "timesPlaced": 0,
-              "bubbles": 0,
-              "profit": -30,
-              "totalCost": 30,
-              "totalWinnings": 0,
-              "tournamentCost": 30,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -30,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-08-21",
-              "title": "River Rocky | 9-Max",
-              "entries": 2,
-              "rebuys": 1,
-              "hits": 0,
-              "timesPlaced": 0,
-              "bubbles": 0,
-              "profit": -60,
-              "totalCost": 60,
-              "totalWinnings": 0,
-              "tournamentCost": 60,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -60,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-08-22",
-              "title": "Risky Rebuys | 9-Max",
-              "entries": 1,
-              "rebuys": 0,
-              "hits": 3,
-              "timesPlaced": 0,
-              "bubbles": 0,
-              "profit": -30,
-              "totalCost": 30,
-              "totalWinnings": 0,
-              "tournamentCost": 30,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -30,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-08-29",
-              "title": "The Shuffling | 9-Max",
-              "entries": 2,
-              "rebuys": 1,
-              "hits": 2,
-              "timesPlaced": 1,
-              "bubbles": 0,
-              "profit": 15,
-              "totalCost": 60,
-              "totalWinnings": 75,
-              "tournamentCost": 60,
-              "tournamentWinnings": 75,
-              "tournamentProfit": 15,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            },
-            {
-              "date": "2026-09-04",
-              "title": "Pot Predator | 9-Max",
-              "entries": 1,
-              "rebuys": 0,
-              "hits": 1,
-              "timesPlaced": 0,
-              "bubbles": 0,
-              "profit": -30,
-              "totalCost": 30,
-              "totalWinnings": 0,
-              "tournamentCost": 30,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -30,
-              "bountiesWon": 0,
-              "bountyPaid": 0,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": 0,
-              "settlementAdjustment": 0
-            }
-          ]
-        }
-      },
-      "cardCollection": [
-        {
-          "id": "hall-tax-collector",
-          "earnedDate": "2025-12-06",
-          "earnedEvent": "$hitter's Full | 9-Max",
-          "reason": "First claimed the Hall career-profit distinction at $305.",
-          "priority": 4,
-          "snapshot": {
-            "overall": 82,
-            "tierCode": "S",
-            "tierClassName": "s",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 7,
-            "appearances": 10,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 95
-              }
-            ],
-            "metrics": {
-              "profit": 305,
-              "roi": 0.677778,
-              "cashRate": 0.7,
-              "hitRate": 1.133333,
-              "trueSkillScore": 238.579
-            }
-          }
-        },
-        {
-          "id": "hall-direct-deposit",
-          "earnedDate": "2025-12-06",
-          "earnedEvent": "$hitter's Full | 9-Max",
-          "reason": "First claimed the Hall cash-rate distinction at 70.0%.",
-          "priority": 4,
-          "snapshot": {
-            "overall": 82,
-            "tierCode": "S",
-            "tierClassName": "s",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 7,
-            "appearances": 10,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 95
-              }
-            ],
-            "metrics": {
-              "profit": 305,
-              "roi": 0.677778,
-              "cashRate": 0.7,
-              "hitRate": 1.133333,
-              "trueSkillScore": 238.579
-            }
-          }
-        },
-        {
-          "id": "hall-billing-department",
-          "earnedDate": "2025-12-06",
-          "earnedEvent": "$hitter's Full | 9-Max",
-          "reason": "First claimed the Hall knockout-efficiency distinction at 1.13 knockouts per entry.",
-          "priority": 4,
-          "snapshot": {
-            "overall": 82,
-            "tierCode": "S",
-            "tierClassName": "s",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 7,
-            "appearances": 10,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 95
-              }
-            ],
-            "metrics": {
-              "profit": 305,
-              "roi": 0.677778,
-              "cashRate": 0.7,
-              "hitRate": 1.133333,
-              "trueSkillScore": 238.579
-            }
-          }
-        },
-        {
-          "id": "leader-profit",
-          "earnedDate": "2025-11-01",
-          "earnedEvent": "Dia de los Muertos | 9-Max",
-          "reason": "First claimed the established-player career-profit lead at $205.",
-          "priority": 3,
-          "snapshot": {
-            "overall": 80,
-            "tierCode": "A",
-            "tierClassName": "a",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 5,
-            "appearances": 7,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 80
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 80
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 82
-              }
-            ],
-            "metrics": {
-              "profit": 205,
-              "roi": 0.854167,
-              "cashRate": 0.571429,
-              "hitRate": 1.25,
-              "trueSkillScore": 236.362
-            }
-          }
-        },
-        {
-          "id": "leader-knockouts",
-          "earnedDate": "2025-12-13",
-          "earnedEvent": "Ohhh Fuuuudge | 9-Max",
-          "reason": "First claimed the established-player knockout lead at 18 hits.",
-          "priority": 3,
-          "snapshot": {
-            "overall": 82,
-            "tierCode": "S",
-            "tierClassName": "s",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 7,
-            "appearances": 11,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 96
-              }
-            ],
-            "metrics": {
-              "profit": 370,
-              "roi": 0.72549,
-              "cashRate": 0.727273,
-              "hitRate": 1.058824,
-              "trueSkillScore": 241.644
-            }
-          }
-        },
-        {
-          "id": "leader-roi",
-          "earnedDate": "2025-11-01",
-          "earnedEvent": "Dia de los Muertos | 9-Max",
-          "reason": "First claimed the established-player ROI lead at 85.4%.",
-          "priority": 3,
-          "snapshot": {
-            "overall": 80,
-            "tierCode": "A",
-            "tierClassName": "a",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 5,
-            "appearances": 7,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 80
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 80
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 82
-              }
-            ],
-            "metrics": {
-              "profit": 205,
-              "roi": 0.854167,
-              "cashRate": 0.571429,
-              "hitRate": 1.25,
-              "trueSkillScore": 236.362
-            }
-          }
-        },
-        {
-          "id": "leader-cash-rate",
-          "earnedDate": "2025-08-23",
-          "earnedEvent": "Honey, I'm Home | 9-Max",
-          "reason": "First claimed the established-player cash-rate lead at 60.0%.",
-          "priority": 3,
-          "snapshot": {
-            "overall": 77,
-            "tierCode": "C",
-            "tierClassName": "c",
-            "tierStatus": "Established",
-            "powerRank": 2,
-            "totalRanked": 3,
-            "appearances": 5,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 75
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 65
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 65
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 76
-              }
-            ],
-            "metrics": {
-              "profit": 130,
-              "roi": 0.722222,
-              "cashRate": 0.6,
-              "hitRate": 1.166667,
-              "trueSkillScore": 220.157
-            }
-          }
-        },
-        {
-          "id": "leader-bounties",
-          "earnedDate": "2026-10-24",
-          "earnedEvent": "Re-Buy Hard: A TLPT Muti-Table Event",
-          "reason": "First claimed the established-player bounty lead at 6 bounties.",
-          "priority": 3,
-          "snapshot": {
-            "overall": 77,
-            "tierCode": "A",
-            "tierClassName": "a",
-            "tierStatus": "Established",
-            "powerRank": 5,
-            "totalRanked": 16,
-            "appearances": 42,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 79
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 80
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 80
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 93
-              }
-            ],
-            "metrics": {
-              "profit": 440,
-              "roi": 0.205128,
-              "cashRate": 0.547619,
-              "hitRate": 0.9,
-              "trueSkillScore": 197.123
-            }
-          }
-        },
-        {
-          "id": "heater-5",
-          "earnedDate": "2025-06-28",
-          "earnedEvent": "Say My Name | 9-Max",
-          "reason": "Personal-best 5-appearance cash streak from 2025-11-01 through 2025-12-13.",
-          "priority": 2,
-          "snapshot": {
-            "overall": 82,
-            "tierCode": "S",
-            "tierClassName": "s",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 7,
-            "appearances": 11,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 96
-              }
-            ],
-            "metrics": {
-              "profit": 370,
-              "roi": 0.72549,
-              "cashRate": 0.727273,
-              "hitRate": 1.058824,
-              "trueSkillScore": 241.644
-            }
-          },
-          "streakLength": 5,
-          "upgradedDate": "2025-12-13",
-          "upgradeEvent": "Ohhh Fuuuudge | 9-Max"
-        },
-        {
-          "id": "milestone-25",
-          "earnedDate": "2026-05-16",
-          "earnedEvent": "Stranger Bluffs! | 9-Max",
-          "reason": "Joined the 25-Appearance Club at Stranger Bluffs! | 9-Max.",
-          "priority": 1,
-          "snapshot": {
-            "overall": 77,
-            "tierCode": "A",
-            "tierClassName": "a",
-            "tierStatus": "Established",
-            "powerRank": 4,
-            "totalRanked": 16,
-            "appearances": 25,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 75
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 87
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 87
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 60
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 60
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 75
-              }
-            ],
-            "metrics": {
-              "profit": 365,
-              "roi": 0.276515,
-              "cashRate": 0.6,
-              "hitRate": 0.636364,
-              "trueSkillScore": 196.521
-            }
-          }
-        },
-        {
-          "id": "milestone-10",
-          "earnedDate": "2025-12-06",
-          "earnedEvent": "$hitter's Full | 9-Max",
-          "reason": "Joined the 10-Appearance Club at $hitter's Full | 9-Max.",
-          "priority": 1,
-          "snapshot": {
-            "overall": 82,
-            "tierCode": "S",
-            "tierClassName": "s",
-            "tierStatus": "Established",
-            "powerRank": 1,
-            "totalRanked": 7,
-            "appearances": 10,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 96
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 96
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 96
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 95
-              }
-            ],
-            "metrics": {
-              "profit": 305,
-              "roi": 0.677778,
-              "cashRate": 0.7,
-              "hitRate": 1.133333,
-              "trueSkillScore": 238.579
-            }
-          }
-        },
-        {
-          "id": "rookie",
-          "earnedDate": "2025-05-24",
-          "earnedEvent": "There Will Be Blood - 9 Max",
-          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
-          "priority": 0,
-          "snapshot": {
-            "overall": 75,
-            "tierCode": "RKI",
-            "tierClassName": "rookie",
-            "tierStatus": "Rookie",
-            "powerRank": null,
-            "totalRanked": 0,
-            "appearances": 1,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 78
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 96
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 96
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 59
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 59
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 84
-              }
-            ],
-            "metrics": {
-              "profit": 65,
-              "roi": 2.166667,
-              "cashRate": 1.0,
-              "hitRate": 1.0,
-              "trueSkillScore": 295.798
-            }
-          }
-        }
-      ],
-      "rosterStatus": "active",
-      "featuredCardEdition": "hall-tax-collector",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "kishan"
+      ]
     },
     {
       "name": "Liam O",
@@ -9959,7 +10049,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "liam o",
+        "liam-o"
+      ]
     },
     {
       "name": "Nasa Al",
@@ -10833,13 +10927,18 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "nasa al",
+        "nasa-al",
+        "al"
+      ]
     },
     {
       "name": "Nitro",
       "slug": "nitro",
       "image": "images/players/nitro.jpg",
-      "notes": "I don't believe you, Tony.",
+      "notes": "I don't believe you, ButtonMan: fka LiFo.",
       "entries": 16,
       "buyIns": 12,
       "rebuys": 4,
@@ -10890,7 +10989,7 @@
             "name": "Nitro",
             "slug": "nitro",
             "image": "images/players/nitro.jpg",
-            "notes": "I don't believe you, Tony.",
+            "notes": "I don't believe you, ButtonMan: fka LiFo.",
             "entries": 5,
             "buyIns": 5,
             "rebuys": 0,
@@ -11051,7 +11150,7 @@
             "name": "Nitro",
             "slug": "nitro",
             "image": "images/players/nitro.jpg",
-            "notes": "I don't believe you, Tony.",
+            "notes": "I don't believe you, ButtonMan: fka LiFo.",
             "entries": 8,
             "buyIns": 5,
             "rebuys": 3,
@@ -11319,7 +11418,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "milestone-10",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "nitro",
+        "lazar"
+      ]
     },
     {
       "name": "P",
@@ -11543,7 +11646,14 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "p",
+        "piercen",
+        "piercen craig",
+        "piercen-craig",
+        "Pushin Craig"
+      ]
     },
     {
       "name": "Pat",
@@ -11767,7 +11877,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "pat"
+      ]
     },
     {
       "name": "PhattedCalf",
@@ -12176,7 +12289,13 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "phattedcalf",
+        "PhattedCalf",
+        "Phatted,calf",
+        "phatted calf"
+      ]
     },
     {
       "name": "PittsburghBill",
@@ -12400,7 +12519,12 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "pittsburghbill",
+        "pittsburgh bill",
+        "pittdburghbill"
+      ]
     },
     {
       "name": "ProvidenceMike",
@@ -12999,7 +13123,11 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-3",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "providencemike",
+        "providence mike"
+      ]
     },
     {
       "name": "Red",
@@ -13596,7 +13724,10 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "leader-knockouts",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "red"
+      ]
     },
     {
       "name": "The Architect",
@@ -14138,7 +14269,14 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "the architect",
+        "the-architect",
+        "architect",
+        "billy b",
+        "billy"
+      ]
     },
     {
       "name": "Tim S",
@@ -14384,7 +14522,12 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "tim s",
+        "tim-s",
+        "tim s."
+      ]
     },
     {
       "name": "Vic",
@@ -14652,7 +14795,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "vic"
+      ]
     },
     {
       "name": "Vish",
@@ -15138,7 +15284,10 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "milestone-10",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "vish"
+      ]
     },
     {
       "name": "Wild Bill",
@@ -15525,7 +15674,12 @@
       ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "wild bill",
+        "wild-bill",
+        "bill"
+      ]
     },
     {
       "name": "Yann",
@@ -15749,7 +15903,10 @@
       ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
-      "featuredCardMode": "automatic"
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "yann"
+      ]
     }
   ],
   "streaks": {
@@ -15860,7 +16017,7 @@
         ]
       },
       {
-        "player": "Li-Fo",
+        "player": "ButtonMan: fka LiFo",
         "slug": "li-fo",
         "image": "images/players/li-fo.jpg",
         "type": "cash",
@@ -16552,6 +16709,40 @@
         ]
       },
       {
+        "player": "ButtonMan: fka LiFo",
+        "slug": "li-fo",
+        "image": "images/players/li-fo.jpg",
+        "type": "drought",
+        "length": 4,
+        "startDate": "2026-08-01",
+        "endDate": "2026-08-22",
+        "startTitle": "Stackface | 9-Max",
+        "endTitle": "Risky Rebuys | 9-Max",
+        "active": false,
+        "events": [
+          {
+            "date": "2026-08-01",
+            "title": "Stackface | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-08-07",
+            "title": "DRAWS! | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-08-21",
+            "title": "River Rocky | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-08-22",
+            "title": "Risky Rebuys | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
         "player": "Cougar",
         "slug": "cougar",
         "image": "images/players/cougar.jpg",
@@ -16615,40 +16806,6 @@
           {
             "date": "2026-08-16",
             "title": "Raise Man | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Li-Fo",
-        "slug": "li-fo",
-        "image": "images/players/li-fo.jpg",
-        "type": "drought",
-        "length": 4,
-        "startDate": "2026-08-01",
-        "endDate": "2026-08-22",
-        "startTitle": "Stackface | 9-Max",
-        "endTitle": "Risky Rebuys | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-08-01",
-            "title": "Stackface | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-08-07",
-            "title": "DRAWS! | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-08-21",
-            "title": "River Rocky | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-08-22",
-            "title": "Risky Rebuys | 9-Max",
             "cashed": false
           }
         ]
@@ -17543,6 +17700,12 @@
         "playedEvents": 2
       },
       {
+        "name": "ButtonMan: fka LiFo",
+        "slug": "li-fo",
+        "image": "images/players/li-fo.jpg",
+        "playedEvents": 42
+      },
+      {
         "name": "Chris F",
         "slug": "chris-f",
         "image": "images/players/chris-f.jpg",
@@ -17601,12 +17764,6 @@
         "slug": "kishan",
         "image": "images/players/kishan.jpg",
         "playedEvents": 4
-      },
-      {
-        "name": "Li-Fo",
-        "slug": "li-fo",
-        "image": "images/players/li-fo.jpg",
-        "playedEvents": 42
       },
       {
         "name": "Liam O",
@@ -18172,6 +18329,85 @@
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": null,
+        "currentDroughtStreak": null
+      },
+      "li-fo": {
+        "playedEvents": 42,
+        "eligible": true,
+        "bestCashStreak": {
+          "player": "ButtonMan: fka LiFo",
+          "slug": "li-fo",
+          "image": "images/players/li-fo.jpg",
+          "type": "cash",
+          "length": 5,
+          "startDate": "2025-11-01",
+          "endDate": "2025-12-13",
+          "startTitle": "Dia de los Muertos | 9-Max",
+          "endTitle": "Ohhh Fuuuudge | 9-Max",
+          "active": false,
+          "events": [
+            {
+              "date": "2025-11-01",
+              "title": "Dia de los Muertos | 9-Max",
+              "cashed": true
+            },
+            {
+              "date": "2025-11-15",
+              "title": "You Can Act Like a Man! | 9-Max",
+              "cashed": true
+            },
+            {
+              "date": "2025-11-30",
+              "title": "Sunday Funday Matinee | 9-Max",
+              "cashed": true
+            },
+            {
+              "date": "2025-12-06",
+              "title": "$hitter's Full | 9-Max",
+              "cashed": true
+            },
+            {
+              "date": "2025-12-13",
+              "title": "Ohhh Fuuuudge | 9-Max",
+              "cashed": true
+            }
+          ]
+        },
+        "currentCashStreak": null,
+        "bestDroughtStreak": {
+          "player": "ButtonMan: fka LiFo",
+          "slug": "li-fo",
+          "image": "images/players/li-fo.jpg",
+          "type": "drought",
+          "length": 4,
+          "startDate": "2026-08-01",
+          "endDate": "2026-08-22",
+          "startTitle": "Stackface | 9-Max",
+          "endTitle": "Risky Rebuys | 9-Max",
+          "active": false,
+          "events": [
+            {
+              "date": "2026-08-01",
+              "title": "Stackface | 9-Max",
+              "cashed": false
+            },
+            {
+              "date": "2026-08-07",
+              "title": "DRAWS! | 9-Max",
+              "cashed": false
+            },
+            {
+              "date": "2026-08-21",
+              "title": "River Rocky | 9-Max",
+              "cashed": false
+            },
+            {
+              "date": "2026-08-22",
+              "title": "Risky Rebuys | 9-Max",
+              "cashed": false
+            }
+          ]
+        },
         "currentDroughtStreak": null
       },
       "chris-f": {
@@ -18834,85 +19070,6 @@
             }
           ]
         }
-      },
-      "li-fo": {
-        "playedEvents": 42,
-        "eligible": true,
-        "bestCashStreak": {
-          "player": "Li-Fo",
-          "slug": "li-fo",
-          "image": "images/players/li-fo.jpg",
-          "type": "cash",
-          "length": 5,
-          "startDate": "2025-11-01",
-          "endDate": "2025-12-13",
-          "startTitle": "Dia de los Muertos | 9-Max",
-          "endTitle": "Ohhh Fuuuudge | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-11-01",
-              "title": "Dia de los Muertos | 9-Max",
-              "cashed": true
-            },
-            {
-              "date": "2025-11-15",
-              "title": "You Can Act Like a Man! | 9-Max",
-              "cashed": true
-            },
-            {
-              "date": "2025-11-30",
-              "title": "Sunday Funday Matinee | 9-Max",
-              "cashed": true
-            },
-            {
-              "date": "2025-12-06",
-              "title": "$hitter's Full | 9-Max",
-              "cashed": true
-            },
-            {
-              "date": "2025-12-13",
-              "title": "Ohhh Fuuuudge | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
-        "currentCashStreak": null,
-        "bestDroughtStreak": {
-          "player": "Li-Fo",
-          "slug": "li-fo",
-          "image": "images/players/li-fo.jpg",
-          "type": "drought",
-          "length": 4,
-          "startDate": "2026-08-01",
-          "endDate": "2026-08-22",
-          "startTitle": "Stackface | 9-Max",
-          "endTitle": "Risky Rebuys | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-08-01",
-              "title": "Stackface | 9-Max",
-              "cashed": false
-            },
-            {
-              "date": "2026-08-07",
-              "title": "DRAWS! | 9-Max",
-              "cashed": false
-            },
-            {
-              "date": "2026-08-21",
-              "title": "River Rocky | 9-Max",
-              "cashed": false
-            },
-            {
-              "date": "2026-08-22",
-              "title": "Risky Rebuys | 9-Max",
-              "cashed": false
-            }
-          ]
-        },
-        "currentDroughtStreak": null
       },
       "liam-o": {
         "playedEvents": 2,

@@ -111,10 +111,19 @@ def apply_featured_card_policy(players, featured_card_policy):
     }
 
 
+def ranking_name(player):
+    # A display rename must not reassign a historical tied award.
+    names = getattr(ranking_name, "_names", None)
+    if names is None:
+        names = {p["slug"]: p["rankingName"] for p in load_json(METADATA_PATH)["players"] if p.get("rankingName")}
+        ranking_name._names = names
+    return names.get(player.get("slug"), player["name"]).lower()
+
+
 def sort_players(players, key, direction="desc"):
     if direction == "desc":
-        return sorted(players, key=lambda p: (-float(p.get(key, 0)), p["name"].lower()))
-    return sorted(players, key=lambda p: (float(p.get(key, 0)), p["name"].lower()))
+        return sorted(players, key=lambda p: (-float(p.get(key, 0)), ranking_name(p)))
+    return sorted(players, key=lambda p: (float(p.get(key, 0)), ranking_name(p)))
 
 
 def normalize_stat(players, key, bounds):
@@ -876,12 +885,12 @@ def historical_leader(players, key, direction="desc"):
     if direction == "asc":
         return sorted(
             players,
-            key=lambda player: (float(player.get(key, 0)), player["name"].lower())
+            key=lambda player: (float(player.get(key, 0)), ranking_name(player))
         )[0]
 
     return sorted(
         players,
-        key=lambda player: (-float(player.get(key, 0)), player["name"].lower())
+        key=lambda player: (-float(player.get(key, 0)), ranking_name(player))
     )[0]
 
 
@@ -1301,6 +1310,9 @@ def main():
         player["cardCollection"] = card_collections.get(player["slug"], [])
         player["rosterStatus"] = roster_status.get(player["slug"], "active")
     featured_card_summary = apply_featured_card_policy(players, featured_card_policy)
+    aliases_by_slug = {p["slug"]: list(p.get("aliases", [])) for p in metadata["players"]}
+    for player in players:
+        player["aliases"] = aliases_by_slug.get(player["slug"], [])
 
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
 

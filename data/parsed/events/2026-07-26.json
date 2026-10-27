@@ -31,7 +31,7 @@
       "payout": 130
     },
     {
-      "name": "Li-Fo",
+      "name": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "rank": 3,
       "payout": 65
@@ -83,7 +83,7 @@
     {
       "type": "buyin",
       "time_raw": "4:14:24 pm 07/26/2026",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo"
     },
     {
@@ -123,7 +123,7 @@
       "time_raw": "7:04:47 pm 07/26/2026",
       "player": "Vish",
       "slug": "vish",
-      "by": "Li-Fo",
+      "by": "ButtonMan: fka LiFo",
       "bySlug": "li-fo",
       "rawKillerText": "Li-Fo",
       "sharedKillerSource": false
@@ -161,7 +161,7 @@
     {
       "type": "bustout",
       "time_raw": "7:55:24 pm 07/26/2026",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
@@ -196,7 +196,7 @@
     {
       "type": "payout",
       "time_raw": "7:59:24 pm 07/26/2026",
-      "player": "Li-Fo",
+      "player": "ButtonMan: fka LiFo",
       "slug": "li-fo",
       "rank": 3,
       "payout": 65
@@ -306,6 +306,19 @@
       "totalCost": 0,
       "totalWinnings": 0,
       "profit": 0
+    },
+    {
+      "name": "ButtonMan: fka LiFo",
+      "slug": "li-fo",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 1,
+      "timesPlaced": 1,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 65,
+      "profit": 35
     },
     {
       "name": "Chris F",
@@ -462,19 +475,6 @@
       "totalCost": 0,
       "totalWinnings": 0,
       "profit": 0
-    },
-    {
-      "name": "Li-Fo",
-      "slug": "li-fo",
-      "buyIns": 1,
-      "rebuys": 0,
-      "entries": 1,
-      "hits": 1,
-      "timesPlaced": 1,
-      "bubbles": 0,
-      "totalCost": 30,
-      "totalWinnings": 65,
-      "profit": 35
     },
     {
       "name": "Liam O",

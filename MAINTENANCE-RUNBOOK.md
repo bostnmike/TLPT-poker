@@ -264,6 +264,23 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 
 ## Player membership: Active and Alumni
 
+### Player display renames
+
+Tony's current label is **ButtonMan: fka LiFo**. Keep his permanent slug
+`li-fo`, avatar `images/players/li-fo.jpg`, source report names, financial
+keys and RSVP identities unchanged. Metadata retains Li-Fo / LiFo / Li Fo /
+Tony and ButtonMan as aliases so old URLs, imports and payment records resolve
+to the same player. Generated statistics publish those aliases for profile links.
+`rankingName: "Li-Fo"` preserves historical tie-breaks: changing a display name
+must never transfer an already-earned award.
+
+Cashier's fallback directory mirrors these aliases; its legal Venmo payer name
+is still Tony Kosturi. RSVP projects the new display name without rewriting
+responses, private links or its database. Written site stories use the current
+label. Original audio, verbatim transcripts, poster artwork and raw reports are
+historical sources, not targets for text substitution. Browser regression tests
+cover legacy profile links and the existing portrait at four screen sizes.
+
 `data/player-metadata.json` owns the optional `rosterStatus` field (`active` or
 `alumni`; omitted means active). Change this field to restore a regular player.
 Membership filters only the Crew page display; never remove alumni from metadata,
