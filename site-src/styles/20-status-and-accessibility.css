@@ -1,0 +1,23 @@
+/* MTT capacity at a glance; official seats come from Tournament Director software. */
+.event-admin-status{ display:flex; flex-wrap:wrap; gap:7px; margin:13px 0 4px; }
+.event-admin-status span{ display:inline-flex; align-items:center; gap:4px; min-height:30px; padding:5px 10px; border:1px solid rgba(125,211,252,.28); border-radius:999px; background:rgba(8,47,73,.58); color:#d9f4ff; font-size:.78rem; font-weight:760; }
+.event-admin-status strong{ color:#fef08a; font-size:.9rem; }
+.event-admin-status .is-waitlist{ border-color:rgba(251,113,133,.35); background:rgba(76,5,25,.55); }
+.event-rsvp-seat-player:focus-visible{ outline:3px solid #fef08a; outline-offset:3px; border-radius:50%; }
+
+@media (max-width:640px){
+  .event-admin-status span{ flex:1 1 calc(50% - 7px); justify-content:center; text-align:center; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    animation-delay:0ms !important;
+    transition-duration:.01ms !important;
+    transition-delay:0ms !important;
+    scroll-behavior:auto !important;
+  }
+}

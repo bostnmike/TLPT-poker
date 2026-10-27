@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "phase": "5-shared-shell-content-versions",
+  "phase": "5-ordered-source-bundles",
   "publicPageCount": 23,
   "sharedCssAsset": "site-tail.css",
   "assetVersionStrategy": "sha256-content-16",
@@ -11,6 +11,8 @@
     "codeHygiene": "scripts/audit-code-hygiene.py",
     "codeHygieneCompatibilityLauncher": "audit-code-hygiene.py",
     "sharedShellBuild": "scripts/build-site-shell.py",
+    "sourceBundleBuild": "scripts/build-site-assets.py",
+    "sourceBundleManifest": "site-src/manifest.json",
     "sharedShellComponents": "scripts/site_components.py"
   },
   "maintenancePaths": {
@@ -21,6 +23,7 @@
     "cacheRotationWorkflow": ".github/workflows/rotate-shared-css-cache.yml"
   },
   "qualityTriggerPaths": [
+    "site-src/**",
     "templates/site/**",
     "audit-code-hygiene.py",
     "maintenance-baseline.json",
@@ -43,6 +46,8 @@
     "bash scripts/run-quality-gates.sh": 1
   },
   "requiredQualityGates": [
+    "scripts/build-site-assets.py --check",
+    "scripts/test-source-bundles.py",
     "scripts/build-site-shell.py --check",
     "scripts/test-site-components.py",
     "scripts/verify-maintenance-baseline.py",
@@ -81,6 +86,9 @@
       "triggerPaths": [
         "registration-domain/**",
         "templates/site/**",
+        "site-src/**",
+        "scripts/source_bundles.py",
+        "scripts/build-site-assets.py",
         "scripts/site_components.py",
         "scripts/build-site-shell.py",
         "scripts/asset-reference-test.mjs",

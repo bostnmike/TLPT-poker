@@ -27,6 +27,11 @@ class ReleaseToolsTests(unittest.TestCase):
                      "templates/site/header.html", "templates/site/navigation.json"]:
             self.assertFalse(package.public_path(name), name)
 
+    def test_authoring_sections_do_not_publish_individually(self):
+        for name in ['site-src/manifest.json', 'site-src/app/01-data-loading.js',
+                     'site-src/styles/01-foundation.css']:
+            self.assertFalse(package.public_path(name), name)
+
     def test_public_products_and_media_stay_available(self):
         for name in ["index.html", "register.html", "cashier.html", "lily.html",
                      "lily-site/index.html", "lily-site/mascots/hello.svg",

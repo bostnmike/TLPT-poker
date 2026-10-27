@@ -42,6 +42,7 @@ on:
       - "pnpm-lock.yaml"
       - "scripts/**"
       - "templates/site/**"
+      - "site-src/**"
       - "!images/fw/gallery-manifest.json"
   workflow_dispatch:
 
@@ -111,6 +112,7 @@ jobs:
           git add data/generated/knockouts-generated.json data/generated/knockouts.json
           git add knockouts.json knockout-events-full.json knockout-name-map-full.json
           git add images/fw/gallery-manifest.json
+          git add app.js style.css
           # These regions/versions were generated and tested with this artifact.
           python -c 'import subprocess; from scripts.site_components import PAGES; subprocess.run(["git", "add", "--", *PAGES], check=True)'
           if ! git diff --cached --quiet; then

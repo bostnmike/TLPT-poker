@@ -13,6 +13,9 @@ Shared navigation and script/style versions are rendered through
 This does not rewrite source files. The satellite therefore uses the same menu
 and content hashes even before the main publisher commits generated HTML.
 Template, renderer and shared CSS/JS changes also trigger registration checks.
+The shared `style.css` hash is derived from `site-src/` when needed, so a
+source-only stylesheet edit does not leave this domain using a stale cache key.
+Source-section/manifest changes also trigger the normal registration publisher.
 No Worker, proxy, runtime database or Cloudflare deployment is needed.
 
 After registration changes reach `main`, **TLPT Registration Quality Gate** runs

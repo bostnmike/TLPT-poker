@@ -1,0 +1,218 @@
+/* honors */
+
+.honors-card{
+  position:relative;
+  overflow:hidden;
+  display:block;
+  min-height:unset;
+  padding:8px;
+  border-radius:13px;
+}
+
+.honors-card-top{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:6px;
+  align-items:center;
+  margin-bottom:6px;
+}
+
+.honors-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:24px;
+  z-index:0;
+}
+
+.honors-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.honors-card .honors-card-top{
+  margin-top:6px;
+}
+
+.honors-card-stack{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.honors-card-icon,
+.honors-card-label{
+  display:none;
+}
+
+.honors-player-name{
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.05;
+}
+
+.honors-card-value{
+  color:var(--muted);
+  font-size:.86rem;
+  line-height:1.15;
+  font-weight:800;
+}
+
+.honors-card-value--numeric{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  min-height:auto;
+  text-align:left;
+  font-size:.98rem;
+  font-weight:900;
+  line-height:1.05;
+  color:var(--gold);
+}
+
+.leader-banner-top{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  margin:-4px -4px 3px -4px;
+  padding:3px 4px;
+  text-align:center;
+}
+
+.champions-title{
+  margin:0;
+  font-weight:900;
+  line-height:1.1;
+  font-size:1.52rem;
+}
+
+.honors-page-shell .champions-title{
+  font-size:1.5em;
+}
+
+.champions-title-gold-deep{
+  color:#c88a00;
+  text-shadow:0 0 8px rgba(200,138,0,.10);
+}
+
+.champions-title-purple{
+  color:#d8b4fe;
+  text-shadow:0 0 8px rgba(168,85,247,.12);
+}
+
+.champions-title-blue{
+  color:#93c5fd;
+  text-shadow:0 0 8px rgba(59,130,246,.12);
+}
+
+.champions-title-green{
+  color:#86efac;
+  text-shadow:0 0 8px rgba(34,197,94,.12);
+}
+
+.honors-page-shell > .page-title-row:has(.champions-title-purple){
+  position:relative;
+  margin-bottom:18px;
+  padding:0 0 12px 0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+
+.page-title-row:has(.champions-title-purple)::before{
+  content:none;
+  display:none;
+}
+
+.page-title-row:has(.champions-title-blue){
+  position:relative;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(59,130,246,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(59,130,246,.12), rgba(59,130,246,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.page-title-row:has(.champions-title-blue)::before{
+  content:none;
+  display:none;
+}
+
+.page-title-row:has(.champions-title-green){
+  position:relative;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(34,197,94,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.page-title-row:has(.champions-title-green)::before{
+  content:none;
+  display:none;
+}
+
+.honors-page-shell{
+  position:relative;
+  overflow:hidden;
+}
+
+.honors-page-shell .page-title-row{
+  margin-bottom:14px;
+}
+
+.honors-page-shell-kicker{
+  margin-top:20px;
+  margin-bottom:0;
+}
+
+.honors-page-shell-yellow{
+  border-color:rgba(250,204,21,.34);
+  background:transparent;
+}
+
+.honors-page-shell .page-title-row::after{
+  bottom:-12px;
+}
+
+.honors-page-shell-yellow .page-title-row::after,
+.honors-page-shell-yellow .page-title-row:has(.champions-title-purple)::after{
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:-12px !important;
+  height:3px !important;
+  border-radius:999px !important;
+  background:linear-gradient(90deg, rgba(250,204,21,.98), rgba(255,239,186,.62) 52%, transparent 100%) !important;
+  box-shadow:none !important;
+}
+
+.honors-page-shell-yellow .champions-title{
+  color:#fde68a;
+}
+
+.honors-hub{
+  display:grid;
+  gap:22px;
+  margin:22px 0;
+}
+
+.honors-hub > .section{
+  margin:0;
+}
+

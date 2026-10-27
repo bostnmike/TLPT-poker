@@ -2,6 +2,7 @@
 """Generate shared HTML regions and deterministic local JS/CSS cache versions."""
 import argparse
 from site_components import PAGES, render_page, synchronize
+from source_bundles import synchronize_bundles
 
 
 def main():
@@ -12,6 +13,10 @@ def main():
     if args.page:
         print(render_page(args.page), end='')
         return 0
+    assets = synchronize_bundles(check=args.check)
+    if args.check and assets:
+        print('FAIL: rebuild source bundles before checking markup: ' + ', '.join(assets))
+        return 1
     changed = synchronize(check=args.check)
     if args.check and changed:
         print('FAIL: run python3 scripts/build-site-shell.py; stale pages: ' + ', '.join(changed))
