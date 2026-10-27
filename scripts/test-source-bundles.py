@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from source_bundles import ROOT, bundle_manifest, render_bundles, synchronize_bundles
@@ -49,6 +50,13 @@ def css_balanced(data):
 
 
 class SourceBundleTests(unittest.TestCase):
+    def test_publisher_can_import_components_from_repository_root(self):
+        result = subprocess.run([sys.executable, '-c',
+            'from scripts.site_components import PAGES, asset_version; '
+            'assert len(PAGES) == 22; assert len(asset_version("style.css")) == 16'],
+            cwd=ROOT, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

@@ -5,7 +5,10 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
-from source_bundles import OUTPUTS, render_bundles
+if __package__:
+    from .source_bundles import OUTPUTS, render_bundles
+else:
+    from source_bundles import OUTPUTS, render_bundles
 
 ROOT = Path(__file__).resolve().parents[1]
 # Explicit ownership: never rewrite Lily, Marchand, Cashier or the RSVP app.
