@@ -36,6 +36,10 @@ const promo = home.split('<div class="home-promo-pair"')[1].split('<section')[0]
 assert.ok(promo.indexOf('href="rsvp-app.html"') < promo.indexOf('href="rebuy-hard.html"'), 'App precedes Norm');
 assert.match(promo, /images\/rebuy-hard\/norm-santa-tlpt.png/);
 assert.match(schedule, /href="rsvp-app.html"/);
+assert.match(schedule, /Put the Yellow Chip on Your Phone\./);
+assert.match(schedule, /images\/site\/norm-rsvp-campaign.jpg/);
+assert.match(schedule, /class="rsvp-campaign-chip" src="images\/site\/chip-T-1000.png"/);
+assert.match(schedule, /Get the Yellow Chip/);
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') && !['marchand.html','lily.html','cashier.html'].includes(name))) {
   const html = read(file);

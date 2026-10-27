@@ -46,7 +46,7 @@
 
   <link rel="stylesheet" href="style.css?v=d5d587b1cc2c83a3" />
   <link rel="stylesheet" href="site-tail.css?v=f8719564073af1ab" />
-  <link rel="stylesheet" href="schedule.css?v=7a5d5b29dd59a8a4" />
+  <link rel="stylesheet" href="schedule.css?v=bf9f4c8340b8c234" />
   <link rel="stylesheet" href="schedule-notices.css?v=2b3a69d8d2bbd33b" />
   <link rel="stylesheet" href="ux-convergence.css?v=6638a46c06139cb3" />
   <link rel="stylesheet" href="roster-display.css?v=5029a36e2448d66a" />
@@ -149,9 +149,15 @@
       <p id="live-rsvp-status" class="muted schedule-rsvp-status" role="status">Games open for RSVPs · schedule and lineups sync every minute. RSVP is not payment or recorded attendance.</p>
     </section>
 
-    <aside class="section schedule-app-promo" aria-label="RSVP app setup">
-      <div><strong>Put the yellow chip on your phone.</strong><p class="muted">TLPT RSVP: one link, your name, In / Maybe / Out.</p></div>
-      <a class="btn" href="rsvp-app.html">RSVP App · Quick setup <span aria-hidden="true">→</span></a>
+    <aside class="section schedule-app-promo" aria-labelledby="rsvp-campaign-title">
+      <span class="rsvp-campaign-norm"><img src="images/site/norm-rsvp-campaign.jpg" alt="Norman Chad" width="96" height="96" decoding="async" /></span>
+      <div class="rsvp-campaign-copy">
+        <span class="rsvp-campaign-kicker">The TLPT RSVP campaign</span>
+        <h2 id="rsvp-campaign-title"><span>Put the Yellow Chip on Your Phone.</span><img class="rsvp-campaign-chip" src="images/site/chip-T-1000.png" alt="" aria-hidden="true" width="112" height="112" loading="eager" decoding="async" fetchpriority="auto" data-hide-on-error /></h2>
+        <p class="rsvp-campaign-tagline">Less group-chat detective work. More poker.</p>
+        <p class="muted">Open the app. Pick your name. In / Maybe / Out.</p>
+      </div>
+      <a class="btn" href="rsvp-app.html">Get the Yellow Chip <span aria-hidden="true">→</span></a>
     </aside>
     <div id="no-game-notices" class="schedule-notices" role="status" aria-live="polite"></div>
     <div id="schedule-list"></div>

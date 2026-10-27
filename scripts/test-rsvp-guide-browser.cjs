@@ -63,6 +63,15 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.ok(page.url().endsWith('/rsvp-app.html'));
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
+      await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
+      assert.equal(await page.locator('#rsvp-campaign-title').innerText(), 'Put the Yellow Chip on Your Phone.');
+      const campaign = await page.locator('.schedule-app-promo').boundingBox();
+      for (const selector of ['.rsvp-campaign-norm', '#rsvp-campaign-title', '.rsvp-campaign-chip', '.schedule-app-promo .btn']) {
+        const box = await page.locator(selector).boundingBox();
+        assert.ok(box.x >= campaign.x && box.x + box.width <= campaign.x + campaign.width + 1, selector + ': stays inside campaign');
+      }
+      assert.ok((await page.locator('.rsvp-campaign-chip').boundingBox()).width <= 36, 'Campaign chip stays inline, not hero-sized');
+      assert.ok((await page.locator('.schedule-app-promo .btn').boundingBox()).height >= 40, 'Setup CTA retains a usable tap target');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       const scheduleMenu = page.locator('.nav-dropdown:has(> a[href="schedule.html"])');
       if (width > 900) {
