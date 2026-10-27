@@ -106,7 +106,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
       assert.equal(await page.locator('.media-card').count(), 11, 'Retain nine original films plus the two RSVP films');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      for (const [id, duration] of [['rsvp-commercial', 35], ['rsvp-installation', 83.75]]) {
+      for (const [id, duration] of [['rsvp-commercial', 39], ['rsvp-installation', 83.75]]) {
         const card = page.locator('#' + id), player = card.locator('video');
         await card.scrollIntoViewIfNeeded();
         const box = await player.boundingBox();
