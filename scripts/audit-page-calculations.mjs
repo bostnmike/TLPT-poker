@@ -316,7 +316,7 @@ const bountyChapter = houseRules.match(/<section id="rules-mtt-bounties"[\s\S]*?
 check(bountyChapter.includes('rules-chapter') && bountyChapter.includes('class="rules-grid"')
     && (bountyChapter.match(/class="rule-card"/g) || []).length === 4,
   "MTT rules must use the existing four-card chapter layout");
-for (const [number, slug, name] of [[28, "li-fo", "ButtonMan: fka LiFo"], [29, "bostnmike", "BostnMike"], [30, "hiro", "Hiro"], [31, "ahmed", "Ahmed"]]) {
+for (const [number, slug, name] of [[28, "li-fo", "ButtonMan"], [29, "bostnmike", "BostnMike"], [30, "hiro", "Hiro"], [31, "ahmed", "Ahmed"]]) {
   check(bountyChapter.includes(`dealer-button-number">${number}</span>`) && bountyChapter.includes(name)
       && rulesScript.includes(`${number}: "${slug}"`), `MTT rule ${number} needs its numbered badge, player joke and matching avatar`);
 }

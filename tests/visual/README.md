@@ -37,7 +37,7 @@ Masks are scoped to the captured element, so an audio player behind a modal
 cannot mask the modal text. The sticky header and its out-of-component skip link are hidden only for the tall
 rules-chapter component capture; separate entrance/menu images test that header.
 Visible images are decoded after scrolling before screenshots are taken.
-Footer capture starts from a fresh document after the expanded-navigation shot,
+Footer capture starts in a fresh tab after the expanded-navigation shot,
 so menu focus/sticky compositing state cannot leak into the footer scene. It
 asserts the normal link color and attaches geometry/font/focus diagnostics.
 

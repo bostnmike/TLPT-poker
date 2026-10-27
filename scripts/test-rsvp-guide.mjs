@@ -50,12 +50,16 @@ assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 // Film Room handoff: exact approved commercial, covers and optional captions.
 const filmRoom = read('media.html');
 for (const [file, expected] of Object.entries({
-  'dont-be-a-donkey.mp4':'2421b66635537b5fc09a8d8b5fb30153031d979e2dc7f7ab1700ed9febc94b59',
-  'commercial-thumbnail.jpg':'040fdb25009194031c3f472895dbe500f84c2056a9c48cb305f35812595bdc10',
+  'dont-be-a-donkey.mp4':'c62e33c48b720798d3fed4f54c50c8662e9eeb1485fadd33db41239fa44ed742',
+  'commercial-thumbnail.jpg':'12dc0b0cea1fcf82aa1746b742494c2f622e6d97ffda86fc971d3296a036988a',
   'install-thumbnail.jpg':'f627c03329e9b6364cdc0e3ae47011b7f3b71efc4cb4032335413dd6d6d0a29e',
-  'commercial-captions.vtt':'5e18d298b28f62099eeb84a3d5ed84029b5bf0ae289b38c1db511e56a60ff83e',
+  'commercial-captions.vtt':'0aedb2c845d82c2f13ba6530c62bef89da8625ab85f1d6e336e8cf8e3458fed5',
   'install-captions.vtt':'abc3da93b21cca813afd125469950dae5cbca40380446a123e039d7e27ad451d'
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
+assert.match(filmRoom, /Commercial · 0:39/);
+for (const file of ['dont-be-a-donkey.mp4', 'commercial-thumbnail.jpg', 'commercial-captions.vtt']) {
+  assert.ok(filmRoom.includes(file + '?v=' + hash('media/rsvp-film-room/' + file).slice(0, 16)), 'Commercial cache version matches approved content: ' + file);
+}
 assert.equal((filmRoom.match(/<video\b/g) || []).length, 2);
 assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 8, 'Keep all existing embedded films');
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));

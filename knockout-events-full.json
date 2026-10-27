@@ -16,7 +16,7 @@
       "victim": "jeff-t",
       "killer": "li-fo",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "wild-bill",
@@ -39,7 +39,7 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     }
   ],
@@ -83,7 +83,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -110,7 +110,7 @@
       "victim": "brad-r",
       "killer": "li-fo",
       "sourceVictim": "Brad R",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "brad-r",
@@ -128,12 +128,12 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
@@ -172,7 +172,7 @@
       "victim": "ai-dave",
       "killer": "li-fo",
       "sourceVictim": "A.I. Dave",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -190,19 +190,19 @@
       "victim": "nitro",
       "killer": "li-fo",
       "sourceVictim": "Nitro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "nasa-al",
       "killer": "li-fo",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "the-architect",
       "killer": "li-fo",
       "sourceVictim": "The Architect",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     }
   ],
   "2025-07-26": [
@@ -215,7 +215,7 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
@@ -233,7 +233,7 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
@@ -309,7 +309,7 @@
     {
       "victim": "li-fo",
       "killer": "yann",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Yann"
     },
     {
@@ -386,7 +386,7 @@
       "victim": "jeff-t",
       "killer": "li-fo",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "cougar",
@@ -404,7 +404,7 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -416,7 +416,7 @@
       "victim": "nasa-al",
       "killer": "li-fo",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     }
   ],
   "2025-11-15": [
@@ -448,33 +448,33 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     }
   ],
   "2025-11-30": [
     {
       "victim": "li-fo",
       "killer": "providencemike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "li-fo",
       "killer": "big-tim",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Big Tim"
     },
     {
       "victim": "providencemike",
       "killer": "li-fo",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -498,19 +498,19 @@
       "victim": "cougar",
       "killer": "li-fo",
       "sourceVictim": "Cougar",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "big-tim",
@@ -521,7 +521,7 @@
     {
       "victim": "li-fo",
       "killer": "ai-dave",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "A.I. Dave"
     }
   ],
@@ -529,14 +529,14 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
       "victim": "chris-o",
       "killer": "li-fo",
       "sourceVictim": "Chris O",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -571,7 +571,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     }
   ],
@@ -585,7 +585,7 @@
     {
       "victim": "li-fo",
       "killer": "chris-o",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Chris O"
     },
     {
@@ -616,7 +616,7 @@
       "victim": "gilmore",
       "killer": "li-fo",
       "sourceVictim": "Gilmore",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "providencemike",
@@ -645,7 +645,7 @@
     {
       "victim": "li-fo",
       "killer": "chris-o",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Chris O"
     }
   ],
@@ -795,7 +795,7 @@
     {
       "victim": "li-fo",
       "killer": "the-architect",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "The Architect"
     },
     {
@@ -807,7 +807,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -845,7 +845,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
@@ -888,12 +888,12 @@
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "li-fo",
       "killer": "cougar",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Cougar"
     }
   ],
@@ -996,7 +996,7 @@
       "victim": "nitro",
       "killer": "li-fo",
       "sourceVictim": "Nitro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "vish",
@@ -1019,7 +1019,7 @@
     {
       "victim": "li-fo",
       "killer": "providencemike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "ProvidenceMike"
     }
   ],
@@ -1057,7 +1057,7 @@
     {
       "victim": "li-fo",
       "killer": "vish",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Vish"
     },
     {
@@ -1102,13 +1102,13 @@
       "victim": "red",
       "killer": "li-fo",
       "sourceVictim": "Red",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "red",
@@ -1313,7 +1313,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
@@ -1331,7 +1331,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
@@ -1374,13 +1374,13 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     }
   ],
   "2026-03-27": [
@@ -1455,7 +1455,7 @@
     {
       "victim": "li-fo",
       "killer": "nasa-al",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Nasa Al"
     },
     {
@@ -1479,7 +1479,7 @@
     {
       "victim": "li-fo",
       "killer": "red",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Red"
     },
     {
@@ -1573,19 +1573,19 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
       "victim": "red",
       "killer": "li-fo",
       "sourceVictim": "Red",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
@@ -1635,7 +1635,7 @@
     {
       "victim": "li-fo",
       "killer": "chris-o",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Chris O"
     },
     {
@@ -1648,7 +1648,7 @@
       "victim": "red",
       "killer": "li-fo",
       "sourceVictim": "Red",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -1672,7 +1672,7 @@
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "phattedcalf",
@@ -1683,7 +1683,7 @@
     {
       "victim": "li-fo",
       "killer": "chris-o",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Chris O"
     }
   ],
@@ -1691,7 +1691,7 @@
     {
       "victim": "li-fo",
       "killer": "red",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Red"
     },
     {
@@ -1709,7 +1709,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -1739,7 +1739,7 @@
     {
       "victim": "li-fo",
       "killer": "red",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Red"
     },
     {
@@ -1777,7 +1777,7 @@
     {
       "victim": "li-fo",
       "killer": "tim-s",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Tim S"
     },
     {
@@ -1821,13 +1821,13 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
       "victim": "li-fo",
       "killer": "vish",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Vish"
     },
     {
@@ -1895,7 +1895,7 @@
     {
       "victim": "li-fo",
       "killer": "griffin",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Griffin"
     },
     {
@@ -1945,7 +1945,7 @@
     {
       "victim": "li-fo",
       "killer": "providencemike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "ProvidenceMike"
     },
     {
@@ -1970,7 +1970,7 @@
       "victim": "providencemike",
       "killer": "li-fo",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
@@ -1987,7 +1987,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     }
   ],
@@ -2044,7 +2044,7 @@
       "victim": "jeff-t",
       "killer": "li-fo",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "providencemike",
@@ -2056,7 +2056,7 @@
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "nasa-al",
@@ -2073,7 +2073,7 @@
     {
       "victim": "li-fo",
       "killer": "griffin",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Griffin"
     }
   ],
@@ -2241,7 +2241,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -2255,7 +2255,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -2268,7 +2268,7 @@
       "victim": "providencemike",
       "killer": "li-fo",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "providencemike",
@@ -2280,7 +2280,7 @@
       "victim": "chris-o",
       "killer": "li-fo",
       "sourceVictim": "Chris O",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "providencemike",
@@ -2291,7 +2291,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -2336,7 +2336,7 @@
       "victim": "cougar",
       "killer": "li-fo",
       "sourceVictim": "Cougar",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -2354,7 +2354,7 @@
       "victim": "providencemike",
       "killer": "li-fo",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "bostnmike",
@@ -2371,7 +2371,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
@@ -2392,7 +2392,7 @@
       "victim": "cougar",
       "killer": "li-fo",
       "sourceVictim": "Cougar",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -2404,19 +2404,19 @@
       "victim": "chris-o",
       "killer": "li-fo",
       "sourceVictim": "Chris O",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     }
   ],
   "2026-07-26": [
@@ -2430,7 +2430,7 @@
       "victim": "vish",
       "killer": "li-fo",
       "sourceVictim": "Vish",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "nasa-al",
@@ -2453,7 +2453,7 @@
     {
       "victim": "li-fo",
       "killer": "providencemike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "ProvidenceMike"
     }
   ],
@@ -2468,13 +2468,13 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "tim-s",
       "killer": "li-fo",
       "sourceVictim": "Tim S",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
@@ -2492,12 +2492,12 @@
       "victim": "wild-bill",
       "killer": "li-fo",
       "sourceVictim": "Wild Bill",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "li-fo",
       "killer": "tim-s",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Tim S"
     },
     {
@@ -2518,7 +2518,7 @@
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -2542,12 +2542,12 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "li-fo",
       "killer": "nasa-al",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Nasa Al"
     },
     {
@@ -2611,7 +2611,7 @@
     {
       "victim": "li-fo",
       "killer": "providencemike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "ProvidenceMike"
     },
     {
@@ -2623,7 +2623,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
@@ -2650,19 +2650,19 @@
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "cougar",
       "killer": "li-fo",
       "sourceVictim": "Cougar",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
@@ -2673,7 +2673,7 @@
     {
       "victim": "li-fo",
       "killer": "cougar",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Cougar"
     },
     {
@@ -2693,7 +2693,7 @@
     {
       "victim": "li-fo",
       "killer": "cougar",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Cougar"
     },
     {
@@ -2706,7 +2706,7 @@
       "victim": "nasa-al",
       "killer": "li-fo",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "hiro",
@@ -2730,7 +2730,7 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "cougar",
@@ -2741,7 +2741,7 @@
     {
       "victim": "li-fo",
       "killer": "providencemike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "ProvidenceMike"
     }
   ],
@@ -2750,7 +2750,7 @@
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "red",
@@ -2797,7 +2797,7 @@
     {
       "victim": "li-fo",
       "killer": "kishan",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Kishan"
     },
     {
@@ -2830,7 +2830,7 @@
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "cougar",
@@ -2848,7 +2848,7 @@
       "victim": "bostnmike",
       "killer": "li-fo",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "providencemike",
@@ -2877,7 +2877,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
@@ -2897,7 +2897,7 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
@@ -2909,14 +2909,14 @@
     {
       "victim": "li-fo",
       "killer": "cougar",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Cougar"
     },
     {
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "chris-o",
@@ -2934,7 +2934,7 @@
       "victim": "ai-dave",
       "killer": "li-fo",
       "sourceVictim": "A.I. Dave",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "ahmed",
@@ -2951,7 +2951,7 @@
     {
       "victim": "li-fo",
       "killer": "chris-f",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Chris F"
     }
   ],
@@ -2971,14 +2971,14 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed"
     },
     {
       "victim": "ai-dave",
       "killer": "li-fo",
       "sourceVictim": "A.I. Dave",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "bostnmike",
@@ -2989,7 +2989,7 @@
     {
       "victim": "li-fo",
       "killer": "hiro",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Hiro"
     },
     {
@@ -3016,14 +3016,14 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike",
       "bountyAmount": 5
     },
     {
       "victim": "li-fo",
       "killer": "red",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Red"
     },
     {
@@ -3044,7 +3044,7 @@
       "victim": "providencemike",
       "killer": "li-fo",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "ButtonMan: fka LiFo"
+      "sourceKiller": "ButtonMan"
     },
     {
       "victim": "red",
@@ -3055,7 +3055,7 @@
     {
       "victim": "li-fo",
       "killer": "bostnmike",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "BostnMike"
     },
     {
@@ -3070,7 +3070,7 @@
     {
       "victim": "li-fo",
       "killer": "ahmed",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Ahmed",
       "victimEntry": 1,
       "killerEntry": 1,
@@ -3098,7 +3098,7 @@
       "victim": "p",
       "killer": "li-fo",
       "sourceVictim": "P",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 1,
       "killerEntry": 2,
       "bountyAmount": 10
@@ -3188,7 +3188,7 @@
       "victim": "p",
       "killer": "li-fo",
       "sourceVictim": "P",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 3,
       "killerEntry": 2,
       "bountyAmount": 10
@@ -3206,7 +3206,7 @@
       "victim": "p",
       "killer": "li-fo",
       "sourceVictim": "P",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 4,
       "killerEntry": 2,
       "bountyAmount": 10
@@ -3268,7 +3268,7 @@
       "victim": "griffin",
       "killer": "li-fo",
       "sourceVictim": "Griffin",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 4,
       "killerEntry": 2
     },
@@ -3310,7 +3310,7 @@
       "victim": "nasa-al",
       "killer": "li-fo",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 3,
       "killerEntry": 2,
       "bountyAmount": 10
@@ -3319,7 +3319,7 @@
       "victim": "ahmed",
       "killer": "li-fo",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 1,
       "killerEntry": 2,
       "bountyAmount": 10
@@ -3328,7 +3328,7 @@
       "victim": "hiro",
       "killer": "li-fo",
       "sourceVictim": "Hiro",
-      "sourceKiller": "ButtonMan: fka LiFo",
+      "sourceKiller": "ButtonMan",
       "victimEntry": 1,
       "killerEntry": 2,
       "bountyAmount": 10
@@ -3336,7 +3336,7 @@
     {
       "victim": "li-fo",
       "killer": "liam-o",
-      "sourceVictim": "ButtonMan: fka LiFo",
+      "sourceVictim": "ButtonMan",
       "sourceKiller": "Liam O",
       "victimEntry": 2,
       "killerEntry": 1,
