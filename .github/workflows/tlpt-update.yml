@@ -67,7 +67,8 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: ${{ github.sha }}
-          fetch-depth: 0
+          # The release uses this snapshot, never historical branches or tags.
+          fetch-depth: 1
       - name: Setup Python
         uses: actions/setup-python@v7
         with:
@@ -138,8 +139,8 @@ jobs:
         env:
           SOURCE_SHA: ${{ github.sha }}
         run: |
-          git fetch origin main
-          if [ "$(git rev-parse origin/main)" != "$SOURCE_SHA" ]; then
+          CURRENT_SHA=$(git ls-remote --exit-code origin refs/heads/main | cut -f1)
+          if [ "$CURRENT_SHA" != "$SOURCE_SHA" ]; then
             echo "A newer source revision exists; this obsolete release will not publish." >> "$GITHUB_STEP_SUMMARY"
             echo "ready=false" >> "$GITHUB_OUTPUT"
             exit 0

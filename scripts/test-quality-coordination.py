@@ -5,6 +5,7 @@ import json
 import unittest
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -59,7 +60,11 @@ def coordination_errors(pipeline, quality):
     require(pipeline.find("python scripts/browser-ci.py visual") < pipeline.find("git push origin HEAD:main"),
             "visual failures must block publishing")
     require('test "$CURRENT_SHA" = "$EXPECTED_SHA"' in pipeline and
-            'git rev-parse origin/main' in pipeline, "stale revisions must be checked at commit and deployment")
+            'git ls-remote --exit-code origin refs/heads/main | cut -f1' in pipeline and
+            'if [ "$CURRENT_SHA" != "$SOURCE_SHA" ]; then' in pipeline,
+            "stale revisions must be checked at commit and deployment")
+    require('fetch-depth: 1' in pipeline and 'fetch-depth: 0' not in pipeline and
+            'git fetch' not in pipeline, "release checkout must not download full history")
     require("needs.build.outputs.built_sha" in pipeline, "deployment head guard must use tested generated commit")
     require("release.json?revision=$SOURCE_SHA" in pipeline, "production release must be verified")
     require(not any(x in pipeline + quality for x in
@@ -106,6 +111,9 @@ class ReleaseTests(unittest.TestCase):
         for before, after in [
             ("needs: build", "needs: missing"),
             ("ref: ${{ github.sha }}", "ref: main"),
+            ("fetch-depth: 1", "fetch-depth: 0"),
+            ("git ls-remote --exit-code origin refs/heads/main | cut -f1", "git fetch origin main"),
+            ('if [ "$CURRENT_SHA" != "$SOURCE_SHA" ]; then', 'if false; then'),
             ("python scripts/browser-ci.py functional", "echo skipped"),
             ("python scripts/browser-ci.py visual", "echo skipped-visual"),
             ("python scripts/browser-ci.py prepare", "echo skipped-setup"),
@@ -119,6 +127,58 @@ class ReleaseTests(unittest.TestCase):
         ]:
             with self.subTest(regression=before):
                 self.assertTrue(coordination_errors(self.pipeline.replace(before, after), self.quality))
+
+    def test_shallow_publication_preserves_head_and_push_guards(self):
+        # Exercise real Git against disposable local repos, never GitHub/main.
+        with tempfile.TemporaryDirectory(prefix='tlpt-shallow-release-') as directory:
+            root = Path(directory)
+            remote, author, release = (root / name for name in ('remote.git', 'author', 'release'))
+
+            def git(cwd, *args, check=True):
+                return subprocess.run(['git', '-c', 'user.name=Release Test',
+                                       '-c', 'user.email=release-test@example.invalid', *args],
+                                      cwd=cwd, text=True, capture_output=True, check=check)
+
+            git(root, 'init', '--bare', str(remote))
+            git(root, 'init', '-b', 'main', str(author))
+            git(author, 'remote', 'add', 'origin', remote.as_uri())
+            for version in range(3):
+                (author / 'source.txt').write_text(str(version))
+                git(author, 'add', 'source.txt')
+                git(author, 'commit', '-m', f'Source {version}')
+            git(author, 'push', 'origin', 'HEAD:main')
+            source_sha = git(author, 'rev-parse', 'HEAD').stdout.strip()
+
+            git(root, 'init', str(release))
+            git(release, 'remote', 'add', 'origin', remote.as_uri())
+            git(release, 'fetch', '--no-tags', '--depth=1', 'origin', source_sha)
+            git(release, 'checkout', '--detach', 'FETCH_HEAD')
+            self.assertEqual(git(release, 'rev-list', '--count', 'HEAD').stdout.strip(), '1')
+
+            def remote_head():
+                return git(release, 'ls-remote', '--exit-code', 'origin', 'refs/heads/main').stdout.split()[0]
+
+            self.assertEqual(remote_head(), source_sha)
+            (release / 'generated.txt').write_text('tested output')
+            git(release, 'add', 'generated.txt')
+            git(release, 'commit', '-m', 'Tested generated output')
+            git(release, 'push', 'origin', 'HEAD:main')
+            tested_sha = git(release, 'rev-parse', 'HEAD').stdout.strip()
+            self.assertEqual(remote_head(), tested_sha)
+            self.assertNotEqual(remote_head(), source_sha, 'An obsolete source must not publish')
+
+            # A writer arriving after the head check must still defeat our push.
+            self.assertEqual(remote_head(), tested_sha)
+            git(author, 'pull', '--ff-only', 'origin', 'main')
+            (author / 'source.txt').write_text('newer source')
+            git(author, 'commit', '-am', 'Concurrent update')
+            git(author, 'push', 'origin', 'HEAD:main')
+            concurrent_sha = remote_head()
+            self.assertNotEqual(concurrent_sha, tested_sha)
+            (release / 'generated.txt').write_text('stale output')
+            git(release, 'commit', '-am', 'Stale generated output')
+            self.assertNotEqual(git(release, 'push', 'origin', 'HEAD:main', check=False).returncode, 0)
+            self.assertEqual(remote_head(), concurrent_sha, 'Concurrent work must remain untouched')
 
     def test_single_manifest_writer(self):
         diagnostic = (ROOT / ".github/workflows/build-gallery-manifest.yml").read_text()

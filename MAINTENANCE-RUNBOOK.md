@@ -70,7 +70,7 @@ The weekly runner and GitHub data pipeline already call both authoritative runne
 
 Main-branch site, data and media changes enter through **TLPT Data Pipeline**:
 
-1. Check out the exact source commit; build data and the gallery manifest once.
+1. Shallow-check out the exact source commit (`fetch-depth: 1`); build data and the gallery manifest once.
 2. Run the complete static/data quality suite once.
 3. Package only public files and test that exact package in the browser.
 4. Commit any changed generated outputs with a normal fast-forward push.
@@ -85,6 +85,12 @@ obsolete; it is explicitly not published. A second head check protects the
 deployment step. Do not force-push/rebase generated outputs or reset a checked
 release onto a moving branch. If a newer unrelated commit supersedes a run
 without triggering a replacement, manually run TLPT Data Pipeline on main.
+
+The publisher does not need historical branches or tags. Before committing tested
+outputs, `git ls-remote` reads only main's current commit ID, without downloading
+history again. A mismatch skips publication. Normal fast-forward push protection
+still rejects a concurrent update, and the deployment job independently checks
+the tested head. Checkout size changes do not alter any data, browser or visual gate.
 
 There is no competing gallery writer or standalone site-quality push trigger.
 The manual gallery workflow is a read-only diagnostic that fails if the
