@@ -14,7 +14,12 @@ module.exports=async function run(kind,base){
     const requests=[],errors=[];const onRequest=r=>{if(r.url().includes('/media/norm-narrates/'))requests.push(r.url());};const onError=e=>errors.push(e.message);
     page.on('request',onRequest);page.on('pageerror',onError);
     await page.goto(base+'/'+name+'.html'+(name==='player'?'?name=Wild%20Bill':''));
-    if(isDashboard)await page.locator('#dashboard-metric-select-trigger').waitFor();
+    if(isDashboard){
+     await page.locator('#dashboard-metric-select-trigger').waitFor();
+     // The shared shell creates the select before async data/bootstrap finishes.
+     // Wait for real dashboard output before testing tabs and their narration.
+     await page.locator('#dashboard-grid .dashboard-card').first().waitFor();
+    }
     if(name==='knockouts')await page.locator('#knockouts-summary-grid > *').first().waitFor();
     const card=page.locator('.norm-page-guide'),audio=card.locator('audio'),opener=page.locator(openSelector),dialog=page.locator(dialogSelector);
     await audio.waitFor();assert.equal(requests.length,0,'Page load never fetches narration');
