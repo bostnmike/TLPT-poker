@@ -50,6 +50,9 @@ assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 // Film Room handoff: exact approved commercial, covers and optional captions.
 const filmRoom = read('media.html');
 for (const [file, expected] of Object.entries({
+  'never-miss-a-game.mp4':'68bcc0139f3ee7fca69b6309f32e28fe836925a0e90d415d7aabdbecca99b0bc',
+  'notifications-thumbnail.jpg':'912125ef5ebac232c25d6610e4a103a21e82806e7e3fe80e6393642c70b0d616',
+  'notifications-captions.vtt':'8e2e8868310c066a862af13f3e019edd3420d0516a12ced8808ebd3972299966',
   'dont-be-a-donkey.mp4':'c62e33c48b720798d3fed4f54c50c8662e9eeb1485fadd33db41239fa44ed742',
   'commercial-thumbnail.jpg':'12dc0b0cea1fcf82aa1746b742494c2f622e6d97ffda86fc971d3296a036988a',
   'install-thumbnail.jpg':'f627c03329e9b6364cdc0e3ae47011b7f3b71efc4cb4032335413dd6d6d0a29e',
@@ -57,10 +60,23 @@ for (const [file, expected] of Object.entries({
   'install-captions.vtt':'abc3da93b21cca813afd125469950dae5cbca40380446a123e039d7e27ad451d'
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.match(filmRoom, /Commercial · 0:39/);
-for (const file of ['dont-be-a-donkey.mp4', 'commercial-thumbnail.jpg', 'commercial-captions.vtt']) {
+assert.match(filmRoom, /Commercial · 0:40/);
+assert.match(filmRoom, /Never Miss a Game — TLPT RSVP Notifications/);
+for (const file of ['dont-be-a-donkey.mp4', 'commercial-thumbnail.jpg', 'commercial-captions.vtt',
+  'never-miss-a-game.mp4', 'notifications-thumbnail.jpg', 'notifications-captions.vtt']) {
   assert.ok(filmRoom.includes(file + '?v=' + hash('media/rsvp-film-room/' + file).slice(0, 16)), 'Commercial cache version matches approved content: ' + file);
 }
-assert.equal((filmRoom.match(/<video\b/g) || []).length, 2);
+assert.equal((filmRoom.match(/<video\b/g) || []).length, 3);
+const notificationCaptions = read('media/rsvp-film-room/notifications-captions.vtt');
+assert.ok(notificationCaptions.startsWith('WEBVTT\n'));
+const notificationTimes = [...notificationCaptions.matchAll(/(\d{2}):(\d{2}):(\d{2})\.(\d{3}) --> (\d{2}):(\d{2}):(\d{2})\.(\d{3})/g)];
+assert.equal(notificationTimes.length, 20);
+previous = 0;
+for (const match of notificationTimes) {
+  const start = seconds(match.slice(1,5)), end = seconds(match.slice(5,9));
+  assert.ok(start >= previous && end > start && end <= 40);
+  previous = end;
+}
 assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 8, 'Keep all existing embedded films');
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
 assert.match(filmRoom, /<source src="media\/rsvp-app\/tlpt-rsvp-install.mp4"/);
