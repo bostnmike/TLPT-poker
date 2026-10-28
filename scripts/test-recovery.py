@@ -52,6 +52,8 @@ def rehearse(product):
             original.execute("INSERT INTO rsvp_state VALUES(1,7,?)", (json.dumps(state),))
             original.execute("INSERT INTO sessions VALUES('fake','player','test-player',1,1)")
             original.execute("INSERT INTO rate_limits VALUES('fake',1,1)")
+            original.execute("INSERT INTO push_subscriptions VALUES('fake','https://push.example.test','{}','test-player','fake',1)")
+            original.execute("INSERT INTO push_jobs VALUES('fake','fake','fake','{}',1,1,0,0)")
         original.commit()
         expected, expected_schema = snapshot(original), schema(original)
         export = "\n".join(original.iterdump())
