@@ -4,9 +4,9 @@ export function pushConfiguration(env){try{const jwk=JSON.parse(env.VAPID_PRIVAT
 const day=now=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
 const eventDate=e=>new Date(e.date+'T12:00:00Z').toLocaleDateString('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric'});
 export function notificationTransitions(before,after,now=new Date()){
- const previous=publicFeed(before).events,result=[];
+ const previous=publicFeed(before).events,result=[],today=day(now);
  for(const e of publicFeed(after).events){
-  if(!e.rsvpOpen||e.date==='Date TBD'||e.date<day(now))continue;
+  if(!e.rsvpOpen||e.date==='Date TBD'||e.date<today)continue;
   const old=previous.find(x=>x.id===e.id),common={eventId:e.id,url:'/?event='+encodeURIComponent(e.id)};
   if(!old?.rsvpOpen)result.push({...common,kind:'game-open',slug:null,title:'A game is open. Call your shot.',body:`${e.title} · ${eventDate(e)}. Tap to RSVP.`});
   else for(const w of old.waitlist)if(w.slug!==HOST&&e.rsvps[w.slug]==='yes')result.push({...common,kind:'seat',slug:w.slug,title:'You’re off the waitlist. You’re In!',body:`Your seat is confirmed for ${e.title} · ${eventDate(e)}.`});
