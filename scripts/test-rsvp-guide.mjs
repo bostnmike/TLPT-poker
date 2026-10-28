@@ -32,13 +32,17 @@ for (const match of times) {
   assert.ok(start >= previous && end > start && end <= 83.75);
   previous = end;
 }
-const promo = home.split('<div class="home-promo-pair"')[1].split('<section')[0];
-assert.ok(promo.indexOf('href="rsvp-app.html"') < promo.indexOf('href="rebuy-hard.html"'), 'App precedes Norm');
+const promo = home.split('<div class="home-promo-row"')[1].split('<section')[0];
+assert.deepEqual([...promo.matchAll(/<a\b[^>]+href="([^"]+)"/g)].map(match => match[1]),
+  ['media.html#rsvp-notifications', 'media.html#rsvp-commercial', 'rebuy-hard.html'],
+  'Notifications, Donkey, then Rebuy Hard');
 assert.match(promo, /images\/rebuy-hard\/norm-santa-tlpt.png/);
 assert.match(promo, /images\/site\/norm-rsvp-campaign.jpg/);
-assert.match(promo, /Put the Yellow Chip on Your Phone\./);
+assert.match(promo, /Never Miss a Game/);
+assert.match(promo, /Don’t Be a Donkey/);
 assert.match(promo, /class="home-rsvp-chip" src="images\/site\/chip-T-1000.png"/);
-assert.match(promo, /Get the Yellow Chip/);
+assert.match(promo, /Watch · 0:40/);
+assert.match(promo, /Watch · 0:39/);
 assert.doesNotMatch(promo, /The Commish made an app|TLPT RSVP\. Now on your phone\./);
 assert.match(schedule, /href="rsvp-app.html"/);
 assert.match(schedule, /Put the Yellow Chip on Your Phone\./);
@@ -91,4 +95,4 @@ for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') &&
   const html = read(file);
   assert.match(html, /<div class="nav-dropdown">\s*<a href="\/?schedule.html" class="nav-dropdown-parent[^"]*"[^>]*>Schedule<\/a>\s*<div class="nav-dropdown-menu">\s*<a href="\/?rsvp-app.html"[^>]*>RSVP App<\/a>/, file + ': RSVP App must be a child of Schedule');
 }
-console.log('PASS: approved RSVP video, verified public QR, captions, player-only links and app-before-poem placement.');
+console.log('PASS: approved RSVP videos, verified public QR, captions, player-only links and three-teaser order.');

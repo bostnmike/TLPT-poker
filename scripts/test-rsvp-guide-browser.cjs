@@ -47,29 +47,46 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(download.suggestedFilename(), 'TLPT-RSVP-Setup.mp4');
       assert.equal(await download.failure(), null);
       await page.goto(base + '/index.html');
-      const cards = page.locator('.home-promo-pair > a');
-      assert.equal(await cards.count(), 2);
-      assert.equal(await cards.first().getAttribute('href'), 'rsvp-app.html');
-      assert.equal(await cards.last().getAttribute('href'), 'rebuy-hard.html');
-      await cards.first().locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
-      assert.match(await cards.first().innerText(), /Put the Yellow Chip on Your Phone\./);
-      assert.equal(await cards.first().locator('.home-rebuy-image img').getAttribute('src'), 'images/site/norm-rsvp-campaign.jpg');
-      const appCard = await cards.first().boundingBox(), poem = await cards.last().boundingBox();
-      for (const selector of ['.home-rebuy-image', '.home-rebuy-copy', '.home-rsvp-chip', '.home-rebuy-cta']) {
-        const box = await cards.first().locator(selector).boundingBox();
-        assert.ok(box.x >= appCard.x && box.x + box.width <= appCard.x + appCard.width + 1, selector + ': fits home campaign');
+      const cards = page.locator('.home-promo-row > a');
+      const destinations = ['media.html#rsvp-notifications', 'media.html#rsvp-commercial', 'rebuy-hard.html'];
+      assert.equal(await cards.count(), 3);
+      assert.deepEqual(await cards.evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), destinations);
+      await cards.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
+      assert.match(await cards.first().innerText(), /Notifications/i);
+      assert.match(await cards.nth(1).innerText(), /Don’t Be a Donkey/);
+      assert.match(await cards.last().innerText(), /Rebuy Hard/);
+      let previousCard;
+      for (const card of await cards.all()) {
+        const bounds = await card.boundingBox();
+        for (const selector of ['.home-rebuy-image', '.home-rebuy-copy', '.home-rebuy-cta']) {
+          const box = await card.locator(selector).boundingBox();
+          assert.ok(box.x >= bounds.x && box.x + box.width <= bounds.x + bounds.width + 1, selector + ': fits teaser');
+        }
+        assert.equal(await card.evaluate(node => node.scrollWidth > node.clientWidth + 1), false);
+        if (previousCard && width > 700) {
+          assert.ok(Math.abs(bounds.y - previousCard.y) < 1);
+          assert.ok(bounds.x > previousCard.x + previousCard.width);
+          assert.ok(Math.abs(bounds.height - previousCard.height) < 1);
+        } else if (previousCard) assert.ok(bounds.y > previousCard.y + previousCard.height);
+        previousCard = bounds;
       }
-      assert.ok((await cards.first().locator('.home-rsvp-chip').boundingBox()).width <= 36);
+      assert.ok((await cards.nth(1).locator('.home-rsvp-chip').boundingBox()).width <= 36);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      if (width > 700) {
-        assert.ok(Math.abs(appCard.y - poem.y) < 1);
-        assert.ok(poem.x > appCard.x + appCard.width);
-        assert.ok(Math.abs(appCard.height - poem.height) < 1);
-      } else assert.ok(poem.y > appCard.y + appCard.height);
       await cards.first().scrollIntoViewIfNeeded();
       await page.screenshot({ path:'/tmp/rsvp-home-final-' + width + '.png' });
-      await cards.first().click();
-      assert.ok(page.url().endsWith('/rsvp-app.html'));
+      for (let index = 0; index < destinations.length; index++) {
+        if (index) await page.goto(base + '/index.html');
+        await page.locator('.home-promo-row > a').nth(index).click();
+        assert.ok(page.url().endsWith('/' + destinations[index]));
+        if (index < 2) {
+          const target = page.locator('#' + destinations[index].split('#')[1]);
+          await target.waitFor();
+          const title = await target.locator('h2').boundingBox();
+          const header = await page.locator('.site-header').boundingBox();
+          assert.ok(title.y >= header.y + header.height - 1, 'Linked film title clears sticky navigation');
+          assert.equal(await target.locator('video').evaluate(video => video.paused), true, 'Teaser never autoplays');
+        }
+      }
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));

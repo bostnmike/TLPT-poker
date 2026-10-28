@@ -198,3 +198,4 @@
     0 10px 22px rgba(0,0,0,.30),
     0 0 22px rgba(168,85,247,.18);
 }
+.media-card[id]{scroll-margin-top:120px;}
