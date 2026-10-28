@@ -233,6 +233,13 @@ Dated events are listed by date and Eastern start time in both player and
 Commish lists. An undated MTT stays last; assigning its date puts it into the
 normal chronological sequence. An event-specific URL does not reorder the list.
 
+**Reset to no decision** clears the selected player's response for the selected
+game using the existing unanswered (`tbd`) state. They leave the In/Maybe/Out
+lineups and waitlist. Resetting a confirmed player frees their seat for the next
+waitlisted player; rejoining later uses the normal queue rules. The host remains
+locked In. As with other Commish response edits, the reset does not send a
+Commish alert; a resulting waitlist promotion can notify that player.
+
 Manage a response is the first Commish panel. Player selectors and lineups list
 active players before alumni, with BostnMike first. Waitlists retain queue order.
 New events use a native calendar date picker, with a Date TBD option that keeps
