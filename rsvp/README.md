@@ -1,7 +1,7 @@
 # TLPT RSVP
 
 A buildless, responsive browser app hosted by the account-owned `tlpt-rsvp`
-Cloudflare Worker with **its own** `tlpt-rsvp` D1 database. No subscriptions,
+Cloudflare Worker with **its own** `tlpt-rsvp` D1 database. No paid subscriptions,
 payment method, SMS, native app, or Cloudflare Access enrollment is needed.
 
 Player entry: https://tlpt-rsvp.tlpt-bostnmike.workers.dev/
@@ -62,6 +62,54 @@ Platform references checked October 25, 2026:
 - https://web.dev/articles/install-criteria
 - https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios
 - https://support.google.com/chrome/answer/9658361?co=GENIE.Platform%3DAndroid&hl=en
+
+## Optional player notifications
+
+After choosing their name, players can tap **Enable notifications**, then approve
+one native permission prompt. There are only two automatic alerts: a newly
+created/opened/reopened game, and a player's actual waitlist-to-confirmed-seat
+transition (including a capacity increase or Commish priority change). Routine
+metadata edits, ordinary In responses, closed games and past dates produce no
+alerts. Enabling notifications does not send a backlog or alter an RSVP.
+On iOS/iPadOS 16.4+, enable from the installed Home Screen app. Unsupported or
+blocked browsers get plain instructions; RSVP remains usable without permission.
+The yellow TLPT chip identifies notifications; tapping opens that event in Player
+view, preserving any separate Commish window.
+
+Each browser/device opts in separately. A random, local device management token
+controls its private subscription; the server stores only its hash. Switching
+player names pauses that device's previous alerts and requires explicit opt-in
+for the next name. **Turn off notifications** deletes the subscription and its
+pending jobs. The existing shared-name trust model remains: this does not verify
+any player's identity. No contact details are collected and there is no SMS.
+Push endpoints/keys are private delivery data, excluded from feeds and the
+Commish JSON RSVP backup. Full D1 exports include both new tables.
+
+`0002_notifications.sql` adds `push_subscriptions` and `push_jobs` without
+changing existing state or sessions. Apply RSVP D1 migrations before deploying
+this release. Run `node rsvp/scripts/setup-notifications.mjs` once to provision
+only the Worker secret `VAPID_PRIVATE_JWK`; it preserves an existing secret and
+never prints/writes its value. Keep this secret during future releases/restores;
+rotating it requires every browser to subscribe again. The public key is served
+by `/api/notifications/config`. Delivery uses native Web Crypto (RFC 8291/8292)
+and browser-owned push services, with no added package or paid service.
+
+The state compare-and-swap and notification outbox INSERT run in one D1 batch
+transaction. Recipients are captured at the transition, with per-device binding
+versions so an old job cannot follow a changed name. Small leased batches send
+immediately after a save; a five-minute cron drains remaining/retry jobs. The
+browser push service may deliver after the app closes. Transient failures retry
+(up to five attempts within one hour); 404/410 expires a subscription. A delayed
+seat alert is dropped if the player no longer has a seat or the game is closed.
+Delivery is best-effort, subject to connectivity, permissions and phone settings;
+it is not guaranteed or instant. Notification tags collapse possible retries.
+Existing games are not broadcast merely because this release is deployed.
+
+Validation includes recipient-side payload decryption/signature verification,
+real local D1 outbox transactions, stale-save/rollback protection, retry/expiry,
+name switching/opt-out and service-worker click routing. Final phone delivery
+must also be confirmed on a player's opted-in physical device; desktop tests
+cannot establish iOS/Android notification settings or delivery.
 
 ## Authority and event identities
 

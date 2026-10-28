@@ -1,3 +1,4 @@
+import {pushConfiguration,notificationTransitions,enqueueStatement,subscriptionAction,scheduleNotifications,drainNotifications} from './notifications.mjs';
 import {Rejected,requireValue,publicFeed,publicPlayer,playerView,applyOperation,compareEvents} from './model.mjs';
 const encoder=new TextEncoder();
 export const hash=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -8,8 +9,8 @@ async function read(db){const row=await db.prepare('SELECT body FROM rsvp_state 
 async function update(db,actor,op){
  for(let i=0;i<10;i++){
   const state=await read(db),revision=state.revision;requireValue(actor.role==='shared'?state.players.some(p=>p.slug===actor.slug):actor.role==='admin'?actor.generation===state.adminGeneration:state.players.some(p=>p.slug===actor.slug&&p.generation===actor.generation),'Your private link was replaced. Ask The Commish for the new link.',401);
-  applyOperation(state,actor,op);
-  const result=await db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision).run();if(result.meta.changes)return state;
+  const before=structuredClone(state);applyOperation(state,actor,op);
+  const result=await db.batch([db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision),enqueueStatement(db,notificationTransitions(before,state),state.revision,Date.now())]);if(result[0].meta.changes)return state;
  }
  throw new Rejected('Busy saving other responses. Please try again.',409);
 }
@@ -28,6 +29,7 @@ async function limited(req,env){
 export default {async fetch(req,env,ctx){
  const url=new URL(req.url),path=url.pathname;
  try{
+  if(path==='/api/notifications/config'&&req.method==='GET'){const config=pushConfiguration(env);return json({available:!!config,...(config?{publicKey:config.publicKey}:{})});}
   if(path==='/api/version')return json({app:'tlpt-rsvp',revision:env.REVISION});
   if(path==='/api/public/events'&&req.method==='GET'){
    const response=json(publicFeed(await read(env.DB)),200,{'Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=0, must-revalidate'});return response;
@@ -51,11 +53,12 @@ export default {async fetch(req,env,ctx){
   requireValue(['GET','POST'].includes(req.method),'Method not allowed.',405);
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);
+  if(path==='/api/notifications'&&req.method==='POST'){const b=await body(req);requireValue(b?.action!=='enable'||pushConfiguration(env),'Notifications are not available right now.',503);return json(await subscriptionAction(env.DB,state,b,hash));}
   if(path==='/api/respond'&&req.method==='POST'){
    const b=await body(req);requireValue(b&&typeof b==='object'&&!Array.isArray(b),'Choose your name.');requireValue(typeof b.slug==='string'&&state.players.some(p=>p.slug===b.slug),'Choose your name.');
    requireValue(['yes','maybe','no'].includes(b.answer),'Choose In, Maybe or Out.');
    const saved=await update(env.DB,{role:'shared',slug:b.slug},{type:'respond',slug:b.slug,eventId:b.eventId,answer:b.answer});
-   return json({ok:true,revision:saved.revision});
+   scheduleNotifications(ctx,env);return json({ok:true,revision:saved.revision});
   }
   if(path==='/api/exchange'&&req.method==='POST'){
    const b=await body(req);requireValue(typeof b.key==='string'&&/^[a-f0-9]{64}$/.test(b.key),'Invalid private link.',401);
@@ -74,8 +77,8 @@ export default {async fetch(req,env,ctx){
    const key=b.type==='link'&&!b.revoke?random():null;
    // These values can only be generated server-side, never from caller input.
    const op={...b,newId:crypto.randomUUID(),hash:key?await hash(key):null};
-   const saved=await update(env.DB,actor,op);return json({ok:true,revision:saved.revision,...(key?{privateLink:`${url.origin}/#key=${key}`}:{})});
+   const saved=await update(env.DB,actor,op);scheduleNotifications(ctx,env);return json({ok:true,revision:saved.revision,...(key?{privateLink:`${url.origin}/#key=${key}`}:{})});
   }
   throw new Rejected('Not found.',404);
  }catch(e){return json({error:e instanceof Rejected?e.message:'RSVP service unavailable. Your answer was not saved. Please try again later.'},e instanceof Rejected?e.status:503);}
-}};
+},async scheduled(_event,env,ctx){ctx.waitUntil(drainNotifications(env));}};

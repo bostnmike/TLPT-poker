@@ -44,6 +44,7 @@ function render(){
  $('#identity').innerHTML=viewer?.role==='player'?`${person(viewer.player.slug)} <span class="tag">${playerPreview?'Player preview':'Your RSVP'}</span>`:commishMode()?'<span class="tag">THE COMMISH · No Bostn, No Party</span>':'';
  $('#logout').hidden=!me;
  if(controls){renderAdmin();loadPosters();}else{$('#admin').hidden=true;if(!commish)$('#admin').innerHTML='';}
+ document.dispatchEvent(new CustomEvent('tlpt-player-change',{detail:{slug:commishEntry?'':viewingPlayer()?.player?.slug||'',name:viewingPlayer()?.player?.name||''}}));
 }
 async function refresh(quiet=false){try{
  feed=await api('public/events');try{me=await api('me');}catch(e){if(e.status!==401)throw e;me=null;}players=feed.players;if(!selectedSlug&&me?.role==='player'&&me.player.slug!==HOST)selectedSlug=me.player.slug;render();

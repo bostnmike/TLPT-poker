@@ -1,14 +1,14 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {DatabaseSync} from 'node:sqlite';
+import {database} from './sqlite.mjs';
 import {readFileSync} from 'node:fs';
 import worker,{hash} from '../worker.mjs';
 import {publicFeed,applyOperation,eventPoster} from '../model.mjs';
 import {overlayLiveRsvps} from '../../cashier/lib/live-rsvp.mjs';
 const origin='https://rsvp.test',key='a'.repeat(64),adminKey='b'.repeat(64);
-function database(){const sql=new DatabaseSync(':memory:');sql.exec(readFileSync(new URL('../migrations/0001_rsvp.sql',import.meta.url),'utf8'));return {prepare(q){let values=[];return {bind(...v){values=v;return this;},async first(){return sql.prepare(q).get(...values)||null;},async run(){return {meta:{changes:Number(sql.prepare(q).run(...values).changes)}};}};},async batch(stmts){sql.exec('BEGIN');try{const r=[];for(const s of stmts)r.push(await s.run());sql.exec('COMMIT');return r;}catch(e){sql.exec('ROLLBACK');throw e;}},sql};}
+
 async function fixture(){const db=database(),state={revision:1,sequence:1,updatedAt:'2026-10-25T00:00:00Z',adminHash:await hash(adminKey),adminGeneration:1,players:['bostnmike','red','ahmed'].map(slug=>({slug,name:slug,image:'images/players/'+slug+'.jpg',rosterStatus:slug==='red'?'alumni':'active',generation:1,linkHash:null})),events:[{id:'stable-1',capacity:2,open:true,archived:false,metadata:{title:'Test',date:'2026-10-30',slot:'friday'},responses:{}}],audit:[]};state.players[0].linkHash=await hash(key);db.sql.prepare('INSERT INTO rsvp_state VALUES(1,1,?)').run(JSON.stringify(state));return {db,state,env:{DB:db,REVISION:'test',ASSETS:{fetch:()=>new Response('test')}}};}
-async function call(env,path,data,cookie,extra={}){const r=await worker.fetch(new Request(origin+'/api/'+path,{method:data?'POST':'GET',headers:{...(data?{'Content-Type':'application/json',Origin:origin}:{}),...(cookie?{Cookie:cookie}:{}),...extra},...(data?{body:JSON.stringify(data)}:{})}),env,{});return {r,body:await r.json()};}
+async function call(env,path,data,cookie,extra={}){const r=await worker.fetch(new Request(origin+'/api/'+path,{method:data?'POST':'GET',headers:{...(data?{'Content-Type':'application/json',Origin:origin}:{}),...(cookie?{Cookie:cookie}:{}),...extra},...(data?{body:JSON.stringify(data)}:{})}),env,{waitUntil(p){p.catch(()=>{});}});return {r,body:await r.json()};}
 async function login(env,k=key){const {r}=await call(env,'exchange',{key:k});assert.equal(r.status,200);return r.headers.get('Set-Cookie').split(';')[0];}
 test('Commish installs have a separate credential-free launch page while the shared Player install stays at root',async()=>{
  const {env}=await fixture();env.ASSETS.fetch=async req=>{
