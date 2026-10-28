@@ -199,3 +199,6 @@
     0 0 22px rgba(168,85,247,.18);
 }
 .media-card[id]{scroll-margin-top:120px;}
+@media(min-width:901px) and (max-width:1100px){
+  .media-card[id]{scroll-margin-top:170px;}
+}

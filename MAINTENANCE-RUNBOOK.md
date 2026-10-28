@@ -264,7 +264,7 @@ mobile navigation behavior. Isolated Lily and Marchand navigation stays separate
 The homepage teaser row keeps Notifications first, Don’t Be a Donkey second,
 and Rebuy Hard third. The first two link directly to their Film Room cards;
 the poem retains its own page. All three reuse the owned home-card styling,
-sit side by side above 700px and stack in that order on phones. Film links
+sit side by side above 800px and stack in that order on narrower screens. Film links
 clear the sticky navigation and never start playback automatically.
 The guide uses the standard TLPT header, hero, yellow chip, buttons and footer;
 its scoped layout places the QR and portrait video side by side above 700px.

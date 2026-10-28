@@ -5,7 +5,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
 (async () => {
   const browser = await chromium.launch({ channel:'chrome', headless:true });
   try {
-    for (const width of [1440, 820, 390, 320]) {
+    for (const width of [1440, 1024, 820, 768, 390, 320]) {
       const page = await browser.newPage({ viewport:{ width, height:950 }, reducedMotion:'reduce' });
       const errors = [], videoRequests = [];
       page.on('pageerror', error => errors.push(error.message));
@@ -63,7 +63,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
           assert.ok(box.x >= bounds.x && box.x + box.width <= bounds.x + bounds.width + 1, selector + ': fits teaser');
         }
         assert.equal(await card.evaluate(node => node.scrollWidth > node.clientWidth + 1), false);
-        if (previousCard && width > 700) {
+        if (previousCard && width > 800) {
           assert.ok(Math.abs(bounds.y - previousCard.y) < 1);
           assert.ok(bounds.x > previousCard.x + previousCard.width);
           assert.ok(Math.abs(bounds.height - previousCard.height) < 1);

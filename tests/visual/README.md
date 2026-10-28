@@ -11,6 +11,16 @@ removed (source `3adf120f`, staging run `40562885387`). Only those four images c
 unchanged. Campaign-before-poem order, image loading, link behavior and responsive
 bounds also pass `scripts/test-rsvp-guide-browser.cjs` at all four widths.
 
+On 2026-10-28 the four home entrance references were reviewed again for the
+requested three-teaser row: Notifications, Don’t Be a Donkey, Rebuy Hard.
+They come from staging run `40788552098` (source `b13587ce`). Only these four
+homepage PNGs changed; no footer reference or tolerance was changed. That
+staging run also exposed the previously observed intermittent footer link
+rasterization difference, which is not approved as part of the homepage update.
+The final release must still pass the unchanged footer comparison. Teaser order,
+responsive bounds, direct film links and no-autoplay behavior are checked at
+1440, 1024, 820, 768, 390 and 320 pixels by the RSVP-guide browser test.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
