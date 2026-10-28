@@ -228,4 +228,4 @@ input:disabled,select:disabled { opacity:.65; }
 .notification-panel h2 { color: var(--gold-soft); font-size: 19px; margin: 0 0 8px; }
 .notification-panel p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 8px 0; }
 .notification-panel button { max-width: 100%; }
-#notification-status { margin-bottom: 0; }
+#notification-status, #commish-notification-status { margin-bottom: 0; }

@@ -3,22 +3,23 @@ export function notificationSupport(win){
  if(installationPlatform(win.navigator)==='ios'&&!standalone(win))return 'install';
  return 'Notification' in win&&'PushManager' in win&&'serviceWorker' in win.navigator?'supported':'unsupported';
 }
-export function initNotifications(win,doc){
- const panel=doc.querySelector('#notifications'),enable=doc.querySelector('#enable-notifications'),disable=doc.querySelector('#disable-notifications'),status=doc.querySelector('#notification-status');
+export function initNotifications(win,doc,commish=false){
+ const panel=doc.querySelector(commish?'#commish-notifications':'#notifications'),enable=doc.querySelector(commish?'#enable-commish-notifications':'#enable-notifications'),disable=doc.querySelector(commish?'#disable-commish-notifications':'#disable-notifications'),status=doc.querySelector(commish?'#commish-notification-status':'#notification-status');
+ if(!panel)return;
  let player={slug:'',name:''},playerReady=false,enabledSlug='',config=null,working=false,message='',chain=Promise.resolve();
- const support=notificationSupport(win),storageKey='tlpt-rsvp-notifications';let token='';
+ const support=notificationSupport(win),storageKey=commish?'tlpt-rsvp-commish-notifications':'tlpt-rsvp-notifications';let token='';
  try{token=win.localStorage.getItem(storageKey)||'';}catch{}
  function deviceToken(){if(!/^[a-f0-9]{64}$/.test(token)){token=Array.from(win.crypto.getRandomValues(new Uint8Array(32)),n=>n.toString(16).padStart(2,'0')).join('');win.localStorage.setItem(storageKey,token);}return token;}
- async function request(data){const r=await win.fetch('/api/notifications',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,token:deviceToken()})});const b=await r.json();if(!r.ok)throw Error(b.error||'Notifications could not be saved. Try again.');return b;}
+ async function request(data){const r=await win.fetch(commish?'/api/commish-notifications':'/api/notifications',{method:'POST',cache:'no-store',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,token:deviceToken()})});const b=await r.json();if(!r.ok)throw Error(b.error||'Notifications could not be saved. Try again.');return b;}
  function render(){
-  panel.hidden=!player.slug;if(panel.hidden)return;
+  panel.hidden=!player.slug||!!player.preview;if(panel.hidden)return;
   const on=enabledSlug===player.slug&&win.Notification?.permission==='granted';
   enable.hidden=on;disable.hidden=!enabledSlug;enable.disabled=working||support!=='supported'||!config?.available||win.Notification?.permission==='denied';disable.disabled=working;
-  enable.textContent=working?'Saving…':'Enable notifications';
-  status.textContent=message||(support==='install'?'On iPhone or iPad, add TLPT RSVP to your Home Screen, open its icon, then enable notifications here.':support==='unsupported'?'This browser doesn’t support notifications. Try the app in an up-to-date supported browser.':win.Notification.permission==='denied'?'Notifications are blocked. Allow them in your phone or browser settings, then reopen this app.':on?`Notifications on for ${player.name}. New games and your confirmed seat — that’s it.`:!config?'Checking notifications…':!config.available?'Notifications are temporarily unavailable. Your RSVP still works.':`Optional alerts for ${player.name}. Tap Enable, then Allow on your phone.`);
+  enable.textContent=working?'Saving…':commish?'Enable Commish notifications':'Enable notifications';
+  status.textContent=message||(support==='install'?'On iPhone or iPad, add TLPT RSVP to your Home Screen, open its icon, then enable notifications here.':support==='unsupported'?'This browser doesn’t support notifications. Try the app in an up-to-date supported browser.':win.Notification.permission==='denied'?'Notifications are blocked. Allow them in your phone or browser settings, then reopen this app.':on?commish?'Commish notifications are on. You’ll hear when players submit or change an RSVP.':`Notifications on for ${player.name}. New games and your confirmed seat — that’s it.`:!config?'Checking notifications…':!config.available?'Notifications are temporarily unavailable. Your RSVP still works.':commish?'Tap Enable Commish notifications, then Allow on your phone.':`Optional alerts for ${player.name}. Tap Enable, then Allow on your phone.`);
  }
  async function sync(){
-  if(!playerReady||!token||support!=='supported'){render();return;}
+  if(!playerReady||!token||support!=='supported'||player.inactive||commish&&!player.slug){render();return;}
   try{const saved=await request({action:'status'});enabledSlug=saved.enabled?saved.slug:'';
    // A device belongs to the selected name only. Changing names pauses alerts;
    // it never silently signs the next person up using an old permission grant.
@@ -26,7 +27,7 @@ export function initNotifications(win,doc){
   }catch{message='Couldn’t check notification settings. Try again when connected.';}render();
  }
  function queueSync(){chain=chain.then(sync,sync);return chain;}
- doc.addEventListener('tlpt-player-change',event=>{const next=event.detail;playerReady=true;if(next.slug===player.slug){player=next;render();return;}player=next;message='';queueSync();render();});
+ doc.addEventListener('tlpt-player-change',event=>{const next=commish?{slug:event.detail.commish?'@commish':'',name:'The Commish',preview:event.detail.preview}:{...event.detail,inactive:event.detail.commish||event.detail.commishEntry},changed=!playerReady||next.slug!==player.slug||!!next.inactive!==!!player.inactive;playerReady=true;player=next;if(changed){message='';queueSync();}render();});
  enable.addEventListener('click',async()=>{
   if(working||!player.slug||support!=='supported'||!config?.available)return;
   const selected={...player};working=true;message='';render();
@@ -37,7 +38,7 @@ export function initNotifications(win,doc){
    await chain;
    const registration=await win.navigator.serviceWorker.register('/sw.js',{scope:'/',updateViaCache:'none'});await win.navigator.serviceWorker.ready;
    let subscription=await registration.pushManager.getSubscription();
-   if(subscription&&!/^[a-f0-9]{64}$/.test(token)){await subscription.unsubscribe();subscription=null;}
+   if(subscription&&!commish&&!/^[a-f0-9]{64}$/.test(token)&&!win.localStorage.getItem('tlpt-rsvp-commish-notifications')){await subscription.unsubscribe();subscription=null;}
    if(!subscription){const raw=atob(config.publicKey.replace(/-/g,'+').replace(/_/g,'/')),key=Uint8Array.from(raw,c=>c.charCodeAt(0));subscription=await registration.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:key});}
    if(player.slug!==selected.slug)return;
    await request({action:'enable',slug:selected.slug,subscription:subscription.toJSON()});enabledSlug=selected.slug;
@@ -46,11 +47,11 @@ export function initNotifications(win,doc){
   finally{working=false;render();}})();
   await task;
  });
- disable.addEventListener('click',async()=>{if(working)return;working=true;render();try{await chain;await request({action:'disable'});enabledSlug='';message='Notifications are off on this device. Your RSVP still works.';}catch{message='Couldn’t turn notifications off. Check your connection and try again.';}finally{working=false;render();}});
- const picker=doc.querySelector('#shared-player');if(picker){playerReady=true;player={slug:picker.value,name:picker.selectedOptions?.[0]?.textContent||''};}
+ disable.addEventListener('click',async()=>{if(working)return;working=true;render();try{await chain;await request({action:'disable'});enabledSlug='';message=commish?'Commish notifications are off on this device.':'Notifications are off on this device. Your RSVP still works.';}catch{message='Couldn’t turn notifications off. Check your connection and try again.';}finally{working=false;render();}});
+ const picker=commish?null:doc.querySelector('#shared-player');if(commish&&(doc.body?.classList.contains('is-commish')||doc.body?.classList.contains('is-player-preview'))){playerReady=true;player={slug:'@commish',name:'The Commish',preview:doc.body.classList.contains('is-player-preview')};}if(picker){playerReady=true;player={slug:picker.value,name:picker.selectedOptions?.[0]?.textContent||''};}
  doc.addEventListener('visibilitychange',()=>{if(!doc.hidden)queueSync();});
  win.fetch('/api/notifications/config',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(c=>{config=c;render();}).catch(()=>{config={available:false};render();});
  queueSync();render();
  return {sync:queueSync};
 }
-if(typeof window!=='undefined')initNotifications(window,document);
+if(typeof window!=='undefined'){initNotifications(window,document);initNotifications(window,document,true);}

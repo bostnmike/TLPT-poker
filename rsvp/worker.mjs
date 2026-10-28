@@ -10,7 +10,7 @@ async function update(db,actor,op){
  for(let i=0;i<10;i++){
   const state=await read(db),revision=state.revision;requireValue(actor.role==='shared'?state.players.some(p=>p.slug===actor.slug):actor.role==='admin'?actor.generation===state.adminGeneration:state.players.some(p=>p.slug===actor.slug&&p.generation===actor.generation),'Your private link was replaced. Ask The Commish for the new link.',401);
   const before=structuredClone(state);applyOperation(state,actor,op);
-  const result=await db.batch([db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision),enqueueStatement(db,notificationTransitions(before,state),state.revision,Date.now())]);if(result[0].meta.changes)return state;
+  const result=await db.batch([db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision),enqueueStatement(db,notificationTransitions(before,state,new Date(),actor,op),state.revision,Date.now())]);if(result[0].meta.changes)return state;
  }
  throw new Rejected('Busy saving other responses. Please try again.',409);
 }
@@ -22,7 +22,7 @@ async function identity(req,env,state){
 }
 async function body(req){requireValue(req.headers.get('Content-Type')?.split(';')[0]==='application/json','JSON required.',415);requireValue(Number(req.headers.get('Content-Length')||0)<=12000,'Request too large.',413);const t=await req.text();requireValue(t.length<=12000,'Request too large.',413);try{return JSON.parse(t);}catch{throw new Rejected('Invalid request.');}}
 async function limited(req,env){
- const notifications=new URL(req.url).pathname==='/api/notifications',bucket=notifications?'notifications:':'',limit=notifications?120:60;
+ const notifications=['/api/notifications','/api/commish-notifications'].includes(new URL(req.url).pathname),bucket=notifications?'notifications:':'',limit=notifications?120:60;
  const key=await hash(bucket+(req.headers.get('CF-Connecting-IP')||'local')+':'+Math.floor(Date.now()/60000));
  await env.DB.prepare('DELETE FROM rate_limits WHERE expires<?').bind(Date.now()).run();
  const row=await env.DB.prepare('INSERT INTO rate_limits(key,count,expires) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count').bind(key,Date.now()+120000).first();requireValue(row.count<=limit,'Too many attempts. Try again in a minute.',429);
@@ -54,7 +54,7 @@ export default {async fetch(req,env,ctx){
   requireValue(['GET','POST'].includes(req.method),'Method not allowed.',405);
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);
-  if(path==='/api/notifications'&&req.method==='POST'){const b=await body(req);requireValue(b?.action!=='enable'||pushConfiguration(env),'Notifications are not available right now.',503);return json(await subscriptionAction(env.DB,state,b,hash));}
+  if(['/api/notifications','/api/commish-notifications'].includes(path)&&req.method==='POST'){const b=await body(req),commish=path==='/api/commish-notifications',actor=commish&&b?.action==='enable'?await identity(req,env,state):null;requireValue(!actor||actor.role==='admin','Commish sign-in required.',403);requireValue(b?.action!=='enable'||pushConfiguration(env),'Notifications are not available right now.',503);return json(await subscriptionAction(env.DB,state,b,hash,commish,actor));}
   if(path==='/api/respond'&&req.method==='POST'){
    const b=await body(req);requireValue(b&&typeof b==='object'&&!Array.isArray(b),'Choose your name.');requireValue(typeof b.slug==='string'&&state.players.some(p=>p.slug===b.slug),'Choose your name.');
    requireValue(['yes','maybe','no'].includes(b.answer),'Choose In, Maybe or Out.');
