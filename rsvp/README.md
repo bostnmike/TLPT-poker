@@ -112,6 +112,32 @@ name switching/opt-out and service-worker click routing. Final phone delivery
 must also be confirmed on a player's opted-in physical device; desktop tests
 cannot establish iOS/Android notification settings or delivery.
 
+## Commish notifications
+
+Authenticated Commish view offers **Enable Commish notifications** immediately
+after Manage a response. No player name is needed. These alerts report a player's
+first In/Maybe/Out and subsequent answer changes. Repeating the same answer,
+BostnMike's reserved host response, and edits entered by The Commish stay quiet.
+Each alert includes the player, answer and game; tapping opens `?commish=1&event=…`
+and preselects that game's response controls. A missing/expired Commish session
+still requires sign-in: an alert URL never grants access.
+
+The Player preview hides signup but preserves the Commish subscription. Player
+and Commish opt-ins/off controls use separate local management tokens and D1
+tables, so either can be disabled without affecting the other, including when
+they share the browser's single push endpoint. `0003_commish_notifications.sql`
+adds only `commish_push_subscriptions`; existing player tables/signing secret are
+retained. Full D1 exports include all six tables; public feeds/RSVP JSON backups
+contain neither subscription table. No new service, key rotation or plan change.
+
+Enrollment at `/api/commish-notifications` requires a current admin session. A
+private device token can check/disable its own subscription without the session.
+Commish recipients are tied to `adminGeneration`; replacing/revoking the Commish
+credential makes old subscriptions ineligible for future and queued alerts.
+Expired ordinary sign-in cookies do not themselves cancel an explicit push
+opt-in. Delayed alerts with superseded answers are dropped, and notification
+tags are per player/event. Existing best-effort delivery/retry limits apply.
+
 ## Authority and event identities
 
 D1 owns all live upcoming event metadata, capacities, open/closed state, queue

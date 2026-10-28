@@ -7,17 +7,18 @@ import {createHash} from 'node:crypto';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
 const wrangler='node_modules/wrangler/bin/wrangler.js',state='.wrangler/test-'+Date.now(),base='http://127.0.0.1:8794',env={...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},key='c'.repeat(64),h=createHash('sha256').update(key).digest('hex');let server,output='';
 function run(args){const r=spawnSync(process.execPath,[wrangler,...args],{env,encoding:'utf8'});assert.equal(r.status,0,r.stderr+'\n'+r.stdout);return r.stdout;}
-const notificationToken='d'.repeat(64),notificationId=createHash('sha256').update(notificationToken).digest('hex');
+const notificationToken='d'.repeat(64),notificationId=createHash('sha256').update(notificationToken).digest('hex'),commishNotificationToken='e'.repeat(64),commishNotificationId='commish:'+createHash('sha256').update(commishNotificationToken).digest('hex');
 const fixture={revision:1,sequence:0,updatedAt:new Date().toISOString(),adminHash:h,adminGeneration:1,players:['bostnmike','red'].map(slug=>({slug,name:slug,linkHash:null,generation:0,rosterStatus:slug==='red'?'alumni':'active'})),events:[{id:'fixture-event',capacity:1,open:true,archived:false,metadata:{title:'Disposable QA',date:'2030-10-25',slot:'friday',day:'Friday',format:'40K',structure:'Test',time:'7:00 PM',endTime:'11:30 PM',location:'Room',address:'Cary'},responses:{}}],audit:[]};
 try{
  run(['d1','migrations','apply','DB','--local','--config','wrangler.jsonc','--persist-to',state]);
- writeFileSync('integration.local.sql',`INSERT INTO rsvp_state VALUES(1,1,'${JSON.stringify(fixture)}'); INSERT INTO push_subscriptions VALUES('${notificationId}','https://fcm.googleapis.com/disposable-never-sent','{}','red','fixture',1);`);run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--file','integration.local.sql']);
+ writeFileSync('integration.local.sql',`INSERT INTO rsvp_state VALUES(1,1,'${JSON.stringify(fixture)}'); INSERT INTO push_subscriptions VALUES('${notificationId}','https://fcm.googleapis.com/disposable-never-sent','{}','red','fixture',1); INSERT INTO commish_push_subscriptions VALUES('${commishNotificationId}','https://fcm.googleapis.com/commish-never-sent','{}','@commish:1','fixture',1);`);run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--file','integration.local.sql']);
  server=spawn(process.execPath,[wrangler,'dev','--local','--config','wrangler.jsonc','--persist-to',state,'--port','8794','--inspector-port','0'],{env,stdio:['ignore','pipe','pipe']});server.stdout.on('data',d=>output+=d);server.stderr.on('data',d=>output+=d);
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/api/version')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output);
  const post=(path,b,cookie,origin=base)=>fetch(base+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(b)});
  const playerHtml=await(await fetch(base+'/')).text(),commishHtml=await(await fetch(base+'/?commish=1')).text();
  assert.match(playerHtml,/href="\/manifest.webmanifest\?/);assert.match(commishHtml,/href="\/commish.webmanifest\?/);
  const commishManifest=await(await fetch(base+'/commish.webmanifest')).json();assert.equal(commishManifest.start_url,'/?commish=1');assert.equal(commishManifest.id,'/?commish=1');assert.ok(!JSON.stringify(commishManifest).includes('#key='));
+ assert.equal((await post('commish-notifications',{action:'enable',token:commishNotificationToken,subscription:{}})).status,401);
  assert.equal((await fetch(base+'/api/me')).status,401);assert.equal((await post('exchange',{key},null,'https://evil.test')).status,403);
  assert.equal((await post('respond',{slug:'red',eventId:'fixture-event',answer:'maybe'})).status,200);
  assert.equal((await post('respond',{slug:'red',eventId:'fixture-event',answer:'yes'},null,'https://evil.test')).status,403);
@@ -35,13 +36,16 @@ try{
  const query=sql=>JSON.parse(run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--command',sql,'--json']))[0].results;
  // No VAPID key exists in this disposable Worker, so it NEVER contacts a push
  // provider. Inspect the real D1 transaction's durable outbox instead.
- let queued=query('SELECT payload FROM push_jobs');assert.equal(queued.length,1);assert.equal(JSON.parse(queued[0].payload).kind,'seat');
- assert.equal((await post('action',edit,admin)).status,200);assert.equal(query('SELECT payload FROM push_jobs').length,1);
+ let queued=query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'");assert.equal(queued.length,1);assert.equal(JSON.parse(queued[0].payload).kind,'seat');
+ assert.equal((await post('action',edit,admin)).status,200);assert.equal(query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'").length,1);
  assert.equal((await post('action',{...edit,open:false},admin)).status,200);
- assert.equal((await post('action',edit,admin)).status,200);queued=query('SELECT payload FROM push_jobs');assert.equal(queued.length,2);assert.equal(queued.filter(j=>JSON.parse(j.payload).kind==='game-open').length,1);
+ assert.equal((await post('action',edit,admin)).status,200);queued=query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'");assert.equal(queued.length,2);assert.equal(queued.filter(j=>JSON.parse(j.payload).kind==='game-open').length,1);
  assert.equal((await post('action',{...edit,capacity:1},admin)).status,200);
- assert.equal((await post('notifications',{action:'disable',token:notificationToken})).status,200);assert.equal(query('SELECT payload FROM push_jobs').length,0);
+ assert.equal((await post('notifications',{action:'disable',token:notificationToken})).status,200);assert.equal(query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'").length,0);
  assert.deepEqual(await(await post('notifications',{action:'status',token:notificationToken})).json(),{enabled:false,slug:null});
+ assert.deepEqual(await(await post('commish-notifications',{action:'status',token:commishNotificationToken})).json(),{enabled:true,slug:'@commish'});
+ let adminJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='response'");assert.equal(adminJobs.length,2);assert.ok(adminJobs.every(j=>j.subscription_id===commishNotificationId));
+ assert.equal((await post('commish-notifications',{action:'disable',token:commishNotificationToken})).status,200);assert.equal(query('SELECT payload FROM push_jobs').length,0);
  assert.equal((await post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'no'},admin)).status,409);
  for(const type of ['cancel','delete']){
   assert.equal((await post('action',{type,eventId:'fixture-event'},admin)).status,200);
@@ -53,5 +57,5 @@ try{
  }
  await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
  assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
- console.log('PASS: actual local Worker/D1 — shared RSVP, notification outbox atomicity, game-opening deduplication, private device opt-out, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
+ console.log('PASS: actual local Worker/D1 — shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
 }finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}
