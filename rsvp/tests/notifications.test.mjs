@@ -92,3 +92,11 @@ test('notification API exposes only the public signing key and protects device o
  const feed=await(await worker.fetch(new Request(origin+'/api/public/events'),env,{})).json();for(const secret of [jwk.d,subscription.endpoint,data.token])assert.ok(!JSON.stringify(feed).includes(secret));
  assert.equal((await call({action:'disable',token:data.token})).status,200);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_subscriptions').get().n,0);
 });
+
+test('notification setup has its own rate allowance so a shared Wi-Fi cannot exhaust RSVP saves',async()=>{
+ const db=database(),s=state(),env={DB:db};db.sql.prepare('INSERT INTO rsvp_state VALUES(1,1,?)').run(JSON.stringify(s));
+ const post=(path,body)=>worker.fetch(new Request('https://rsvp.test/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:'https://rsvp.test'},body:JSON.stringify(body)}),env,{waitUntil(){}});
+ for(let i=0;i<120;i++)assert.equal((await post('notifications',{action:'status',token:'a'.repeat(64)})).status,200);
+ assert.equal((await post('notifications',{action:'status',token:'a'.repeat(64)})).status,429);
+ assert.equal((await post('respond',{slug:'red',eventId:'e1',answer:'maybe'})).status,200);
+});

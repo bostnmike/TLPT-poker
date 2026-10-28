@@ -22,9 +22,10 @@ async function identity(req,env,state){
 }
 async function body(req){requireValue(req.headers.get('Content-Type')?.split(';')[0]==='application/json','JSON required.',415);requireValue(Number(req.headers.get('Content-Length')||0)<=12000,'Request too large.',413);const t=await req.text();requireValue(t.length<=12000,'Request too large.',413);try{return JSON.parse(t);}catch{throw new Rejected('Invalid request.');}}
 async function limited(req,env){
- const key=await hash((req.headers.get('CF-Connecting-IP')||'local')+':'+Math.floor(Date.now()/60000));
+ const notifications=new URL(req.url).pathname==='/api/notifications',bucket=notifications?'notifications:':'',limit=notifications?120:60;
+ const key=await hash(bucket+(req.headers.get('CF-Connecting-IP')||'local')+':'+Math.floor(Date.now()/60000));
  await env.DB.prepare('DELETE FROM rate_limits WHERE expires<?').bind(Date.now()).run();
- const row=await env.DB.prepare('INSERT INTO rate_limits(key,count,expires) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count').bind(key,Date.now()+120000).first();requireValue(row.count<=60,'Too many attempts. Try again in a minute.',429);
+ const row=await env.DB.prepare('INSERT INTO rate_limits(key,count,expires) VALUES (?,1,?) ON CONFLICT(key) DO UPDATE SET count=count+1 RETURNING count').bind(key,Date.now()+120000).first();requireValue(row.count<=limit,'Too many attempts. Try again in a minute.',429);
 }
 export default {async fetch(req,env,ctx){
  const url=new URL(req.url),path=url.pathname;

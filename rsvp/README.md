@@ -81,7 +81,8 @@ controls its private subscription; the server stores only its hash. Switching
 player names pauses that device's previous alerts and requires explicit opt-in
 for the next name. **Turn off notifications** deletes the subscription and its
 pending jobs. The existing shared-name trust model remains: this does not verify
-any player's identity. No contact details are collected and there is no SMS.
+any player's identity. No contact details are collected and there is no SMS. Notification setup has a
+separate rate allowance so shared Wi-Fi setup cannot exhaust RSVP saves.
 Push endpoints/keys are private delivery data, excluded from feeds and the
 Commish JSON RSVP backup. Full D1 exports include both new tables.
 
