@@ -147,20 +147,6 @@
   outline-offset:-3px;
 }
 
-.media-film-description{
-  margin:12px 0 0;
-  color:var(--muted);
-  font-size:.875rem;
-  line-height:1.5;
-}
-
-.media-film-duration{
-  margin:8px 0 0;
-  color:#e9d5ff;
-  font-size:.8125rem;
-  font-weight:700;
-}
-
 .media-play-overlay{
   position:absolute;
   top:50%;

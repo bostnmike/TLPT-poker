@@ -289,6 +289,19 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
+The Film Room has seven native RSVP films, plus its nine original embedded/link
+films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
+description or duration line. The four additions supplied on 2026-10-29 are
+The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
+Their exact supplied MP4s, matching production thumbnails and optional captions
+live in `media/rsvp-film-room/`; preserve those bytes. Source hashes are locked in
+the RSVP-guide static test. The corresponding production folders under
+`output/video/` are `tlpt-missing-persons-commercial`, the Bad Beat Hotline
+`studio-redesign-preview`, Weather `no-live-preview`, and Empty Chair
+`desperate-plea-preview`. These exact final cuts—not earlier previews—match the
+owner's files. Browser checks cover all seven videos at six widths, including
+loaded thumbnails, native playback, caption cues, no eager downloads and no crop.
+
 ## Player membership: Active and Alumni
 
 ### Player display renames
