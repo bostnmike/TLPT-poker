@@ -105,6 +105,7 @@ test('six overlapping notifications count to six, retries do not add duplicates,
  await restarted.clear();assert.equal(restarted.badges.at(-1),0);await restarted.push('delivery-6');assert.equal(restarted.badges.at(-1),0);
  await restarted.push('delivery-7');assert.equal(restarted.badges.at(-1),1);
  for(const stored of first.records.values())assert.ok(!stored.includes('Private notification text'));
+ const legacy=badgeWorker();await legacy.push(undefined);for(const stored of legacy.records.values())assert.ok(!stored.includes('Private notification text'));
 });
 test('counts and resets are device-local, and unavailable storage cannot stop banners or in-memory counting',async()=>{
  const phone=badgeWorker(),mac=badgeWorker();await phone.push('first');await mac.push('first');await phone.push('second');
