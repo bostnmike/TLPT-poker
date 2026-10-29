@@ -7,6 +7,12 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
   try {
     for (const width of [1440, 1024, 820, 768, 390, 320]) {
       const page = await browser.newPage({ viewport:{ width, height:950 }, reducedMotion:'reduce' });
+      // Test TLPT's embed mappings/layout without making YouTube availability or
+      // personalized player chrome a release dependency. Actual YouTube playback,
+      // visibility and uploaded thumbnails are verified separately in the browser.
+      await page.route('https://www.youtube.com/embed/**', route => route.fulfill({
+        contentType:'text/html', body:'<!doctype html><title>YouTube frame fixture</title>'
+      }));
       const errors = [], videoRequests = [];
       page.on('pageerror', error => errors.push(error.message));
       page.on('request', request => { if(request.url().includes('tlpt-rsvp-install.mp4')) videoRequests.push(request.url()); });
@@ -84,7 +90,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
           const title = await target.locator('h2').boundingBox();
           const header = await page.locator('.site-header').boundingBox();
           assert.ok(title.y >= header.y + header.height - 1, 'Linked film title clears sticky navigation');
-          assert.equal(await target.locator('video').evaluate(video => video.paused), true, 'Teaser never autoplays');
+          assert.equal(await target.locator('iframe').count(), 0, 'Teaser does not load a player before a click');
+          assert.equal(await target.locator('.media-video-facade').count(), 1, 'Existing click-to-play treatment retained');
         }
       }
       await page.goto(base + '/schedule.html');
@@ -121,34 +128,41 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 17, 'Retain nine original films and all eight native RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 17, 'Retain nine original films and all eight RSVP films');
+      assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
+      assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
+      assert.equal(await page.locator('.media-video-facade').count(), 16, 'All sixteen YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      for (const [id, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],['weather-forecast',29],['no-empty-chairs',32],['calling-the-clock',26],['rsvp-notifications', 40], ['rsvp-commercial', 39], ['rsvp-installation', 83.75]]) {
-        const card = page.locator('#' + id), player = card.locator('video');
+      for (const [id, youtubeId] of [['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
+        const card = page.locator('#' + id), cover = card.locator('.media-video-facade'), player = card.locator('iframe');
+        assert.equal(await card.count(), 1, 'Exactly one card for '+id);
         await card.scrollIntoViewIfNeeded();
+        const thumbnailSlug = ({'rsvp-notifications':'notifications','rsvp-commercial':'commercial','rsvp-installation':'install'})[id] || id;
+        assert.match(await cover.locator('img').getAttribute('src'), new RegExp('^media/rsvp-film-room/'+thumbnailSlug+'-thumbnail[.]jpg[?]v=[a-f0-9]{16}$'), 'Matching approved landscape thumbnail');
+        await cover.locator('img').evaluate(img => img.decode());
+        assert.equal(await cover.locator('img').evaluate(img => img.naturalWidth), 1280, 'Wide cover loads without Shorts cropping');
+        assert.ok(await cover.getAttribute('aria-label'), 'Accessible play button');
+        const coverBox = await cover.boundingBox();
+        assert.ok(Math.abs(coverBox.width / coverBox.height - 16 / 9) < .02, 'Existing cover aspect ratio');
+        await card.screenshot({path:'/tmp/' + id + '-' + width + '.png'});
+        await cover.click();
+        await player.waitFor({state:'visible'});
         const box = await player.boundingBox();
         assert.ok(Math.abs(box.width / box.height - 16 / 9) < .02, 'Film Room retains its landscape card frame');
-        assert.equal(await player.evaluate(v => getComputedStyle(v).objectFit), 'contain', 'Portrait footage must not crop');
-        const poster = await player.evaluate(async v => {
-          const image = new Image(); image.src = v.poster; await image.decode();
-          return [image.naturalWidth, image.naturalHeight];
-        });
-        assert.deepEqual(poster, [1280, 720]);
-        await card.screenshot({path:'/tmp/' + id + '-' + width + '.png'});
-        assert.equal(await player.evaluate(v => v.textTracks[0].mode), 'disabled', 'Captions remain optional');
-        await player.evaluate(async v => { v.muted = true; v.textTracks[0].mode = 'showing'; await v.play(); });
-        await page.waitForFunction(id => document.querySelector('#' + id + ' video').currentTime > .1, id);
-        await page.waitForFunction(id => document.querySelector('#' + id + ' track').track.cues?.length > 0, id);
-        if (id === 'rsvp-notifications') assert.equal(await player.evaluate(v => v.textTracks[0].cues.length), 20);
-        const state = await player.evaluate(v => ({duration:v.duration, width:v.videoWidth, height:v.videoHeight, error:v.error?.message}));
-        assert.ok(Math.abs(state.duration - duration) < .15);
-        assert.equal(state.width, 1080); assert.equal(state.height, 1920);
-        assert.equal(state.error, undefined);
-        await player.evaluate(v => v.pause());
+        const bounds = await card.boundingBox();
+        assert.ok(box.x >= bounds.x && box.x+box.width <= bounds.x+bounds.width+1, 'Embed stays within its card');
+        assert.equal(await player.getAttribute('src'), 'https://www.youtube.com/embed/'+youtubeId+'?playsinline=1&autoplay=1');
+        assert.equal(await player.getAttribute('loading'), 'eager', 'Load the requested player only after activation');
+        assert.equal(await player.getAttribute('referrerpolicy'), 'strict-origin-when-cross-origin');
+        assert.ok(await player.getAttribute('title'), 'Accessible player title');
+        assert.equal(await player.getAttribute('allowfullscreen'), '');
+        const params = new URL(await player.getAttribute('src')).searchParams;
+        assert.equal(params.get('autoplay'), '1', 'The explicit play click starts the video');
+        assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide, playback, captions, download, home order, Schedule link and all eight Film Room videos');
+      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all eight YouTube embed mappings/layouts');
       await page.close();
     }
   } finally { await browser.close(); }

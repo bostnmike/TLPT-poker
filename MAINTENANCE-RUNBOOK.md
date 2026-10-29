@@ -289,7 +289,7 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
-The Film Room has eight native RSVP films, plus its nine original embedded/link
+The Film Room has eight RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -301,8 +301,22 @@ the RSVP-guide static test. The corresponding production folders under
 `desperate-plea-preview`. These exact final cuts—not earlier previews—match the
 owner's files. The approved Calling the Clock handoff uses the exact white-dinner-
 jacket/red-ALL-IN-plaque cut from `tlpt-calling-the-clock-commercial/all-in-plaque-preview`;
-do not substitute its earlier exports. Browser checks cover all eight videos at six widths, including
-loaded thumbnails, native playback, caption cues, no eager downloads and no crop.
+do not substitute its earlier exports. On 2026-10-29 the owner uploaded the eight
+films to YouTube; the exact card-to-video IDs are locked in the RSVP-guide tests.
+YouTube uses the matching approved portrait production posters to avoid Shorts
+cropping; the site retains the approved landscape covers via each iframe's
+versioned `data-thumbnail`. Older films retain their YouTube-provided cover fallback.
+YouTube settings are
+Unlisted, not made for kids, no age restriction, AI disclosure enabled, embedding
+allowed, and subscription-feed/notification announcements disabled.
+The site uses the same lazy, landscape iframe treatment as its older YouTube films.
+Do not enable autoplay or force captions with `cc_load_policy=1`; CC remains optional
+(YouTube may honor a viewer's own saved caption preference).
+The standalone RSVP App guide and download remain unchanged and self-hosted.
+Browser checks cover embed identity, responsive bounds and home deep links at six
+widths, using a deterministic YouTube frame response; they do not claim to test
+YouTube service availability/playback. Check real YouTube playback and thumbnails
+in a signed-in browser before publication, and on the live page after deployment.
 
 ## Player membership: Active and Alumni
 

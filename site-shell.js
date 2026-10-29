@@ -384,6 +384,11 @@
         <img src="https://i.ytimg.com/vi/${match[1]}/hqdefault.jpg" alt="" loading="lazy" decoding="async" data-hide-on-error>
         <span class="media-video-play" aria-hidden="true"></span>
       `;
+      // Shorts crop YouTube covers vertically; retain approved wide artwork here.
+      const thumbnail = iframe.getAttribute("data-thumbnail");
+      if (thumbnail && /^media\/rsvp-film-room\/[a-z-]+\.jpg\?v=[a-f0-9]{16}$/.test(thumbnail)) {
+        facade.querySelector("img").setAttribute("src", thumbnail);
+      }
 
       const frame = iframe.cloneNode(true);
       frame.setAttribute("loading", "eager");

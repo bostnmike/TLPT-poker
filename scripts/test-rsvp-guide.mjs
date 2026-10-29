@@ -51,7 +51,7 @@ assert.match(schedule, /class="rsvp-campaign-chip" src="images\/site\/chip-T-100
 assert.match(schedule, /Get the Yellow Chip/);
 for (const html of [home, schedule]) assert.doesNotMatch(html, /The TLPT RSVP campaign/i);
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
-// Film Room handoff: exact approved commercial, covers and optional captions.
+// Preserve approved originals; Film Room playback now uses the owner's YouTube uploads.
 const filmRoom = read('media.html');
 for (const [file, expected] of Object.entries({
   'calling-the-clock.mp4':'3be424078220a1f3dea69b6ad1a2f1c99a69468592f07b255717e5fad13ec793',
@@ -90,10 +90,6 @@ for (const [id, title] of [
   ['calling-the-clock', '⏱️ Calling the Clock'],
 ]) assert.ok(filmRoom.includes(`<h2 id="${id}-title">${title}</h2>`), 'Short title only: ' + id);
 for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],['weather-forecast',29],['no-empty-chairs',32],['calling-the-clock',26]]) {
-  for (const suffix of ['.mp4','-thumbnail.jpg','-captions.vtt']) {
-    const file=slug+suffix;
-    assert.ok(filmRoom.includes(file+'?v='+hash('media/rsvp-film-room/'+file).slice(0,16)), 'Versioned Film Room asset: '+file);
-  }
   const captions=read('media/rsvp-film-room/'+slug+'-captions.vtt');
   assert.ok(captions.startsWith('WEBVTT\n'));
   const cues=[...captions.matchAll(/(\d{2}):(\d{2}):(\d{2})\.(\d{3}) --> (\d{2}):(\d{2}):(\d{2})\.(\d{3})/g)];
@@ -105,11 +101,26 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
     previousEnd=end;
   }
 }
-for (const file of ['dont-be-a-donkey.mp4', 'commercial-thumbnail.jpg', 'commercial-captions.vtt',
-  'never-miss-a-game.mp4', 'notifications-thumbnail.jpg', 'notifications-captions.vtt']) {
-  assert.ok(filmRoom.includes(file + '?v=' + hash('media/rsvp-film-room/' + file).slice(0, 16)), 'Commercial cache version matches approved content: ' + file);
+const youtubeFilms = [
+  ['the-games-afoot','sr4AU3WoRTA'], ['bad-beat-hotline','iugKsWyLU5Y'],
+  ['weather-forecast','kFF9RmDW5sk'], ['no-empty-chairs','RyPECQqsayY'],
+  ['calling-the-clock','ipI7E9GUVnQ'], ['rsvp-notifications','ANC2iebFFDc'],
+  ['rsvp-commercial','I0EmodtWMV0'], ['rsvp-installation','KUArnlk48KQ'],
+];
+for (const [id, youtubeId] of youtubeFilms) {
+  assert.equal(filmRoom.split(`id="${id}"`).length - 1, 1, 'Exactly one film card: '+id);
+  const card=filmRoom.split(`id="${id}"`)[1].split('<!-- VIDEO 1 -->')[0].split('<div class="media-card"')[0];
+  assert.ok(card.includes(`src="https://www.youtube.com/embed/${youtubeId}?playsinline=1"`), 'Correct YouTube upload: '+id);
+  assert.match(card, /class="media-embed-wrap"/);
+  assert.match(card, /loading="lazy"/);
+  assert.match(card, /referrerpolicy="strict-origin-when-cross-origin"/);
+  assert.match(card, /allowfullscreen/);
+  const cover = ({'rsvp-notifications':'notifications','rsvp-commercial':'commercial','rsvp-installation':'install'})[id] || id;
+  const thumbnail = 'media/rsvp-film-room/'+cover+'-thumbnail.jpg';
+  const version = hash(thumbnail).slice(0,16);
+  assert.ok(card.includes('data-thumbnail="'+thumbnail+'?v='+version+'"'), 'Approved wide cover: '+id);
 }
-assert.equal((filmRoom.match(/<video\b/g) || []).length, 8);
+assert.equal((filmRoom.match(/<video\b/g) || []).length, 0, 'Film Room uses YouTube, not duplicate MP4 players');
 const notificationCaptions = read('media/rsvp-film-room/notifications-captions.vtt');
 assert.ok(notificationCaptions.startsWith('WEBVTT\n'));
 const notificationTimes = [...notificationCaptions.matchAll(/(\d{2}):(\d{2}):(\d{2})\.(\d{3}) --> (\d{2}):(\d{2}):(\d{2})\.(\d{3})/g)];
@@ -120,16 +131,15 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 8, 'Keep all existing embedded films');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 16, 'Eight new YouTube films plus all eight original embeds');
+for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
+  assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
-assert.match(filmRoom, /<source src="media\/rsvp-app\/tlpt-rsvp-install.mp4"/);
-for (const video of filmRoom.matchAll(/<video\b[\s\S]*?<\/video>/g)) {
-  assert.match(video[0], /controls playsinline preload="none"/);
-  assert.match(video[0], /poster="media\/rsvp-film-room\//);
-  assert.match(video[0], /<track kind="captions"[^>]+srclang="en" label="English">/);
-  assert.doesNotMatch(video[0], /autoplay|\bdefault\b/);
+for (const frame of filmRoom.matchAll(/<iframe\b[\s\S]*?<\/iframe>/g)) {
+  assert.match(frame[0], /title="[^"]+"/);
+  assert.match(frame[0], /loading="lazy"/);
+  assert.doesNotMatch(frame[0], /autoplay=1|cc_load_policy=1/, 'No autoplay or forced captions');
 }
-assert.match(read('media.css'), /\.media-native-video\s*\{[^}]*object-fit:contain/);
 for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') && !['marchand.html','lily.html','cashier.html'].includes(name))) {
   const html = read(file);
   assert.match(html, /<div class="nav-dropdown">\s*<a href="\/?schedule.html" class="nav-dropdown-parent[^"]*"[^>]*>Schedule<\/a>\s*<div class="nav-dropdown-menu">\s*<a href="\/?rsvp-app.html"[^>]*>RSVP App<\/a>/, file + ': RSVP App must be a child of Schedule');
