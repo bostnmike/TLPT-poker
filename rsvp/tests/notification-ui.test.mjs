@@ -88,3 +88,33 @@ test('opening or returning to a visible app clears its badge; hidden apps and ba
   doc.hidden=false;await handlers.visibilitychange();assert.equal(clears,mode==='unsupported'?0:2);
  }
 });
+
+
+function badgeWorker(records=new Map(),brokenStorage=false){
+ const handlers={},badges=[],banners=[];
+ const cache={async match(key){return records.has(key)?new Response(records.get(key)):undefined;},async put(key,response){if(brokenStorage==='write')throw Error('Quota');records.set(key,await response.text());}};
+ const self={location:{origin:'https://rsvp.test'},navigator:{async setAppBadge(value){badges.push(value);},async clearAppBadge(){badges.push(0);}},caches:{async open(){if(brokenStorage===true)throw Error('Storage blocked');return cache;}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(title){banners.push(title);}},clients:{async matchAll(){return [];},async openWindow(){}}};
+ vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});
+ function dispatch(type,data){let task;handlers[type]({...data,waitUntil:promise=>task=promise});return task;}
+ return {records,badges,banners,push:id=>dispatch('push',{data:{json:()=>({notificationId:id,title:'Private notification text',url:'/?event=e1'})}}),clear:()=>dispatch('message',{data:{type:'tlpt-clear-unread'}})};
+}
+test('six overlapping notifications count to six, retries do not add duplicates, and unread counts survive worker restarts',async()=>{
+ const first=badgeWorker();await Promise.all(Array.from({length:6},(_,i)=>first.push('delivery-'+i)));assert.deepEqual(first.badges,[1,2,3,4,5,6]);
+ await first.push('delivery-5');assert.equal(first.badges.at(-1),6);
+ const restarted=badgeWorker(first.records);await restarted.push('delivery-6');assert.equal(restarted.badges.at(-1),7);
+ await restarted.clear();assert.equal(restarted.badges.at(-1),0);await restarted.push('delivery-6');assert.equal(restarted.badges.at(-1),0);
+ await restarted.push('delivery-7');assert.equal(restarted.badges.at(-1),1);
+ for(const stored of first.records.values())assert.ok(!stored.includes('Private notification text'));
+});
+test('counts and resets are device-local, and unavailable storage cannot stop banners or in-memory counting',async()=>{
+ const phone=badgeWorker(),mac=badgeWorker();await phone.push('first');await mac.push('first');await phone.push('second');
+ assert.equal(phone.badges.at(-1),2);assert.equal(mac.badges.at(-1),1);await phone.clear();assert.equal(phone.badges.at(-1),0);assert.equal(mac.badges.at(-1),1);
+ const blocked=badgeWorker(new Map(),true);await blocked.push('one');await blocked.push('two');assert.deepEqual(blocked.badges,[1,2]);assert.equal(blocked.banners.length,2);
+ const initial=badgeWorker();await initial.clear();const writeBlocked=badgeWorker(initial.records,'write');await writeBlocked.push('one');await writeBlocked.push('two');assert.deepEqual(writeBlocked.badges,[1,2]);
+});
+test('opening the app tells its worker to reset the persistent counter only while visible',async()=>{
+ const events={},messages=[],win={navigator:{async clearAppBadge(){},serviceWorker:{ready:Promise.resolve({active:{postMessage:message=>messages.push(message)}})}}},doc={hidden:false,addEventListener:(type,fn)=>events[type]=fn};
+ initNotificationBadge(win,doc);await tick();assert.deepEqual(messages,[{type:'tlpt-clear-unread'}]);
+ doc.hidden=true;await events.visibilitychange();assert.equal(messages.length,1);
+ doc.hidden=false;await events.visibilitychange();assert.equal(messages.length,2);
+});

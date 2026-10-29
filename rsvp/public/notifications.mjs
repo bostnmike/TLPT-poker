@@ -4,7 +4,11 @@ export function notificationSupport(win){
  return 'Notification' in win&&'PushManager' in win&&'serviceWorker' in win.navigator?'supported':'unsupported';
 }
 export function initNotificationBadge(win,doc){
- async function clear(){if(!doc.hidden)try{await win.navigator.clearAppBadge?.();}catch{/* Unsupported or blocked badges never affect the app. */}}
+ async function clear(){
+  if(doc.hidden)return;
+  try{await win.navigator.clearAppBadge?.();}catch{/* Badge support is optional. */}
+  try{const registration=await win.navigator.serviceWorker?.ready;registration?.active?.postMessage({type:'tlpt-clear-unread'});}catch{/* RSVP and notification controls remain usable. */}
+ }
  doc.addEventListener('visibilitychange',clear);clear();
 }
 export function initNotifications(win,doc,commish=false){
