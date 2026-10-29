@@ -1,6 +1,7 @@
 /* One on-page player, with a separate written guide on the right. */
 .norm-page-guide { display:grid; grid-template-columns:96px minmax(0,1fr); grid-template-areas:"portrait intro" "portrait controls"; align-items:center; gap:8px 20px; margin:14px 0 20px; padding:18px 20px; border:1px solid #796339; border-radius:14px; background:#17222b; color:#f2f5f8; min-width:0; text-align:left; }
-.norm-page-guide .norm-headshot { grid-area:portrait; display:block; width:96px; height:96px; object-fit:cover; object-position:center 35%; border:2px solid #d2ac53; border-radius:50%; box-sizing:border-box; }
+.norm-page-guide .norm-headshot { grid-area:portrait; display:block; position:relative; overflow:hidden; width:96px; height:96px; border:2px solid #d2ac53; border-radius:50%; box-sizing:border-box; background:#17222b; }
+.norm-page-guide .norm-headshot img { position:absolute; display:block; max-width:none; height:auto; border:0; border-radius:0; }
 .crew-control-deck > .norm-page-guide { grid-column:1 / -1; align-self:start; margin:0 0 14px; }
 .norm-page-intro { grid-area:intro; min-width:0; }
 body .norm-page-intro h3 { margin:0 0 4px; color:#ffcf70; font-size:1.05rem; line-height:1.3; }

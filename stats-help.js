@@ -1,6 +1,18 @@
 /* Shared page-level narration and separate, written-only help dialogs. */
 (() => {
-  const portrait = 'images/site/norm-headshot.png';
+  // Square viewports into the approved 1983 × 793 cast artwork. Reuse one
+  // cached image; never redraw faces or randomly change a guide's character.
+  const portrait = 'images/site/norm-many-faces.jpg';
+  const portraits = {
+    referee: [365, 80, 270],
+    weather: [660, 75, 280],
+    clock: [1065, 75, 280],
+    explorer: [1385, 80, 310],
+    detective: [65, 290, 285],
+    hotline: [525, 325, 285],
+    classic: [870, 310, 285],
+    host: [1205, 340, 290]
+  };
   const add = (parent, tag, text, className) => {
     const el = document.createElement(tag);
     if (text) el.textContent = text;
@@ -9,19 +21,29 @@
     return el;
   };
   function headshot(parent) {
-    const img = add(parent, 'img', '', 'norm-headshot');
+    const frame = add(parent, 'span', '', 'norm-headshot');
+    frame.setAttribute('aria-hidden', 'true');
+    const img = add(frame, 'img');
     img.src = portrait;
     img.alt = '';
-    img.width = 96;
-    img.height = 96;
+    img.width = 1983;
+    img.height = 793;
     img.decoding = 'async';
+    return key => {
+      const character = Object.hasOwn(portraits, key) ? key : 'classic';
+      const [x, y, size] = portraits[character];
+      frame.dataset.normCharacter = character;
+      img.style.width = (1983 / size * 100) + '%';
+      img.style.left = (-x / size * 100) + '%';
+      img.style.top = (-y / size * 100) + '%';
+    };
   }
   function mount(opener, currentView) {
     const section = document.createElement('section');
     section.className = 'norm-page-guide';
     const anchor = opener.closest('.control-deck-heading, .dashboard-summary-row') || opener;
     anchor.after(section);
-    headshot(section);
+    const syncPortrait = headshot(section);
     const intro = add(section, 'div', '', 'norm-page-intro');
     add(intro, 'h3', 'Norm Narrates');
     const description = add(intro, 'p');
@@ -44,6 +66,7 @@
     });
     const sync = () => {
       const view = currentView();
+      syncPortrait(view.portrait);
       section.setAttribute('aria-label', 'Norm Narrates: ' + view.title);
       description.textContent = view.audio ? 'Norm’s take on ' + view.title + '.' : 'The recording is on the way. Open the Read-me guide.';
       audio.setAttribute('aria-label', 'Listen to Norm explain ' + view.title);

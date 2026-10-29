@@ -6,7 +6,7 @@
   if (!dialog || !opener || !content) return;
   const views = {
     results: {
-      title: 'Results',
+      title: 'Results', portrait: 'referee',
       intro: 'See what happened at the tables: eliminations, bounty wins, cashes and bubbles.',
       tip: 'Choose a stat under Show me, then narrow the events if you want. Select a player card to open their profile.',
       metrics: {
@@ -17,7 +17,7 @@
       }
     },
     bankroll: {
-      title: 'Bankroll',
+      title: 'Bankroll', portrait: 'hotline',
       intro: 'Compare money earned or lost, not just who collected the biggest payout.',
       tip: 'Use Profit for the complete result, or Bounty profit / loss for the bounty component alone. Choose an event format or bounty type to narrow the comparison.',
       metrics: {
@@ -26,7 +26,7 @@
       }
     },
     rates: {
-      title: 'Rates',
+      title: 'Rates', portrait: 'classic',
       intro: 'Compare frequency and efficiency rather than raw totals. Always keep the sample size in mind.',
       tip: 'Pick a rate under Show me. Filtering changes both the result and its denominator to the matching events; a short hot streak is not a lifetime guarantee.',
       metrics: {
@@ -37,7 +37,7 @@
       }
     },
     'player-dna': {
-      title: 'Player DNA',
+      title: 'Player DNA', portrait: 'detective',
       intro: 'Explore career-wide statistical ratings. These describe recorded results—not a scientific personality assessment.',
       tip: 'Choose a career rating under Show me. Event filters are hidden because they do not change these ratings. Your event selections are kept for when you return to another view.',
       metrics: {
@@ -53,7 +53,8 @@
   const currentCategory = () => document.getElementById('dashboard-metric-panel')?.dataset.dashboardMetricGroup || 'results';
   const syncNarration = window.TLPTGuide.mount(opener, () => {
     const category = currentCategory();
-    return {title:(views[category] || views.results).title, audio:'media/norm-narrates/norm-dashboard-' + category + '.mp3'};
+    const view = views[category] || views.results;
+    return {title:view.title, portrait:view.portrait, audio:'media/norm-narrates/norm-dashboard-' + category + '.mp3'};
   });
   const panel = document.getElementById('dashboard-metric-panel');
   if (panel) new MutationObserver(syncNarration).observe(panel, {attributes:true,attributeFilter:['data-dashboard-metric-group']});

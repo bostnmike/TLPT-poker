@@ -1,6 +1,7 @@
 /* Written guides reflect the existing calculations; audio is enabled only after review. */
 window.TLPTStatsGuides = {
   standings: {
+    portrait: 'classic',
     title: 'Standings', audio: 'media/norm-narrates/norm-standings.mp3', scope: true,
     intro: 'The league ledger: compare the numbers side by side, then choose what determines the order.',
     sections: [
@@ -11,6 +12,7 @@ window.TLPTStatsGuides = {
     ]
   },
   'form-lab': {
+    portrait: 'detective',
     title: 'The Form Lab', audio: 'media/norm-narrates/norm-form-lab.mp3', scope: true,
     intro: 'Explore one player’s event results as a scatter plot. Each point is an appearance, not another player.',
     sections: [
@@ -21,6 +23,7 @@ window.TLPTStatsGuides = {
     ]
   },
   'player-movement': {
+    portrait: 'weather',
     title: 'The Heater Meter', audio: 'media/norm-narrates/norm-heater-meter.mp3', scope: true,
     intro: 'Recent form and direction—not a replacement for the career rankings.',
     sections: [
@@ -31,6 +34,7 @@ window.TLPTStatsGuides = {
     ]
   },
   streaks: {
+    portrait: 'clock',
     title: 'The Streak Tracker', audio: 'media/norm-narrates/norm-streaks.mp3', scope: true,
     intro: 'Follow consecutive tournament cashes and consecutive misses across appearances a player actually made.',
     sections: [
@@ -41,6 +45,7 @@ window.TLPTStatsGuides = {
     ]
   },
   knockouts: {
+    portrait: 'referee',
     title: 'Knockout Central', audio: 'media/norm-narrates/norm-knockouts.mp3', scope: true,
     intro: 'Who eliminated whom, how often, and which rivalries have receipts.',
     sections: [
@@ -51,6 +56,7 @@ window.TLPTStatsGuides = {
     ]
   },
   bounties: {
+    portrait: 'explorer',
     title: 'Bounty Hunters', audio: 'media/norm-narrates/norm-bounty-hunters.mp3', scope: true,
     intro: 'The bounty subset of the knockout story, with the money kept straight.',
     sections: [
@@ -61,6 +67,7 @@ window.TLPTStatsGuides = {
     ]
   },
   players: {
+    portrait: 'explorer',
     title: 'Meet the Crew', audio: 'media/norm-narrates/norm-meet-the-crew.mp3', scope: false,
     intro: 'Find the players, explore their career cards, or compare career reputation with recent form.',
     sections: [
@@ -71,6 +78,7 @@ window.TLPTStatsGuides = {
     ]
   },
   player: {
+    portrait: 'host',
     title: 'Player Profiles', audio: 'media/norm-narrates/norm-player-profile.mp3', scope: true,
     intro: 'One player’s career identity and event results, with the distinction kept visible.',
     sections: [

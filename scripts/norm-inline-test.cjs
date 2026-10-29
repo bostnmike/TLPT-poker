@@ -2,6 +2,7 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const dashboard=[['results',40.91],['bankroll',41.95],['rates',43.55],['player-dna',47.96]];
 const guides={standings:['standings',50.83],'form-lab':['form-lab',53.24],'player-movement':['heater-meter',52.85],streaks:['streaks',51.80],knockouts:['knockouts',50.44],bounties:['bounty-hunters',60.53],players:['meet-the-crew',52.35],player:['player-profile',58.51]};
+const characters={results:'referee',bankroll:'hotline',rates:'classic','player-dna':'detective',standings:'classic','form-lab':'detective','player-movement':'weather',streaks:'clock',knockouts:'referee',bounties:'explorer',players:'explorer',player:'host'};
 module.exports=async function run(kind,base){
  const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
  const isDashboard=kind==='dashboard',pages=isDashboard?['dashboard']:Object.keys(guides).filter(k=>k!=='bounties');
@@ -33,7 +34,13 @@ module.exports=async function run(kind,base){
      assert.equal(await audio.evaluate(e=>e.paused),true,'Changing view stops the previous audio');
      assert.equal(await audio.getAttribute('preload'),'none');assert.equal(await audio.getAttribute('autoplay'),null);
      assert.equal(await page.locator('dialog audio').count(),0,'Audio belongs on the actual page');
-     const portrait=card.locator('.norm-headshot');assert.equal(await portrait.evaluate(e=>e.complete&&e.naturalWidth>0),true);
+     const portrait=card.locator('.norm-headshot'),portraitImage=portrait.locator('img');
+     await portraitImage.evaluate(e=>e.decode());
+     assert.equal(await portrait.getAttribute('data-norm-character'),characters[view],'Stable character matches the current guide');
+     assert.equal(await portraitImage.getAttribute('src'),'images/site/norm-many-faces.jpg');
+     assert.equal(await portraitImage.evaluate(e=>e.naturalWidth===1983&&e.naturalHeight===793),true);
+     assert.equal(await portrait.evaluate(e=>getComputedStyle(e).overflow),'hidden','Character stays inside the circular frame');
+     assert.equal(await portraitImage.getAttribute('alt'),'','Narration heading already names Norm');
      await page.waitForFunction(size=>Math.round(document.querySelector('.norm-page-guide .norm-headshot').getBoundingClientRect().width)===size,width<=600?80:96);
      assert.equal(Math.round((await portrait.boundingBox()).width),width<=600?80:96);
      const bounds=await card.boundingBox();assert.ok(bounds.x>=0&&bounds.x+bounds.width<=width+1);assert.equal(await card.evaluate(e=>e.scrollWidth>e.clientWidth+1),false);
@@ -59,7 +66,7 @@ module.exports=async function run(kind,base){
      await page.keyboard.press('Shift+Tab');await page.keyboard.press('Tab');assert.equal(await dialog.evaluate(e=>document.activeElement===document.body||e.contains(document.activeElement)),true);
      if(index%3===1)await dialog.locator('button').first().click();else if(index%3===2)await page.mouse.click(2,2);else await page.keyboard.press('Escape');
      assert.equal(await dialog.isVisible(),false);assert.equal(await opener.evaluate(e=>e===document.activeElement),true);assert.equal(await audio.evaluate(e=>e.paused),true,'Closing does not auto-resume');assert.equal(await audio.getAttribute('src'),src);
-     await card.scrollIntoViewIfNeeded();if(width===390||width===1440)await page.screenshot({path:'/tmp/norm-inline-'+view+'-'+width+'.png'});
+     await card.scrollIntoViewIfNeeded();if(width===390||width===1440){await page.screenshot({path:'/tmp/norm-inline-'+view+'-'+width+'.png'});await card.screenshot({path:'/tmp/norm-character-'+view+'-'+width+'.png'});}
      // Leave audio playing before the next view so its stop/reset behavior is exercised.
      await audio.evaluate(async e=>{e.muted=true;await e.play();});
      console.log(`PASS ${view} ${width}: inline player, larger portrait, read-me on right, mapping/playback/pause and layout`);

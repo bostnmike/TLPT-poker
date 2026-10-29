@@ -574,8 +574,16 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   Shared inline players and read-me links live in `stats-help.js/css`. Portraits
   are 96px on desktop/tablet and 80px on phones, with the read-me link immediately
   beside the audio player on the same row. Do not add a separate help footer.
-  The supplied, unchanged headshot is `images/site/norm-headshot.png`; crop only
-  through CSS. Dashboard retains its view-specific metric definitions.
+  Narration portraits use CSS-framed characters from the approved 1983×793
+  `images/site/norm-many-faces.jpg`; the original photographic headshot remains
+  available for unrelated uses. Crop coordinates live in `stats-help.js` and
+  each guide explicitly selects a stable character with its `portrait` key.
+  Results/Knockouts use the referee, Bankroll the hotline operator, Rates/Standings
+  classic Norm, DNA/Form Lab the detective, Heater Meter the weather presenter,
+  Streaks the clock host, Crew/Bounty Hunters the explorer, and Profiles the
+  microphone host. Update the portrait with the view, never on a timer or at
+  random. Keep faces undistorted and the 96/80px circular frames unchanged.
+  Dashboard retains its view-specific metric definitions.
   `stats-help-content.js` adds eight written guides across Standings, Form Lab,
   Heater Meter, Streak Tracker, Knockouts/Bounty Hunters, Crew and player profiles.
   An `audio: null` guide must show written help and an honest coming-soon label,
