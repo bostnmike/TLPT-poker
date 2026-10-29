@@ -42,7 +42,8 @@ uses the owner's actual card room, the TLPT felt and all nine approved character
 (source `8133998e`, staging run `40960771772`). Actual and difference images at
 1440/820/390/320 show only the new banner and the resulting vertical movement of
 the unchanged content below it. The other 52 scenarios passed unchanged. The
-six-width RSVP-guide test verifies uncropped artwork, responsive bounds,+keyboard focus and navigation to the Film Room. No tolerance or other reference
+six-width RSVP-guide test verifies uncropped artwork, responsive bounds,
+keyboard focus and navigation to the Film Room. No tolerance or other reference
 was changed.
 
 ## Reproducibility
