@@ -21,6 +21,15 @@ The final release must still pass the unchanged footer comparison. Teaser order,
 responsive bounds, direct film links and no-autoplay behavior are checked at
 1440, 1024, 820, 768, 390 and 320 pixels by the RSVP-guide browser test.
 
+On 2026-10-29 only the 1440px home entrance reference was reviewed and updated
+for the approved Empty Chair commercial artwork replacing the brown chair emoji
+in shared Home/Schedule seating previews (source `df824eeb`, run `40909228948`).
+The actual/difference images show changes confined to the eight empty chairs;
+all other 55 scenarios passed unchanged. Seat geometry, occupied avatars and
+response counts are preserved. The responsive browser gate additionally checks
+the chair images and unchanged seat boxes on both pages at all four widths,
+including manual blanks and two-table previews. No comparison tolerance changed.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
