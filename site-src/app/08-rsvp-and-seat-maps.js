@@ -235,6 +235,7 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
   const emptySeats = Math.max(maxSeats - seatedPlayers.length, 0);
   const isHotTable = confirmedCount / maxSeats >= 0.8;
   const tableLabel = `Table ${tableNumber}`;
+  const emptyChair = '<img class="event-empty-seat-image" src="images/site/tlpt-poker-chair-256.webp" width="256" height="256" alt="" aria-hidden="true" decoding="async">';
   const rowClass = [
     "event-rsvp-avatar-row",
     isHotTable ? "is-hot-table" : "",
@@ -252,7 +253,7 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
       <div class="${rowClass}" aria-label="${tableLabel}: ${confirmedCount} of ${maxSeats} confirmed RSVPs shown">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${seatedPlayers.map(player => {
-          if (!player) return `<span class="event-empty-seat" aria-label="${tableLabel}: manually held-open RSVP spot">🪑</span>`;
+          if (!player) return `<span class="event-empty-seat" aria-label="${tableLabel}: manually held-open RSVP spot">${emptyChair}</span>`;
           const displayName = displayPlayerNamePlain(player);
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}" tabindex="0" aria-label="${tableLabel} RSVP preview: ${String(displayName).replace(/"/g, "&quot;")}">
@@ -261,7 +262,7 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
           `;
         }).join("")}
         ${Array.from({ length: emptySeats }).map(() => `
-          <span class="event-empty-seat" aria-label="${tableLabel}: open RSVP spot">🪑</span>
+          <span class="event-empty-seat" aria-label="${tableLabel}: open RSVP spot">${emptyChair}</span>
         `).join("")}
       </div>
     </div>

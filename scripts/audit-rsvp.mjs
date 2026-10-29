@@ -89,6 +89,8 @@ export function auditRsvpEvent(event, data, app, maxSeats = 9) {
   const html = app.get("eventRsvpAvatarMarkup")(event, data, maxSeats);
   check((html.match(/class="event-rsvp-seat-player"/g) || []).length === shown.length, "avatar count must match preview players");
   check((html.match(/class="event-empty-seat"/g) || []).length === tableCount * maxSeats - shown.length, "all remaining preview positions must render as empty chairs");
+  check((html.match(/class="event-empty-seat-image"/g) || []).length === tableCount * maxSeats - shown.length && !html.includes("🪑"), "every open and manually held spot must use the approved chair artwork");
+  check((html.match(/src="images\/site\/tlpt-poker-chair-256.webp" width="256" height="256" alt="" aria-hidden="true"/g) || []).length === tableCount * maxSeats - shown.length, "chair images must preserve the seat label without duplicate image announcements");
   for (const player of confirmed.filter(p => !shown.includes(p.slug))) {
     const name = app.get("escapeHtmlAttr")(app.get("displayPlayerNamePlain")(player));
     check(html.includes("Confirmed, not placed in this preview:") && html.includes(name), `confirmed player ${player.slug} must remain visible when the preview is full`);

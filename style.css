@@ -3297,12 +3297,16 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-empty-seat{
-  font-size:3rem;
   line-height:1;
-  opacity:.82;
-  text-shadow:
-    0 0 8px rgba(255,184,28,.10),
-    0 0 16px rgba(255,255,255,.06);
+}
+
+.event-empty-seat-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 0 2px rgba(255,255,255,.22));
+  pointer-events:none;
 }
 
 .event-rsvp-summary{

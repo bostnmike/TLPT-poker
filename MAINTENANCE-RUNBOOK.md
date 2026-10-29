@@ -251,6 +251,12 @@ IDs, malformed arrays, invalid statuses, and duplicate RSVP keys differing only
 by case are errors because they could hide a player or double-count attendance.
 
 `scripts/audit-rsvp.mjs` validates this contract against the production renderer.
+Empty seats on Home and Schedule share the approved Empty Chair commercial art:
+`images/site/tlpt-poker-chair-256.webp` (transparent, lossless, 256px). Both ordinary
+open spots and manual blank positions use it inside the existing seat geometry.
+Keep the seat's accessible label; the nested image is decorative. Never replace
+occupied avatars or change RSVP data when updating this artwork. Responsive checks
+cover single/two-table previews, image loading and unchanged seat positions.
 The page-calculation suite covers 640 status/layout combinations, single- and
 two-table resets, over-capacity attendance, malformed input, and deliberate
 renderer regressions. Warnings appear in both the page and integrity reports.
