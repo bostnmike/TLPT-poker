@@ -228,7 +228,9 @@
   width:100%;
   height:100%;
   object-fit:contain;
-  filter:drop-shadow(0 0 2px rgba(255,255,255,.22));
+  filter:brightness(1.4)
+    drop-shadow(0 0 1px rgba(255,237,188,.85))
+    drop-shadow(0 0 5px rgba(255,184,28,.24));
   pointer-events:none;
 }
 
