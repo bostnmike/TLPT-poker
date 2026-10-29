@@ -297,7 +297,7 @@ uncropped on every screen, the visible Film Room CTA and keyboard focus, and the
 accessible link label. Do not restore the old three-teaser row alongside it.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.
 
-The Film Room has nine RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has ten RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -333,6 +333,14 @@ owner-configured YouTube upload `sPBNdswB3Xw` and the exact landscape cover from
 `b9577a98e8e60ff5be2074463bbe339a07e9119e1a193e0d05a86bc2dca203b2`).
 Do not replace it with an earlier voiceover/VAR revision or add a duplicate card.
 The site keeps the title-only treatment; its YouTube settings are owner-managed.
+
+“The Elusive RSVP” uses the approved YouTube upload `WnWQ9UaJ4LY` and the exact
+1280×720 landscape cover from `output/video/tlpt-wildlife-commercial/unbroken-scan-preview/`.
+Its approved 42-second portrait MP4 remains in that production folder (SHA-256
+`f879afb9efde9055ad51ad1cdc593df228276a78325b0ff6d3800f8674b1c143`).
+Keep the website's title-only, click-to-load landscape card, not a Shorts-shaped
+crop or a duplicate self-hosted video. The cover deliberately does not reveal
+the donkey ending. The site-owned thumbnail is checksum-locked in the guide test.
 
 ## Player membership: Active and Alumni
 

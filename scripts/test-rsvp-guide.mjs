@@ -51,6 +51,7 @@ assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 // Preserve approved originals; Film Room playback now uses the owner's YouTube uploads.
 const filmRoom = read('media.html');
 for (const [file, expected] of Object.entries({
+  'the-elusive-rsvp-thumbnail.jpg':'1fc2f84e2755e81aef3143e3e8bca2f7cb06a215b236a9e94cd8bc883478e205',
   'rsvp-referee-thumbnail.jpg':'4f2d516b6637390954dadd09361186beb1491c9058b0b5ff6b082ee4db2be922',
   'calling-the-clock.mp4':'3be424078220a1f3dea69b6ad1a2f1c99a69468592f07b255717e5fad13ec793',
   'calling-the-clock-thumbnail.jpg':'ba3ef9f87c02474bf68a84f7448e41aad0de65834f39a8bd526910ddcb9886f5',
@@ -78,6 +79,7 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['the-elusive-rsvp', '🦜 The Elusive RSVP'],
   ['rsvp-referee', '🟥 The RSVP Referee'],
   ['rsvp-notifications', '🔔 Never Miss a Game'],
   ['rsvp-commercial', '🎬 Don’t Be a Donkey'],
@@ -101,6 +103,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['the-elusive-rsvp','WnWQ9UaJ4LY'],
   ['rsvp-referee','sPBNdswB3Xw'],
   ['the-games-afoot','sr4AU3WoRTA'], ['bad-beat-hotline','iugKsWyLU5Y'],
   ['weather-forecast','kFF9RmDW5sk'], ['no-empty-chairs','RyPECQqsayY'],
@@ -131,7 +134,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 17, 'Nine RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 18, 'Ten RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
