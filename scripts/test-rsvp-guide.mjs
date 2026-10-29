@@ -54,6 +54,9 @@ assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 // Film Room handoff: exact approved commercial, covers and optional captions.
 const filmRoom = read('media.html');
 for (const [file, expected] of Object.entries({
+  'calling-the-clock.mp4':'3be424078220a1f3dea69b6ad1a2f1c99a69468592f07b255717e5fad13ec793',
+  'calling-the-clock-thumbnail.jpg':'ba3ef9f87c02474bf68a84f7448e41aad0de65834f39a8bd526910ddcb9886f5',
+  'calling-the-clock-captions.vtt':'165011cb2cb753cd420bd117b79268d42da0e73c3e3926a56d6c524b9ad0b3fc',
   'the-games-afoot.mp4':'0f5fd283dbdb7abd9401a452eb522ea6991a3f41419f905892185e27f3002150',
   'the-games-afoot-thumbnail.jpg':'6f57930f24c12be883d3e4f1f351443cb18523c2fda4aa5cff9bc6ac5d8dd2a0',
   'the-games-afoot-captions.vtt':'379d80598278a7a2ccf9fd3bd48e98c7b364564e73c1d2483420f53ec0708e1d',
@@ -84,8 +87,9 @@ for (const [id, title] of [
   ['bad-beat-hotline', '☎️ Bad Beat Hotline'],
   ['weather-forecast', '🌦️ Weather Forecast'],
   ['no-empty-chairs', '🪑 No Empty Chairs'],
+  ['calling-the-clock', '⏱️ Calling the Clock'],
 ]) assert.ok(filmRoom.includes(`<h2 id="${id}-title">${title}</h2>`), 'Short title only: ' + id);
-for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],['weather-forecast',29],['no-empty-chairs',32]]) {
+for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],['weather-forecast',29],['no-empty-chairs',32],['calling-the-clock',26]]) {
   for (const suffix of ['.mp4','-thumbnail.jpg','-captions.vtt']) {
     const file=slug+suffix;
     assert.ok(filmRoom.includes(file+'?v='+hash('media/rsvp-film-room/'+file).slice(0,16)), 'Versioned Film Room asset: '+file);
@@ -105,7 +109,7 @@ for (const file of ['dont-be-a-donkey.mp4', 'commercial-thumbnail.jpg', 'commerc
   'never-miss-a-game.mp4', 'notifications-thumbnail.jpg', 'notifications-captions.vtt']) {
   assert.ok(filmRoom.includes(file + '?v=' + hash('media/rsvp-film-room/' + file).slice(0, 16)), 'Commercial cache version matches approved content: ' + file);
 }
-assert.equal((filmRoom.match(/<video\b/g) || []).length, 7);
+assert.equal((filmRoom.match(/<video\b/g) || []).length, 8);
 const notificationCaptions = read('media/rsvp-film-room/notifications-captions.vtt');
 assert.ok(notificationCaptions.startsWith('WEBVTT\n'));
 const notificationTimes = [...notificationCaptions.matchAll(/(\d{2}):(\d{2}):(\d{2})\.(\d{3}) --> (\d{2}):(\d{2}):(\d{2})\.(\d{3})/g)];

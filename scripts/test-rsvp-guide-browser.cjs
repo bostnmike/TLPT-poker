@@ -121,10 +121,10 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 16, 'Retain nine original films and all seven native RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 17, 'Retain nine original films and all eight native RSVP films');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      for (const [id, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],['weather-forecast',29],['no-empty-chairs',32],['rsvp-notifications', 40], ['rsvp-commercial', 39], ['rsvp-installation', 83.75]]) {
+      for (const [id, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],['weather-forecast',29],['no-empty-chairs',32],['calling-the-clock',26],['rsvp-notifications', 40], ['rsvp-commercial', 39], ['rsvp-installation', 83.75]]) {
         const card = page.locator('#' + id), player = card.locator('video');
         await card.scrollIntoViewIfNeeded();
         const box = await player.boundingBox();
@@ -148,7 +148,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         await player.evaluate(v => v.pause());
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide, playback, captions, download, home order, Schedule link and all seven Film Room videos');
+      console.log('PASS ' + width + 'px: guide, playback, captions, download, home order, Schedule link and all eight Film Room videos');
       await page.close();
     }
   } finally { await browser.close(); }
