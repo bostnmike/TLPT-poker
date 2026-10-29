@@ -76,12 +76,17 @@ blocked browsers get plain instructions; RSVP remains usable without permission.
 The yellow TLPT chip identifies notifications; tapping opens that event in Player
 view, preserving any separate Commish window.
 
-On supported installed apps, a received alert also sets an unread-alert dot on
-the app icon. Opening or returning to the app, or tapping a notification, clears
-the dot. It is an activity marker, not a count of unread RSVPs. Badge failures or
-unsupported browsers never block banners, notification clicks or RSVP actions.
-Each phone, browser and desktop app must opt in separately; macOS must also allow
-notifications from the browser or installed app.
+On supported installed apps, each new alert increments the numbered badge on that
+device: 1, 2, 3 and so on. Opening or returning to the app, or tapping a
+notification, clears that device's unread count. iOS requires a positive number;
+it does not display a numberless flag badge. Each encrypted delivery includes a
+stable opaque ID, so retries do not increment the count again. Only the local
+unread count and the latest 512 delivery IDs are retained in a private Cache
+Storage entry, across service-worker restarts; notification text, RSVP data,
+identity and credentials are never cached. Overlapping pushes and clears are
+serialized. Storage/badge failures or unsupported browsers never block banners,
+notification clicks or RSVP actions. Each phone, browser and desktop app must
+opt in separately; macOS must also allow alerts from the browser or installed app.
 
 Each browser/device opts in separately. A random, local device management token
 controls its private subscription; the server stores only its hash. Switching

@@ -69,10 +69,10 @@ test('visiting Commish controls preserves a browser’s separate player notifica
 });
 
 
-test('received pushes set an unread dot and notification clicks clear it without blocking unsupported or denied badge APIs',async()=>{
+test('received pushes set a numeric unread-activity badge compatible with iOS and notification clicks clear it without blocking unsupported or denied badge APIs',async()=>{
  for(const mode of ['supported','unsupported','throw','reject']){
   const handlers={},calls=[];let task;
-  const self={location:{origin:'https://rsvp.test'},navigator:mode==='unsupported'?{}:{setAppBadge(){calls.push('set');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));},clearAppBadge(){calls.push('clear');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(){calls.push('banner');}},clients:{async matchAll(){return [];},async openWindow(){calls.push('open');}}};
+  const self={location:{origin:'https://rsvp.test'},navigator:mode==='unsupported'?{}:{setAppBadge(count){assert.equal(count,1);calls.push('set');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));},clearAppBadge(){calls.push('clear');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(){calls.push('banner');}},clients:{async matchAll(){return [];},async openWindow(){calls.push('open');}}};
   vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});
   handlers.push({data:{json:()=>({kind:'response',url:'/?commish=1&event=e1'})},waitUntil:p=>task=p});await task;
   assert.ok(calls.includes('banner'),mode);assert.equal(calls.includes('set'),mode!=='unsupported',mode);
@@ -80,11 +80,42 @@ test('received pushes set an unread dot and notification clicks clear it without
   assert.ok(calls.includes('open'),mode);assert.equal(calls.includes('clear'),mode!=='unsupported',mode);
  }
 });
-test('opening or returning to a visible app clears its dot; hidden apps and badge failures do not affect notifications',async()=>{
+test('opening or returning to a visible app clears its badge; hidden apps and badge failures do not affect notifications',async()=>{
  for(const mode of ['supported','unsupported','throw','reject']){
   let clears=0;const handlers={},win={navigator:mode==='unsupported'?{}:{clearAppBadge(){clears++;if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}}},doc={hidden:false,addEventListener:(type,fn)=>handlers[type]=fn};
   initNotificationBadge(win,doc);await tick();assert.equal(clears,mode==='unsupported'?0:1);
   doc.hidden=true;await handlers.visibilitychange();assert.equal(clears,mode==='unsupported'?0:1);
   doc.hidden=false;await handlers.visibilitychange();assert.equal(clears,mode==='unsupported'?0:2);
  }
+});
+
+
+function badgeWorker(records=new Map(),brokenStorage=false){
+ const handlers={},badges=[],banners=[];
+ const cache={async match(key){return records.has(key)?new Response(records.get(key)):undefined;},async put(key,response){if(brokenStorage==='write')throw Error('Quota');records.set(key,await response.text());}};
+ const self={location:{origin:'https://rsvp.test'},navigator:{async setAppBadge(value){badges.push(value);},async clearAppBadge(){badges.push(0);}},caches:{async open(){if(brokenStorage===true)throw Error('Storage blocked');return cache;}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(title){banners.push(title);}},clients:{async matchAll(){return [];},async openWindow(){}}};
+ vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});
+ function dispatch(type,data){let task;handlers[type]({...data,waitUntil:promise=>task=promise});return task;}
+ return {records,badges,banners,push:id=>dispatch('push',{data:{json:()=>({notificationId:id,title:'Private notification text',url:'/?event=e1'})}}),clear:()=>dispatch('message',{data:{type:'tlpt-clear-unread'}})};
+}
+test('six overlapping notifications count to six, retries do not add duplicates, and unread counts survive worker restarts',async()=>{
+ const first=badgeWorker();await Promise.all(Array.from({length:6},(_,i)=>first.push('delivery-'+i)));assert.deepEqual(first.badges,[1,2,3,4,5,6]);
+ await first.push('delivery-5');assert.equal(first.badges.at(-1),6);
+ const restarted=badgeWorker(first.records);await restarted.push('delivery-6');assert.equal(restarted.badges.at(-1),7);
+ await restarted.clear();assert.equal(restarted.badges.at(-1),0);await restarted.push('delivery-6');assert.equal(restarted.badges.at(-1),0);
+ await restarted.push('delivery-7');assert.equal(restarted.badges.at(-1),1);
+ for(const stored of first.records.values())assert.ok(!stored.includes('Private notification text'));
+ const legacy=badgeWorker();await legacy.push(undefined);for(const stored of legacy.records.values())assert.ok(!stored.includes('Private notification text'));
+});
+test('counts and resets are device-local, and unavailable storage cannot stop banners or in-memory counting',async()=>{
+ const phone=badgeWorker(),mac=badgeWorker();await phone.push('first');await mac.push('first');await phone.push('second');
+ assert.equal(phone.badges.at(-1),2);assert.equal(mac.badges.at(-1),1);await phone.clear();assert.equal(phone.badges.at(-1),0);assert.equal(mac.badges.at(-1),1);
+ const blocked=badgeWorker(new Map(),true);await blocked.push('one');await blocked.push('two');assert.deepEqual(blocked.badges,[1,2]);assert.equal(blocked.banners.length,2);
+ const initial=badgeWorker();await initial.clear();const writeBlocked=badgeWorker(initial.records,'write');await writeBlocked.push('one');await writeBlocked.push('two');assert.deepEqual(writeBlocked.badges,[1,2]);
+});
+test('opening the app tells its worker to reset the persistent counter only while visible',async()=>{
+ const events={},messages=[],win={navigator:{async clearAppBadge(){},serviceWorker:{ready:Promise.resolve({active:{postMessage:message=>messages.push(message)}})}}},doc={hidden:false,addEventListener:(type,fn)=>events[type]=fn};
+ initNotificationBadge(win,doc);await tick();assert.deepEqual(messages,[{type:'tlpt-clear-unread'}]);
+ doc.hidden=true;await events.visibilitychange();assert.equal(messages.length,1);
+ doc.hidden=false;await events.visibilitychange();assert.equal(messages.length,2);
 });
