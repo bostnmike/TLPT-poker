@@ -88,6 +88,12 @@ serialized. Storage/badge failures or unsupported browsers never block banners,
 notification clicks or RSVP actions. Each phone, browser and desktop app must
 opt in separately; macOS must also allow alerts from the browser or installed app.
 
+For device troubleshooting, `/notification-check.html` reads only the local unread
+count, number of remembered delivery IDs, notification permission and badge API
+availability. Loading it does not clear counts, enroll a device, send alerts or
+read RSVP/session data. Its explicit test button requests a temporary badge of 6
+without changing the saved counter. It is separate from the normal app flow.
+
 Each browser/device opts in separately. A random, local device management token
 controls its private subscription; the server stores only its hash. Switching
 player names pauses that device's previous alerts and requires explicit opt-in
