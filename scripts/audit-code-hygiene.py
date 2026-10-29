@@ -3158,9 +3158,9 @@ def main() -> int:
                     "https://www.youtube.com/embed/"
                 )
             ]
-            if len(film_embeds) != 16:
+            if len(film_embeds) != 17:
                 parser.errors.append(
-                    "Film Room must contain the sixteen approved YouTube embeds"
+                    "Film Room must contain the seventeen approved YouTube embeds"
                 )
             elif any(
                 record["attrs"].get("loading", "").lower() != "lazy"

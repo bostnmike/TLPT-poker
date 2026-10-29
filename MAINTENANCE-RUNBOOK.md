@@ -289,7 +289,7 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
-The Film Room has eight RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has nine RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -317,6 +317,14 @@ Browser checks cover embed identity, responsive bounds and home deep links at si
 widths, using a deterministic YouTube frame response; they do not claim to test
 YouTube service availability/playback. Check real YouTube playback and thumbnails
 in a signed-in browser before publication, and on the live page after deployment.
+
+The RSVP Referee was added from the approved 2026-10-29 handoff, using the
+owner-configured YouTube upload `sPBNdswB3Xw` and the exact landscape cover from
+`output/video/tlpt-referee-commercial/revised-script-preview/`. Its approved
+25.5-second MP4 backup remains in that production folder (SHA-256
+`b9577a98e8e60ff5be2074463bbe339a07e9119e1a193e0d05a86bc2dca203b2`).
+Do not replace it with an earlier voiceover/VAR revision or add a duplicate card.
+The site keeps the title-only treatment; its YouTube settings are owner-managed.
 
 ## Player membership: Active and Alumni
 
