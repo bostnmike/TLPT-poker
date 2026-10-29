@@ -291,7 +291,8 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 
 The homepage's three former teasers are replaced by the single “The Many Faces
 of Norm” banner linking to `media.html`. The approved nine-character artwork
-includes its gold headline and the pale TLPT hockey felt. Keep the full image
+includes its gold headline, the owner's actual card-room backdrop (referenced
+from `images/rebuy-hard/the-room.jpg`), and the pale TLPT hockey felt. Keep the full image
 uncropped on every screen, the visible Film Room CTA and keyboard focus, and the
 accessible link label. Do not restore the old three-teaser row alongside it.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.

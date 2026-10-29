@@ -38,7 +38,7 @@ assert.match(banner, /href="media.html"/);
 assert.match(banner, /aria-label="The Many Faces of Norm — visit the Film Room"/);
 assert.match(banner, /Visit the Film Room/);
 assert.match(banner, /width="1983" height="793"/);
-assert.equal(hash('images/site/norm-many-faces.jpg'), 'a6253f9f7016f36be6074fbe647304d9511a0256aac406ebcb0ad2886ca22bc4', 'Approved nine-character group, title and TLPT felt');
+assert.equal(hash('images/site/norm-many-faces.jpg'), 'd0694c96d6ced196fa0aedeff6b99985d0d6c0572332d4752e11317c7e318fce', 'Approved nine-character group, title, actual card room and TLPT felt');
 assert.doesNotMatch(home, /home-promo-row|home-rebuy-teaser/, 'Banner replaces all three teasers');
 assert.ok(home.indexOf('class="home-norm-banner"') < home.indexOf('id="home-games"'), 'Banner stays in the former teaser position');
 assert.match(schedule, /href="rsvp-app.html"/);
