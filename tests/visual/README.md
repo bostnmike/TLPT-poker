@@ -46,6 +46,17 @@ six-width RSVP-guide test verifies uncropped artwork, responsive bounds,
 keyboard focus and navigation to the Film Room. No tolerance or other reference
 was changed.
 
+On 2026-10-29 the owner approved cast-specific “Norm Narrates” portraits. Review
+run `40965031944` (source `5329c961`) shows intended differences confined to
+the 96/80px circular portrait interiors in 18 references: Dashboard, Crew and
+Form Lab entrances plus Norm-inline at all four widths, and Form Lab's dropdown
+at 1440/820. Actual/difference crops were reviewed for each. Player geometry,
+headings, audio controls and read-me links are unchanged. The functional suite
+passes every guide/category, including playback, view changes and narrow screens.
+37 other visual scenarios passed. The separate 1440px footer font-raster mismatch
+also appeared; its reference is NOT updated or approved by this change. The
+release must pass that existing comparison. No tolerance or fixture changed.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
