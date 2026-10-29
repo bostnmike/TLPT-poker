@@ -69,10 +69,10 @@ test('visiting Commish controls preserves a browser’s separate player notifica
 });
 
 
-test('received pushes set an unread dot and notification clicks clear it without blocking unsupported or denied badge APIs',async()=>{
+test('received pushes set a numeric unread-activity badge compatible with iOS and notification clicks clear it without blocking unsupported or denied badge APIs',async()=>{
  for(const mode of ['supported','unsupported','throw','reject']){
   const handlers={},calls=[];let task;
-  const self={location:{origin:'https://rsvp.test'},navigator:mode==='unsupported'?{}:{setAppBadge(){calls.push('set');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));},clearAppBadge(){calls.push('clear');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(){calls.push('banner');}},clients:{async matchAll(){return [];},async openWindow(){calls.push('open');}}};
+  const self={location:{origin:'https://rsvp.test'},navigator:mode==='unsupported'?{}:{setAppBadge(count){assert.equal(count,1);calls.push('set');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));},clearAppBadge(){calls.push('clear');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(){calls.push('banner');}},clients:{async matchAll(){return [];},async openWindow(){calls.push('open');}}};
   vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});
   handlers.push({data:{json:()=>({kind:'response',url:'/?commish=1&event=e1'})},waitUntil:p=>task=p});await task;
   assert.ok(calls.includes('banner'),mode);assert.equal(calls.includes('set'),mode!=='unsupported',mode);
@@ -80,7 +80,7 @@ test('received pushes set an unread dot and notification clicks clear it without
   assert.ok(calls.includes('open'),mode);assert.equal(calls.includes('clear'),mode!=='unsupported',mode);
  }
 });
-test('opening or returning to a visible app clears its dot; hidden apps and badge failures do not affect notifications',async()=>{
+test('opening or returning to a visible app clears its badge; hidden apps and badge failures do not affect notifications',async()=>{
  for(const mode of ['supported','unsupported','throw','reject']){
   let clears=0;const handlers={},win={navigator:mode==='unsupported'?{}:{clearAppBadge(){clears++;if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}}},doc={hidden:false,addEventListener:(type,fn)=>handlers[type]=fn};
   initNotificationBadge(win,doc);await tick();assert.equal(clears,mode==='unsupported'?0:1);

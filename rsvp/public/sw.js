@@ -13,11 +13,12 @@ function notificationTarget(value,commish){
  try{const target=new URL(value,self.location.origin);if(target.origin===self.location.origin&&target.pathname==='/'&&(!target.searchParams.has('commish')||commish&&target.searchParams.get('commish')==='1'))return target.pathname+target.search;}catch{}
  return '/';
 }
-async function appBadge(method){try{await self.navigator?.[method]?.();}catch{/* Badges are optional; notification delivery must still work. */}}
+// iOS requires a numeric badge; a numberless flag is not displayed there.
+async function appBadge(method,...args){try{await self.navigator?.[method]?.(...args);}catch{/* Badges are optional; notification delivery must still work. */}}
 self.addEventListener('push',event=>{
  let payload;try{payload=event.data.json();}catch{payload={};}
  const commish=payload.kind==='response',url=notificationTarget(payload.url,commish);
- event.waitUntil(Promise.all([appBadge('setAppBadge'),self.registration.showNotification(String(payload.title||'TLPT RSVP').slice(0,150),{
+ event.waitUntil(Promise.all([appBadge('setAppBadge',1),self.registration.showNotification(String(payload.title||'TLPT RSVP').slice(0,150),{
   body:String(payload.body||'Open TLPT RSVP to check the live lineup.').slice(0,700),
   icon:'/rsvp-icon-192.png?v=20261026-2',tag:String(payload.tag||'tlpt-rsvp').slice(0,180),data:{url,commish}
  })]));
