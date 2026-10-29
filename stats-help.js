@@ -4,14 +4,14 @@
   // cached image; never redraw faces or randomly change a guide's character.
   const portrait = 'images/site/norm-many-faces.jpg';
   const portraits = {
-    referee: [365, 80, 270],
-    weather: [660, 75, 280],
-    clock: [1065, 75, 280],
-    explorer: [1385, 80, 310],
-    detective: [65, 290, 285],
-    hotline: [525, 325, 285],
-    classic: [870, 310, 285],
-    host: [1205, 340, 290]
+    referee: [390, 90, 240],
+    weather: [662, 82, 250],
+    clock: [1088, 78, 250],
+    explorer: [1380, 80, 290],
+    detective: [90, 285, 280],
+    hotline: [570, 330, 250],
+    classic: [860, 315, 250],
+    host: [1173, 342, 270]
   };
   const add = (parent, tag, text, className) => {
     const el = document.createElement(tag);
