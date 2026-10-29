@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TLPT RSVP — Notification check</title>
+<link rel="icon" href="/favicon-32.png?v=20261026-2">
+<link rel="stylesheet" href="/style.css?v=20261028-1">
+<script type="module" src="/notification-check.mjs?v=20261029-1"></script>
+</head><body>
+<header><div class="header-inner"><a class="brand" href="/?commish=1">TLPT RSVP<small>Notification check</small></a></div></header>
+<main><section class="admin-panel">
+<h1>Notification check</h1>
+<p>This checks the notification count saved on this device. It does not send alerts or change RSVPs.</p>
+<dl>
+<dt>Saved unread alerts</dt><dd id="check-count">Checking…</dd>
+<dt>Recent deliveries remembered</dt><dd id="check-deliveries">Checking…</dd>
+<dt>Notifications permission</dt><dd id="check-permission">Checking…</dd>
+<dt>App badge support</dt><dd id="check-support">Checking…</dd>
+</dl>
+<p id="check-status" role="status"></p>
+<div class="toolbar"><button id="check-refresh" type="button">Refresh check</button><button id="check-test" type="button" disabled>Show a test badge (6)</button></div>
+<p id="check-result" role="status"></p>
+<p><a href="/?commish=1">Return to Commish</a> · Opening the app clears its unread badge.</p>
+</section></main></body></html>
