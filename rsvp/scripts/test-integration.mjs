@@ -12,8 +12,23 @@ const fixture={revision:1,sequence:0,updatedAt:new Date().toISOString(),adminHas
 try{
  run(['d1','migrations','apply','DB','--local','--config','wrangler.jsonc','--persist-to',state]);
  writeFileSync('integration.local.sql',`INSERT INTO rsvp_state VALUES(1,1,'${JSON.stringify(fixture)}'); INSERT INTO push_subscriptions VALUES('${notificationId}','https://fcm.googleapis.com/disposable-never-sent','{}','red','fixture',1); INSERT INTO commish_push_subscriptions VALUES('${commishNotificationId}','https://fcm.googleapis.com/commish-never-sent','{}','@commish:1','fixture',1);`);run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--file','integration.local.sql']);
- server=spawn(process.execPath,[wrangler,'dev','--local','--config','wrangler.jsonc','--persist-to',state,'--port','8794','--inspector-port','0'],{env,stdio:['ignore','pipe','pipe']});server.stdout.on('data',d=>output+=d);server.stderr.on('data',d=>output+=d);
+ // Exercise the actual Workers Request constructor with a synthetic encrypted
+ // push. Node accepts redirect:'error'; Workers rejects it before any network I/O.
+ // This generated route exists only in this disposable integration entry point.
+ writeFileSync('integration.local.mjs',`import worker from './worker.mjs';
+ import {encryptedPush,b64url} from './web-push.mjs';
+ export default {...worker,async fetch(request,env,ctx){
+ if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,env,ctx);
+ const receiver=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
+ const jwk=await crypto.subtle.exportKey('jwk',(await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify'])).privateKey);
+ const subscription={endpoint:'https://fcm.googleapis.com/disposable-never-sent',keys:{p256dh:b64url(await crypto.subtle.exportKey('raw',receiver.publicKey)),auth:b64url(crypto.getRandomValues(new Uint8Array(16)))}};
+ const init=await encryptedPush(subscription,{title:'Disposable runtime check'},jwk);
+ const pushRequest=new Request(subscription.endpoint,init);
+ return Response.json({method:pushRequest.method,redirect:pushRequest.redirect,encoding:pushRequest.headers.get('Content-Encoding'),bytes:(await pushRequest.arrayBuffer()).byteLength});
+ }};`);
+ server=spawn(process.execPath,[wrangler,'dev','integration.local.mjs','--local','--config','wrangler.jsonc','--persist-to',state,'--port','8794','--inspector-port','0'],{env,stdio:['ignore','pipe','pipe']});server.stdout.on('data',d=>output+=d);server.stderr.on('data',d=>output+=d);
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/api/version')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output);
+ const pushRuntime=await fetch(base+'/__push-runtime-test');assert.equal(pushRuntime.status,200);const pushRequest=await pushRuntime.json();assert.equal(pushRequest.method,'POST');assert.equal(pushRequest.redirect,'manual');assert.equal(pushRequest.encoding,'aes128gcm');assert.ok(pushRequest.bytes>86);
  const post=(path,b,cookie,origin=base)=>fetch(base+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(b)});
  const playerHtml=await(await fetch(base+'/')).text(),commishHtml=await(await fetch(base+'/?commish=1')).text();
  assert.match(playerHtml,/href="\/manifest.webmanifest\?/);assert.match(commishHtml,/href="\/commish.webmanifest\?/);
@@ -57,5 +72,5 @@ try{
  }
  await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
  assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
- console.log('PASS: actual local Worker/D1 — shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
-}finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}
+ console.log('PASS: actual local Worker/D1 — encrypted push Request compatibility without provider contact, shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
+}finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});rmSync('integration.local.mjs',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}

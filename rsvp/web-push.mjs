@@ -31,5 +31,7 @@ export async function encryptedPush(subscription,payload,jwk,now=Date.now()){
  const tokenHeader=b64url(utf8.encode(JSON.stringify({typ:'JWT',alg:'ES256'}))),claims=b64url(utf8.encode(JSON.stringify({aud:new URL(subscription.endpoint).origin,exp:Math.floor(now/1000)+3600,sub:'https://tlpt.org'})));
  const unsigned=tokenHeader+'.'+claims,signingKey=await crypto.subtle.importKey('jwk',jwk,{name:'ECDSA',namedCurve:'P-256'},false,['sign']);
  const signature=await crypto.subtle.sign({name:'ECDSA',hash:'SHA-256'},signingKey,utf8.encode(unsigned));
- return {method:'POST',headers:{Authorization:`vapid t=${unsigned}.${b64url(signature)}, k=${vapidPublicKey(jwk)}`,'Content-Encoding':'aes128gcm','Content-Type':'application/octet-stream',TTL:'3600',Urgency:'normal'},body:concat(salt,recordSize,new Uint8Array([65]),sender,ciphertext),redirect:'error',signal:AbortSignal.timeout(10000)};
+ // Workers supports manual redirects, not redirect:'error'. Never forward push
+ // credentials or the encrypted payload to a redirected destination.
+ return {method:'POST',headers:{Authorization:`vapid t=${unsigned}.${b64url(signature)}, k=${vapidPublicKey(jwk)}`,'Content-Encoding':'aes128gcm','Content-Type':'application/octet-stream',TTL:'3600',Urgency:'normal'},body:concat(salt,recordSize,new Uint8Array([65]),sender,ciphertext),redirect:'manual',signal:AbortSignal.timeout(10000)};
 }
