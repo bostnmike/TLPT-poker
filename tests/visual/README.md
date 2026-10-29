@@ -30,6 +30,12 @@ response counts are preserved. The responsive browser gate additionally checks
 the chair images and unchanged seat boxes on both pages at all four widths,
 including manual blanks and two-table previews. No comparison tolerance changed.
 
+The same 1440px reference was reviewed again for the owner's requested stronger
+chair contrast: brighter detail with a thin warm-gold edge and soft glow (source
+`92522e3c`, review run `40912767325`). The actual/difference images are confined
+to the chairs; the other 55 scenarios passed unchanged. Original artwork, seat
+geometry and all other references/tolerances are unchanged.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
