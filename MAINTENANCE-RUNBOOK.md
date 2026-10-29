@@ -289,6 +289,13 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
+The homepage's three former teasers are replaced by the single “The Many Faces
+of Norm” banner linking to `media.html`. The approved nine-character artwork
+includes its gold headline and the pale TLPT hockey felt. Keep the full image
+uncropped on every screen, the visible Film Room CTA and keyboard focus, and the
+accessible link label. Do not restore the old three-teaser row alongside it.
+The image checksum and six-width interaction checks live in the RSVP-guide tests.
+
 The Film Room has nine RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are

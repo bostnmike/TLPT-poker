@@ -53,47 +53,29 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(download.suggestedFilename(), 'TLPT-RSVP-Setup.mp4');
       assert.equal(await download.failure(), null);
       await page.goto(base + '/index.html');
-      const cards = page.locator('.home-promo-row > a');
-      const destinations = ['media.html#rsvp-notifications', 'media.html#rsvp-commercial', 'rebuy-hard.html'];
-      assert.equal(await cards.count(), 3);
-      assert.deepEqual(await cards.evaluateAll(nodes => nodes.map(node => node.getAttribute('href'))), destinations);
-      await cards.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
-      assert.match(await cards.first().innerText(), /Notifications/i);
-      assert.match(await cards.nth(1).innerText(), /Don’t Be a Donkey/);
-      assert.match(await cards.last().innerText(), /Rebuy Hard/);
-      let previousCard;
-      for (const card of await cards.all()) {
-        const bounds = await card.boundingBox();
-        for (const selector of ['.home-rebuy-image', '.home-rebuy-copy', '.home-rebuy-cta']) {
-          const box = await card.locator(selector).boundingBox();
-          assert.ok(box.x >= bounds.x && box.x + box.width <= bounds.x + bounds.width + 1, selector + ': fits teaser');
-        }
-        assert.equal(await card.evaluate(node => node.scrollWidth > node.clientWidth + 1), false);
-        if (previousCard && width > 800) {
-          assert.ok(Math.abs(bounds.y - previousCard.y) < 1);
-          assert.ok(bounds.x > previousCard.x + previousCard.width);
-          assert.ok(Math.abs(bounds.height - previousCard.height) < 1);
-        } else if (previousCard) assert.ok(bounds.y > previousCard.y + previousCard.height);
-        previousCard = bounds;
+      const banner = page.locator('.home-norm-banner');
+      assert.equal(await banner.count(), 1);
+      assert.equal(await page.locator('.home-promo-row, .home-rebuy-teaser').count(), 0);
+      assert.equal(await banner.getAttribute('href'), 'media.html');
+      assert.equal(await banner.getAttribute('aria-label'), 'The Many Faces of Norm — visit the Film Room');
+      await banner.locator('img').evaluate(img => img.decode());
+      const art = await banner.locator('img').boundingBox();
+      assert.ok(Math.abs(art.width / art.height - 1983 / 793) < .01, 'Full cast and headline remain uncropped');
+      assert.equal(await banner.locator('img').evaluate(img => img.naturalWidth), 1983);
+      const bounds = await banner.boundingBox();
+      assert.ok(bounds.height >= 44, 'Large touch target');
+      for (const item of await banner.locator('.home-norm-banner-footer > *').all()) {
+        const box = await item.boundingBox();
+        assert.ok(box.x >= bounds.x && box.x+box.width <= bounds.x+bounds.width+1, 'Footer copy fits on every screen');
       }
-      assert.ok((await cards.nth(1).locator('.home-rsvp-chip').boundingBox()).width <= 36);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      await cards.first().scrollIntoViewIfNeeded();
-      await page.screenshot({ path:'/tmp/rsvp-home-final-' + width + '.png' });
-      for (let index = 0; index < destinations.length; index++) {
-        if (index) await page.goto(base + '/index.html');
-        await page.locator('.home-promo-row > a').nth(index).click();
-        assert.ok(page.url().endsWith('/' + destinations[index]));
-        if (index < 2) {
-          const target = page.locator('#' + destinations[index].split('#')[1]);
-          await target.waitFor();
-          const title = await target.locator('h2').boundingBox();
-          const header = await page.locator('.site-header').boundingBox();
-          assert.ok(title.y >= header.y + header.height - 1, 'Linked film title clears sticky navigation');
-          assert.equal(await target.locator('iframe').count(), 0, 'Teaser does not load a player before a click');
-          assert.equal(await target.locator('.media-video-facade').count(), 1, 'Existing click-to-play treatment retained');
-        }
-      }
+      await banner.focus();
+      assert.equal(await banner.evaluate(el => document.activeElement === el), true);
+      assert.equal(await banner.evaluate(el => getComputedStyle(el).outlineStyle), 'solid', 'Visible keyboard focus');
+      await banner.screenshot({path:'/tmp/norm-many-faces-' + width + '.png'});
+      await banner.press('Enter');
+      assert.ok(page.url().endsWith('/media.html'), 'Banner opens Film Room in same tab');
+      assert.equal(await page.locator('.media-video-facade').count(), 17, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
