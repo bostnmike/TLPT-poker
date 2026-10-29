@@ -62,9 +62,14 @@ Masks are scoped to the captured element, so an audio player behind a modal
 cannot mask the modal text. The sticky header and its out-of-component skip link are hidden only for the tall
 rules-chapter component capture; separate entrance/menu images test that header.
 Visible images are decoded after scrolling before screenshots are taken.
-Footer capture starts in a fresh tab after the expanded-navigation shot,
-so menu focus/sticky compositing state cannot leak into the footer scene. It
-asserts the normal link color and attaches geometry/font/focus diagnostics.
+Footer capture uses a separate Chromium process with the same pinned browser,
+context settings and fixtures. A fresh tab alone still shares process-level
+font/raster caches with previous viewport scenes. The isolated capture keeps
+the original footer markup, styling, position, references and comparison limits;
+it asserts the normal link color and attaches geometry/font/focus diagnostics.
+The process-isolation change (`a62fc851`) passed all 168 comparisons in the
+three-repeat stability run `40921713116` on 2026-10-29. No footer reference,
+site CSS, mask or comparison tolerance was changed.
 
 The fixture copies are public data captured from that release. They deliberately
 do not update when league results change. Keep private exports, player links,
