@@ -106,6 +106,13 @@ Delivery is best-effort, subject to connectivity, permissions and phone settings
 it is not guaranteed or instant. Notification tags collapse possible retries.
 Existing games are not broadcast merely because this release is deployed.
 
+The sender uses Workers-compatible manual redirects and treats redirect responses
+as terminal without forwarding credentials or payloads. The disposable Worker
+integration test constructs a real encrypted push Request, without contacting a
+push service. Delivery logs contain only the provider hostname and HTTP status,
+or a generic exception name; they never contain device endpoints, keys or RSVP
+content.
+
 Validation includes recipient-side payload decryption/signature verification,
 real local D1 outbox transactions, stale-save/rollback protection, retry/expiry,
 name switching/opt-out and service-worker click routing. Final phone delivery

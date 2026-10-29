@@ -32,7 +32,7 @@ test('push endpoints and keys reject SSRF, redirects through untrusted hosts and
 test('encrypted push decrypts on the recipient key and VAPID signature verifies with the advertised key',async()=>{
  const {pair,jwk,subscription}=await keys(),payload={title:'Seat confirmed',body:'You are In',url:'/?event=e1'};
  const request=await encryptedPush(subscription,payload,jwk,now),bytes=request.body,salt=bytes.slice(0,16),sender=bytes.slice(21,86),ciphertext=bytes.slice(86),receiver=unbase64(subscription.keys.p256dh);
- assert.equal(new DataView(bytes.buffer).getUint32(16),4096);assert.equal(bytes[20],65);assert.equal(request.redirect,'error');
+ assert.equal(new DataView(bytes.buffer).getUint32(16),4096);assert.equal(bytes[20],65);assert.equal(request.redirect,'manual');
  const shared=await crypto.subtle.deriveBits({name:'ECDH',public:await crypto.subtle.importKey('raw',sender,{name:'ECDH',namedCurve:'P-256'},false,[])},pair.privateKey,256);
  async function derive(secret,salt,info,length){return crypto.subtle.deriveBits({name:'HKDF',hash:'SHA-256',salt,info},await crypto.subtle.importKey('raw',secret,'HKDF',false,['deriveBits']),length);}
  const info=new Uint8Array([...new TextEncoder().encode('WebPush: info\0'),...receiver,...sender]);
@@ -68,6 +68,11 @@ test('delivery retries transient failures, consumes successes once and expires r
  await drainNotifications(env,async()=>{calls++;return new Response('',{status:201});},now+60000);assert.equal(calls,2);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_jobs').get().n,0);
  await drainNotifications(env,async()=>{assert.fail('already sent');},now+120000);
  db.sql.exec('UPDATE rsvp_state SET revision=1');commit(db,before,after,jobs);await drainNotifications(env,async()=>new Response('',{status:410}),now);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_subscriptions').get().n,0);
+});
+test('push redirects are never followed or retried and do not revoke the device',async()=>{
+ const {db,before,after,jobs,env}=await queueFixture();commit(db,before,after,jobs);let calls=0;
+ await drainNotifications(env,async(endpoint,request)=>{calls++;assert.equal(request.redirect,'manual');return new Response('',{status:307,headers:{Location:'https://untrusted.test/'}});},now);
+ assert.equal(calls,1);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_jobs').get().n,0);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_subscriptions').get().n,1);
 });
 test('queued seat alerts disappear if the player loses the seat, the game closes, or the device changes names',async()=>{
  for(const change of ['out','closed','binding']){const {db,before,after,jobs,env}=await queueFixture();commit(db,before,after,jobs);
