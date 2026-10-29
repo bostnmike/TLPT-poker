@@ -57,6 +57,14 @@ passes every guide/category, including playback, view changes and narrow screens
 also appeared; its reference is NOT updated or approved by this change. The
 release must pass that existing comparison. No tolerance or fixture changed.
 
+The owner requested a second optical-framing pass on 2026-10-29. Review run
+`40968515903` (source `e1f89c1f`) refines each face's center and scale, with room
+for character hats. The same 18 references above were visually reviewed: all
+highlighted differences are confined to the existing 96/80px portrait circles.
+The other 38 scenarios pass unchanged, including the footer. All local and hosted
+functional checks pass. No frame geometry, audio, layout, fixture or comparison
+tolerance changed.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
