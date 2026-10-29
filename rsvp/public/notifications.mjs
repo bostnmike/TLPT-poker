@@ -3,6 +3,10 @@ export function notificationSupport(win){
  if(installationPlatform(win.navigator)==='ios'&&!standalone(win))return 'install';
  return 'Notification' in win&&'PushManager' in win&&'serviceWorker' in win.navigator?'supported':'unsupported';
 }
+export function initNotificationBadge(win,doc){
+ async function clear(){if(!doc.hidden)try{await win.navigator.clearAppBadge?.();}catch{/* Unsupported or blocked badges never affect the app. */}}
+ doc.addEventListener('visibilitychange',clear);clear();
+}
 export function initNotifications(win,doc,commish=false){
  const panel=doc.querySelector(commish?'#commish-notifications':'#notifications'),enable=doc.querySelector(commish?'#enable-commish-notifications':'#enable-notifications'),disable=doc.querySelector(commish?'#disable-commish-notifications':'#disable-notifications'),status=doc.querySelector(commish?'#commish-notification-status':'#notification-status');
  if(!panel)return;
@@ -54,4 +58,4 @@ export function initNotifications(win,doc,commish=false){
  queueSync();render();
  return {sync:queueSync};
 }
-if(typeof window!=='undefined'){initNotifications(window,document);initNotifications(window,document,true);}
+if(typeof window!=='undefined'){initNotificationBadge(window,document);initNotifications(window,document);initNotifications(window,document,true);}

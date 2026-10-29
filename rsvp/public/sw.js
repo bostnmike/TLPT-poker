@@ -13,19 +13,20 @@ function notificationTarget(value,commish){
  try{const target=new URL(value,self.location.origin);if(target.origin===self.location.origin&&target.pathname==='/'&&(!target.searchParams.has('commish')||commish&&target.searchParams.get('commish')==='1'))return target.pathname+target.search;}catch{}
  return '/';
 }
+async function appBadge(method){try{await self.navigator?.[method]?.();}catch{/* Badges are optional; notification delivery must still work. */}}
 self.addEventListener('push',event=>{
  let payload;try{payload=event.data.json();}catch{payload={};}
  const commish=payload.kind==='response',url=notificationTarget(payload.url,commish);
- event.waitUntil(self.registration.showNotification(String(payload.title||'TLPT RSVP').slice(0,150),{
+ event.waitUntil(Promise.all([appBadge('setAppBadge'),self.registration.showNotification(String(payload.title||'TLPT RSVP').slice(0,150),{
   body:String(payload.body||'Open TLPT RSVP to check the live lineup.').slice(0,700),
   icon:'/rsvp-icon-192.png?v=20261026-2',tag:String(payload.tag||'tlpt-rsvp').slice(0,180),data:{url,commish}
- }));
+ })]));
 });
 self.addEventListener('notificationclick',event=>{
  event.notification.close();const url=new URL(notificationTarget(event.notification.data?.url,event.notification.data?.commish===true),self.location.origin),commish=url.searchParams.has('commish');
- event.waitUntil((async()=>{
+ event.waitUntil(Promise.all([appBadge('clearAppBadge'),(async()=>{
   const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true});
   const existing=windows.find(client=>{const u=new URL(client.url);return u.origin===url.origin&&u.pathname==='/'&&u.searchParams.has('commish')===commish;});
   if(existing){await existing.navigate(url.href);return existing.focus();}return self.clients.openWindow(url.href);
- })());
+ })()]));
 });

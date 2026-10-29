@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
-import {initNotifications,notificationSupport} from '../public/notifications.mjs';
+import {initNotifications,notificationSupport,initNotificationBadge} from '../public/notifications.mjs';
 const tick=()=>new Promise(r=>setImmediate(r));
 function fixture({permission='default',ios=false,installed=false,stored=false,commish=false}={}){
  const events={},posts=[],elements=Object.fromEntries(['notifications','enable-notifications','disable-notifications','notification-status','commish-notifications','enable-commish-notifications','disable-commish-notifications','commish-notification-status'].map(id=>[id,{hidden:false,disabled:false,textContent:'',addEventListener(t,fn){this[t]=fn;}}]));
@@ -66,4 +66,25 @@ test('Commish notification clicks target a Commish window and leave player windo
 test('visiting Commish controls preserves a browser’s separate player notification subscription',async()=>{
  const f=fixture({stored:true,permission:'granted'});f.commishView();await f.controller.sync();assert.ok(!f.posts.some(p=>p.action==='disable'));assert.equal(f.elements.notifications.hidden,true);
  f.choose('red','Red');await f.controller.sync();assert.match(f.elements['notification-status'].textContent,/Notifications on for Red/);
+});
+
+
+test('received pushes set an unread dot and notification clicks clear it without blocking unsupported or denied badge APIs',async()=>{
+ for(const mode of ['supported','unsupported','throw','reject']){
+  const handlers={},calls=[];let task;
+  const self={location:{origin:'https://rsvp.test'},navigator:mode==='unsupported'?{}:{setAppBadge(){calls.push('set');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));},clearAppBadge(){calls.push('clear');if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}},addEventListener:(type,fn)=>handlers[type]=fn,registration:{async showNotification(){calls.push('banner');}},clients:{async matchAll(){return [];},async openWindow(){calls.push('open');}}};
+  vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});
+  handlers.push({data:{json:()=>({kind:'response',url:'/?commish=1&event=e1'})},waitUntil:p=>task=p});await task;
+  assert.ok(calls.includes('banner'),mode);assert.equal(calls.includes('set'),mode!=='unsupported',mode);
+  handlers.notificationclick({notification:{data:{commish:true,url:'/?commish=1&event=e1'},close(){}},waitUntil:p=>task=p});await task;
+  assert.ok(calls.includes('open'),mode);assert.equal(calls.includes('clear'),mode!=='unsupported',mode);
+ }
+});
+test('opening or returning to a visible app clears its dot; hidden apps and badge failures do not affect notifications',async()=>{
+ for(const mode of ['supported','unsupported','throw','reject']){
+  let clears=0;const handlers={},win={navigator:mode==='unsupported'?{}:{clearAppBadge(){clears++;if(mode==='throw')throw Error('Blocked');if(mode==='reject')return Promise.reject(Error('Blocked'));}}},doc={hidden:false,addEventListener:(type,fn)=>handlers[type]=fn};
+  initNotificationBadge(win,doc);await tick();assert.equal(clears,mode==='unsupported'?0:1);
+  doc.hidden=true;await handlers.visibilitychange();assert.equal(clears,mode==='unsupported'?0:1);
+  doc.hidden=false;await handlers.visibilitychange();assert.equal(clears,mode==='unsupported'?0:2);
+ }
 });
