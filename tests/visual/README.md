@@ -116,6 +116,15 @@ geometry, frame, CTA and surrounding content are unchanged. Only these four
 references are updated. All narration portraits and Film Room videos remain
 unchanged. No tolerance, mask or fixture changed; the six-width banner test passes.
 
+The owner subsequently selected the previous black-jacket image's larger,
+naturally framed table rendition, combined with the corrected eleven-Norm cast
+and white-jacket timekeeper. Review run `40996452526` (source `e3716f14`) passes
+all functional checks and the other 52 visual views. All four homepage
+actual/difference pairs were inspected: differences stay within the banner,
+primarily its felt and the retained white-jacket detail. The frame, full 2170 x 725
+geometry, CTA and surrounding page are unchanged. Only these four references
+change; no comparison tolerance, mask, fixture or other artwork is updated.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
