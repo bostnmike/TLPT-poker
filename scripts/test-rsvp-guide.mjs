@@ -37,8 +37,9 @@ assert.equal((home.match(/class="home-norm-banner"/g) || []).length, 1, 'One con
 assert.match(banner, /href="media.html"/);
 assert.match(banner, /aria-label="The Many Faces of Norm — visit the Film Room"/);
 assert.match(banner, /Visit the Film Room/);
-assert.match(banner, /width="2173" height="724"/);
-assert.match(banner, /src="images\/site\/norm-many-faces-single-row.jpg"/);
+assert.match(banner, /width="2170" height="725"/);
+assert.match(banner, /src="images\/site\/norm-many-faces-single-row-felt.jpg"/);
+assert.equal(hash('images/site/norm-many-faces-single-row-felt.jpg'), '1cdee4af1b039271ca45882b43c302ae2ab87fb5e6eb1c3440dd609748b4495b', 'Corrected felt retains four Winter Classic logos, six banners and the Centennial crest');
 assert.equal(hash('images/site/norm-many-faces-single-row.jpg'), 'e13797ffdd002bb6ef6e042c4cb0b767bd45b30c0813bd8191de37461135814b', 'Single-row ten-character panorama retains gold title and card-room setting');
 assert.equal(hash('images/site/norm-many-faces-hockey.jpg'), 'c68b789a0c9d04b8ac7c25b62c0e7bb88c35f7c8b716bfcbedd2777722d674aa', 'Ten-character group retains headline, card room and TLPT felt');
 assert.equal(hash('images/site/norm-many-faces.jpg'), 'd0694c96d6ced196fa0aedeff6b99985d0d6c0572332d4752e11317c7e318fce', 'Original cast remains unchanged for existing portrait crops');
@@ -56,6 +57,7 @@ assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 const filmRoom = read('media.html');
 assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload must not return');
 for (const [file, expected] of Object.entries({
+  'day-to-day-thumbnail.jpg':'a065f55697f6cec840d511928b1422701f7ceb18698df4df6085a2bd7e1ddb82',
   'the-elusive-rsvp-thumbnail.jpg':'1fc2f84e2755e81aef3143e3e8bca2f7cb06a215b236a9e94cd8bc883478e205',
   'rsvp-referee-thumbnail.jpg':'4f2d516b6637390954dadd09361186beb1491c9058b0b5ff6b082ee4db2be922',
   'calling-the-clock.mp4':'3be424078220a1f3dea69b6ad1a2f1c99a69468592f07b255717e5fad13ec793',
@@ -84,6 +86,7 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['day-to-day', '🏒 Day to Day'],
   ['the-elusive-rsvp', '🦜 The Elusive RSVP'],
   ['rsvp-referee', '🟥 The RSVP Referee'],
   ['rsvp-notifications', '🔔 Never Miss a Game'],
@@ -108,6 +111,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['day-to-day','ltIT_DGiEEs'],
   ['the-elusive-rsvp','iYLibq-VvcQ'],
   ['rsvp-referee','sPBNdswB3Xw'],
   ['the-games-afoot','sr4AU3WoRTA'], ['bad-beat-hotline','iugKsWyLU5Y'],
@@ -139,7 +143,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 18, 'Ten RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 19, 'Eleven RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));

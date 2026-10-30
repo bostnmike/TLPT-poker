@@ -59,11 +59,10 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await banner.getAttribute('href'), 'media.html');
       assert.equal(await banner.getAttribute('aria-label'), 'The Many Faces of Norm — visit the Film Room');
       await banner.locator('img').evaluate(img => img.decode());
-      assert.equal(await banner.locator('img').getAttribute('src'), 'images/site/norm-many-faces-single-row.jpg');
+      assert.equal(await banner.locator('img').getAttribute('src'), 'images/site/norm-many-faces-single-row-felt.jpg');
       const art = await banner.locator('img').boundingBox();
-      assert.ok(Math.abs(art.width / art.height - 3.7) < .01, 'Single-row artwork stays in a shallow panoramic frame');
-      assert.equal(await banner.locator('img').evaluate(img => img.naturalWidth), 2173);
-      assert.equal(await banner.locator('img').evaluate(img => getComputedStyle(img).objectPosition), '50% 0%', 'Keep title and hats; trim only surplus foreground felt');
+      assert.ok(Math.abs(art.width / art.height - 2170 / 725) < .01, 'Full single-row artwork and corrected felt remain uncropped');
+      assert.equal(await banner.locator('img').evaluate(img => img.naturalWidth), 2170);
       const bounds = await banner.boundingBox();
       const hero = await page.locator('.home-page-hero').boundingBox();
       assert.ok(Math.abs(bounds.x+bounds.width/2-hero.x-hero.width/2)<1, 'Compact banner stays centered');
@@ -83,7 +82,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await banner.screenshot({path:'/tmp/norm-many-faces-' + width + '.png'});
       await banner.press('Enter');
       assert.ok(page.url().endsWith('/media.html'), 'Banner opens Film Room in same tab');
-      assert.equal(await page.locator('.media-video-facade').count(), 18, 'Film Room ready without autoplay');
+      assert.equal(await page.locator('.media-video-facade').count(), 19, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
@@ -118,13 +117,13 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 19, 'Retain nine original films and all ten RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 20, 'Retain nine original films and all eleven RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
-      assert.equal(await page.locator('.media-video-facade').count(), 18, 'All eighteen YouTube covers retained');
+      assert.equal(await page.locator('.media-video-facade').count(), 19, 'All nineteen YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      for (const [id, youtubeId] of [['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
+      for (const [id, youtubeId] of [['day-to-day','ltIT_DGiEEs'],['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
         const card = page.locator('#' + id), cover = card.locator('.media-video-facade'), player = card.locator('iframe');
         assert.equal(await card.count(), 1, 'Exactly one card for '+id);
         await card.scrollIntoViewIfNeeded();
@@ -152,7 +151,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all ten YouTube embed mappings/layouts');
+      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all eleven YouTube embed mappings/layouts');
       await page.close();
     }
   } finally { await browser.close(); }

@@ -291,10 +291,12 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 
 The homepage's three former teasers are replaced by the single “The Many Faces
 of Norm” banner linking to `media.html`. The ten-character artwork in
-`images/site/norm-many-faces-single-row.jpg` arranges the same ten personas in a
+`images/site/norm-many-faces-single-row-felt.jpg` arranges the same ten personas in a
 Last Supper-inspired single row, with the gold headline, the owner's card-room
-backdrop and pale TLPT hockey felt. The top-aligned 3.7:1 frame trims only surplus
-foreground felt; keep every face, hat and the headline visible on every screen.
+backdrop and pale TLPT hockey felt. Display its full 2170 x 725 artwork without
+cropping: four Winter Classic logos, six championship banners and the central
+Centennial crest are based on `images/rebuy-hard/the-felt.jpg`. Keep every face,
+hat, headline and felt logo visible on every screen.
 Keep the visible Film Room CTA, keyboard focus and accessible link label.
 Do not restore the old three-teaser row alongside it. Previous banner assets
 remain unchanged, especially the original shared narration-portrait source.
@@ -303,12 +305,18 @@ secondary to the page hero. At 600px and below it fills the content width to kee
 the cast and headline readable. Never stretch faces or crop the title/cast.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.
 
-The Film Room has ten RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has eleven RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
 Their exact supplied MP4s, matching production thumbnails and optional captions
-live in `media/rsvp-film-room/`; preserve those bytes. Source hashes are locked in
+live in `media/rsvp-film-room/`; preserve those bytes. The approved hockey Norm
+commercial “Day to Day” uses YouTube `ltIT_DGiEEs` and the exact approved landscape
+`day-to-day-thumbnail.jpg`, handed off from the `clean-patch-tooth-preview`
+production folder on 2026-10-29. Keep its card title-only, click-to-play, and
+captions optional. The 28-second source video remains in its production folder;
+do not add a duplicate native player or publish the production notes.
+Source hashes are locked in
 the RSVP-guide static test. The corresponding production folders under
 `output/video/` are `tlpt-missing-persons-commercial`, the Bad Beat Hotline
 `studio-redesign-preview`, Weather `no-live-preview`, and Empty Chair
@@ -606,7 +614,7 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   source; homepage banner updates must not move those crop coordinates. Hockey
   has its own 512px source and framing; switching back from Bounty Hunters must
   restore both its source dimensions and crop. This image does not authorize
-  publication of the still-unreviewed hockey commercial.
+  changes to the separately approved hockey commercial or its supplied cover.
   Dashboard retains its view-specific metric definitions.
   `stats-help-content.js` adds eight written guides across Standings, Form Lab,
   Heater Meter, Streak Tracker, Knockouts/Bounty Hunters, Crew and player profiles.
