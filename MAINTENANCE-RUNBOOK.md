@@ -338,13 +338,17 @@ owner-configured YouTube upload `sPBNdswB3Xw` and the exact landscape cover from
 Do not replace it with an earlier voiceover/VAR revision or add a duplicate card.
 The site keeps the title-only treatment; its YouTube settings are owner-managed.
 
-“The Elusive RSVP” uses the approved YouTube upload `WnWQ9UaJ4LY` and the exact
+“The Elusive RSVP” uses the owner's corrected YouTube upload `iYLibq-VvcQ` and the exact
 1280×720 landscape cover from `output/video/tlpt-wildlife-commercial/unbroken-scan-preview/`.
 Its approved 42-second portrait MP4 remains in that production folder (SHA-256
 `f879afb9efde9055ad51ad1cdc593df228276a78325b0ff6d3800f8674b1c143`).
 Keep the website's title-only, click-to-load landscape card, not a Shorts-shaped
 crop or a duplicate self-hosted video. The cover deliberately does not reveal
 the donkey ending. The site-owned thumbnail is checksum-locked in the guide test.
+The owner replaced the incorrect YouTube upload on 2026-10-29; do not restore
+the superseded `WnWQ9UaJ4LY` ID. YouTube uses the matching approved portrait cover
+`youtube-cover-1080x1920.jpg` from that production folder; the site retains its
+separate 16:9 landscape cover. Changing the upload must preserve both treatments.
 
 ## Player membership: Active and Alumni
 
