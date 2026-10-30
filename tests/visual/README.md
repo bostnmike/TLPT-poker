@@ -106,6 +106,16 @@ Only these four references change. No tolerances, masks or fixtures change.
 The subsequent owner-corrected hockey YouTube ID is covered by the six-width
 Film Room test and has no effect on these homepage screenshots.
 
+On 2026-10-29 the owner approved Patriots Norm as the eleventh character, a
+muted blurred generic-room backdrop, direct use of the actual supplied table
+felt, and restoration of the timekeeper's white dinner jacket. Review run
+`40994260068` (source `5cae0a45`) passes all functional checks and the other 52
+visual views. The four homepage actual/difference pairs were inspected at
+1440/820/390/320: changes are confined to the banner artwork. Its full 2170 x 725
+geometry, frame, CTA and surrounding content are unchanged. Only these four
+references are updated. All narration portraits and Film Room videos remain
+unchanged. No tolerance, mask or fixture changed; the six-width banner test passes.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
