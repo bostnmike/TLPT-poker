@@ -55,6 +55,7 @@ for (const html of [home, schedule]) assert.doesNotMatch(html, /The TLPT RSVP ca
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 // Preserve approved originals; Film Room playback now uses the owner's YouTube uploads.
 const filmRoom = read('media.html');
+assert.doesNotMatch(filmRoom, /ltIT_DGiEEs/, 'Superseded hockey upload must not return');
 assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload must not return');
 for (const [file, expected] of Object.entries({
   'day-to-day-thumbnail.jpg':'a065f55697f6cec840d511928b1422701f7ceb18698df4df6085a2bd7e1ddb82',
@@ -111,7 +112,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
-  ['day-to-day','ltIT_DGiEEs'],
+  ['day-to-day','rzKNK2yiu-I'],
   ['the-elusive-rsvp','iYLibq-VvcQ'],
   ['rsvp-referee','sPBNdswB3Xw'],
   ['the-games-afoot','sr4AU3WoRTA'], ['bad-beat-hotline','iugKsWyLU5Y'],

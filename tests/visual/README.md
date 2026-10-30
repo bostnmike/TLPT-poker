@@ -95,6 +95,17 @@ felt is trimmed. The 85%/900px container, phone full width, CTA, hero and shared
 portraits are unchanged. Only these four Linux references are updated; no
 tolerances, masks or fixtures changed. The six-width banner interaction test passes.
 
+The owner then requested accurate table-felt details. Review run `40989041168`
+(source `c2733595`) passes all functional checks and the other 52 visual views.
+The four homepage actual/diff pairs were inspected: the same single-row cast
+now sits behind the corrected Centennial crest, four Winter Classic logos and
+six gold banners. Its full 2170 x 725 image is displayed uncropped so no felt
+details are lost. The intended added felt height moves the unchanged schedule
+down slightly; the banner remains shorter than the original two-row design.
+Only these four references change. No tolerances, masks or fixtures change.
+The subsequent owner-corrected hockey YouTube ID is covered by the six-width
+Film Room test and has no effect on these homepage screenshots.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest

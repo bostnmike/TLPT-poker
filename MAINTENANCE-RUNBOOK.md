@@ -311,7 +311,8 @@ description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
 Their exact supplied MP4s, matching production thumbnails and optional captions
 live in `media/rsvp-film-room/`; preserve those bytes. The approved hockey Norm
-commercial “Day to Day” uses YouTube `ltIT_DGiEEs` and the exact approved landscape
+commercial “Day to Day” uses YouTube `rzKNK2yiu-I` (owner-corrected upload; do not
+restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 `day-to-day-thumbnail.jpg`, handed off from the `clean-patch-tooth-preview`
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
