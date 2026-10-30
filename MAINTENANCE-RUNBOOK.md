@@ -290,12 +290,14 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
 The homepage's three former teasers are replaced by the single “The Many Faces
-of Norm” banner linking to `media.html`. The ten-character artwork in
-`images/site/norm-many-faces-single-row-felt.jpg` arranges the same ten personas in a
-Last Supper-inspired single row, with the gold headline, the owner's card-room
-backdrop and pale TLPT hockey felt. Display its full 2170 x 725 artwork without
-cropping: four Winter Classic logos, six championship banners and the central
-Centennial crest are based on `images/rebuy-hard/the-felt.jpg`. Keep every face,
+of Norm” banner linking to `media.html`. The eleven-character artwork in
+`images/site/norm-many-faces-eleven.jpg` adds Patriots number-12 Norm to the ten
+existing personas in a Last Supper-inspired single row. Keep the timekeeper's
+white dinner jacket with black lapels and bow tie, the gold headline and the
+muted, blurred generic-room backdrop. Display its full 2170 x 725 artwork without
+cropping. The actual supplied TLPT hockey felt is perspective-composited directly,
+preserving four Winter Classic logos, six championship banners and the central
+Centennial crest instead of regenerating those graphics. Keep every face,
 hat, headline and felt logo visible on every screen.
 Keep the visible Film Room CTA, keyboard focus and accessible link label.
 Do not restore the old three-teaser row alongside it. Previous banner assets

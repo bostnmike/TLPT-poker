@@ -59,7 +59,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await banner.getAttribute('href'), 'media.html');
       assert.equal(await banner.getAttribute('aria-label'), 'The Many Faces of Norm — visit the Film Room');
       await banner.locator('img').evaluate(img => img.decode());
-      assert.equal(await banner.locator('img').getAttribute('src'), 'images/site/norm-many-faces-single-row-felt.jpg');
+      assert.equal(await banner.locator('img').getAttribute('src'), 'images/site/norm-many-faces-eleven.jpg');
       const art = await banner.locator('img').boundingBox();
       assert.ok(Math.abs(art.width / art.height - 2170 / 725) < .01, 'Full single-row artwork and corrected felt remain uncropped');
       assert.equal(await banner.locator('img').evaluate(img => img.naturalWidth), 2170);
