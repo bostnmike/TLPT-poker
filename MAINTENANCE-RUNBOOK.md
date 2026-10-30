@@ -308,7 +308,7 @@ secondary to the page hero. At 600px and below it fills the content width to kee
 the cast and headline readable. Never stretch faces or crop the title/cast.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.
 
-The Film Room has eleven RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has twelve RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -320,6 +320,12 @@ restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
+The approved Patriots Norm football commercial “Call Your Play” uses YouTube
+`GY4uQaUwsbU` and the exact `call-your-play-thumbnail.jpg` landscape artwork from
+`output/video/tlpt-football-commercial/commish-playbook-preview/` outside the repo.
+Its matching 1080 x 1920 portrait poster is used on YouTube, not as the website
+cover. The final 30.5-second MP4 stays in production; no duplicate native player
+is added. Keep the title-only card, click-to-play and optional captions.
 Source hashes are locked in
 the RSVP-guide static test. The corresponding production folders under
 `output/video/` are `tlpt-missing-persons-commercial`, the Bad Beat Hotline

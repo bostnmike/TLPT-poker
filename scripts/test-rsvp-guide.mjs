@@ -61,6 +61,7 @@ const filmRoom = read('media.html');
 assert.doesNotMatch(filmRoom, /ltIT_DGiEEs/, 'Superseded hockey upload must not return');
 assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload must not return');
 for (const [file, expected] of Object.entries({
+  'call-your-play-thumbnail.jpg':'325804b3568327bb237276c0dcdb2c9a848a10cc16cc694cc5a57f33c2d4f972',
   'day-to-day-thumbnail.jpg':'a065f55697f6cec840d511928b1422701f7ceb18698df4df6085a2bd7e1ddb82',
   'the-elusive-rsvp-thumbnail.jpg':'1fc2f84e2755e81aef3143e3e8bca2f7cb06a215b236a9e94cd8bc883478e205',
   'rsvp-referee-thumbnail.jpg':'4f2d516b6637390954dadd09361186beb1491c9058b0b5ff6b082ee4db2be922',
@@ -90,6 +91,7 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['call-your-play', '🏈 Call Your Play'],
   ['day-to-day', '🏒 Day to Day'],
   ['the-elusive-rsvp', '🦜 The Elusive RSVP'],
   ['rsvp-referee', '🟥 The RSVP Referee'],
@@ -115,6 +117,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['call-your-play','GY4uQaUwsbU'],
   ['day-to-day','rzKNK2yiu-I'],
   ['the-elusive-rsvp','iYLibq-VvcQ'],
   ['rsvp-referee','sPBNdswB3Xw'],
@@ -147,7 +150,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 19, 'Eleven RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 20, 'Twelve RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
