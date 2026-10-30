@@ -76,6 +76,15 @@ Knockout Central uses the separate approved V2 headshot; its responsive browser
 test checks source, framing, playback and round-trip switching to Bounty Hunters.
 No comparison tolerance, mask or fixture changed.
 
+The owner then requested a less dominant homepage banner. Review run
+`40981641836` (source `228906d4`) passes all functional checks and 54 unchanged
+visual scenarios, including both phone entrances. Only the 1440/820 home
+references were reviewed and updated: the same uncropped artwork is centered
+at 85% width with a 900px cap, and the unchanged schedule consequently moves
+up. Header, hero, copy, CTA and every other page remain unchanged. The six-width
+banner test checks centering, size limits, full-width phone readability and
+keyboard navigation. No image bytes, tolerances, masks or fixtures changed.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
