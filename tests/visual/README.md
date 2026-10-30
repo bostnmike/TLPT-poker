@@ -65,6 +65,17 @@ The other 38 scenarios pass unchanged, including the footer. All local and hoste
 functional checks pass. No frame geometry, audio, layout, fixture or comparison
 tolerance changed.
 
+On 2026-10-29 the approved V2 hockey Norm joined the homepage group as its tenth
+character. Review run `40979419083` (source `086f2691`) passes all functional
+checks and 52 unchanged visual scenarios. The four home entrance actual/diff
+pairs were reviewed at 1440/820/390/320: changes stay inside the banner artwork,
+with no frame, header, footer, CTA or surrounding-content movement. Only those
+four references are updated. All existing narration portrait references remain
+unchanged because the original nine-character image is retained as their source.
+Knockout Central uses the separate approved V2 headshot; its responsive browser
+test checks source, framing, playback and round-trip switching to Bounty Hunters.
+No comparison tolerance, mask or fixture changed.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
