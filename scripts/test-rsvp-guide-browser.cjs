@@ -64,6 +64,12 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.ok(Math.abs(art.width / art.height - 1983 / 793) < .01, 'Full cast and headline remain uncropped');
       assert.equal(await banner.locator('img').evaluate(img => img.naturalWidth), 1983);
       const bounds = await banner.boundingBox();
+      const hero = await page.locator('.home-page-hero').boundingBox();
+      assert.ok(Math.abs(bounds.x+bounds.width/2-hero.x-hero.width/2)<1, 'Compact banner stays centered');
+      if(width>600) {
+        assert.ok(bounds.width<=900.5, 'Desktop/tablet banner never exceeds 900px');
+        assert.ok(bounds.width<=hero.width*.86, 'Banner stays secondary to the page hero');
+      } else assert.ok(Math.abs(bounds.width-hero.width)<1, 'Phones retain readable full-width artwork');
       assert.ok(bounds.height >= 44, 'Large touch target');
       for (const item of await banner.locator('.home-norm-banner-footer > *').all()) {
         const box = await item.boundingBox();

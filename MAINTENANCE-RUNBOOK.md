@@ -296,6 +296,9 @@ includes its gold headline, the owner's actual card-room backdrop (referenced
 from `images/rebuy-hard/the-room.jpg`), and the pale TLPT hockey felt. Keep the full image
 uncropped on every screen, the visible Film Room CTA and keyboard focus, and the
 accessible link label. Do not restore the old three-teaser row alongside it.
+The banner is centered at 85% of the content width, capped at 900px, so it stays
+secondary to the page hero. At 600px and below it fills the content width to keep
+the cast and headline readable. Resize the container, never crop the artwork.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.
 
 The Film Room has ten RSVP YouTube embeds, plus its nine original embedded/link

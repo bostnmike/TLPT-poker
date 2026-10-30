@@ -19,6 +19,9 @@
 
 .home-norm-banner{
   display:block;
+  width:85%;
+  max-width:900px;
+  margin-inline:auto;
   overflow:hidden;
   border:1px solid rgba(255,184,28,.45);
   border-radius:18px;
@@ -47,6 +50,9 @@
 .home-norm-banner-footer strong{color:var(--gold);font-size:16px;}
 .home-norm-banner:hover{border-color:var(--gold);color:#fff;}
 .home-norm-banner:focus-visible{outline:3px solid var(--gold);outline-offset:4px;}
+@media(max-width:600px){
+  .home-norm-banner{width:100%;}
+}
 @media(max-width:560px){
   .home-norm-banner{border-radius:14px;}
   .home-norm-banner-footer{padding:12px 14px;gap:6px;}
