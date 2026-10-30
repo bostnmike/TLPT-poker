@@ -85,6 +85,16 @@ up. Header, hero, copy, CTA and every other page remain unchanged. The six-width
 banner test checks centering, size limits, full-width phone readability and
 keyboard navigation. No image bytes, tolerances, masks or fixtures changed.
 
+On 2026-10-29 the owner requested a Last Supper-like single-row panorama to
+reduce homepage height. Review run `40987063411` (source `a5257b8a`) passes all
+functional checks and 52 unchanged visual scenarios. The four homepage
+actual/difference pairs were reviewed at 1440/820/390/320: only the new artwork,
+shorter 3.7:1 top-aligned frame and resulting upward content movement differ.
+All ten faces, hats and the gold headline remain visible; only surplus foreground
+felt is trimmed. The 85%/900px container, phone full width, CTA, hero and shared
+portraits are unchanged. Only these four Linux references are updated; no
+tolerances, masks or fixtures changed. The six-width banner interaction test passes.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
