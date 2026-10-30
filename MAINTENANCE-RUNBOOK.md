@@ -290,7 +290,8 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
 The homepage's three former teasers are replaced by the single “The Many Faces
-of Norm” banner linking to `media.html`. The approved nine-character artwork
+of Norm” banner linking to `media.html`. The ten-character artwork in
+`images/site/norm-many-faces-hockey.jpg` adds the approved V2 hockey Norm and
 includes its gold headline, the owner's actual card-room backdrop (referenced
 from `images/rebuy-hard/the-room.jpg`), and the pale TLPT hockey felt. Keep the full image
 uncropped on every screen, the visible Film Room CTA and keyboard focus, and the
@@ -586,11 +587,17 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   `images/site/norm-many-faces.jpg`; the original photographic headshot remains
   available for unrelated uses. Crop coordinates live in `stats-help.js` and
   each guide explicitly selects a stable character with its `portrait` key.
-  Results/Knockouts use the referee, Bankroll the hotline operator, Rates/Standings
+  Results uses the referee, Knockouts the approved V2 hockey headshot in
+  `images/site/norm-hockey-headshot.webp`, Bankroll the hotline operator, Rates/Standings
   classic Norm, DNA/Form Lab the detective, Heater Meter the weather presenter,
   Streaks the clock host, Crew/Bounty Hunters the explorer, and Profiles the
   microphone host. Update the portrait with the view, never on a timer or at
   random. Keep faces undistorted and the 96/80px circular frames unchanged.
+  The original nine-character image stays unchanged as the shared portrait
+  source; homepage banner updates must not move those crop coordinates. Hockey
+  has its own 512px source and framing; switching back from Bounty Hunters must
+  restore both its source dimensions and crop. This image does not authorize
+  publication of the still-unreviewed hockey commercial.
   Dashboard retains its view-specific metric definitions.
   `stats-help-content.js` adds eight written guides across Standings, Form Lab,
   Heater Meter, Streak Tracker, Knockouts/Bounty Hunters, Crew and player profiles.

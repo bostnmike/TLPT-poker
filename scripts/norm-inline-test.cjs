@@ -2,7 +2,7 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const dashboard=[['results',40.91],['bankroll',41.95],['rates',43.55],['player-dna',47.96]];
 const guides={standings:['standings',50.83],'form-lab':['form-lab',53.24],'player-movement':['heater-meter',52.85],streaks:['streaks',51.80],knockouts:['knockouts',50.44],bounties:['bounty-hunters',60.53],players:['meet-the-crew',52.35],player:['player-profile',58.51]};
-const characters={results:'referee',bankroll:'hotline',rates:'classic','player-dna':'detective',standings:'classic','form-lab':'detective','player-movement':'weather',streaks:'clock',knockouts:'referee',bounties:'explorer',players:'explorer',player:'host'};
+const characters={results:'referee',bankroll:'hotline',rates:'classic','player-dna':'detective',standings:'classic','form-lab':'detective','player-movement':'weather',streaks:'clock',knockouts:'hockey',bounties:'explorer',players:'explorer',player:'host'};
 module.exports=async function run(kind,base){
  const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
  const isDashboard=kind==='dashboard',pages=isDashboard?['dashboard']:Object.keys(guides).filter(k=>k!=='bounties');
@@ -24,7 +24,7 @@ module.exports=async function run(kind,base){
     if(name==='knockouts')await page.locator('#knockouts-summary-grid > *').first().waitFor();
     const card=page.locator('.norm-page-guide'),audio=card.locator('audio'),opener=page.locator(openSelector),dialog=page.locator(dialogSelector);
     await audio.waitFor();assert.equal(requests.length,0,'Page load never fetches narration');
-    const views=isDashboard?dashboard.map(x=>x[0]):name==='knockouts'?['knockouts','bounties']:[name];
+    const views=isDashboard?dashboard.map(x=>x[0]):name==='knockouts'?['knockouts','bounties','knockouts']:[name];
     for(const [index,view] of views.entries()){
      if(isDashboard)await page.locator('[data-dashboard-category="'+view+'"]').click();
      if(name==='knockouts')await page.locator('[data-knockouts-view="'+view+'"]').click();
@@ -37,8 +37,11 @@ module.exports=async function run(kind,base){
      const portrait=card.locator('.norm-headshot'),portraitImage=portrait.locator('img');
      await portraitImage.evaluate(e=>e.decode());
      assert.equal(await portrait.getAttribute('data-norm-character'),characters[view],'Stable character matches the current guide');
-     assert.equal(await portraitImage.getAttribute('src'),'images/site/norm-many-faces.jpg');
-     assert.equal(await portraitImage.evaluate(e=>e.naturalWidth===1983&&e.naturalHeight===793),true);
+     const hockey=characters[view]==='hockey';
+     assert.equal(await portraitImage.getAttribute('src'),hockey?'images/site/norm-hockey-headshot.webp':'images/site/norm-many-faces.jpg');
+     assert.deepEqual(await portraitImage.evaluate(e=>[e.naturalWidth,e.naturalHeight]),hockey?[512,512]:[1983,793]);
+     assert.ok((await portraitImage.boundingBox()).width > (await portrait.boundingBox()).width, 'Rendered image covers the frame after repeated view changes');
+     if(hockey) assert.equal(await portraitImage.evaluate(e=>e.style.width),'128%', 'Hockey crop uses source pixels, not its changing rendered width');
      assert.equal(await portrait.evaluate(e=>getComputedStyle(e).overflow),'hidden','Character stays inside the circular frame');
      assert.equal(await portraitImage.getAttribute('alt'),'','Narration heading already names Norm');
      await page.waitForFunction(size=>Math.round(document.querySelector('.norm-page-guide .norm-headshot').getBoundingClientRect().width)===size,width<=600?80:96);

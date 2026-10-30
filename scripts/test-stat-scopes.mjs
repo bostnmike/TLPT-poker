@@ -95,7 +95,7 @@ for (const page of ['standings','form-lab','player-movement','streaks','knockout
 assert.ok(fs.statSync(new URL('../images/site/norm-headshot.png',import.meta.url)).size>1000);
 assert.equal(Object.keys(guideContext.window.TLPTStatsGuides).length,8);
 for (const guide of Object.values(guideContext.window.TLPTStatsGuides)) {
-  assert.ok(['classic','detective','weather','clock','referee','explorer','host'].includes(guide.portrait), 'Each stats guide has an explicit cast portrait');
+  assert.ok(['classic','detective','weather','clock','hockey','explorer','host'].includes(guide.portrait), 'Each stats guide has an explicit cast portrait');
   assert.ok(guide.title && guide.intro && guide.sections.length>=4);
   if(guide.audio) {
     const recording = fs.readFileSync(new URL('../'+guide.audio,import.meta.url));

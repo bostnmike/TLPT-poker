@@ -1,7 +1,8 @@
 /* Shared page-level narration and separate, written-only help dialogs. */
 (() => {
   // Square viewports into the approved 1983 × 793 cast artwork. Reuse one
-  // cached image; never redraw faces or randomly change a guide's character.
+  // cached image for the original cast; keep it independent of homepage edits.
+  // Hockey uses its separately approved 512px transparent headshot.
   const portrait = 'images/site/norm-many-faces.jpg';
   const portraits = {
     referee: [390, 90, 240],
@@ -11,7 +12,8 @@
     detective: [90, 285, 280],
     hotline: [570, 330, 250],
     classic: [860, 315, 250],
-    host: [1173, 342, 270]
+    host: [1173, 342, 270],
+    hockey: [40, 30, 400]
   };
   const add = (parent, tag, text, className) => {
     const el = document.createElement(tag);
@@ -32,8 +34,14 @@
     return key => {
       const character = Object.hasOwn(portraits, key) ? key : 'classic';
       const [x, y, size] = portraits[character];
+      const hockey = character === 'hockey';
+      const sourceWidth = hockey ? 512 : 1983;
+      const source = hockey ? 'images/site/norm-hockey-headshot.webp' : portrait;
+      if (img.getAttribute('src') !== source) img.src = source;
+      img.width = sourceWidth;
+      img.height = hockey ? 512 : 793;
       frame.dataset.normCharacter = character;
-      img.style.width = (1983 / size * 100) + '%';
+      img.style.width = (sourceWidth / size * 100) + '%';
       img.style.left = (-x / size * 100) + '%';
       img.style.top = (-y / size * 100) + '%';
     };

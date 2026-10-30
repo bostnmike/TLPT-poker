@@ -45,7 +45,7 @@ window.TLPTStatsGuides = {
     ]
   },
   knockouts: {
-    portrait: 'referee',
+    portrait: 'hockey',
     title: 'Knockout Central', audio: 'media/norm-narrates/norm-knockouts.mp3', scope: true,
     intro: 'Who eliminated whom, how often, and which rivalries have receipts.',
     sections: [
