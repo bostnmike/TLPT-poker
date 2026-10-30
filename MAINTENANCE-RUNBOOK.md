@@ -291,14 +291,16 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 
 The homepage's three former teasers are replaced by the single “The Many Faces
 of Norm” banner linking to `media.html`. The ten-character artwork in
-`images/site/norm-many-faces-hockey.jpg` adds the approved V2 hockey Norm and
-includes its gold headline, the owner's actual card-room backdrop (referenced
-from `images/rebuy-hard/the-room.jpg`), and the pale TLPT hockey felt. Keep the full image
-uncropped on every screen, the visible Film Room CTA and keyboard focus, and the
-accessible link label. Do not restore the old three-teaser row alongside it.
+`images/site/norm-many-faces-single-row.jpg` arranges the same ten personas in a
+Last Supper-inspired single row, with the gold headline, the owner's card-room
+backdrop and pale TLPT hockey felt. The top-aligned 3.7:1 frame trims only surplus
+foreground felt; keep every face, hat and the headline visible on every screen.
+Keep the visible Film Room CTA, keyboard focus and accessible link label.
+Do not restore the old three-teaser row alongside it. Previous banner assets
+remain unchanged, especially the original shared narration-portrait source.
 The banner is centered at 85% of the content width, capped at 900px, so it stays
 secondary to the page hero. At 600px and below it fills the content width to keep
-the cast and headline readable. Resize the container, never crop the artwork.
+the cast and headline readable. Never stretch faces or crop the title/cast.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.
 
 The Film Room has ten RSVP YouTube embeds, plus its nine original embedded/link

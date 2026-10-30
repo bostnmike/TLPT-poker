@@ -37,8 +37,9 @@ assert.equal((home.match(/class="home-norm-banner"/g) || []).length, 1, 'One con
 assert.match(banner, /href="media.html"/);
 assert.match(banner, /aria-label="The Many Faces of Norm — visit the Film Room"/);
 assert.match(banner, /Visit the Film Room/);
-assert.match(banner, /width="1983" height="793"/);
-assert.match(banner, /src="images\/site\/norm-many-faces-hockey.jpg"/);
+assert.match(banner, /width="2173" height="724"/);
+assert.match(banner, /src="images\/site\/norm-many-faces-single-row.jpg"/);
+assert.equal(hash('images/site/norm-many-faces-single-row.jpg'), 'e13797ffdd002bb6ef6e042c4cb0b767bd45b30c0813bd8191de37461135814b', 'Single-row ten-character panorama retains gold title and card-room setting');
 assert.equal(hash('images/site/norm-many-faces-hockey.jpg'), 'c68b789a0c9d04b8ac7c25b62c0e7bb88c35f7c8b716bfcbedd2777722d674aa', 'Ten-character group retains headline, card room and TLPT felt');
 assert.equal(hash('images/site/norm-many-faces.jpg'), 'd0694c96d6ced196fa0aedeff6b99985d0d6c0572332d4752e11317c7e318fce', 'Original cast remains unchanged for existing portrait crops');
 assert.equal(hash('images/site/norm-hockey-headshot.webp'), 'b916c7b2360889d7a1d22e7b73594c3afaf8acc9f5209f52aaa35b7092902587', 'Use only the approved V2 hockey headshot');
