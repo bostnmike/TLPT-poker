@@ -122,3 +122,17 @@ test('changing an existing game day preserves identity and answers, recalculates
  const collision=await call(env,'action',{type:'event',eventId:id,metadata,capacity:18,open:true},admin);assert.equal(collision.r.status,409);assert.match(collision.body.error,/already exist/);
  assert.equal((await call(env,'me',null,admin)).body.allEvents.find(e=>e.id===id).metadata.slot,'saturday');
 });
+
+test('Sunday saves as a 50K single table, stays off until opened, and retains answers through open/close and day changes',async()=>{
+ const {env}=await fixture(),admin=await login(env,adminKey),metadata={title:'Sunday Test',date:'2030-11-03',slot:'sunday',day:'Sunday',format:'50K Format',structure:'50K starting stack • Friday blinds start 50/100 • 20 min levels',time:'7:00 PM',endTime:'11:30 PM',location:'Room',address:'Cary'};
+ let r=await call(env,'action',{type:'event',metadata,capacity:9,open:false},admin);assert.equal(r.r.status,200);
+ let feed=(await call(env,'public/events')).body,event=feed.events.find(e=>e.slot==='sunday'),id=event.id;assert.equal(event.rsvpOpen,false);assert.equal(event.tables,1);assert.equal(event.startingStack,50000);assert.equal(event.blindStructure,'40k');assert.equal(event.capacity,9);
+ assert.equal((await call(env,'respond',{eventId:id,slug:'red',answer:'yes'})).r.status,409);
+ const edit={type:'event',eventId:id,metadata,capacity:9,open:true};assert.equal((await call(env,'action',edit,admin)).r.status,200);
+ assert.equal((await call(env,'respond',{eventId:id,slug:'red',answer:'yes'})).r.status,200);
+ assert.equal((await call(env,'action',{...edit,capacity:10},admin)).r.status,400);
+ assert.equal((await call(env,'action',{...edit,open:false},admin)).r.status,200);
+ event=(await call(env,'public/events')).body.events.find(e=>e.id===id);assert.equal(event.rsvpOpen,false);assert.equal(event.rsvps.red,'yes');assert.equal(event.rsvps.bostnmike,'yes');
+ assert.equal((await call(env,'action',{...edit,metadata:{...metadata,slot:'friday',day:'Friday'},open:false},admin)).r.status,200);
+ event=(await call(env,'public/events')).body.events.find(e=>e.id===id);assert.equal(event.startingStack,undefined);assert.equal(event.blindStructure,undefined);assert.equal(event.tables,1);assert.equal(event.rsvps.red,'yes');
+});

@@ -32,11 +32,11 @@ export function playerView(state,slug){return {player:state.players.find(p=>p.sl
 export function validateMetadata(raw){
  const fields=['title','format','slot','day','date','time','endTime','location','address','structure'];const m={};
  for(const k of fields){requireValue(typeof raw[k]==='string'&&raw[k].length<=250,`Invalid ${k}.`);m[k]=raw[k].trim();}
- requireValue(m.title&&['friday','saturday','mtt'].includes(m.slot),'Choose a title and event type.');
+ requireValue(m.title&&['friday','saturday','sunday','mtt'].includes(m.slot),'Choose a title and event type.');
  requireValue(m.date==='Date TBD'||/^\d{4}-\d{2}-\d{2}$/.test(m.date)&&Number.isFinite(Date.parse(m.date+'T12:00:00Z'))&&new Date(m.date+'T12:00:00Z').toISOString().slice(0,10)===m.date,'Choose a calendar date or Date TBD.');
  requireValue(/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.time)&&/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.endTime),'Use times such as 7:00 PM.');
  const poster=raw.poster||'auto';requireValue(typeof poster==='string'&&/^(auto|none|fw\d{2}-\d{2}-\d{2}\.jpg)$/.test(poster),'Choose a poster from the TLPT gallery.');
- m.poster=poster;m.tables=m.slot==='mtt'?2:1;return m;
+ m.poster=poster;m.tables=m.slot==='mtt'?2:1;if(m.slot==='sunday'){m.startingStack=50000;m.blindStructure='40k';}return m;
 }
 export function applyOperation(state,actor,op,now=new Date().toISOString()){
  const admin=actor.role==='admin';
@@ -57,12 +57,13 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
    requireValue(Number.isInteger(op.capacity)&&op.capacity>=1&&op.capacity<=90,'Capacity must be 1–90.');
    requireValue(typeof op.open==='boolean','Choose open or closed.');
    const metadata=validateMetadata(op.metadata);
+   requireValue(metadata.slot!=='sunday'||op.capacity<=9,'Sunday is a single table with up to 9 seats.');
    requireValue(metadata.date!=='Date TBD'||!op.open,'Keep undated events closed until a date is confirmed.');
    let e=state.events.find(e=>e.id===op.eventId);
    if(e){
     requireValue(liveEvent(e),'Restore this event before editing it.',409);
     requireValue(!state.events.some(other=>other!==e&&liveEvent(other)&&other.metadata.slot===metadata.slot&&other.metadata.date===metadata.date),'This event type and date already exist.',409);
-    e.metadata={...e.metadata,...metadata};e.capacity=op.capacity;e.open=op.open;
+    e.metadata={...e.metadata,...metadata};if(metadata.slot!=='sunday'){delete e.metadata.startingStack;delete e.metadata.blindStructure;}e.capacity=op.capacity;e.open=op.open;
    }else{
     requireValue(!op.eventId,'Unknown event.');requireValue(state.events.length<100,'Event archive is full. Export a backup and contact maintenance.');
     requireValue(!state.events.some(e=>liveEvent(e)&&e.metadata.slot===metadata.slot&&e.metadata.date===metadata.date),'This event type and date already exist.');
