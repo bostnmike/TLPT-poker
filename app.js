@@ -685,7 +685,7 @@ const RULES_FORMATS = {
 
 RULES_FORMATS.sunday = {
   title: "Sunday 50K Small Blind Ante",
-  description: "50,000 starting chips • One table, up to 9 players • Friday’s blind ladder.",
+  description: "50,000 starting chips • One table, up to 9 players.",
   chips: RULES_TWO_TABLE_CHIPS,
   levelMinutes: RULES_FORMATS["40k"].levelMinutes,
   breakMinutes: RULES_FORMATS["40k"].breakMinutes,
