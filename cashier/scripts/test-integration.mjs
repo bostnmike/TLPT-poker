@@ -92,18 +92,23 @@ try{
  const entry=(eventId,items=['entry'])=>({action:'manual',eventId,items,player:'History test player',method:'venmo',cents:items.includes('food')?6500:eventId===mttId?5000:3000,checked:true,requestId:crypto.randomUUID()});
  for(const id of [mttId,'friday:2099-01-02','saturday:2099-01-03'])await hpost(entry(id));
  const mail={id:'CLEAR_'+crypto.randomUUID().replaceAll('-',''),from:'Venmo <venmo@venmo.com>',authenticationResults:'mx.google.com; dkim=pass header.i=@venmo.com',subject:'Test Payer paid you $50.00',body:'TLPT mtt 2020-01-01 entry',internalDate:String(Date.parse('2020-01-01T18:00:00Z'))};
- await hintake([mail]);let h=await hget();assert.equal(h.clearHistory.eligible,true);
+ await hintake([mail]);let h=await hget();
  const receipt=h.payments.find(p=>p.source_id==='gmail:'+mail.id),target=h.payments.find(p=>p.source_id.startsWith('manual:'));
- await hpost({action:'link',eventId:mttId,id:receipt.id,linkId:target.id,player:target.player,checked:true,requestId:crypto.randomUUID()});h=await hget();
+ await hpost({action:'link',eventId:mttId,id:receipt.id,linkId:target.id,player:target.player,checked:true,requestId:crypto.randomUUID()});await hpost(entry(mttId,['entry','food']));await fetch(historyBase+'/__test/advance');h=await hget();assert.equal(h.clearHistory.eligible,true);assert.ok(h.events.find(e=>e.id===mttId).savedOnly);
  const clear={action:'clear-history',eventId:mttId,checked:true,confirmationDate:'2020-01-01',expectedRevision:h.clearHistory.revision};
  await hpost({...clear,checked:false},400);await hpost({...clear,confirmationDate:'2099-01-02'},400);await hpost({...clear,eventId:'friday:2099-01-02'},400);
- await hpost(entry(mttId,['entry','food']));await hpost(clear,409);assert.equal((await hget()).payments.length,3,'Stale clearing must preserve accounting rows and the receipt');
+ await hpost({action:'void',eventId:mttId,id:target.id,player:target.player,checked:true,requestId:crypto.randomUUID()});await hpost(clear,409);assert.equal((await hget()).payments.length,3,'Stale clearing must preserve accounting rows and the receipt');
  h=await hget();await hpost({...clear,expectedRevision:h.clearHistory.revision});h=await hget();
- assert.equal(h.payments.length,0);assert.equal(h.totals.collected,0);assert.equal(h.receiptLinks.length,0);assert.equal(h.clearHistory.eligible,false);assert.ok(h.events.find(e=>e.id===mttId).historyClearedAt);
+ assert.equal(h.payments.length,0);assert.equal(h.totals.collected,0);assert.equal(h.receiptLinks.length,0);assert.equal(h.clearHistory.eligible,false);assert.ok(!h.events.some(e=>e.id===mttId)||h.events.find(e=>e.id===mttId).historyClearedAt);
  await hpost(entry(mttId),409);await hpost({action:'batch',eventId:mttId,requestId:crypto.randomUUID(),checked:true,groups:[]},409);
  const ignored=await hintake([mail,{...mail,id:'CLEAR_NEW_'+crypto.randomUUID().replaceAll('-','')}]);assert.equal(ignored.ignoredIds.length,2);assert.equal((await hget()).payments.length,0);
  const reader=await hintake([],'config');assert.ok(!reader.events.some(e=>e.id===mttId),'Reader configuration must exclude the cleared event');
  for(const id of ['friday:2099-01-02','saturday:2099-01-03']){const other=await hget(id);assert.equal(other.totals.collected,3000);assert.equal(other.payments.length,1);}
+ await fetch(historyBase+'/__test/cancel-saturday');const canceled=await hget('saturday:2099-01-03');
+ assert.ok(!canceled.events.some(e=>e.slot==='saturday'&&!e.savedOnly),'Canceled games must leave the active tabs');assert.equal(canceled.totals.collected,3000,'Cancellation must preserve the existing ledger');
+ await hpost(entry('saturday:2099-01-03'),409);
+ const canceledMail={...mail,id:'CANCELED_'+crypto.randomUUID().replaceAll('-',''),subject:'Test Payer paid you $30.00',body:'TLPT saturday 2099-01-03 entry'};
+ assert.equal((await hintake([canceledMail])).ignoredIds.length,1);
  console.log('PASS: isolated Worker/D1 history clearing — finished MTT only, exact-date confirmation, stale-ledger rollback, receipt cleanup, zero totals, other events preserved, reader exclusion and no stale manual/batch or email resurrection.');
  }
  const config=JSON.parse(readFileSync('wrangler.local.json','utf8'));config.name='tlpt-cashier-locked-test';config.vars={...config.vars,CASHIER_ENV:'staging',CF_ACCESS_TEAM_DOMAIN:'https://tlpt-test.cloudflareaccess.com',CF_ACCESS_AUD:'test-audience'};writeFileSync('wrangler.locked.local.json',JSON.stringify(config));

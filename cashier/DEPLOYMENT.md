@@ -190,3 +190,14 @@ its payments. Prefer fixing forward. Never remove a marker, reset the importer's
 seen IDs, or replay old mail as a code-recovery shortcut. Recovering intentionally
 cleared payments from an export/backup is a separate owner-approved reconciliation,
 including receipts and payments received since the clear.
+
+## Live schedule selection
+
+Cashier reads the existing public RSVP feed without changing that service, its
+permissions or credentials. Ordinary live schedule edits no longer run ledger
+cleanup. Verified current events and retained ledger metadata use the existing
+`schedule_state` and `live_rsvp_state` tables, with a `live-v1:` source marker.
+On initial live-source failure, static events are saved-history-only. A code
+rollback to the earlier static selector could show obsolete dates and invoke its
+old cleanup policy; prefer fixing forward and retain the live selector during
+recovery. No migration, database replacement, gateway or reader changes are needed.

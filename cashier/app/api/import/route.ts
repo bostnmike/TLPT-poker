@@ -3,13 +3,14 @@ import {db,json,body} from '@/lib/api';
 import {parseReceipt,routeReceipt} from '@/lib/receipt.mjs';
 import {RECEIPT_INSERT_SQL} from '@/lib/deletion.mjs';
 import {getSchedule} from '@/lib/schedule';
+import {receiptSchedule} from '@/lib/live-payment-schedule.mjs';
 export const dynamic='force-dynamic';
 export async function POST(req:Request){
  if(!env.IMPORT_TOKEN||req.headers.get('X-Register-Token')!==env.IMPORT_TOKEN)return json({error:'Unauthorized'},401);
  try{
   const input=await body(req);if(!Array.isArray(input.messages)||input.messages.length>30)return json({error:'Invalid batch'},400);
   const mode=input.mode||'live',now=new Date().toISOString();if(!['live','config','connection-test','armed','receipt-test'].includes(mode))return json({error:'Invalid mode'},400);
-  const loadedSchedule=await getSchedule(),schedule={...loadedSchedule,events:loadedSchedule.events.filter((e:any)=>!e.historyClearedAt)};
+  const loadedSchedule=await getSchedule(),schedule={...loadedSchedule,events:receiptSchedule(loadedSchedule.events)};
   if(mode==='config'){if(input.messages.length)return json({error:'Config takes no messages.'},400);return json({ok:true,events:schedule.events,scheduleError:schedule.error,queryAfter:Math.floor((Date.now()-14*86400000)/1000),generation:schedule.events.map((e:any)=>e.id).sort().join('|')});}
   if(['connection-test','armed'].includes(mode)){
    if(input.messages.length)return json({error:'Connection checks take no messages.'},400);

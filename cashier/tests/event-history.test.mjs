@@ -54,10 +54,12 @@ test('clearing a past MTT removes all payment statuses, linked receipts, audit a
 test('a changed ledger invalidates the clear confirmation atomically and leaves every record intact',()=>{
  const r=execute({stale:true});assert.match(r.error,/CHECK/);assert.equal(r.payments.length,rows.length);assert.equal(r.event_history_clears.length,0);assert.equal(r.receipt_links.length,1);assert.equal(r.cashier_batches.length,2);
 });
-test('clearing requires the exact date, explicit acknowledgement and a finished MTT',()=>{
+test('clearing requires the exact date, explicit acknowledgement and a finished game',()=>{
  const valid={event,now,expectedRevision:1,confirmationDate:event.date,checked:true,requestId:'test'};
  for(const change of [{checked:false},{confirmationDate:'2026-10-31'},{expectedRevision:-1},{event:{...event,slot:'saturday'}},{event:{...event,historyClearedAt:'at'}},{now:Date.parse('2026-10-25T09:59:59Z')}])assert.throws(()=>eventHistoryClearPlan({...valid,...change}));
  assert.equal(canClearEventHistory(event,Date.parse('2026-10-25T10:00:00Z')),true);
- assert.equal(canClearEventHistory({...event,date:'2026-11-07'},Date.parse('2026-11-08T10:59:59Z')),false);
- assert.equal(canClearEventHistory({...event,date:'2026-11-07'},Date.parse('2026-11-08T11:00:00Z')),true);
+ assert.equal(canClearEventHistory({id:'friday:2026-10-23',slot:'friday',date:'2026-10-23'},now),true);
+ assert.equal(canClearEventHistory({id:'saturday:2026-10-31',slot:'saturday',date:'2026-10-31'},now),false);
+ assert.equal(canClearEventHistory({...event,id:'mtt:2026-11-07',date:'2026-11-07'},Date.parse('2026-11-08T10:59:59Z')),false);
+ assert.equal(canClearEventHistory({...event,id:'mtt:2026-11-07',date:'2026-11-07'},Date.parse('2026-11-08T11:00:00Z')),true);
 });

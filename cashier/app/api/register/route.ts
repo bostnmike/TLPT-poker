@@ -15,7 +15,7 @@ export async function GET(req:Request){const denied=browserAuth(req);if(denied)r
  const schedule=await getSchedule(),asked=new URL(req.url).searchParams.get('eventId');
  const state:any=await db().prepare('SELECT * FROM sync_state WHERE id=?').bind('venmo').first();
  const following=new URL(req.url).searchParams.get('follow')==='true';
- const selected=schedule.events.find((e:any)=>e.id===(following?state?.active_event_id:asked))||[...schedule.events].sort((a:any,b:any)=>a.date.localeCompare(b.date))[0]||null;
+ const selected=schedule.events.find((e:any)=>e.id===(following?state?.active_event_id:asked))||schedule.events.filter((e:any)=>!e.savedOnly).sort((a:any,b:any)=>a.date.localeCompare(b.date))[0]||schedule.events.filter((e:any)=>e.savedOnly).sort((a:any,b:any)=>b.date.localeCompare(a.date))[0]||null;
  const revision:any=await db().prepare('SELECT revision,history_revision FROM register_revision WHERE id=1').first();
  const etag=JSON.stringify(String(revision?.revision||0)+'-'+(selected?.id||'none'));
  if(req.headers.get('If-None-Match')===etag)return new Response(null,{status:304,headers:{ETag:etag,'Cache-Control':'private, no-store'}});
@@ -33,7 +33,8 @@ export async function POST(req:Request){const denied=browserAuth(req,true);if(de
   try{await db().batch(plan.map((s:any)=>db().prepare(s.sql).bind(...s.values)));}catch{return json({error:'The ledger changed or clearing could not be confirmed. Refresh and review the event again before retrying.'},409);}
   return json({ok:true,eventId:event.id,historyCleared:true});
  }
- if(event.historyClearedAt&& !['select','forget-alias'].includes(input.action))return json({error:'History for this MTT has been cleared and the event is closed. Use a newly dated event for new payments.'},409);
+ if(event.historyClearedAt&& !['select','forget-alias'].includes(input.action))return json({error:'History for this event has been cleared and the event is closed. Use a newly dated event for new payments.'},409);
+ if(event.savedOnly&&(input.action==='manual'||input.action==='format'||(input.action==='batch'&&input.groups?.some((g:any)=>g.action==='manual'))))return json({error:'This is saved payment history, not an active game. Choose a current game to record new payments.'},409);
  if(input.action==='batch')return processBatch(input,event,actor,now);
  if(input.action==='forget-alias'){
   if(typeof input.payerKey!=='string'||!input.payerKey||input.payerKey.length>200)return json({error:'Choose a remembered Venmo name.'},400);

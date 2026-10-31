@@ -497,3 +497,5 @@ html:-webkit-full-screen { background: var(--bg); overflow-y: auto; }
 .receipt-match-status { color:var(--muted); font-size:11px; line-height:1.5; }
 aside[aria-label="Needs confirmation"] .sectionhead { flex-wrap:wrap; }
 .app-window-status { display:inline-flex; align-items:center; min-height:44px; padding:10px 15px; color:#86efac; border:1px solid rgba(61,220,132,.25); border-radius:var(--radius-control); font-size:13px; font-weight:700; }
+
+.saved-event-picker { margin: 12px 0; max-width: 640px; }
