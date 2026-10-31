@@ -1,6 +1,6 @@
-import {addDay,easternEpoch} from './events.mjs';
+import {addDay,easternEpoch,SLOTS} from './events.mjs';
 export function canClearEventHistory(event,now=Date.now()){
- return !!event&&['friday','saturday','mtt'].includes(event.slot)&&event.id===event.slot+':'+event.date&&!event.historyClearedAt&&now>=easternEpoch(addDay(event.date),6);
+ return !!event&&SLOTS.includes(event.slot)&&event.id===event.slot+':'+event.date&&!event.historyClearedAt&&now>=easternEpoch(addDay(event.date),6);
 }
 // Shared ambiguous receipts stay available to their other possible events.
 export const HISTORY_SCOPE="(event_id=? OR (event_id IS NULL AND json_array_length(candidate_event_ids)=1 AND EXISTS (SELECT 1 FROM json_each(candidate_event_ids) WHERE value=?)))";

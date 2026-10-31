@@ -52,6 +52,9 @@ h1 { margin: 5px 0 8px; color: white; font-size: clamp(2.35rem,4.5vw,3.6rem); fo
 .suit-mark { position: absolute; right: 55px; color: rgba(255,184,28,.075); font-size: 132px; letter-spacing: -30px; transform: rotate(-10deg); pointer-events: none; }
 .event-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 0 0 20px; }
 .event-tabs button { --slot-rgb: 200,154,240; display: block; min-width: 0; text-align: left; min-height: 104px; padding: 16px 20px; border-color: rgba(var(--slot-rgb),.24); border-radius: var(--radius-card); background: radial-gradient(circle at top right,rgba(var(--slot-rgb),.08),transparent 50%), var(--surface-raised); color: var(--text); }
+.event-tabs.has-sunday { grid-template-columns: repeat(4,minmax(0,1fr)); }
+.event-tabs button[data-slot=sunday] { --slot-rgb: 248,113,113; }
+.event-format-label { margin: 6px 0 0; color: var(--muted); font-size: 12px; }
 .event-tabs button[data-slot=saturday] { --slot-rgb: 147,197,253; }
 .event-tabs button[data-slot=mtt] { --slot-rgb: 244,114,182; }
 .event-tabs button.selected { border-color: rgba(var(--slot-rgb),.8); background: linear-gradient(145deg,rgba(var(--slot-rgb),.22),rgba(var(--slot-rgb),.06)), var(--surface-raised); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 0 0 1px rgba(var(--slot-rgb),.16), 0 8px 22px rgba(0,0,0,.2); }
@@ -499,3 +502,5 @@ aside[aria-label="Needs confirmation"] .sectionhead { flex-wrap:wrap; }
 .app-window-status { display:inline-flex; align-items:center; min-height:44px; padding:10px 15px; color:#86efac; border:1px solid rgba(61,220,132,.25); border-radius:var(--radius-control); font-size:13px; font-weight:700; }
 
 .saved-event-picker { margin: 12px 0; max-width: 640px; }
+
+@media (max-width: 640px) { .event-tabs.has-sunday { grid-template-columns: repeat(2,minmax(0,1fr)); } }
