@@ -269,7 +269,9 @@ Manage a response is the first Commish panel. Player selectors and lineups list
 active players before alumni, with BostnMike first. Waitlists retain queue order.
 New events use a native calendar date picker, with a Date TBD option that keeps
 RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
-structure, times and capacity; these can be adjusted before saving. Selecting a
+structure, times and capacity; these can be adjusted before saving. Friday
+always defaults to 50/100 starting blinds, matching the main Blind Structures
+page, even when an older saved Friday event has a stale or abbreviated description. Selecting a
 Friday/Saturday calendar date also selects its matching game preset, unless MTT
 was explicitly chosen for a new event. Existing events also allow changing Game day:
 selecting Friday, Saturday or MTT fills the matching format, blind structure,
