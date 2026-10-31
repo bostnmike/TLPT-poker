@@ -53,6 +53,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(download.suggestedFilename(), 'TLPT-RSVP-Setup.mp4');
       assert.equal(await download.failure(), null);
       await page.goto(base + '/index.html');
+      await page.waitForFunction(() => document.querySelector('#home-snapshot-grid')?.children.length > 0);
+      await page.evaluate(() => document.fonts.ready);
       assert.equal(await page.locator('.home-norm-banner').count(), 0, 'Homepage banner stays removed');
       assert.equal(await page.locator('.home-promo-row, .home-rebuy-teaser').count(), 0);
       assert.equal(await page.locator('.nav-dropdown-menu a[href="media.html"]').count(), 1, 'Film Room remains in navigation');
