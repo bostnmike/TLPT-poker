@@ -61,7 +61,6 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
    let e=state.events.find(e=>e.id===op.eventId);
    if(e){
     requireValue(liveEvent(e),'Restore this event before editing it.',409);
-    requireValue(e.metadata.slot===metadata.slot,'Event type cannot change. Create a new event for a different game type.');
     requireValue(!state.events.some(other=>other!==e&&liveEvent(other)&&other.metadata.slot===metadata.slot&&other.metadata.date===metadata.date),'This event type and date already exist.',409);
     e.metadata={...e.metadata,...metadata};e.capacity=op.capacity;e.open=op.open;
    }else{
