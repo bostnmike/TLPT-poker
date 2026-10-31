@@ -50,12 +50,9 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
         async function checkHidden() {
           assert.equal(await sundayCards.count(), 0, name+': no public Sunday card when off');
           assert.equal(await page.locator('[data-home-event-slot="sunday"]').count(), 0);
-          if (name === 'structures') assert.equal(await sundayButton.isVisible(), false);
           assert.equal(await page.getByText('NO GAME THIS SUNDAY', {exact:true}).count(), 0);
         }
         await checkHidden();
-        await refresh('closed'); await checkHidden();
-        await refresh('open');
         if (name === 'structures') {
           await sundayButton.waitFor({state:'visible'});
           await sundayButton.click();
@@ -78,18 +75,26 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           await page.screenshot({path:'/tmp/sunday-structures-'+width+'.png', animations:'disabled'});
           await page.locator('#format-content').scrollIntoViewIfNeeded();
           await page.screenshot({path:'/tmp/sunday-blinds-'+width+'.png', animations:'disabled'});
-          await refresh('closed'); await checkHidden();
-          assert.equal(await page.locator('#format-btn-40k').getAttribute('aria-pressed'), 'true');
-          assert.equal(await page.locator('.format-title-sunday').count(), 0, 'Closing Sunday replaces its selected sheet');
-          // Closing Sunday while its PDF sibling is open must not restore a hidden choice.
-          await refresh('open'); await sundayButton.click();
           await page.locator('[data-mtt-guide-toggle]').click();
-          await refresh('closed');
-          assert.equal(await page.locator('#mtt-guide-panel').isVisible(), true, 'Do not interrupt an open PDF');
+          assert.equal(await page.locator('#mtt-guide-panel').isVisible(), true);
           await page.locator('[data-mtt-guide-toggle]').click();
-          assert.equal(await page.locator('#format-btn-40k').getAttribute('aria-pressed'), 'true');
-          assert.equal(await sundayButton.getAttribute('aria-pressed'), 'false');
+          assert.equal(await sundayButton.getAttribute('aria-pressed'), 'true', 'PDF restores Sunday like every other format');
+          for (const next of ['closed','open','offline']) {
+            mode = next; revision++;
+            await page.reload();
+            await page.locator(ready).first().waitFor();
+            assert.equal(await sundayButton.isVisible(), true, 'Sunday reference is available with '+next+' feed');
+            await sundayButton.click();
+            assert.equal(await sundayButton.getAttribute('aria-pressed'), 'true');
+            assert.match(await page.locator('.format-title-sunday').textContent(), /Sunday 50K/);
+            const before = requests;
+            await page.clock.runFor(60050);
+            assert.equal(requests, before, 'Reference structures do not poll game availability');
+            assert.equal(await sundayButton.getAttribute('aria-pressed'), 'true');
+          }
         } else {
+          await refresh('closed'); await checkHidden();
+          await refresh('open');
           assert.equal(await sundayCards.count(), 1);
           if (name === 'index') await page.locator('.home-event-rotator-panel.is-active [data-home-event-slot="sunday"]').click();
           const card = sundayCards.first();
@@ -111,18 +116,18 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           await refresh('small');
           assert.equal(await sundayCards.locator('.event-rsvp-seat-player,.event-empty-seat').count(), 5, 'Capacity-limited Sunday does not advertise extra chairs');
           await refresh('closed'); await checkHidden();
+          await refresh('open');
+          // A failed live feed must never revive a closed/static Sunday.
+          mode='offline'; revision++;
+          await page.clock.runFor(60050);
+          await page.waitForFunction(() => window.siteData?.rsvpUnavailable === true);
+          await checkHidden();
+          await refresh('open');
         }
-        await refresh('open');
-        // A failed live feed must never revive a closed/static Sunday.
-        mode='offline'; revision++;
-        await page.clock.runFor(60050);
-        await page.waitForFunction(() => window.siteData?.rsvpUnavailable === true);
-        await checkHidden();
-        await refresh('open');
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth > innerWidth + 1), false, name+': no horizontal overflow');
         assert.deepEqual(errors, [], name+': no runtime errors');
         await page.close();
-        console.log('PASS optional Sunday '+name+' '+width+': absent/off/open/off, live refresh, red one-table 50K, outage recovery');
+        console.log('PASS Sunday '+name+' '+width+': '+(name === 'structures' ? 'permanent red 50K reference, Friday ladder, PDF restoration, feed independence' : 'absent/off/open/off, live refresh, red one-table 50K, outage recovery'));
       }
     }
   } finally { await browser.close(); }

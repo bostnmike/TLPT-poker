@@ -1254,10 +1254,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:#d8b4fe;
 }
 
-#format-btn-sunday[hidden]{
-  display:none;
-}
-
 #format-btn-sunday{
   color:#fecaca;
   border-color:rgba(248,113,113,.44);

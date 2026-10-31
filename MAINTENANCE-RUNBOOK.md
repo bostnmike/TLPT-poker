@@ -263,8 +263,8 @@ renderer regressions. Warnings appear in both the page and integrity reports.
 
 ## Optional Sunday games on the public website
 
-The live RSVP feed is the only visibility authority. Home, Schedule and the
-optional Sunday structure require boolean `rsvpOpen === true`; absent, closed,
+The live RSVP feed is the only game visibility authority. Home and Schedule
+require boolean `rsvpOpen === true`; absent, closed,
 cancelled or unavailable games stay hidden. Never seed a Sunday in events.json
 or add a second website activation switch. A closed Sunday may remain in the
 schemaVersion:1 feed without invalidating Friday, Saturday or MTT games.
@@ -276,16 +276,16 @@ The schedule sorts open dates chronologically (undated MTT last); Home selects
 the next open date per slot in that same order. Existing player identities,
 manual preview matching, waitlists and historical results are unchanged.
 
-Sunday's optional Structures button is hidden in the initial HTML. It appears
-only while a Sunday is open, using Friday's exact blinds, antes, breaks and
+Sunday's red Structures button is always visible, independent of live games
+or feed availability. Its reference sheet uses Friday's exact blinds, antes, breaks and
 20-minute levels, with effective BB recalculated from 50,000. This is NOT the
 two-table 50K MTT. The owner selected the existing MTT 50K starting chip set:
 16 green, 16 black, 16 purple, 15 yellow, 5 white (50,000 total).
 Chip images/counts are shared by reference; MTT blinds, payouts and bounty
 policies are not imported into Sunday, and financial projections are not inferred.
-Closing Sunday returns a selected Sunday sheet to Friday; an open MTT PDF is
-left open and cannot restore a hidden Sunday choice. Home, Schedule and
-Structures all refresh from the existing live feed every minute while visible.
+Closing a game does not remove its reference structure. The MTT PDF restores
+the user's selected structure when closed. Home and Schedule refresh from the
+existing live feed every minute while visible; Structures needs no polling.
 Optional Sunday never generates routine “NO GAME THIS SUNDAY” notices.
 
 `scripts/test-sunday-games-browser.cjs` is in the required artifact browser gate:

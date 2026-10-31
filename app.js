@@ -6978,7 +6978,6 @@ function showFormat(formatKey) {
   const format = RULES_FORMATS[formatKey];
   const host = document.getElementById("format-content");
   if (!format || !host) return;
-  if (formatKey === "sunday" && !hasOpenSundayGame(window.siteData)) return;
 
   setActiveFormatButton(formatKey);
   host.dataset.rulesFormat = formatKey;
@@ -7000,27 +6999,7 @@ function showFormat(formatKey) {
   `;
 }
 
-function hasOpenSundayGame(data) {
-  return !data?.rsvpUnavailable && getCurrentEvents(data).some(event => event.slot === "sunday");
-}
-
-function syncOptionalRulesFormats(data) {
-  const button = document.getElementById("format-btn-sunday");
-  const host = document.getElementById("format-content");
-  if (!button || !host) return;
-  const available = hasOpenSundayGame(data);
-  const moveFocus = !available && document.activeElement === button;
-  button.hidden = !available;
-  if (!available && host.dataset.rulesFormat === "sunday") {
-    showFormat("40k");
-    // Do not close a PDF the user is reading when the Commish closes Sunday.
-    const guide = document.getElementById("mtt-guide-panel");
-    if (guide && !guide.hidden) setActiveFormatButton(null);
-  }
-  if (moveFocus) document.getElementById("format-btn-40k")?.focus({ preventScroll: true });
-}
-
-function initRulesPage(data) {
+function initRulesPage() {
   const host = document.getElementById("format-content");
   if (!host) return;
 
@@ -7029,7 +7008,6 @@ function initRulesPage(data) {
   });
 
   showFormat("40k");
-  syncOptionalRulesFormats(data);
 }
 
 function setActiveSortButton(scope, sortKey) {
@@ -7348,12 +7326,12 @@ async function main() {
   renderPlayerProfile(data);
   renderSchedule(data);
   await renderHall(data);
-  initRulesPage(data);
+  initRulesPage();
   initSorting();
   initCrewViewToggle();
   initCrewSearch();
   initEventRsvpNameHover();
-  if (document.getElementById("home-events-list") || document.getElementById("schedule-list") || document.getElementById("format-content")) {
+  if (document.getElementById("home-events-list") || document.getElementById("schedule-list")) {
     setInterval(async () => {
       if (document.hidden) return;
       const live = await loadLiveRsvpEvents(data.events);
@@ -7362,7 +7340,6 @@ async function main() {
       data.noGameDays = live.noGameDays;
       renderNoGameNotices(data);
       renderLiveRsvpStatus(live.unavailable); renderHomePage(data); renderSchedule(data);
-      syncOptionalRulesFormats(data);
     }, 60000);
   }
 }

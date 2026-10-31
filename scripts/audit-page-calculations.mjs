@@ -1043,12 +1043,12 @@ const sunday = { id:'sunday-fixture', title:'Sunday test', slot:'sunday', day:'S
   rsvps:{bostnmike:'yes',red:'yes'}, waitlist:[] };
 const sundaySnapshot = JSON.stringify(sunday);
 const sundayData = { ...data, events:[...futureEvents.events,sunday] };
-check(!app.get('hasOpenSundayGame')(sundayData), 'Closed Sunday must not enable its structure');
+check(!app.get('getCurrentEvents')(sundayData).some(e=>e.slot==='sunday'), 'Closed Sunday must not appear on the schedule');
 for (const value of [undefined, null, 0, 1, 'true', 'false', false]) {
   check(app.get('getCurrentEvents')({events:[{...sunday,rsvpOpen:value}]}).length === 0, 'Only boolean true opens a public event');
 }
 sunday.rsvpOpen = true;
-check(app.get('hasOpenSundayGame')(sundayData), 'Opened Sunday enables its structure');
+check(app.get('getCurrentEvents')(sundayData).some(e=>e.slot==='sunday'), 'Opened Sunday appears on the schedule');
 check(JSON.stringify(app.get('getCurrentEvents')(sundayData).map(e=>e.title)) === JSON.stringify(['Friday one','Saturday','Sunday test','Friday two','MTT']), 'Schedule must sort all open dates chronologically with undated MTT last');
 check(JSON.stringify(app.get('getHomeEvents')(sundayData).map(e=>e.title)) === JSON.stringify(['Friday one','Saturday','Sunday test','MTT']), 'Home selects the next open date per slot, including Sunday');
 check(app.get('getEventSlot')({day:'Sunday'}) === 'sunday' && app.get('getEventDayLabel')({date:'2099-01-04'}) === 'Sunday', 'Sunday fallback and ISO calendar-day labels are correct');
@@ -1072,9 +1072,9 @@ check(!sundayRules.bounty && !sundayRules.payoutLabel, 'Do not import MTT financ
 check(app.get('SUNDAY_STARTING_STACK') === 50000, 'Sunday starting chip set must total exactly 50K');
 check(sundayRules.chips === app.get('RULES_TWO_TABLE_CHIPS') && app.get('CHIP_SET_TEXT.sunday') === app.get('RULES_TWO_TABLE_CHIP_COUNTS'), 'Sunday shares the owner-selected MTT 50K starting chip set');
 check(app.get('buildRulesBlindTable')(sundayRules).includes('500 BB'), 'Sunday blind table shows 50K effective stack');
-check(!app.get('hasOpenSundayGame')({...sundayData,rsvpUnavailable:true}), 'Outage must hide optional structures');
+check(!app.get('getCurrentEvents')({...sundayData,rsvpUnavailable:true,events:sundayData.events.map(event=>({...event,rsvpUnavailable:true}))}).some(e=>e.slot==='sunday'), 'Unavailable fallback events must not revive optional Sunday games');
 sunday.rsvpOpen = false;
-check(!app.get('hasOpenSundayGame')(sundayData) && !app.get('getHomeEvents')(sundayData).some(e=>e.slot==='sunday'), 'Closing Sunday removes all public selections');
+check(!app.get('getCurrentEvents')(sundayData).some(e=>e.slot==='sunday') && !app.get('getHomeEvents')(sundayData).some(e=>e.slot==='sunday'), 'Closing Sunday removes public game selections, not its reference structure');
 check(JSON.stringify(sunday) === sundaySnapshot, 'Opening/closing presentation must preserve RSVP identities and answers');
 
 const result = { status: errors.length ? "FAIL" : "PASS", checks, errorCount: errors.length, errors, warningCount: warnings.length, warnings };

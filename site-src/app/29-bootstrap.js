@@ -20,12 +20,12 @@ async function main() {
   renderPlayerProfile(data);
   renderSchedule(data);
   await renderHall(data);
-  initRulesPage(data);
+  initRulesPage();
   initSorting();
   initCrewViewToggle();
   initCrewSearch();
   initEventRsvpNameHover();
-  if (document.getElementById("home-events-list") || document.getElementById("schedule-list") || document.getElementById("format-content")) {
+  if (document.getElementById("home-events-list") || document.getElementById("schedule-list")) {
     setInterval(async () => {
       if (document.hidden) return;
       const live = await loadLiveRsvpEvents(data.events);
@@ -34,7 +34,6 @@ async function main() {
       data.noGameDays = live.noGameDays;
       renderNoGameNotices(data);
       renderLiveRsvpStatus(live.unavailable); renderHomePage(data); renderSchedule(data);
-      syncOptionalRulesFormats(data);
     }, 60000);
   }
 }
