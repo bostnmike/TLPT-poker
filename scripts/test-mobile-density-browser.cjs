@@ -10,6 +10,7 @@ async function checkRsvpChairs(browser,width){
  // Browser-only public fixtures: never change RSVP responses in production.
  const events=JSON.parse(fs.readFileSync(path.join(__dirname,'../tests/visual/fixtures/data/events.json'))).events;
  for(const event of events){
+  event.rsvpOpen=true;
   event.rsvps={bostnmike:'yes',hiro:'yes'};
   event.seatAssignments=[['bostnmike','','hiro']];
  }

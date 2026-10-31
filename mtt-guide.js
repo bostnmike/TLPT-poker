@@ -24,6 +24,7 @@
       });
       if (!frame.getAttribute("src")) frame.setAttribute("src", frame.dataset.src);
     } else if (restoreFormat && previousFormat) {
+      if (previousFormat.hidden) previousFormat = document.getElementById("format-btn-40k");
       previousFormat.classList.add("active");
       previousFormat.setAttribute("aria-pressed", "true");
     }

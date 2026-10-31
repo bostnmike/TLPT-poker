@@ -29,7 +29,7 @@ for (const hasFormats of [true, false]) {
   const events = {};
   const document = {
     querySelector: selector => ({"[data-mtt-guide-toggle]":toggle,".format-content-shell":hasFormats ? content : null}[selector]),
-    getElementById: () => panel,
+    getElementById: id => id === 'format-btn-40k' ? formats[0] : panel,
     querySelectorAll: () => formats
   };
   const window = {location:{origin:"https://tlpt.org"},addEventListener:(type, handler) => { events[type] = handler; }};
@@ -67,6 +67,11 @@ for (const hasFormats of [true, false]) {
     assert.equal(content.hidden, false);
     assert.equal(formats[0].getAttribute("aria-pressed"), "false");
     assert.equal(formats[1].getAttribute("aria-pressed"), "true");
+    toggle.click();
+    formats[1].hidden = true;
+    toggle.click();
+    assert.equal(formats[0].getAttribute("aria-pressed"), "true", "A newly hidden optional format restores Friday instead");
+    assert.equal(formats[1].getAttribute("aria-pressed"), "false");
   }
 }
 const viewer = fs.readFileSync(new URL("../downloads/mtt-guide-viewer.html", import.meta.url), "utf8");

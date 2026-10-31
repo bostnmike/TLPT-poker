@@ -1,5 +1,6 @@
 // Independent editing contract for events.json. No production data is rewritten.
 export function auditRsvpEvent(event, data, app, maxSeats = 9) {
+  if (event?.slot === "sunday") maxSeats = Math.min(maxSeats, Number(event.capacity) || 9);
   const errors = [], warnings = [];
   let checks = 0;
   const label = `events.json ${event?.slot || event?.title || "event"}`;
@@ -14,6 +15,12 @@ export function auditRsvpEvent(event, data, app, maxSeats = 9) {
   check(object(rsvps), "rsvps must be an object mapping player IDs to yes, no, maybe or tbd");
   const tableCount = event.tables ?? (event.slot === "mtt" ? 2 : 1);
   check(Number.isInteger(tableCount) && [1, 2].includes(tableCount), "tables must be 1 or 2");
+  if (event.slot === "sunday") {
+    check(tableCount === 1, "Sunday is a single-table event");
+    check(event.capacity == null || Number.isInteger(event.capacity) && event.capacity >= 1 && event.capacity <= 9, "Sunday capacity must be 1..9");
+    check(event.startingStack == null || event.startingStack === 50000, "Sunday starting stack must be 50K");
+    check(event.blindStructure == null || event.blindStructure === "40k", "Sunday uses Friday's blind ladder");
+  }
   const assignments = event.seatAssignments ?? [];
   check(Array.isArray(assignments), "seatAssignments must be an array of table arrays (or omitted)");
   if (errors.length) return result();

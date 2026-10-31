@@ -629,7 +629,7 @@ EXPECTED_PRESSED_BUTTON_GROUPS = {
     ),
     "structures.html": (
         "id",
-        {"format-btn-40k", "format-btn-500k", "format-btn-two-table"},
+        {"format-btn-40k", "format-btn-500k", "format-btn-sunday", "format-btn-two-table"},
         "format-btn-40k",
     ),
     "players.html": (
@@ -1503,7 +1503,7 @@ def audit_javascript(path: Path) -> list[str]:
         for fragment, message in (
             (
                 'EVENT_SLOT_ORDER.includes(explicitSlot)',
-                "Event rendering must recognize the three stable schedule slots",
+                "Event rendering must recognize all stable schedule slots",
             ),
             (
                 'if (/mtt|multi-table/.test(eventIdentity)) return "mtt";',
@@ -1516,7 +1516,7 @@ def audit_javascript(path: Path) -> list[str]:
         for fragment, message in (
             (
                 'return getEventSlot(event) === "mtt" ? 2 : 1;',
-                "RSVP table mode must keep Friday/Saturday at one table and MTT at two",
+                "RSVP table mode must keep single-table days separate from MTT",
             ),
         ):
             if fragment not in event_table_count_source:
@@ -1550,14 +1550,14 @@ def audit_javascript(path: Path) -> list[str]:
             ),
             (
                 "EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot)",
-                "Current events must remain ordered Friday, Saturday, then MTT",
+                "Current events must retain stable slot ordering for date ties",
             ),
         ):
             if fragment not in current_events_source:
                 errors.append(message)
         home_events_source = function_source("renderHomePage")
         if "getHomeEvents(data)" not in home_events_source:
-            errors.append("Home schedule selector must expose all three event slots")
+            errors.append("Home schedule selector must expose every open event slot")
         schedule_source = function_source("renderSchedule")
         if "const events = getCurrentEvents(data);" not in schedule_source:
             errors.append("Schedule page must render every live event without a three-event cap")
@@ -4892,7 +4892,7 @@ def audit_phase_3g4_rsvp_control_spacing() -> list[str]:
 
 
 def audit_rsvp_table_switch() -> list[str]:
-    """Keep Friday/Saturday fixed at one table and the MTT fixed at two."""
+    """Keep Friday/Saturday/optional Sunday at one table and the MTT at two."""
     errors: list[str] = []
     events_path = ROOT / "data" / "events.json"
     try:
@@ -4900,7 +4900,7 @@ def audit_rsvp_table_switch() -> list[str]:
     except (OSError, json.JSONDecodeError) as exc:
         return [f"data/events.json: unable to audit RSVP table switch: {exc}"]
 
-    expected_slots = ["friday", "saturday", "mtt"]
+    expected_slots = ["friday", "saturday", "sunday", "mtt"]
     actual_slots = [str(event.get("slot", "")).strip().lower() for event in events]
     # The live schedule can have multiple dates per format or no current Friday.
     # Validate real format/order constraints, not an obsolete three-event fixture.
@@ -4908,7 +4908,7 @@ def audit_rsvp_table_switch() -> list[str]:
         actual_slots, key=lambda slot: expected_slots.index(slot) if slot in expected_slots else -1
     ):
         errors.append(
-            "data/events.json: use valid slots ordered as friday, saturday, mtt (multiple dates allowed)"
+            "data/events.json: use valid slots ordered as friday, saturday, sunday, mtt (multiple dates allowed)"
         )
 
     events_by_slot = {
@@ -4924,7 +4924,7 @@ def audit_rsvp_table_switch() -> list[str]:
                 f"data/events.json: {event.get('day', 'event')} tables must be 1 or 2"
             )
         slot = str(event.get("slot", "")).strip().lower()
-        if slot in ("friday", "saturday") and event.get("tables", 1) != 1:
+        if slot in ("friday", "saturday", "sunday") and event.get("tables", 1) != 1:
             errors.append(f"data/events.json: {slot} must be fixed at one table")
         if slot == "mtt" and event.get("tables") != 2:
             errors.append("data/events.json: MTT must be fixed at two tables")

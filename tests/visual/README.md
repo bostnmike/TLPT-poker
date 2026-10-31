@@ -149,6 +149,11 @@ disposable browser container, and it runs as the runner's non-root user.
 
 Tests use headless Chromium, one worker, a fixed clock/timezone, reduced motion and public JSON
 fixtures. Live RSVP responses are replaced only inside this test browser.
+The frozen event snapshot predates the live open switch, so its mock feed marks
+those previously reviewed games `rsvpOpen:true` explicitly. This preserves the
+same visible games while production consumers require strict boolean true.
+Optional Sunday lifecycle scenarios use a separate disposable browser fixture;
+no Sunday is added to these frozen references or to production data.
 External requests are blocked; no form is submitted and no payment/RSVP write
 is performed. All existing functional browser checks still run separately
 against the current generated data and their normal integration paths.
