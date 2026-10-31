@@ -301,7 +301,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has fourteen RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has fifteen RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -337,6 +337,15 @@ stays in production. Preserve the Hiro/white-chip microphones/piano-music revisi
 the title-only card, optional captions and uncropped YouTube playback. No duplicate
 native player is added. The owner's YouTube title was “History” at intake and is
 not changed by this website-only addition.
+“Final Boarding Call” uses YouTube `elGvMvI4z98` and the exact landscape
+`final-boarding-call-thumbnail.jpg` from
+`output/video/tlpt-final-boarding-call-commercial/wild-bill-clean-v2/` outside the
+repo. Preserve the approved 30-second Wild Bill / CB-mouthpiece revision (master
+SHA-256 `3d256d2e8810db3fad781752c2796c80c0c0fee6a5e94e2c87f69a793b841010`).
+The master has no embedded subtitle track or rolling lower dialogue captions;
+separate caption files remain optional production assets. The site must never
+force captions on. Keep its title-only landscape card and uncropped portrait
+YouTube playback; no duplicate native player or production files are published.
 Source hashes are locked in
 the RSVP-guide static test. The corresponding production folders under
 `output/video/` are `tlpt-missing-persons-commercial`, the Bad Beat Hotline
