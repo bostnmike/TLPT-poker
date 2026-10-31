@@ -135,6 +135,17 @@ references change; all artwork, narration portraits, other references, compariso
 tolerances, masks and fixtures are unchanged. Six-width homepage checks verify
 the removal, spacing, loaded data, no overflow and retained Film Room navigation.
 
+On 2026-10-31 the owner requested an always-visible red Sunday 50K structure
+button. PR review run `41234121778` passes all functional checks and the other
+52 visual scenarios. All four Structures entrance actual/difference pairs were
+inspected at 1440/820/390/320: the only changes are the added Sunday choice,
+the resulting button wrapping and vertical movement of unchanged content.
+Friday remains the initial selection. Only these four Linux references change;
+all other references, masks and comparison tolerances remain unchanged. The
+required Sunday browser test separately verifies the permanent reference sheet,
+50K chip set, exact Friday ladder, PDF restoration and feed-outage independence,
+plus optional live Sunday cards on Home and Schedule at every tested width.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
