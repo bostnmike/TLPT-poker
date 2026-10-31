@@ -125,6 +125,16 @@ primarily its felt and the retained white-jacket detail. The frame, full 2170 x 
 geometry, CTA and surrounding page are unchanged. Only these four references
 change; no comparison tolerance, mask, fixture or other artwork is updated.
 
+On 2026-10-31 the owner requested removal of the homepage “Many Faces of Norm”
+banner. Staging run `41210921289` (source `18a3886d`) passes every functional
+check and the other 52 visual scenarios. All four homepage actual/difference
+pairs were reviewed at 1440/820/390/320: the banner and its CTA are absent,
+and the unchanged games section moves directly below the unchanged hero.
+There is no empty placeholder or restored teaser row. Only these four homepage
+references change; all artwork, narration portraits, other references, comparison
+tolerances, masks and fixtures are unchanged. Six-width homepage checks verify
+the removal, spacing, loaded data, no overflow and retained Film Room navigation.
+
 ## Reproducibility
 
 CI uses the official Ubuntu 24.04 Playwright image pinned by version AND digest
