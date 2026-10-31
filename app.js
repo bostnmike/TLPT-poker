@@ -66,7 +66,9 @@ function renderLiveRsvpStatus(unavailable) {
 function renderNoGameNotices(data) {
   const target = document.getElementById("no-game-notices");
   if (!target) return;
-  const notices = data.rsvpUnavailable ? [] : (data.noGameDays || []);
+  // Sunday is optional, so it never receives a routine weekly no-game warning.
+  const notices = data.rsvpUnavailable ? [] : (data.noGameDays || [])
+    .filter(item => /^(friday|saturday)$/i.test(String(item.day || "")));
   target.innerHTML = notices.map(item => {
     const date = new Date(item.date + "T12:00:00Z").toLocaleDateString("en-US", {timeZone:"America/New_York",month:"long",day:"numeric",year:"numeric"});
     return `<div class="no-game-notice"><img class="no-game-icon" src="images/site/chip-T-25000.png" alt="" aria-hidden="true" width="64" height="64" decoding="async"><div><strong>${escapeHtmlAttr(item.label)}</strong><p>${escapeHtmlAttr(date)} · The felt gets the night off.</p></div></div>`;
@@ -513,6 +515,7 @@ const RULES_TWO_TABLE_CHIP_COUNTS = Object.freeze({
 
 const CHIP_SET_TEXT = {
   "40k": RULES_40K_CHIP_COUNTS,
+  "sunday": RULES_TWO_TABLE_CHIP_COUNTS,
   "500k": {
     "T-500": 16,
     "T-1000": 17,
@@ -524,6 +527,12 @@ const CHIP_SET_TEXT = {
   },
   "two-table": RULES_TWO_TABLE_CHIP_COUNTS
 };
+
+// Optional Sunday is a single-table 50K game on Friday's exact blind ladder.
+// Derive it rather than maintaining another copy or borrowing the MTT format.
+// The owner selected the existing MTT 50K chip set, not its blinds or finances.
+const SUNDAY_STARTING_STACK = Object.entries(RULES_TWO_TABLE_CHIP_COUNTS)
+  .reduce((total, [label, count]) => total + Number(label.replace(/\D/g, "")) * count, 0);
 
 const RULES_40K_CHIPS = Object.freeze([
   { label: "T-25", image: "images/site/chip-T-25.png" },
@@ -672,6 +681,23 @@ const RULES_FORMATS = {
       { type: "level", level: "21", sb: "50,000", bb: "100,000", ante: "50,000", eff: "Rebuys Closed", remaining: "2", duration: "60 min" }
     ]
   }
+};
+
+RULES_FORMATS.sunday = {
+  title: "Sunday 50K Small Blind Ante",
+  description: "50,000 starting chips • One table, up to 9 players • Friday’s blind ladder.",
+  chips: RULES_TWO_TABLE_CHIPS,
+  levelMinutes: RULES_FORMATS["40k"].levelMinutes,
+  breakMinutes: RULES_FORMATS["40k"].breakMinutes,
+  runtimeLabel: `${RULES_FORMATS["40k"].levels.reduce((minutes, row) => minutes
+    + (row.type === "break" ? RULES_FORMATS["40k"].breakMinutes : RULES_FORMATS["40k"].levelMinutes), 0)} min (full ladder)`,
+  blindNote: "Friday’s blinds, antes, breaks and rebuy cutoff, with a 50K starting stack. Effective BB uses 50,000 chips. Rebuys close at Level 8. Gold rows mark 10-minute breaks and chip-up points; live levels last 20 minutes. The full ladder is a schedule, not a predicted finishing time.",
+  levels: RULES_FORMATS["40k"].levels.map(row => ({
+    ...row,
+    ...(row.type === "level" && /\d+ BB$/.test(row.eff)
+      ? { eff: `${Math.floor(SUNDAY_STARTING_STACK / Number(row.bb.replaceAll(",", "")))} BB` }
+      : {})
+  }))
 };
 
 function normalizeQuoteName(name) {
@@ -1853,7 +1879,7 @@ function buildRsvpSummaryMarkup(event, extraClass = "") {
   `;
 }
 
-const EVENT_SLOT_ORDER = Object.freeze(["friday", "saturday", "mtt"]);
+const EVENT_SLOT_ORDER = Object.freeze(["friday", "saturday", "sunday", "mtt"]);
 
 function getEventSlot(event) {
   const explicitSlot = String(event?.slot || "").trim().toLowerCase();
@@ -1863,10 +1889,12 @@ function getEventSlot(event) {
   if (/mtt|multi-table/.test(eventIdentity)) return "mtt";
   if (/friday/.test(eventIdentity)) return "friday";
   if (/saturday/.test(eventIdentity)) return "saturday";
+  if (/sunday/.test(eventIdentity)) return "sunday";
   return "event";
 }
 
 function getEventTableCount(event) {
+  if (getEventSlot(event) === "sunday") return 1;
   const configuredCount = Number(event?.tables);
   if (Number.isInteger(configuredCount) && configuredCount > 0) {
     return configuredCount;
@@ -1878,13 +1906,14 @@ function getEventTableCount(event) {
 function getEventCapacity(event, maxSeats = 9) {
   const configuredCapacity = Number(event?.capacity);
   if (Number.isInteger(configuredCapacity) && configuredCapacity > 0) {
-    return configuredCapacity;
+    return getEventSlot(event) === "sunday" ? Math.min(configuredCapacity, 9) : configuredCapacity;
   }
 
   return getEventTableCount(event) * maxSeats;
 }
 
 function getEventSeatingTables(event, data, maxSeats = 9) {
+  if (getEventSlot(event) === "sunday") maxSeats = Math.min(maxSeats, getEventCapacity(event));
   const tableCount = getEventTableCount(event);
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
   const playerBySlug = new Map(
@@ -1976,6 +2005,7 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
 }
 
 function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
+  if (getEventSlot(event) === "sunday") maxSeats = Math.min(maxSeats, getEventCapacity(event));
   const tableCount = getEventTableCount(event);
   const seatingTables = getEventSeatingTables(event, data, maxSeats);
   const displayedSlugs = new Set(seatingTables.flat().filter(Boolean).map(player => player.slug));
@@ -2086,10 +2116,12 @@ function getEventDayLabel(event) {
   const rawDate = String(event?.date || "").trim();
   if (/friday/i.test(rawDate)) return "Friday";
   if (/saturday/i.test(rawDate)) return "Saturday";
+  if (/sunday/i.test(rawDate)) return "Sunday";
 
-  const parsed = new Date(rawDate);
+  // Date-only strings describe a calendar day, not midnight UTC on the prior US day.
+  const parsed = new Date(/^\d{4}-\d{2}-\d{2}$/.test(rawDate) ? `${rawDate}T12:00:00Z` : rawDate);
   if (!Number.isNaN(parsed.getTime())) {
-    return parsed.toLocaleDateString("en-US", { weekday: "long" });
+    return parsed.toLocaleDateString("en-US", { weekday: "long", timeZone: "America/New_York" });
   }
 
   return "Event";
@@ -2103,6 +2135,7 @@ function getEventThemeClass(event) {
   const slot = getEventSlot(event);
   if (slot === "friday") return "schedule-event-card-top";
   if (slot === "saturday") return "schedule-event-card-bottom";
+  if (slot === "sunday") return "schedule-event-card-sunday";
   return "schedule-event-card-mtt";
 }
 
@@ -2117,27 +2150,36 @@ function buildEventRsvpButtonMarkup(event, extraClasses = "") {
   return `<a class="${className}" href="${inviteUrl}" target="_blank" rel="noopener">${escapeHtmlAttr(getEventButtonLabel(event))}</a>`;
 }
 
+function getEventDateKey(event) {
+  const date = String(event?.date || "").trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
+  if (!date || /tbd/i.test(date)) return "9999-12-31";
+  const parsed = new Date(date);
+  return Number.isNaN(parsed.getTime()) ? "9999-12-31" : parsed.toISOString().slice(0, 10);
+}
+
 function getCurrentEvents(data) {
   return [...(data?.events || [])]
     .filter(Boolean)
-    .filter(event => event.rsvpOpen !== false && !event.rsvpUnavailable)
+    .filter(event => event.rsvpOpen === true && !event.rsvpUnavailable)
     .filter(event => String(event?.title || "").trim() !== "")
     .map(event => ({
       ...event,
       slot: getEventSlot(event),
       day: getEventDayLabel(event)
     }))
-    .sort((a, b) => EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot));
+    .sort((a, b) => getEventDateKey(a).localeCompare(getEventDateKey(b))
+      || EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot));
 }
 
 function getHomeEvents(data) {
   const current = getCurrentEvents(data);
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  const dateOf = event => /^\d{4}-\d{2}-\d{2}$/.test(event.date) ? event.date : /tbd/i.test(event.date) ? "9999-12-31" : new Date(event.date).toISOString().slice(0, 10);
-  return EVENT_SLOT_ORDER.map(slot => {
-    const list = current.filter(event => event.slot === slot).sort((a, b) => dateOf(a).localeCompare(dateOf(b)));
-    return list.find(event => dateOf(event) >= today) || list.at(-1);
+  const selected = EVENT_SLOT_ORDER.map(slot => {
+    const list = current.filter(event => event.slot === slot);
+    return list.find(event => getEventDateKey(event) >= today) || list.at(-1);
   }).filter(Boolean);
+  return current.filter(event => selected.includes(event));
 }
 
 function getHomeEventRotationIndex(events) {
@@ -6938,6 +6980,7 @@ function showFormat(formatKey) {
   if (!format || !host) return;
 
   setActiveFormatButton(formatKey);
+  host.dataset.rulesFormat = formatKey;
 
   host.innerHTML = `
     <div class="rules-format">

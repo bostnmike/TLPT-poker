@@ -254,6 +254,7 @@
 [data-standings-sort]:focus-visible,
 #format-btn-40k:focus-visible,
 #format-btn-500k:focus-visible,
+#format-btn-sunday:focus-visible,
 #crew-view-tier:focus-visible,
 #crew-view-archetype:focus-visible,
 .archetype-mode-btn:focus-visible,
@@ -393,6 +394,28 @@
 
 .format-title-500k{
   color:#d8b4fe;
+}
+
+#format-btn-sunday{
+  color:#fecaca;
+  border-color:rgba(248,113,113,.44);
+  background:linear-gradient(180deg, rgba(31,39,51,.98), rgba(20,26,34,.98));
+}
+
+#format-btn-sunday:hover{
+  color:#450a0a;
+  border-color:#fca5a5;
+  background:linear-gradient(180deg, #fee2e2, #fca5a5);
+}
+
+#format-btn-sunday.active{
+  color:#fff1f2;
+  border-color:#f87171;
+  background:linear-gradient(180deg, rgba(220,38,38,.34), rgba(127,29,29,.85));
+}
+
+.format-title-sunday{
+  color:#fca5a5;
 }
 
 .rules-table-bg .rules-format .format-head{

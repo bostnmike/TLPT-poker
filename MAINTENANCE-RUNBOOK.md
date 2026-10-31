@@ -261,6 +261,40 @@ The page-calculation suite covers 640 status/layout combinations, single- and
 two-table resets, over-capacity attendance, malformed input, and deliberate
 renderer regressions. Warnings appear in both the page and integrity reports.
 
+## Optional Sunday games on the public website
+
+The live RSVP feed is the only game visibility authority. Home and Schedule
+require boolean `rsvpOpen === true`; absent, closed,
+cancelled or unavailable games stay hidden. Never seed a Sunday in events.json
+or add a second website activation switch. A closed Sunday may remain in the
+schemaVersion:1 feed without invalidating Friday, Saturday or MTT games.
+
+Sunday uses `slot:sunday`, `day:Sunday`, `tables:1`, `startingStack:50000`,
+`blindStructure:40k`, `format:50K Format`, and capacity 1–9. It has a red card,
+day label, carousel button and RSVP CTA, with one capacity-limited seat preview.
+The schedule sorts open dates chronologically (undated MTT last); Home selects
+the next open date per slot in that same order. Existing player identities,
+manual preview matching, waitlists and historical results are unchanged.
+
+Sunday's red Structures button is always visible, independent of live games
+or feed availability. Its reference sheet uses Friday's exact blinds, antes, breaks and
+20-minute levels, with effective BB recalculated from 50,000. This is NOT the
+two-table 50K MTT. The owner selected the existing MTT 50K starting chip set:
+16 green, 16 black, 16 purple, 15 yellow, 5 white (50,000 total).
+Chip images/counts are shared by reference; MTT blinds, payouts and bounty
+policies are not imported into Sunday, and financial projections are not inferred.
+Closing a game does not remove its reference structure. The MTT PDF restores
+the user's selected structure when closed. Home and Schedule refresh from the
+existing live feed every minute while visible; Structures needs no polling.
+Optional Sunday never generates routine “NO GAME THIS SUNDAY” notices.
+
+`scripts/test-sunday-games-browser.cjs` is in the required artifact browser gate:
+mocked absent/closed/open/closed, capacity, red theme, one table, ISO day labels,
+chronology, structure selection/PDF restoration, outages and recovery at
+1440/820/390/320 pixels. The page-calculation audit checks every Sunday ladder
+row against Friday and preserves all existing financial/statistical checks.
+No production game is created or opened to test this feature.
+
 ## Public RSVP App guide
 
 `rsvp-app.html` is the public, shareable setup guide linked from Home and Schedule,

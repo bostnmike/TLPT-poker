@@ -224,6 +224,7 @@ function showFormat(formatKey) {
   if (!format || !host) return;
 
   setActiveFormatButton(formatKey);
+  host.dataset.rulesFormat = formatKey;
 
   host.innerHTML = `
     <div class="rules-format">

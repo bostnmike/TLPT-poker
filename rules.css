@@ -947,6 +947,12 @@
   background:linear-gradient(180deg, #ffcf5a, #ffb81c);
 }
 
+/* Optional Sunday must keep its break text readable above compact-table rules. */
+#format-content[data-rules-format="sunday"] .blind-break td{
+  color:#171717;
+  background:linear-gradient(180deg, #ffcf5a, #ffb81c);
+}
+
 .blind-note{
   margin:12px 0 0;
   color:var(--muted);

@@ -1,24 +1,33 @@
+function getEventDateKey(event) {
+  const date = String(event?.date || "").trim();
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) return date;
+  if (!date || /tbd/i.test(date)) return "9999-12-31";
+  const parsed = new Date(date);
+  return Number.isNaN(parsed.getTime()) ? "9999-12-31" : parsed.toISOString().slice(0, 10);
+}
+
 function getCurrentEvents(data) {
   return [...(data?.events || [])]
     .filter(Boolean)
-    .filter(event => event.rsvpOpen !== false && !event.rsvpUnavailable)
+    .filter(event => event.rsvpOpen === true && !event.rsvpUnavailable)
     .filter(event => String(event?.title || "").trim() !== "")
     .map(event => ({
       ...event,
       slot: getEventSlot(event),
       day: getEventDayLabel(event)
     }))
-    .sort((a, b) => EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot));
+    .sort((a, b) => getEventDateKey(a).localeCompare(getEventDateKey(b))
+      || EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot));
 }
 
 function getHomeEvents(data) {
   const current = getCurrentEvents(data);
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  const dateOf = event => /^\d{4}-\d{2}-\d{2}$/.test(event.date) ? event.date : /tbd/i.test(event.date) ? "9999-12-31" : new Date(event.date).toISOString().slice(0, 10);
-  return EVENT_SLOT_ORDER.map(slot => {
-    const list = current.filter(event => event.slot === slot).sort((a, b) => dateOf(a).localeCompare(dateOf(b)));
-    return list.find(event => dateOf(event) >= today) || list.at(-1);
+  const selected = EVENT_SLOT_ORDER.map(slot => {
+    const list = current.filter(event => event.slot === slot);
+    return list.find(event => getEventDateKey(event) >= today) || list.at(-1);
   }).filter(Boolean);
+  return current.filter(event => selected.includes(event));
 }
 
 function getHomeEventRotationIndex(events) {

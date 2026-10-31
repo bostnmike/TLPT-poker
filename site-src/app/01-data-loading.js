@@ -66,7 +66,9 @@ function renderLiveRsvpStatus(unavailable) {
 function renderNoGameNotices(data) {
   const target = document.getElementById("no-game-notices");
   if (!target) return;
-  const notices = data.rsvpUnavailable ? [] : (data.noGameDays || []);
+  // Sunday is optional, so it never receives a routine weekly no-game warning.
+  const notices = data.rsvpUnavailable ? [] : (data.noGameDays || [])
+    .filter(item => /^(friday|saturday)$/i.test(String(item.day || "")));
   target.innerHTML = notices.map(item => {
     const date = new Date(item.date + "T12:00:00Z").toLocaleDateString("en-US", {timeZone:"America/New_York",month:"long",day:"numeric",year:"numeric"});
     return `<div class="no-game-notice"><img class="no-game-icon" src="images/site/chip-T-25000.png" alt="" aria-hidden="true" width="64" height="64" decoding="async"><div><strong>${escapeHtmlAttr(item.label)}</strong><p>${escapeHtmlAttr(date)} · The felt gets the night off.</p></div></div>`;

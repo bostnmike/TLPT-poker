@@ -84,6 +84,9 @@ class ReleaseTests(unittest.TestCase):
 
     def test_browser_environment_guards(self):
         subprocess.run([sys.executable, str(ROOT/'scripts/test-browser-ci.py')], check=True)
+        runner = (ROOT / 'scripts/run-browser-gates.cjs').read_text()
+        self.assertIn("'test-sunday-games-browser.cjs'", runner,
+                      'Optional Sunday lifecycle must remain a required public-artifact check')
 
     def test_visual_gate_keeps_review_and_coverage_contract(self):
         config = (ROOT / 'tests/visual/playwright.config.cjs').read_text()

@@ -20,6 +20,7 @@ const RULES_TWO_TABLE_CHIP_COUNTS = Object.freeze({
 
 const CHIP_SET_TEXT = {
   "40k": RULES_40K_CHIP_COUNTS,
+  "sunday": RULES_TWO_TABLE_CHIP_COUNTS,
   "500k": {
     "T-500": 16,
     "T-1000": 17,
@@ -31,6 +32,12 @@ const CHIP_SET_TEXT = {
   },
   "two-table": RULES_TWO_TABLE_CHIP_COUNTS
 };
+
+// Optional Sunday is a single-table 50K game on Friday's exact blind ladder.
+// Derive it rather than maintaining another copy or borrowing the MTT format.
+// The owner selected the existing MTT 50K chip set, not its blinds or finances.
+const SUNDAY_STARTING_STACK = Object.entries(RULES_TWO_TABLE_CHIP_COUNTS)
+  .reduce((total, [label, count]) => total + Number(label.replace(/\D/g, "")) * count, 0);
 
 const RULES_40K_CHIPS = Object.freeze([
   { label: "T-25", image: "images/site/chip-T-25.png" },
@@ -179,5 +186,22 @@ const RULES_FORMATS = {
       { type: "level", level: "21", sb: "50,000", bb: "100,000", ante: "50,000", eff: "Rebuys Closed", remaining: "2", duration: "60 min" }
     ]
   }
+};
+
+RULES_FORMATS.sunday = {
+  title: "Sunday 50K Small Blind Ante",
+  description: "50,000 starting chips • One table, up to 9 players • Friday’s blind ladder.",
+  chips: RULES_TWO_TABLE_CHIPS,
+  levelMinutes: RULES_FORMATS["40k"].levelMinutes,
+  breakMinutes: RULES_FORMATS["40k"].breakMinutes,
+  runtimeLabel: `${RULES_FORMATS["40k"].levels.reduce((minutes, row) => minutes
+    + (row.type === "break" ? RULES_FORMATS["40k"].breakMinutes : RULES_FORMATS["40k"].levelMinutes), 0)} min (full ladder)`,
+  blindNote: "Friday’s blinds, antes, breaks and rebuy cutoff, with a 50K starting stack. Effective BB uses 50,000 chips. Rebuys close at Level 8. Gold rows mark 10-minute breaks and chip-up points; live levels last 20 minutes. The full ladder is a schedule, not a predicted finishing time.",
+  levels: RULES_FORMATS["40k"].levels.map(row => ({
+    ...row,
+    ...(row.type === "level" && /\d+ BB$/.test(row.eff)
+      ? { eff: `${Math.floor(SUNDAY_STARTING_STACK / Number(row.bb.replaceAll(",", "")))} BB` }
+      : {})
+  }))
 };
 

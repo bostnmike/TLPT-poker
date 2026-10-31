@@ -147,7 +147,7 @@ function buildRsvpSummaryMarkup(event, extraClass = "") {
   `;
 }
 
-const EVENT_SLOT_ORDER = Object.freeze(["friday", "saturday", "mtt"]);
+const EVENT_SLOT_ORDER = Object.freeze(["friday", "saturday", "sunday", "mtt"]);
 
 function getEventSlot(event) {
   const explicitSlot = String(event?.slot || "").trim().toLowerCase();
@@ -157,10 +157,12 @@ function getEventSlot(event) {
   if (/mtt|multi-table/.test(eventIdentity)) return "mtt";
   if (/friday/.test(eventIdentity)) return "friday";
   if (/saturday/.test(eventIdentity)) return "saturday";
+  if (/sunday/.test(eventIdentity)) return "sunday";
   return "event";
 }
 
 function getEventTableCount(event) {
+  if (getEventSlot(event) === "sunday") return 1;
   const configuredCount = Number(event?.tables);
   if (Number.isInteger(configuredCount) && configuredCount > 0) {
     return configuredCount;
@@ -172,13 +174,14 @@ function getEventTableCount(event) {
 function getEventCapacity(event, maxSeats = 9) {
   const configuredCapacity = Number(event?.capacity);
   if (Number.isInteger(configuredCapacity) && configuredCapacity > 0) {
-    return configuredCapacity;
+    return getEventSlot(event) === "sunday" ? Math.min(configuredCapacity, 9) : configuredCapacity;
   }
 
   return getEventTableCount(event) * maxSeats;
 }
 
 function getEventSeatingTables(event, data, maxSeats = 9) {
+  if (getEventSlot(event) === "sunday") maxSeats = Math.min(maxSeats, getEventCapacity(event));
   const tableCount = getEventTableCount(event);
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
   const playerBySlug = new Map(
@@ -270,6 +273,7 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
 }
 
 function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
+  if (getEventSlot(event) === "sunday") maxSeats = Math.min(maxSeats, getEventCapacity(event));
   const tableCount = getEventTableCount(event);
   const seatingTables = getEventSeatingTables(event, data, maxSeats);
   const displayedSlugs = new Set(seatingTables.flat().filter(Boolean).map(player => player.slug));
@@ -380,10 +384,12 @@ function getEventDayLabel(event) {
   const rawDate = String(event?.date || "").trim();
   if (/friday/i.test(rawDate)) return "Friday";
   if (/saturday/i.test(rawDate)) return "Saturday";
+  if (/sunday/i.test(rawDate)) return "Sunday";
 
-  const parsed = new Date(rawDate);
+  // Date-only strings describe a calendar day, not midnight UTC on the prior US day.
+  const parsed = new Date(/^\d{4}-\d{2}-\d{2}$/.test(rawDate) ? `${rawDate}T12:00:00Z` : rawDate);
   if (!Number.isNaN(parsed.getTime())) {
-    return parsed.toLocaleDateString("en-US", { weekday: "long" });
+    return parsed.toLocaleDateString("en-US", { weekday: "long", timeZone: "America/New_York" });
   }
 
   return "Event";
@@ -397,6 +403,7 @@ function getEventThemeClass(event) {
   const slot = getEventSlot(event);
   if (slot === "friday") return "schedule-event-card-top";
   if (slot === "saturday") return "schedule-event-card-bottom";
+  if (slot === "sunday") return "schedule-event-card-sunday";
   return "schedule-event-card-mtt";
 }
 

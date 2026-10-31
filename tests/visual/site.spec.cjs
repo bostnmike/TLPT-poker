@@ -10,7 +10,9 @@ async function prepare(page) {
     if (url.hostname !== '127.0.0.1') {
       if (url.href.includes('/api/public/events')) {
         const data = JSON.parse(fs.readFileSync(path.join(fixtures, 'data/events.json')));
-        return route.fulfill({json: {schemaVersion: 1, revision: 'visual-fixture', events: data.events, noGameDays: []}});
+        // The frozen snapshot predates the live switch. Explicitly mark its
+        // already-reviewed open games as open; do not alter fixture data/pixels.
+        return route.fulfill({json: {schemaVersion: 1, revision: 'visual-fixture', events: data.events.map(event => ({...event, rsvpOpen: true})), noGameDays: []}});
       }
       return route.abort();
     }
