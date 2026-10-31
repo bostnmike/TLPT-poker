@@ -308,7 +308,7 @@ secondary to the page hero. At 600px and below it fills the content width to kee
 the cast and headline readable. Never stretch faces or crop the title/cast.
 The image checksum and six-width interaction checks live in the RSVP-guide tests.
 
-The Film Room has twelve RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has thirteen RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -326,6 +326,15 @@ The approved Patriots Norm football commercial “Call Your Play” uses YouTube
 Its matching 1080 x 1920 portrait poster is used on YouTube, not as the website
 cover. The final 30.5-second MP4 stays in production; no duplicate native player
 is added. Keep the title-only card, click-to-play and optional captions.
+The approved “The Kids — Still Loading” commercial uses YouTube `AYTCCtyBTqQ`
+and the exact `the-kids-thumbnail.jpg` landscape cover from
+`output/video/tlpt-kids-commercial/individual-slides-preview/` outside the repo.
+Its approved 36.4-second portrait MP4 (SHA-256
+`95f7ca408650132d80ce6818ab5b71b4df4cb7e508a998dde0e41fe8f67a729e`)
+stays in production. Preserve the five solo avatar slides and aimed projector
+revision; do not substitute an earlier preview or add a native duplicate.
+The website title follows the approved handoff; the owner's YouTube title was
+“Ask Your Dad” at intake and is not changed by this website-only addition.
 Source hashes are locked in
 the RSVP-guide static test. The corresponding production folders under
 `output/video/` are `tlpt-missing-persons-commercial`, the Bad Beat Hotline
