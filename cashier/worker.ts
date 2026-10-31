@@ -38,7 +38,7 @@ export default {
    if(path==='/api/health')return secure(response({ok:true,environment:env.CASHIER_ENV,owner:owner.email}));
    if(path.startsWith('/api/'))return secure(response({error:'Not found'},404));
    if(path==='/auth/logout')return secure(Response.redirect(new URL('/cdn-cgi/access/logout',url),302));
-   if(path==='/display'){const id=url.searchParams.get('eventId');return secure(Response.redirect(new URL('/'+(id&&/^(friday|saturday|mtt):\d{4}-\d{2}-\d{2}$/.test(id)?'?eventId='+encodeURIComponent(id):''),url),302));}
+   if(path==='/display'){const id=url.searchParams.get('eventId');return secure(Response.redirect(new URL('/'+(id&&/^(friday|saturday|sunday|mtt):\d{4}-\d{2}-\d{2}$/.test(id)?'?eventId='+encodeURIComponent(id):''),url),302));}
    const res=await env.ASSETS.fetch(verified);const headers=new Headers(res.headers);if(headers.get('Content-Type')?.includes('text/html'))headers.set('Cache-Control','private, no-store');
    return secure(new Response(res.body,{status:res.status,headers}));
   }catch{return secure(response({error:'Cashier temporarily unavailable. Saved records remain intact.'},503));}

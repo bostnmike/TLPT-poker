@@ -20,7 +20,7 @@ synthetic tests and the successful real mailbox connection do not replace it.
 
 ## Live schedule and saved ledgers
 
-Cashier now selects the next open, dated Friday, Saturday and MTT directly from
+Cashier now selects the next open, dated Friday, Saturday, optional Sunday and MTT directly from
 `https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events`, the same feed as
 TLPT.org and the Player app. Closed, canceled, deleted, moved and Date TBD events
 cannot remain current tabs. The old static `data/events.json` no longer selects
@@ -39,6 +39,28 @@ completed games may receive late matching emails within their original receipt
 windows; cleared, canceled and moved dates cannot receive them. An unavailable
 live feed preserves the last verified data and displays a warning. Before the
 first successful live sync, old static events are history only, not current tabs.
+
+## Optional Sunday games
+
+Sunday uses the same live RSVP feed and the Commish’s existing **Open RSVPs**
+switch. It is off by default: without an explicitly open, dated Sunday, Cashier
+shows no Sunday tab. Saving a closed Sunday must not invalidate the other games.
+Opening it adds a red Sunday tab; closing or canceling it removes current-sale
+access automatically on the next minute refresh. Existing Sunday records stay
+under Saved payment history and keep their original `sunday:YYYY-MM-DD` identity.
+Reopening the same date reuses that ledger. There is no Cashier enable switch.
+
+Sunday is a single-table game with 1–9 seats, a 50K starting stack and the Friday
+blind ladder. Poker stack size does not set payment prices: the established
+single-table defaults remain $30 entry/rebuy, $15 food and no automatic bounty.
+Published date-specific financial settings and the normal per-event bounty
+control still apply. Dated notes (`TLPT sunday YYYY-MM-DD entry`) and reusable
+notes (`TLPT sunday entry`, `rebuy`, `food`) are recognized by the existing reader.
+The reader code, credentials and timer do not change.
+
+No production Sunday is seeded or opened by this release. Open/close/reopen,
+receipt routing, retained payments and red/iPad layouts are tested only in
+isolated fixtures. Sunday remains a regular game, separate from the MTT slot.
 
 ## Clear past-game ledgers
 

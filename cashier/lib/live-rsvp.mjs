@@ -1,11 +1,13 @@
 import {eventAttendance} from './rsvp-attendance.mjs';
+import {SLOTS} from './events.mjs';
 export const LIVE_RSVP_URL='https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events';
 export function validateLiveRsvps(feed){
  if(feed?.schemaVersion!==1||!Array.isArray(feed.events)||feed.events.length>100||!Number.isSafeInteger(feed.revision))throw Error('Invalid live RSVP feed');
  const identities=new Set();
  for(const e of feed.events){
   const identity=e.slot+':'+e.date;
-  if(identities.has(identity)||typeof e.id!=='string'||!['friday','saturday','mtt'].includes(e.slot)||typeof e.date!=='string'||!e.rsvps||Array.isArray(e.rsvps)||Object.values(e.rsvps).some(a=>!['yes','no','maybe','tbd'].includes(a))||!Array.isArray(e.waitlist))throw Error('Invalid live RSVP event');
+  if(identities.has(identity)||typeof e.id!=='string'||!SLOTS.includes(e.slot)||typeof e.date!=='string'||!e.rsvps||Array.isArray(e.rsvps)||Object.values(e.rsvps).some(a=>!['yes','no','maybe','tbd'].includes(a))||!Array.isArray(e.waitlist))throw Error('Invalid live RSVP event');
+  if(e.slot==='sunday'&&((e.tables!==undefined&&e.tables!==1)||(e.capacity!==undefined&&(!Number.isSafeInteger(e.capacity)||e.capacity<1||e.capacity>9))))throw Error('Invalid single-table Sunday');
   identities.add(identity);
  }
  return feed;
