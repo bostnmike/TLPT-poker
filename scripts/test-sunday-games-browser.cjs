@@ -68,7 +68,10 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           assert.deepEqual(await rows.first().locator('td').allTextContents(), ['1','20 min','50','100','','500 BB']);
           assert.equal(await page.locator('.rules-money-callout,.rules-bounty-callout').count(), 0, 'No invented Sunday finances or MTT policy');
           assert.deepEqual(await page.locator('.rules-chip-count').allTextContents(), [16,16,16,15,5,0,0].map(count=>'Set per player = '+count), 'Share the MTT 50K starting chip set');
-          await page.locator('.rules-chip-image').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
+          for (const image of await page.locator('.rules-chip-image').all()) {
+            await image.scrollIntoViewIfNeeded();
+            await image.evaluate(image=>image.decode());
+          }
           assert.match(await page.locator('.blind-break td').first().evaluate(el=>getComputedStyle(el).backgroundImage), /255, 207, 90/, 'Break rows retain readable gold backgrounds on every screen');
           await page.locator('.structures-controls').scrollIntoViewIfNeeded();
           await page.mouse.move(1,1);
