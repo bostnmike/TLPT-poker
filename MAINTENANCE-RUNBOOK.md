@@ -267,11 +267,9 @@ renderer regressions. Warnings appear in both the page and integrity reports.
 and from the shared Schedule navigation dropdown. Schedule itself remains a direct
 link to upcoming games; RSVP App is its child, with matching desktop, keyboard and
 mobile navigation behavior. Isolated Lily and Marchand navigation stays separate.
-The homepage teaser row keeps Notifications first, Don’t Be a Donkey second,
-and Rebuy Hard third. The first two link directly to their Film Room cards;
-the poem retains its own page. All three reuse the owned home-card styling,
-sit side by side above 800px and stack in that order on narrower screens. Film links
-clear the sticky navigation and never start playback automatically.
+The retired homepage teaser row remains removed. Film Room and Rebuy Hard
+retain their own pages and navigation links. Film links clear the sticky
+navigation and never start playback automatically.
 The guide uses the standard TLPT header, hero, yellow chip, buttons and footer;
 its scoped layout places the QR and portrait video side by side above 700px.
 
@@ -289,24 +287,12 @@ lineups and saving replies require internet. Changes here do not deploy the RSVP
 `scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
 `scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
 
-The homepage's three former teasers are replaced by the single “The Many Faces
-of Norm” banner linking to `media.html`. The eleven-character artwork in
-`images/site/norm-many-faces-eleven-preferred-table.jpg` adds Patriots number-12 Norm to the ten
-existing personas in a Last Supper-inspired single row. Keep the timekeeper's
-white dinner jacket with black lapels and bow tie, the gold headline and the
-muted, blurred generic-room backdrop. Display its full 2170 x 725 artwork without
-cropping. The owner selected the earlier black-jacket version's larger, naturally
-framed felt rendition, combined with the corrected white-jacket cast. Preserve
-the four large Winter Classic logos, six gold banners and large central crest;
-do not reapply the flatter inset actual-source overlay from the prior release. Keep every face,
-hat, headline and felt logo visible on every screen.
-Keep the visible Film Room CTA, keyboard focus and accessible link label.
-Do not restore the old three-teaser row alongside it. Previous banner assets
-remain unchanged, especially the original shared narration-portrait source.
-The banner is centered at 85% of the content width, capped at 900px, so it stays
-secondary to the page hero. At 600px and below it fills the content width to keep
-the cast and headline readable. Never stretch faces or crop the title/cast.
-The image checksum and six-width interaction checks live in the RSVP-guide tests.
+The owner removed “The Many Faces of Norm” from the homepage on 2026-10-31.
+The games section follows the hero directly, without an empty banner wrapper
+or the retired three-teaser row. Film Room remains available through navigation;
+its videos and all Norm Narrates portraits/audio are unchanged. Retain the approved
+banner artwork, especially the original shared narration-portrait source.
+The asset-preservation and six-width homepage checks live in the RSVP-guide tests.
 
 The Film Room has fourteen RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,

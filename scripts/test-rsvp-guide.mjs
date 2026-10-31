@@ -32,23 +32,17 @@ for (const match of times) {
   assert.ok(start >= previous && end > start && end <= 83.75);
   previous = end;
 }
-const banner = home.match(/<a class="home-norm-banner"[\s\S]*?<\/a>/)?.[0] || '';
-assert.equal((home.match(/class="home-norm-banner"/g) || []).length, 1, 'One consolidated Norm banner');
-assert.match(banner, /href="media.html"/);
-assert.match(banner, /aria-label="The Many Faces of Norm — visit the Film Room"/);
-assert.match(banner, /Visit the Film Room/);
-assert.match(banner, /width="2170" height="725"/);
-assert.match(banner, /src="images\/site\/norm-many-faces-eleven-preferred-table.jpg"/);
+assert.doesNotMatch(home, /home-norm-banner|norm-many-faces|The Many Faces of Norm/, 'Requested homepage banner removal');
+assert.match(home, /href="media.html"[^>]*>Film Room<\/a>/, 'Film Room remains in navigation');
+// Retain the approved artwork and shared narration sources; remove only the homepage placement.
 assert.equal(hash('images/site/norm-many-faces-eleven-preferred-table.jpg'), '0b9035ffc30cca735f06e73e2004f1e98551c222fbe6ec574f78edf304fe54c3', 'Owner-preferred larger felt rendition with all eleven Norms and the white dinner jacket');
-assert.match(banner, /eleven costumed Norms.*Patriots Norm.*white-jacketed timekeeper/);
 assert.equal(hash('images/site/norm-many-faces-eleven.jpg'), 'e2d84f40ec4466f4182c44f5188db52f1096dfe4522a88d4a725fe6326b076a2', 'Approved eleven-character banner retains the white dinner jacket and directly composited actual felt');
 assert.equal(hash('images/site/norm-many-faces-single-row-felt.jpg'), '1cdee4af1b039271ca45882b43c302ae2ab87fb5e6eb1c3440dd609748b4495b', 'Corrected felt retains four Winter Classic logos, six banners and the Centennial crest');
 assert.equal(hash('images/site/norm-many-faces-single-row.jpg'), 'e13797ffdd002bb6ef6e042c4cb0b767bd45b30c0813bd8191de37461135814b', 'Single-row ten-character panorama retains gold title and card-room setting');
 assert.equal(hash('images/site/norm-many-faces-hockey.jpg'), 'c68b789a0c9d04b8ac7c25b62c0e7bb88c35f7c8b716bfcbedd2777722d674aa', 'Ten-character group retains headline, card room and TLPT felt');
 assert.equal(hash('images/site/norm-many-faces.jpg'), 'd0694c96d6ced196fa0aedeff6b99985d0d6c0572332d4752e11317c7e318fce', 'Original cast remains unchanged for existing portrait crops');
 assert.equal(hash('images/site/norm-hockey-headshot.webp'), 'b916c7b2360889d7a1d22e7b73594c3afaf8acc9f5209f52aaa35b7092902587', 'Use only the approved V2 hockey headshot');
-assert.doesNotMatch(home, /home-promo-row|home-rebuy-teaser/, 'Banner replaces all three teasers');
-assert.ok(home.indexOf('class="home-norm-banner"') < home.indexOf('id="home-games"'), 'Banner stays in the former teaser position');
+assert.doesNotMatch(home, /home-promo-row|home-rebuy-teaser/, 'Do not restore the retired three-teaser row');
 assert.match(schedule, /href="rsvp-app.html"/);
 assert.match(schedule, /Put the Yellow Chip on Your Phone\./);
 assert.match(schedule, /images\/site\/norm-rsvp-campaign.jpg/);
@@ -169,4 +163,4 @@ for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') &&
   const html = read(file);
   assert.match(html, /<div class="nav-dropdown">\s*<a href="\/?schedule.html" class="nav-dropdown-parent[^"]*"[^>]*>Schedule<\/a>\s*<div class="nav-dropdown-menu">\s*<a href="\/?rsvp-app.html"[^>]*>RSVP App<\/a>/, file + ': RSVP App must be a child of Schedule');
 }
-console.log('PASS: approved RSVP videos, verified public QR, captions, player-only links and consolidated Norm banner.');
+console.log('PASS: approved RSVP videos, verified public QR, captions, player-only links and banner-free homepage.');
