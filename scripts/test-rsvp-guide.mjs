@@ -45,7 +45,9 @@ assert.equal(hash('images/site/norm-hockey-headshot.webp'), 'b916c7b2360889d7a1d
 assert.doesNotMatch(home, /home-promo-row|home-rebuy-teaser/, 'Do not restore the retired three-teaser row');
 assert.match(schedule, /href="rsvp-app.html"/);
 assert.match(schedule, /Put the Yellow Chip on Your Phone\./);
-assert.match(schedule, /images\/site\/norm-rsvp-campaign.jpg/);
+assert.match(schedule, /images\/site\/norm-news-anchor-source.jpg/);
+assert.match(schedule, /alt="News-anchor Norm" width="1280" height="720"/);
+assert.equal(hash('images/site/norm-news-anchor-source.jpg'), 'a7d065b355b13c230c4c23fd9d834f7ffcac26d41915f68cd4cb7e5bb459b8bd', 'Reuse the exact Nightly News artwork without altering Norm');
 assert.match(schedule, /class="rsvp-campaign-chip" src="images\/site\/chip-T-1000.png"/);
 assert.match(schedule, /Get the Yellow Chip/);
 for (const html of [home, schedule]) assert.doesNotMatch(html, /The TLPT RSVP campaign/i);

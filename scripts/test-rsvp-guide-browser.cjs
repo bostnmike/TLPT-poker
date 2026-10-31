@@ -71,6 +71,22 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
       assert.equal(await page.locator('#rsvp-campaign-title').innerText(), 'Put the Yellow Chip on Your Phone.');
+      const anchor = page.locator('.rsvp-campaign-norm');
+      assert.equal(await anchor.locator('img').getAttribute('src'), 'images/site/norm-news-anchor-source.jpg');
+      assert.equal(await anchor.locator('img').getAttribute('alt'), 'News-anchor Norm');
+      assert.deepEqual(await anchor.locator('img').evaluate(img => [img.naturalWidth, img.naturalHeight]), [1280, 720]);
+      assert.equal(Math.round((await anchor.boundingBox()).width), width <= 560 ? 64 : width <= 1000 ? 80 : 96, 'Keep the original campaign avatar size');
+      const crop = await anchor.evaluate(frame => {
+        const img = frame.querySelector('img'), box = frame.getBoundingClientRect(), art = img.getBoundingClientRect();
+        const scale = art.width / img.naturalWidth;
+        return {x:(box.left + frame.clientLeft - art.left) / scale, y:(box.top + frame.clientTop - art.top) / scale,
+          width:frame.clientWidth / scale, height:frame.clientHeight / scale,
+          overflow:getComputedStyle(frame).overflow, radius:getComputedStyle(frame).borderRadius};
+      });
+      assert.ok(Math.abs(crop.x - 740) < .15 && Math.abs(crop.y) < .15, 'Center the intended news-anchor face, not the headline');
+      assert.ok(Math.abs(crop.width - 360) < .15 && Math.abs(crop.height - 360) < .15, 'Keep the same square crop on every screen');
+      assert.equal(crop.overflow, 'hidden');
+      assert.equal(crop.radius, '50%');
       const campaign = await page.locator('.schedule-app-promo').boundingBox();
       for (const selector of ['.rsvp-campaign-norm', '#rsvp-campaign-title', '.rsvp-campaign-chip', '.schedule-app-promo .btn']) {
         const box = await page.locator(selector).boundingBox();
@@ -79,6 +95,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.ok((await page.locator('.rsvp-campaign-chip').boundingBox()).width <= 36, 'Campaign chip stays inline, not hero-sized');
       assert.ok((await page.locator('.schedule-app-promo .btn').boundingBox()).height >= 40, 'Setup CTA retains a usable tap target');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+      await page.locator('.schedule-app-promo').screenshot({path:'/tmp/schedule-news-anchor-' + width + '.png'});
       const scheduleMenu = page.locator('.nav-dropdown:has(> a[href="schedule.html"])');
       if (width > 900) {
         await scheduleMenu.locator('.nav-dropdown-parent').hover();

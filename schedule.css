@@ -35,12 +35,13 @@
   background:linear-gradient(110deg,rgba(255,184,28,.08),transparent 55%),#0e171d;
 }
 .rsvp-campaign-norm {
-  display:block;width:96px;height:96px;border-radius:50%;overflow:hidden;
+  position:relative;display:block;width:96px;height:96px;border-radius:50%;overflow:hidden;
   border:2px solid #ffb81c;
 }
 .rsvp-campaign-norm img {
-  display:block;width:100%;height:100%;object-fit:cover;
-  transform:scale(1.7);transform-origin:50% 14%;
+  /* 360px square at (740, 0) in the unchanged 1280 x 720 news-anchor artwork. */
+  position:absolute;display:block;width:355.555556%;height:auto;max-width:none;
+  left:-205.555556%;top:0;
 }
 .rsvp-campaign-kicker {
   color:#ffd36a;font-size:.6875rem;font-weight:800;

@@ -294,6 +294,13 @@ its videos and all Norm Narrates portraits/audio are unchanged. Retain the appro
 banner artwork, especially the original shared narration-portrait source.
 The asset-preservation and six-width homepage checks live in the RSVP-guide tests.
 
+Schedule's “Put the Yellow Chip on Your Phone” campaign uses news-anchor Norm
+from the two-handed Nightly News artwork: `images/site/norm-news-anchor-source.jpg`.
+The original 1280 x 720 thumbnail is preserved byte-for-byte; Schedule CSS frames
+only the 360px square at (740, 0), keeping his face and burgundy tie inside the
+existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
+Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
+
 The Film Room has fourteen RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
