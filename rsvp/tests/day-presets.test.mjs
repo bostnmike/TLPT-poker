@@ -22,3 +22,16 @@ test('Saturday and MTT keep their own presets',()=>{
  assert.match(preset('mtt').structure,/^50K starting stack/);
  const saved={slot:'saturday',structure:'Saved Saturday detail'};assert.equal(preset('saturday',[{metadata:saved,capacity:8}]).structure,saved.structure);
 });
+
+test('Sunday uses 50K with Friday blinds and nine seats even if a saved Sunday has custom details',()=>{
+ for(const events of [[],[{metadata:{slot:'sunday',format:'Wrong stack',structure:'Wrong blinds'},capacity:18}]]){
+  const sunday=preset('sunday',events);assert.equal(sunday.format,'50K Format');assert.match(sunday.structure,/50K starting stack/);assert.match(sunday.structure,/Friday blinds start 50\/100/);assert.match(sunday.structure,/20 min levels/);assert.equal(sunday.capacity,9);
+ }
+});
+test('switching to Sunday resets its open switch without changing title, date or poster',()=>{
+ const controls=Object.fromEntries(['format','structure','time','endTime','capacity','location','address','day'].map(k=>[k,{value:''}]));
+ Object.assign(controls,{slot:{value:'sunday'},open:{checked:true},title:{value:'Keep my title'},date:{value:'2030-11-03'},poster:{value:'none'}});
+ const form={elements:controls},ctx={me:{allEvents:[]},$:()=>form};vm.createContext(ctx);
+ const apply=source.match(/^function applyDayPreset\(\)\{[^\n]+/m)[0];vm.runInContext(presetSource+';'+apply+';applyDayPreset()',ctx);
+ assert.equal(controls.open.checked,false);assert.equal(controls.day.value,'Sunday');assert.equal(controls.capacity.value,9);assert.equal(controls.title.value,'Keep my title');assert.equal(controls.date.value,'2030-11-03');assert.equal(controls.poster.value,'none');
+});
