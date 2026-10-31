@@ -70,6 +70,14 @@ try{
   assert.equal((await post('action',{type:'restore',eventId:'fixture-event'},admin)).status,200);
   feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events[0].rsvpOpen,false);assert.equal(feed.events[0].waitlist[0].slug,'red');
  }
+ const sundayMetadata={...fixture.events[0].metadata,title:'Disposable Sunday',slot:'sunday',day:'Sunday',date:'2030-11-03',format:'50K Format',structure:'50K starting stack • Friday blinds start 50/100 • 20 min levels'};
+ assert.equal((await post('action',{type:'event',metadata:sundayMetadata,capacity:9,open:false},admin)).status,200);
+ let sunday=(await(await fetch(base+'/api/public/events')).json()).events.find(e=>e.slot==='sunday');assert.equal(sunday.rsvpOpen,false);assert.equal(sunday.startingStack,50000);assert.equal(sunday.blindStructure,'40k');assert.equal(sunday.tables,1);
+ assert.equal((await post('respond',{eventId:sunday.id,slug:'red',answer:'yes'})).status,409);
+ const sundayEdit={type:'event',eventId:sunday.id,metadata:sundayMetadata,capacity:9,open:true};assert.equal((await post('action',sundayEdit,admin)).status,200);
+ assert.equal((await post('respond',{eventId:sunday.id,slug:'red',answer:'yes'})).status,200);
+ assert.equal((await post('action',{...sundayEdit,open:false},admin)).status,200);
+ sunday=(await(await fetch(base+'/api/public/events')).json()).events.find(e=>e.slot==='sunday');assert.equal(sunday.rsvpOpen,false);assert.equal(sunday.rsvps.red,'yes');assert.equal(sunday.rsvps.bostnmike,'yes');
  await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
  assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
  console.log('PASS: actual local Worker/D1 — encrypted push Request compatibility without provider contact, shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');

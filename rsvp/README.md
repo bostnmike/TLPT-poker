@@ -272,9 +272,9 @@ RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
 structure, times and capacity; these can be adjusted before saving. Friday
 always defaults to 50/100 starting blinds, matching the main Blind Structures
 page, even when an older saved Friday event has a stale or abbreviated description. Selecting a
-Friday/Saturday calendar date also selects its matching game preset, unless MTT
+Friday/Saturday/Sunday calendar date also selects its matching game preset, unless MTT
 was explicitly chosen for a new event. Existing events also allow changing Game day:
-selecting Friday, Saturday or MTT fills the matching format, blind structure,
+selecting Friday, Saturday, Sunday or MTT fills the matching format, blind structure,
 times, location, area and capacity before Save event. Opening an existing event
 keeps its saved custom details until a different game day is selected. Title,
 calendar date, poster choice, event ID and saved responses are retained. The
@@ -426,3 +426,35 @@ or rotate credentials to perform verification.
 Rollback Worker code with the same D1 binding and credential data. Reverting
 site integration restores prior behavior only after explicit reconciliation;
 do not silently make the obsolete static RSVP snapshot authoritative again.
+
+## Optional Sunday games
+
+Sunday is an optional fourth game-day choice, off by default. There is no seeded
+Sunday event or separate service-wide activation flag. Selecting Sunday (or a
+Sunday date for a new non-MTT event) fills a 50K starting stack, Friday's 40K blind
+ladder beginning 50/100 with 20-minute levels, one table and nine seats. Sunday
+capacity is limited to nine. The default evening times remain editable. Its
+RSVP cards use a red theme. Switching an existing game to Sunday keeps its ID,
+title, calendar date, poster and responses, and turns Open RSVPs off for review.
+Opening an already saved Sunday preserves its current switch setting.
+
+Check Open RSVPs and Save event to publish that Sunday. Uncheck and save to hide
+it from player view and the downstream website/Cashier selection; saved payment
+history must be retained independently. Existing closed events remain in the
+public feed with rsvpOpen:false, so all consumers must accept slot:sunday even
+while it is off and filter visibility using rsvpOpen===true. No synthetic Sunday
+event is created in production during release verification.
+
+Public feed contract: schemaVersion:1, slot:sunday, day:Sunday, tables:1,
+startingStack:50000, blindStructure:40k (the Friday ladder), capacity:1..9,
+format:50K Format, ordinary ISO date, rsvpOpen boolean and the existing RSVP /
+waitlist fields. The additive machine fields are derived by the server for
+Sunday, removed if converting away, and never identify Sunday as an MTT.
+
+The TLPT Cashier and TLPT Site Maintenance - Work chats own their consumer
+updates, red styling, single-table previews, and Friday-ladder presentation with
+50K effective stack sizes. They must accept the new slot without invalidating
+the complete live feed, follow the single RSVP open/close switch, and leave
+Sunday absent/off unless a real event is explicitly opened. No new payment
+amount, bounty choice, financial ledger migration or separate activation screen
+is implied by the Sunday poker format.
