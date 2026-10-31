@@ -271,7 +271,13 @@ New events use a native calendar date picker, with a Date TBD option that keeps
 RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
 structure, times and capacity; these can be adjusted before saving. Selecting a
 Friday/Saturday calendar date also selects its matching game preset, unless MTT
-was explicitly chosen. Dates can be corrected; slot remains locked. Changing an RSVP date does not
+was explicitly chosen for a new event. Existing events also allow changing Game day:
+selecting Friday, Saturday or MTT fills the matching format, blind structure,
+times, location, area and capacity before Save event. Opening an existing event
+keeps its saved custom details until a different game day is selected. Title,
+calendar date, poster choice, event ID and saved responses are retained. The
+normal queue recalculates if capacity changes, and duplicate type/date combinations
+remain blocked. Changing an RSVP day or date does not
 rewrite Cashier schedule configuration or move any payment. Old payment events
 remain retained; attendance overlays only the exact corrected slot/date and new
 payable dates still require the existing financial setup.
