@@ -1,5 +1,6 @@
 import {eventAttendance} from './rsvp-attendance.mjs';
-export const SLOTS=['friday','saturday','mtt'];
+export const SLOTS=['friday','saturday','sunday','mtt'];
+export function currentEventSlots(events=[]){return SLOTS.filter(slot=>slot!=='sunday'||events.some(e=>e.slot==='sunday'&&!e.savedOnly));}
 export const SCHEDULE_URL='https://tlpt.org/data/events.json';
 export const FINANCIALS_URL='https://tlpt.org/data/event-financials.json';
 const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -11,7 +12,7 @@ function cents(v,fallback){if(v===undefined||v===null)return fallback;if(typeof 
 function datePending(raw){return /^(?:date\s+)?tbd$/i.test(String(raw.date||'').trim());}
 export function normalizeSchedule(source,financials,now=Date.now(),previous=[]){
  if(!source||!Array.isArray(source.events)||source.events.length>500||!financials||typeof financials.events!=='object'||Array.isArray(financials.events))throw Error('Invalid schedule source');
- const today=easternDay(now),groups={friday:[],saturday:[],mtt:[]},pending=new Set();
+ const today=easternDay(now),groups=Object.fromEntries(SLOTS.map(slot=>[slot,[]])),pending=new Set();
  for(const raw of source.events){if(!SLOTS.includes(raw.slot))continue;if(raw.active===false||raw.cancelled===true||/^(cancelled|canceled|inactive)$/i.test(raw.status||''))continue;if(datePending(raw)){pending.add(raw.slot);continue;}const date=dateKey(raw.date);if(typeof raw.title!=='string'||!raw.title.trim())throw Error('Missing event title');groups[raw.slot].push({...raw,key:date});}
  const selected=[];
  for(const slot of SLOTS){const list=groups[slot].sort((a,b)=>a.key.localeCompare(b.key));const e=list.find(x=>x.key>=today)||list.at(-1);if(!e){
@@ -24,7 +25,7 @@ export function normalizeSchedule(source,financials,now=Date.now(),previous=[]){
   const f={...(financials.events[e.key]||{}),...(e.payments||{})},mtt=slot==='mtt'||Number(e.tables)>1;
   const prize=cents(f.entryAmount,mtt?4000:3000),bounty=cents(f.bounty?.amount,mtt?1000:0),rebuy=cents(f.rebuyAmount,prize),food=cents(f.foodAmount,1500);
   const rules={entry:prize+bounty,rebuy,food,entryPrize:prize,bounty};if(rules.entry<=0||rules.rebuy<=0)throw Error('Missing entry price');
-  selected.push({id:`${slot}:${e.key}`,slot,date:e.key,dateLabel:e.date,title:e.title,time:e.time||'',endTime:e.endTime||'',tables:Number(e.tables)||(mtt?2:1),capacity:e.capacity||(mtt?18:9),rules,...eventAttendance(e),receiptStart:easternEpoch(e.key),receiptEnd:easternEpoch(addDay(e.key),6),sourceUrl:SCHEDULE_URL});
+  selected.push({id:`${slot}:${e.key}`,slot,date:e.key,dateLabel:e.date,title:e.title,time:e.time||'',endTime:e.endTime||'',tables:Number(e.tables)||(mtt?2:1),capacity:e.capacity||(mtt?18:9),format:typeof e.format==='string'?e.format:'',startingStack:e.startingStack,blindStructure:e.blindStructure,rules,...eventAttendance(e),receiptStart:easternEpoch(e.key),receiptEnd:easternEpoch(addDay(e.key),6),sourceUrl:SCHEDULE_URL});
  }
  return selected;
 }
