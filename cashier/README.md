@@ -18,35 +18,42 @@ The owner approved cutover before the first real Venmo receipts, expected during
 the October 16–17 games. Genuine receipt format verification remains pending;
 synthetic tests and the successful real mailbox connection do not replace it.
 
-## Dates awaiting confirmation
+## Live schedule and saved ledgers
 
-An active event with `date: "Date TBD"` (or `"TBD"`) is a placeholder,
-not a dated replacement. Other slots and their RSVPs continue refreshing.
-If that slot already has a verified event, Cashier retains its identity, prices,
-RSVPs, receipt window and payments, and labels it as a saved event with the next
-date pending. On first load, a placeholder alone does not create an event tab.
-A real published replacement date resumes normal event retention/cleanup.
-Explicit cancellation/removal still retires the event; malformed dates still
-fail safely and preserve the last verified schedule. No date is invented and
-future receipts cannot match the retained event through its old receipt window.
+Cashier now selects the next open, dated Friday, Saturday and MTT directly from
+`https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events`, the same feed as
+TLPT.org and the Player app. Closed, canceled, deleted, moved and Date TBD events
+cannot remain current tabs. The old static `data/events.json` no longer selects
+payment events. The feed and financial settings refresh once per minute.
 
-## Clear a past MTT
+Payment IDs remain slot + calendar date. A Commish date correction never moves
+old payments to the new date. Published `event-financials.json` still supplies
+prices; new regular dates default to $30 without a bounty, and MTT dates default
+to $40 + $10 first-entry bounty. Existing event format overrides remain scoped to
+their own date. Confirmed allocations never change when prices change.
 
-Select its MTT tab, open **Event settings → Clear MTT history**, and export
-first if you want a copy. The control becomes available after 6 AM Eastern the
-morning after the MTT. The confirmation shows the event date, total and full
-record count (including linked receipts). Type that exact date and acknowledge
-permanent deletion. A changed ledger invalidates the confirmation; cancel,
-review the updated event and open it again.
+A schedule edit never deletes ledger data. Prior events with records appear under
+**Saved payment history** for receipt review, matching, export and explicit
+clearing. New manual sales and format changes require a current game. Archived
+completed games may receive late matching emails within their original receipt
+windows; cleared, canceled and moved dates cannot receive them. An unavailable
+live feed preserves the last verified data and displays a warning. Before the
+first successful live sync, old static events are history only, not current tabs.
 
-Clearing removes that MTT’s payments, receipt links, audit entries, deleted-source
-identifiers and stored batch results in one transaction. Shared ambiguous emails
-remain available to their other possible events. Friday/Saturday payments, player
-profiles, remembered names, event configuration and website RSVPs are preserved.
-Only an event ID and clear timestamp remain to prevent old emails and stale
-manual/batch submissions from resurrecting the ledger. The cleared event is closed
-to payments; a newly published MTT date opens a fresh register. No refunds are sent.
-Deploying this feature does not clear any existing records.
+## Clear past-game ledgers
+
+Select a saved event, open **Event settings → Clear game history** (or **Clear MTT
+history**), and export first if wanted. The control is available after 6 AM Eastern
+the morning following the game. Type its exact date and acknowledge permanent
+deletion. The confirmation includes the full record count and collected total.
+A changed ledger invalidates the confirmation without deleting anything.
+
+Clearing removes only that event’s payments, receipt links, audit entries,
+deleted-source identifiers and batch results atomically. Shared ambiguous emails
+retain their other candidates. Other ledgers, player identities, remembered names,
+event configuration and website RSVPs remain intact. An event-ID/timestamp marker
+prevents re-import and stale submissions. No refunds are sent. Deploying code
+never itself clears any records; publishing a new date does not clear old games.
 
 ## Architecture
 
@@ -85,7 +92,7 @@ Verified against Cloudflare's documentation on October 15, 2026:
 An iPad polling every three seconds for 24 hours makes 28,800 register requests.
 The reader adds roughly 2,880 requests daily plus receipt batches. ETags and a
 database revision avoid rereading the full ledger on unchanged polls. Indexed
-event queries and the existing event-replacement cleanup limit database work.
+event queries and conditional polling limit database work.
 Background iPads pause polling. These are estimates, not reserved capacity:
 other account applications share quotas, and large ledgers or more terminals
 can use more. **Free quotas stop requests/queries when exhausted; this migration
@@ -361,7 +368,7 @@ not replay it. The iPad's sound-off setting still applies. Batches are limited t
 
 The additive `0011_batch_payments.sql` migration preserves existing payments and
 seeds coverage for older receipt links. It adds private retry summaries, temporary
-transaction guards and receipt-to-payment allocations. Event replacement clears
+transaction guards and receipt-to-payment allocations. Explicit event-history clearing removes
 its retry summaries and related links; changing RSVPs or prices retains them.
 No Gmail reader changes, new secrets, paid resources or gateway publication are
 required. Legacy Sites export/restore scripts describe the original seven-table
