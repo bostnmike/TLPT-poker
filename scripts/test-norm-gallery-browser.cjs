@@ -8,7 +8,7 @@ const fit=async(page,selector,width,height)=>{
 (async()=>{
   const browser=await chromium.launch({channel:'chrome',headless:true});
   try{
-    for(const viewport of [{width:1440,height:1000},{width:820,height:1000},{width:390,height:844},{width:320,height:850},{width:844,height:390},{width:568,height:320}]){
+    for(const viewport of [{width:1440,height:1000},{width:820,height:1000},{width:390,height:844},{width:320,height:850},{width:320,height:568},{width:844,height:390},{width:568,height:320}]){
       const {width,height}=viewport;
       const page=await browser.newPage({viewport,reducedMotion:'reduce'});
       const errors=[],normRequests=[];
@@ -59,6 +59,14 @@ const fit=async(page,selector,width,height)=>{
       assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#rsvp-roadshow');
       for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
       await page.screenshot({path:'/tmp/norm-gallery-portrait-viewer-'+width+'x'+height+'.png'});
+      // Every title must fit, including the longest cancellation captions.
+      for(let posterIndex=2;posterIndex<=23;posterIndex++){
+        await page.keyboard.press('ArrowRight');
+        await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
+        for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
+      }
+      assert.equal(await page.locator('#gallery-lightbox-next').isDisabled(),true);
+      await page.keyboard.press('ArrowLeft');
       await page.locator('#gallery-lightbox-next').focus();await page.keyboard.press('Tab');
       assert.equal(await page.locator('#gallery-lightbox-close').evaluate(e=>e===document.activeElement),true,'Modal focus trap');
       await page.keyboard.press('Escape');
