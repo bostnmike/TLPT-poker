@@ -6,7 +6,7 @@ const fit=async(page,selector,width,height)=>{
   assert.ok(box&&box.x>=-1&&box.y>=-1&&box.x+box.width<=width+1&&box.y+box.height<=height+1,selector+' fits '+width+'x'+height);
 };
 (async()=>{
-  const browser=await chromium.launch({channel:'chrome',headless:true});
+  const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
   try{
     for(const viewport of [{width:1440,height:1000},{width:820,height:1000},{width:390,height:844},{width:320,height:850},{width:320,height:568},{width:844,height:390},{width:568,height:320}]){
       const {width,height}=viewport;
