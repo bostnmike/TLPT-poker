@@ -18,7 +18,7 @@ try{
  writeFileSync('integration.local.mjs',`import worker from './worker.mjs';
  import {encryptedPush,b64url} from './web-push.mjs';
  export default {...worker,async fetch(request,env,ctx){
- if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,env,ctx);
+ if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,{...env,GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw30-10-25.jpg','fw30-11-03.png']})},ctx);
  const receiver=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
  const jwk=await crypto.subtle.exportKey('jwk',(await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify'])).privateKey);
  const subscription={endpoint:'https://fcm.googleapis.com/disposable-never-sent',keys:{p256dh:b64url(await crypto.subtle.exportKey('raw',receiver.publicKey)),auth:b64url(crypto.getRandomValues(new Uint8Array(16)))}};
@@ -72,7 +72,7 @@ try{
  }
  const sundayMetadata={...fixture.events[0].metadata,title:'Disposable Sunday',slot:'sunday',day:'Sunday',date:'2030-11-03',format:'50K Format',structure:'50K starting stack • Friday blinds start 50/100 • 20 min levels'};
  assert.equal((await post('action',{type:'event',metadata:sundayMetadata,capacity:9,open:false},admin)).status,200);
- let sunday=(await(await fetch(base+'/api/public/events')).json()).events.find(e=>e.slot==='sunday');assert.equal(sunday.rsvpOpen,false);assert.equal(sunday.startingStack,50000);assert.equal(sunday.blindStructure,'40k');assert.equal(sunday.tables,1);
+ let sunday=(await(await fetch(base+'/api/public/events')).json()).events.find(e=>e.slot==='sunday');assert.equal(sunday.rsvpOpen,false);assert.equal(sunday.startingStack,50000);assert.equal(sunday.blindStructure,'40k');assert.equal(sunday.tables,1);assert.equal(sunday.poster.file,'fw30-11-03.png');assert.ok((await(await fetch(base+'/api/public/posters')).json()).posters.some(p=>p.file==='fw30-11-03.png'));
  assert.equal((await post('respond',{eventId:sunday.id,slug:'red',answer:'yes'})).status,409);
  const sundayEdit={type:'event',eventId:sunday.id,metadata:sundayMetadata,capacity:9,open:true};assert.equal((await post('action',sundayEdit,admin)).status,200);
  assert.equal((await post('respond',{eventId:sunday.id,slug:'red',answer:'yes'})).status,200);

@@ -7,7 +7,7 @@ import {publicFeed,applyOperation,eventPoster} from '../model.mjs';
 import {overlayLiveRsvps} from '../../cashier/lib/live-rsvp.mjs';
 const origin='https://rsvp.test',key='a'.repeat(64),adminKey='b'.repeat(64);
 
-async function fixture(){const db=database(),state={revision:1,sequence:1,updatedAt:'2026-10-25T00:00:00Z',adminHash:await hash(adminKey),adminGeneration:1,players:['bostnmike','red','ahmed'].map(slug=>({slug,name:slug,image:'images/players/'+slug+'.jpg',rosterStatus:slug==='red'?'alumni':'active',generation:1,linkHash:null})),events:[{id:'stable-1',capacity:2,open:true,archived:false,metadata:{title:'Test',date:'2026-10-30',slot:'friday'},responses:{}}],audit:[]};state.players[0].linkHash=await hash(key);db.sql.prepare('INSERT INTO rsvp_state VALUES(1,1,?)').run(JSON.stringify(state));return {db,state,env:{DB:db,REVISION:'test',ASSETS:{fetch:()=>new Response('test')}}};}
+async function fixture(){const db=database(),state={revision:1,sequence:1,updatedAt:'2026-10-25T00:00:00Z',adminHash:await hash(adminKey),adminGeneration:1,players:['bostnmike','red','ahmed'].map(slug=>({slug,name:slug,image:'images/players/'+slug+'.jpg',rosterStatus:slug==='red'?'alumni':'active',generation:1,linkHash:null})),events:[{id:'stable-1',capacity:2,open:true,archived:false,metadata:{title:'Test',date:'2026-10-30',slot:'friday'},responses:{}}],audit:[]};state.players[0].linkHash=await hash(key);db.sql.prepare('INSERT INTO rsvp_state VALUES(1,1,?)').run(JSON.stringify(state));return {db,state,env:{DB:db,GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw26-10-30.jpg','fw26-10-31.jpg','fw26-11-01.png','fw26-11-06.jpg']}),REVISION:'test',ASSETS:{fetch:()=>new Response('test')}}};}
 async function call(env,path,data,cookie,extra={}){const r=await worker.fetch(new Request(origin+'/api/'+path,{method:data?'POST':'GET',headers:{...(data?{'Content-Type':'application/json',Origin:origin}:{}),...(cookie?{Cookie:cookie}:{}),...extra},...(data?{body:JSON.stringify(data)}:{})}),env,{waitUntil(p){p.catch(()=>{});}});return {r,body:await r.json()};}
 async function login(env,k=key){const {r}=await call(env,'exchange',{key:k});assert.equal(r.status,200);return r.headers.get('Set-Cookie').split(';')[0];}
 test('Commish installs have a separate credential-free launch page while the shared Player install stays at root',async()=>{
@@ -63,7 +63,7 @@ test('removed events cannot be restored over a replacement with the same date an
  assert.throws(()=>applyOperation(state,actor,{type:'restore',eventId:'stable-1'}),/already uses/);
 });
 test('gallery matching handles automatic, override, none and undated choices without arbitrary paths',async()=>{
- assert.equal(eventPoster({date:'2026-10-30'}).url,'https://tlpt.org/images/fw/fw26-10-30.jpg');
+ assert.equal(eventPoster({date:'2026-10-30'},[{file:'fw26-10-30.jpg'}]).url,'https://tlpt.org/images/fw/fw26-10-30.jpg');
  assert.equal(eventPoster({date:'Date TBD'}),null);assert.equal(eventPoster({date:'2026-10-30',poster:'none'}),null);
  assert.equal(eventPoster({date:'Date TBD',poster:'fw26-10-31.jpg'}).file,'fw26-10-31.jpg');
  assert.equal(eventPoster({poster:'../../private'}),null);
@@ -92,7 +92,7 @@ test('correcting a date retains event ID and responses, updates its poster and k
  applyOperation(state,actor,{type:'respond',eventId:event.id,slug:'red',answer:'yes'});const answers=structuredClone(event.responses);
  const paymentEvent={id:'payment-old',slot:'friday',date:'2026-09-06',payments:[{player:'red',amount:40}]};
  applyOperation(state,actor,{type:'event',eventId:event.id,metadata:{...event.metadata,date:'2026-11-06'},capacity:2,open:true});
- assert.equal(event.id,'stable-1');assert.deepEqual(event.responses,answers);assert.equal(publicFeed(state).events[0].poster.file,'fw26-11-06.jpg');
+ assert.equal(event.id,'stable-1');assert.deepEqual(event.responses,answers);assert.equal(publicFeed(state,new Date(),[{file:'fw26-11-06.jpg'}]).events[0].poster.file,'fw26-11-06.jpg');
  const retained=overlayLiveRsvps([paymentEvent],publicFeed(state))[0];assert.deepEqual(retained.payments,paymentEvent.payments);assert.equal(retained.date,'2026-09-06');assert.deepEqual(retained.rsvps,[]);
  state.events.push({...structuredClone(event),id:'other',metadata:{...event.metadata,date:'2026-11-13'}});
  assert.throws(()=>applyOperation(state,actor,{type:'event',eventId:event.id,metadata:{...event.metadata,date:'2026-11-13'},capacity:2,open:true}),/already exist/);
@@ -135,4 +135,12 @@ test('Sunday saves as a 50K single table, stays off until opened, and retains an
  event=(await call(env,'public/events')).body.events.find(e=>e.id===id);assert.equal(event.rsvpOpen,false);assert.equal(event.rsvps.red,'yes');assert.equal(event.rsvps.bostnmike,'yes');
  assert.equal((await call(env,'action',{...edit,metadata:{...metadata,slot:'friday',day:'Friday'},open:false},admin)).r.status,200);
  event=(await call(env,'public/events')).body.events.find(e=>e.id===id);assert.equal(event.startingStack,undefined);assert.equal(event.blindStructure,undefined);assert.equal(event.tables,1);assert.equal(event.rsvps.red,'yes');
+});
+test('public feed, private view and catalog resolve actual PNG filenames; gallery failure leaves RSVP reads working',async()=>{
+ const {env,db,state}=await fixture();state.events[0].metadata.date='2026-11-01';db.sql.prepare('UPDATE rsvp_state SET body=?').run(JSON.stringify(state));
+ let result=await call(env,'public/events');assert.equal(result.r.status,200);assert.equal(result.body.events[0].poster.file,'fw26-11-01.png');
+ const catalog=await call(env,'public/posters');assert.ok(catalog.body.posters.some(p=>p.file==='fw26-11-01.png'));assert.ok(catalog.body.posters.some(p=>p.file==='fw26-10-31.jpg'));
+ const admin=await login(env,adminKey);assert.equal((await call(env,'me',null,admin)).body.events[0].poster.file,'fw26-11-01.png');
+ env.GALLERY_FETCH=async()=>{throw Error('Offline');};result=await call(env,'public/events');assert.equal(result.r.status,200);assert.equal(result.body.events[0].poster,null);assert.equal(result.body.revision,1);assert.equal((await call(env,'public/posters')).body.unavailable,true);
+ state.events[0].metadata.poster='fw26-11-01.png';db.sql.prepare('UPDATE rsvp_state SET body=?').run(JSON.stringify(state));assert.equal((await call(env,'public/events')).body.events[0].poster.file,'fw26-11-01.png');
 });

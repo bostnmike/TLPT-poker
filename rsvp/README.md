@@ -284,12 +284,18 @@ rewrite Cashier schedule configuration or move any payment. Old payment events
 remain retained; attendance overlays only the exact corrected slot/date and new
 payable dates still require the existing financial setup.
 
-Posters match `fwYY-MM-DD.jpg` in the existing TLPT Art Gallery automatically.
+Posters match dated `fwYY-MM-DD.jpg` or `fwYY-MM-DD.png` files in the existing
+TLPT Art Gallery automatically, resolving the actual filename from its canonical
+catalog rather than guessing an extension.
 The Commish can select a different gallery date or No poster. The public gallery
-catalog endpoint only returns validated filenames from the canonical manifest;
+catalog endpoint only returns validated JPG/PNG filenames from the canonical manifest;
 no arbitrary image URL or upload is accepted. Thumbnails open the original art
 in a modal. Missing art falls back to the original, then hides the thumbnail;
-an undated game has no automatic poster. Gallery failure never blocks RSVP.
+an undated game has no automatic poster. A missing gallery date has no automatic
+poster. The server caches and coalesces catalog reads for five minutes; on failure
+it retains its last verified catalog and retries after 30 seconds. Without a
+verified catalog, automatic art is omitted; explicit saved choices still work.
+Gallery failure never blocks RSVP. Catalog reads do not write event metadata or answers.
 
 ## Shared player entry and private Commish access
 

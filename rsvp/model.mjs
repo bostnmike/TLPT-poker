@@ -1,3 +1,5 @@
+import {eventPoster,validPosterFile} from './posters.mjs';
+export {eventPoster} from './posters.mjs';
 import {noGameDays} from './schedule-notices.mjs';
 // No contact, financial, or historical result data belongs in this service.
 export class Rejected extends Error { constructor(message,status=400){super(message);this.status=status;} }
@@ -13,29 +15,24 @@ export function compareEvents(a,b){
 export const publicPlayer=p=>({slug:p.slug,name:p.slug==='li-fo'?'ButtonMan':p.name,image:p.image,rosterStatus:p.rosterStatus});
 export function comparePlayers(a,b){const rank=p=>p.slug===HOST?-1:p.rosterStatus==='alumni'?1:0;return rank(a)-rank(b)||publicPlayer(a).name.localeCompare(publicPlayer(b).name,'en',{sensitivity:'base'});}
 export function eventResponses(state,event){const responses={...event.responses};if(state.players.some(p=>p.slug===HOST))responses[HOST]={...(responses[HOST]||{}),answer:'yes',order:0};return responses;}
-export function eventPoster(metadata){
- const choice=metadata.poster||'auto';if(choice==='none')return null;
- const file=choice==='auto'?(/^\d{4}-\d{2}-\d{2}$/.test(metadata.date)?`fw${metadata.date.slice(2)}.jpg`:null):choice;
- return file&&/^fw\d{2}-\d{2}-\d{2}\.jpg$/.test(file)?{file,url:`https://tlpt.org/images/fw/${file}`,thumbnailUrl:`https://tlpt.org/images/fw/thumbs/${file}`}:null;
-}
-export function publicFeed(state, now = new Date()){
+export function publicFeed(state, now = new Date(), posters=[]){
  const players=[...state.players].sort(comparePlayers);
   return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,noGameDays:noGameDays(state.events,now),players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).sort(compareEvents).map(e=>{
   const responses=eventResponses(state,e);
   const queue=Object.entries(responses).filter(([,r])=>r.answer==='yes').sort((a,b)=>a[0]===HOST?-1:b[0]===HOST?1:a[1].order-b[1].order||a[0].localeCompare(b[0]));
   const confirmed=new Set(queue.slice(0,e.capacity).map(([s])=>s));
   const waitlist=queue.slice(e.capacity).map(([slug],i)=>({slug,position:i+1}));
-  return {...e.metadata,poster:eventPoster(e.metadata),id:e.id,capacity:e.capacity,rsvpOpen:e.open,hostLocked:state.players.some(p=>p.slug===HOST),rsvp_url:`https://tlpt-rsvp.tlpt-bostnmike.workers.dev/?event=${encodeURIComponent(e.id)}`,rsvps:Object.fromEntries(players.map(p=>[p.slug,responses[p.slug]?.answer==='yes'?(confirmed.has(p.slug)?'yes':'maybe'):(responses[p.slug]?.answer||'tbd')])),waitlist,requestedIn:queue.map(([slug])=>slug),rsvpUpdatedAt:state.updatedAt};
+  return {...e.metadata,poster:eventPoster(e.metadata,posters),id:e.id,capacity:e.capacity,rsvpOpen:e.open,hostLocked:state.players.some(p=>p.slug===HOST),rsvp_url:`https://tlpt-rsvp.tlpt-bostnmike.workers.dev/?event=${encodeURIComponent(e.id)}`,rsvps:Object.fromEntries(players.map(p=>[p.slug,responses[p.slug]?.answer==='yes'?(confirmed.has(p.slug)?'yes':'maybe'):(responses[p.slug]?.answer||'tbd')])),waitlist,requestedIn:queue.map(([slug])=>slug),rsvpUpdatedAt:state.updatedAt};
  })};
 }
-export function playerView(state,slug){return {player:state.players.find(p=>p.slug===slug)&&publicPlayer(state.players.find(p=>p.slug===slug)),...publicFeed(state),responses:Object.fromEntries(state.events.filter(liveEvent).map(e=>[e.id,eventResponses(state,e)[slug]?.answer||'tbd']))};}
+export function playerView(state,slug,posters=[]){return {player:state.players.find(p=>p.slug===slug)&&publicPlayer(state.players.find(p=>p.slug===slug)),...publicFeed(state,new Date(),posters),responses:Object.fromEntries(state.events.filter(liveEvent).map(e=>[e.id,eventResponses(state,e)[slug]?.answer||'tbd']))};}
 export function validateMetadata(raw){
  const fields=['title','format','slot','day','date','time','endTime','location','address','structure'];const m={};
  for(const k of fields){requireValue(typeof raw[k]==='string'&&raw[k].length<=250,`Invalid ${k}.`);m[k]=raw[k].trim();}
  requireValue(m.title&&['friday','saturday','sunday','mtt'].includes(m.slot),'Choose a title and event type.');
  requireValue(m.date==='Date TBD'||/^\d{4}-\d{2}-\d{2}$/.test(m.date)&&Number.isFinite(Date.parse(m.date+'T12:00:00Z'))&&new Date(m.date+'T12:00:00Z').toISOString().slice(0,10)===m.date,'Choose a calendar date or Date TBD.');
  requireValue(/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.time)&&/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.endTime),'Use times such as 7:00 PM.');
- const poster=raw.poster||'auto';requireValue(typeof poster==='string'&&/^(auto|none|fw\d{2}-\d{2}-\d{2}\.jpg)$/.test(poster),'Choose a poster from the TLPT gallery.');
+ const poster=raw.poster||'auto';requireValue(poster==='auto'||poster==='none'||validPosterFile(poster),'Choose a poster from the TLPT gallery.');
  m.poster=poster;m.tables=m.slot==='mtt'?2:1;if(m.slot==='sunday'){m.startingStack=50000;m.blindStructure='40k';}return m;
 }
 export function applyOperation(state,actor,op,now=new Date().toISOString()){
