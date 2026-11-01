@@ -55,6 +55,8 @@ def rehearse(product):
             original.execute("INSERT INTO push_subscriptions VALUES('fake','https://push.example.test','{}','test-player','fake',1)")
             original.execute("INSERT INTO commish_push_subscriptions VALUES('commish:fake','https://push.example.test/admin','{}','@commish:1','fake',1)")
             original.execute("INSERT INTO push_jobs VALUES('fake','fake','fake','{}',1,1,0,0)")
+            original.execute("INSERT INTO broadcasts VALUES('synthetic','poll','Test question','Test only','[\"Yes\",\"No\"]',1,0,1)")
+            original.execute("INSERT INTO poll_votes VALUES('synthetic','test-player',0,1)")
         original.commit()
         expected, expected_schema = snapshot(original), schema(original)
         export = "\n".join(original.iterdump())

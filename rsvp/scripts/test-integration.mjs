@@ -18,7 +18,7 @@ try{
  writeFileSync('integration.local.mjs',`import worker from './worker.mjs';
  import {encryptedPush,b64url} from './web-push.mjs';
  export default {...worker,async fetch(request,env,ctx){
- if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,{...env,GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw30-10-25.jpg','fw30-11-03.png']})},ctx);
+ if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,{...env,...(new URL(request.url).pathname==='/api/broadcasts'?{VAPID_PRIVATE_JWK:JSON.stringify({kty:'EC',crv:'P-256',d:'disposable-invalid-key',x:'AA',y:'AA'})}:{}),GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw30-10-25.jpg','fw30-11-03.png']})},ctx);
  const receiver=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
  const jwk=await crypto.subtle.exportKey('jwk',(await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify'])).privateKey);
  const subscription={endpoint:'https://fcm.googleapis.com/disposable-never-sent',keys:{p256dh:b64url(await crypto.subtle.exportKey('raw',receiver.publicKey)),auth:b64url(crypto.getRandomValues(new Uint8Array(16)))}};
@@ -49,8 +49,8 @@ try{
  const edit={type:'event',eventId:'fixture-event',metadata:fixture.events[0].metadata,capacity:2,open:true};
  assert.equal((await post('action',edit,admin)).status,200);
  const query=sql=>JSON.parse(run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--command',sql,'--json']))[0].results;
- // No VAPID key exists in this disposable Worker, so it NEVER contacts a push
- // provider. Inspect the real D1 transaction's durable outbox instead.
+ // Ordinary RSVP requests have no VAPID key in this disposable Worker and never
+ // contact a push provider. Inspect the real D1 transaction's durable outbox instead.
  let queued=query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'");assert.equal(queued.length,1);assert.equal(JSON.parse(queued[0].payload).kind,'seat');
  assert.equal((await post('action',edit,admin)).status,200);assert.equal(query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'").length,1);
  assert.equal((await post('action',{...edit,open:false},admin)).status,200);
@@ -60,6 +60,17 @@ try{
  assert.deepEqual(await(await post('notifications',{action:'status',token:notificationToken})).json(),{enabled:false,slug:null});
  assert.deepEqual(await(await post('commish-notifications',{action:'status',token:commishNotificationToken})).json(),{enabled:true,slug:'@commish'});
  let adminJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='response'");assert.equal(adminJobs.length,2);assert.ok(adminJobs.every(j=>j.subscription_id===commishNotificationId));
+ // Synthetic subscription bodies are {}, so encryption fails before any provider
+ // request. The generated wrapper supplies an invalid test-only VAPID key solely
+ // to exercise the authenticated broadcast endpoint and real D1 transaction.
+ const broadcast={id:'11111111-1111-4111-8111-111111111111',kind:'poll',title:'Disposable question',body:'Local QA only',options:['Friday','Sunday']};
+ assert.equal((await post('broadcasts',broadcast)).status,401);assert.equal((await post('broadcasts',broadcast,red)).status,403);
+ assert.equal((await post('broadcasts',broadcast,admin)).status,200);assert.equal((await post('broadcasts',broadcast,admin)).status,200);
+ assert.equal(query('SELECT COUNT(*) n FROM broadcasts')[0].n,1);assert.equal(query("SELECT COUNT(*) n FROM push_jobs WHERE json_extract(payload,'$.kind')='announcement'")[0].n,1);
+ assert.equal((await post('poll-vote',{pollId:broadcast.id,slug:'red',choice:0})).status,200);assert.equal((await post('poll-vote',{pollId:broadcast.id,slug:'red',choice:1})).status,200);
+ let poll=(await(await fetch(base+'/api/public/polls')).json()).polls[0];assert.deepEqual(poll.counts,[0,1]);assert.equal(poll.votes.length,1);
+ assert.equal((await post('broadcasts',{action:'close',id:broadcast.id},admin)).status,200);assert.equal((await post('poll-vote',{pollId:broadcast.id,slug:'red',choice:0})).status,409);
+ poll=(await(await fetch(base+'/api/public/polls')).json()).polls[0];assert.equal(poll.closed,true);assert.deepEqual(poll.counts,[0,1]);
  assert.equal((await post('commish-notifications',{action:'disable',token:commishNotificationToken})).status,200);assert.equal(query('SELECT payload FROM push_jobs').length,0);
  assert.equal((await post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'no'},admin)).status,409);
  for(const type of ['cancel','delete']){
@@ -80,5 +91,5 @@ try{
  sunday=(await(await fetch(base+'/api/public/events')).json()).events.find(e=>e.slot==='sunday');assert.equal(sunday.rsvpOpen,false);assert.equal(sunday.rsvps.red,'yes');assert.equal(sunday.rsvps.bostnmike,'yes');
  await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
  assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
- console.log('PASS: actual local Worker/D1 — encrypted push Request compatibility without provider contact, shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
+ console.log('PASS: actual local Worker/D1 — encrypted push Request compatibility without provider contact, shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, announcement/poll authorization, atomic send deduplication, editable voting and closing, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
 }finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});rmSync('integration.local.mjs',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}

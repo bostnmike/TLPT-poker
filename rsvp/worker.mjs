@@ -1,3 +1,4 @@
+import {broadcastOverview,publicPolls,sendBroadcast,vote,closePoll} from './broadcasts.mjs';
 import {galleryCatalog} from './posters.mjs';
 import {pushConfiguration,notificationTransitions,enqueueStatement,subscriptionAction,scheduleNotifications,drainNotifications} from './notifications.mjs';
 import {Rejected,requireValue,publicFeed,publicPlayer,playerView,applyOperation,compareEvents} from './model.mjs';
@@ -33,6 +34,7 @@ export default {async fetch(req,env,ctx){
  try{
   if(path==='/api/notifications/config'&&req.method==='GET'){const config=pushConfiguration(env);return json({available:!!config,...(config?{publicKey:config.publicKey}:{})});}
   if(path==='/api/version')return json({app:'tlpt-rsvp',revision:env.REVISION});
+  if(path==='/api/public/polls'&&req.method==='GET')return json(await publicPolls(env.DB,await read(env.DB)));
   if(path==='/api/public/events'&&req.method==='GET'){
    const [state,{posters}]=await Promise.all([read(env.DB),galleryCatalog(env.GALLERY_FETCH||fetch)]);
    const response=json(publicFeed(state,new Date(),posters),200,{'Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=0, must-revalidate'});return response;
@@ -57,6 +59,7 @@ export default {async fetch(req,env,ctx){
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);
   if(['/api/notifications','/api/commish-notifications'].includes(path)&&req.method==='POST'){const b=await body(req),commish=path==='/api/commish-notifications',actor=commish&&b?.action==='enable'?await identity(req,env,state):null;requireValue(!actor||actor.role==='admin','Commish sign-in required.',403);requireValue(b?.action!=='enable'||pushConfiguration(env),'Notifications are not available right now.',503);return json(await subscriptionAction(env.DB,state,b,hash,commish,actor));}
+  if(path==='/api/poll-vote'&&req.method==='POST')return json(await vote(env.DB,state,await body(req)));
   if(path==='/api/respond'&&req.method==='POST'){
    const b=await body(req);requireValue(b&&typeof b==='object'&&!Array.isArray(b),'Choose your name.');requireValue(typeof b.slug==='string'&&state.players.some(p=>p.slug===b.slug),'Choose your name.');
    requireValue(['yes','maybe','no'].includes(b.answer),'Choose In, Maybe or Out.');
@@ -70,6 +73,14 @@ export default {async fetch(req,env,ctx){
    return json({role:admin?'admin':'player'},200,{'Set-Cookie':`tlpt_rsvp=${token}; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=604800`});
   }
   const actor=await identity(req,env,state);
+  if(path==='/api/broadcasts'){
+   requireValue(actor.role==='admin','Commish only.',403);
+   if(req.method==='GET')return json({...await broadcastOverview(env.DB,state),available:!!pushConfiguration(env)});
+   const b=await body(req);
+   if(b?.action==='close')return json(await closePoll(env.DB,b.id));
+   requireValue(pushConfiguration(env),'Notifications are not available right now.',503);
+   const result=await sendBroadcast(env.DB,state,b);scheduleNotifications(ctx,env);return json(result);
+  }
   if(path==='/api/me'&&req.method==='GET'){const {posters}=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state,new Date(),posters).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug,posters)});}
   if(path==='/api/logout'&&req.method==='POST'){
    await env.DB.prepare('DELETE FROM sessions WHERE hash=?').bind(actor.hash).run();return json({ok:true},200,{'Set-Cookie':'tlpt_rsvp=; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});

@@ -139,8 +139,8 @@ cannot establish iOS/Android notification settings or delivery.
 
 ## Commish notifications
 
-Authenticated Commish view offers **Enable Commish notifications** immediately
-after Manage a response. No player name is needed. These alerts report a player's
+Authenticated Commish view offers **Enable Commish notifications** in
+**Settings & links**. No player name is needed. These alerts report a player's
 first In/Maybe/Out and subsequent answer changes. Repeating the same answer,
 BostnMike's reserved host response, and edits entered by The Commish stay quiet.
 Each alert includes the player, answer and game; tapping opens `?commish=1&event=…`
@@ -152,7 +152,7 @@ and Commish opt-ins/off controls use separate local management tokens and D1
 tables, so either can be disabled without affecting the other, including when
 they share the browser's single push endpoint. `0003_commish_notifications.sql`
 adds only `commish_push_subscriptions`; existing player tables/signing secret are
-retained. Full D1 exports include all six tables; public feeds/RSVP JSON backups
+retained. Full D1 exports include all eight tables, including broadcast content and poll votes; public feeds/RSVP JSON backups
 contain neither subscription table. No new service, key rotation or plan change.
 
 Enrollment at `/api/commish-notifications` requires a current admin session. A
@@ -265,7 +265,14 @@ waitlisted player; rejoining later uses the normal queue rules. The host remains
 locked In. As with other Commish response edits, the reset does not send a
 Commish alert; a resulting waitlist promotion can notify that player.
 
-Manage a response is the first Commish panel. Player selectors and lineups list
+Upcoming lineups is the default Commish tab. Separate activity tabs contain
+Manage a response, Create / edit event, Send a message, Send a poll, Results & sent,
+Player view and Settings & links. Lineup cards can open/close RSVPs directly,
+edit that event or jump to its response queue. Undated games must receive a date
+before opening. Opening/closing retains event metadata, responses and waitlist priority.
+Tab changes retain independent message/poll drafts and unsaved event fields; keyboard
+arrows, Home and End select tabs. Notification links open the relevant response or poll
+results activity. Player selectors and lineups list
 active players before alumni, with BostnMike first. Waitlists retain queue order.
 New events use a native calendar date picker, with a Date TBD option that keeps
 RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
@@ -334,7 +341,7 @@ by **TLPT RSVP — Player**, containing the shared public root URL. The private
 **TLPT RSVP — Commish** item retains the verified admin link in both its website
 and password fields. Vault cleanup did not revoke existing legacy player links.
 Clipboard failure on Safari/Android falls back
-to a selected input for manual copying. The app never messages players.
+to a selected input for manual copying. The app does not send private sign-in links to players.
 
 Origin checks, JSON/size limits, host-bound cookies, indexed session lookup and
 per-IP minute write limits protect private endpoints. UI and public feed use
@@ -464,3 +471,37 @@ the complete live feed, follow the single RSVP open/close switch, and leave
 Sunday absent/off unless a real event is explicitly opened. No new payment
 amount, bounty choice, financial ledger migration or separate activation screen
 is implied by the Sunday poker format.
+
+
+## Commish announcements and polls
+
+**Send a message** and **Send a poll** are separate Commish tabs with independent
+drafts. Enter a title (80 characters), message (300), or a poll question with two
+to four distinct choices (60 each). Preview shows the exact message and current
+audience; Send now durably records it and queues push delivery. **Results & sent**
+shows the last ten sends, poll totals, voter lists and a Close voting button. No broadcast is sent by installing or publishing this feature.
+
+The audience is opted-in roster player devices plus devices enrolled for the
+current Commish generation. A browser enrolled in both receives one Commish copy.
+The overview counts receiving players/devices, not the whole roster. Subscriptions
+remain optional and device-specific; people without notifications enabled can still
+find polls in the player app. Existing opt-outs, provider retries/expiry, invalid
+subscription cleanup and numbered unread badges apply. A queued count does not
+claim provider delivery or an alert seen. Announcements retry for up to one hour.
+Client-generated send IDs make retries idempotent even after their jobs are drained;
+reusing an ID for different content is rejected. Broadcast insertion and outbox
+creation are one atomic D1 batch. RSVP state and event response queues are untouched.
+
+Tapping a poll notification opens the poll in the appropriate Player or Commish
+view. Players use their existing selected roster identity, with one editable vote
+per player while open. As with shared-link RSVPs, name selection is trusted and
+anyone with the shared link can vote/change a selected player's vote. These are
+informal league polls, not authenticated ballots. Player view shows choice totals;
+Commish also sees who voted. Poll votes never change event RSVPs, seats or waitlists.
+Closing voting retains results and rejects subsequent writes atomically. Public
+poll data contains only poll content, roster slugs and choices, never device data,
+endpoints, authentication material, or announcement history. The authenticated
+/api/broadcasts endpoint owns audience/history/send/close. /api/poll-vote requires
+same-origin JSON, canonical names, bounded choices and the ordinary write limiter.
+Migration 0004 adds private broadcasts and poll_votes tables; exact D1 backups
+include these, while the existing sanitized RSVP-only backup format stays unchanged.
