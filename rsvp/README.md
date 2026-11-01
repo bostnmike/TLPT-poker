@@ -139,8 +139,8 @@ cannot establish iOS/Android notification settings or delivery.
 
 ## Commish notifications
 
-Authenticated Commish view offers **Enable Commish notifications** immediately
-after Manage a response. No player name is needed. These alerts report a player's
+Authenticated Commish view offers **Enable Commish notifications** in
+**Settings & links**. No player name is needed. These alerts report a player's
 first In/Maybe/Out and subsequent answer changes. Repeating the same answer,
 BostnMike's reserved host response, and edits entered by The Commish stay quiet.
 Each alert includes the player, answer and game; tapping opens `?commish=1&event=…`
@@ -265,7 +265,14 @@ waitlisted player; rejoining later uses the normal queue rules. The host remains
 locked In. As with other Commish response edits, the reset does not send a
 Commish alert; a resulting waitlist promotion can notify that player.
 
-Manage a response is the first Commish panel. Player selectors and lineups list
+Upcoming lineups is the default Commish tab. Separate activity tabs contain
+Manage a response, Create / edit event, Send a message, Send a poll, Results & sent,
+Player view and Settings & links. Lineup cards can open/close RSVPs directly,
+edit that event or jump to its response queue. Undated games must receive a date
+before opening. Opening/closing retains event metadata, responses and waitlist priority.
+Tab changes retain independent message/poll drafts and unsaved event fields; keyboard
+arrows, Home and End select tabs. Notification links open the relevant response or poll
+results activity. Player selectors and lineups list
 active players before alumni, with BostnMike first. Waitlists retain queue order.
 New events use a native calendar date picker, with a Date TBD option that keeps
 RSVPs closed. Game day presets copy the existing Friday, Saturday or MTT format,
@@ -468,12 +475,11 @@ is implied by the Sunday poker format.
 
 ## Commish announcements and polls
 
-**Send an announcement or poll**, below Manage a response and notification settings,
-lets the authenticated Commish enter a title (80 characters), message (300), or a
-poll question with two to four distinct choices (60 each). Preview shows the exact
-message and current audience; Send now durably records it and queues push delivery.
-Recent announcements & poll results shows the last ten sends and a Close voting
-button. No broadcast is sent by installing or publishing this feature.
+**Send a message** and **Send a poll** are separate Commish tabs with independent
+drafts. Enter a title (80 characters), message (300), or a poll question with two
+to four distinct choices (60 each). Preview shows the exact message and current
+audience; Send now durably records it and queues push delivery. **Results & sent**
+shows the last ten sends, poll totals, voter lists and a Close voting button. No broadcast is sent by installing or publishing this feature.
 
 The audience is opted-in roster player devices plus devices enrolled for the
 current Commish generation. A browser enrolled in both receives one Commish copy.

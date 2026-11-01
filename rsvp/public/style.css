@@ -231,16 +231,29 @@ input:disabled,select:disabled { opacity:.65; }
 .notification-panel button { max-width: 100%; }
 #notification-status, #commish-notification-status { margin-bottom: 0; }
 
-#broadcasts { border-color: rgba(255,184,28,.4); }
-#broadcasts textarea { resize: vertical; }
-#broadcast-choices { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 18px 0; }
-#broadcast-choices legend { color: var(--gold-soft); font-size: 13px; font-weight: 700; padding: 0 6px; }
+.broadcast-composer { border-color: rgba(255,184,28,.4); }
+.broadcast-composer textarea { resize: vertical; }
+.broadcast-composer fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin: 18px 0; }
+.broadcast-composer fieldset legend { color: var(--gold-soft); font-size: 13px; font-weight: 700; padding: 0 6px; }
 .broadcast-preview { border: 1px solid var(--gold); border-radius: 14px; padding: 20px; margin-top: 18px; background: #0b1017; }
 .broadcast-preview p, .broadcast-history-item p { white-space: pre-wrap; overflow-wrap: anywhere; }
 .broadcast-preview h3, .broadcast-history-item h3 { overflow-wrap: anywhere; }
 #broadcast-history ul, .broadcast-preview ul, .poll-card ul { line-height: 1.8; color: var(--muted); padding-left: 22px; }
 .broadcast-history-item { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 18px; }
-#broadcasts summary { color: var(--gold-soft); cursor: pointer; min-height: 44px; padding: 12px 0; }
+#results-panel summary, .event-help summary { color: var(--gold-soft); cursor: pointer; min-height: 44px; padding: 12px 0; }
 .poll-options { display: grid; gap: 10px; }
 .poll-options button { text-align: left; overflow-wrap: anywhere; }
 .poll-card { border-color: rgba(255,184,28,.4); }
+
+/* One Commish activity at a time, including on a phone. */
+.commish-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 10px; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.commish-tabs button { font-size: 13px; line-height: 1.3; padding: 11px 8px; min-width: 0; }
+.commish-tabs [aria-selected="true"] { color: #191306; background: linear-gradient(180deg, var(--gold-soft), var(--gold)); border-color: var(--gold); }
+.is-commish #view-controls { margin: 12px 0 14px; }
+.is-commish #notice { margin: 10px 0; padding: 8px 12px; }
+.is-commish #identity { font-size: 13px; margin: 10px 0; }
+.is-commish [role="tabpanel"].admin-panel { margin-top: 12px; }
+.is-commish .lineup-heading { margin-top: 12px; }
+.event-help { margin-top: 10px; }
+.event-help summary { cursor: pointer; color: var(--gold-soft); padding: 12px 0; }
+@media(max-width:650px){.commish-tabs{gap:5px;padding:7px}.commish-tabs button{font-size:11px;padding:9px 4px;min-height:52px}.is-commish #view-controls{margin-top:6px}}
