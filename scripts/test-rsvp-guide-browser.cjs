@@ -66,7 +66,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       await page.screenshot({path:'/tmp/home-without-norm-' + width + '.png'});
       await page.goto(base + '/media.html');
-      assert.equal(await page.locator('.media-video-facade').count(), 23, 'Film Room ready without autoplay');
+      assert.equal(await page.locator('.media-video-facade').count(), 31, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
@@ -118,13 +118,22 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 24, 'Retain nine original films and all fifteen RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 32, 'Retain nine original films and all twenty-three RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
-      assert.equal(await page.locator('.media-video-facade').count(), 23, 'All twenty-three YouTube covers retained');
+      assert.equal(await page.locator('.media-video-facade').count(), 31, 'All thirty-one YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
-      for (const [id, youtubeId] of [['final-boarding-call','elGvMvI4z98'],['rsvp-main-event','inTd_p7otyE'],['the-kids','AYTCCtyBTqQ'],['call-your-play','GY4uQaUwsbU'],['day-to-day','rzKNK2yiu-I'],['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
+      for (const [id, youtubeId] of [
+        ['nightly-news-friday-canceled','uSNlM_E_zck'],
+        ['amazing-norm-friday-canceled','6dKAxotRBXI'],
+        ['nightly-news-heavy-heart','VrliccRY5ZE'],
+        ['amazing-norm-saturday-canceled','PjiZafNM4Xs'],
+        ['now-showing','i17yME1Az2o'],
+        ['sunday-special-bulletin','HweZPs_q85U'],
+        ['who-wants-to-make-a-decision','Ij45B2zhMY4'],
+        ['rsvp-roadshow','9Cmli_tTMSg'],
+        ['final-boarding-call','elGvMvI4z98'],['rsvp-main-event','inTd_p7otyE'],['the-kids','AYTCCtyBTqQ'],['call-your-play','GY4uQaUwsbU'],['day-to-day','rzKNK2yiu-I'],['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
         const card = page.locator('#' + id), cover = card.locator('.media-video-facade'), player = card.locator('iframe');
         assert.equal(await card.count(), 1, 'Exactly one card for '+id);
         await card.scrollIntoViewIfNeeded();
@@ -152,7 +161,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all fifteen YouTube embed mappings/layouts');
+      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all twenty-three RSVP YouTube embed mappings/layouts');
       await page.close();
     }
   } finally { await browser.close(); }

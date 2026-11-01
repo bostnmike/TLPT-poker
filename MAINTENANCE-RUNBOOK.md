@@ -335,7 +335,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has fifteen RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has twenty-three RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -399,6 +399,22 @@ The site uses the same lazy, landscape iframe treatment as its older YouTube fil
 Do not enable autoplay or force captions with `cc_load_policy=1`; CC remains optional
 (YouTube may honor a viewer's own saved caption preference).
 The standalone RSVP App guide and download remain unchanged and self-hosted.
+The eight November 1 additions match the owner's numbered exports 16–23 by
+SHA-256, not filename similarity. They retain the exact production 1280×720 covers:
+Nightly News — Friday Canceled (`uSNlM_E_zck`, `friday-canceled-v3`),
+Amazing Norm — Friday Canceled (`6dKAxotRBXI`, magician Friday),
+Nightly News — A Heavy Heart (`VrliccRY5ZE`, `breaking-two-hands-v2`),
+Amazing Norm — Saturday Canceled (`PjiZafNM4Xs`, `hat-polish-v2`),
+Now Showing (`i17yME1Az2o`, Box Office `notification-border-v3`),
+Sunday Special Bulletin (`HweZPs_q85U`, `orange-mic-jacket-avatar-v6`),
+Who Wants to Make a Decision? (`Ij45B2zhMY4`, game show `production-v1`),
+and RSVP Roadshow (`9Cmli_tTMSg`, `expressions-round-avatar-v2`).
+The two cancellation styles are separate films, not duplicate versions to replace.
+The owner's file labeled Saturday cancellation v1 is the generic A Heavy Heart
+news export; preserve that actual title/artwork rather than inventing a Saturday
+headline. Production MP4s and portrait YouTube posters remain outside the repo;
+only landscape covers are copied to public Film Room assets. Keep all prior films.
+
 Browser checks cover embed identity, responsive bounds and home deep links at six
 widths, using a deterministic YouTube frame response; they do not claim to test
 YouTube service availability/playback. Check real YouTube playback and thumbnails
