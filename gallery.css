@@ -737,11 +737,14 @@
     max-width:calc(100vw - 28px);
     margin:3vh auto 0;
     padding:0;
+    text-align:center;
   }
 
   .gallery-lightbox-image{
     /* Leave room for both 18px frame edges and 14px viewport gutters. */
     max-width:calc(100vw - 64px);
+    /* Reserve vertical space for the frame, caption, and phone controls. */
+    max-height:min(78vh, calc(97dvh - 200px));
   }
 
   .gallery-lightbox-nav{

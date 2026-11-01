@@ -194,5 +194,24 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
       }
       await page.close();
     }
+    for (const viewport of [{width:320,height:568},{width:640,height:360}]) {
+      const page = await browser.newPage({viewport,reducedMotion:'reduce'});
+      await page.goto(base + '/gallery.html');
+      await page.locator('.gallery-poster-button').first().click();
+      for (let posterIndex=0; posterIndex<2; posterIndex++) {
+        await page.locator('#gallery-lightbox-image').evaluate(image => image.decode());
+        for (const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) {
+          const box = await page.locator(selector).boundingBox();
+          assert.ok(box.x >= 0 && box.y >= 0 && box.x + box.width <= viewport.width + 1 && box.y + box.height <= viewport.height + 1, selector + ': fits short phone viewport');
+        }
+        if (posterIndex === 0) await page.locator('#gallery-lightbox-next').click();
+      }
+      await page.locator('#gallery-lightbox-prev').click();
+      await page.locator('#gallery-lightbox-image').evaluate(image => image.decode());
+      await page.screenshot({path:'/tmp/tlpt-gallery-poster-' + viewport.width + 'x' + viewport.height + '.png'});
+      await page.keyboard.press('Escape');
+      await page.close();
+      console.log('PASS gallery short viewport ' + viewport.width + 'x' + viewport.height);
+    }
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exitCode=1; });
