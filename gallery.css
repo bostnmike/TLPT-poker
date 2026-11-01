@@ -733,9 +733,15 @@
   }
   
   .gallery-lightbox-dialog{
-    width:min(94vw, 860px);
+    width:max-content;
+    max-width:calc(100vw - 28px);
     margin:3vh auto 0;
-    padding:14px;
+    padding:0;
+  }
+
+  .gallery-lightbox-image{
+    /* Leave room for both 18px frame edges and 14px viewport gutters. */
+    max-width:calc(100vw - 64px);
   }
 
   .gallery-lightbox-nav{

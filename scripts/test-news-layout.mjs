@@ -148,9 +148,20 @@ assert.equal(data.weeks[0].featured, true, 'Newest story remains first and featu
 assert.ok(data.weeks.every((week) => !/^FW:\s*/i.test(String(week?.title || ''))), 'Story titles omit a redundant FW prefix');
 assert.equal(galleryManifest.folder, 'images/fw', 'Gallery manifest uses the Felt Whispers folder');
 assert.ok(
-  [...galleryPosterFiles].every((file) => /^fw\d{2}-\d{2}-\d{2}\.jpg$/i.test(file)),
-  'Gallery posters use the fwYY-MM-DD.jpg naming contract'
+  [...galleryPosterFiles].every((file) => /^fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)$/i.test(file)),
+  'Gallery posters use the fwYY-MM-DD.jpg/.png naming contract'
 );
+// Gallery dates belong to metadata/filenames, never edits to the supplied art.
+const galleryContext = vm.createContext({document:{addEventListener() {}},console});
+vm.runInContext(fs.readFileSync(path.join(root, 'gallery.js'), 'utf8'), galleryContext);
+const matchPoster = vm.runInContext('(file) => file.match(GALLERY_POSTER_FILE_PATTERN)', galleryContext);
+for (const extension of ['jpg','png','PNG']) {
+  assert.deepEqual(Array.from(matchPoster(`fw26-11-01.${extension}`)).slice(1), ['26','11','01']);
+}
+for (const invalid of ['fw26-11-01.svg','../fw26-11-01.png','fw26-11-01.png.html']) {
+  assert.equal(matchPoster(invalid), null, 'Only dated JPG/PNG poster basenames are accepted');
+}
+assert.equal(galleryContext.formatDisplayDate('2026-11-01'), 'November 1, 2026');
 const missingRoasts = [];
 
 for (const week of data.weeks) {
@@ -161,7 +172,9 @@ for (const week of data.weeks) {
 
 for (const [index, week] of data.weeks.entries()) {
   const [month, day, year] = String(week.date || '').split('/');
-  const posterFile = `fw${String(year).slice(-2)}-${month}-${day}.jpg`;
+  const posterStem = `fw${String(year).slice(-2)}-${month}-${day}`;
+  const posterFile = [...galleryPosterFiles].find(file => file.replace(/\.(?:jpg|png)$/i, '') === posterStem);
+  assert.ok(posterFile, `Felt Whispers dated JPG/PNG poster: ${week.id}`);
   const posterPath = `images/fw/${posterFile}`;
   assert.ok(week.mainStoryHtml.includes(`src="${posterPath}"`), `Felt Whispers poster path: ${week.id}`);
   assert.ok(fs.existsSync(path.join(root, posterPath)), `Felt Whispers poster exists: ${week.id}`);
