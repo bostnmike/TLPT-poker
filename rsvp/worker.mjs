@@ -1,3 +1,4 @@
+import {galleryCatalog} from './posters.mjs';
 import {pushConfiguration,notificationTransitions,enqueueStatement,subscriptionAction,scheduleNotifications,drainNotifications} from './notifications.mjs';
 import {Rejected,requireValue,publicFeed,publicPlayer,playerView,applyOperation,compareEvents} from './model.mjs';
 const encoder=new TextEncoder();
@@ -33,10 +34,11 @@ export default {async fetch(req,env,ctx){
   if(path==='/api/notifications/config'&&req.method==='GET'){const config=pushConfiguration(env);return json({available:!!config,...(config?{publicKey:config.publicKey}:{})});}
   if(path==='/api/version')return json({app:'tlpt-rsvp',revision:env.REVISION});
   if(path==='/api/public/events'&&req.method==='GET'){
-   const response=json(publicFeed(await read(env.DB)),200,{'Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=0, must-revalidate'});return response;
+   const [state,{posters}]=await Promise.all([read(env.DB),galleryCatalog(env.GALLERY_FETCH||fetch)]);
+   const response=json(publicFeed(state,new Date(),posters),200,{'Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=0, must-revalidate'});return response;
   }
   if(path==='/api/public/posters'&&req.method==='GET'){
-   try{const r=await fetch('https://tlpt.org/images/fw/gallery-manifest.json',{signal:AbortSignal.timeout(5000)});requireValue(r.ok,'Gallery unavailable.',503);const gallery=await r.json();requireValue(gallery.folder==='images/fw'&&Array.isArray(gallery.files),'Gallery unavailable.',503);return json({posters:gallery.files.filter(f=>typeof f==='string'&&/^fw\d{2}-\d{2}-\d{2}\.jpg$/.test(f)).slice(0,500).map(file=>({file,date:`20${file.slice(2,10)}`,url:`https://tlpt.org/images/fw/${file}`,thumbnailUrl:`https://tlpt.org/images/fw/thumbs/${file}`}))},200,{'Cache-Control':'public, max-age=300'});}catch{return json({posters:[],unavailable:true});}
+   const catalog=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(catalog,200,{'Cache-Control':'public, max-age='+ (catalog.unavailable?30:300)});
   }
   if(path==='/commish.webmanifest'&&req.method==='GET'){
    const res=await env.ASSETS.fetch(new Request(new URL('/manifest.webmanifest',url),req));
@@ -68,7 +70,7 @@ export default {async fetch(req,env,ctx){
    return json({role:admin?'admin':'player'},200,{'Set-Cookie':`tlpt_rsvp=${token}; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=604800`});
   }
   const actor=await identity(req,env,state);
-  if(path==='/api/me'&&req.method==='GET')return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug)});
+  if(path==='/api/me'&&req.method==='GET'){const {posters}=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state,new Date(),posters).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug,posters)});}
   if(path==='/api/logout'&&req.method==='POST'){
    await env.DB.prepare('DELETE FROM sessions WHERE hash=?').bind(actor.hash).run();return json({ok:true},200,{'Set-Cookie':'tlpt_rsvp=; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});
   }
