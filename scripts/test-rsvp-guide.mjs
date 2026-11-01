@@ -57,6 +57,14 @@ const filmRoom = read('media.html');
 assert.doesNotMatch(filmRoom, /ltIT_DGiEEs/, 'Superseded hockey upload must not return');
 assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload must not return');
 for (const [file, expected] of Object.entries({
+  'nightly-news-friday-canceled-thumbnail.jpg':'7ad23cbf1d996471270cc12dcd32d5301567da945c402522ee9ca0583a55425c',
+  'amazing-norm-friday-canceled-thumbnail.jpg':'3fac0f09af27ac8ded6fc4087d9dd1c3b4b82a48f6c53272579b9b703543ea70',
+  'nightly-news-heavy-heart-thumbnail.jpg':'a7d065b355b13c230c4c23fd9d834f7ffcac26d41915f68cd4cb7e5bb459b8bd',
+  'amazing-norm-saturday-canceled-thumbnail.jpg':'401ccde7b46037b2e785c52619ec367c340751011c79ab8e86e1e7566f5fd12c',
+  'now-showing-thumbnail.jpg':'0442bea081639e3fcdd17fd15c3b27b6b0a7f94f80961ee98210585321f6f9e0',
+  'sunday-special-bulletin-thumbnail.jpg':'2fe992e2b7cc4fbda5213f1c4572649cb67dee2fe367765ae054f7ca72bca15d',
+  'who-wants-to-make-a-decision-thumbnail.jpg':'2d9977c8ef0d20b8ca2a57ec4b585d25702f49ad7a9fd5063769f37ca9b1728f',
+  'rsvp-roadshow-thumbnail.jpg':'9c7e96b5cb6ed79faa8851e5d3ec17eb17abbe4e85bb06acde562e91f67646b0',
   'final-boarding-call-thumbnail.jpg':'1901cffa24880641790de0e55c32a9149132d29e3b9ac9b560c76ab93df8e1ac',
   'rsvp-main-event-thumbnail.jpg':'5ceef06e2041c631944fc0d43f72c1f06c4a653238364ac38fd66380d6ec47b5',
   'call-your-play-thumbnail.jpg':'325804b3568327bb237276c0dcdb2c9a848a10cc16cc694cc5a57f33c2d4f972',
@@ -90,6 +98,14 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['nightly-news-friday-canceled', '📰 Nightly News — Friday Canceled'],
+  ['amazing-norm-friday-canceled', '🎩 The Amazing Norm — Friday Canceled'],
+  ['nightly-news-heavy-heart', '📰 Nightly News — A Heavy Heart'],
+  ['amazing-norm-saturday-canceled', '🎩 The Amazing Norm — Saturday Canceled'],
+  ['now-showing', '🎟️ Now Showing'],
+  ['sunday-special-bulletin', '🌧️ Sunday Special Bulletin'],
+  ['who-wants-to-make-a-decision', '❓ Who Wants to Make a Decision?'],
+  ['rsvp-roadshow', '🔍 RSVP Roadshow'],
   ['final-boarding-call', '✈️ Final Boarding Call'],
   ['rsvp-main-event', '🎙️ The RSVP Main Event'],
   ['the-kids', '📽️ The Kids — Still Loading'],
@@ -119,6 +135,14 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['nightly-news-friday-canceled','uSNlM_E_zck'],
+  ['amazing-norm-friday-canceled','6dKAxotRBXI'],
+  ['nightly-news-heavy-heart','VrliccRY5ZE'],
+  ['amazing-norm-saturday-canceled','PjiZafNM4Xs'],
+  ['now-showing','i17yME1Az2o'],
+  ['sunday-special-bulletin','HweZPs_q85U'],
+  ['who-wants-to-make-a-decision','Ij45B2zhMY4'],
+  ['rsvp-roadshow','9Cmli_tTMSg'],
   ['final-boarding-call','elGvMvI4z98'],
   ['rsvp-main-event','inTd_p7otyE'],
   ['the-kids','AYTCCtyBTqQ'],
@@ -155,7 +179,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 23, 'Fifteen RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 31, 'Twenty-three RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
