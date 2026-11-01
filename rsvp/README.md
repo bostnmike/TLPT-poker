@@ -152,7 +152,7 @@ and Commish opt-ins/off controls use separate local management tokens and D1
 tables, so either can be disabled without affecting the other, including when
 they share the browser's single push endpoint. `0003_commish_notifications.sql`
 adds only `commish_push_subscriptions`; existing player tables/signing secret are
-retained. Full D1 exports include all six tables; public feeds/RSVP JSON backups
+retained. Full D1 exports include all eight tables, including broadcast content and poll votes; public feeds/RSVP JSON backups
 contain neither subscription table. No new service, key rotation or plan change.
 
 Enrollment at `/api/commish-notifications` requires a current admin session. A
@@ -334,7 +334,7 @@ by **TLPT RSVP — Player**, containing the shared public root URL. The private
 **TLPT RSVP — Commish** item retains the verified admin link in both its website
 and password fields. Vault cleanup did not revoke existing legacy player links.
 Clipboard failure on Safari/Android falls back
-to a selected input for manual copying. The app never messages players.
+to a selected input for manual copying. The app does not send private sign-in links to players.
 
 Origin checks, JSON/size limits, host-bound cookies, indexed session lookup and
 per-IP minute write limits protect private endpoints. UI and public feed use

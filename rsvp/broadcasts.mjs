@@ -49,4 +49,4 @@ export async function vote(db,state,b,now=Date.now()){
  ON CONFLICT(poll_id,slug) DO UPDATE SET choice=excluded.choice,updated_at=excluded.updated_at`).bind(b.slug,b.choice,now,b.pollId,b.choice).run();
  requireValue(result.meta.changes,'This poll is closed or unavailable.',409);return {ok:true};
 }
-export async function closePoll(db,id){const r=await db.prepare("UPDATE broadcasts SET closed=1 WHERE id=? AND kind='poll'").bind(id).run();requireValue(r.meta.changes,'Poll not found.',404);return {ok:true};}
+export async function closePoll(db,id){requireValue(typeof id==='string'&&uuid.test(id),'Choose a valid poll.');const r=await db.prepare("UPDATE broadcasts SET closed=1 WHERE id=? AND kind='poll'").bind(id).run();requireValue(r.meta.changes,'Poll not found.',404);return {ok:true};}
