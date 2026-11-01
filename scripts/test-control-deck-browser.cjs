@@ -103,6 +103,11 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1 && bounds.y >= 0 && bounds.y + bounds.height <= 1001, 'Full poster fits the viewer');
           const frameBounds = await page.locator('.gallery-lightbox-frame').boundingBox();
           assert.ok(frameBounds.x >= 0 && frameBounds.x + frameBounds.width <= width + 1, 'Entire poster frame fits without horizontal clipping');
+          if (width <= 640) {
+            const captionBounds = await page.locator('.gallery-lightbox-meta').boundingBox();
+            const controlsBounds = await page.locator('.gallery-lightbox-controls').boundingBox();
+            assert.ok(controlsBounds.y >= captionBounds.y + captionBounds.height, 'Phone viewer controls do not obscure the event caption');
+          }
           await page.screenshot({path:'/tmp/tlpt-gallery-poster-' + width + '.png'});
           await page.keyboard.press('Escape');
           assert.equal(await page.locator('#gallery-lightbox').isVisible(), false);
