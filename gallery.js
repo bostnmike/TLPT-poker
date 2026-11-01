@@ -1,6 +1,6 @@
 const GALLERY_FOLDER = "images/fw";
 const MANIFEST_PATH = `${GALLERY_FOLDER}/gallery-manifest.json`;
-const GALLERY_POSTER_FILE_PATTERN = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
+const GALLERY_POSTER_FILE_PATTERN = /^fw(\d{2})-(\d{2})-(\d{2})\.(?:jpg|png)$/i;
 const EVENT_HISTORY_PATH = "data/generated/event-history.json";
 const PLAYER_METADATA_PATH = "data/player-metadata.json";
 const GALLERY_DESKTOP_BATCH_SIZE = 12;
@@ -539,7 +539,7 @@ async function loadGallery() {
     galleryPosters = (manifest.files || [])
       .filter(file => GALLERY_POSTER_FILE_PATTERN.test(file))
       .map(file => {
-        const match = file.match(/^fw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
+        const match = file.match(GALLERY_POSTER_FILE_PATTERN);
         const yy = Number(match[1]);
         const mm = match[2];
         const dd = match[3];

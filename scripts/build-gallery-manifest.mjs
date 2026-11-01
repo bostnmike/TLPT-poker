@@ -4,7 +4,7 @@ import path from "node:path";
 const repoRoot = process.cwd();
 const feltWhispersDir = path.join(repoRoot, "images", "fw");
 const outFile = path.join(feltWhispersDir, "gallery-manifest.json");
-const posterPattern = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
+const posterPattern = /^fw(\d{2})-(\d{2})-(\d{2})\.(?:jpg|png)$/i;
 
 if (!fs.existsSync(feltWhispersDir)) {
   throw new Error(`Directory not found: ${feltWhispersDir}`);
@@ -26,7 +26,7 @@ const files = directoryFiles
   .filter(name => posterPattern.test(name))
   .sort((a, b) => {
     const toStamp = (file) => {
-      const m = file.match(/^fw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
+      const m = file.match(posterPattern);
       const yy = Number(m[1]);
       const yyyy = yy >= 70 ? 1900 + yy : 2000 + yy;
       return `${yyyy}-${m[2]}-${m[3]}`;

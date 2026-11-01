@@ -86,6 +86,33 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           assert.equal(await first.evaluate(el => document.activeElement === el), true, name + ': keyboard focus returns to field');
         }
         if (name === 'form-lab') await page.locator('.fl-chart-options summary').click();
+        if (name === 'gallery') {
+          const poster = page.locator('.gallery-poster-button').first();
+          const thumbnail = poster.locator('img');
+          await poster.scrollIntoViewIfNeeded();
+          await thumbnail.evaluate(image => image.decode());
+          const thumbnailSrc = await thumbnail.getAttribute('src');
+          assert.match(thumbnailSrc, /images\/fw\/thumbs\/fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)$/i);
+          const caption = await poster.locator('..').locator('.gallery-card-subline').textContent();
+          await poster.click();
+          const original = page.locator('#gallery-lightbox-image');
+          await original.evaluate(image => image.decode());
+          assert.equal(await original.getAttribute('src'), thumbnailSrc.replace('/thumbs/', '/'), 'Viewer opens original JPG/PNG, not thumbnail');
+          assert.equal(await page.locator('#gallery-lightbox-date').textContent(), caption, 'Event date stays in the caption');
+          const bounds = await original.boundingBox();
+          assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1 && bounds.y >= 0 && bounds.y + bounds.height <= 1001, 'Full poster fits the viewer');
+          const frameBounds = await page.locator('.gallery-lightbox-frame').boundingBox();
+          assert.ok(frameBounds.x >= 0 && frameBounds.x + frameBounds.width <= width + 1, 'Entire poster frame fits without horizontal clipping');
+          if (width <= 640) {
+            const captionBounds = await page.locator('.gallery-lightbox-meta').boundingBox();
+            const controlsBounds = await page.locator('.gallery-lightbox-controls').boundingBox();
+            assert.ok(controlsBounds.y >= captionBounds.y + captionBounds.height, 'Phone viewer controls do not obscure the event caption');
+          }
+          await page.screenshot({path:'/tmp/tlpt-gallery-poster-' + width + '.png'});
+          await page.keyboard.press('Escape');
+          assert.equal(await page.locator('#gallery-lightbox').isVisible(), false);
+          assert.equal(await poster.evaluate(element => element === document.activeElement), true, 'Poster viewer returns keyboard focus');
+        }
         if (name === 'trophy-room') {
           await page.locator('#trophy-search').fill('NO_MATCH_TEST_823');
           await page.locator('#trophy-empty-state').waitFor({state:'visible'});
@@ -166,6 +193,25 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
         console.log('PASS ' + width + 'px ' + name);
       }
       await page.close();
+    }
+    for (const viewport of [{width:320,height:568},{width:640,height:360}]) {
+      const page = await browser.newPage({viewport,reducedMotion:'reduce'});
+      await page.goto(base + '/gallery.html');
+      await page.locator('.gallery-poster-button').first().click();
+      for (let posterIndex=0; posterIndex<2; posterIndex++) {
+        await page.locator('#gallery-lightbox-image').evaluate(image => image.decode());
+        for (const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) {
+          const box = await page.locator(selector).boundingBox();
+          assert.ok(box.x >= 0 && box.y >= 0 && box.x + box.width <= viewport.width + 1 && box.y + box.height <= viewport.height + 1, selector + ': fits short phone viewport');
+        }
+        if (posterIndex === 0) await page.locator('#gallery-lightbox-next').click();
+      }
+      await page.locator('#gallery-lightbox-prev').click();
+      await page.locator('#gallery-lightbox-image').evaluate(image => image.decode());
+      await page.screenshot({path:'/tmp/tlpt-gallery-poster-' + viewport.width + 'x' + viewport.height + '.png'});
+      await page.keyboard.press('Escape');
+      await page.close();
+      console.log('PASS gallery short viewport ' + viewport.width + 'x' + viewport.height);
     }
   } finally { await browser.close(); }
 })().catch(e => { console.error(e); process.exitCode=1; });

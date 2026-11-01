@@ -1307,9 +1307,9 @@ def audit_pages(audit, metadata):
     manifest_posters = manifest.get("files") or []
     audit.check(manifest.get("folder") == "images/fw", "assets", "Gallery manifest folder must be images/fw")
     audit.check(
-        all(re.fullmatch(r"fw\d{2}-\d{2}-\d{2}\.jpg", name, flags=re.IGNORECASE) for name in manifest_posters),
+        all(re.fullmatch(r"fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)", name, flags=re.IGNORECASE) for name in manifest_posters),
         "assets",
-        "Gallery manifest contains a poster outside the fwYY-MM-DD.jpg naming contract",
+        "Gallery manifest contains a poster outside the fwYY-MM-DD.jpg/.png naming contract",
     )
     audit.check(len(manifest_posters) == len(set(manifest_posters)), "assets", "Gallery manifest contains duplicate posters")
     audit.check(set(actual_posters) == set(manifest_posters), "assets", "Gallery manifest and poster files differ")
