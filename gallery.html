@@ -46,7 +46,7 @@
 
   <link rel="stylesheet" href="style.css?v=5cd0123efb3e1093" />
   <link rel="stylesheet" href="site-tail.css?v=f8719564073af1ab" />
-  <link rel="stylesheet" href="gallery.css?v=48c63fdd9c97bec4" />
+  <link rel="stylesheet" href="gallery.css?v=c52f108205f0748a" />
   <link rel="stylesheet" href="ux-convergence.css?v=6638a46c06139cb3" />
   <link rel="stylesheet" href="control-deck.css?v=c84d2121db02e910" />
 </head>
@@ -148,9 +148,13 @@
       </div>
     </section>
 
-    <section class="gallery-filter-bar tlpt-control-deck" aria-label="Filter the poster archive">
-    <div class="control-deck-heading"><h2>Browse the archive</h2><span>Changes apply instantly</span></div>
-      <label for="gallery-year-filter">
+    <section class="gallery-filter-bar tlpt-control-deck" aria-label="Choose a Gallery wing">
+    <div class="control-deck-heading"><h2>Choose your wing</h2><span>Two collections. Absolutely no restraint.</span></div>
+      <div class="gallery-wing-switch" role="group" aria-label="Gallery collection">
+        <button class="btn active" type="button" data-gallery-wing="posters" aria-pressed="true" aria-controls="gallery-poster-wing">Event Posters</button>
+        <button class="btn" type="button" data-gallery-wing="norm" aria-pressed="false" aria-controls="gallery-norm-wing">The Many Faces of Norm</button>
+      </div>
+      <label id="gallery-year-field" for="gallery-year-filter">
         <span>Archive Year</span>
         <select id="gallery-year-filter">
           <option value="all">All Years</option>
@@ -159,12 +163,19 @@
       <p id="gallery-filter-status" aria-live="polite">Loading the collection…</p>
     </section>
 
-    <section class="section gallery-shell">
+    <section id="gallery-poster-wing" class="section gallery-shell" aria-label="Event Posters">
       <div id="gallery-grid" class="gallery-groups" aria-live="polite"></div>
 
       <div id="gallery-empty" class="gallery-empty" hidden>
         No posters found in <code>images/fw/</code>.
       </div>
+    </section>
+    <section id="gallery-norm-wing" class="section gallery-shell gallery-norm-wing" aria-labelledby="gallery-norm-title" hidden>
+      <div class="gallery-norm-heading">
+        <div><span class="gallery-norm-kicker">A wing of his own. Naturally.</span><h2 id="gallery-norm-title">The Many Faces of Norm</h2></div>
+        <p>One man. An unreasonable wardrobe. Select a frame for the full picture.</p>
+      </div>
+      <div id="gallery-norm-content" aria-busy="false"></div>
     </section>
   </main>
 
@@ -195,6 +206,7 @@
     <div class="gallery-lightbox-meta">
       <h3 id="gallery-lightbox-title"></h3>
       <p id="gallery-lightbox-date"></p>
+      <a id="gallery-lightbox-film" href="media.html" hidden>Watch in the Film Room →</a>
     </div>
     <div class="gallery-lightbox-controls">
       <button type="button" class="gallery-lightbox-nav gallery-lightbox-prev" id="gallery-lightbox-prev" aria-label="Previous poster">‹</button>
@@ -222,6 +234,6 @@
 <!-- END TLPT GENERATED FOOTER -->
 
   <script src="site-shell.js?v=b3d8fa495a53dd44"></script>
-<script src="gallery.js?v=1a693dc7baefebd6"></script>
+<script src="gallery.js?v=bc49fb3f0d995364"></script>
 </body>
 </html>

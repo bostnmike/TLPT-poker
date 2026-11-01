@@ -49,6 +49,7 @@ node scripts/test-rsvp-guide.mjs
 
 echo "📰 Testing Felt Whispers story layout..."
 node scripts/test-news-layout.mjs
+node scripts/test-norm-gallery.mjs
 
 echo "🏒 Testing the Marchand Puck Vault..."
 node scripts/test-marchand-page.mjs

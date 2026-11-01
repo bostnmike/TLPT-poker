@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "banner": {
+    "id": "many-faces-of-norm",
+    "src": "images/norm-gallery/many-faces-of-norm.jpg",
+    "sha256": "948d1b3a9894c3053108588d92dc4ea1a89db6ecbb4355a757b4b0bec9b4198f",
+    "width": 1600,
+    "height": 800,
+    "title": "The Many Faces of Norm"
+  },
+  "posters": [
+    {
+      "id": "rsvp-roadshow",
+      "src": "images/norm-gallery/rsvp-roadshow.jpg",
+      "sha256": "80a4c176009f28793d94701fe6b5890adbcb9a01796786e6f11ce38108f65df1",
+      "width": 1080,
+      "height": 1920,
+      "title": "RSVP Roadshow",
+      "filmHref": "media.html#rsvp-roadshow",
+      "youtubeId": "9Cmli_tTMSg"
+    },
+    {
+      "id": "who-wants-to-make-a-decision",
+      "src": "images/norm-gallery/who-wants-to-make-a-decision.jpg",
+      "sha256": "66389f7d9093e9ccbb497e2a0350c4d81ba4c616fea47371996c9380c4974857",
+      "width": 1080,
+      "height": 1920,
+      "title": "Who Wants to Make a Decision?",
+      "filmHref": "media.html#who-wants-to-make-a-decision",
+      "youtubeId": "Ij45B2zhMY4"
+    },
+    {
+      "id": "sunday-special-bulletin",
+      "src": "images/norm-gallery/sunday-special-bulletin.jpg",
+      "sha256": "bf035abf85b3cba4cd75dabfdf577a45d2a4ffbbb17f373fe3ec557a4b495d7c",
+      "width": 1080,
+      "height": 1920,
+      "title": "Sunday Special Bulletin",
+      "filmHref": "media.html#sunday-special-bulletin",
+      "youtubeId": "HweZPs_q85U"
+    },
+    {
+      "id": "now-showing",
+      "src": "images/norm-gallery/now-showing.jpg",
+      "sha256": "7c071e44ae40a7fdf40ff8b0a4ec04bb90b00a444c95d86d4cdef8ee0ad9d066",
+      "width": 1080,
+      "height": 1920,
+      "title": "Now Showing",
+      "filmHref": "media.html#now-showing",
+      "youtubeId": "i17yME1Az2o"
+    },
+    {
+      "id": "amazing-norm-saturday-canceled",
+      "src": "images/norm-gallery/amazing-norm-saturday-canceled.jpg",
+      "sha256": "b4c9134cbab2754acfca0411de58a30c501e2ad1b972d1f8997f71eeb92a6fe3",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Amazing Norm — Saturday Canceled",
+      "filmHref": "media.html#amazing-norm-saturday-canceled",
+      "youtubeId": "PjiZafNM4Xs"
+    },
+    {
+      "id": "nightly-news-heavy-heart",
+      "src": "images/norm-gallery/nightly-news-heavy-heart.jpg",
+      "sha256": "2c8b1787a301c259e7d55f2e91cc5b1a3bf48595ab71fdd0a8b78db3378523b6",
+      "width": 1080,
+      "height": 1920,
+      "title": "Nightly News — A Heavy Heart",
+      "filmHref": "media.html#nightly-news-heavy-heart",
+      "youtubeId": "VrliccRY5ZE"
+    },
+    {
+      "id": "amazing-norm-friday-canceled",
+      "src": "images/norm-gallery/amazing-norm-friday-canceled.jpg",
+      "sha256": "5e08bb5ced75cb346a78ef02593ae46b8acd96c1fe44d0389c3abc831a273473",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Amazing Norm — Friday Canceled",
+      "filmHref": "media.html#amazing-norm-friday-canceled",
+      "youtubeId": "6dKAxotRBXI"
+    },
+    {
+      "id": "nightly-news-friday-canceled",
+      "src": "images/norm-gallery/nightly-news-friday-canceled.jpg",
+      "sha256": "55fa5eda89c006637f40749f04f14d9b26b48062f9b3d29c5d5aa8d0296c990c",
+      "width": 1080,
+      "height": 1920,
+      "title": "Nightly News — Friday Canceled",
+      "filmHref": "media.html#nightly-news-friday-canceled",
+      "youtubeId": "uSNlM_E_zck"
+    },
+    {
+      "id": "final-boarding-call",
+      "src": "images/norm-gallery/final-boarding-call.jpg",
+      "sha256": "74b083a352171252e1e99419b1aa5143e48430d7cc5334738a45bebf3ea07b87",
+      "width": 1080,
+      "height": 1920,
+      "title": "Final Boarding Call",
+      "filmHref": "media.html#final-boarding-call",
+      "youtubeId": "elGvMvI4z98"
+    },
+    {
+      "id": "rsvp-main-event",
+      "src": "images/norm-gallery/rsvp-main-event.jpg",
+      "sha256": "52ea8fcccb761c0fb655fed0733b7bd747fc2576e66046072bf592a1ccd88b7a",
+      "width": 1080,
+      "height": 1920,
+      "title": "The RSVP Main Event",
+      "filmHref": "media.html#rsvp-main-event",
+      "youtubeId": "inTd_p7otyE"
+    },
+    {
+      "id": "the-kids",
+      "src": "images/norm-gallery/the-kids.jpg",
+      "sha256": "b3d19d83e39fb3864e36a3f4a6348875ac05ec8c0e58ee739aed15ed74e58f56",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Kids — Still Loading",
+      "filmHref": "media.html#the-kids",
+      "youtubeId": "AYTCCtyBTqQ"
+    },
+    {
+      "id": "call-your-play",
+      "src": "images/norm-gallery/call-your-play.jpg",
+      "sha256": "5f3f058cad8048c4074064b9eba13f9a8312dce26b3d891030cfc1cdee872a66",
+      "width": 1080,
+      "height": 1920,
+      "title": "Call Your Play",
+      "filmHref": "media.html#call-your-play",
+      "youtubeId": "GY4uQaUwsbU"
+    },
+    {
+      "id": "day-to-day",
+      "src": "images/norm-gallery/day-to-day.jpg",
+      "sha256": "9ac7fe32a3f0eff84acfc58226d09ee57dcaa2fd4867491b9814fc41e1dcf456",
+      "width": 1080,
+      "height": 1920,
+      "title": "Day to Day",
+      "filmHref": "media.html#day-to-day",
+      "youtubeId": "rzKNK2yiu-I"
+    },
+    {
+      "id": "the-elusive-rsvp",
+      "src": "images/norm-gallery/the-elusive-rsvp.jpg",
+      "sha256": "d86e3c19bd1e74c414195df5ab36804b9f5a8f90db4589bbead943e5afd0a719",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Elusive RSVP",
+      "filmHref": "media.html#the-elusive-rsvp",
+      "youtubeId": "iYLibq-VvcQ"
+    },
+    {
+      "id": "rsvp-referee",
+      "src": "images/norm-gallery/rsvp-referee.jpg",
+      "sha256": "f8b373085bdbdac82dee5f4ded6fefa8feb984d15d6b413b000724097b618380",
+      "width": 1080,
+      "height": 1920,
+      "title": "The RSVP Referee",
+      "filmHref": "media.html#rsvp-referee",
+      "youtubeId": "sPBNdswB3Xw"
+    },
+    {
+      "id": "the-games-afoot",
+      "src": "images/norm-gallery/the-games-afoot.jpg",
+      "sha256": "6ea815fea49c84fb77c3a4bb5f003b4c98a312530bfac61290a4178dd1b506e8",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Game’s Afoot",
+      "filmHref": "media.html#the-games-afoot",
+      "youtubeId": "sr4AU3WoRTA"
+    },
+    {
+      "id": "bad-beat-hotline",
+      "src": "images/norm-gallery/bad-beat-hotline.jpg",
+      "sha256": "e108dccf8761163686cc9cd0d5613bf32a2149b1ed19f55ce20d546cb1c60a20",
+      "width": 1080,
+      "height": 1920,
+      "title": "Bad Beat Hotline",
+      "filmHref": "media.html#bad-beat-hotline",
+      "youtubeId": "iugKsWyLU5Y"
+    },
+    {
+      "id": "weather-forecast",
+      "src": "images/norm-gallery/weather-forecast.jpg",
+      "sha256": "59a220b72f4959c2eacdd54ff6244ddbf3b00bf9a6540d39d56a29cf7de5402d",
+      "width": 1080,
+      "height": 1920,
+      "title": "Weather Forecast",
+      "filmHref": "media.html#weather-forecast",
+      "youtubeId": "kFF9RmDW5sk"
+    },
+    {
+      "id": "no-empty-chairs",
+      "src": "images/norm-gallery/no-empty-chairs.jpg",
+      "sha256": "b8fd96047c0e7c6afb8cf5e0b70e76c43b4ac597db7c35ce26578afb93cc3327",
+      "width": 1080,
+      "height": 1920,
+      "title": "No Empty Chairs",
+      "filmHref": "media.html#no-empty-chairs",
+      "youtubeId": "RyPECQqsayY"
+    },
+    {
+      "id": "calling-the-clock",
+      "src": "images/norm-gallery/calling-the-clock.jpg",
+      "sha256": "f715ba70e9ce3fe925625c0ca8a71482429eec5ccb78d6a53377448a6a00727b",
+      "width": 1080,
+      "height": 1920,
+      "title": "Calling the Clock",
+      "filmHref": "media.html#calling-the-clock",
+      "youtubeId": "ipI7E9GUVnQ"
+    },
+    {
+      "id": "rsvp-notifications",
+      "src": "images/norm-gallery/rsvp-notifications.jpg",
+      "sha256": "13e26aa017ca1028416a0a982d342804221f7f25cab9a5896210983fe06f0329",
+      "width": 1080,
+      "height": 1920,
+      "title": "Never Miss a Game",
+      "filmHref": "media.html#rsvp-notifications",
+      "youtubeId": "ANC2iebFFDc"
+    },
+    {
+      "id": "rsvp-commercial",
+      "src": "images/norm-gallery/rsvp-commercial.jpg",
+      "sha256": "bb5666ea32b27e73556c980b539d930f5e0a9154acb58a0da9f26b94d0295684",
+      "width": 1080,
+      "height": 1920,
+      "title": "Don’t Be a Donkey",
+      "filmHref": "media.html#rsvp-commercial",
+      "youtubeId": "I0EmodtWMV0"
+    },
+    {
+      "id": "rsvp-installation",
+      "src": "images/norm-gallery/rsvp-installation.jpg",
+      "sha256": "7fac1ad04f7cc18b9d5fb29abf948121691f6f98a9afd30863e8851533070934",
+      "width": 1080,
+      "height": 1920,
+      "title": "TLPT RSVP",
+      "filmHref": "media.html#rsvp-installation",
+      "youtubeId": "KUArnlk48KQ"
+    }
+  ]
+}
