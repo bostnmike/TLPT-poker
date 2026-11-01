@@ -84,7 +84,7 @@ document.addEventListener('click',async ev=>{const b=ev.target.closest('button')
  if(b.dataset.activity&&commishMode()&&!busy)setActivity(b.dataset.activity);
  if(b.dataset.editEvent&&commishMode()&&!busy){setActivity('event');$('#edit-event').value=b.dataset.editEvent;$('#edit-event').dispatchEvent(new Event('change',{bubbles:true}));}
  if(b.dataset.manageEvent&&commishMode()&&!busy){setActivity('responses');$('#response-event').value=b.dataset.manageEvent;updateResponseLock();}
- if(b.dataset.openEvent&&commishMode()&&!playerPreview&&!busy){const event=me.allEvents.find(e=>e.id===b.dataset.openEvent);if(event)await action({type:'event',eventId:event.id,metadata:event.metadata,capacity:event.capacity,open:!event.open});} 
+ if(b.dataset.openEvent&&commishMode()&&!playerPreview&&!busy){const event=me.allEvents.find(e=>e.id===b.dataset.openEvent);if(event)await action({type:'event',eventId:event.id,metadata:event.metadata,capacity:event.capacity,open:!event.open});}
  if(b.dataset.poster){$('#poster-full').src=b.dataset.poster;$('#poster-full').alt='Movie poster for '+b.dataset.posterTitle;$('#poster-caption').textContent=b.dataset.posterTitle;$('#poster-dialog').showModal();}
  if(b.dataset.answer){const viewer=viewingPlayer();if(viewer?.player)await action({type:'respond',slug:viewer.player.slug,eventId:b.dataset.event,answer:b.dataset.answer});}
  if(b.dataset.adminAnswer)await action({type:'respond',eventId:$('#response-event').value,slug:$('#response-player').value,answer:b.dataset.adminAnswer});
