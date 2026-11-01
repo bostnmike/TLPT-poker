@@ -119,3 +119,15 @@ test('opening the app tells its worker to reset the persistent counter only whil
  doc.hidden=true;await events.visibilitychange();assert.equal(messages.length,1);
  doc.hidden=false;await events.visibilitychange();assert.equal(messages.length,2);
 });
+
+
+test('announcement and poll alerts preserve recipient role, safe destinations and accumulated numbered badges',async()=>{
+ const handlers={},shown=[],badges=[],opened=[],self={location:{origin:'https://rsvp.test'},addEventListener:(type,fn)=>handlers[type]=fn,navigator:{setAppBadge:async n=>badges.push(n)},registration:{showNotification:async(...args)=>shown.push(args)},clients:{matchAll:async()=>[],openWindow:async url=>opened.push(url)}};
+ vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});let task;
+ for(const [i,commish] of [false,true].entries()){
+  const url=commish?'/?commish=1&poll=test':'/?poll=test';handlers.push({data:{json:()=>({kind:'announcement',commish,title:'Vote now',url,notificationId:'poll-'+i,tag:'announcement:test'})},waitUntil:p=>task=p});await task;
+  assert.equal(shown.at(-1)[1].data.commish,commish);assert.equal(shown.at(-1)[1].data.url,url);
+  handlers.notificationclick({notification:{data:shown.at(-1)[1].data,close(){}},waitUntil:p=>task=p});await task;assert.equal(opened.at(-1),'https://rsvp.test'+url);
+ }
+ assert.deepEqual(badges,[1,1]);
+});

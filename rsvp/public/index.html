@@ -14,11 +14,12 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261026-2">
   <link rel="apple-touch-icon" sizes="180x180" href="/rsvp-icon-180.png?v=20261026-2">
   <link rel="manifest" href="/manifest.webmanifest?v=20261026-2">
-  <link rel="stylesheet" href="/style.css?v=20261031-1">
+  <link rel="stylesheet" href="/style.css?v=20261101-1">
   <link rel="stylesheet" href="/schedule-notices.css?v=20261026-2">
-  <script src="/app.js?v=20261031-4" defer></script>
+  <script src="/app.js?v=20261101-1" defer></script>
   <script type="module" src="/commish.mjs?v=20261026-3"></script>
-  <script type="module" src="/notifications.mjs?v=20261029-2"></script>
+  <script type="module" src="/broadcasts.mjs?v=20261101-1"></script>
+  <script type="module" src="/notifications.mjs?v=20261101-1"></script>
   <script type="module" src="/install.mjs?v=20261025-1"></script>
 </head>
 <body>
@@ -52,14 +53,14 @@
   <section id="player-picker" aria-label="Choose your player name" hidden></section>
   <section id="notifications" class="notification-panel" aria-labelledby="notifications-title" hidden>
     <h2 id="notifications-title">Don’t miss your seat.</h2>
-    <p>Get a heads-up when a game opens or you move off the waitlist.</p>
+    <p>Get a heads-up when a game opens, you move off the waitlist, or The Commish sends an announcement or poll.</p>
     <button id="enable-notifications" type="button">Enable notifications</button>
     <button id="disable-notifications" type="button" class="text-button" hidden>Turn off notifications</button>
     <p id="notification-status" role="status" aria-live="polite"></p>
   </section>
   <section id="commish-notifications" class="notification-panel" aria-labelledby="commish-notifications-title" hidden>
     <h2 id="commish-notifications-title">Keep The Commish in the loop.</h2>
-    <p>Get an alert when a player submits or changes an RSVP.</p>
+    <p>Get an alert when a player submits or changes an RSVP, plus a copy of announcements and polls.</p>
     <button id="enable-commish-notifications" type="button">Enable Commish notifications</button>
     <button id="disable-commish-notifications" type="button" class="text-button" hidden>Turn off Commish notifications</button>
     <p id="commish-notification-status" role="status" aria-live="polite"></p>
@@ -67,6 +68,24 @@
   <div id="notice" role="status" aria-live="polite">Loading the table…</div>
   <section id="identity" aria-label="Your RSVP access"></section>
   <div id="no-game-notices" class="schedule-notices" role="status" aria-live="polite"></div>
+  <section id="broadcasts" class="admin-panel" aria-labelledby="broadcast-title" hidden>
+    <h2 id="broadcast-title">Send an announcement or poll</h2>
+    <p>Give the table something to talk about. Sends to players who enabled notifications and your Commish devices. Each device gets one alert.</p>
+    <p id="broadcast-audience" role="status">Checking who can receive notifications…</p>
+    <form id="broadcast-form">
+      <label>What are you sending?<select id="broadcast-kind"><option value="announcement">Announcement</option><option value="poll">Poll</option></select></label>
+      <label id="broadcast-title-label">Title<input id="broadcast-subject" maxlength="80" required></label>
+      <label>Message <span id="broadcast-optional" hidden>· optional</span><textarea id="broadcast-body" rows="3" maxlength="300" required></textarea></label>
+      <fieldset id="broadcast-choices" hidden><legend>Poll choices · at least two</legend>
+        <label>Choice 1<input maxlength="60" data-poll-option></label><label>Choice 2<input maxlength="60" data-poll-option></label><label>Choice 3 · optional<input maxlength="60" data-poll-option></label><label>Choice 4 · optional<input maxlength="60" data-poll-option></label>
+      </fieldset>
+      <button type="submit">Preview</button>
+    </form>
+    <div id="broadcast-preview" class="broadcast-preview" hidden><span class="tag">Notification preview</span><h3 id="broadcast-preview-title"></h3><p id="broadcast-preview-body"></p><ul id="broadcast-preview-choices"></ul><p id="broadcast-preview-audience"></p><div class="toolbar"><button type="button" id="broadcast-send" class="primary">Send now</button><button type="button" id="broadcast-edit">Keep editing</button></div></div>
+    <p id="broadcast-status" role="status" aria-live="polite"></p>
+    <details><summary>Recent announcements &amp; poll results</summary><div id="broadcast-history"></div></details>
+  </section>
+  <section id="polls" aria-label="Polls from The Commish" hidden></section>
   <section id="admin" hidden></section>
   <section id="events" aria-label="Upcoming games"></section>
   <footer>

@@ -464,3 +464,38 @@ the complete live feed, follow the single RSVP open/close switch, and leave
 Sunday absent/off unless a real event is explicitly opened. No new payment
 amount, bounty choice, financial ledger migration or separate activation screen
 is implied by the Sunday poker format.
+
+
+## Commish announcements and polls
+
+**Send an announcement or poll**, below Manage a response and notification settings,
+lets the authenticated Commish enter a title (80 characters), message (300), or a
+poll question with two to four distinct choices (60 each). Preview shows the exact
+message and current audience; Send now durably records it and queues push delivery.
+Recent announcements & poll results shows the last ten sends and a Close voting
+button. No broadcast is sent by installing or publishing this feature.
+
+The audience is opted-in roster player devices plus devices enrolled for the
+current Commish generation. A browser enrolled in both receives one Commish copy.
+The overview counts receiving players/devices, not the whole roster. Subscriptions
+remain optional and device-specific; people without notifications enabled can still
+find polls in the player app. Existing opt-outs, provider retries/expiry, invalid
+subscription cleanup and numbered unread badges apply. A queued count does not
+claim provider delivery or an alert seen. Announcements retry for up to one hour.
+Client-generated send IDs make retries idempotent even after their jobs are drained;
+reusing an ID for different content is rejected. Broadcast insertion and outbox
+creation are one atomic D1 batch. RSVP state and event response queues are untouched.
+
+Tapping a poll notification opens the poll in the appropriate Player or Commish
+view. Players use their existing selected roster identity, with one editable vote
+per player while open. As with shared-link RSVPs, name selection is trusted and
+anyone with the shared link can vote/change a selected player's vote. These are
+informal league polls, not authenticated ballots. Player view shows choice totals;
+Commish also sees who voted. Poll votes never change event RSVPs, seats or waitlists.
+Closing voting retains results and rejects subsequent writes atomically. Public
+poll data contains only poll content, roster slugs and choices, never device data,
+endpoints, authentication material, or announcement history. The authenticated
+/api/broadcasts endpoint owns audience/history/send/close. /api/poll-vote requires
+same-origin JSON, canonical names, bounded choices and the ordinary write limiter.
+Migration 0004 adds private broadcasts and poll_votes tables; exact D1 backups
+include these, while the existing sanitized RSVP-only backup format stays unchanged.
