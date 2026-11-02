@@ -4,6 +4,84 @@
   gap:28px;
 }
 
+/* Gallery wings share the existing poster frames and museum plaques. */
+.gallery-page [hidden],
+#gallery-lightbox-film[hidden]{ display:none !important; }
+
+.gallery-wing-switch{
+  grid-column:1 / -1;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 18px;
+}
+
+.gallery-wing-switch .btn{
+  min-height:44px;
+  white-space:normal;
+  line-height:1.35;
+  text-align:center;
+}
+
+.gallery-wing-switch .btn[aria-pressed="false"]{
+  color:#d9d2c5;
+  border-color:#675b45;
+  background:#171b21;
+}
+
+.gallery-wing-switch .btn:focus-visible,
+.gallery-norm-film:focus-visible,
+#gallery-lightbox-film:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+}
+
+.gallery-norm-heading{ margin:0 auto 24px; max-width:1024px; }
+.gallery-norm-heading h2{ margin:4px 0 8px; color:#f5ead5; font-size:clamp(1.45rem,3vw,2rem); line-height:1.2; }
+.gallery-norm-heading p{ margin:0; color:#c9c1b2; }
+.gallery-norm-kicker{ color:#e7c477; font-size:.72rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
+#gallery-norm-content{ display:grid; gap:32px; }
+.gallery-card.gallery-norm-banner{ width:100%; max-width:1024px; }
+.gallery-norm-banner .gallery-poster-frame,
+.gallery-norm-card .gallery-poster-frame{ aspect-ratio:auto; }
+.gallery-norm-banner .gallery-poster-image,
+.gallery-norm-card .gallery-poster-image{ height:auto; object-fit:contain; }
+.gallery-norm-card{ width:100%; }
+.gallery-norm-card .gallery-poster-image{ aspect-ratio:9 / 16; }
+.gallery-norm-card .gallery-card-meta{ margin-bottom:8px; }
+.gallery-norm-enlarge{ display:block; padding:12px 18px 16px; color:#e7c477; text-align:center; font-size:.86rem; font-weight:800; }
+.gallery-norm-film{ display:block; width:fit-content; max-width:calc(100% - 32px); margin:0 auto 12px; padding:12px 4px; color:#e7c477; text-align:center; font-size:.82rem; line-height:1.4; font-weight:800; text-underline-offset:4px; }
+
+/* Norm artwork keeps its native ratio, including the wide group photograph. */
+.gallery-lightbox.is-norm{ display:grid; place-items:center; padding:64px 16px 16px; overflow:auto; }
+.gallery-lightbox.is-norm[hidden]{ display:none; }
+.gallery-lightbox.is-norm .gallery-lightbox-dialog{ display:flex; flex-direction:column; align-items:center; margin:0; width:100%; min-width:0; max-width:1400px; }
+.gallery-lightbox.is-norm .gallery-lightbox-frame{ padding:12px; max-width:100%; }
+.gallery-lightbox.is-norm .gallery-lightbox-frame::before{ inset:12px; }
+.gallery-lightbox.is-norm .gallery-lightbox-image{ width:auto; height:auto; max-width:calc(100vw - 64px); max-height:calc(100dvh - 312px); object-fit:contain; }
+.gallery-lightbox.is-norm .gallery-lightbox-meta{ width:fit-content; min-width:0; max-width:min(calc(100vw - 64px),720px); margin-top:12px; padding:12px 20px; overflow-wrap:break-word; }
+#gallery-lightbox-film{ display:block; margin-top:6px; padding:8px 2px; color:#231705; font-size:.85rem; font-weight:900; text-underline-offset:3px; }
+.gallery-lightbox.is-norm .gallery-lightbox-controls{ display:flex; justify-content:center; gap:24px; margin-top:12px; }
+.gallery-lightbox.is-norm .gallery-lightbox-nav{ position:static; transform:none; width:48px; height:48px; flex-shrink:0; }
+
+@media (max-width:1000px) and (min-width:641px){
+  .gallery-norm-wing .gallery-norm-grid{ grid-template-columns:repeat(2,minmax(0,320px)); gap:24px; }
+}
+@media (max-width:640px){
+  .gallery-wing-switch{ flex-direction:column; margin-bottom:4px; }
+  .gallery-wing-switch .btn{ width:100%; }
+  .gallery-norm-banner .gallery-poster-frame{ margin:12px 12px 0; padding:8px; }
+  .gallery-norm-banner .gallery-poster-frame::before{ inset:8px; }
+}
+@media (max-height:500px){
+  .gallery-lightbox.is-norm{ padding-top:56px; }
+  .gallery-lightbox.is-norm .gallery-lightbox-dialog{ display:grid; grid-template-columns:minmax(0,1fr) minmax(140px,220px); gap:8px 16px; align-items:center; justify-items:center; width:fit-content; max-width:100%; }
+  .gallery-lightbox.is-norm .gallery-lightbox-frame{ grid-row:1 / 3; }
+  .gallery-lightbox.is-norm .gallery-lightbox-image{ max-height:calc(100dvh - 104px); max-width:calc(100vw - 320px); }
+  .gallery-lightbox.is-norm .gallery-lightbox-meta{ margin:0; width:100%; max-width:220px; }
+  .gallery-lightbox.is-norm .gallery-lightbox-controls{ margin:0; }
+}
+
 .gallery-hero{
   --site-page-hero-accent-rgb:196,170,120;
   --site-page-hero-secondary-rgb:168,85,247;

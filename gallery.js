@@ -21,6 +21,106 @@ let galleryPlayers = [];
 let galleryLightboxReturnFocus = null;
 let galleryVisibleArchiveCount = galleryBatchSize();
 let galleryYearFilter = "all";
+let galleryWing = "posters";
+let galleryNormArt = [];
+let galleryNormLoad = null;
+
+function galleryViewerItems() {
+  return galleryWing === "norm" ? galleryNormArt : galleryPosters;
+}
+
+function createNormArtworkCard(art, isBanner = false) {
+  const article = document.createElement("article");
+  article.className = `gallery-card ${isBanner ? "gallery-norm-banner" : "gallery-norm-card"}`;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "gallery-poster-button";
+  button.setAttribute("aria-label", `View ${art.title}`);
+  button.innerHTML = `
+    <div class="gallery-poster-frame">
+      <img class="gallery-poster-image" src="${escapeGalleryHtml(art.src)}?v=${art.sha256.slice(0,16)}"
+        alt="${escapeGalleryHtml(art.title)}" width="${art.width}" height="${art.height}"
+        loading="${isBanner ? "eager" : "lazy"}" decoding="async" />
+    </div>
+    ${isBanner ? '<span class="gallery-norm-enlarge">View the full cast ↗</span>' : `
+      <div class="gallery-card-meta">
+        <div class="gallery-card-label">The Norm Collection</div>
+        <h3 class="gallery-card-title">${escapeGalleryHtml(art.title)}</h3>
+      </div>`}
+  `;
+  button.addEventListener("click", () => openLightbox(art, button));
+  article.appendChild(button);
+  if (art.filmHref) {
+    const link = document.createElement("a");
+    link.className = "gallery-norm-film";
+    link.href = art.filmHref;
+    link.textContent = "Watch in the Film Room →";
+    link.setAttribute("aria-label", `Watch ${art.title} in the Film Room`);
+    article.appendChild(link);
+  }
+  return article;
+}
+
+function updateNormGalleryStatus() {
+  if (galleryWing !== "norm") return;
+  document.getElementById("gallery-filter-status").textContent = galleryNormArt.length
+    ? `The full cast + ${galleryNormArt.length - 1} portrait covers`
+    : "Loading the Norm collection…";
+}
+
+async function loadNormGallery() {
+  if (galleryNormLoad) return galleryNormLoad;
+  const content = document.getElementById("gallery-norm-content");
+  content.setAttribute("aria-busy", "true");
+  galleryNormLoad = (async () => {
+    try {
+      const response = await fetch("data/gallery-norm.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(`Norm collection fetch failed (${response.status})`);
+      const data = await response.json();
+      const art = [data.banner, ...(data.posters || [])];
+      if (art.length < 2 || art.some(item => !/^images\/norm-gallery\/[a-z0-9-]+\.jpg$/.test(item?.src)
+        || !/^[a-f0-9]{64}$/.test(item?.sha256) || !(item.width > 0 && item.height > 0)
+        || (item.filmHref && !/^media\.html#[a-z0-9-]+$/.test(item.filmHref)))) {
+        throw new Error("Invalid Norm artwork manifest");
+      }
+      galleryNormArt = art.map(item => ({...item, isNorm:true}));
+      const portraits = document.createElement("div");
+      portraits.className = "gallery-year-grid gallery-norm-grid";
+      galleryNormArt.slice(1).forEach(item => portraits.appendChild(createNormArtworkCard(item)));
+      content.replaceChildren(createNormArtworkCard(galleryNormArt[0], true), portraits);
+      updateNormGalleryStatus();
+    } catch (error) {
+      console.warn("Norm Gallery could not load", error);
+      content.innerHTML = '<div class="gallery-empty" role="alert"><p>The Norm collection couldn’t load. Please try again.</p><button class="btn" type="button" data-norm-gallery-retry>Try Again</button></div>';
+      content.querySelector("[data-norm-gallery-retry]").addEventListener("click", loadNormGallery);
+      if (galleryWing === "norm") document.getElementById("gallery-filter-status").textContent = "Norm collection unavailable";
+      galleryNormLoad = null;
+    } finally {
+      content.setAttribute("aria-busy", "false");
+    }
+  })();
+  return galleryNormLoad;
+}
+
+function selectGalleryWing(wing, updateUrl = false) {
+  const lightbox = document.getElementById("gallery-lightbox");
+  if (lightbox && !lightbox.hidden) closeLightbox();
+  galleryWing = wing === "norm" ? "norm" : "posters";
+  const isNorm = galleryWing === "norm";
+  document.getElementById("gallery-poster-wing").hidden = isNorm;
+  document.getElementById("gallery-norm-wing").hidden = !isNorm;
+  document.getElementById("gallery-year-field").hidden = isNorm;
+  document.querySelectorAll("[data-gallery-wing]").forEach(button => {
+    const active = button.dataset.galleryWing === galleryWing;
+    button.setAttribute("aria-pressed", String(active));
+    button.classList.toggle("active", active);
+  });
+  if (updateUrl) history.replaceState(null, "", `${location.pathname}${location.search}${isNorm ? "#norm" : ""}`);
+  if (isNorm) {
+    updateNormGalleryStatus();
+    loadNormGallery();
+  } else if (galleryPosters.length) renderGalleryCollection();
+}
 
 function formatDisplayDate(isoDate) {
   const [year, month, day] = isoDate.split("-");
@@ -258,11 +358,11 @@ function updateLightboxNav() {
   if (!prevBtn || !nextBtn) return;
 
   prevBtn.disabled = currentPosterIndex <= 0;
-  nextBtn.disabled = currentPosterIndex >= galleryPosters.length - 1;
+  nextBtn.disabled = currentPosterIndex >= galleryViewerItems().length - 1;
 }
 
 function openLightboxByIndex(index) {
-  const poster = galleryPosters[index];
+  const poster = galleryViewerItems()[index];
   if (!poster) return;
 
   currentPosterIndex = index;
@@ -274,10 +374,20 @@ function openLightboxByIndex(index) {
 
   if (!lightbox || !image || !title || !date) return;
 
-  image.src = poster.src;
+  image.src = poster.isNorm ? `${poster.src}?v=${poster.sha256.slice(0,16)}` : poster.src;
   image.alt = poster.title;
-  title.textContent = "The BostnMike Collection";
-  date.textContent = formatDisplayDate(poster.date);
+  image.width = poster.width || 1024;
+  image.height = poster.height || 1536;
+  title.textContent = poster.isNorm ? poster.title : "The BostnMike Collection";
+  date.textContent = poster.isNorm
+    ? (poster.filmHref ? "The Norm Collection" : "21 Norms. One table.")
+    : formatDisplayDate(poster.date);
+  lightbox.classList.toggle("is-norm", Boolean(poster.isNorm));
+  const filmLink = document.getElementById("gallery-lightbox-film");
+  if (filmLink) {
+    filmLink.hidden = !poster.filmHref;
+    filmLink.href = poster.filmHref || "media.html";
+  }
 
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
@@ -286,7 +396,7 @@ function openLightboxByIndex(index) {
 }
 
 function openLightbox(poster, trigger = null) {
-  const index = galleryPosters.findIndex(item => item.src === poster.src);
+  const index = galleryViewerItems().findIndex(item => item.src === poster.src);
   if (index !== -1) {
     const focusOrigin = trigger || document.activeElement;
     galleryLightboxReturnFocus = typeof focusOrigin?.focus === "function"
@@ -304,7 +414,7 @@ function showPrevPoster() {
 }
 
 function showNextPoster() {
-  if (currentPosterIndex < galleryPosters.length - 1) {
+  if (currentPosterIndex < galleryViewerItems().length - 1) {
     openLightboxByIndex(currentPosterIndex + 1);
   }
 }
@@ -470,7 +580,7 @@ function renderGalleryCollection() {
   }
 
   grid.replaceChildren(fragment);
-  if (status) {
+  if (status && galleryWing !== "norm") {
     status.textContent = matchingArchivePosters.length === visibleArchivePosters.length
       ? `${matchingArchivePosters.length} archived poster${matchingArchivePosters.length === 1 ? "" : "s"} on display`
       : `Showing ${visibleArchivePosters.length} of ${matchingArchivePosters.length} archived posters`;
@@ -595,6 +705,11 @@ async function loadGallery() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-gallery-wing]").forEach(button => {
+    button.addEventListener("click", () => selectGalleryWing(button.dataset.galleryWing, true));
+  });
+  window.addEventListener("hashchange", () => selectGalleryWing(location.hash === "#norm" ? "norm" : "posters"));
+  selectGalleryWing(location.hash === "#norm" ? "norm" : "posters");
   loadGallery();
 
   const closeBtn = document.getElementById("gallery-lightbox-close");

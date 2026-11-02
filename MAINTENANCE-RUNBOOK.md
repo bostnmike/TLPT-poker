@@ -412,8 +412,35 @@ and RSVP Roadshow (`9Cmli_tTMSg`, `expressions-round-avatar-v2`).
 The two cancellation styles are separate films, not duplicate versions to replace.
 The owner's file labeled Saturday cancellation v1 is the generic A Heavy Heart
 news export; preserve that actual title/artwork rather than inventing a Saturday
-headline. Production MP4s and portrait YouTube posters remain outside the repo;
-only landscape covers are copied to public Film Room assets. Keep all prior films.
+headline. Production MP4s remain outside the repo; only landscape covers are
+copied to Film Room assets. Approved portrait posters are also copied, unchanged,
+to the separate Norm Gallery wing described below. Keep all prior films.
+
+### The Many Faces of Norm Gallery wing
+
+`gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
+Event Posters, preserving the dated archive, year filter, progressive loading,
+winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
+is added to the homepage. No YouTube media is loaded by the Gallery itself.
+
+`data/gallery-norm.json` owns the wide ensemble image and 23 approved 9:16 portrait
+covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
+from November 1, not an older eleven-character image or a cropped panorama.
+Its native 2:1 composition is preserved. All portrait artwork retains its original
+1080×1920 dimensions, the existing gold poster frames and title plaques. A click
+opens the full artwork; the separate Film Room link points to its existing card.
+The viewer stays within the selected wing, supports keyboard navigation and
+returns focus to the triggering image. Load failures have a retry control.
+
+`docs/norm-gallery-sources.json` records exact production source provenance and
+SHA-256 hashes. Do not use auto-selected video frames or guess the newest export.
+For additions, copy approved portrait bytes, add the title/film anchor/hash to the
+manifest and extend the collection count in its test. The shared static and browser
+runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
+banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
+seven desktop/tablet/mobile/short-screen viewports, all 23 viewer captions, wing switching, focus, viewer
+bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
+baselines just to clear a failure.
 
 Browser checks cover embed identity, responsive bounds and home deep links at six
 widths, using a deterministic YouTube frame response; they do not claim to test
