@@ -408,7 +408,12 @@ Amazing Norm — Saturday Canceled (`PjiZafNM4Xs`, `hat-polish-v2`),
 Now Showing (`i17yME1Az2o`, Box Office `notification-border-v3`),
 Sunday Special Bulletin (`HweZPs_q85U`, `orange-mic-jacket-avatar-v6`),
 Who Wants to Make a Decision? (`Ij45B2zhMY4`, game show `production-v1`),
-and RSVP Roadshow (`9Cmli_tTMSg`, `expressions-round-avatar-v2`).
+and RSVP Roadshow (revised November 4 to `MvwsaPIq9-8`, `pokerstars-phone-v3`).
+The revised Roadshow shows Ahmed holding the PokerStars phone. Replace its film
+in place: keep the existing card position/title and use that revision's exact
+`thumbnail-1280x720.jpg` for the Film Room and `thumbnail-portrait.jpg` for the
+Norm Gallery. Update both checksum/version references and the Gallery video ID;
+do not retain the superseded upload in public embeds or add a duplicate card.
 The two cancellation styles are separate films, not duplicate versions to replace.
 The owner's file labeled Saturday cancellation v1 is the generic A Heavy Heart
 news export; preserve that actual title/artwork rather than inventing a Saturday

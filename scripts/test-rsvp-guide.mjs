@@ -56,6 +56,8 @@ assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
 const filmRoom = read('media.html');
 assert.doesNotMatch(filmRoom, /ltIT_DGiEEs/, 'Superseded hockey upload must not return');
 assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload must not return');
+assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
+assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
   'nightly-news-friday-canceled-thumbnail.jpg':'7ad23cbf1d996471270cc12dcd32d5301567da945c402522ee9ca0583a55425c',
   'amazing-norm-friday-canceled-thumbnail.jpg':'3fac0f09af27ac8ded6fc4087d9dd1c3b4b82a48f6c53272579b9b703543ea70',
@@ -64,7 +66,7 @@ for (const [file, expected] of Object.entries({
   'now-showing-thumbnail.jpg':'0442bea081639e3fcdd17fd15c3b27b6b0a7f94f80961ee98210585321f6f9e0',
   'sunday-special-bulletin-thumbnail.jpg':'2fe992e2b7cc4fbda5213f1c4572649cb67dee2fe367765ae054f7ca72bca15d',
   'who-wants-to-make-a-decision-thumbnail.jpg':'2d9977c8ef0d20b8ca2a57ec4b585d25702f49ad7a9fd5063769f37ca9b1728f',
-  'rsvp-roadshow-thumbnail.jpg':'9c7e96b5cb6ed79faa8851e5d3ec17eb17abbe4e85bb06acde562e91f67646b0',
+  'rsvp-roadshow-thumbnail.jpg':'b4b5e180aa2aa0adea08e367be72a1b28541c3890b9834e26eadefc9b4ad0d19',
   'final-boarding-call-thumbnail.jpg':'1901cffa24880641790de0e55c32a9149132d29e3b9ac9b560c76ab93df8e1ac',
   'rsvp-main-event-thumbnail.jpg':'5ceef06e2041c631944fc0d43f72c1f06c4a653238364ac38fd66380d6ec47b5',
   'call-your-play-thumbnail.jpg':'325804b3568327bb237276c0dcdb2c9a848a10cc16cc694cc5a57f33c2d4f972',
@@ -142,7 +144,7 @@ const youtubeFilms = [
   ['now-showing','i17yME1Az2o'],
   ['sunday-special-bulletin','HweZPs_q85U'],
   ['who-wants-to-make-a-decision','Ij45B2zhMY4'],
-  ['rsvp-roadshow','9Cmli_tTMSg'],
+  ['rsvp-roadshow','MvwsaPIq9-8'],
   ['final-boarding-call','elGvMvI4z98'],
   ['rsvp-main-event','inTd_p7otyE'],
   ['the-kids','AYTCCtyBTqQ'],

@@ -132,7 +132,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         ['now-showing','i17yME1Az2o'],
         ['sunday-special-bulletin','HweZPs_q85U'],
         ['who-wants-to-make-a-decision','Ij45B2zhMY4'],
-        ['rsvp-roadshow','9Cmli_tTMSg'],
+        ['rsvp-roadshow','MvwsaPIq9-8'],
         ['final-boarding-call','elGvMvI4z98'],['rsvp-main-event','inTd_p7otyE'],['the-kids','AYTCCtyBTqQ'],['call-your-play','GY4uQaUwsbU'],['day-to-day','rzKNK2yiu-I'],['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
         const card = page.locator('#' + id), cover = card.locator('.media-video-facade'), player = card.locator('iframe');
         assert.equal(await card.count(), 1, 'Exactly one card for '+id);
