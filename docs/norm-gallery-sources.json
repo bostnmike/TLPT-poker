@@ -11,9 +11,9 @@
     },
     {
       "id": "rsvp-roadshow",
-      "source": "output/video/tlpt-rsvp-roadshow-commercial/expressions-round-avatar-v2/thumbnail-portrait.jpg",
+      "source": "output/video/tlpt-rsvp-roadshow-commercial/pokerstars-phone-v3/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/rsvp-roadshow.jpg",
-      "sha256": "80a4c176009f28793d94701fe6b5890adbcb9a01796786e6f11ce38108f65df1",
+      "sha256": "26073fa925d58fec56534b19ab6e3c4fa383710dc6d01ab45deb4fb98825ac4c",
       "width": 1080,
       "height": 1920
     },
