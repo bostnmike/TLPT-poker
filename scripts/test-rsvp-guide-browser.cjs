@@ -66,7 +66,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       await page.screenshot({path:'/tmp/home-without-norm-' + width + '.png'});
       await page.goto(base + '/media.html');
-      assert.equal(await page.locator('.media-video-facade').count(), 32, 'Film Room ready without autoplay');
+      assert.equal(await page.locator('.media-video-facade').count(), 34, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
@@ -118,13 +118,15 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 33, 'Retain nine original films and all twenty-four RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 35, 'Retain nine original films and all twenty-six RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
-      assert.equal(await page.locator('.media-video-facade').count(), 32, 'All thirty-two YouTube covers retained');
+      assert.equal(await page.locator('.media-video-facade').count(), 34, 'All thirty-four YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       for (const [id, youtubeId] of [
+        ['clocking-out','FuEu6XnbLvk'],
+        ['mission-control','rVnC_ctqRn0'],
         ['youth-movement','nvJYKCcRwA8'],
         ['nightly-news-friday-canceled','uSNlM_E_zck'],
         ['amazing-norm-friday-canceled','6dKAxotRBXI'],
@@ -162,7 +164,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all twenty-four RSVP YouTube embed mappings/layouts');
+      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all twenty-six RSVP YouTube embed mappings/layouts');
       await page.close();
     }
   } finally { await browser.close(); }

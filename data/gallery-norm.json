@@ -10,6 +10,26 @@
   },
   "posters": [
     {
+      "id": "clocking-out",
+      "src": "images/norm-gallery/clocking-out.jpg",
+      "sha256": "f842828f86f4cd9cfee16205887cdab2d8cd9103e15ba3aa639036da8f33f88a",
+      "width": 1080,
+      "height": 1920,
+      "title": "Clocking Out",
+      "filmHref": "media.html#clocking-out",
+      "youtubeId": "FuEu6XnbLvk"
+    },
+    {
+      "id": "mission-control",
+      "src": "images/norm-gallery/mission-control.jpg",
+      "sha256": "281a10b24fa221cfd8b3076631576d81ad168cc227e12b0bdfbd3695f23d9322",
+      "width": 1080,
+      "height": 1920,
+      "title": "Mission Control",
+      "filmHref": "media.html#mission-control",
+      "youtubeId": "rVnC_ctqRn0"
+    },
+    {
       "id": "youth-movement",
       "src": "images/norm-gallery/youth-movement.jpg",
       "sha256": "8186cf38ad305752668f2a8de0c508edb8057025a4d51c1a7d0a364541e14264",
