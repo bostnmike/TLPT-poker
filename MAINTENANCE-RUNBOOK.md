@@ -335,7 +335,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has twenty-three RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has twenty-six RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -436,6 +436,21 @@ also requested the matching Gallery entry: copy the approved `poster.jpg`
 byte-for-byte, preserving its 1080×1920 composition, standard gold frame/title
 plaque and link to the same Film Room card. Do not publish a duplicate native MP4.
 
+The approved November 5 evergreen GAME ON announcements are “Clocking Out”
+(Friday, YouTube `FuEu6XnbLvk`, anchor `media.html#clocking-out`) and “Mission
+Control” (Saturday, YouTube `rVnC_ctqRn0`, anchor `media.html#mission-control`).
+Both 29-second, 1080×1920/60fps masters remain outside the repository in their
+respective `output/video/tlpt-friday-game-on/production-v1/` and
+`output/video/tlpt-saturday-game-on/production-v1/` folders. Their master SHA-256s
+are `02f4f03223aa5e2cf2a1ae1b58c92a5c4ca558014ef09d8a3a2023f03fc971ca`
+and `09cded987d6aec60d9ff33a8d5da2912df6762bc3ee96218da56c7bde4fcf582`.
+Copy the exact approved `thumbnail-1280x720.jpg` files to their matching Film
+Room covers and the approved portrait posters to the Norm Gallery, without
+cropping or regeneration. Static tests lock all four artwork hashes. Keep these
+as reusable Film Room announcements, not live game-status or schedule claims;
+their in-video app lineups are explicitly demonstrations. No MP4/caption
+duplicates, home promos, schedule changes or YouTube setting changes are added.
+
 ### The Many Faces of Norm Gallery wing
 
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
@@ -443,7 +458,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 24 approved 9:16 portrait
+`data/gallery-norm.json` owns the wide ensemble image and 26 approved 9:16 portrait
 covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
 from November 1, not an older eleven-character image or a cropped panorama.
 Its native 2:1 composition is preserved. All portrait artwork retains its original
@@ -458,7 +473,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 24 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 26 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

@@ -24,8 +24,8 @@ const fit=async(page,selector,width,height)=>{
       assert.equal(await page.locator('#gallery-poster-wing').isVisible(),false);
       assert.equal(await page.locator('#gallery-year-field').isVisible(),false);
       assert.equal(await normButton.getAttribute('aria-pressed'),'true');
-      assert.equal(await page.locator('.gallery-norm-card').count(),24);
-      assert.match(await page.locator('#gallery-filter-status').innerText(),/24 portrait covers/);
+      assert.equal(await page.locator('.gallery-norm-card').count(),26);
+      assert.match(await page.locator('#gallery-filter-status').innerText(),/26 portrait covers/);
       const banner=page.locator('.gallery-norm-banner');
       const portrait=page.locator('.gallery-norm-card').first();
       await banner.locator('img').evaluate(img=>img.decode());
@@ -55,12 +55,12 @@ const fit=async(page,selector,width,height)=>{
       await page.screenshot({path:'/tmp/norm-gallery-wide-viewer-'+width+'x'+height+'.png'});
       await page.keyboard.press('ArrowRight');
       await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
-      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Where’s the Youth Movement?');
-      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#youth-movement');
+      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Clocking Out');
+      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#clocking-out');
       for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
       await page.screenshot({path:'/tmp/norm-gallery-portrait-viewer-'+width+'x'+height+'.png'});
       // Every title must fit, including the longest cancellation captions.
-      for(let posterIndex=2;posterIndex<=24;posterIndex++){
+      for(let posterIndex=2;posterIndex<=26;posterIndex++){
         await page.keyboard.press('ArrowRight');
         await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
         for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
@@ -92,7 +92,7 @@ const fit=async(page,selector,width,height)=>{
     await page.locator('[data-norm-gallery-retry]').waitFor();
     fail=false;await page.locator('[data-norm-gallery-retry]').click();
     await page.locator('.gallery-norm-card').last().waitFor();
-    assert.equal(await page.locator('.gallery-norm-card').count(),24,'Failed request can recover');
+    assert.equal(await page.locator('.gallery-norm-card').count(),26,'Failed request can recover');
     console.log('PASS Norm Gallery retry recovery');
   }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

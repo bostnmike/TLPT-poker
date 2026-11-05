@@ -10,6 +10,22 @@
       "height": 800
     },
     {
+      "id": "clocking-out",
+      "source": "output/video/tlpt-friday-game-on/production-v1/poster-1080x1920.jpg",
+      "src": "images/norm-gallery/clocking-out.jpg",
+      "sha256": "f842828f86f4cd9cfee16205887cdab2d8cd9103e15ba3aa639036da8f33f88a",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "mission-control",
+      "source": "output/video/tlpt-saturday-game-on/production-v1/poster.jpg",
+      "src": "images/norm-gallery/mission-control.jpg",
+      "sha256": "281a10b24fa221cfd8b3076631576d81ad168cc227e12b0bdfbd3695f23d9322",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "youth-movement",
       "source": "output/video/tlpt-youth-movement-commercial/recessed-deckmate-v3/poster.jpg",
       "src": "images/norm-gallery/youth-movement.jpg",
