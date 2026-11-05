@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "doubleheader",
+      "source": "output/video/tlpt-doubleheader-game-on/family-map-v2/poster.jpg",
+      "src": "images/norm-gallery/doubleheader.jpg",
+      "sha256": "37086ab4616f355f333f1c6712033c81dda07628d40924e79163d8e4d5fe75e8",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "clocking-out",
       "source": "output/video/tlpt-friday-game-on/production-v1/poster-1080x1920.jpg",
       "src": "images/norm-gallery/clocking-out.jpg",

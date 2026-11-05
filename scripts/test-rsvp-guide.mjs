@@ -59,6 +59,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'doubleheader-thumbnail.jpg':'eb1f0ca1b9d5f480e4f4a2ed4d747348a6ee91826b4d35ee9fafc6c77bb2f224',
   'clocking-out-thumbnail.jpg':'72315764b0fb08b76e3423673ddf38509e5132ff44aded011bfa18ba405fc015',
   'mission-control-thumbnail.jpg':'02530a183e9c85b1d7370f5a40d178c6796dba47a9a92371b898cb524380b312',
   'youth-movement-thumbnail.jpg':'cf7c2d723f6a5ef203d29e5008dbf2077787b5809e7b1dd99bf69508c346b3e9',
@@ -103,6 +104,7 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['doubleheader', '⚾ Doubleheader — Friday + Saturday'],
   ['clocking-out', '🕔 Clocking Out'],
   ['mission-control', '🚀 Mission Control'],
   ['youth-movement', '🔎 Where’s the Youth Movement?'],
@@ -143,6 +145,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['doubleheader','hyIBSyjWgvU'],
   ['clocking-out','FuEu6XnbLvk'],
   ['mission-control','rVnC_ctqRn0'],
   ['youth-movement','nvJYKCcRwA8'],
@@ -190,7 +193,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 34, 'Twenty-six RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 35, 'Twenty-seven RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));

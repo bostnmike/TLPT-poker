@@ -335,7 +335,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has twenty-six RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has twenty-seven RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -451,6 +451,17 @@ as reusable Film Room announcements, not live game-status or schedule claims;
 their in-video app lineups are explicitly demonstrations. No MP4/caption
 duplicates, home promos, schedule changes or YouTube setting changes are added.
 
+The approved final baseball “Doubleheader — Friday + Saturday” completes the
+GAME ON set: YouTube `hyIBSyjWgvU`, anchor `media.html#doubleheader`. Its exact
+26-second, 1080×1920/60fps master stays in
+`output/video/tlpt-doubleheader-game-on/family-map-v2/` (SHA-256
+`5daa3851bd8e137a2cba4f9f79d772384b9c08b8a9b2dafd5debf030f100efbd`).
+Use that folder's approved landscape thumbnail and portrait poster unchanged,
+not an earlier cut. Preserve the “or one DeckMate” aside, labeled example lineup
+and illustrated Find Norm / The Caahhd Room family-map gag. Like the other two,
+this is an evergreen Film Room commercial, not an instruction to open live games.
+No MP4, captions, Home/Schedule content or YouTube settings are changed.
+
 ### The Many Faces of Norm Gallery wing
 
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
@@ -458,7 +469,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 26 approved 9:16 portrait
+`data/gallery-norm.json` owns the wide ensemble image and 27 approved 9:16 portrait
 covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
 from November 1, not an older eleven-character image or a cropped panorama.
 Its native 2:1 composition is preserved. All portrait artwork retains its original
@@ -473,7 +484,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 26 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 27 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

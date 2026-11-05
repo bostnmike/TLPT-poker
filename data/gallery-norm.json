@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "doubleheader",
+      "src": "images/norm-gallery/doubleheader.jpg",
+      "sha256": "37086ab4616f355f333f1c6712033c81dda07628d40924e79163d8e4d5fe75e8",
+      "width": 1080,
+      "height": 1920,
+      "title": "Doubleheader — Friday + Saturday",
+      "filmHref": "media.html#doubleheader",
+      "youtubeId": "hyIBSyjWgvU"
+    },
+    {
       "id": "clocking-out",
       "src": "images/norm-gallery/clocking-out.jpg",
       "sha256": "f842828f86f4cd9cfee16205887cdab2d8cd9103e15ba3aa639036da8f33f88a",
