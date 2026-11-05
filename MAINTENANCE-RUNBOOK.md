@@ -421,6 +421,19 @@ headline. Production MP4s remain outside the repo; only landscape covers are
 copied to Film Room assets. Approved portrait posters are also copied, unchanged,
 to the separate Norm Gallery wing described below. Keep all prior films.
 
+The approved November 4 Film Room addition “Where’s the Youth Movement?” uses
+YouTube `nvJYKCcRwA8` and anchor `media.html#youth-movement`. Its 36-second,
+1080×1920 master stays outside the repository in
+`output/video/tlpt-youth-movement-commercial/recessed-deckmate-v3/` (SHA-256
+`a7ceb76d8d2fadff8990c11d9533e173410ad65edbce7a7d006fac4325306f89`).
+The 1280×720 cover uses that final version’s existing `build.py` preview layout,
+rendered to `output/verification/youth-movement-cover-v3/` without changing its
+approved master or poster. Preserve the recessed DeckMate on the side table
+behind BostnMike; do not substitute the earlier `integrated-room-v2` thumbnail.
+The website cover hash is locked in the RSVP guide test. Keep the title-only,
+click-to-play card, uncropped portrait playback and optional captions. This
+Film Room handoff does not add a Gallery portrait or a duplicate native MP4.
+
 ### The Many Faces of Norm Gallery wing
 
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
