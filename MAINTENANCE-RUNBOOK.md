@@ -335,7 +335,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has twenty-seven RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has thirty-two RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -462,6 +462,14 @@ and illustrated Find Norm / The Caahhd Room family-map gag. Like the other two,
 this is an evergreen Film Room commercial, not an instruction to open live games.
 No MP4, captions, Home/Schedule content or YouTube settings are changed.
 
+The five approved group-message Shorts use the exact uploads in the TLPT
+playlist and the unmodified landscape and portrait artwork in
+`output/video/tlpt-group-messages/`: “One Seat Available” (`ep08DkRP3gw`),
+“The Courtesy Fold” (`45e1e-1290I`), “Earlier Start” (`ervb9fx_0oc`),
+“Public Hearing” (`Va-Q7PHbMDI`) and “Rookie Orientation” (`cCInbuQ0_QI`).
+They are evergreen films; their RSVP screens use example data. The site embeds
+YouTube and does not host additional MP4s or add schedule/registration controls.
+
 ### The Many Faces of Norm Gallery wing
 
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
@@ -469,7 +477,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 27 approved 9:16 portrait
+`data/gallery-norm.json` owns the wide ensemble image and 32 approved 9:16 portrait
 covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
 from November 1, not an older eleven-character image or a cropped panorama.
 Its native 2:1 composition is preserved. All portrait artwork retains its original
@@ -484,7 +492,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 27 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 32 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

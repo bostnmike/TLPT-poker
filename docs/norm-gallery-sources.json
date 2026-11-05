@@ -10,6 +10,46 @@
       "height": 800
     },
     {
+      "id": "one-seat-available",
+      "source": "output/video/tlpt-group-messages/01-one-seat-available/poster.jpg",
+      "src": "images/norm-gallery/one-seat-available.jpg",
+      "sha256": "80b5bfe53acb5616517df1eac4b4ebd7e99e0ad0dd63c3f42111f8ec645796e3",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "the-courtesy-fold",
+      "source": "output/video/tlpt-group-messages/02-the-courtesy-fold/poster.jpg",
+      "src": "images/norm-gallery/the-courtesy-fold.jpg",
+      "sha256": "ba07a1dbef900640e9abc0b4f84e5a5f4de0b231a0abf574e06a9053d6a4d9db",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "earlier-start",
+      "source": "output/video/tlpt-group-messages/03-earlier-start/poster.jpg",
+      "src": "images/norm-gallery/earlier-start.jpg",
+      "sha256": "b790935dd250ea6ed4d4ebf8db0b73544df377a3d6bad11d6e0b12729fb8f529",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "public-hearing",
+      "source": "output/video/tlpt-group-messages/04-public-hearing/poster.jpg",
+      "src": "images/norm-gallery/public-hearing.jpg",
+      "sha256": "95427adba53fc90d59020f418f55569c5c444102611d5595946de0240dcea582",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "rookie-orientation",
+      "source": "output/video/tlpt-group-messages/05-rookie-orientation/poster.jpg",
+      "src": "images/norm-gallery/rookie-orientation.jpg",
+      "sha256": "536d96897c4776e98152c38dc3406231f88b951080676f61c4d3706f5599d848",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "doubleheader",
       "source": "output/video/tlpt-doubleheader-game-on/family-map-v2/poster.jpg",
       "src": "images/norm-gallery/doubleheader.jpg",
