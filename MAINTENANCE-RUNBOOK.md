@@ -431,8 +431,10 @@ rendered to `output/verification/youth-movement-cover-v3/` without changing its
 approved master or poster. Preserve the recessed DeckMate on the side table
 behind BostnMike; do not substitute the earlier `integrated-room-v2` thumbnail.
 The website cover hash is locked in the RSVP guide test. Keep the title-only,
-click-to-play card, uncropped portrait playback and optional captions. This
-Film Room handoff does not add a Gallery portrait or a duplicate native MP4.
+click-to-play card, uncropped portrait playback and optional captions. The owner
+also requested the matching Gallery entry: copy the approved `poster.jpg`
+byte-for-byte, preserving its 1080×1920 composition, standard gold frame/title
+plaque and link to the same Film Room card. Do not publish a duplicate native MP4.
 
 ### The Many Faces of Norm Gallery wing
 
@@ -441,7 +443,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 23 approved 9:16 portrait
+`data/gallery-norm.json` owns the wide ensemble image and 24 approved 9:16 portrait
 covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
 from November 1, not an older eleven-character image or a cropped panorama.
 Its native 2:1 composition is preserved. All portrait artwork retains its original
@@ -456,7 +458,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 23 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 24 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

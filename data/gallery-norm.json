@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "youth-movement",
+      "src": "images/norm-gallery/youth-movement.jpg",
+      "sha256": "8186cf38ad305752668f2a8de0c508edb8057025a4d51c1a7d0a364541e14264",
+      "width": 1080,
+      "height": 1920,
+      "title": "Where’s the Youth Movement?",
+      "filmHref": "media.html#youth-movement",
+      "youtubeId": "nvJYKCcRwA8"
+    },
+    {
       "id": "rsvp-roadshow",
       "src": "images/norm-gallery/rsvp-roadshow.jpg",
       "sha256": "26073fa925d58fec56534b19ab6e3c4fa383710dc6d01ab45deb4fb98825ac4c",

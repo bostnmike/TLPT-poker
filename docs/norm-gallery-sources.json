@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "youth-movement",
+      "source": "output/video/tlpt-youth-movement-commercial/recessed-deckmate-v3/poster.jpg",
+      "src": "images/norm-gallery/youth-movement.jpg",
+      "sha256": "8186cf38ad305752668f2a8de0c508edb8057025a4d51c1a7d0a364541e14264",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "rsvp-roadshow",
       "source": "output/video/tlpt-rsvp-roadshow-commercial/pokerstars-phone-v3/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/rsvp-roadshow.jpg",
