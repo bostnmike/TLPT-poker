@@ -10,6 +10,56 @@
   },
   "posters": [
     {
+      "id": "one-seat-available",
+      "src": "images/norm-gallery/one-seat-available.jpg",
+      "sha256": "80b5bfe53acb5616517df1eac4b4ebd7e99e0ad0dd63c3f42111f8ec645796e3",
+      "width": 1080,
+      "height": 1920,
+      "title": "One Seat Available",
+      "filmHref": "media.html#one-seat-available",
+      "youtubeId": "ep08DkRP3gw"
+    },
+    {
+      "id": "the-courtesy-fold",
+      "src": "images/norm-gallery/the-courtesy-fold.jpg",
+      "sha256": "ba07a1dbef900640e9abc0b4f84e5a5f4de0b231a0abf574e06a9053d6a4d9db",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Courtesy Fold",
+      "filmHref": "media.html#the-courtesy-fold",
+      "youtubeId": "45e1e-1290I"
+    },
+    {
+      "id": "earlier-start",
+      "src": "images/norm-gallery/earlier-start.jpg",
+      "sha256": "b790935dd250ea6ed4d4ebf8db0b73544df377a3d6bad11d6e0b12729fb8f529",
+      "width": 1080,
+      "height": 1920,
+      "title": "Earlier Start",
+      "filmHref": "media.html#earlier-start",
+      "youtubeId": "ervb9fx_0oc"
+    },
+    {
+      "id": "public-hearing",
+      "src": "images/norm-gallery/public-hearing.jpg",
+      "sha256": "95427adba53fc90d59020f418f55569c5c444102611d5595946de0240dcea582",
+      "width": 1080,
+      "height": 1920,
+      "title": "Public Hearing",
+      "filmHref": "media.html#public-hearing",
+      "youtubeId": "Va-Q7PHbMDI"
+    },
+    {
+      "id": "rookie-orientation",
+      "src": "images/norm-gallery/rookie-orientation.jpg",
+      "sha256": "536d96897c4776e98152c38dc3406231f88b951080676f61c4d3706f5599d848",
+      "width": 1080,
+      "height": 1920,
+      "title": "Rookie Orientation",
+      "filmHref": "media.html#rookie-orientation",
+      "youtubeId": "cCInbuQ0_QI"
+    },
+    {
       "id": "doubleheader",
       "src": "images/norm-gallery/doubleheader.jpg",
       "sha256": "37086ab4616f355f333f1c6712033c81dda07628d40924e79163d8e4d5fe75e8",
