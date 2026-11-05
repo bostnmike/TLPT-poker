@@ -59,6 +59,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'youth-movement-thumbnail.jpg':'cf7c2d723f6a5ef203d29e5008dbf2077787b5809e7b1dd99bf69508c346b3e9',
   'nightly-news-friday-canceled-thumbnail.jpg':'7ad23cbf1d996471270cc12dcd32d5301567da945c402522ee9ca0583a55425c',
   'amazing-norm-friday-canceled-thumbnail.jpg':'3fac0f09af27ac8ded6fc4087d9dd1c3b4b82a48f6c53272579b9b703543ea70',
   'nightly-news-heavy-heart-thumbnail.jpg':'a7d065b355b13c230c4c23fd9d834f7ffcac26d41915f68cd4cb7e5bb459b8bd',
@@ -100,6 +101,7 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['youth-movement', '🔎 Where’s the Youth Movement?'],
   ['nightly-news-friday-canceled', '📰 Nightly News — Friday Canceled'],
   ['amazing-norm-friday-canceled', '🎩 The Amazing Norm — Friday Canceled'],
   ['nightly-news-heavy-heart', '📰 Nightly News — A Heavy Heart'],
@@ -137,6 +139,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['youth-movement','nvJYKCcRwA8'],
   ['nightly-news-friday-canceled','uSNlM_E_zck'],
   ['amazing-norm-friday-canceled','6dKAxotRBXI'],
   ['nightly-news-heavy-heart','VrliccRY5ZE'],
@@ -181,7 +184,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 31, 'Twenty-three RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 32, 'Twenty-four RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));

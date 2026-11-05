@@ -421,6 +421,21 @@ headline. Production MP4s remain outside the repo; only landscape covers are
 copied to Film Room assets. Approved portrait posters are also copied, unchanged,
 to the separate Norm Gallery wing described below. Keep all prior films.
 
+The approved November 4 Film Room addition “Where’s the Youth Movement?” uses
+YouTube `nvJYKCcRwA8` and anchor `media.html#youth-movement`. Its 36-second,
+1080×1920 master stays outside the repository in
+`output/video/tlpt-youth-movement-commercial/recessed-deckmate-v3/` (SHA-256
+`a7ceb76d8d2fadff8990c11d9533e173410ad65edbce7a7d006fac4325306f89`).
+The 1280×720 cover uses that final version’s existing `build.py` preview layout,
+rendered to `output/verification/youth-movement-cover-v3/` without changing its
+approved master or poster. Preserve the recessed DeckMate on the side table
+behind BostnMike; do not substitute the earlier `integrated-room-v2` thumbnail.
+The website cover hash is locked in the RSVP guide test. Keep the title-only,
+click-to-play card, uncropped portrait playback and optional captions. The owner
+also requested the matching Gallery entry: copy the approved `poster.jpg`
+byte-for-byte, preserving its 1080×1920 composition, standard gold frame/title
+plaque and link to the same Film Room card. Do not publish a duplicate native MP4.
+
 ### The Many Faces of Norm Gallery wing
 
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
@@ -428,7 +443,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 23 approved 9:16 portrait
+`data/gallery-norm.json` owns the wide ensemble image and 24 approved 9:16 portrait
 covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
 from November 1, not an older eleven-character image or a cropped panorama.
 Its native 2:1 composition is preserved. All portrait artwork retains its original
@@ -443,7 +458,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 23 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 24 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 
