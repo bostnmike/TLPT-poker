@@ -50,9 +50,111 @@ async function checkPosterYear(browser, viewport){
     console.log('PASS Gallery poster-year selection and rollover '+viewport.width+'px');
   }finally{await page.close();}
 }
+async function checkFamilyPortraitRotation(browser, viewport){
+  const page=await browser.newPage({viewport,reducedMotion:'no-preference'});
+  try {
+    const requests=[];
+    page.on('request',request=>{if(request.url().includes('/images/family-portraits/'))requests.push(request.url());});
+    await page.clock.install();
+    await page.goto(base+'/gallery.html');
+    const portraits=page.locator('#gallery-norm-wing #family-portraits');
+    const stage=portraits.locator('.family-portraits-stage');
+    const current=()=>portraits.locator('.family-portraits-position').textContent();
+    const next=portraits.getByRole('button',{name:'Next portrait'});
+    const previous=portraits.getByRole('button',{name:'Previous portrait'});
+    const pause=portraits.getByRole('button',{name:'Pause rotation'});
+    const play=portraits.getByRole('button',{name:'Play rotation'});
+    const selectWing=wing=>page.locator(`[data-gallery-wing="${wing}"]`).click();
+    const waitForIntersection=visible=>stage.evaluate((el,inView)=>new Promise(resolve=>{
+      const observer=new IntersectionObserver(([entry])=>{
+        if(entry.isIntersecting===inView){observer.disconnect();resolve();}
+      });
+      observer.observe(el);
+    }),visible);
+    const showStage=async()=>{
+      await stage.scrollIntoViewIfNeeded();
+      await page.mouse.move(0,0);
+      await waitForIntersection(true);
+    };
+    const tick=ms=>page.clock.fastForward(ms);
+
+    await page.locator('#gallery-grid .gallery-card').first().waitFor();
+    assert.equal(await portraits.isVisible(),false);
+    await tick(11000);
+    assert.equal(await current(),'1 of 5');
+    assert.deepEqual(requests,[],'Event Posters does not request hidden exhibit art');
+
+    await selectWing('norm');
+    await showStage();
+    const image=stage.locator('figure:visible img');
+    await image.evaluate(img=>img.decode());
+    assert.deepEqual(await image.evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1774,887]);
+    const bounds=await image.boundingBox();
+    assert.ok(bounds.x>=0&&bounds.x+bounds.width<=viewport.width+1,'Portrait fits the viewport');
+    assert.ok(Math.abs(bounds.width/bounds.height-2)<.02,'Native 2:1 framing');
+    await tick(7500);
+    assert.equal(await current(),'1 of 5','Interval does not end early');
+    await tick(2750);
+    assert.equal(await current(),'2 of 5','Automatic rotation after ten seconds');
+
+    await page.locator('.gallery-norm-card').first().waitFor();
+    await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));
+    await waitForIntersection(false);
+    await tick(11000);
+    assert.equal(await current(),'2 of 5','No rotation while the stage is offscreen');
+
+    await showStage();
+    await page.evaluate(()=>{
+      Object.defineProperty(document,'hidden',{configurable:true,value:true});
+      document.dispatchEvent(new Event('visibilitychange'));
+    });
+    await tick(11000);
+    assert.equal(await current(),'2 of 5','No rotation while the tab is hidden');
+    await page.evaluate(()=>{delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));});
+    await tick(11000);
+    assert.equal(await current(),'3 of 5','Rotation resumes in a visible tab');
+
+    await selectWing('posters');
+    assert.equal(await portraits.isVisible(),false);
+    await tick(11000);
+    assert.equal(await current(),'3 of 5','No rotation in the other gallery wing');
+    await selectWing('norm');
+    await pause.click();
+    await showStage();
+    await tick(11000);
+    assert.equal(await current(),'3 of 5','Pause is respected when the stage is visible');
+    await previous.click();
+    assert.equal(await current(),'2 of 5');
+    await next.click();
+    assert.equal(await current(),'3 of 5');
+    await play.click();
+    await showStage();
+    await tick(11000);
+    assert.equal(await current(),'4 of 5','Play resumes rotation');
+
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await page.reload();
+    await showStage();
+    await play.waitFor();
+    await tick(11000);
+    assert.equal(await current(),'1 of 5','Reduced motion starts paused');
+    await previous.click();
+    assert.equal(await current(),'5 of 5','Manual controls still work and wrap');
+    console.log('PASS Family Portraits in the Norm wing '+viewport.width+'px: rotation, visibility and controls');
+  }finally{await page.close();}
+}
 (async()=>{
   const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
   try{
+    for(const viewport of [{width:1440,height:960},{width:390,height:844}]){
+      await checkFamilyPortraitRotation(browser,viewport);
+    }
+    const film=await browser.newPage();
+    try {
+      await film.goto(base+'/media.html',{waitUntil:'domcontentloaded'});
+      await film.locator('.media-library .media-card').first().waitFor();
+      assert.equal(await film.locator('#family-portraits').count(),0,'Film Room keeps the library, not the exhibit');
+    }finally{await film.close();}
     for(const viewport of [{width:1440,height:1000},{width:820,height:1000},{width:390,height:844}]){
       await checkPosterYear(browser,viewport);
     }

@@ -24,6 +24,7 @@ let galleryYearFilter = "all";
 let galleryWing = "posters";
 let galleryNormArt = [];
 let galleryNormLoad = null;
+let syncFamilyPortraits = () => {};
 
 function filteredEventPosters() {
   return galleryYearFilter === "all"
@@ -108,6 +109,103 @@ async function loadNormGallery() {
   return galleryNormLoad;
 }
 
+function initFamilyPortraits() {
+  const section = document.querySelector("#family-portraits");
+  const wing = section?.closest("#gallery-norm-wing");
+  if (!wing) return () => {};
+
+  const stage = section.querySelector(".family-portraits-stage");
+  const slides = [...stage.querySelectorAll(".family-portrait")];
+  if (slides.length < 2) return () => {};
+
+  const controls = section.querySelector(".family-portraits-controls");
+  const position = controls.querySelector(".family-portraits-position");
+  const previous = controls.querySelector('[data-portrait-action="previous"]');
+  const next = controls.querySelector('[data-portrait-action="next"]');
+  const toggle = controls.querySelector('[data-portrait-action="toggle"]');
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const delay = 10000;
+  let current = 0;
+  const canObserve = "IntersectionObserver" in window;
+  let playing = canObserve && !reducedMotion.matches;
+  let visible = false;
+  let hovered = false;
+  let timer;
+
+  function showPortrait(offset) {
+    slides[current].hidden = true;
+    current = (current + offset + slides.length) % slides.length;
+    slides[current].hidden = false;
+    const title = slides[current].querySelector("figcaption").textContent;
+    position.textContent = `${current + 1} of ${slides.length}`;
+    position.setAttribute("aria-label", `${title}, ${position.textContent}`);
+  }
+
+  function canRotate() {
+    return playing && visible && !wing.hidden && !hovered && !document.hidden;
+  }
+
+  function scheduleRotation() {
+    window.clearTimeout(timer);
+    if (!canRotate()) return;
+
+    slides[(current + 1) % slides.length].querySelector("img").loading = "eager";
+    timer = window.setTimeout(() => {
+      if (!canRotate()) return;
+      showPortrait(1);
+      scheduleRotation();
+    }, delay);
+  }
+
+  function setPlaying(value) {
+    playing = value;
+    toggle.textContent = playing ? "Pause rotation" : "Play rotation";
+    position.setAttribute("aria-live", playing ? "off" : "polite");
+    scheduleRotation();
+  }
+
+  previous.addEventListener("click", () => {
+    setPlaying(false);
+    showPortrait(-1);
+  });
+  next.addEventListener("click", () => {
+    setPlaying(false);
+    showPortrait(1);
+  });
+  toggle.addEventListener("click", () => setPlaying(!playing));
+  section.addEventListener("focusin", (event) => {
+    if (event.target.matches(":focus-visible")) setPlaying(false);
+  });
+  stage.addEventListener("mouseenter", () => {
+    hovered = true;
+    scheduleRotation();
+  });
+  stage.addEventListener("mouseleave", () => {
+    hovered = false;
+    scheduleRotation();
+  });
+  document.addEventListener("visibilitychange", scheduleRotation);
+  reducedMotion.addEventListener("change", (event) => {
+    if (event.matches) setPlaying(false);
+  });
+
+  if (canObserve) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      scheduleRotation();
+    }).observe(stage);
+  }
+
+  toggle.hidden = !canObserve;
+  controls.hidden = false;
+  setPlaying(playing);
+
+  return () => {
+    if (wing.hidden) hovered = false;
+    scheduleRotation();
+  };
+}
+
 function selectGalleryWing(wing, updateUrl = false) {
   const lightbox = document.getElementById("gallery-lightbox");
   if (lightbox && !lightbox.hidden) closeLightbox();
@@ -115,6 +213,7 @@ function selectGalleryWing(wing, updateUrl = false) {
   const isNorm = galleryWing === "norm";
   document.getElementById("gallery-poster-wing").hidden = isNorm;
   document.getElementById("gallery-norm-wing").hidden = !isNorm;
+  syncFamilyPortraits();
   document.getElementById("gallery-year-field").hidden = isNorm;
   document.querySelectorAll("[data-gallery-wing]").forEach(button => {
     const active = button.dataset.galleryWing === galleryWing;
@@ -708,6 +807,7 @@ async function loadGallery() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  syncFamilyPortraits = initFamilyPortraits();
   document.querySelectorAll("[data-gallery-wing]").forEach(button => {
     button.addEventListener("click", () => selectGalleryWing(button.dataset.galleryWing, true));
   });

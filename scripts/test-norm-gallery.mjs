@@ -28,4 +28,21 @@ assert.match(html,/id="gallery-year-field"/);
 assert.match(code,/galleryWing === "norm" \? galleryNormArt : filteredEventPosters\(\)/,'Viewer remains within the selected collection and poster year');
 assert.match(code,/galleryWing !== "norm"/,'Archive loading must not overwrite Norm status');
 assert.ok(!read('index.html').toString().includes('images/norm-gallery/'),'Do not restore homepage banner');
+const family=[
+  ['01-mall-studio.webp','35136b35891c6cce98529aab173ce0cfa46f3433670a99b0d33381f56a9f8226'],
+  ['02-victorian-estate.webp','b4e2f4378487114aa3df5e8aea5f52d9b5770acd1df952838d21c1da24edebaa'],
+  ['03-holiday-card.webp','b908dd57b105f8b13847bce96237ad6ab3cb04c575b16875f1eb4bed049a73c6'],
+  ['04-airport-reunion.webp','d5632869001a6fcc86d4bf329d49c5b2e3a2110728275f1401b58a85dc9c7769'],
+  ['05-family-tree.webp','45324426fb587b62714afc876f187e93bb388e0bceb755cd2ae9682942876ce9']
+];
+const wing=html.split('id="gallery-norm-wing"')[1]?.split('id="gallery-norm-content"')[0];
+assert.match(wing,/id="family-portraits"/);
+assert.deepEqual([...wing.matchAll(/src="images\/family-portraits\/([^"/]+)"/g)].map(match=>match[1]),family.map(([file])=>file));
+for(const [file,sha] of family){
+  assert.equal(crypto.createHash('sha256').update(read('images/family-portraits/'+file)).digest('hex'),sha,'Approved Family Portrait bytes: '+file);
+}
+for(const unrelated of ['index.html','media.html','media.js','media.css']){
+  assert.doesNotMatch(read(unrelated).toString(),/family-portrait|initFamilyPortraits/i,`${unrelated} must not host the exhibit`);
+}
 console.log('PASS: Norm Gallery approved banner, all 32 portrait hashes, film mappings and isolated archive');
+console.log('PASS: five unmodified Family Portraits belong to the Norm exhibit only');
