@@ -41,6 +41,67 @@
 .gallery-norm-heading p{ margin:0; color:#c9c1b2; }
 .gallery-norm-kicker{ color:#e7c477; font-size:.72rem; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
 #gallery-norm-content{ display:grid; gap:32px; }
+
+.family-portraits{
+  box-sizing:border-box;
+  width:100%;
+  max-width:1024px;
+  margin:0 auto 32px;
+  padding:clamp(12px,3vw,24px);
+  border:1px solid #675b45;
+  border-radius:18px;
+  background:linear-gradient(180deg,#201e1b,#11141c);
+}
+
+.family-portraits h3{
+  margin:0 0 12px;
+  color:#f5ead5;
+}
+
+.family-portrait{margin:0;}
+.family-portrait img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:2 / 1;
+  border-radius:12px;
+  background:#121114;
+}
+
+.family-portrait figcaption{
+  margin:10px 0 0;
+  color:#f5ead5;
+  font-weight:700;
+}
+
+.family-portraits-controls{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px 16px;
+  margin-top:8px;
+}
+
+.family-portraits-controls[hidden]{display:none;}
+.family-portraits-position{color:#c9c1b2;}
+.family-portraits-buttons{display:flex;flex-wrap:wrap;gap:6px;}
+.family-portraits-buttons button{
+  min-height:44px;
+  padding:0 10px;
+  color:#f5ead5;
+  background:#25211a;
+  border:1px solid #675b45;
+  border-radius:8px;
+  font:inherit;
+  cursor:pointer;
+}
+.family-portraits-buttons button:hover{background:#392e1c;}
+.family-portraits-buttons button:focus-visible{
+  outline:2px solid var(--gold,#ffcd52);
+  outline-offset:2px;
+}
+
 .gallery-card.gallery-norm-banner{ width:100%; max-width:1024px; }
 .gallery-norm-banner .gallery-poster-frame,
 .gallery-norm-card .gallery-poster-frame{ aspect-ratio:auto; }
