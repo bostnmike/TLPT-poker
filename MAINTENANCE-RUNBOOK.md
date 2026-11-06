@@ -6,6 +6,20 @@ This file owns the operating procedure for TLPT's gated artifact releases.
 
 Follow [the puck photo workflow](images/pucks/README.md#required-front-photo--deep-dive-policy) for every new artifact upload. Register its Front photo in `data/marchand-photos.json`; the site uses it for both the photo gallery and Artifact Hall Deep Dive button. Preserve the standard Deep Dive button for missing, loading, or failed images. Never put photo mappings into generated statistics files.
 
+The Pages package omits the tracked image bodies under `images/pucks/` and
+`images/marchand-games/` after checking every file against
+`scripts/marchand-external-media.json`. The source checkout retains those
+files for the existing Museum audits. Public requests for those two paths
+redirect to `media.tlpt.org` with the same path and query. The existing
+Marchand image-library host continues to serve its registered files.
+
+For a new or replaced image in these directories, upload the exact bytes to
+the dedicated media bucket at its existing relative path before publishing.
+Verify the direct media URL and the legacy URL against the local byte count,
+SHA-256 and image content type. Register the verified bytes in the external
+media inventory in the same change as the source file. For replacements,
+refresh the cached URL and verify the new bytes before publishing.
+
 ## Normal weekly data update
 
 Use the established weekly/update workflow. The authoritative generated-data build sequence lives only in:
@@ -119,9 +133,10 @@ Use the manual Site Quality input `visual_repeats=3` for a three-pass stability
 rehearsal on the same source revision before merging release-process changes.
 
 The package excludes raw event imports, scripts, dependency folders, private
-app code, credentials and local/untracked files. It retains TLPT, Lily and
-Marchand public routes and assets, because these static pages still share
-one Pages deployment. Their designs and source ownership remain separate.
+app code, credentials, local/untracked files, and the separately hosted
+Marchand image bodies described above. TLPT, Lily and Marchand public pages
+and site data share one Pages deployment. Their designs and source ownership
+remain separate.
 
 ### Optional rebuy bounty intake
 

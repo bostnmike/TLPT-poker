@@ -11,6 +11,8 @@ from source_bundles import synchronize_bundles
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / ".site-release"
+MARCHAND_TRANSFER = ROOT / "scripts/marchand-external-media.json"
+MARCHAND_IMAGE_DIRS = {"pucks", "marchand-games"}
 ASSETS = {"images", "audio", "media", "fonts", "downloads", "vendor",
           "lily-site", "marchand-vault"}
 EXTENSIONS = {".html", ".css", ".js", ".json", ".png", ".jpg", ".jpeg", ".svg",
@@ -35,6 +37,29 @@ def public_path(name):
     return False
 
 
+def external_marchand_media(public_names):
+    """Validate the exact Marchand files served outside the Pages package."""
+    expected = json.loads(MARCHAND_TRANSFER.read_text())
+    candidates = set()
+    for name in public_names:
+        path = Path(name)
+        if (len(path.parts) > 2 and path.parts[0] == "images"
+                and path.parts[1] in MARCHAND_IMAGE_DIRS):
+            candidates.add(name)
+    if candidates != expected.keys():
+        unregistered = sorted(candidates - expected.keys())
+        stale = sorted(expected.keys() - candidates)
+        raise RuntimeError(f"Marchand external inventory drift. Unregistered: {unregistered}; stale: {stale}")
+    for name in sorted(candidates):
+        source = ROOT / name
+        if source.is_symlink():
+            raise RuntimeError(f"Public symlinks are not allowed: {name}")
+        body = source.read_bytes()
+        if {"bytes": len(body), "sha256": hashlib.sha256(body).hexdigest()} != expected[name]:
+            raise RuntimeError(f"Marchand external image changed without registration: {name}")
+    return candidates
+
+
 def main():
     stale_assets = synchronize_bundles(check=True)
     if stale_assets:
@@ -49,7 +74,9 @@ def main():
         shutil.rmtree(DEST)
     DEST.mkdir()
     tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode().split("\0")
-    names = sorted(n for n in tracked if n and public_path(n))
+    public_names = {n for n in tracked if n and public_path(n)}
+    external = external_marchand_media(public_names)
+    names = sorted(public_names - external)
     digest = hashlib.sha256()
     for name in names:
         source = ROOT / name
@@ -71,6 +98,7 @@ def main():
     }
     (DEST / "release.json").write_text(json.dumps(receipt, indent=2) + "\n")
     print(f"Staged {len(names)} public files; server code, raw imports and private files excluded.")
+    print(f"Excluded {len(external)} registered externally served Marchand files.")
 
 
 if __name__ == "__main__":
