@@ -5,9 +5,57 @@ const fit=async(page,selector,width,height)=>{
   const box=await page.locator(selector).boundingBox();
   assert.ok(box&&box.x>=-1&&box.y>=-1&&box.x+box.width<=width+1&&box.y+box.height<=height+1,selector+' fits '+width+'x'+height);
 };
+async function checkPosterYear(browser, viewport){
+  const page=await browser.newPage({viewport,timezoneId:'America/New_York'});
+  try {
+    const files=['fw27-01-08.jpg','fw26-12-11.jpg','fw26-10-24.jpg'];
+    await page.route('**/images/fw/gallery-manifest.json',route=>route.fulfill({json:{folder:'images/fw',files}}));
+    await page.clock.setFixedTime(new Date('2026-11-06T17:00:00Z'));
+    await page.goto(base+'/gallery.html');
+    const year=page.locator('#gallery-year-filter');
+    const trigger=page.getByRole('button',{name:/^Poster Year:/});
+    const menu=page.getByRole('listbox',{name:'Poster Year'});
+    const choose=async(label)=>{
+      await trigger.click();
+      await menu.getByRole('option',{name:label,exact:true}).click();
+    };
+    const cards=page.locator('#gallery-grid .gallery-card');
+    const upcoming=page.locator('.gallery-coming-group .gallery-card');
+    const status=page.locator('#gallery-filter-status');
+    const dates=()=>cards.locator('.gallery-card-subline').allTextContents();
+    await year.locator('option[value="2027"]').waitFor({state:'attached'});
+    assert.equal(await upcoming.count(),2,'All Years includes upcoming posters from both years');
+    await trigger.click();
+    assert.deepEqual(await menu.getByRole('option').allTextContents(),['All Years','2027','2026']);
+    await menu.getByRole('option',{name:'2027',exact:true}).click();
+    assert.deepEqual(await dates(),['January 8, 2027']);
+    assert.equal(await upcoming.count(),1,'2027 can be selected before its first event');
+    assert.equal(await status.textContent(),'1 upcoming poster');
+    await cards.first().getByRole('button').click();
+    assert.equal(await page.locator('#gallery-lightbox-prev').isDisabled(),true);
+    assert.equal(await page.locator('#gallery-lightbox-next').isDisabled(),true,'Viewer cannot step outside the selected year');
+    await page.keyboard.press('Escape');
+    await choose('2026');
+    assert.deepEqual(await dates(),['December 11, 2026','October 24, 2026']);
+    assert.equal(await status.textContent(),'1 upcoming poster · 1 archived poster on display');
+    await choose('All Years');
+    assert.equal(await cards.count(),3);
+    await page.clock.setFixedTime(new Date('2027-01-08T17:00:00Z'));
+    await page.reload();
+    await year.locator('option[value="2027"]').waitFor({state:'attached'});
+    await choose('2027');
+    assert.deepEqual(await dates(),['January 8, 2027']);
+    assert.equal(await upcoming.count(),0,'The same filter finds the poster after it rolls into the archive');
+    assert.equal(await status.textContent(),'1 archived poster on display');
+    console.log('PASS Gallery poster-year selection and rollover '+viewport.width+'px');
+  }finally{await page.close();}
+}
 (async()=>{
   const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
   try{
+    for(const viewport of [{width:1440,height:1000},{width:820,height:1000},{width:390,height:844}]){
+      await checkPosterYear(browser,viewport);
+    }
     for(const viewport of [{width:1440,height:1000},{width:820,height:1000},{width:390,height:844},{width:320,height:850},{width:320,height:568},{width:844,height:390},{width:568,height:320}]){
       const {width,height}=viewport;
       const page=await browser.newPage({viewport,reducedMotion:'reduce'});
