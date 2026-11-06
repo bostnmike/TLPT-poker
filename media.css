@@ -10,6 +10,61 @@
   color:#cbbbd8;
 }
 
+.section.family-portraits{
+  margin:0 0 22px;
+  border-color:rgba(168,85,247,.26);
+  background:linear-gradient(180deg,#191522,#11141c);
+}
+
+.family-portraits h2{
+  margin:0 0 12px;
+  color:#e9d5ff;
+}
+
+.family-portrait{margin:0;}
+.family-portrait img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:2 / 1;
+  border-radius:12px;
+  background:#100c16;
+}
+
+.family-portrait figcaption{
+  margin:10px 0 0;
+  color:#f0e4fb;
+  font-weight:700;
+}
+
+.family-portraits-controls{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px 16px;
+  margin-top:8px;
+}
+
+.family-portraits-controls[hidden]{display:none;}
+.family-portraits-position{color:#cbbbd8;}
+.family-portraits-buttons{display:flex;flex-wrap:wrap;gap:6px;}
+.family-portraits-buttons button{
+  min-height:44px;
+  padding:0 10px;
+  color:#f0e4fb;
+  background:#251932;
+  border:1px solid #73538e;
+  border-radius:8px;
+  font:inherit;
+  cursor:pointer;
+}
+.family-portraits-buttons button:hover{background:#38254b;}
+.family-portraits-buttons button:focus-visible{
+  outline:2px solid var(--gold,#ffcd52);
+  outline-offset:2px;
+}
+
 .section.media-library{
   border-color:rgba(168,85,247,.26);
   background:

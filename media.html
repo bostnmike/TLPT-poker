@@ -46,7 +46,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=5cd0123efb3e1093">
-  <link rel="stylesheet" href="media.css?v=1ed6272d35cdbbd9">
+  <link rel="stylesheet" href="media.css?v=54444c38a4c57f91">
   <link rel="stylesheet" href="site-tail.css?v=f8719564073af1ab">
   <link rel="stylesheet" href="ux-convergence.css?v=6638a46c06139cb3">
 </head>
@@ -146,6 +146,40 @@
         height="112"
         data-hide-on-error
         />
+      </div>
+    </section>
+
+    <section class="section family-portraits" id="family-portraits" aria-labelledby="family-portraits-title">
+      <h2 id="family-portraits-title">Family Portrait</h2>
+      <div class="family-portraits-stage" id="family-portraits-stage">
+        <figure class="family-portrait">
+          <img src="images/family-portraits/01-mall-studio.webp" alt="The Norms pose under blue and pink studio lasers while the referee raises a red card." width="1774" height="887" decoding="async">
+          <figcaption>1988 Mall Studio</figcaption>
+        </figure>
+        <figure class="family-portrait" hidden>
+          <img src="images/family-portraits/02-victorian-estate.webp" alt="The Norms pose in a formal oil portrait around Classic Norm’s red velvet chair." width="1774" height="887" loading="lazy" decoding="async" fetchpriority="low">
+          <figcaption>Victorian Estate</figcaption>
+        </figure>
+        <figure class="family-portrait" hidden>
+          <img src="images/family-portraits/03-holiday-card.webp" alt="The Norms gather around the fireplace with Santa, gifts and an open umbrella." width="1774" height="887" loading="lazy" decoding="async" fetchpriority="low">
+          <figcaption>Holiday Card</figcaption>
+        </figure>
+        <figure class="family-portrait" hidden>
+          <img src="images/family-portraits/04-airport-reunion.webp" alt="The Norms pose at an airport gate behind suitcases tagged NORM." width="1774" height="887" loading="lazy" decoding="async" fetchpriority="low">
+          <figcaption>Airport Reunion</figcaption>
+        </figure>
+        <figure class="family-portrait" hidden>
+          <img src="images/family-portraits/05-family-tree.webp" alt="The Norms fill a wall of gilt frames, with a red card and a rabbit reaching across the frames." width="1774" height="887" loading="lazy" decoding="async" fetchpriority="low">
+          <figcaption>Family Tree</figcaption>
+        </figure>
+      </div>
+      <div class="family-portraits-controls" hidden>
+        <span class="family-portraits-position" aria-live="off">1 of 5</span>
+        <div class="family-portraits-buttons">
+          <button type="button" data-portrait-action="previous" aria-controls="family-portraits-stage" aria-label="Previous portrait">Previous</button>
+          <button type="button" data-portrait-action="toggle" aria-controls="family-portraits-stage">Pause rotation</button>
+          <button type="button" data-portrait-action="next" aria-controls="family-portraits-stage" aria-label="Next portrait">Next</button>
+        </div>
       </div>
     </section>
 
@@ -965,7 +999,7 @@
 <!-- END TLPT GENERATED FOOTER -->
 
   <script src="site-shell.js?v=b3d8fa495a53dd44"></script>
-<script src="media.js?v=cbbe6c049edb6746"></script>
+<script src="media.js?v=84087f9e78c8a672"></script>
   
 </body>
 </html>
