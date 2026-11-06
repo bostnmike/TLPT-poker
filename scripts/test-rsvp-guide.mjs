@@ -8,14 +8,15 @@ const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const hash = file => createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex');
 const guide = read('rsvp-app.html'), home = read('index.html'), schedule = read('schedule.html');
 const app = 'https://tlpt-rsvp.tlpt-bostnmike.workers.dev/';
-assert.equal(hash('media/rsvp-app/tlpt-rsvp-install.mp4'), '217179b19e096c095659e9298b0aadd0bc4c9017d19a5caaa6ce9a33a94d5c65', 'Retain the exact approved 84-second video');
+const installId = 'KUArnlk48KQ';
 // Decoded using Apple Vision: the shared public player URL, no private or event-specific key.
 assert.equal(hash('images/site/tlpt-rsvp-qr.png'), '81b19c3eba08f627df02a9c1f187461a501bfdeb3827c853b80c2f5c8e0f937b', 'Retain the verified public QR');
 assert.ok(guide.includes('href="' + app + '"'));
-assert.doesNotMatch(guide, /commish=|Bitwarden|adminKey|autoplay/);
-assert.match(guide, /<video[^>]+controls[^>]+playsinline[^>]+preload="none"/);
-assert.match(guide, /<track kind="captions" src="media\/rsvp-app\/captions.vtt" srclang="en"/);
-assert.match(guide, /download="TLPT-RSVP-Setup.mp4"/);
+assert.doesNotMatch(guide, /commish=|Bitwarden|adminKey|[?&]autoplay=|<video\b|\.mp4|\bdownload=/);
+assert.ok(guide.includes(`id="rsvp-setup-play" href="https://www.youtube.com/watch?v=${installId}"`));
+assert.match(guide, /<template id="rsvp-setup-embed">\s*<iframe src="https:\/\/www\.youtube\.com\/embed\/KUArnlk48KQ\?playsinline=1"[^>]*title="TLPT RSVP setup video"[^>]*allowfullscreen><\/iframe>\s*<\/template>/);
+assert.match(guide, /<script src="rsvp-app-player\.js\?v=[a-f0-9]{16}"><\/script>/);
+assert.match(guide, /Watch on YouTube/);
 assert.match(guide, /media\/rsvp-app\/poster.jpg/);
 assert.match(guide, /Add <strong>that app<\/strong> to your Home Screen—not this guide/);
 assert.match(guide, /Internet is needed/);
@@ -52,8 +53,16 @@ assert.match(schedule, /class="rsvp-campaign-chip" src="images\/site\/chip-T-100
 assert.match(schedule, /Get the Yellow Chip/);
 for (const html of [home, schedule]) assert.doesNotMatch(html, /The TLPT RSVP campaign/i);
 assert.ok(read('sitemap.xml').includes('https://tlpt.org/rsvp-app.html'));
-// Preserve approved originals; Film Room playback now uses the owner's YouTube uploads.
+// Only the approved public covers/captions are kept locally; playback uses the owner's YouTube uploads.
 const filmRoom = read('media.html');
+assert.ok(filmRoom.split('id="rsvp-installation"')[1]?.split('<div class="media-card"')[0]?.includes(`/embed/${installId}?playsinline=1`), 'Film Room and setup guide use the same upload');
+for (const file of ['media/rsvp-app/tlpt-rsvp-install.mp4', ...[
+  'bad-beat-hotline', 'calling-the-clock', 'dont-be-a-donkey', 'never-miss-a-game',
+  'no-empty-chairs', 'the-games-afoot', 'weather-forecast'
+].map(slug => `media/rsvp-film-room/${slug}.mp4`)]) {
+  assert.ok(!fs.existsSync(path.join(root, file)), `Retired local video must not ship: ${file}`);
+  assert.ok(!filmRoom.includes(file), `Film Room must not reference retired video: ${file}`);
+}
 assert.doesNotMatch(filmRoom, /ltIT_DGiEEs/, 'Superseded hockey upload must not return');
 assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload must not return');
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
@@ -83,25 +92,18 @@ for (const [file, expected] of Object.entries({
   'day-to-day-thumbnail.jpg':'a065f55697f6cec840d511928b1422701f7ceb18698df4df6085a2bd7e1ddb82',
   'the-elusive-rsvp-thumbnail.jpg':'1fc2f84e2755e81aef3143e3e8bca2f7cb06a215b236a9e94cd8bc883478e205',
   'rsvp-referee-thumbnail.jpg':'4f2d516b6637390954dadd09361186beb1491c9058b0b5ff6b082ee4db2be922',
-  'calling-the-clock.mp4':'3be424078220a1f3dea69b6ad1a2f1c99a69468592f07b255717e5fad13ec793',
   'calling-the-clock-thumbnail.jpg':'ba3ef9f87c02474bf68a84f7448e41aad0de65834f39a8bd526910ddcb9886f5',
   'calling-the-clock-captions.vtt':'165011cb2cb753cd420bd117b79268d42da0e73c3e3926a56d6c524b9ad0b3fc',
-  'the-games-afoot.mp4':'0f5fd283dbdb7abd9401a452eb522ea6991a3f41419f905892185e27f3002150',
   'the-games-afoot-thumbnail.jpg':'6f57930f24c12be883d3e4f1f351443cb18523c2fda4aa5cff9bc6ac5d8dd2a0',
   'the-games-afoot-captions.vtt':'379d80598278a7a2ccf9fd3bd48e98c7b364564e73c1d2483420f53ec0708e1d',
-  'bad-beat-hotline.mp4':'0b0b6600c8fdb32333ab97aaa4defcbf8aceb323eb79b0f15f274356389163a0',
   'bad-beat-hotline-thumbnail.jpg':'f21122443ee6574ef68d3fb86c04436b8e6a2ddbfeb08cc6de14b0e9fcc56d21',
   'bad-beat-hotline-captions.vtt':'cff4ca0a0a5ae1bd4422d98ac05a14b349105e80afcb02754c7d87bef03c9c24',
-  'weather-forecast.mp4':'9271e686cf3c775bb5414a15874d6fad8d26f9e85e7aa3075557c2faa1af79e9',
   'weather-forecast-thumbnail.jpg':'6693e1484b91805e95bc9d9de936e96560614a77c38adb39a6a1babf48d2f50d',
   'weather-forecast-captions.vtt':'6ed7755a13a6d86b8421c3b43752e7aef8ad12929b032a46d3b378cd2e8ac113',
-  'no-empty-chairs.mp4':'c17e8b16f01388a3922b961f6475858f2207353043f9c0de15e26caf78ec1b15',
   'no-empty-chairs-thumbnail.jpg':'cf2bcff46878d0cd7fa5ba2da7101742516a7c0b688861b023ef853e022c3952',
   'no-empty-chairs-captions.vtt':'69ff03f8ff55684b6a8eb22070dec8fa1ea96881f21053b7acfb030d85214a7c',
-  'never-miss-a-game.mp4':'68bcc0139f3ee7fca69b6309f32e28fe836925a0e90d415d7aabdbecca99b0bc',
   'notifications-thumbnail.jpg':'912125ef5ebac232c25d6610e4a103a21e82806e7e3fe80e6393642c70b0d616',
   'notifications-captions.vtt':'8e2e8868310c066a862af13f3e019edd3420d0516a12ced8808ebd3972299966',
-  'dont-be-a-donkey.mp4':'c62e33c48b720798d3fed4f54c50c8662e9eeb1485fadd33db41239fa44ed742',
   'commercial-thumbnail.jpg':'12dc0b0cea1fcf82aa1746b742494c2f622e6d97ffda86fc971d3296a036988a',
   'install-thumbnail.jpg':'f627c03329e9b6364cdc0e3ae47011b7f3b71efc4cb4032335413dd6d6d0a29e',
   'commercial-captions.vtt':'0aedb2c845d82c2f13ba6530c62bef89da8625ab85f1d6e336e8cf8e3458fed5',

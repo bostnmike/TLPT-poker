@@ -307,19 +307,21 @@ navigation and never start playback automatically.
 The guide uses the standard TLPT header, hero, yellow chip, buttons and footer;
 its scoped layout places the QR and portrait video side by side above 700px.
 
-Approved media lives in `media/rsvp-app/`: the exact reviewed 83.75-second MP4,
-poster and WebVTT captions converted from the final paced narration SRT. Originals
-remain in `output/video/tlpt-rsvp-install/paced/` outside the site repository.
-Do not substitute older cuts. Playback is user-initiated with `preload="none"`,
-native controls and inline/fullscreen support; captions and an MP4 download are available.
+The guide uses the approved `KUArnlk48KQ` YouTube upload, also shown in the Film
+Room. The local portrait poster remains; the embedded player is created only
+after activation and supports inline/fullscreen playback. A direct YouTube
+link and written setup instructions remain available. The install MP4 and seven
+older Film Room MP4s are no longer published or tracked in the current tree.
+The reviewed install master remains in `output/video/tlpt-rsvp-install/paced/`
+outside the site repository; the retired files remain recoverable from Git history.
 
 `images/site/tlpt-rsvp-qr.png` was decoded to
 `https://tlpt-rsvp.tlpt-bostnmike.workers.dev/`. The QR, direct buttons and written
 instructions must use the public player root, never a Commish or event-specific link.
 The guide is not itself the installable app. Installation remains optional, and live
 lineups and saving replies require internet. Changes here do not deploy the RSVP Worker.
-`scripts/test-rsvp-guide.mjs` locks approved media, QR, caption timing and link placement;
-`scripts/test-rsvp-guide-browser.cjs` checks playback and responsive layout.
+`scripts/test-rsvp-guide.mjs` locks the approved embed, retained media, QR, caption timing and link placement;
+`scripts/test-rsvp-guide-browser.cjs` checks click-to-load, keyboard access and responsive layout.
 
 The owner removed “The Many Faces of Norm” from the homepage on 2026-10-31.
 The games section follows the hero directly, without an empty banner wrapper
@@ -339,8 +341,8 @@ The Film Room has thirty-two RSVP YouTube embeds, plus its nine original embedde
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
-Their exact supplied MP4s, matching production thumbnails and optional captions
-live in `media/rsvp-film-room/`; preserve those bytes. The approved hockey Norm
+Their matching production thumbnails and optional captions remain in
+`media/rsvp-film-room/`; keep the originals outside the public package. The approved hockey Norm
 commercial “Day to Day” uses YouTube `rzKNK2yiu-I` (owner-corrected upload; do not
 restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 `day-to-day-thumbnail.jpg`, handed off from the `clean-patch-tooth-preview`
