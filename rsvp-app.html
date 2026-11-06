@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="style.css?v=5cd0123efb3e1093" />
   <link rel="stylesheet" href="site-tail.css?v=f8719564073af1ab" />
   <link rel="stylesheet" href="ux-convergence.css?v=6638a46c06139cb3" />
-  <link rel="stylesheet" href="rsvp-app.css?v=8e5bcd138eb8c0f7" />
+  <link rel="stylesheet" href="rsvp-app.css?v=354c26d068410ace" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -164,14 +164,18 @@
       </div>
       <div class="rsvp-video-panel">
         <h2 id="rsvp-video-title">Watch the 84-second setup</h2>
-        <p class="muted">iPhone, iPad &amp; Android · captions available</p>
-        <video id="rsvp-install-video" controls playsinline preload="none" poster="media/rsvp-app/poster.jpg" width="1080" height="1920" aria-labelledby="rsvp-video-title" aria-describedby="rsvp-video-note">
-          <source src="media/rsvp-app/tlpt-rsvp-install.mp4" type="video/mp4" />
-          <track kind="captions" src="media/rsvp-app/captions.vtt" srclang="en" label="English" />
-          Your browser cannot play this video. Use the download link below or the written steps.
-        </video>
+        <p class="muted">iPhone, iPad &amp; Android</p>
+        <div class="rsvp-setup-player">
+          <a class="rsvp-setup-poster" id="rsvp-setup-play" href="https://www.youtube.com/watch?v=KUArnlk48KQ" aria-label="Play the TLPT RSVP setup video" aria-describedby="rsvp-video-note">
+            <img src="media/rsvp-app/poster.jpg" width="1080" height="1920" alt="" decoding="async" />
+            <span class="rsvp-setup-play-icon" aria-hidden="true"></span>
+          </a>
+          <template id="rsvp-setup-embed">
+            <iframe src="https://www.youtube.com/embed/KUArnlk48KQ?playsinline=1" title="TLPT RSVP setup video" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+          </template>
+        </div>
         <div class="rsvp-video-actions">
-          <a class="btn" href="media/rsvp-app/tlpt-rsvp-install.mp4" download="TLPT-RSVP-Setup.mp4">Download video · 6.4 MB</a>
+          <a class="btn" href="https://www.youtube.com/watch?v=KUArnlk48KQ" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a>
         </div>
         <p id="rsvp-video-note" class="muted rsvp-setup-note">Illustrated phone menus; labels may vary by device. You’ll confirm installation on your own phone.</p>
       </div>
@@ -222,5 +226,6 @@
 <!-- END TLPT GENERATED FOOTER -->
   
   <script src="site-shell.js?v=b3d8fa495a53dd44"></script>
+  <script src="rsvp-app-player.js?v=8b443f455699b3aa"></script>
 </body>
 </html>

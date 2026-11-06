@@ -13,17 +13,20 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.route('https://www.youtube.com/embed/**', route => route.fulfill({
         contentType:'text/html', body:'<!doctype html><title>YouTube frame fixture</title>'
       }));
-      const errors = [], videoRequests = [];
+      const errors = [], videoRequests = [], youtubeRequests = [];
       page.on('pageerror', error => errors.push(error.message));
       page.on('request', request => { if(request.url().includes('tlpt-rsvp-install.mp4')) videoRequests.push(request.url()); });
+      page.on('request', request => { if(request.url().startsWith('https://www.youtube.com/embed/')) youtubeRequests.push(request.url()); });
       await page.goto(base + '/rsvp-app.html');
       await page.evaluate(() => document.fonts.ready);
-      assert.equal(videoRequests.length, 0, 'Video must not download before user playback');
+      assert.equal(youtubeRequests.length, 0, 'No YouTube frame request before user playback');
+      assert.equal(await page.locator('.rsvp-setup-player iframe').count(), 0);
       assert.equal(await page.title(), 'RSVP App | TLPT.org');
       assert.equal(await page.locator('.nav').count(), 1);
       assert.equal(await page.locator('.site-footer').count(), 1);
       const qr = await page.locator('.rsvp-qr').boundingBox();
-      const video = await page.locator('video').boundingBox();
+      const video = await page.locator('.rsvp-setup-player').boundingBox();
+      assert.ok(video.width >= 200 && video.height >= 200, 'YouTube player meets minimum viewport size');
       if (width > 700) assert.ok(video.x > qr.x + qr.width, 'QR and video must be side by side');
       else assert.ok(video.y > qr.y + qr.height, 'Video must stack below QR on mobile');
       assert.ok(Math.abs(video.width / video.height - 9 / 16) < .01, 'Preserve portrait ratio');
@@ -35,23 +38,21 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.locator('summary').filter({ hasText:'Android' }).focus();
       await page.keyboard.press('Enter');
       assert.equal(await page.locator('.rsvp-phone-guides details').last().getAttribute('open'), '');
-      // Isolated headless playback only; never submit an RSVP or open a private link.
-      await page.locator('video').evaluate(async video => {
-        video.muted = true;
-        video.textTracks[0].mode = 'showing';
-        await video.play();
-      });
-      await page.waitForFunction(() => document.querySelector('video').currentTime > .25);
-      await page.waitForFunction(() => document.querySelector('track').track.cues?.length === 14);
-      const media = await page.locator('video').evaluate(v => ({duration:v.duration,width:v.videoWidth,height:v.videoHeight,error:v.error?.message}));
-      assert.ok(Math.abs(media.duration - 83.75) < .15);
-      assert.equal(media.width, 1080);
-      assert.equal(media.height, 1920);
-      assert.equal(media.error, undefined);
-      await page.locator('video').evaluate(v => { v.pause(); });
-      const [download] = await Promise.all([page.waitForEvent('download'), page.locator('[download]').click()]);
-      assert.equal(download.suggestedFilename(), 'TLPT-RSVP-Setup.mp4');
-      assert.equal(await download.failure(), null);
+      const watchUrl = 'https://www.youtube.com/watch?v=KUArnlk48KQ';
+      const play = page.getByRole('link', {name:'Play the TLPT RSVP setup video'});
+      assert.equal(await play.getAttribute('href'), watchUrl);
+      assert.equal(await page.getByRole('link', {name:'Watch on YouTube'}).getAttribute('href'), watchUrl);
+      await play.focus();
+      const embedUrl = 'https://www.youtube.com/embed/KUArnlk48KQ?playsinline=1&autoplay=1';
+      const [embed] = await Promise.all([page.waitForRequest(embedUrl), page.keyboard.press('Enter')]);
+      assert.equal(embed.url(), embedUrl, 'Only the approved upload loads on explicit activation');
+      const frame = page.locator('.rsvp-setup-player iframe');
+      assert.equal(await frame.getAttribute('title'), 'TLPT RSVP setup video');
+      assert.equal(await frame.getAttribute('allowfullscreen'), '');
+      const framed = await frame.boundingBox();
+      assert.ok(Math.abs(framed.width / framed.height - 9 / 16) < .01, 'The embedded player retains its portrait layout');
+      assert.equal(await page.locator('video, [download]').count(), 0, 'No local player or download link');
+      assert.equal(videoRequests.length, 0, 'No site-hosted installation MP4 is fetched');
       await page.goto(base + '/index.html');
       await page.waitForFunction(() => document.querySelector('#home-snapshot-grid')?.children.length > 0);
       await page.evaluate(() => document.fonts.ready);
@@ -170,7 +171,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: guide playback/captions/download, home links, Schedule link and all thirty-two RSVP YouTube embed mappings/layouts');
+      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-two Film Room RSVP YouTube mappings');
       await page.close();
     }
   } finally { await browser.close(); }
