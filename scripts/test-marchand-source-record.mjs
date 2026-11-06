@@ -82,7 +82,7 @@ for (const record of records) {
     if (field) assert.equal(field.value, record[name], `${record.key}: ${label} differs between listing and database detail`);
   }
   if (record.authenticationType === 'Digital COA / Hologram') {
-    assert.match(record.authenticationNotes, /digital COA/, record.key);
+    assert.match(record.authenticationNotes, /digital COA|digital authentication tag/, record.key);
     assert.match(record.authenticationEvidence, /\/(back|edge-0[14])\.(?:webp|png|jpe?g)/, record.key);
   }
 }

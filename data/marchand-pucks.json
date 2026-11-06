@@ -29,25 +29,14 @@
       "scope": "Add owner-approved May6,2022 playoff goal as49 using a fresh physical namespace; all169 unrelated existing record objects preserved."
     },
     "latestCanonicalUpdate": {
-      "revision": "Canonical-Database-Hygiene-20261020-v20-ViewSave1",
-      "sourceSha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
-      "handoff": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Effective-Handoff.json",
-        "sha256": "1bb425c86f6280e182f2458c56b9903a10a5bc395fe80d3e64d6676188561ff4",
-        "bytes": 14736
-      },
-      "records": 172,
-      "scope": "31 Home/Road fills; five scoring enrichments; explicit stat bases/strength/GWG/OT/scorer/game/event IDs; physical venue aliases. All other curated source exceptions retained.",
-      "sourceSaveEquivalence": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Equivalence-QA.json",
-        "sha256": "9d5c462a4bad358c2fea6660d824118267c884304f9ab842d36f990741f30a27",
-        "bytes": 2967
-      },
-      "atBuildCanonicalHandoff": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Handoff.json",
-        "sha256": "bff9c979ee2bb78cf377c7588678736e674a9d6a85a45061850b27a06c509689",
-        "bytes": 12418
-      }
+      "date": "2026-11-06",
+      "inventoryIds": [
+        64
+      ],
+      "sourceSha256": "9a7223be0d9e906645d4bc37f2daef222786c100a6745022ae3adf4adb88147e",
+      "wordSha256": "7f8d710b3deaeb3c6109376ecf1592612d145d96abdf8ceac105575ed68463ee",
+      "wordChanged": true,
+      "scope": "Six Artifact 64 physical views and the LA Kings Game-Used digital authentication route."
     },
     "canonicalUpdateHistory": [
       {
@@ -156,16 +145,16 @@
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
+    "currentCanonicalMasterSha256": "9a7223be0d9e906645d4bc37f2daef222786c100a6745022ae3adf4adb88147e",
     "currentCanonicalMaster": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
-      "bytes": 312972,
+      "bytes": 327560,
+      "sha256": "9a7223be0d9e906645d4bc37f2daef222786c100a6745022ae3adf4adb88147e",
       "nativeExcelAppTest": "PASS",
       "nativeExcelVerificationReceipt": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Native-Excel-Current-Save-Verification.json",
-        "sha256": "bffd5528d43dd840301873e8eb41a834a99aa4b3dd928040fe9062040e081b5a",
-        "bytes": 1136
+        "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/artifact64-canonical-intake-20261106/qa/Native-Saved-QA.json",
+        "bytes": 3075,
+        "sha256": "c23936154913788ec5650b1aaa8f111bfdb00221112e1cb6490b5ea86c4a8c27"
       }
     },
     "nativeExcelCompletionReceipt": {
@@ -884,6 +873,41 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Canonical-Source-Bindings.json",
       "sha256": "e2a1bfbeda9b5d903081cb2b1309ac625fa05c35dd71c358a57c134213294bf1",
       "bytes": 607156
+    },
+    "historicalCanonicalMetadataBeforeArtifact64": {
+      "currentCanonicalMasterSha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
+      "currentCanonicalMaster": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
+        "bytes": 312972,
+        "nativeExcelAppTest": "PASS",
+        "nativeExcelVerificationReceipt": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Native-Excel-Current-Save-Verification.json",
+          "sha256": "bffd5528d43dd840301873e8eb41a834a99aa4b3dd928040fe9062040e081b5a",
+          "bytes": 1136
+        }
+      },
+      "latestCanonicalUpdate": {
+        "revision": "Canonical-Database-Hygiene-20261020-v20-ViewSave1",
+        "sourceSha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
+        "handoff": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Effective-Handoff.json",
+          "sha256": "1bb425c86f6280e182f2458c56b9903a10a5bc395fe80d3e64d6676188561ff4",
+          "bytes": 14736
+        },
+        "records": 172,
+        "scope": "31 Home/Road fills; five scoring enrichments; explicit stat bases/strength/GWG/OT/scorer/game/event IDs; physical venue aliases. All other curated source exceptions retained.",
+        "sourceSaveEquivalence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Equivalence-QA.json",
+          "sha256": "9d5c462a4bad358c2fea6660d824118267c884304f9ab842d36f990741f30a27",
+          "bytes": 2967
+        },
+        "atBuildCanonicalHandoff": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Handoff.json",
+          "sha256": "bff9c979ee2bb78cf377c7588678736e674a9d6a85a45061850b27a06c509689",
+          "bytes": 12418
+        }
+      }
     }
   },
   "records": [
@@ -17474,7 +17498,7 @@
       "videoUrl": "https://www.nhl.com/video/fla-lak-marchand-scores-goal-against-anton-forsberg-6384776227112",
       "videoProvider": "nhl",
       "videoId": "6384776227112",
-      "notes": "",
+      "notes": "Owner photos received November 6, 2026 document the front, back and four edge views. The Kings tape reads DATE 11-6-25, VS FLORIDA, PERIOD 3, TEAM FLORIDA, GOAL 63 and ASSIST 77. The VS field is consistent with the host Kings’ perspective. The NHL game summary confirms Florida visited Los Angeles and Brad Marchand scored at 12:36 of the third period with Niko Mikkola assisting. Source: https://www.nhl.com/scores/htmlreports/20252026/GS020226.HTM",
       "game": null,
       "wins": null,
       "losses": null,
@@ -17570,7 +17594,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Owner photos received November 6, 2026 document the front, back and four edge views. The Kings tape reads DATE 11-6-25, VS FLORIDA, PERIOD 3, TEAM FLORIDA, GOAL 63 and ASSIST 77. The VS field is consistent with the host Kings’ perspective. The NHL game summary confirms Florida visited Los Angeles and Brad Marchand scored at 12:36 of the third period with Niko Mikkola assisting. Source: https://www.nhl.com/scores/htmlreports/20252026/GS020226.HTM",
           "url": ""
         },
         {
@@ -17580,17 +17604,17 @@
         },
         {
           "label": "Front Image Filename",
-          "value": "",
+          "value": "images/pucks/64/front.webp",
           "url": ""
         },
         {
           "label": "Back Image Filename",
-          "value": "",
+          "value": "images/pucks/64/back.webp",
           "url": ""
         },
         {
           "label": "Detail Image Filenames",
-          "value": "",
+          "value": "images/pucks/64/edge-01.webp; images/pucks/64/edge-02.webp; images/pucks/64/edge-03.webp; images/pucks/64/edge-04.webp",
           "url": ""
         },
         {
@@ -17600,33 +17624,33 @@
         },
         {
           "label": "Authentication Type",
-          "value": "Not Yet Documented",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "",
+          "value": "images/pucks/64/back.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "Puck photos pending.",
+          "value": "The puck back shows the LA Kings Game-Used digital authentication tag. Data Matrix identifier 8e1064f1 decodes from the original and processed full-back photos. The issuer link provides app scan instructions. An issuer-returned item record has not been verified. No separate certificate image was supplied.",
           "url": ""
         },
         {
           "label": "Authentication Issuer",
-          "value": "",
+          "value": "LA Kings Game-Used",
           "url": ""
         },
         {
           "label": "Hologram Number",
-          "value": "",
+          "value": "8e1064f1",
           "url": ""
         },
         {
           "label": "Authentication Record URL",
-          "value": "",
-          "url": ""
+          "value": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise",
+          "url": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise"
         },
         {
           "label": "Additional Authentication Issuer",
@@ -17645,7 +17669,7 @@
         },
         {
           "label": "Authentication Lookup Instructions",
-          "value": "",
+          "value": "Open the LA Kings Game-Used Authentication app and scan the label shown on the puck’s back.",
           "url": ""
         },
         {
@@ -17690,16 +17714,16 @@
         }
       ],
       "goalieScoredAgainst": "Anton Forsberg",
-      "authenticationType": "Not Yet Documented",
-      "authenticationEvidence": "",
-      "authenticationNotes": "Puck photos pending.",
-      "authenticationIssuer": "",
-      "authenticationSerial": "",
-      "authenticationRecordUrl": "",
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/64/back.webp",
+      "authenticationNotes": "The puck back shows the LA Kings Game-Used digital authentication tag. Data Matrix identifier 8e1064f1 decodes from the original and processed full-back photos. The issuer link provides app scan instructions. An issuer-returned item record has not been verified. No separate certificate image was supplied.",
+      "authenticationIssuer": "LA Kings Game-Used",
+      "authenticationSerial": "8e1064f1",
+      "authenticationRecordUrl": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise",
       "authenticationAlternateIssuer": "",
       "authenticationAlternateSerial": "",
       "authenticationAlternateRecordUrl": "",
-      "authenticationLookupInstructions": "",
+      "authenticationLookupInstructions": "Open the LA Kings Game-Used Authentication app and scan the label shown on the puck’s back.",
       "careerStatBasis": "NHL regular-season goals",
       "seasonStatBasis": "NHL regular-season goals",
       "goalStrength": "ESG",
@@ -17709,7 +17733,8 @@
       "gameWinningGoal": false,
       "overtimeGoal": false,
       "venueKey": "VEN012",
-      "venueName": "Crypto.com Arena"
+      "venueName": "Crypto.com Arena",
+      "publicNotes": "The Kings’ tape lists Florida in the VS field, consistent with the Kings as the home team. Florida scored at 12:36 of the third period, with Brad Marchand (#63) on the goal and Niko Mikkola (#77) on the assist."
     },
     {
       "key": "goal-65",

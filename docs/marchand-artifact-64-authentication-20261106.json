@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-06",
+  "records": [
+    {
+      "inventoryId": 64,
+      "entries": [
+        {
+          "issuer": "LA Kings Game-Used",
+          "serial": "8e1064f1",
+          "url": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise",
+          "mode": "issuer-app-scan"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "LA Kings Game-Used",
+        "Hologram Number": "8e1064f1",
+        "Authentication Record URL": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Open the LA Kings Game-Used Authentication app and scan the label shown on the puck’s back."
+      },
+      "verification": "Data Matrix decoded from the original and published back photograph. Official issuer app instructions checked. No individual issuer result verified."
+    }
+  ]
+}

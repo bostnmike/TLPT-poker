@@ -17,8 +17,6 @@ const gamePhotoFor = (id) => {
   return mapping ? gamePhotoManifest.assets[mapping.assetId] : null;
 };
 const registeredPhotos = structuredClone(photoManifest.artifacts);
-const noPhotoId = payload.records.find((record) => !registeredPhotos[String(record.inventoryId)])?.inventoryId;
-assert.ok(noPhotoId, "a no-photo artifact is needed to test the standard fallback");
 // Simulate a future upload, with Front intentionally not first.
 photoManifest.artifacts["1"] = [{ label: "Back", url: "future-back.png" }, { label: "Front", url: "future-front.png" }];
 photoManifest.artifacts["2"] = [{ label: "Back", url: "only-back.png" }];
@@ -168,10 +166,8 @@ for (const [id, expectedUrl] of frontPhotos) {
   button.click();
   assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`, "fallback must remain clickable");
 }
-for (const id of [2, noPhotoId]) {
-  const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
-  assert.equal(button.children.some((child) => child.tag === "img"), false, "no Front photo means the standard Deep Dive button");
-}
+const backOnlyButton = rows().find((row) => Number(row.children[0].textContent) === 2).children[1].children[0];
+assert.equal(backOnlyButton.children.some((child) => child.tag === "img"), false, "no Front photo means the standard Deep Dive button");
 for (const [id, physicalPhotos] of Object.entries(registeredPhotos).filter(([id]) => !["1", "2"].includes(id))) {
   const reference = gamePhotoFor(id);
   const photos = [...physicalPhotos, ...(reference ? [reference] : [])];
@@ -226,14 +222,22 @@ assert.notEqual(element('artifact-puck-image').src, 'stale-withheld-game.webp');
 assert.equal(element('artifact-game-photo-credit').hidden, true);
 gamePhotoManifest.assets[withheldMapping.assetId] = savedSelectedAsset;
 withheldMapping.displaySelected = true;
+// Simulate unavailable media without requiring a gap in the published catalog.
+const noPhotoId = 64;
 const noPhotoKey = payload.records.find((r) => r.inventoryId === noPhotoId).key;
+const savedPhysicalPhotos = photoManifest.artifacts[noPhotoId];
 const savedReference = gamePhotoManifest.artifacts[noPhotoKey];
+delete photoManifest.artifacts[noPhotoId];
 delete gamePhotoManifest.artifacts[noPhotoKey];
-rows().find((entry) => Number(entry.children[0].textContent) === noPhotoId).children[1].children[0].click();
+element("clear-filters").click();
+const noPhotoButton = rows().find((entry) => Number(entry.children[0].textContent) === noPhotoId).children[1].children[0];
+assert.equal(noPhotoButton.children.some((child) => child.tag === "img"), false, "no photo means the standard Deep Dive button");
+noPhotoButton.click();
 assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
 assert.equal(element("artifact-game-photo-credit").hidden, true);
 gamePhotoManifest.artifacts[noPhotoKey] = savedReference;
+photoManifest.artifacts[noPhotoId] = savedPhysicalPhotos;
 assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 7);
 assert.equal(rows().length, 172);
@@ -452,7 +456,7 @@ sortButtons.find((button) => button.dataset.sort === "inventoryId").click();
 assert.equal(shownIds().at(-1), 509, "ID order must change the browsing sequence");
 checkNavigation();
 element("clear-filters").click();
-checkNavigation(); // Includes no-photo and back-only destinations as well as front-not-first ordering.
+checkNavigation(); // Includes back-only destinations and front-not-first ordering.
 change("team-filter", "Canada");
 assert.equal(rows().length, 1);
 checkNavigation();
