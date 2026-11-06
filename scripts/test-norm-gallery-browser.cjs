@@ -24,8 +24,8 @@ const fit=async(page,selector,width,height)=>{
       assert.equal(await page.locator('#gallery-poster-wing').isVisible(),false);
       assert.equal(await page.locator('#gallery-year-field').isVisible(),false);
       assert.equal(await normButton.getAttribute('aria-pressed'),'true');
-      assert.equal(await page.locator('.gallery-norm-card').count(),32);
-      assert.match(await page.locator('#gallery-filter-status').innerText(),/32 portrait covers/);
+      assert.equal(await page.locator('.gallery-norm-card').count(),33);
+      assert.match(await page.locator('#gallery-filter-status').innerText(),/33 portrait covers/);
       const banner=page.locator('.gallery-norm-banner');
       const portrait=page.locator('.gallery-norm-card').first();
       await banner.locator('img').evaluate(img=>img.decode());
@@ -55,12 +55,12 @@ const fit=async(page,selector,width,height)=>{
       await page.screenshot({path:'/tmp/norm-gallery-wide-viewer-'+width+'x'+height+'.png'});
       await page.keyboard.press('ArrowRight');
       await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
-      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'One Seat Available');
-      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#one-seat-available');
+      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Going Once…');
+      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#going-once');
       for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
       await page.screenshot({path:'/tmp/norm-gallery-portrait-viewer-'+width+'x'+height+'.png'});
       // Every title must fit, including the longest cancellation captions.
-      for(let posterIndex=2;posterIndex<=32;posterIndex++){
+      for(let posterIndex=2;posterIndex<=33;posterIndex++){
         await page.keyboard.press('ArrowRight');
         await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
         for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
@@ -92,7 +92,7 @@ const fit=async(page,selector,width,height)=>{
     await page.locator('[data-norm-gallery-retry]').waitFor();
     fail=false;await page.locator('[data-norm-gallery-retry]').click();
     await page.locator('.gallery-norm-card').last().waitFor();
-    assert.equal(await page.locator('.gallery-norm-card').count(),32,'Failed request can recover');
+    assert.equal(await page.locator('.gallery-norm-card').count(),33,'Failed request can recover');
     console.log('PASS Norm Gallery retry recovery');
   }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

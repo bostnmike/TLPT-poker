@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "going-once",
+      "src": "images/norm-gallery/going-once.jpg",
+      "sha256": "83bc7fd869c8ababec29c85978024723abdbf9bc2ba10f3cf614efd8877e3ff0",
+      "width": 1080,
+      "height": 1920,
+      "title": "Going Once…",
+      "filmHref": "media.html#going-once",
+      "youtubeId": "liEHKJxCHV0"
+    },
+    {
       "id": "one-seat-available",
       "src": "images/norm-gallery/one-seat-available.jpg",
       "sha256": "80b5bfe53acb5616517df1eac4b4ebd7e99e0ad0dd63c3f42111f8ec645796e3",

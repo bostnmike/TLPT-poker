@@ -335,7 +335,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has thirty-two RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has thirty-three RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -470,6 +470,13 @@ playlist and the unmodified landscape and portrait artwork in
 They are evergreen films; their RSVP screens use example data. The site embeds
 YouTube and does not host additional MP4s or add schedule/registration controls.
 
+“Going Once…” (`liEHKJxCHV0`, `media.html#going-once`) uses the approved
+16.8-second Cougar-and-gavel master in
+`output/video/tlpt-going-once/cougar-gavel-v4/` (SHA-256
+`05500793cfc5b74ef296c5f1c83646c335812e947797239ff3a105ac678cab67`).
+The Film Room and Gallery use the existing cover composition with the final
+frontal auctioneer art from `release-art/`. No native MP4 is published.
+
 ### The Many Faces of Norm Gallery wing
 
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
@@ -477,7 +484,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 32 approved 9:16 portrait
+`data/gallery-norm.json` owns the wide ensemble image and 33 approved 9:16 portrait
 covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
 from November 1, not an older eleven-character image or a cropped panorama.
 Its native 2:1 composition is preserved. All portrait artwork retains its original
@@ -492,7 +499,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 32 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 33 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

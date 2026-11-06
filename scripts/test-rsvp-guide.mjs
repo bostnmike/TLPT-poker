@@ -59,6 +59,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'going-once-thumbnail.jpg':'a1f92379d75b5469f22a73b3352808ba3791160133770075ccf651b4f240961b',
   'one-seat-available-thumbnail.jpg':'c28f682de480bedc240a6c912758500a42a61a83d06a5515276e54ef9644b45a',
   'the-courtesy-fold-thumbnail.jpg':'6341a7602f264603c02819767eaf23b74713fb41ecb22afe0a542ce8c46c6d4a',
   'earlier-start-thumbnail.jpg':'b55032eae5c0db2b62a15d2d0fc61b3e65c02f36b80575cceb2fef9fe72932cc',
@@ -109,6 +110,7 @@ for (const [file, expected] of Object.entries({
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 for (const [id, title] of [
+  ['going-once', '🔨 Going Once…'],
   ['one-seat-available', '🪑 One Seat Available'],
   ['the-courtesy-fold', '🃏 The Courtesy Fold'],
   ['earlier-start', '⏰ Earlier Start'],
@@ -155,6 +157,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['going-once','liEHKJxCHV0'],
   ['one-seat-available','ep08DkRP3gw'],
   ['the-courtesy-fold','45e1e-1290I'],
   ['earlier-start','ervb9fx_0oc'],
@@ -208,7 +211,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 40, 'Thirty-two RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 41, 'Thirty-three RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
