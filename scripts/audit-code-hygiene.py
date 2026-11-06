@@ -2552,11 +2552,11 @@ def audit_javascript(path: Path) -> list[str]:
                 "Gallery year groups must identify the single lead poster"
             )
         if (
-            'const leadPosterSource = galleryPosters[0]?.src || "";' not in text
+            'const leadPosterSource = matchingPosters[0]?.src || "";' not in text
             or "createYearGroup(year, posters, leadPosterSource)" not in text
         ):
             errors.append(
-                "Gallery rendering must pass the newest poster as its lead image"
+                "Gallery rendering must pass the first matching poster as its lead image"
             )
         winner_source = function_source("buildGalleryWinnerBadgesMarkup")
         for fragment in (

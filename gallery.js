@@ -25,8 +25,14 @@ let galleryWing = "posters";
 let galleryNormArt = [];
 let galleryNormLoad = null;
 
+function filteredEventPosters() {
+  return galleryYearFilter === "all"
+    ? galleryPosters
+    : galleryPosters.filter(poster => poster.date.slice(0, 4) === galleryYearFilter);
+}
+
 function galleryViewerItems() {
-  return galleryWing === "norm" ? galleryNormArt : galleryPosters;
+  return galleryWing === "norm" ? galleryNormArt : filteredEventPosters();
 }
 
 function createNormArtworkCard(art, isBanner = false) {
@@ -544,14 +550,12 @@ function renderGalleryCollection() {
   const status = document.getElementById("gallery-filter-status");
   if (!grid) return;
 
-  const comingPosters = galleryPosters.filter(poster => poster.isFuture);
-  const allArchivePosters = galleryPosters.filter(poster => !poster.isFuture);
-  const matchingArchivePosters = galleryYearFilter === "all"
-    ? allArchivePosters
-    : allArchivePosters.filter(poster => poster.date.startsWith(`${galleryYearFilter}-`));
+  const matchingPosters = filteredEventPosters();
+  const comingPosters = matchingPosters.filter(poster => poster.isFuture);
+  const matchingArchivePosters = matchingPosters.filter(poster => !poster.isFuture);
   const visibleArchivePosters = matchingArchivePosters.slice(0, galleryVisibleArchiveCount);
   const grouped = groupPostersByYear(visibleArchivePosters);
-  const leadPosterSource = galleryPosters[0]?.src || "";
+  const leadPosterSource = matchingPosters[0]?.src || "";
   const fragment = document.createDocumentFragment();
 
   if (comingPosters.length) {
@@ -581,9 +585,12 @@ function renderGalleryCollection() {
 
   grid.replaceChildren(fragment);
   if (status && galleryWing !== "norm") {
-    status.textContent = matchingArchivePosters.length === visibleArchivePosters.length
+    const archiveStatus = matchingArchivePosters.length === visibleArchivePosters.length
       ? `${matchingArchivePosters.length} archived poster${matchingArchivePosters.length === 1 ? "" : "s"} on display`
       : `Showing ${visibleArchivePosters.length} of ${matchingArchivePosters.length} archived posters`;
+    const upcomingStatus = `${comingPosters.length} upcoming poster${comingPosters.length === 1 ? "" : "s"}`;
+    status.textContent = [comingPosters.length && upcomingStatus, matchingArchivePosters.length && archiveStatus]
+      .filter(Boolean).join(" · ") || "No posters for this year.";
   }
 }
 
@@ -591,11 +598,7 @@ function populateGalleryYearFilter() {
   const select = document.getElementById("gallery-year-filter");
   if (!select) return;
 
-  const years = [...new Set(
-    galleryPosters
-      .filter(poster => !poster.isFuture)
-      .map(poster => poster.date.slice(0, 4))
-  )].sort((a, b) => Number(b) - Number(a));
+  const years = groupPostersByYear(galleryPosters).map(([year]) => year);
 
   select.replaceChildren(
     new Option("All Years", "all"),

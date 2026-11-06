@@ -25,7 +25,7 @@ for(const art of manifest.posters){
 assert.match(html,/id="gallery-norm-wing"[^>]*hidden/,'Norm wing is opt-in, not extra default scrolling');
 assert.match(html,/data-gallery-wing="posters" aria-pressed="true"/);
 assert.match(html,/id="gallery-year-field"/);
-assert.match(code,/galleryWing === "norm" \? galleryNormArt : galleryPosters/,'Viewer remains within selected collection');
+assert.match(code,/galleryWing === "norm" \? galleryNormArt : filteredEventPosters\(\)/,'Viewer remains within the selected collection and poster year');
 assert.match(code,/galleryWing !== "norm"/,'Archive loading must not overwrite Norm status');
 assert.ok(!read('index.html').toString().includes('images/norm-gallery/'),'Do not restore homepage banner');
 console.log('PASS: Norm Gallery approved banner, all 32 portrait hashes, film mappings and isolated archive');
