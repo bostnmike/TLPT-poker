@@ -1,4 +1,4 @@
-export const coffeeDrinks = {coffee: 'Coffee', latte: 'Latte', macchiato: 'Macchiato'};
+export const coffeeDrinks = {coffee: 'Coffee', latte: 'Latte', cappuccino: 'Cappuccino', macchiato: 'Macchiato'};
 
 export function coffeeDescription(order) {
   const parts = [order.temperature === 'iced' ? 'Iced' : 'Hot', coffeeDrinks[order.drink]];

@@ -24,7 +24,7 @@ function commit(db, before, after, jobs) {
 }
 
 test('coffee menu normalizes milk for espresso drinks without changing seats or the waitlist', () => {
-  for (const drink of ['coffee','latte','macchiato']) for (const temperature of ['hot','iced']) {
+  for (const drink of ['coffee','latte','cappuccino','macchiato']) for (const temperature of ['hot','iced']) {
     const before = fixture(), {after} = change(before, operation({order: {...options, drink, temperature, extraShot: true}}));
     const order = after.events[0].coffeeOrders.red[orderId];
     assert.equal(order.drink, drink); assert.equal(order.temperature, temperature); assert.equal(order.milk, drink !== 'coffee');
@@ -36,7 +36,7 @@ test('coffee menu normalizes milk for espresso drinks without changing seats or 
   }
 });
 test('orders reject invalid identities, menu fields and unavailable events', () => {
-  for (const overrides of [{slug:'li-fo'}, {action:'complete'}, {requestId:'invalid'}, {orderId:'invalid'}, {expectedVersion:-1}, {order:{...options,drink:'cappuccino'}}, {order:{...options,temperature:'warm'}}, {order:{...options,milk:'false'}}, {order:{...options,stevia:1}}, {order:{...options,extraShot:null}}]) assert.throws(() => change(fixture(), operation(overrides)));
+  for (const overrides of [{slug:'li-fo'}, {action:'complete'}, {requestId:'invalid'}, {orderId:'invalid'}, {expectedVersion:-1}, {order:{...options,drink:'mocha'}}, {order:{...options,temperature:'warm'}}, {order:{...options,milk:'false'}}, {order:{...options,stevia:1}}, {order:{...options,extraShot:null}}]) assert.throws(() => change(fixture(), operation(overrides)));
   for (const who of [{role:'shared',slug:'bostnmike'}, {role:'shared',slug:'unknown'}]) assert.throws(() => change(fixture(), operation({slug:who.slug}), who));
   for (const edit of [e => e.open=false, e => e.metadata.date='2029-12-31', e => e.metadata.date='Date TBD', e => e.cancelled=true, e => e.archived=true, e => e.deletedAt=now]) {
     const s=fixture(); edit(s.events[0]); assert.throws(() => change(s), /closed|unavailable/);
