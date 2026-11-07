@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "coffee-preorders",
+      "source": "output/video/tlpt-coffee-preorders/production-v1/thumbnail-portrait.png",
+      "src": "images/norm-gallery/coffee-preorders.png",
+      "sha256": "da5907a9f923b628a8d71099ab9d64df78079b543853aa234d5893ecb38cb7fe",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "two-seats-remain",
       "source": "output/video/tlpt-two-seats-barista/clean-proportions-v3/thumbnail-portrait.png",
       "src": "images/norm-gallery/two-seats-remain.png",

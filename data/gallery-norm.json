@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "coffee-preorders",
+      "src": "images/norm-gallery/coffee-preorders.png",
+      "sha256": "da5907a9f923b628a8d71099ab9d64df78079b543853aa234d5893ecb38cb7fe",
+      "width": 1080,
+      "height": 1920,
+      "title": "Coffee Pre-orders — How d’ya like them lattes?",
+      "filmHref": "media.html#coffee-preorders",
+      "youtubeId": "JKbeghbGcAM"
+    },
+    {
       "id": "two-seats-remain",
       "src": "images/norm-gallery/two-seats-remain.png",
       "sha256": "8c39bf6e93a73cee50f96d17340243ca95ecf2807b78328a9956cf2fc6f6090d",

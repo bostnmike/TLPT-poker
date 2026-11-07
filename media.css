@@ -85,6 +85,17 @@
   text-shadow:none !important;
 }
 
+.media-youtube-fallback{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  margin-top:6px;
+  color:#e9d5ff;
+  font-size:.85rem;
+  font-weight:700;
+  text-underline-offset:3px;
+}
+
 .media-frame{
   width:100%;
   aspect-ratio:16 / 9;
