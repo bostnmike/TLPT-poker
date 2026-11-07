@@ -36,9 +36,9 @@ function galleryViewerItems() {
   return galleryWing === "norm" ? galleryNormArt : filteredEventPosters();
 }
 
-function createNormArtworkCard(art, isBanner = false) {
+function createNormArtworkCard(art) {
   const article = document.createElement("article");
-  article.className = `gallery-card ${isBanner ? "gallery-norm-banner" : "gallery-norm-card"}`;
+  article.className = "gallery-card gallery-norm-card";
   const button = document.createElement("button");
   button.type = "button";
   button.className = "gallery-poster-button";
@@ -47,13 +47,12 @@ function createNormArtworkCard(art, isBanner = false) {
     <div class="gallery-poster-frame">
       <img class="gallery-poster-image" src="${escapeGalleryHtml(art.src)}?v=${art.sha256.slice(0,16)}"
         alt="${escapeGalleryHtml(art.title)}" width="${art.width}" height="${art.height}"
-        loading="${isBanner ? "eager" : "lazy"}" decoding="async" />
+        loading="lazy" decoding="async" />
     </div>
-    ${isBanner ? '<span class="gallery-norm-enlarge">View the full cast ↗</span>' : `
-      <div class="gallery-card-meta">
-        <div class="gallery-card-label">The Norm Collection</div>
-        <h3 class="gallery-card-title">${escapeGalleryHtml(art.title)}</h3>
-      </div>`}
+    <div class="gallery-card-meta">
+      <div class="gallery-card-label">The Norm Collection</div>
+      <h3 class="gallery-card-title">${escapeGalleryHtml(art.title)}</h3>
+    </div>
   `;
   button.addEventListener("click", () => openLightbox(art, button));
   article.appendChild(button);
@@ -71,7 +70,7 @@ function createNormArtworkCard(art, isBanner = false) {
 function updateNormGalleryStatus() {
   if (galleryWing !== "norm") return;
   document.getElementById("gallery-filter-status").textContent = galleryNormArt.length
-    ? `The full cast + ${galleryNormArt.length - 1} portrait covers`
+    ? `${galleryNormArt.length} portrait covers`
     : "Loading the Norm collection…";
 }
 
@@ -84,8 +83,8 @@ async function loadNormGallery() {
       const response = await fetch("data/gallery-norm.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`Norm collection fetch failed (${response.status})`);
       const data = await response.json();
-      const art = [data.banner, ...(data.posters || [])];
-      if (art.length < 2 || art.some(item => !/^images\/norm-gallery\/[a-z0-9-]+\.jpg$/.test(item?.src)
+      const art = data.posters || [];
+      if (art.length < 2 || art.some(item => !/^images\/norm-gallery\/[a-z0-9-]+\.(?:jpg|png)$/.test(item?.src)
         || !/^[a-f0-9]{64}$/.test(item?.sha256) || !(item.width > 0 && item.height > 0)
         || (item.filmHref && !/^media\.html#[a-z0-9-]+$/.test(item.filmHref)))) {
         throw new Error("Invalid Norm artwork manifest");
@@ -93,8 +92,8 @@ async function loadNormGallery() {
       galleryNormArt = art.map(item => ({...item, isNorm:true}));
       const portraits = document.createElement("div");
       portraits.className = "gallery-year-grid gallery-norm-grid";
-      galleryNormArt.slice(1).forEach(item => portraits.appendChild(createNormArtworkCard(item)));
-      content.replaceChildren(createNormArtworkCard(galleryNormArt[0], true), portraits);
+      galleryNormArt.forEach(item => portraits.appendChild(createNormArtworkCard(item)));
+      content.replaceChildren(portraits);
       updateNormGalleryStatus();
     } catch (error) {
       console.warn("Norm Gallery could not load", error);

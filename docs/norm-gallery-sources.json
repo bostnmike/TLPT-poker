@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "two-seats-remain",
+      "source": "output/video/tlpt-two-seats-barista/clean-proportions-v3/thumbnail-portrait.png",
+      "src": "images/norm-gallery/two-seats-remain.png",
+      "sha256": "8c39bf6e93a73cee50f96d17340243ca95ecf2807b78328a9956cf2fc6f6090d",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "one-seat-available",
       "source": "output/video/tlpt-group-messages/01-one-seat-available/poster.jpg",
       "src": "images/norm-gallery/one-seat-available.jpg",

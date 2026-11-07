@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "two-seats-remain",
+      "src": "images/norm-gallery/two-seats-remain.png",
+      "sha256": "8c39bf6e93a73cee50f96d17340243ca95ecf2807b78328a9956cf2fc6f6090d",
+      "width": 1080,
+      "height": 1920,
+      "title": "Two Seats Remain",
+      "filmHref": "media.html#two-seats-remain",
+      "youtubeId": "XS62fWZR_FM"
+    },
+    {
       "id": "one-seat-available",
       "src": "images/norm-gallery/one-seat-available.jpg",
       "sha256": "80b5bfe53acb5616517df1eac4b4ebd7e99e0ad0dd63c3f42111f8ec645796e3",

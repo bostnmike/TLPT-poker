@@ -102,18 +102,14 @@
   outline-offset:2px;
 }
 
-.gallery-card.gallery-norm-banner{ width:100%; max-width:1024px; }
-.gallery-norm-banner .gallery-poster-frame,
 .gallery-norm-card .gallery-poster-frame{ aspect-ratio:auto; }
-.gallery-norm-banner .gallery-poster-image,
 .gallery-norm-card .gallery-poster-image{ height:auto; object-fit:contain; }
 .gallery-norm-card{ width:100%; }
 .gallery-norm-card .gallery-poster-image{ aspect-ratio:9 / 16; }
 .gallery-norm-card .gallery-card-meta{ margin-bottom:8px; }
-.gallery-norm-enlarge{ display:block; padding:12px 18px 16px; color:#e7c477; text-align:center; font-size:.86rem; font-weight:800; }
 .gallery-norm-film{ display:block; width:fit-content; max-width:calc(100% - 32px); margin:0 auto 12px; padding:12px 4px; color:#e7c477; text-align:center; font-size:.82rem; line-height:1.4; font-weight:800; text-underline-offset:4px; }
 
-/* Norm artwork keeps its native ratio, including the wide group photograph. */
+/* Norm portrait artwork keeps its native ratio. */
 .gallery-lightbox.is-norm{ display:grid; place-items:center; padding:64px 16px 16px; overflow:auto; }
 .gallery-lightbox.is-norm[hidden]{ display:none; }
 .gallery-lightbox.is-norm .gallery-lightbox-dialog{ display:flex; flex-direction:column; align-items:center; margin:0; width:100%; min-width:0; max-width:1400px; }
@@ -131,8 +127,6 @@
 @media (max-width:640px){
   .gallery-wing-switch{ flex-direction:column; margin-bottom:4px; }
   .gallery-wing-switch .btn{ width:100%; }
-  .gallery-norm-banner .gallery-poster-frame{ margin:12px 12px 0; padding:8px; }
-  .gallery-norm-banner .gallery-poster-frame::before{ inset:8px; }
 }
 @media (max-height:500px){
   .gallery-lightbox.is-norm{ padding-top:56px; }
