@@ -68,6 +68,9 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'coffee-preorders-thumbnail.jpg':'6d97dbc9b7d8e8b9980452386f33151369079ab43bcc7abd79c3a81438b8fb1a',
+  'coffee-preorders-captions.srt':'1ab93bebe511d8c6967554c57e2bea7882c2fac2d21e12a9f03c41c777950506',
+  'coffee-preorders-captions.vtt':'7233b19d4b8680239bf871e41bce41051136635b425605843721588bd9601aee',
   'two-seats-remain-captions.srt':'87c00dd6d5c207b55b8483394ecf92984ff6476306e72fdfa67fa3b420a8989c',
   'two-seats-remain-captions.vtt':'988bcb976eed9b32f2fa7a920b40d0053c5f7b3f51df1ad285bd063b5a9ef93f',
   'two-seats-remain-thumbnail.jpg':'12386777b0061ddb2b8b0df48e4cf84dd9a029017a1c8af3332fdaf47b7229aa',
@@ -113,7 +116,10 @@ for (const [file, expected] of Object.entries({
   'install-captions.vtt':'abc3da93b21cca813afd125469950dae5cbca40380446a123e039d7e27ad451d'
 })) assert.equal(hash('media/rsvp-film-room/' + file), expected, 'Approved Film Room asset: ' + file);
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
+assert.match(filmRoom, /class="media-youtube-fallback" href="https:\/\/www.youtube.com\/watch\?v=JKbeghbGcAM" target="_blank" rel="noopener">Watch on YouTube ↗<\/a>/);
+
 for (const [id, title] of [
+  ['coffee-preorders', '☕ Coffee Pre-orders — How d’ya like them lattes?'],
   ['two-seats-remain', '☕ Two Seats Remain'],
   ['one-seat-available', '🪑 One Seat Available'],
   ['the-courtesy-fold', '🃏 The Courtesy Fold'],
@@ -161,6 +167,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['coffee-preorders','JKbeghbGcAM'],
   ['two-seats-remain','XS62fWZR_FM'],
   ['one-seat-available','ep08DkRP3gw'],
   ['the-courtesy-fold','45e1e-1290I'],
@@ -215,7 +222,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 41, 'Thirty-three RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 42, 'Thirty-four RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));

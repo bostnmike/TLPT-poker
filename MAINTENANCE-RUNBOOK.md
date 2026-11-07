@@ -352,7 +352,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has thirty-three RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has thirty-four RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -364,6 +364,14 @@ restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
+“Coffee Pre-orders — How d’ya like them lattes?” uses YouTube `JKbeghbGcAM`
+and anchor `media.html#coffee-preorders`. Its exact landscape cover, portrait
+PNG and optional SRT/VTT captions come from
+`output/video/tlpt-coffee-preorders/production-v1/` outside the repository.
+The portrait also appears first in the Norm Gallery. The 47-second 9:16 master
+stays in production. Use the existing click-to-play embed and the direct
+YouTube fallback link. This is a separate film from “Two Seats Remain”.
+
 “Two Seats Remain” uses YouTube `XS62fWZR_FM` and anchor
 `media.html#two-seats-remain`. Its exact 1920×1080 landscape cover and optional
 SRT/VTT captions come from
@@ -501,7 +509,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the 33 approved 9:16 portrait covers in
+`data/gallery-norm.json` owns the 34 approved 9:16 portrait covers in
 `images/norm-gallery/`. The original wide group image was removed from this wing
 on November 7. The five rotating Family Portraits remain above the poster grid.
 “Two Seats Remain” uses the exact approved portrait PNG from
@@ -519,7 +527,7 @@ For additions, copy approved portrait bytes, add the title/film anchor/hash to t
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
 all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 33 viewer captions, wing switching, focus, viewer
+seven desktop/tablet/mobile/short-screen viewports, all 34 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 
