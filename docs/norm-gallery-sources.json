@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "now-serving-decaf",
+      "source": "output/video/tlpt-coffee-preorders/decaf-regular-v2/thumbnail-portrait.png",
+      "src": "images/norm-gallery/now-serving-decaf.png",
+      "sha256": "7a3a006aa70213e2a349c422374434474315c213d8defcd1ebaba88cabf11e4f",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "coffee-preorders",
       "source": "output/video/tlpt-coffee-preorders/production-v1/thumbnail-portrait.png",
       "src": "images/norm-gallery/coffee-preorders.png",

@@ -1,5 +1,6 @@
 // Disposable public-feed fixtures only: never create or open a production game.
 const {chromium} = require('playwright');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -21,6 +22,7 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
     for (const width of [1440,820,390,320]) {
       for (const name of ['index','schedule','structures']) {
         const page = await browser.newPage({viewport:{width,height:1000}, reducedMotion:'reduce', timezoneId:'America/New_York'});
+        await mockRsvpFeed(page);
         const errors = [];
         page.on('pageerror', error => errors.push(error.message));
         let mode = 'absent', revision = 1, requests = 0;

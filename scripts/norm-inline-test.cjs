@@ -1,4 +1,5 @@
 const {chromium}=require('playwright');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert=require('node:assert/strict');
 const dashboard=[['results',40.91],['bankroll',41.95],['rates',43.55],['player-dna',47.96]];
 const guides={standings:['standings',50.83],'form-lab':['form-lab',53.24],'player-movement':['heater-meter',52.85],streaks:['streaks',51.80],knockouts:['knockouts',50.44],bounties:['bounty-hunters',60.53],players:['meet-the-crew',52.35],player:['player-profile',58.51]};
@@ -11,6 +12,7 @@ module.exports=async function run(kind,base){
  try{
   for(const [width,height] of [[1440,1000],[820,1180],[390,844],[320,568],[844,390]]){
    const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
+   await mockRsvpFeed(page);
    for(const name of pages){
     const requests=[],errors=[];const onRequest=r=>{if(r.url().includes('/media/norm-narrates/'))requests.push(r.url());};const onError=e=>errors.push(e.message);
     page.on('request',onRequest);page.on('pageerror',onError);
@@ -78,7 +80,9 @@ module.exports=async function run(kind,base){
    }
    await page.close();
   }
-  const page=await browser.newPage();await page.route('**/media/norm-narrates/**',r=>r.abort());
+  const page=await browser.newPage();
+  await mockRsvpFeed(page);
+  await page.route('**/media/norm-narrates/**',r=>r.abort());
   await page.goto(base+'/'+(isDashboard?'dashboard':'standings')+'.html');await page.locator('.norm-page-guide audio').waitFor();
   await page.locator('.norm-page-guide audio').evaluate(async e=>{e.muted=true;try{await e.play();}catch{}});
   await page.locator('.norm-narration-status').waitFor();assert.match(await page.locator('.norm-narration-status').textContent(),/written guide/);

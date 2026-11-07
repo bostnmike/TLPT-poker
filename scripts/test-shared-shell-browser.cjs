@@ -1,5 +1,6 @@
 // The same native HTML navigation must work before and after enhancement.
 const {chromium}=require('playwright');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -28,8 +29,9 @@ const expected=menu.flatMap(item=>[item,...item.children||[]]);
   await native.close();
   for(const width of [1440,820,390,320]){
    const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});
+   await mockRsvpFeed(page);
    // Visual comparisons isolate local markup/styles from changing external RSVP
-   // responses and embeds. The normal release tests still exercise live loading.
+   // responses and embeds. Dedicated feed checks cover refresh and outage behavior.
    if(mode)await page.route('https://**/*',r=>r.abort());
    for(const name of (mode?(visualPages||pages):['index','dashboard','schedule','rules','register','404'])){
     await page.goto(`${base}/${name}.html`+(name==='player'?'?name=BostnMike':''));

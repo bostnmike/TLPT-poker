@@ -1,4 +1,5 @@
 const {chromium}=require('playwright');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert=require('node:assert/strict');
 const base=process.argv[2]||'http://127.0.0.1:8767';
 (async()=>{
@@ -7,6 +8,7 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
  try{
   for(const width of [1440,820,390,320]){
    const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});
+   await mockRsvpFeed(page);
    for(const alias of ['Li-Fo','LiFo','Li Fo','Tony','ButtonMan','ButtonMan: fka LiFo']){
     await page.goto(base+'/player.html?name='+encodeURIComponent(alias));
     const card=page.locator('#player-profile [data-player-card]');

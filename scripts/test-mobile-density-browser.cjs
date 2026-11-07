@@ -1,5 +1,6 @@
 /* Required responsive regression; supply the local or published base URL. */
 const {chromium}=require('playwright');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -7,6 +8,7 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
 const pages=['dashboard','standings','form-lab','knockouts','schedule','trophy-room'];
 async function checkRsvpChairs(browser,width){
  const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});
+ await mockRsvpFeed(page);
  // Browser-only public fixtures: never change RSVP responses in production.
  const events=JSON.parse(fs.readFileSync(path.join(__dirname,'../tests/visual/fixtures/data/events.json'))).events;
  for(const event of events){
@@ -63,6 +65,7 @@ async function checkRsvpChairs(browser,width){
  try{
   for(const width of [1440,820,390,320]){
    const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});
+   await mockRsvpFeed(page);
    for(const name of pages){
     await page.goto(base+'/'+name+'.html',{waitUntil:'networkidle'});
     const hero=page.locator('.mobile-compact-hero');
