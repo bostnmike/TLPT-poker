@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T20:33:26.686494Z",
+  "generatedAt": "2026-11-07T17:21:01.430771Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -10058,7 +10058,7 @@
     {
       "name": "Nasa Al",
       "slug": "nasa-al",
-      "image": "images/players/nasa-al.jpg",
+      "image": "images/players/nasa-al-415effa3f03e46f5.png",
       "notes": "I'm running 5 minutes late.",
       "entries": 31,
       "buyIns": 20,
@@ -10109,7 +10109,7 @@
           "metrics": {
             "name": "Nasa Al",
             "slug": "nasa-al",
-            "image": "images/players/nasa-al.jpg",
+            "image": "images/players/nasa-al-415effa3f03e46f5.png",
             "notes": "I'm running 5 minutes late.",
             "entries": 10,
             "buyIns": 5,
@@ -10270,7 +10270,7 @@
           "metrics": {
             "name": "Nasa Al",
             "slug": "nasa-al",
-            "image": "images/players/nasa-al.jpg",
+            "image": "images/players/nasa-al-415effa3f03e46f5.png",
             "notes": "I'm running 5 minutes late.",
             "entries": 9,
             "buyIns": 5,
@@ -16058,7 +16058,7 @@
       {
         "player": "Nasa Al",
         "slug": "nasa-al",
-        "image": "images/players/nasa-al.jpg",
+        "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "type": "cash",
         "length": 4,
         "startDate": "2025-11-01",
@@ -16813,7 +16813,7 @@
       {
         "player": "Nasa Al",
         "slug": "nasa-al",
-        "image": "images/players/nasa-al.jpg",
+        "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "type": "drought",
         "length": 4,
         "startDate": "2026-04-18",
@@ -17774,7 +17774,7 @@
       {
         "name": "Nasa Al",
         "slug": "nasa-al",
-        "image": "images/players/nasa-al.jpg",
+        "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "playedEvents": 20
       },
       {
@@ -19085,7 +19085,7 @@
         "bestCashStreak": {
           "player": "Nasa Al",
           "slug": "nasa-al",
-          "image": "images/players/nasa-al.jpg",
+          "image": "images/players/nasa-al-415effa3f03e46f5.png",
           "type": "cash",
           "length": 4,
           "startDate": "2025-11-01",
@@ -19120,7 +19120,7 @@
         "bestDroughtStreak": {
           "player": "Nasa Al",
           "slug": "nasa-al",
-          "image": "images/players/nasa-al.jpg",
+          "image": "images/players/nasa-al-415effa3f03e46f5.png",
           "type": "drought",
           "length": 4,
           "startDate": "2026-04-18",

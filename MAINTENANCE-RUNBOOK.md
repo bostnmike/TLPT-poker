@@ -824,6 +824,19 @@ Do not load this stylesheet in Lily, Marchand, registration, Cashier, or the RSV
   12 pages at 1440, 820, 390 and 320 pixels, checks loaded data, search/reset,
   category changes, dropdown bounds/occlusion, and page overflow.
 
+## NASA Al avatar
+
+NASA Al (`nasa-al`) uses the approved November 7 PNG at
+`images/players/nasa-al-415effa3f03e46f5.png`. Its original bytes come from
+`output/avatars/nasa-al/nasa-al-v3-young-1960s-orr.png` outside the repository,
+with SHA-256 `415effa3f03e46f5d059738a47840c352e34eb2dbc89631b33a8c358e23d5b15`.
+The content-based filename refreshes returning visitors' image caches through
+the shared player metadata, generated player data and story avatar references.
+`images/players/nasa-al.jpg` remains a full-size, high-quality JPEG derivative
+for legacy consumers. Keep the approved round portrait and navy rim, including
+the younger, short-haired Bobby Orr. Use the shared data build for derived player
+records. Historical poster/video artwork and name tents have separate ownership.
+
 ## Locked behavior
 
 Routine maintenance must not casually alter:
