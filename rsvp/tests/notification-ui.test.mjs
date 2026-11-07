@@ -131,3 +131,16 @@ test('announcement and poll alerts preserve recipient role, safe destinations an
  }
  assert.deepEqual(badges,[1,1]);
 });
+
+test('coffee push opens its Commish queue and increments the numbered badge',async()=>{
+ const handlers={},shown=[],badges=[],opened=[];
+ const self={location:{origin:'https://rsvp.test'},navigator:{setAppBadge:async count=>badges.push(count)},addEventListener:(type,fn)=>handlers[type]=fn,registration:{showNotification:async(...args)=>shown.push(args)},clients:{matchAll:async()=>[],openWindow:async url=>opened.push(url)}};
+ vm.runInNewContext(readFileSync(new URL('../public/sw.js',import.meta.url),'utf8'),{self,URL,Response});let task;
+ for(const version of [1,2]){
+  handlers.push({data:{json:()=>({kind:'coffee',title:'Coffee order',url:'/?commish=1&activity=coffee&event=e1',notificationId:'coffee-'+version})},waitUntil:p=>task=p});await task;
+ }
+ assert.deepEqual(badges,[1,2]);const data=shown.at(-1)[1].data;
+ assert.equal(data.commish,true);assert.equal(data.url,'/?commish=1&activity=coffee&event=e1');
+ handlers.notificationclick({notification:{data,close(){}},waitUntil:p=>task=p});await task;
+ assert.deepEqual(opened,['https://rsvp.test/?commish=1&activity=coffee&event=e1']);
+});

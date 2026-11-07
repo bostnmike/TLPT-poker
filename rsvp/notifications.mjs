@@ -1,4 +1,5 @@
-import {publicFeed,requireValue,HOST,publicPlayer} from './model.mjs';
+import {coffeeDescription} from './public/coffee-menu.mjs';
+import {publicFeed,requireValue,HOST,publicPlayer,liveEvent} from './model.mjs';
 import {encryptedPush,validateSubscription,vapidPublicKey} from './web-push.mjs';
 export function pushConfiguration(env){try{const jwk=JSON.parse(env.VAPID_PRIVATE_JWK);if(jwk.kty!=='EC'||jwk.crv!=='P-256'||!jwk.d)return null;return {jwk,publicKey:vapidPublicKey(jwk)};}catch{return null;}}
 const day=now=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -16,6 +17,13 @@ export function notificationTransitions(before,after,now=new Date(),actor=null,o
   const slug=actor?.slug,old=before.events.find(e=>e.id===op.eventId)?.responses[slug]?.answer||'tbd',e=current.find(e=>e.id===op.eventId),player=after.players.find(p=>p.slug===slug),labels={yes:'In',maybe:'Maybe',no:'Out'};
   if(player&&slug!==HOST&&e?.rsvpOpen&&e.date!=='Date TBD'&&e.date>=today&&labels[op.answer]&&old!==op.answer)result.push({kind:'response',recipient:commishRecipient(after),eventId:e.id,responseSlug:slug,answer:op.answer,title:`${publicPlayer(player).name} ${old==='tbd'?'is':'changed to'} ${labels[op.answer]}`,body:`${e.title} · ${eventDate(e)}. Tap to manage responses.`,url:'/?commish=1&event='+encodeURIComponent(e.id)});
  }
+ if(op?.type==='coffee'){
+  const slug=op.slug||actor?.slug,event=after.events.find(e=>e.id===op.eventId),old=before.events.find(e=>e.id===op.eventId)?.coffeeOrders?.[slug]?.[op.orderId],order=event?.coffeeOrders?.[slug]?.[op.orderId],player=after.players.find(p=>p.slug===slug);
+  if(player&&order&&order.version!==old?.version){
+   const name=publicPlayer(player).name,cancelled=order.status==='cancelled';
+   result.push({kind:'coffee',recipient:commishRecipient(after),eventId:event.id,coffeeSlug:slug,coffeeOrderId:op.orderId,orderVersion:order.version,title:cancelled?`${name} cancelled their coffee`:old?.status==='active'?`${name} changed their coffee`:`Coffee order from ${name}`,body:`${coffeeDescription(order)} · ${event.metadata.title} · ${eventDate(event.metadata)}.`,url:'/?commish=1&activity=coffee&event='+encodeURIComponent(event.id)});
+  }
+ }
  return result;
 }
 // A single INSERT follows the state UPDATE in the SAME D1 transaction. changes()
@@ -23,8 +31,8 @@ export function notificationTransitions(before,after,now=new Date(),actor=null,o
 export function enqueueStatement(db,jobs,revision,now){return db.prepare(`INSERT OR IGNORE INTO push_jobs(id,subscription_id,binding,payload,created_at,next_attempt)
  SELECT ? || ':' || json_extract(j.value,'$.eventId') || ':' || json_extract(j.value,'$.kind') || ':' || s.id,
  s.id,s.binding,j.value,?,? FROM (SELECT * FROM push_subscriptions UNION ALL SELECT * FROM commish_push_subscriptions) s,json_each(?) j
- WHERE changes()>0 AND ((json_extract(j.value,'$.kind')='response' AND substr(s.id,1,8)='commish:' AND json_extract(j.value,'$.recipient')=s.slug)
- OR (json_extract(j.value,'$.kind')!='response' AND substr(s.id,1,8)!='commish:' AND (json_extract(j.value,'$.slug') IS NULL OR json_extract(j.value,'$.slug')=s.slug)))`)
+ WHERE changes()>0 AND ((json_extract(j.value,'$.kind') IN ('response','coffee') AND substr(s.id,1,8)='commish:' AND json_extract(j.value,'$.recipient')=s.slug)
+ OR (json_extract(j.value,'$.kind') NOT IN ('response','coffee') AND substr(s.id,1,8)!='commish:' AND (json_extract(j.value,'$.slug') IS NULL OR json_extract(j.value,'$.slug')=s.slug)))`)
  .bind(String(revision),now,now,JSON.stringify(jobs));}
 export async function subscriptionAction(db,state,b,hash,commish=false,actor=null){
  requireValue(typeof b?.token==='string'&&/^[a-f0-9]{64}$/.test(b.token),'Notification settings need to be reset.');
@@ -45,7 +53,11 @@ export async function subscriptionAction(db,state,b,hash,commish=false,actor=nul
  return {enabled:true,slug:commish?'@commish':slug};
 }
 const relevant=(payload,event,slug,today,recipient)=>payload.kind==='announcement'?(payload.commish?slug===recipient&&payload.recipient===recipient:!slug.startsWith('@commish:')&&payload.recipient===slug):!!event?.rsvpOpen&&event.date!=='Date TBD'&&event.date>=today&&(payload.kind==='response'?slug===recipient&&payload.recipient===recipient&&(event.requestedIn.includes(payload.responseSlug)?'yes':event.rsvps[payload.responseSlug])===payload.answer:!slug.startsWith('@commish:')&&(payload.kind==='game-open'||payload.kind==='seat'&&payload.slug===slug&&event.rsvps[slug]==='yes'));
-export function notificationStillRelevant(payload,state,slug,now=new Date()){return relevant(payload,publicFeed(state).events.find(e=>e.id===payload.eventId),slug,day(now),commishRecipient(state));}
+function coffeeRelevant(payload,state,slug,today){
+ const event=state.events.find(e=>e.id===payload.eventId);
+ return slug===commishRecipient(state)&&payload.recipient===slug&&!!event&&liveEvent(event)&&event.metadata.date!=='Date TBD'&&event.metadata.date>=today&&event.coffeeOrders?.[payload.coffeeSlug]?.[payload.coffeeOrderId]?.version===payload.orderVersion;
+}
+export function notificationStillRelevant(payload,state,slug,now=new Date()){return payload.kind==='coffee'?coffeeRelevant(payload,state,slug,day(now)):relevant(payload,publicFeed(state).events.find(e=>e.id===payload.eventId),slug,day(now),commishRecipient(state));}
 export async function drainNotifications(env,send=fetch,now=Date.now()){
  const config=pushConfiguration(env);if(!config)return;
  // Lease each small batch atomically so request/cron overlap cannot double-send.
@@ -58,8 +70,8 @@ export async function drainNotifications(env,send=fetch,now=Date.now()){
  const {results:broadcasts}=broadcastIds.length?await env.DB.prepare('SELECT id,kind,closed FROM broadcasts WHERE id IN (SELECT value FROM json_each(?))').bind(JSON.stringify(broadcastIds)).all():{results:[]};
  const statements=[];let cursor=0;
  async function work(){while(cursor<jobs.length){const job=jobs[cursor++],s=subscriptions.find(s=>s.id===job.subscription_id);let done=!s||s.binding!==job.binding||!state||now-job.created_at>3600000||job.attempts>=5,expired=false;
-  if(!done){const payload=JSON.parse(job.payload),broadcast=payload.kind==='announcement'?broadcasts.find(b=>b.id===payload.announcementId):null;done=payload.kind==='announcement'&&(!broadcast||broadcast.kind==='poll'&&broadcast.closed||!payload.commish&&!state.players.some(p=>p.slug===s.slug&&p.slug!==HOST))||!relevant(payload,events.find(e=>e.id===payload.eventId),s.slug,today,commishRecipient(state));
-   if(!done)try{const response=await send(s.endpoint,await encryptedPush(JSON.parse(s.subscription),{...payload,notificationId:job.id,tag:`${payload.kind}:${payload.announcementId||payload.eventId}${payload.kind==='response'?':'+payload.responseSlug:''}`},config.jwk,now));console.info('Notification provider result.',new URL(s.endpoint).hostname,response.status);expired=[404,410].includes(response.status);done=response.ok||expired||response.status>=300&&response.status<500&&![408,429].includes(response.status);}catch(error){console.warn('Notification delivery will retry.',error instanceof Error?error.name:'Error');/* Never log private endpoints, keys, payloads or raw error messages. */}
+  if(!done){const payload=JSON.parse(job.payload),broadcast=payload.kind==='announcement'?broadcasts.find(b=>b.id===payload.announcementId):null;done=payload.kind==='announcement'&&(!broadcast||broadcast.kind==='poll'&&broadcast.closed||!payload.commish&&!state.players.some(p=>p.slug===s.slug&&p.slug!==HOST))||!(payload.kind==='coffee'?coffeeRelevant(payload,state,s.slug,today):relevant(payload,events.find(e=>e.id===payload.eventId),s.slug,today,commishRecipient(state)));
+   if(!done)try{const response=await send(s.endpoint,await encryptedPush(JSON.parse(s.subscription),{...payload,notificationId:job.id,tag:`${payload.kind}:${payload.announcementId||payload.eventId}${payload.kind==='response'?':'+payload.responseSlug:payload.kind==='coffee'?':'+payload.coffeeSlug+':'+payload.coffeeOrderId+':'+payload.orderVersion:''}`},config.jwk,now));console.info('Notification provider result.',new URL(s.endpoint).hostname,response.status);expired=[404,410].includes(response.status);done=response.ok||expired||response.status>=300&&response.status<500&&![408,429].includes(response.status);}catch(error){console.warn('Notification delivery will retry.',error instanceof Error?error.name:'Error');/* Never log private endpoints, keys, payloads or raw error messages. */}
   }
   if(expired)statements.push(env.DB.prepare(`DELETE FROM ${s.id.startsWith('commish:')?'commish_push_subscriptions':'push_subscriptions'} WHERE id=? AND binding=?`).bind(s.id,s.binding));
   statements.push(done?env.DB.prepare('DELETE FROM push_jobs WHERE id=?').bind(job.id):env.DB.prepare('UPDATE push_jobs SET attempts=attempts+1,next_attempt=?,lease_until=0 WHERE id=?').bind(now+Math.min(900000,30000*2**job.attempts),job.id));
