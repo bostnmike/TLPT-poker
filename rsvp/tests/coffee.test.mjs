@@ -135,18 +135,18 @@ test('caffeine choice survives reads, edits and cancellation and appears in Comm
     const first = change(fixture(),operation({order:{...options,drink,caffeine}}));
     const row = coffeeQueue(first.after,new Date(now)).orders[0];
     assert.equal(row.caffeine,caffeine);
-    assert.match(first.jobs[0].body,caffeine==='decaf'?/DeCaf/:/High Octane/);
+    assert.match(first.jobs[0].body,caffeine==='decaf'?/DeCaf/:/Regular/);
     const changed = change(first.after,operation({expectedVersion:1,order:{...options,drink,caffeine:caffeine==='decaf'?'high-octane':'decaf'}}));
     assert.equal(changed.jobs.length,1);
     const cancelled = change(changed.after,operation({action:'cancel',expectedVersion:2}));
     assert.equal(cancelled.after.events[0].coffeeOrders.red[orderId].caffeine,changed.after.events[0].coffeeOrders.red[orderId].caffeine);
-    assert.match(cancelled.jobs[0].body,caffeine==='decaf'?/High Octane/:/DeCaf/);
+    assert.match(cancelled.jobs[0].body,caffeine==='decaf'?/Regular/:/DeCaf/);
   }
 });
-test('legacy orders default to High Octane; older forms preserve a saved DeCaf choice and retries stay quiet', () => {
+test('legacy orders default to Regular; older forms preserve a saved DeCaf choice and retries stay quiet', () => {
   const legacy=change(fixture()).after;delete legacy.events[0].coffeeOrders.red[orderId].caffeine;
   assert.equal(coffeeQueue(legacy,new Date(now)).orders[0].caffeine,'high-octane');
-  assert.match(coffeeDescription(legacy.events[0].coffeeOrders.red[orderId]),/High Octane/);
+  assert.match(coffeeDescription(legacy.events[0].coffeeOrders.red[orderId]),/Regular/);
   const unchanged=change(legacy,operation({expectedVersion:1}));assert.equal(unchanged.after.revision,legacy.revision);assert.equal(unchanged.jobs.length,0);
   const decaf=change(legacy,operation({expectedVersion:1,order:{...options,caffeine:'decaf'}}));
   const oldForm={...options,milk:true};delete oldForm.caffeine;
