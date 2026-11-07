@@ -65,7 +65,7 @@ function applyCoffeeOrder(state, actor, op, now) {
   const raw = op.order;
   requireValue(raw && Object.hasOwn(coffeeDrinks, raw.drink) && ['hot', 'iced'].includes(raw.temperature), 'Choose your drink and Hot or Iced.');
   requireValue(['milk', 'stevia', 'extraShot'].every(key => typeof raw[key] === 'boolean'), 'Choose your coffee extras.');
-  requireValue(raw.caffeine === undefined || Object.hasOwn(coffeeCaffeine, raw.caffeine), 'Choose DeCaf or High Octane.');
+  requireValue(raw.caffeine === undefined || Object.hasOwn(coffeeCaffeine, raw.caffeine), 'Choose DeCaf or Regular.');
   options = {drink: raw.drink, temperature: raw.temperature, caffeine: raw.caffeine ?? old?.caffeine ?? 'high-octane', milk: raw.drink === 'coffee' ? raw.milk : true, stevia: raw.stevia, extraShot: raw.extraShot};
  } else {
   requireValue(old, 'There is no coffee order to cancel.', 409);
