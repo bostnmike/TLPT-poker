@@ -501,10 +501,13 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the wide ensemble image and 32 approved 9:16 portrait
-covers in `images/norm-gallery/`. The banner is the reviewed 21-Norm composition
-from November 1, not an older eleven-character image or a cropped panorama.
-Its native 2:1 composition is preserved. All portrait artwork retains its original
+`data/gallery-norm.json` owns the 33 approved 9:16 portrait covers in
+`images/norm-gallery/`. The original wide group image was removed from this wing
+on November 7. The five rotating Family Portraits remain above the poster grid.
+“Two Seats Remain” uses the exact approved portrait PNG from
+`output/video/tlpt-two-seats-barista/clean-proportions-v3/thumbnail-portrait.png`
+and links to `media.html#two-seats-remain`.
+All portrait artwork retains its original
 1080×1920 dimensions, the existing gold poster frames and title plaques. A click
 opens the full artwork; the separate Film Room link points to its existing card.
 The viewer stays within the selected wing, supports keyboard navigation and
@@ -515,8 +518,8 @@ SHA-256 hashes. Do not use auto-selected video frames or guess the newest export
 For additions, copy approved portrait bytes, add the title/film anchor/hash to the
 manifest and extend the collection count in its test. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
-banner fidelity, all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 32 viewer captions, wing switching, focus, viewer
+all cover hashes, correct film IDs, uncropped aspect ratios,
+seven desktop/tablet/mobile/short-screen viewports, all 33 viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

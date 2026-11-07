@@ -174,35 +174,32 @@ async function checkFamilyPortraitRotation(browser, viewport){
       assert.equal(await page.locator('#gallery-poster-wing').isVisible(),false);
       assert.equal(await page.locator('#gallery-year-field').isVisible(),false);
       assert.equal(await normButton.getAttribute('aria-pressed'),'true');
-      assert.equal(await page.locator('.gallery-norm-card').count(),32);
-      assert.match(await page.locator('#gallery-filter-status').innerText(),/32 portrait covers/);
-      const banner=page.locator('.gallery-norm-banner');
+      assert.equal(await page.locator('.gallery-norm-card').count(),33);
+      assert.match(await page.locator('#gallery-filter-status').innerText(),/33 portrait covers/);
+      assert.equal(await page.locator('.gallery-norm-banner').count(),0,'Original group picture is removed');
+      assert.ok(!normRequests.some(url=>url.includes('/many-faces-of-norm.jpg')),'Original group picture is never requested');
       const portrait=page.locator('.gallery-norm-card').first();
-      await banner.locator('img').evaluate(img=>img.decode());
-      const bannerBox=await banner.boundingBox(),portraitBox=await portrait.boundingBox();
-      assert.ok(bannerBox.y+bannerBox.height<=portraitBox.y,'Full-width group image above portraits');
-      assert.ok(bannerBox.width>=portraitBox.width,'Banner spans poster rows');
-      for(const selector of ['.gallery-norm-banner img','.gallery-norm-card:first-child img']){
-        const image=page.locator(selector);
-        await image.evaluate(img=>img.decode());
-        const ratio=await image.evaluate(img=>{
-          const box=img.getBoundingClientRect(),style=getComputedStyle(img);
-          const w=box.width-parseFloat(style.borderLeftWidth)-parseFloat(style.borderRightWidth);
-          const h=box.height-parseFloat(style.borderTopWidth)-parseFloat(style.borderBottomWidth);
-          return [w/h,img.naturalWidth/img.naturalHeight];
-        });
-        assert.ok(Math.abs(ratio[0]-ratio[1])<.01,'No cropping/stretching: '+selector);
-      }
+      const image=portrait.locator('img');
+      await image.evaluate(img=>img.decode());
+      const ratio=await image.evaluate(img=>{
+        const box=img.getBoundingClientRect(),style=getComputedStyle(img);
+        const w=box.width-parseFloat(style.borderLeftWidth)-parseFloat(style.borderRightWidth);
+        const h=box.height-parseFloat(style.borderTopWidth)-parseFloat(style.borderBottomWidth);
+        return [w/h,img.naturalWidth/img.naturalHeight];
+      });
+      assert.ok(Math.abs(ratio[0]-ratio[1])<.01,'New portrait is uncropped and unstretched');
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'No page overflow');
       await normButton.scrollIntoViewIfNeeded();
       await page.screenshot({path:'/tmp/norm-gallery-'+width+'x'+height+'.png'});
-      const bannerButton=banner.locator('button');
-      await bannerButton.click();
+      const portraitButton=portrait.locator('button');
+      await portraitButton.click();
       await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
       assert.equal(await page.locator('#gallery-lightbox-prev').isDisabled(),true);
-      assert.equal(await page.locator('#gallery-lightbox-film').isVisible(),false);
+      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Two Seats Remain');
+      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#two-seats-remain');
+      assert.match(await page.locator('#gallery-lightbox-image').getAttribute('src'),/images\/norm-gallery\/two-seats-remain[.]png[?]v=/);
       for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
-      await page.screenshot({path:'/tmp/norm-gallery-wide-viewer-'+width+'x'+height+'.png'});
+      await page.screenshot({path:'/tmp/norm-gallery-two-seats-viewer-'+width+'x'+height+'.png'});
       await page.keyboard.press('ArrowRight');
       await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
       assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'One Seat Available');
@@ -220,7 +217,7 @@ async function checkFamilyPortraitRotation(browser, viewport){
       await page.locator('#gallery-lightbox-next').focus();await page.keyboard.press('Tab');
       assert.equal(await page.locator('#gallery-lightbox-close').evaluate(e=>e===document.activeElement),true,'Modal focus trap');
       await page.keyboard.press('Escape');
-      assert.equal(await bannerButton.evaluate(e=>e===document.activeElement),true,'Return focus to artwork');
+      assert.equal(await portraitButton.evaluate(e=>e===document.activeElement),true,'Return focus to artwork');
       const last=page.locator('.gallery-norm-card').last();
       await last.locator('button').click();await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
       assert.equal(await page.locator('#gallery-lightbox-next').isDisabled(),true,'Do not step into Event Posters');
@@ -242,7 +239,7 @@ async function checkFamilyPortraitRotation(browser, viewport){
     await page.locator('[data-norm-gallery-retry]').waitFor();
     fail=false;await page.locator('[data-norm-gallery-retry]').click();
     await page.locator('.gallery-norm-card').last().waitFor();
-    assert.equal(await page.locator('.gallery-norm-card').count(),32,'Failed request can recover');
+    assert.equal(await page.locator('.gallery-norm-card').count(),33,'Failed request can recover');
     console.log('PASS Norm Gallery retry recovery');
   }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

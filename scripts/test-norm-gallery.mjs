@@ -6,13 +6,14 @@ const manifest = JSON.parse(read('data/gallery-norm.json'));
 const media = read('media.html').toString();
 const html = read('gallery.html').toString();
 const code = read('gallery.js').toString();
-assert.equal(manifest.posters.length,32,'Keep all 32 approved Norm covers, including both cancellation treatments');
-assert.equal(manifest.banner.sha256,'948d1b3a9894c3053108588d92dc4ea1a89db6ecbb4355a757b4b0bec9b4198f','Use the owner-selected reviewed 21-Norm group picture');
-assert.deepEqual([manifest.banner.width,manifest.banner.height],[1600,800]);
-const all=[manifest.banner,...manifest.posters];
+assert.equal(manifest.posters.length,33,'Keep the 32 existing portraits and the approved Two Seats Remain poster');
+assert.doesNotMatch(code,/data[.]banner|gallery-norm-banner/,'The gallery renders portraits without the original group picture');
+assert.ok(!manifest.posters.some(art=>art.id==='many-faces-of-norm'));
+const all=manifest.posters;
+assert.equal(all[0].sha256,'8c39bf6e93a73cee50f96d17340243ca95ecf2807b78328a9956cf2fc6f6090d','Use the exact approved Two Seats Remain portrait');
 assert.equal(new Set(all.map(p=>p.id)).size,33);
 for(const art of all){
-  assert.match(art.src,/^images\/norm-gallery\/[a-z0-9-]+\.jpg$/);
+  assert.match(art.src,/^images\/norm-gallery\/[a-z0-9-]+\.(?:jpg|png)$/);
   assert.equal(crypto.createHash('sha256').update(read(art.src)).digest('hex'),art.sha256,'Approved original bytes: '+art.id);
 }
 for(const art of manifest.posters){
@@ -44,5 +45,5 @@ for(const [file,sha] of family){
 for(const unrelated of ['index.html','media.html','media.js','media.css']){
   assert.doesNotMatch(read(unrelated).toString(),/family-portrait|initFamilyPortraits/i,`${unrelated} must not host the exhibit`);
 }
-console.log('PASS: Norm Gallery approved banner, all 32 portrait hashes, film mappings and isolated archive');
+console.log('PASS: Norm Gallery without the original group picture, all 33 portrait hashes, film mappings and isolated archive');
 console.log('PASS: five unmodified Family Portraits belong to the Norm exhibit only');
