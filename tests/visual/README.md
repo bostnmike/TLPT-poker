@@ -234,3 +234,14 @@ the unchanged suite. The initial failing PR cannot deploy.
 The small 30-pixel allowance at a 0.15 color threshold is for rasterization
 noise, not layout movement. Test reports, fixtures and references are excluded
 from the public release package.
+
+On 2026-11-07 the owner-approved NASA Al avatar was reviewed from staging run
+`42396225178` (source `b966b7ce`). All functional checks and 46 visual scenarios
+passed unchanged. Ten comparisons show the approved portrait change inside the
+Rules avatar and Trophy Room artwork: Rules entrance at 1440/820, Rules Money
+at all four widths, Trophy Room entrance at 1440 and Trophy dropdown at
+1440/390/320. Their actual/expected/difference crops were inspected. Only those
+local avatar areas were copied into the references, preserving every surrounding
+pixel. No fixture, comparison tolerance, mask, layout or test configuration
+changed. The shared metadata and story references use the exact approved PNG at
+a content-based URL; the legacy JPEG renders the same approved composition.
