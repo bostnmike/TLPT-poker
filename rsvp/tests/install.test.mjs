@@ -51,3 +51,22 @@ test('service worker leaves API writes alone, fetches navigation fresh and gives
  navigate();assert.equal(await (await response).text(),'fresh live page');navigate();assert.equal(await (await response).text(),'fresh live page');assert.equal(seen.length,2);
  offline=true;navigate();const fallback=await response;assert.equal(fallback.status,503);assert.equal(fallback.headers.get('Cache-Control'),'no-store');assert.match(await fallback.text(),/No response was sent/);
 });
+
+test('adoption reports a selected player only from a real installed player view',()=>{
+ const listeners={},requests=[],media={matches:false};
+ const window={navigator:{},matchMedia:()=>media};
+ const document={querySelector:()=>null,addEventListener:(name,listener)=>listeners[name]=listener};
+ const fetch=async(url,options)=>{requests.push({url,body:JSON.parse(options.body)});return {ok:true};};
+ const module=readFileSync(new URL('../public/player-adoption.mjs',import.meta.url),'utf8');
+ vm.runInNewContext(module.replace(/^import [^\n]+\n/,''),{window,document,standalone,fetch});
+ const select=(detail)=>listeners['tlpt-player-change']({detail});
+ select({slug:'red'});
+ media.matches=true;
+ select({slug:'red',preview:true,commishEntry:true});
+ select({slug:'red',commishEntry:true});
+ select({slug:''});
+ assert.deepEqual(requests,[]);
+ select({slug:'red'});
+ select({slug:'red'});
+ assert.deepEqual(requests,[{url:'/api/player-install',body:{slug:'red'}}]);
+});

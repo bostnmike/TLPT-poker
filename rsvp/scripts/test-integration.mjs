@@ -46,6 +46,17 @@ try{
  assert.equal(feed.events[0].rsvps.bostnmike,'yes');
  assert.deepEqual(await(await post('notifications',{action:'status',token:notificationToken})).json(),{enabled:true,slug:'red'});
  assert.equal((await post('notifications',{action:'disable',token:notificationToken},null,'https://evil.test')).status,403);
+ // Adoption stays private, even though installed players use the shared name picker.
+ const adoption=(cookie)=>fetch(base+'/api/player-adoption',{headers:{Cookie:cookie}});
+ assert.equal((await adoption('')).status,401);
+ assert.equal((await adoption(red)).status,403);
+ assert.deepEqual(await(await adoption(admin)).json(),{players:[{name:'red',installed:false,alertDevices:1}]});
+ assert.equal((await post('player-install',{slug:'red'},null,'https://evil.test')).status,403);
+ assert.equal((await post('player-install',{slug:'bostnmike'})).status,400);
+ assert.equal((await post('player-install',{slug:'unknown'})).status,400);
+ const installs=await Promise.all([post('player-install',{slug:'red'}),post('player-install',{slug:'red'})]);
+ assert.deepEqual(installs.map(response=>response.status),[200,200]);
+ assert.deepEqual(await(await adoption(admin)).json(),{players:[{name:'red',installed:true,alertDevices:1}]});
  const edit={type:'event',eventId:'fixture-event',metadata:fixture.events[0].metadata,capacity:2,open:true};
  assert.equal((await post('action',edit,admin)).status,200);
  const query=sql=>JSON.parse(run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--command',sql,'--json']))[0].results;
@@ -58,6 +69,7 @@ try{
  assert.equal((await post('action',{...edit,capacity:1},admin)).status,200);
  assert.equal((await post('notifications',{action:'disable',token:notificationToken})).status,200);assert.equal(query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'").length,0);
  assert.deepEqual(await(await post('notifications',{action:'status',token:notificationToken})).json(),{enabled:false,slug:null});
+ assert.deepEqual(await(await adoption(admin)).json(),{players:[{name:'red',installed:true,alertDevices:0}]});
  assert.deepEqual(await(await post('commish-notifications',{action:'status',token:commishNotificationToken})).json(),{enabled:true,slug:'@commish'});
  let adminJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='response'");assert.equal(adminJobs.length,2);assert.ok(adminJobs.every(j=>j.subscription_id===commishNotificationId));
  // Synthetic subscription bodies are {}, so encryption fails before any provider
