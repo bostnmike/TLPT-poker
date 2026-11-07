@@ -1,7 +1,7 @@
 import {broadcastOverview,publicPolls,sendBroadcast,vote,closePoll} from './broadcasts.mjs';
 import {galleryCatalog} from './posters.mjs';
 import {pushConfiguration,notificationTransitions,enqueueStatement,subscriptionAction,scheduleNotifications,drainNotifications} from './notifications.mjs';
-import {Rejected,requireValue,publicFeed,publicPlayer,playerView,applyOperation,compareEvents} from './model.mjs';
+import {Rejected,requireValue,publicFeed,publicPlayer,comparePlayers,HOST,playerView,applyOperation,compareEvents} from './model.mjs';
 const encoder=new TextEncoder();
 export const hash=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');
 export const random=()=>Array.from(crypto.getRandomValues(new Uint8Array(32))).map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -59,6 +59,12 @@ export default {async fetch(req,env,ctx){
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);
   if(['/api/notifications','/api/commish-notifications'].includes(path)&&req.method==='POST'){const b=await body(req),commish=path==='/api/commish-notifications',actor=commish&&b?.action==='enable'?await identity(req,env,state):null;requireValue(!actor||actor.role==='admin','Commish sign-in required.',403);requireValue(b?.action!=='enable'||pushConfiguration(env),'Notifications are not available right now.',503);return json(await subscriptionAction(env.DB,state,b,hash,commish,actor));}
+  if(path==='/api/player-install'&&req.method==='POST'){
+   const {slug}=await body(req)||{};
+   requireValue(slug!==HOST&&state.players.some(p=>p.slug===slug),'Choose your player name first.');
+   await env.DB.prepare('INSERT INTO player_installs(slug) VALUES(?) ON CONFLICT(slug) DO NOTHING').bind(slug).run();
+   return json({ok:true});
+  }
   if(path==='/api/poll-vote'&&req.method==='POST')return json(await vote(env.DB,state,await body(req)));
   if(path==='/api/respond'&&req.method==='POST'){
    const b=await body(req);requireValue(b&&typeof b==='object'&&!Array.isArray(b),'Choose your name.');requireValue(typeof b.slug==='string'&&state.players.some(p=>p.slug===b.slug),'Choose your name.');
@@ -73,6 +79,21 @@ export default {async fetch(req,env,ctx){
    return json({role:admin?'admin':'player'},200,{'Set-Cookie':`tlpt_rsvp=${token}; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=604800`});
   }
   const actor=await identity(req,env,state);
+  if(path==='/api/player-adoption'&&req.method==='GET'){
+   requireValue(actor.role==='admin','Commish only.',403);
+   const [installed,alerts]=await Promise.all([
+    env.DB.prepare('SELECT slug FROM player_installs').all(),
+    env.DB.prepare('SELECT slug,COUNT(*) AS devices FROM push_subscriptions GROUP BY slug').all()
+   ]);
+   const seen=new Set(installed.results.map(row=>row.slug));
+   const deviceCounts=new Map(alerts.results.map(row=>[row.slug,row.devices]));
+   const players=state.players.filter(p=>p.slug!==HOST).sort(comparePlayers).map(p=>({
+    name:publicPlayer(p).name,
+    installed:seen.has(p.slug),
+    alertDevices:deviceCounts.get(p.slug)||0
+   }));
+   return json({players});
+  }
   if(path==='/api/broadcasts'){
    requireValue(actor.role==='admin','Commish only.',403);
    if(req.method==='GET')return json({...await broadcastOverview(env.DB,state),available:!!pushConfiguration(env)});

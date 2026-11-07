@@ -257,3 +257,12 @@ input:disabled,select:disabled { opacity:.65; }
 .event-help { margin-top: 10px; }
 .event-help summary { cursor: pointer; color: var(--gold-soft); padding: 12px 0; }
 @media(max-width:650px){.commish-tabs{gap:5px;padding:7px}.commish-tabs button{font-size:11px;padding:9px 4px;min-height:52px}.is-commish #view-controls{margin-top:6px}}
+
+#player-adoption { margin: 1rem 0; }
+#player-adoption table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+#player-adoption th, #player-adoption td {
+  padding: 0.5rem 0.3rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
