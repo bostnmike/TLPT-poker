@@ -67,7 +67,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       await page.screenshot({path:'/tmp/home-without-norm-' + width + '.png'});
       await page.goto(base + '/media.html');
-      assert.equal(await page.locator('.media-video-facade').count(), 40, 'Film Room ready without autoplay');
+      assert.equal(await page.locator('.media-video-facade').count(), 41, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
@@ -119,13 +119,14 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 41, 'Retain nine original films and all thirty-two RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 42, 'Retain nine original films and all thirty-three RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
-      assert.equal(await page.locator('.media-video-facade').count(), 40, 'All forty YouTube covers retained');
+      assert.equal(await page.locator('.media-video-facade').count(), 41, 'All forty-one YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       for (const [id, youtubeId] of [
+        ['two-seats-remain','XS62fWZR_FM'],
         ['one-seat-available','ep08DkRP3gw'],
         ['the-courtesy-fold','45e1e-1290I'],
         ['earlier-start','ervb9fx_0oc'],
@@ -150,7 +151,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         const thumbnailSlug = ({'rsvp-notifications':'notifications','rsvp-commercial':'commercial','rsvp-installation':'install'})[id] || id;
         assert.match(await cover.locator('img').getAttribute('src'), new RegExp('^media/rsvp-film-room/'+thumbnailSlug+'-thumbnail[.]jpg[?]v=[a-f0-9]{16}$'), 'Matching approved landscape thumbnail');
         await cover.locator('img').evaluate(img => img.decode());
-        assert.equal(await cover.locator('img').evaluate(img => img.naturalWidth), 1280, 'Wide cover loads without Shorts cropping');
+        const expectedDimensions = id === 'two-seats-remain' ? [1920, 1080] : [1280, 720];
+        assert.deepEqual(await cover.locator('img').evaluate(img => [img.naturalWidth, img.naturalHeight]), expectedDimensions, 'Approved wide cover loads without Shorts cropping');
         assert.ok(await cover.getAttribute('aria-label'), 'Accessible play button');
         const coverBox = await cover.boundingBox();
         assert.ok(Math.abs(coverBox.width / coverBox.height - 16 / 9) < .02, 'Existing cover aspect ratio');
@@ -171,7 +173,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-two Film Room RSVP YouTube mappings');
+      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-three Film Room RSVP YouTube mappings');
       await page.close();
     }
   } finally { await browser.close(); }
