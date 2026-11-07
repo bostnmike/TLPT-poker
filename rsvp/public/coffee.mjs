@@ -1,4 +1,4 @@
-import {coffeeDescription} from './coffee-menu.mjs?v=20261107-2';
+import {coffeeDescription} from './coffee-menu.mjs?v=20261107-3';
 
 const $ = selector => document.querySelector(selector);
 const dialog = $('#coffee-dialog'), form = $('#coffee-form'), fields = $('#coffee-fields');
