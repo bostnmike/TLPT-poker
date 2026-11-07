@@ -352,7 +352,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has thirty-two RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has thirty-three RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -364,6 +364,13 @@ restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
+“Two Seats Remain” uses YouTube `XS62fWZR_FM` and anchor
+`media.html#two-seats-remain`. Its exact 1920×1080 landscape cover and optional
+SRT/VTT captions come from
+`output/video/tlpt-two-seats-barista/clean-proportions-v3/` outside the repository.
+The approved 31-second 1080×1920/60fps master stays in that production folder.
+Keep the title-only, click-to-play card and uncropped portrait YouTube playback.
+
 The approved Patriots Norm football commercial “Call Your Play” uses YouTube
 `GY4uQaUwsbU` and the exact `call-your-play-thumbnail.jpg` landscape artwork from
 `output/video/tlpt-football-commercial/commish-playbook-preview/` outside the repo.
