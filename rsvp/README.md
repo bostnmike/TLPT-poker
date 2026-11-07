@@ -505,3 +505,26 @@ endpoints, authentication material, or announcement history. The authenticated
 same-origin JSON, canonical names, bounded choices and the ordinary write limiter.
 Migration 0004 adds private broadcasts and poll_votes tables; exact D1 backups
 include these, while the existing sanitized RSVP-only backup format stays unchanged.
+
+
+## Coffee pre-orders
+
+Players pick their existing roster name, then **Coffee pre-order** on an open,
+dated upcoming game. Players can order multiple drinks, each with its own choices: Hot/Iced Coffee, Latte or
+Macchiato, Black/With milk for coffee, optional Stevia in the Raw and an extra
+espresso shot. Latte and Macchiato include milk. Orders can be edited or cancelled;
+ordering does not change an RSVP or reserve a seat. The shared-name trust model
+also applies to coffee orders.
+
+The **Coffee orders** Commish tab groups active orders by game and retains
+cancelled orders separately. Current Commish notification devices receive new,
+changed and cancelled order alerts using the existing opt-in, retries and numbered
+badges. Players need no notification permission to order. The queue remains usable
+if push is off. No payment or preparation-status workflow is implied.
+
+Orders are additive fields on the existing event state, included in backups.
+Version checks prevent stale-device overwrites; request IDs suppress retry alerts.
+State changes and Commish outbox jobs commit atomically. Public event feeds omit
+coffee data. `/api/coffee` reads/updates a selected player's order, while
+`/api/coffee-orders` requires a current Commish session. No schema migration,
+new signing key, service or paid plan is required.

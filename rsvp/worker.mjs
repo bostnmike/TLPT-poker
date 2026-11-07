@@ -1,7 +1,8 @@
+import {coffeeQueue} from './coffee.mjs';
 import {broadcastOverview,publicPolls,sendBroadcast,vote,closePoll} from './broadcasts.mjs';
 import {galleryCatalog} from './posters.mjs';
 import {pushConfiguration,notificationTransitions,enqueueStatement,subscriptionAction,scheduleNotifications,drainNotifications} from './notifications.mjs';
-import {Rejected,requireValue,publicFeed,publicPlayer,comparePlayers,HOST,playerView,applyOperation,compareEvents} from './model.mjs';
+import {Rejected,requireValue,publicFeed,publicPlayer,comparePlayers,HOST,coffeeEvent,publicCoffeeOrder,playerView,applyOperation,compareEvents} from './model.mjs';
 const encoder=new TextEncoder();
 export const hash=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(s)))).map(x=>x.toString(16).padStart(2,'0')).join('');
 export const random=()=>Array.from(crypto.getRandomValues(new Uint8Array(32))).map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -59,6 +60,19 @@ export default {async fetch(req,env,ctx){
   if(req.method==='POST'){requireValue(req.headers.get('Origin')===url.origin,'Open this page directly to save.',403);await limited(req,env);}
   const state=await read(env.DB);
   if(['/api/notifications','/api/commish-notifications'].includes(path)&&req.method==='POST'){const b=await body(req),commish=path==='/api/commish-notifications',actor=commish&&b?.action==='enable'?await identity(req,env,state):null;requireValue(!actor||actor.role==='admin','Commish sign-in required.',403);requireValue(b?.action!=='enable'||pushConfiguration(env),'Notifications are not available right now.',503);return json(await subscriptionAction(env.DB,state,b,hash,commish,actor));}
+  if(path==='/api/coffee'&&req.method==='GET'){
+   const slug=url.searchParams.get('slug');
+   requireValue(slug!==HOST&&state.players.some(p=>p.slug===slug),'Choose your player name.');
+   const event=coffeeEvent(state,url.searchParams.get('eventId'),undefined,false);
+   return json({orders:Object.entries(event.coffeeOrders?.[slug]||{}).map(([orderId,order])=>({orderId,...publicCoffeeOrder(order)}))});
+  }
+  if(path==='/api/coffee'&&req.method==='POST'){
+   const b=await body(req);
+   requireValue(b&&b.slug!==HOST&&state.players.some(p=>p.slug===b.slug),'Choose your player name.');
+   const saved=await update(env.DB,{role:'shared',slug:b.slug},{type:'coffee',slug:b.slug,eventId:b.eventId,orderId:b.orderId,action:b.action,order:b.order,expectedVersion:b.expectedVersion,requestId:b.requestId});
+   scheduleNotifications(ctx,env);
+   return json({ok:true,order:{orderId:b.orderId,...publicCoffeeOrder(saved.events.find(e=>e.id===b.eventId).coffeeOrders?.[b.slug]?.[b.orderId])}});
+  }
   if(path==='/api/player-install'&&req.method==='POST'){
    const {slug}=await body(req)||{};
    requireValue(slug!==HOST&&state.players.some(p=>p.slug===slug),'Choose your player name first.');
@@ -79,6 +93,10 @@ export default {async fetch(req,env,ctx){
    return json({role:admin?'admin':'player'},200,{'Set-Cookie':`tlpt_rsvp=${token}; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=604800`});
   }
   const actor=await identity(req,env,state);
+  if(path==='/api/coffee-orders'&&req.method==='GET'){
+   requireValue(actor.role==='admin','Commish only.',403);
+   return json(coffeeQueue(state));
+  }
   if(path==='/api/player-adoption'&&req.method==='GET'){
    requireValue(actor.role==='admin','Commish only.',403);
    const [installed,alerts]=await Promise.all([

@@ -1,3 +1,4 @@
+import {coffeeDrinks} from './public/coffee-menu.mjs';
 import {eventPoster,validPosterFile} from './posters.mjs';
 export {eventPoster} from './posters.mjs';
 import {noGameDays} from './schedule-notices.mjs';
@@ -35,9 +36,59 @@ export function validateMetadata(raw){
  const poster=raw.poster||'auto';requireValue(poster==='auto'||poster==='none'||validPosterFile(poster),'Choose a poster from the TLPT gallery.');
  m.poster=poster;m.tables=m.slot==='mtt'?2:1;if(m.slot==='sunday'){m.startingStack=50000;m.blindStructure='40k';}return m;
 }
+export function coffeeEvent(state, eventId, now = new Date().toISOString(), requireOpen = true) {
+ const event = state.events.find(e => e.id === eventId);
+ const today = new Intl.DateTimeFormat('en-CA', {timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit'}).format(new Date(now));
+ requireValue(event && liveEvent(event) && event.metadata.date !== 'Date TBD' && event.metadata.date >= today, 'This game is unavailable for coffee orders.', 409);
+ requireValue(!requireOpen || event.open, 'Coffee pre-orders are closed for this game.', 409);
+ return event;
+}
+
+export function publicCoffeeOrder(order) {
+ if (!order) return null;
+ const {drink, temperature, milk, stevia, extraShot, status, version, createdAt, updatedAt} = order;
+ return {drink, temperature, milk, stevia, extraShot, status, version, createdAt, updatedAt};
+}
+
+function applyCoffeeOrder(state, actor, op, now) {
+ const slug = actor.role === 'admin' ? op.slug : actor.slug;
+ requireValue(!op.slug || op.slug === slug, 'Choose your player name.', 403);
+ requireValue(slug !== HOST && state.players.some(p => p.slug === slug), 'Choose your player name.');
+ requireValue(['save', 'cancel'].includes(op.action), 'Choose save or cancel.');
+ requireValue(typeof op.requestId === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(op.requestId), 'Reopen the coffee form and try again.');
+ requireValue(Number.isSafeInteger(op.expectedVersion) && op.expectedVersion >= 0, 'Reload your coffee order.');
+ const event = coffeeEvent(state, op.eventId, now, op.action !== 'cancel');
+ requireValue(typeof op.orderId === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(op.orderId), 'Reopen the coffee form and try again.');
+ const old = event.coffeeOrders?.[slug]?.[op.orderId];
+ let options;
+ if (op.action === 'save') {
+  const raw = op.order;
+  requireValue(raw && Object.hasOwn(coffeeDrinks, raw.drink) && ['hot', 'iced'].includes(raw.temperature), 'Choose your drink and Hot or Iced.');
+  requireValue(['milk', 'stevia', 'extraShot'].every(key => typeof raw[key] === 'boolean'), 'Choose your coffee extras.');
+  options = {drink: raw.drink, temperature: raw.temperature, milk: raw.drink === 'coffee' ? raw.milk : true, stevia: raw.stevia, extraShot: raw.extraShot};
+ } else {
+  requireValue(old, 'There is no coffee order to cancel.', 409);
+  options = {drink: old.drink, temperature: old.temperature, milk: old.milk, stevia: old.stevia, extraShot: old.extraShot};
+ }
+ const status = op.action === 'cancel' ? 'cancelled' : 'active';
+ const same = old && old.status === status && Object.keys(options).every(key => old[key] === options[key]);
+ if (old?.requestId === op.requestId) {
+  requireValue(same, 'This request was already used for a different coffee order.', 409);
+  return false;
+ }
+ requireValue((old?.version || 0) === op.expectedVersion, 'Your coffee order changed on another device. Reopen the form to review it.', 409);
+ if (same) return false;
+ event.coffeeOrders ||= {};
+ event.coffeeOrders[slug] ||= {};
+ event.coffeeOrders[slug][op.orderId] = {...options, status, version: (old?.version || 0) + 1, requestId: op.requestId, createdAt: old?.createdAt || now, updatedAt: now};
+ return true;
+}
+
 export function applyOperation(state,actor,op,now=new Date().toISOString()){
  const admin=actor.role==='admin';
- if(op.type==='respond'){
+ if(op.type==='coffee'){
+  if (!applyCoffeeOrder(state, actor, op, now)) return state;
+ }else if(op.type==='respond'){
   const slug=admin?op.slug:actor.slug;
   requireValue(admin||!op.slug||op.slug===actor.slug,'This link belongs to another player.',403);
   requireValue(state.players.some(p=>p.slug===slug),'Unknown player.');
