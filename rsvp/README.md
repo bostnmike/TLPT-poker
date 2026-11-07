@@ -510,10 +510,10 @@ include these, while the existing sanitized RSVP-only backup format stays unchan
 ## Coffee pre-orders
 
 Players pick their existing roster name, then **Coffee pre-order** on an open,
-dated upcoming game. Players can order multiple drinks, each with its own choices: Hot/Iced Coffee, Latte or
+dated upcoming game. The preorder form offers Hot/Iced Coffee, Latte or
 Macchiato, Black/With milk for coffee, optional Stevia in the Raw and an extra
 espresso shot. Latte and Macchiato include milk. Orders can be edited or cancelled;
-ordering does not change an RSVP or reserve a seat. The shared-name trust model
+each player has one editable pre-order per game. Ordering does not change an RSVP or reserve a seat. The shared-name trust model
 also applies to coffee orders.
 
 The **Coffee orders** Commish tab groups active orders by game and retains

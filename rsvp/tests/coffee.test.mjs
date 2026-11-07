@@ -109,6 +109,7 @@ test('shared coffee API validates origin and canonical names; queue requires cur
   for(const slug of ['bostnmike','unknown'])assert.equal((await call('coffee',{...op,slug})).status,400);
   const result=await call('coffee',op);assert.equal(result.status,200);assert.equal((await result.json()).order.version,1);
   assert.equal((await call('coffee',op)).status,200);
+  assert.equal((await call('coffee',{...op,orderId:crypto.randomUUID(),requestId:crypto.randomUUID()})).status,409);
   const order=await(await call('coffee?slug=red&eventId=e1')).json();assert.equal(order.orders[0].status,'active');assert.ok(!JSON.stringify(order).includes('requestId'));
   const queue=await(await call('coffee-orders',null,'tlpt_rsvp='+token)).json();assert.equal(queue.orders.length,1);
   assert.equal((await call('coffee',{...operation(),expectedVersion:0,order:{...options,milk:true}})).status,409);
@@ -116,14 +117,14 @@ test('shared coffee API validates origin and canonical names; queue requires cur
 });
 
 
-test('a player can send multiple separate drinks and editing one leaves the others intact', () => {
+test('a player has one editable pre-order; a stale second form cannot create an extra drink', () => {
   const first = change(fixture());
   const otherId = crypto.randomUUID();
-  const second = change(first.after, operation({orderId: otherId, order: {...options, drink: 'latte'}}));
-  assert.equal(coffeeQueue(second.after,new Date(now)).orders.length,2);
-  assert.equal(second.jobs.length,1);
-  const cancelFirst = change(second.after, operation({action:'cancel',expectedVersion:1}));
-  assert.equal(cancelFirst.after.events[0].coffeeOrders.red[otherId].status,'active');
-  assert.equal(cancelFirst.after.events[0].coffeeOrders.red[orderId].status,'cancelled');
-  assert.equal(notificationStillRelevant(second.jobs[0],cancelFirst.after,'@commish:1',new Date(now)),true);
+  assert.throws(() => change(first.after, operation({orderId: otherId, order: {...options, drink: 'latte'}})), /another device/);
+  const edited = change(first.after, operation({expectedVersion:1, order: {...options, drink:'latte'}}));
+  assert.equal(coffeeQueue(edited.after,new Date(now)).orders.length,1);
+  assert.equal(edited.jobs.length,1);
+  const cancelled = change(edited.after, operation({action:'cancel',expectedVersion:2}));
+  const restarted = change(cancelled.after,operation({orderId:otherId}));
+  assert.equal(coffeeQueue(restarted.after,new Date(now)).orders.filter(order=>order.status==='active').length,1);
 });

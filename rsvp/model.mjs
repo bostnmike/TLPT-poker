@@ -78,6 +78,7 @@ function applyCoffeeOrder(state, actor, op, now) {
  }
  requireValue((old?.version || 0) === op.expectedVersion, 'Your coffee order changed on another device. Reopen the form to review it.', 409);
  if (same) return false;
+ requireValue(status !== 'active' || old?.status === 'active' || !Object.entries(event.coffeeOrders?.[slug] || {}).some(([id, order]) => id !== op.orderId && order.status === 'active'), 'Your coffee pre-order was saved on another device. Reopen the form to make changes.', 409);
  event.coffeeOrders ||= {};
  event.coffeeOrders[slug] ||= {};
  event.coffeeOrders[slug][op.orderId] = {...options, status, version: (old?.version || 0) + 1, requestId: op.requestId, createdAt: old?.createdAt || now, updatedAt: now};

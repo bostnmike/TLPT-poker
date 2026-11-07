@@ -14,15 +14,15 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261026-2">
   <link rel="apple-touch-icon" sizes="180x180" href="/rsvp-icon-180.png?v=20261026-2">
   <link rel="manifest" href="/manifest.webmanifest?v=20261026-2">
-  <link rel="stylesheet" href="/style.css?v=20261107-1">
+  <link rel="stylesheet" href="/style.css?v=20261107-2">
   <link rel="stylesheet" href="/schedule-notices.css?v=20261026-2">
-  <script src="/app.js?v=20261107-1" defer></script>
+  <script src="/app.js?v=20261107-2" defer></script>
   <script type="module" src="/commish.mjs?v=20261026-3"></script>
   <script type="module" src="/broadcasts.mjs?v=20261101-2"></script>
   <script type="module" src="/notifications.mjs?v=20261101-2"></script>
   <script type="module" src="/install.mjs?v=20261025-1"></script>
   <script type="module" src="/player-adoption.mjs?v=20261106-1"></script>
-  <script type="module" src="/coffee.mjs?v=20261107-1"></script>
+  <script type="module" src="/coffee.mjs?v=20261107-2"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -116,10 +116,8 @@
 </main>
 <dialog id="coffee-dialog" aria-labelledby="coffee-title">
   <form method="dialog"><div class="coffee-dialog-heading"><h2 id="coffee-title">Coffee pre-order</h2><button type="submit" aria-label="Close coffee order">Close</button></div></form>
-  <p id="coffee-for"></p><p>Order your coffee. Come back for reinforcements.</p>
+  <p id="coffee-for"></p><p>Your coffee. Your call.</p>
   <p id="coffee-status" role="status" aria-live="polite"></p>
-  <div id="coffee-own-orders"></div>
-  <button type="button" id="coffee-add" hidden>Add another drink</button>
   <form id="coffee-form">
     <fieldset id="coffee-fields" disabled>
       <label>Drink<select name="drink"><option value="coffee">Coffee</option><option value="latte">Latte</option><option value="macchiato">Macchiato</option></select></label>
