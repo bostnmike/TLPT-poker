@@ -73,17 +73,17 @@ try{
  assert.deepEqual(await(await post('commish-notifications',{action:'status',token:commishNotificationToken})).json(),{enabled:true,slug:'@commish'});
  let adminJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='response'");assert.equal(adminJobs.length,2);assert.ok(adminJobs.every(j=>j.subscription_id===commishNotificationId));
  // Coffee edits use the actual state CAS and only enqueue Commish devices.
- const coffee={slug:'red',orderId:crypto.randomUUID(),eventId:'fixture-event',action:'save',requestId:crypto.randomUUID(),expectedVersion:0,order:{drink:'latte',temperature:'iced',milk:true,stevia:true,extraShot:true}};
+ const coffee={slug:'red',orderId:crypto.randomUUID(),eventId:'fixture-event',action:'save',requestId:crypto.randomUUID(),expectedVersion:0,order:{drink:'latte',temperature:'iced',caffeine:'decaf',milk:true,stevia:true,extraShot:true}};
  assert.equal((await fetch(base+'/api/coffee-orders')).status,401);
  assert.equal((await fetch(base+'/api/coffee-orders',{headers:{Cookie:red}})).status,403);
  assert.equal((await post('coffee',coffee,null,'https://evil.test')).status,403);
  const coffeeResults=await Promise.all([post('coffee',coffee),post('coffee',coffee)]);assert.deepEqual(coffeeResults.map(r=>r.status),[200,200]);
- let coffeeOrder=(await(await fetch(base+'/api/coffee?slug=red&eventId=fixture-event')).json()).orders[0];assert.equal(coffeeOrder.version,1);assert.equal(coffeeOrder.status,'active');
- const coffeeJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='coffee'");assert.equal(coffeeJobs.length,1);assert.equal(coffeeJobs[0].subscription_id,commishNotificationId);
+ let coffeeOrder=(await(await fetch(base+'/api/coffee?slug=red&eventId=fixture-event')).json()).orders[0];assert.equal(coffeeOrder.version,1);assert.equal(coffeeOrder.status,'active');assert.equal(coffeeOrder.caffeine,'decaf');
+ const coffeeJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='coffee'");assert.equal(coffeeJobs.length,1);assert.equal(coffeeJobs[0].subscription_id,commishNotificationId);assert.match(JSON.parse(coffeeJobs[0].payload).body,/DeCaf/);
  assert.equal((await post('coffee',{...coffee,requestId:crypto.randomUUID(),order:{...coffee.order,temperature:'hot'}})).status,409);
  assert.equal((await post('coffee',{...coffee,requestId:crypto.randomUUID(),expectedVersion:1,action:'cancel'})).status,200);
  coffeeOrder=(await(await fetch(base+'/api/coffee?slug=red&eventId=fixture-event')).json()).orders[0];assert.equal(coffeeOrder.version,2);assert.equal(coffeeOrder.status,'cancelled');
- const coffeeQueue=await(await fetch(base+'/api/coffee-orders',{headers:{Cookie:admin}})).json();assert.equal(coffeeQueue.orders[0].status,'cancelled');
+ const coffeeQueue=await(await fetch(base+'/api/coffee-orders',{headers:{Cookie:admin}})).json();assert.equal(coffeeQueue.orders[0].status,'cancelled');assert.equal(coffeeQueue.orders[0].caffeine,'decaf');
  feed=await(await fetch(base+'/api/public/events')).json();assert.ok(!JSON.stringify(feed).includes('coffeeOrders'));assert.equal(feed.events[0].waitlist[0].slug,'red');
  // Synthetic subscription bodies are {}, so encryption fails before any provider
  // request. The generated wrapper supplies an invalid test-only VAPID key solely

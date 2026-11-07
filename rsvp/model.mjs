@@ -1,4 +1,4 @@
-import {coffeeDrinks} from './public/coffee-menu.mjs';
+import {coffeeDrinks, coffeeCaffeine} from './public/coffee-menu.mjs';
 import {eventPoster,validPosterFile} from './posters.mjs';
 export {eventPoster} from './posters.mjs';
 import {noGameDays} from './schedule-notices.mjs';
@@ -47,7 +47,7 @@ export function coffeeEvent(state, eventId, now = new Date().toISOString(), requ
 export function publicCoffeeOrder(order) {
  if (!order) return null;
  const {drink, temperature, milk, stevia, extraShot, status, version, createdAt, updatedAt} = order;
- return {drink, temperature, milk, stevia, extraShot, status, version, createdAt, updatedAt};
+ return {drink, temperature, caffeine: order.caffeine ?? 'high-octane', milk, stevia, extraShot, status, version, createdAt, updatedAt};
 }
 
 function applyCoffeeOrder(state, actor, op, now) {
@@ -65,13 +65,14 @@ function applyCoffeeOrder(state, actor, op, now) {
   const raw = op.order;
   requireValue(raw && Object.hasOwn(coffeeDrinks, raw.drink) && ['hot', 'iced'].includes(raw.temperature), 'Choose your drink and Hot or Iced.');
   requireValue(['milk', 'stevia', 'extraShot'].every(key => typeof raw[key] === 'boolean'), 'Choose your coffee extras.');
-  options = {drink: raw.drink, temperature: raw.temperature, milk: raw.drink === 'coffee' ? raw.milk : true, stevia: raw.stevia, extraShot: raw.extraShot};
+  requireValue(raw.caffeine === undefined || Object.hasOwn(coffeeCaffeine, raw.caffeine), 'Choose DeCaf or High Octane.');
+  options = {drink: raw.drink, temperature: raw.temperature, caffeine: raw.caffeine ?? old?.caffeine ?? 'high-octane', milk: raw.drink === 'coffee' ? raw.milk : true, stevia: raw.stevia, extraShot: raw.extraShot};
  } else {
   requireValue(old, 'There is no coffee order to cancel.', 409);
-  options = {drink: old.drink, temperature: old.temperature, milk: old.milk, stevia: old.stevia, extraShot: old.extraShot};
+  options = {drink: old.drink, temperature: old.temperature, caffeine: old.caffeine ?? 'high-octane', milk: old.milk, stevia: old.stevia, extraShot: old.extraShot};
  }
  const status = op.action === 'cancel' ? 'cancelled' : 'active';
- const same = old && old.status === status && Object.keys(options).every(key => old[key] === options[key]);
+ const same = old && old.status === status && Object.keys(options).every(key => (key === 'caffeine' ? old[key] ?? 'high-octane' : old[key]) === options[key]);
  if (old?.requestId === op.requestId) {
   requireValue(same, 'This request was already used for a different coffee order.', 409);
   return false;

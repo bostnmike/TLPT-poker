@@ -511,7 +511,7 @@ include these, while the existing sanitized RSVP-only backup format stays unchan
 
 Players pick their existing roster name, then **Coffee pre-order** on an open,
 dated upcoming game. The preorder form offers Hot/Iced Coffee, Latte, Cappuccino or
-Macchiato, Black/With milk for coffee, optional Stevia in the Raw and an extra
+Macchiato, DeCaf/High Octane, Black/With milk for coffee, optional Stevia in the Raw and an extra
 espresso shot. Latte, Cappuccino and Macchiato include milk. Orders can be edited or cancelled;
 each player has one editable pre-order per game. Ordering does not change an RSVP or reserve a seat. The shared-name trust model
 also applies to coffee orders.
@@ -523,6 +523,9 @@ badges. Players need no notification permission to order. The queue remains usab
 if push is off. No payment or preparation-status workflow is implied.
 
 Orders are additive fields on the existing event state, included in backups.
+High Octane is the default; older orders without a caffeine choice display as
+High Octane. Edits from an older cached form preserve a saved DeCaf choice.
+The chosen caffeine option appears in summaries, the queue and Commish alerts.
 Version checks prevent stale-device overwrites; request IDs suppress retry alerts.
 State changes and Commish outbox jobs commit atomically. Public event feeds omit
 coffee data. `/api/coffee` reads/updates a selected player's order, while
