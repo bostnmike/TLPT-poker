@@ -1,4 +1,4 @@
-import {coffeeDescription} from './coffee-menu.mjs?v=20261107-3';
+import {coffeeDescription} from './coffee-menu.mjs?v=20261107-4';
 
 const $ = selector => document.querySelector(selector);
 const dialog = $('#coffee-dialog'), form = $('#coffee-form'), fields = $('#coffee-fields');
@@ -48,6 +48,7 @@ async function openOrder(button) {
       target.orderId = order.orderId; target.version = order.version;
       form.elements.drink.value = order.drink;
       form.elements.temperature.value = order.temperature;
+      form.elements.caffeine.value = order.caffeine || 'high-octane';
       form.elements.milk.value = order.milk ? 'milk' : 'black';
       form.elements.stevia.checked = order.stevia;
       form.elements.extraShot.checked = order.extraShot;
@@ -65,7 +66,7 @@ async function saveOrder(action) {
   const target = context;
   const data = {slug: target.slug, eventId: target.eventId, orderId: target.orderId, action, expectedVersion: target.version};
   if (action === 'save') data.order = {
-    drink: form.elements.drink.value, temperature: form.elements.temperature.value,
+    drink: form.elements.drink.value, temperature: form.elements.temperature.value, caffeine: form.elements.caffeine.value,
     milk: form.elements.drink.value !== 'coffee' || form.elements.milk.value === 'milk',
     stevia: form.elements.stevia.checked, extraShot: form.elements.extraShot.checked
   };

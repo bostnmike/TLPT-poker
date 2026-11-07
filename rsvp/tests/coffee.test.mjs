@@ -11,7 +11,7 @@ import {b64url} from '../web-push.mjs';
 const now = '2030-01-01T12:00:00Z';
 const orderId = '11111111-1111-4111-8111-111111111111';
 const actor = {role: 'shared', slug: 'red'};
-const options = {drink: 'coffee', temperature: 'iced', milk: false, stevia: true, extraShot: false};
+const options = {drink: 'coffee', temperature: 'iced', caffeine: 'high-octane', milk: false, stevia: true, extraShot: false};
 const fixture = () => ({revision: 1, sequence: 3, adminGeneration: 1, updatedAt: now, audit: [], players: ['bostnmike','red','li-fo'].map(slug => ({slug, name: slug, generation: 1, linkHash: 'fixture-only'})), events: [{id: 'e1', capacity: 1, open: true, metadata: {title: 'Test game', slot: 'friday', date: '2030-01-04'}, responses: {bostnmike: {answer: 'yes', order: 0, updatedAt: now}, red: {answer: 'yes', order: 1}}}]});
 const operation = (overrides = {}) => ({type: 'coffee', eventId: 'e1', orderId, slug: 'red', action: 'save', expectedVersion: 0, requestId: crypto.randomUUID(), order: {...options}, ...overrides});
 function change(before, op = operation(), who = actor) {
@@ -36,7 +36,7 @@ test('coffee menu normalizes milk for espresso drinks without changing seats or 
   }
 });
 test('orders reject invalid identities, menu fields and unavailable events', () => {
-  for (const overrides of [{slug:'li-fo'}, {action:'complete'}, {requestId:'invalid'}, {orderId:'invalid'}, {expectedVersion:-1}, {order:{...options,drink:'mocha'}}, {order:{...options,temperature:'warm'}}, {order:{...options,milk:'false'}}, {order:{...options,stevia:1}}, {order:{...options,extraShot:null}}]) assert.throws(() => change(fixture(), operation(overrides)));
+  for (const overrides of [{slug:'li-fo'}, {action:'complete'}, {requestId:'invalid'}, {orderId:'invalid'}, {expectedVersion:-1}, {order:{...options,drink:'mocha'}}, {order:{...options,temperature:'warm'}}, {order:{...options,caffeine:'half-caf'}}, {order:{...options,caffeine:null}}, {order:{...options,milk:'false'}}, {order:{...options,stevia:1}}, {order:{...options,extraShot:null}}]) assert.throws(() => change(fixture(), operation(overrides)));
   for (const who of [{role:'shared',slug:'bostnmike'}, {role:'shared',slug:'unknown'}]) assert.throws(() => change(fixture(), operation({slug:who.slug}), who));
   for (const edit of [e => e.open=false, e => e.metadata.date='2029-12-31', e => e.metadata.date='Date TBD', e => e.cancelled=true, e => e.archived=true, e => e.deletedAt=now]) {
     const s=fixture(); edit(s.events[0]); assert.throws(() => change(s), /closed|unavailable/);
@@ -127,4 +127,30 @@ test('a player has one editable pre-order; a stale second form cannot create an 
   const cancelled = change(edited.after, operation({action:'cancel',expectedVersion:2}));
   const restarted = change(cancelled.after,operation({orderId:otherId}));
   assert.equal(coffeeQueue(restarted.after,new Date(now)).orders.filter(order=>order.status==='active').length,1);
+});
+
+
+test('caffeine choice survives reads, edits and cancellation and appears in Commish alerts', () => {
+  for (const drink of ['coffee','latte','cappuccino','macchiato']) for (const caffeine of ['decaf','high-octane']) {
+    const first = change(fixture(),operation({order:{...options,drink,caffeine}}));
+    const row = coffeeQueue(first.after,new Date(now)).orders[0];
+    assert.equal(row.caffeine,caffeine);
+    assert.match(first.jobs[0].body,caffeine==='decaf'?/DeCaf/:/High Octane/);
+    const changed = change(first.after,operation({expectedVersion:1,order:{...options,drink,caffeine:caffeine==='decaf'?'high-octane':'decaf'}}));
+    assert.equal(changed.jobs.length,1);
+    const cancelled = change(changed.after,operation({action:'cancel',expectedVersion:2}));
+    assert.equal(cancelled.after.events[0].coffeeOrders.red[orderId].caffeine,changed.after.events[0].coffeeOrders.red[orderId].caffeine);
+    assert.match(cancelled.jobs[0].body,caffeine==='decaf'?/High Octane/:/DeCaf/);
+  }
+});
+test('legacy orders default to High Octane; older forms preserve a saved DeCaf choice and retries stay quiet', () => {
+  const legacy=change(fixture()).after;delete legacy.events[0].coffeeOrders.red[orderId].caffeine;
+  assert.equal(coffeeQueue(legacy,new Date(now)).orders[0].caffeine,'high-octane');
+  assert.match(coffeeDescription(legacy.events[0].coffeeOrders.red[orderId]),/High Octane/);
+  const unchanged=change(legacy,operation({expectedVersion:1}));assert.equal(unchanged.after.revision,legacy.revision);assert.equal(unchanged.jobs.length,0);
+  const decaf=change(legacy,operation({expectedVersion:1,order:{...options,caffeine:'decaf'}}));
+  const oldForm={...options,milk:true};delete oldForm.caffeine;
+  const op=operation({expectedVersion:2,order:oldForm});
+  const edited=change(decaf.after,op);assert.equal(edited.after.events[0].coffeeOrders.red[orderId].caffeine,'decaf');
+  assert.equal(change(edited.after,op).jobs.length,0);
 });
