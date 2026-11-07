@@ -288,6 +288,4 @@ input:disabled,select:disabled { opacity:.65; }
 .coffee-order-drink { color:var(--ink); font-weight:700; }
 @media(max-width:500px) { .coffee-invite { align-items:stretch; flex-direction:column; } }
 
-.coffee-own-order { display:flex; align-items:center; justify-content:space-between; gap:14px; border-bottom:1px solid var(--line); padding:12px 0; line-height:1.5; }
-.coffee-own-order button { margin:0; flex-shrink:0; }
 #coffee-status { color:var(--gold-soft); }

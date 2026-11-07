@@ -1,4 +1,4 @@
-import {coffeeDescription} from './coffee-menu.mjs?v=20261107-1';
+import {coffeeDescription} from './coffee-menu.mjs?v=20261107-2';
 
 const $ = selector => document.querySelector(selector);
 const dialog = $('#coffee-dialog'), form = $('#coffee-form'), fields = $('#coffee-fields');
@@ -32,46 +32,30 @@ function currentPlayer() {
     ? {...selected, slug: picker.value, name: picker.selectedOptions[0]?.textContent || ''}
     : selected;
 }
-function editDrink(order = null) {
-  if (!context || saving) return;
-  context.orderId = order?.orderId || crypto.randomUUID();
-  context.version = order?.version || 0;
-  pending = null;
-  form.reset(); form.hidden = false; $('#coffee-add').hidden = true;
-  if (order) {
-    form.elements.drink.value = order.drink;
-    form.elements.temperature.value = order.temperature;
-    form.elements.milk.value = order.milk ? 'milk' : 'black';
-    form.elements.stevia.checked = order.stevia;
-    form.elements.extraShot.checked = order.extraShot;
-  }
-  milkChoice(); fields.disabled = false; cancel.hidden = !order;
-  form.querySelector('[type="submit"]').textContent = 'Send to the Commish';
-  status.textContent = order ? 'Editing: ' + coffeeDescription(order) : 'What’s fueling your next questionable call?';
-}
-function renderOwnOrders() {
-  const active = context.orders.filter(order => order.status === 'active');
-  $('#coffee-own-orders').innerHTML = active.length ? '<h3>Your drinks</h3>' + active.map(order =>
-    `<div class="coffee-own-order"><span>${esc(coffeeDescription(order))}</span><button type="button" data-edit-coffee="${esc(order.orderId)}">Edit</button></div>`
-  ).join('') : '';
-  $('#coffee-add').hidden = false;
-}
 async function openOrder(button) {
   const player = currentPlayer();
   if (saving || !player.slug || player.commishEntry || player.preview) return;
-  const target = {slug: player.slug, eventId: button.dataset.coffeeEvent, orders: []};
-  context = target; pending = null; form.hidden = true; fields.disabled = true;
-  $('#coffee-own-orders').replaceChildren(); $('#coffee-add').hidden = true;
+  const target = {slug: player.slug, eventId: button.dataset.coffeeEvent, orderId: crypto.randomUUID(), version: 0};
+  context = target; pending = null; form.reset(); form.hidden = false; milkChoice(); fields.disabled = true; cancel.hidden = true;
   $('#coffee-for').textContent = `${player.name} · ${button.closest('.event').querySelector('h2').textContent}`;
-  status.textContent = 'Checking your orders…';
+  status.textContent = 'Checking your order…';
   dialog.showModal();
   try {
     const {orders} = await request('coffee?' + new URLSearchParams({slug: target.slug, eventId: target.eventId}));
     if (context !== target || !dialog.open) return;
-    target.orders = orders; renderOwnOrders();
-    const active = orders.filter(order => order.status === 'active');
-    if (!active.length) editDrink();
-    else status.textContent = `${active.length} ${active.length === 1 ? 'drink' : 'drinks'} on order. Add another or edit below.`;
+    const order = orders.find(order => order.status === 'active') || orders.at(-1);
+    if (order) {
+      target.orderId = order.orderId; target.version = order.version;
+      form.elements.drink.value = order.drink;
+      form.elements.temperature.value = order.temperature;
+      form.elements.milk.value = order.milk ? 'milk' : 'black';
+      form.elements.stevia.checked = order.stevia;
+      form.elements.extraShot.checked = order.extraShot;
+    }
+    milkChoice(); fields.disabled = false; cancel.hidden = order?.status !== 'active';
+    status.textContent = order?.status === 'active'
+      ? 'Your order: ' + coffeeDescription(order)
+      : order?.status === 'cancelled' ? 'Your order was cancelled. Send it again if you change your mind.' : 'What’s fueling your next questionable call?';
   } catch (error) {
     if (context === target) status.textContent = error.message + ' Close and reopen to retry.';
   }
@@ -91,8 +75,7 @@ async function saveOrder(action) {
   saving = true; fields.disabled = true; status.textContent = 'Saving your coffee order…';
   try {
     const {order} = await request('coffee', {...data, requestId: pending.requestId});
-    target.orders = [...target.orders.filter(item => item.orderId !== order.orderId), order];
-    target.version = order.version; pending = null; form.hidden = true; renderOwnOrders();
+    target.version = order.version; pending = null; cancel.hidden = order.status !== 'active';
     status.textContent = order.status === 'cancelled' ? 'Drink cancelled.' : 'Drink saved: ' + coffeeDescription(order) + '. The Commish can see it now.';
   } catch (error) {
     status.textContent = error.message;
@@ -134,11 +117,6 @@ async function loadQueue() {
 form.addEventListener('change', milkChoice);
 form.addEventListener('submit', event => {event.preventDefault(); saveOrder('save');});
 cancel.addEventListener('click', () => saveOrder('cancel'));
-$('#coffee-add').addEventListener('click', () => editDrink());
-$('#coffee-own-orders').addEventListener('click', event => {
-  const button = event.target.closest('[data-edit-coffee]');
-  if (button && context) editDrink(context.orders.find(order => order.orderId === button.dataset.editCoffee));
-});
 dialog.addEventListener('cancel', event => {if (saving) event.preventDefault();});
 dialog.querySelector('form[method="dialog"]').addEventListener('submit', event => {if (saving) event.preventDefault();});
 dialog.addEventListener('close', () => {context = null; pending = null;});
