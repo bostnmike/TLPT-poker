@@ -184,7 +184,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-four Film Room RSVP YouTube mappings');
+      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-five Film Room RSVP YouTube mappings');
       await page.close();
     }
   } finally { await browser.close(); }
