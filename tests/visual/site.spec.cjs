@@ -2,6 +2,7 @@
 const {test, expect, chromium} = require('playwright/test');
 const fs = require('node:fs');
 const path = require('node:path');
+const {rsvpFeedFixture} = require('../../scripts/browser-rsvp-fixture.cjs');
 const fixtures = path.join(__dirname, 'fixtures');
 async function prepare(page) {
   await page.clock.setFixedTime(new Date('2026-10-26T16:00:00-04:00'));
@@ -9,10 +10,7 @@ async function prepare(page) {
     const url = new URL(route.request().url());
     if (url.hostname !== '127.0.0.1') {
       if (url.href.includes('/api/public/events')) {
-        const data = JSON.parse(fs.readFileSync(path.join(fixtures, 'data/events.json')));
-        // The frozen snapshot predates the live switch. Explicitly mark its
-        // already-reviewed open games as open; do not alter fixture data/pixels.
-        return route.fulfill({json: {schemaVersion: 1, revision: 'visual-fixture', events: data.events.map(event => ({...event, rsvpOpen: true})), noGameDays: []}});
+        return route.fulfill({json: rsvpFeedFixture()});
       }
       return route.abort();
     }

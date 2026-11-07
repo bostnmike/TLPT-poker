@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "now-serving-decaf",
+      "src": "images/norm-gallery/now-serving-decaf.png",
+      "sha256": "7a3a006aa70213e2a349c422374434474315c213d8defcd1ebaba88cabf11e4f",
+      "width": 1080,
+      "height": 1920,
+      "title": "Now Serving DeCaf",
+      "filmHref": "media.html#now-serving-decaf",
+      "youtubeId": "WFy0mP9u0Bw"
+    },
+    {
       "id": "coffee-preorders",
       "src": "images/norm-gallery/coffee-preorders.png",
       "sha256": "da5907a9f923b628a8d71099ab9d64df78079b543853aa234d5893ecb38cb7fe",

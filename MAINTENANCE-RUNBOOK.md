@@ -122,6 +122,14 @@ occlusion, filters/reset, empty states, keyboard focus, mobile density, and
 Norm's inline audio/help interactions (including short landscape screens).
 The preview binds only to localhost and closes when the tests finish.
 
+General browser checks use the reviewed public RSVP fixture from
+`scripts/browser-rsvp-fixture.cjs`, shared with the visual gate. This keeps remote
+RSVP latency out of unrelated layout, profile and audio checks. Dedicated Sunday
+and seat-preview cases override that route to test changing feeds, live refresh,
+closed games and service outages. Production endpoint/privacy checks stay in the
+RSVP release verifier. The existing assertions and bounded browser timeouts remain
+required.
+
 CI browser runs use `scripts/browser-ci.py` and the immutable official Playwright
 image in `tests/visual/environment.json`. The image matches the locked package and
 contains its browsers/fonts/OS libraries; no per-run Ubuntu installation is needed.
@@ -352,7 +360,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has thirty-four RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has thirty-five RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -364,11 +372,19 @@ restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
+“Now Serving DeCaf” uses YouTube `WFy0mP9u0Bw` and anchor
+`media.html#now-serving-decaf`. Add it alongside the original coffee commercial.
+Its exact approved landscape cover, portrait PNG and optional SRT/VTT captions
+come from `output/video/tlpt-coffee-preorders/decaf-regular-v2/`.
+The portrait appears first in the Norm Gallery. Keep the 48.4-second master
+outside the repository and public package. Use the existing click-to-play embed
+and direct YouTube fallback link.
+
 “Coffee Pre-orders — How d’ya like them lattes?” uses YouTube `JKbeghbGcAM`
 and anchor `media.html#coffee-preorders`. Its exact landscape cover, portrait
 PNG and optional SRT/VTT captions come from
 `output/video/tlpt-coffee-preorders/production-v1/` outside the repository.
-The portrait also appears first in the Norm Gallery. The 47-second 9:16 master
+The portrait also remains in the Norm Gallery. The 47-second 9:16 master
 stays in production. Use the existing click-to-play embed and the direct
 YouTube fallback link. This is a separate film from “Two Seats Remain”.
 

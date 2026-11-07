@@ -174,8 +174,8 @@ async function checkFamilyPortraitRotation(browser, viewport){
       assert.equal(await page.locator('#gallery-poster-wing').isVisible(),false);
       assert.equal(await page.locator('#gallery-year-field').isVisible(),false);
       assert.equal(await normButton.getAttribute('aria-pressed'),'true');
-      assert.equal(await page.locator('.gallery-norm-card').count(),34);
-      assert.match(await page.locator('#gallery-filter-status').innerText(),/34 portrait covers/);
+      assert.equal(await page.locator('.gallery-norm-card').count(),35);
+      assert.match(await page.locator('#gallery-filter-status').innerText(),/35 portrait covers/);
       assert.equal(await page.locator('.gallery-norm-banner').count(),0,'Original group picture is removed');
       assert.ok(!normRequests.some(url=>url.includes('/many-faces-of-norm.jpg')),'Original group picture is never requested');
       const portrait=page.locator('.gallery-norm-card').first();
@@ -195,19 +195,19 @@ async function checkFamilyPortraitRotation(browser, viewport){
       await portraitButton.click();
       await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
       assert.equal(await page.locator('#gallery-lightbox-prev').isDisabled(),true);
-      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Coffee Pre-orders — How d’ya like them lattes?');
-      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#coffee-preorders');
-      assert.match(await page.locator('#gallery-lightbox-image').getAttribute('src'),/images\/norm-gallery\/coffee-preorders[.]png[?]v=/);
+      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Now Serving DeCaf');
+      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#now-serving-decaf');
+      assert.match(await page.locator('#gallery-lightbox-image').getAttribute('src'),/images\/norm-gallery\/now-serving-decaf[.]png[?]v=/);
       for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
       await page.screenshot({path:'/tmp/norm-gallery-coffee-viewer-'+width+'x'+height+'.png'});
       await page.keyboard.press('ArrowRight');
       await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
-      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Two Seats Remain');
-      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#two-seats-remain');
+      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Coffee Pre-orders — How d’ya like them lattes?');
+      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#coffee-preorders');
       for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
       await page.screenshot({path:'/tmp/norm-gallery-portrait-viewer-'+width+'x'+height+'.png'});
       // Every title must fit, including the longest cancellation captions.
-      for(let posterIndex=2;posterIndex<=33;posterIndex++){
+      for(let posterIndex=2;posterIndex<=34;posterIndex++){
         await page.keyboard.press('ArrowRight');
         await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
         for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
@@ -239,7 +239,7 @@ async function checkFamilyPortraitRotation(browser, viewport){
     await page.locator('[data-norm-gallery-retry]').waitFor();
     fail=false;await page.locator('[data-norm-gallery-retry]').click();
     await page.locator('.gallery-norm-card').last().waitFor();
-    assert.equal(await page.locator('.gallery-norm-card').count(),34,'Failed request can recover');
+    assert.equal(await page.locator('.gallery-norm-card').count(),35,'Failed request can recover');
     console.log('PASS Norm Gallery retry recovery');
   }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

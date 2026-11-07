@@ -1,5 +1,6 @@
 /* NODE_PATH=<Playwright packages> node scripts/test-control-deck-browser.cjs [base URL] */
 const { chromium } = require('playwright');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
 const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-movement',
@@ -9,6 +10,7 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
   try {
     for (const width of [1440,820,390,320]) {
       const page = await browser.newPage({ viewport:{width,height:1000}, reducedMotion:'reduce' });
+      await mockRsvpFeed(page);
       for (const name of pages) {
         const errors = [];
         const onError = e => errors.push(e.message);
@@ -196,6 +198,7 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
     }
     for (const viewport of [{width:320,height:568},{width:640,height:360}]) {
       const page = await browser.newPage({viewport,reducedMotion:'reduce'});
+      await mockRsvpFeed(page);
       await page.goto(base + '/gallery.html');
       await page.locator('.gallery-poster-button').first().click();
       for (let posterIndex=0; posterIndex<2; posterIndex++) {
