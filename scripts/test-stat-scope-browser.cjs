@@ -33,6 +33,38 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         assert.ok(b.x >= 0 && b.x + b.width <= width + 1, 'Menu must fit viewport');
         await menu.locator(`[data-value="${value}"]`).click();
       }
+      async function assertFinancialParticipants(selected, metric) {
+        const participants = new Map();
+        for (const event of selected) for (const row of event.players) {
+          if (!(row.buyIns > 0)) continue;
+          const total = participants.get(row.name) || {profit:0, cost:0, bountyNet:0};
+          total.profit += Math.round(row.profit * 100);
+          total.cost += Math.round(row.totalCost * 100);
+          total.bountyNet += Math.round((row.bountyNet || 0) * 100);
+          participants.set(row.name, total);
+        }
+        const cards = await page.locator('#dashboard-grid .dashboard-card').evaluateAll(nodes => nodes.map(el => ({
+          name:new URL(el.href).searchParams.get('name'),
+          rank:Number(el.querySelector('.dashboard-list-rank').textContent),
+          value:el.querySelector('.dashboard-card-value').dataset.targetValue,
+          neutral:el.querySelector('.dashboard-card-value').classList.contains('neutral')
+        })));
+        assert.deepEqual(cards.map(c => c.name).sort(), [...participants.keys()].sort(), `${metric}: every participant, including zero and first appearances`);
+        const actualByRank = [...cards].sort((a,b) => a.rank-b.rank);
+        const valueFor = name => {
+          const p = participants.get(name);
+          return metric === 'roi' ? (p.cost ? p.profit/p.cost : 0) : p[metric];
+        };
+        for (let i=0; i<actualByRank.length; i++) {
+          const card = actualByRank[i];
+          assert.equal(card.rank, i+1, 'Global ranks remain contiguous across roster sections');
+          if (i) assert.ok(valueFor(actualByRank[i-1].name) >= valueFor(card.name), 'Positive, zero and negative values rank numerically');
+          if (valueFor(card.name) === 0) {
+            assert.equal(card.value, metric === 'roi' ? '0.0%' : '$0', `${card.name}: recorded zero is visible`);
+            if (metric !== 'roi') assert.equal(card.neutral, true, `${card.name}: zero is neutral`);
+          }
+        }
+      }
       for (const file of ['dashboard.html', 'standings.html', 'knockouts.html', 'player.html?name=ProvidenceMike', 'form-lab.html', 'streaks.html', 'player-movement.html']) {
         await page.goto(`${base}/${file}`);
         await page.evaluate(() => document.fonts.ready);
@@ -47,6 +79,22 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} matching event`), events.length);
         assert.equal(await page.locator('[data-stat-reset]').getAttribute('aria-disabled'), 'true');
         if (file.startsWith('dashboard')) assert.equal(await page.locator('[data-stat-reset]').isVisible(), false);
+        if (file.startsWith('dashboard')) {
+          for (const format of ['all','single','mtt']) for (const bounty of ['all','with','without']) {
+            await choose('format', format);
+            await choose('bounty', bounty);
+            const selected = events.filter(e => (format === 'all' || e.format === format)
+              && (bounty === 'all' || e.bounty === (bounty === 'with')));
+            for (const metric of ['profit','bountyNet','roi']) {
+              await page.locator(`[data-dashboard-category="${metric === 'roi' ? 'rates' : 'bankroll'}"]`).click();
+              await page.locator('#dashboard-metric-select-trigger').click();
+              await page.locator(`#dashboard-metric-select-menu [data-value="${metric}"]`).click();
+              await assertFinancialParticipants(selected, metric);
+            }
+          }
+          await page.locator('[data-dashboard-category="results"]').click();
+          await page.locator('[data-stat-reset]').click();
+        }
         await choose('format', 'mtt');
         await choose('bounty', 'with');
         await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} matching event`), mttBounty.length);

@@ -53,6 +53,13 @@ multi-table event. Classification is explicit, never inferred from entry counts
 or the current schedule. Bounty status comes from audited financial rules and is
 checked against the parsed event summary. This does not affect RSVP edits.
 
+Financial Dashboard metrics include every actual participant with a finite numeric
+result, including $0, 0% ROI and first appearances. Never infer zero from missing
+data or hide a participant because their financial result is zero. Check rendered
+membership against selected event participants, independently of the production
+eligibility helper. An all-zero bounty-net view is valid for non-bounty events.
+Nonfinancial ranking thresholds and career Standings qualification remain separate.
+
 `stats-scope.js` shares two filters across Dashboard, Standings, player statistics,
 Knockout Central, Form Lab, Streak Tracker and Heater Meter. Every page load starts
 with All Formats + All Events; selections are page-local and are not restored

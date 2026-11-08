@@ -39166,13 +39166,7 @@
           "rollover": 10,
           "winnerOnlyRollover": true
         },
-        "regularPrizePool": 1400,
-        "settlement": {
-          "adjustment": 10,
-          "cashCollected": 1700,
-          "cashPaid": 1710,
-          "note": "Confirmed payouts exceed collections by $10. Recorded separately from tournament prizes and bounty returns; funding source is unconfirmed."
-        }
+        "regularPrizePool": 1400
       },
       "winners": [
         {
@@ -39931,7 +39925,7 @@
           "player": "ProvidenceMike",
           "slug": "providencemike",
           "rank": 1,
-          "payout": 480
+          "payout": 490
         },
         {
           "type": "payout",
@@ -39987,7 +39981,7 @@
           "player": "Wild Bill",
           "slug": "wild-bill",
           "rank": 10,
-          "payout": 20
+          "payout": 10
         },
         {
           "type": "payout",
@@ -40037,8 +40031,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -80,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Ahmed",
@@ -40062,8 +40055,7 @@
           "tournamentWinnings": 135,
           "tournamentProfit": 95,
           "regularPrize": 135,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Alex C",
@@ -40087,8 +40079,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -40,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Big Tim",
@@ -40112,8 +40103,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Bob",
@@ -40137,8 +40127,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "BostnMike",
@@ -40162,8 +40151,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -40,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Brad R",
@@ -40187,8 +40175,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "BuffaloMike",
@@ -40212,8 +40199,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "ButtonMan",
@@ -40237,8 +40223,7 @@
           "tournamentWinnings": 220,
           "tournamentProfit": 140,
           "regularPrize": 220,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Chris F",
@@ -40262,8 +40247,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -80,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Chris O",
@@ -40287,8 +40271,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Cougar",
@@ -40312,8 +40295,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -40,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Dan K",
@@ -40337,8 +40319,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "David K",
@@ -40362,8 +40343,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Fabian",
@@ -40387,8 +40367,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Gilmore",
@@ -40412,8 +40391,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Griffin",
@@ -40437,8 +40415,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -160,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Hayden D",
@@ -40462,8 +40439,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Hiro",
@@ -40487,8 +40463,7 @@
           "tournamentWinnings": 165,
           "tournamentProfit": 85,
           "regularPrize": 165,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Jeff T",
@@ -40512,8 +40487,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Kishan",
@@ -40537,8 +40511,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Liam O",
@@ -40562,8 +40535,7 @@
           "tournamentWinnings": 370,
           "tournamentProfit": 330,
           "regularPrize": 370,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Nasa Al",
@@ -40587,8 +40559,7 @@
           "tournamentWinnings": 40,
           "tournamentProfit": -80,
           "regularPrize": 40,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Nitro",
@@ -40612,8 +40583,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "P",
@@ -40637,8 +40607,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -200,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Pat",
@@ -40662,8 +40631,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "PhattedCalf",
@@ -40687,8 +40655,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "PittsburghBill",
@@ -40712,8 +40679,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "ProvidenceMike",
@@ -40737,8 +40703,7 @@
           "tournamentWinnings": 480,
           "tournamentProfit": 400,
           "regularPrize": 470,
-          "rolloverPrize": 10,
-          "settlementAdjustment": 0
+          "rolloverPrize": 10
         },
         {
           "name": "Red",
@@ -40762,8 +40727,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -120,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "The Architect",
@@ -40787,8 +40751,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -40,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Tim S",
@@ -40812,8 +40775,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Vic",
@@ -40837,8 +40799,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Vish",
@@ -40862,8 +40823,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -120,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         },
         {
           "name": "Wild Bill",
@@ -40875,8 +40835,8 @@
           "timesPlaced": 0,
           "bubbles": 0,
           "totalCost": 50,
-          "totalWinnings": 20,
-          "profit": -30,
+          "totalWinnings": 10,
+          "profit": -40,
           "bountiesWon": 1,
           "bountyPaid": 10,
           "bountyCollected": 10,
@@ -40887,8 +40847,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": -40,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 10
+          "rolloverPrize": 0
         },
         {
           "name": "Yann",
@@ -40912,8 +40871,7 @@
           "tournamentWinnings": 0,
           "tournamentProfit": 0,
           "regularPrize": 0,
-          "rolloverPrize": 0,
-          "settlementAdjustment": 0
+          "rolloverPrize": 0
         }
       ],
       "warnings": [
@@ -41216,12 +41174,12 @@
           },
           {
             "slug": "providencemike",
-            "reportedReceipt": 480,
+            "reportedReceipt": 490,
             "regularPrize": 470,
-            "exportedRolloverAllocation": 0,
+            "exportedRolloverAllocation": 10,
             "rolloverPrize": 10,
             "correctedReceipt": 490,
-            "adjustment": 10
+            "adjustment": 0
           },
           {
             "slug": "li-fo",
@@ -41279,14 +41237,12 @@
           },
           {
             "slug": "wild-bill",
-            "reportedReceipt": 20,
+            "reportedReceipt": 10,
             "regularPrize": 0,
-            "exportedRolloverAllocation": 10,
+            "exportedRolloverAllocation": 0,
             "rolloverPrize": 0,
-            "correctedReceipt": 20,
-            "adjustment": 0,
-            "settlementAdjustment": 10,
-            "settlementReason": "Commish confirmed Wild Bill was paid $20 although history supports one $10 bounty win and no retained bounty. The forfeited $10 was separately paid to ProvidenceMike (actual receipt $490). This is an extra settlement payment, not another bounty or prize; funding source is unconfirmed."
+            "correctedReceipt": 10,
+            "adjustment": 0
           },
           {
             "slug": "griffin",

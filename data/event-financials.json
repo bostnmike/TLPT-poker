@@ -43,14 +43,7 @@
         {"slug": "providencemike", "time": "2026-10-24T17:37:24"}
       ],
       "allowOmittedZeroReceipts": true,
-      "sourceRolloverAllocationsByPlayer": {"wild-bill": 10},
-      "actualReceiptsByPlayer": {"providencemike": 490, "wild-bill": 20},
-      "settlementAdjustmentsByPlayer": {
-        "wild-bill": {
-          "amount": 10,
-          "reason": "Commish confirmed Wild Bill was paid $20 although history supports one $10 bounty win and no retained bounty. The forfeited $10 was separately paid to ProvidenceMike (actual receipt $490). This is an extra settlement payment, not another bounty or prize; funding source is unconfirmed."
-        }
-      },
+      "actualReceiptsByPlayer": {"providencemike": 490, "wild-bill": 10},
       "bounty": {
         "amount": 10,
         "mode": "optional-rebuy",

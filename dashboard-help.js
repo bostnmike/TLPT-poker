@@ -87,9 +87,12 @@
     add('summary', selected.label + ' · Calculation', calculation);
     add('p', STAT_FORMULAS[selected.key] || 'See the metric definition above.', calculation);
     add('h3', 'Reading the ranking');
-    add('p', 'Players are ordered from highest value to lowest, with alphabetical tie-breaks. Higher is not always better—for example, bubbles. Zero values are omitted; negative financial results remain visible.');
+    const keepZero = dashboardIncludesZero(selected.key);
+    add('p', 'Players are ordered from highest value to lowest, with alphabetical tie-breaks. Higher is not always better—for example, bubbles. ' + (keepZero ? 'Recorded $0 and 0% results remain visible, between positive and negative results.' : 'Zero values are omitted; negative financial results remain visible.'));
     const scoped = category !== 'player-dna' && window.TLPTStats?.active();
-    add('p', scoped
+    add('p', keepZero
+      ? 'Financial rankings include everyone with a recorded tournament appearance in this view, including first-time players and players with a zero result. Never-played players and missing results are excluded.'
+      : scoped
       ? 'This filtered view includes players with a matching tournament appearance and a non-zero value for the selected metric.'
       : 'This view includes players with at least two career entries (initial buy-ins plus rebuys) and a non-zero value for the selected metric.');
     add('p', 'Active players and alumni are grouped separately, but their league-wide ranks are retained. Select any player card for their profile.');
