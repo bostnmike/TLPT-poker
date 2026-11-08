@@ -28,6 +28,10 @@ jobs:
         env:
           WRANGLER_SEND_METRICS: 'false'
           WRANGLER_WRITE_LOGS: 'false'
+      - run: node rsvp/scripts/test-closeout-integration.mjs
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+          WRANGLER_WRITE_LOGS: 'false'
       - run: node rsvp/node_modules/wrangler/bin/wrangler.js deploy --dry-run --config rsvp/wrangler.jsonc
         env:
           WRANGLER_SEND_METRICS: 'false'
