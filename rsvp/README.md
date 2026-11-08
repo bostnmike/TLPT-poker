@@ -583,3 +583,45 @@ versioned protocol. The real two-Worker/two-D1 regression is
 `node rsvp/scripts/test-closeout-integration.mjs`; it uses synthetic evidence and
 disposable databases, never production data. RSVP's existing 100-event working
 limit is reclaimed by final close-out; minimal retry receipts are bounded to 500.
+
+
+## ICM Chop wizard
+
+Every game card has an ICM Chop link in both Commish and player views. Regular
+browsers open a separate tab; installed apps keep the wizard in the app so the
+Commish session is preserved. Back to RSVP returns to the appropriate view.
+
+Choose 2–5 remaining players from that game’s confirmed lineup (including the
+host), enter their actual whole-chip stacks, and enter the original remaining
+payouts in dollars. The number of name, stack and prize fields follows the player
+count. Use zero for an unpaid place. Everyone still playing must be included;
+RSVP does not track tournament eliminations. Commish can use closed games;
+players see games with RSVPs open, consistent with the public on/off switch.
+
+The standalone calculator at `/icm.html?event=<stable-event-id>` uses exact
+Malmuth–Harville enumeration of at most 120 finishing orders. Currency input is
+parsed into integer cents. Largest fractional remainders allocate sub-cent
+residue, with deterministic ties by stack and selection order; displayed payouts
+sum to the full entered prize pool. No whole-dollar rounding or held-back prize
+option is included. Bounties and money already paid out are excluded.
+
+Calculation inputs and results remain in the tab’s memory. There is no write API,
+new database table, payment action, automatic notification, or change to RSVP,
+Cashier or the canonical result pipeline. Copy results provides a proposed deal
+for the table to review. Static numeric guards cap the combined pool at
+$1,000,000,000 and require safe whole-chip totals and descending original prizes.
+
+The result cue is the exact existing Cashier clip, copied from
+`cashier/public/audio/payment-confirmed.m4a` to
+`rsvp/public/assets/pay-that-man-his-money.m4a`. It is the owner-selected Rounders
+“Pay that man his money” sound (approximately 2.69 seconds); original provenance
+is recorded in `cashier/public/audio/README.md`. It plays only after a successful
+calculation, with a Replay sound button and non-blocking audio recovery. Audio is
+unlocked within a user tap for Safari/iOS and served locally. No Yarn request is
+made by the app.
+
+Validation covers the [ICMIZER published example](https://www.icmizer.com/icmcalculator/),
+a heads-up closed form, 2–5-player conservation and chip scaling, flat payouts,
+unpaid places, fractional cents, extreme stacks, invalid inputs, game visibility,
+new-tab/app navigation and audio recovery. Browser review uses disposable local
+games and never creates a production event or payment.

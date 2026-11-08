@@ -17,6 +17,12 @@ for(const [path,manifestPath] of [['/','manifest.webmanifest'],['/?commish=1','c
 const notifications=await(await fetch(base+'/api/notifications/config',{cache:'no-store'})).json();assert.equal(notifications.available,true);assert.match(notifications.publicKey,/^[A-Za-z0-9_-]{87}$/);assert.deepEqual(Object.keys(notifications).sort(),['available','publicKey']);
 const invalidNotification=await fetch(base+'/api/notifications',{method:'POST',headers:{'Content-Type':'application/json',Origin:base},body:JSON.stringify({action:'status',token:'invalid'})});assert.equal(invalidNotification.status,400);
 const invalidCommishNotification=await fetch(base+'/api/commish-notifications',{method:'POST',headers:{'Content-Type':'application/json',Origin:base},body:JSON.stringify({action:'enable',token:'f'.repeat(64),subscription:{}})});assert.equal(invalidCommishNotification.status,401);
-for(const file of ['/install.mjs','/commish.mjs','/notifications.mjs','/broadcasts.mjs','/player-adoption.mjs','/coffee.mjs','/coffee-menu.mjs','/closeout.mjs','/sw.js']){const r=await fetch(base+file,{cache:'no-store'});assert.equal(r.status,200);assert.match(r.headers.get('Content-Type'),/javascript/);}
+for(const file of ['/install.mjs','/commish.mjs','/notifications.mjs','/broadcasts.mjs','/player-adoption.mjs','/coffee.mjs','/coffee-menu.mjs','/closeout.mjs','/icm.mjs','/icm-math.mjs','/icm-sound.mjs','/sw.js']){const r=await fetch(base+file,{cache:'no-store'});assert.equal(r.status,200);assert.match(r.headers.get('Content-Type'),/javascript/);}
 const polls=await fetch(base+'/api/public/polls',{cache:'no-store'});assert.equal(polls.status,200);assert.ok(Array.isArray((await polls.json()).polls));
-assert.equal((await fetch(base+'/')).status,200);console.log('PASS: RSVP release revision, feed privacy, capacity, private endpoint protection, shared-input/origin validation and invalid link denial.');
+assert.equal((await fetch(base+'/')).status,200);
+
+for(const [path,type] of [['/icm.html','text/html'],['/icm.css','text/css']]){const r=await fetch(base+path,{cache:'no-store'});assert.equal(r.status,200);assert.ok(r.headers.get('Content-Type').startsWith(type));}
+
+const icmAudio=await fetch(base+'/assets/pay-that-man-his-money.m4a');assert.equal(icmAudio.status,200);assert.ok((await icmAudio.arrayBuffer()).byteLength>1000);
+
+console.log('PASS: RSVP release revision, feed privacy, capacity, private endpoint protection, shared-input/origin validation, ICM wizard/audio assets and invalid link denial.');

@@ -298,3 +298,7 @@ input:disabled,select:disabled { opacity:.65; }
 
 #closeout-dialog p { font-size:14px; line-height:1.5; margin:10px 0; }
 #closeout-fields label { margin:12px 0; }
+
+.event-tools { margin-top:18px; }
+.icm-launch { display:inline-flex; align-items:center; gap:8px; min-height:46px; padding:10px 15px; border:1px solid #65512b; border-radius:12px; background:#211c12; font-size:14px; font-weight:800; }
+.icm-launch:hover { text-decoration:none; border-color:var(--gold); }
