@@ -5,7 +5,7 @@ export const CLOSEOUT_PROTOCOL=1;
 const REPOSITORY='https://raw.githubusercontent.com/bostnmike/TLPT-poker/';
 const titleKey=value=>String(value||'').normalize('NFKC').replace(/\s+/g,' ').trim().replace(/\s*[|·–—-]\s*(?:9|18)\s*[- ]?max\s*$/i,'').trim().toLowerCase();
 export class CloseoutError extends Error {
- constructor(code,message){super(message);this.code=code;}
+ constructor(code,message,httpStatus=0){super(message);this.code=code;this.httpStatus=httpStatus;}
 }
 const requireValue=(value,code,message)=>{if(!value)throw new CloseoutError(code,message);};
 export function closeoutIdentity(input,now=Date.now()){
@@ -19,7 +19,8 @@ export function closeoutIdentity(input,now=Date.now()){
 }
 async function readText(fetcher,url,max=2000000){
  const response=await fetcher(url,{cache:'no-store',redirect:'manual',headers:{'User-Agent':'TLPT-Cashier-Closeout','Accept':'application/json'},signal:AbortSignal.timeout(10000)});
- requireValue(response.ok,'results-unavailable','Saved results could not be verified. Nothing was cleared; try again later.');
+ const resource=url.endsWith('/api/public/events')?'the closed RSVP state':url.endsWith('/release.json')?'the published release':url.includes('/data/raw/')?'the original report':url.includes('/data/parsed/')?'the final result':url.includes('/data/generated/')?'the verified data reports':'the canonical revision';
+ if(!response.ok)throw new CloseoutError('results-unavailable',`Could not verify ${resource} (HTTP ${response.status}). Nothing was cleared; try again later.`,response.status);
  const value=await response.text();requireValue(value.length<=max,'results-unavailable','The saved results response is too large. Nothing was cleared.');return value;
 }
 const digest=async text=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))).map(n=>n.toString(16).padStart(2,'0')).join('');

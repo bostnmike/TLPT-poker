@@ -238,3 +238,12 @@ completion receipts. Earlier code cannot provide the private RPC; leave Commish
 pending and fix forward or restore a compatible Cashier release. Do not replay
 mail, reset reader seen IDs, remove markers or restore a payment DB backup to
 undo an intentional close-out. Canonical raw/parsed results remain unchanged.
+
+The production `CASHIER_RSVP` binding reads only `tlpt-rsvp`'s existing anonymous
+public feed for the final closed-state check. Its exact target is pinned by the
+release validator. It adds no secret, database, public route, paid feature or
+permission to a private RSVP API. The actual multi-Worker rehearsal forces the
+public HTTP callback to return 403 and verifies the bound callback still checks
+the frozen state before clearing. If an external proof fails, the visible error
+includes its resource category/status; preserve the pending request and resume
+after repair, with a fresh preview and renewed proof for the same request ID.
