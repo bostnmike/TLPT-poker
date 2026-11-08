@@ -1,6 +1,6 @@
 // Isolated integration fixture. Never referenced by production configuration.
 import worker from '../../worker';
-const nativeFetch=globalThis.fetch;
+import {fixedFeed,ready} from './integration-feeds';
 let saturdayCancelled=false,sundayOpen=false;
 globalThis.fetch=async(input:RequestInfo|URL,init?:RequestInit)=>{
  const url=typeof input==='string'?input:input instanceof URL?input.href:input.url;
@@ -11,11 +11,12 @@ globalThis.fetch=async(input:RequestInfo|URL,init?:RequestInit)=>{
   {id:'qa-mtt',slot:'mtt',title:'History test past MTT',date:'2020-01-01',tables:2,rsvpOpen:true,rsvps:{},waitlist:[]}
  ].filter(e=>!saturdayCancelled||e.id!=='qa-saturday')});
  if(url==='https://tlpt.org/data/event-financials.json')return Response.json({events:{}});
- return nativeFetch(input,init);
+ return fixedFeed(input);
 };
 let clock=Date.parse('2020-01-01T20:00:00Z');
 Date.now=()=>clock;
-export default {fetch(request:Request,env:Cloudflare.Env){
+export default {fetch(request:Request,env:Cloudflare.Env & {TEST_RUN_ID:string}){
+ const identity=ready(request,env);if(identity)return identity;
  if(new URL(request.url).pathname==='/__test/cancel-saturday'){saturdayCancelled=true;clock+=61000;return Response.json({ok:true});}
  if(new URL(request.url).pathname==='/__test/open-sunday'){sundayOpen=true;clock+=61000;return Response.json({ok:true});}
  if(new URL(request.url).pathname==='/__test/close-sunday'){sundayOpen=false;clock+=61000;return Response.json({ok:true});}

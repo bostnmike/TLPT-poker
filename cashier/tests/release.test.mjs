@@ -6,7 +6,7 @@ import {join} from 'node:path';
 import {execFileSync,spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {releaseInfo} from '../lib/release.mjs';
-import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig} from '../scripts/release-tools.mjs';
+import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig,assertLatestSource,assertLiveBindings,assertCloseoutExport} from '../scripts/release-tools.mjs';
 import {verifyRelease,verifyWithRetry,PrivateDataExposed} from '../scripts/verify-release.mjs';
 const sha='a'.repeat(40),gatewayHash='b'.repeat(64);
 function transport({denied=401,revision=sha,versionId='deployed-version-id',assetRevision=sha,gateway=gatewayHash,shortcut='https://cashier.tlpt.org/',extraPrivate=false}={}){
@@ -108,4 +108,35 @@ test('gateway release fingerprint preserves password cookies and denied response
  const {default:gateway}=await import('../domain-gateway/_worker.js');
  const r=await gateway.fetch(new Request('https://cashier.tlpt.org/'),{GATEWAY_SOURCE_HASH:gatewayHash,CASHIER:{fetch:async()=>new Response(null,{status:303,headers:{Location:'/','Set-Cookie':'private-session','Cache-Control':'private, no-store'}})}});
  assert.equal(r.headers.get('X-TLPT-Gateway-Source'),gatewayHash);assert.equal(r.headers.get('Set-Cookie'),'private-session');assert.equal(r.status,303);
+});
+
+test('legacy production command fails before consulting credentials, assets or a database',()=>{
+ const cli=fileURLToPath(new URL('../scripts/deploy.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[cli,'production'],{encoding:'utf8',env:{}});
+ assert.notEqual(result.status,0);assert.match(result.stderr,/Production publication requires the tested main GitHub workflow/);
+});
+
+test('fresh remote head guard rejects an intervening Cashier commit but allows unrelated main changes',()=>{
+ const remote=mkdtempSync(join(tmpdir(),'cashier-head-remote-')),checkout=mkdtempSync(join(tmpdir(),'cashier-head-checkout-'));
+ const git=(...args)=>execFileSync('git',args,{cwd:remote,encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();
+ const commit=()=>{git('add','.');git('-c','user.name=Test','-c','user.email=test@example.invalid','commit','-qm','fixture');return git('rev-parse','HEAD');};
+ try{
+  git('init','-q','-b','main');mkdirSync(join(remote,'cashier/domain-gateway'),{recursive:true});
+  writeFileSync(join(remote,'cashier/worker.ts'),'app');writeFileSync(join(remote,'cashier/domain-gateway/_worker.js'),'gateway');const tested=commit();
+  execFileSync('git',['clone','-q',remote,checkout]);
+  writeFileSync(join(remote,'unrelated.txt'),'main updated');commit();assert.doesNotThrow(()=>assertLatestSource(tested,{root:checkout}));
+  writeFileSync(join(remote,'cashier/worker.ts'),'newer app');commit();assert.throws(()=>assertLatestSource(tested,{root:checkout}),/newer Cashier change/);
+ }finally{rmSync(remote,{recursive:true,force:true});rmSync(checkout,{recursive:true,force:true});}
+});
+test('deployment inputs exclude docs/tests while retaining runtime, schema, lockfile and asset configuration',()=>{
+ for(const path of ['index.html','.npmrc','app/page.tsx','lib/events.mjs','public/icon.png','worker.ts','closeout-worker.ts','drizzle/0014.sql','pnpm-lock.yaml','package.json','wrangler.production.jsonc','vite.config.ts','scripts/stamp-release.mjs'])assert.equal(workerPath('cashier/'+path),true,path);
+ for(const path of ['tests/release.test.mjs','scripts/integration-runtime.mjs','README.md','DEPLOYMENT.md','domain-gateway/_worker.js','wrangler.gateway.jsonc'])assert.equal(workerPath('cashier/'+path),false,path);
+});
+test('published bindings and private entrypoint are verified without invoking close-out or reading credentials',()=>{
+ const settings={bindings:[{type:'d1',name:'DB',id:'9165ae68-16fa-4ce2-9b87-77019e52ef20'},{type:'service',name:'CASHIER_RSVP',service:'tlpt-rsvp'},...['SESSION_SECRET','CASHIER_PASSWORD_HASH','IMPORT_TOKEN'].map(name=>({type:'secret_text',name}))]};
+ assert.equal(assertLiveBindings(settings).publicRsvpService,'tlpt-rsvp');
+ for(const bad of [{bindings:settings.bindings.filter(b=>b.type!=='service')},{bindings:[...settings.bindings,{type:'service',name:'PRIVATE',service:'other'}]},{bindings:settings.bindings.map(b=>b.type==='d1'?{...b,id:'other'}:b)},{bindings:settings.bindings.filter(b=>b.name!=='SESSION_SECRET')}])assert.throws(()=>assertLiveBindings(bad));
+ assert.deepEqual(assertCloseoutExport({id:'version',resources:{script:{named_handlers:[{name:'EventCloseout',handlers:[]}]}}}),{entrypoint:'EventCloseout',version:'version'});
+ assert.doesNotThrow(()=>assertCloseoutExport({resources:{script_runtime:{exports:{EventCloseout:{type:'worker',state:'created'}}}}}));
+ for(const resources of [{},{script:{named_handlers:[{name:'Other'}]}},{script_runtime:{exports:{EventCloseout:{type:'durable_object'}}}}])assert.throws(()=>assertCloseoutExport({resources}));
 });

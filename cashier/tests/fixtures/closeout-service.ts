@@ -2,7 +2,6 @@
 import {EventCloseout} from '../../closeout-worker';
 import {closeoutEvidence} from './closeout-evidence.mjs';
 export {EventCloseout};
-const nativeFetch=globalThis.fetch;
 const fixtureNow=Date.parse('2020-01-02T06:30:00Z');
 Date.now=()=>fixtureNow;
 let open=true,offline=false;
@@ -14,7 +13,7 @@ globalThis.fetch=async(input:RequestInfo|URL,init?:RequestInit)=>{
   if(offline)throw Error('Synthetic results outage');
   return closeoutEvidence({feed:{schemaVersion:1,revision:open?1:2,events:[{id:'stable-mtt',slot:'mtt',date:'2020-01-01',rsvpOpen:open}]}}).fetch(url);
  }
- return nativeFetch(input,init);
+ throw Error('Unexpected external close-out fixture request: '+url);
 };
 export default {async fetch(request:Request,env:{DB:D1Database;CASHIER_ENV:string}){
  if(env.CASHIER_ENV!=='local')return new Response('Fixture unavailable',{status:403});

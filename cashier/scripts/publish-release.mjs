@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {configForRelease,cloudflare,receipt,WORKER,DATABASE,PROJECT,ACCOUNT,requireTrustedCI,uploadedVersion,assertActiveVersion,gatewayReleaseConfig} from './release-tools.mjs';
+import {configForRelease,cloudflare,receipt,WORKER,DATABASE,PROJECT,ACCOUNT,requireTrustedCI,uploadedVersion,assertActiveVersion,gatewayReleaseConfig,assertLatestSource,assertLiveBindings,assertCloseoutExport} from './release-tools.mjs';
 requireTrustedCI();
 const mode=process.argv[2],sha=process.env.GITHUB_SHA;
 const config=configForRelease(sha),token=process.env.CLOUDFLARE_API_TOKEN;
@@ -10,6 +10,7 @@ function wrangler(args,cwd=process.cwd()){
  const r=spawnSync(process.execPath,[resolve('node_modules/wrangler/bin/wrangler.js'),...args],{cwd,stdio:'inherit',env:{...process.env,CLOUDFLARE_ACCOUNT_ID:ACCOUNT,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'}});
  if(r.status!==0)throw Error(`Wrangler ${args[0]} failed; publishing stopped.`);
 }
+assertLatestSource(sha);
 if(mode==='preflight'){
  const settings=await cloudflare(`workers/scripts/${WORKER}/settings`,token);
  const bindings=settings.bindings||[];
@@ -31,12 +32,18 @@ if(mode==='preflight'){
  wrangler(['versions','upload','--config','wrangler.release.local.json','--keep-vars','--tag',sha,'--message',`Cashier ${sha}`]);
  const versions=await cloudflare(`workers/scripts/${WORKER}/versions?per_page=10`,token);
  const uploaded=uploadedVersion(versions.items,sha);
- receipt({uploadedWorkerVersion:uploaded.id});
+ const detail=await cloudflare(`workers/scripts/${WORKER}/versions/${uploaded.id}`,token);
+ const verifiedCloseoutExport=assertCloseoutExport(detail);
+ assertLiveBindings(detail.resources);
+ receipt({uploadedWorkerVersion:uploaded.id,verifiedCloseoutExport});
+ assertLatestSource(sha);
  await cloudflare(`workers/scripts/${WORKER}/deployments`,token,{method:'POST',body:JSON.stringify({strategy:'percentage',versions:[{version_id:uploaded.id,percentage:100}],annotations:{'workers/message':`Cashier ${sha}`}})});
  const deployments=await cloudflare(`workers/scripts/${WORKER}/deployments`,token);
  const active=deployments.deployments?.[0];
  assertActiveVersion(active,uploaded.id);
- receipt({workerDeployment:active});
+ const settings=await cloudflare(`workers/scripts/${WORKER}/settings`,token);
+ const verifiedBindings=assertLiveBindings(settings);
+ receipt({workerDeployment:active,verifiedBindings});
 }else if(mode==='gateway'){
  const previous=await cloudflare(`pages/projects/${PROJECT}`,token);
  if(previous.production_branch!=='main'||previous.deployment_configs?.production?.fail_open!==false)throw Error('Gateway must keep its main branch and fail-closed free-quota setting.');

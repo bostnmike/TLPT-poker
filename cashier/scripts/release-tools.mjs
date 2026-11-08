@@ -29,7 +29,18 @@ export function assertActiveVersion(deployment,id){
 const repositoryRoot=fileURLToPath(new URL('../..',import.meta.url));
 export function git(...args){return execFileSync('git',args,{cwd:repositoryRoot,encoding:'utf8'}).trim();}
 export const gatewayPath=p=>p.startsWith('cashier/domain-gateway/')||p==='cashier/wrangler.gateway.jsonc';
-export const workerPath=p=>(p.startsWith('cashier/')&&!gatewayPath(p))||p==='.github/workflows/cashier-checks.yml';
+// Validation covers all Cashier changes; only deployable inputs upload a Worker.
+export const workerPath=p=>/^cashier\/(?:app|lib|public)\//.test(p)||/^cashier\/[^/]+\.(?:ts|tsx)$/.test(p)||['cashier/index.html','cashier/.npmrc','cashier/package.json','cashier/pnpm-lock.yaml','cashier/tsconfig.json','cashier/wrangler.production.jsonc','cashier/scripts/stamp-release.mjs'].includes(p)||p.startsWith('cashier/drizzle/');
+export const releasePath=p=>p.startsWith('cashier/')||p==='.github/workflows/cashier-checks.yml';
+export function assertLatestSource(sha,{root=repositoryRoot,refresh=true}={}){
+ if(!shaPattern.test(sha||''))throw Error('Missing release SHA.');
+ const command=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:30000}).trim();
+ // Refresh immediately before each mutation, especially version activation.
+ if(refresh)command('fetch','--no-tags','origin','+refs/heads/main:refs/remotes/origin/main');
+ const current=command('rev-parse','origin/main');
+ if(fingerprint(sha,releasePath,root)!==fingerprint(current,releasePath,root))throw Error('A newer Cashier change is already on main. Publish the newer run instead of this stale checkout.');
+ return current;
+}
 export function fingerprint(revision,select,root=repositoryRoot){
  if(!shaPattern.test(revision))throw Error('A full commit SHA is required.');
  const paths=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','cashier','.github/workflows/cashier-checks.yml'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(select).sort();
@@ -64,4 +75,24 @@ export function receipt(update){
 }
 export function requireTrustedCI(env=process.env){
  if(env.GITHUB_ACTIONS!=='true'||env.GITHUB_REPOSITORY!=='bostnmike/TLPT-poker'||env.GITHUB_REF!=='refs/heads/main'||!['push','workflow_dispatch'].includes(env.GITHUB_EVENT_NAME))throw Error('Production publishing is restricted to trusted main-branch GitHub Actions runs.');
+}
+
+export function assertLiveBindings(settings){
+ const bindings=settings?.bindings||[];
+ const databases=bindings.filter(b=>b.type==='d1');
+ if(databases.length!==1||databases[0].name!=='DB'||databases[0].id!==DATABASE)throw Error('Published Worker database binding differs from pinned production.');
+ const services=bindings.filter(b=>b.type==='service');
+ if(services.length!==1||services[0].name!=='CASHIER_RSVP'||services[0].service!=='tlpt-rsvp'||services[0].entrypoint||services[0].environment)throw Error('Published Worker RSVP callback binding differs from the public RSVP service.');
+ const secretNames=bindings.filter(b=>b.type==='secret_text').map(b=>b.name);
+ for(const name of ['CASHIER_PASSWORD_HASH','SESSION_SECRET','IMPORT_TOKEN'])if(!secretNames.includes(name))throw Error('Published Worker is missing an existing credential binding: '+name);
+ return {database:DATABASE,publicRsvpService:'tlpt-rsvp',credentialNamesVerified:true};
+}
+
+// Cloudflare's immutable version metadata proves the named private export is present.
+export function assertCloseoutExport(version){
+ const resources=version?.resources;
+ const named=resources?.script?.named_handlers?.some(h=>h.name==='EventCloseout');
+ const declared=resources?.script_runtime?.exports?.EventCloseout;
+ if(!named&&!(declared?.type==='worker'&&(!declared.state||declared.state==='created')))throw Error('Uploaded Worker is missing its private EventCloseout entrypoint.');
+ return {entrypoint:'EventCloseout',version:version.id};
 }
