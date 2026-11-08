@@ -55,7 +55,7 @@ Shared ambiguous receipts remain for other events with this event removed from
 their candidates. Evidence is fetched independently by Cashier from one pinned
 canonical main commit: raw report, parsed result, generated event history and
 passing validation/integrity reports. The published parsed file must match.
-Date/title/source report must match and the parsed finish time must be in the
+Date/title/source report must match (ignoring only a trailing 9-Max/18-Max table-capacity decoration) and the parsed finish time must be in the
 past. Future or undated games fail; a finished game may close before the legacy
 next-morning 6 a.m. receipt cutoff after explicit payout/receipt confirmation.
 

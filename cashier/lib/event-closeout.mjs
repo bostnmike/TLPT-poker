@@ -3,7 +3,7 @@ import {eventHistoryClearPlan,HISTORY_SCOPE} from './event-history.mjs';
 
 export const CLOSEOUT_PROTOCOL=1;
 const REPOSITORY='https://raw.githubusercontent.com/bostnmike/TLPT-poker/';
-const titleKey=value=>String(value||'').normalize('NFKC').replace(/\s+/g,' ').trim().toLowerCase();
+const titleKey=value=>String(value||'').normalize('NFKC').replace(/\s+/g,' ').trim().replace(/\s*[|·–—-]\s*(?:9|18)\s*[- ]?max\s*$/i,'').trim().toLowerCase();
 export class CloseoutError extends Error {
  constructor(code,message){super(message);this.code=code;}
 }

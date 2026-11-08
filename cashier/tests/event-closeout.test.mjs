@@ -81,3 +81,9 @@ test('a zero-payment event receives a durable marker; a prior manual clear can b
   const result=await closeOutEvent(db,finish(p),fixture.fetch,now);assert.equal(result.ok,true,JSON.stringify(result));assert.equal(db.execute([{sql:'SELECT * FROM event_closeouts'}]).length,1);assert.equal(db.execute([{sql:'SELECT * FROM event_history_clears'}]).length,1);
  }
 });
+
+test('title matching accepts only the known table-capacity suffix, never another game title',async()=>{
+ const event={date:'2020-01-01',title:'Close-out test'};
+ assert.equal((await verifyCloseoutResults(event,closeoutEvidence({title:'Close-out test | 9-Max'}).fetch,now)).title,'Close-out test | 9-Max');
+ await assert.rejects(()=>verifyCloseoutResults(event,closeoutEvidence({title:'Another Close-out test | 9-Max'}).fetch,now),/do not match/);
+});
