@@ -97,8 +97,10 @@ failed data, browser, push or artifact steps cannot publish. The previous good
 site remains live. A new commit arriving during the build makes that build
 obsolete; it is explicitly not published. A second head check protects the
 deployment step. Do not force-push/rebase generated outputs or reset a checked
-release onto a moving branch. If a newer unrelated commit supersedes a run
-without triggering a replacement, manually run TLPT Data Pipeline on main.
+release onto a moving branch. If a newer commit supersedes a run, the narrow
+replacement job dispatches current main through the complete original gates.
+It cannot rerun a failed assertion or deploy an obsolete artifact. Only that
+job has Actions-write permission; the publisher retains its existing permissions.
 
 The publisher does not need historical branches or tags. Before committing tested
 outputs, `git ls-remote` reads only main's current commit ID, without downloading
@@ -179,12 +181,39 @@ Registration, Cashier and RSVP have independent quality workflows because they h
 - Cashier → `.github/workflows/cashier-checks.yml`
 - RSVP → `.github/workflows/rsvp-checks.yml`
 
-The maintenance baseline verifies that all three workflows watch their source and test files, and that their required test, build, integration, and deployment-validation commands remain wired. Run each affected product's suite when a change crosses component boundaries.
+The maintenance baseline verifies source/test path coverage and required commands.
+The cheap **TLPT quality gate wiring** workflow reports on every PR, including
+app-only/workflow-only changes. Public screenshot checks watch site-owned
+workflows; changing an app workflow alone no longer launches the full site suite.
+Cashier and Registration push checks run on main, avoiding duplicate feature
+push + PR runs. RSVP and shared contract jobs have explicit ten-minute limits.
+
+**Shared app contracts** (`app-compatibility.yml`) is a read-only reusable job
+called by RSVP and Cashier checks. The root static runner tests the same actual
+producer against both public consumers without invoking the private app runtime. It tests the actual RSVP model output
+against the production site and Cashier consumers, then runs actual named
+RSVP→Cashier RPC with two disposable local D1 databases. Cashier publication
+requires both its independent suite and this joint job. Cashier also watches
+RSVP backend, schema, tooling and harness inputs; its release guard includes
+those inputs. Cosmetic RSVP UI changes keep their own suite. New cross-product
+imports must update this path matrix and the maintenance baseline together.
+
+Root, Cashier and RSVP CI block high/critical dependency advisories, including
+development/build dependencies. Fix reviewed pinned versions and exercise actual
+Worker/D1/RPC plus deployment dry runs; do not add blanket dev-dependency ignores.
+The isolated money tests use deterministic public-feed fixtures. The separately
+labelled Cashier live-source smoke is read-only and permits a valid empty future
+schedule; an unavailable/malformed feed still fails explicitly.
+
+The public-artifact browser runner also requires stat scope, Crew map/roster and
+Film Room guide regressions. Tests follow the approved consolidated controls and
+hidden-at-default Reset behavior. They use the same local RSVP fixture and pinned
+CI Chromium; screenshot references and comparison limits remain unchanged.
 
 Registration changes on `main` also trigger the dedicated `tlpt-registration`
 publisher after validation. Its repository-scoped deploy key is stored as the
 main repository's `REGISTRATION_PUBLISH_SSH_KEY` Actions secret. The registration
-workflow is complete only when the exact source is verified at both
+workflow is complete only when the expected content is verified at both
 `tlpt.org/register.html` and `register.tlpt.org`, including shared form CSS/JS.
 See `registration-domain/README.md` for recovery and key rotation. Cashier's
 workflow validates, builds, publishes and verifies its own tested Cloudflare
@@ -911,3 +940,35 @@ records payment, actual attendance, results, or official Tournament Director sea
 Use the documented loopback owner-link recovery, credential-free backup download,
 separate database, free-plan guard and validation/release procedure. Do not send
 player links automatically or put any private link in Git, chat, logs or screenshots.
+
+
+## Quality-gate assessment — 2026-11-08
+
+The footer failure was independently reproduced in the pinned browser: the
+breakable separator space changed advance, not application state. Its shared
+span fix passed 120 fresh-process footer captures and the 168-case full rehearsal
+before production release. The earlier RSVP Linux ENOENT was a harness portability
+bug (`/private/tmp`); `os.tmpdir()` fixed it. No evidence attributes either to
+Cashier/RSVP feature behavior. An older isolated coffee503 lacks enough retained
+response/runtime evidence to assign a product root cause; strict assertions stay,
+with bounded diagnostics added by the app owner.
+
+Registration's satellite hourly recovery can publish a descendant of a pending
+request after an unrelated app commit. Verification accepts that marker only if
+GitHub proves the expected SHA is its merge base with zero commits behind. Both
+registration pages, the root form and both shared form assets still match the
+expected bytes (only the previously reviewed root email-marker variant allowed).
+Older, divergent, malformed or unproven markers fail closed; changed content
+cannot pass by advancing the marker. Publication remains serialized.
+
+Main has a tested generated-output writer. Do not enable path-filtered required
+checks or a generic PR-only rule that strands unrelated PRs or blocks this writer.
+Repository branch-protection enforcement needs stable always-reported product
+readiness contexts and a tested, narrowly scoped bot exception before activation.
+Current production workflows independently enforce all deployment prerequisites;
+this assessment does not claim that repository-wide PR enforcement is enabled.
+
+Backup policy: weekly Monday 05:00 America/New_York. Private tooling/state and
+ciphertext remain outside Git/public packages. App Wrangler updates must retain
+D1 info/export/read-only query JSON compatibility used by private backup tooling;
+never use a production restore or extra close-out as a gate rehearsal.

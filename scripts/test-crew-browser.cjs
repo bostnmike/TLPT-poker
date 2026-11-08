@@ -1,12 +1,14 @@
-/* Optional browser regression: NODE_PATH=<playwright packages> node scripts/test-crew-browser.cjs [base URL] */
+/* Required public-artifact regression: NODE_PATH=<playwright packages> node scripts/test-crew-browser.cjs [base URL] */
 const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
 (async () => {
-  const browser = await chromium.launch({ channel: 'chrome', headless: true });
+  const browser = await chromium.launch({ ...(process.env.CI ? {} : {channel:'chrome'}), headless: true });
   try {
     for (const width of [1440, 820, 390, 320]) {
       const page = await browser.newPage({ viewport: { width, height: 950 }, reducedMotion: 'reduce' });
+      await mockRsvpFeed(page);
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       await page.goto(`${base}/players.html`);
@@ -22,12 +24,13 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.locator('#crew-tier-summary').evaluate(e => e.open), width >= 760);
       const firstCard = await page.locator('.crew-ultimate-card').first().boundingBox();
       console.log(`${width}px: first player card at ${Math.round(firstCard.y)}px`);
-      if (width >= 760) {
-        const controls = await page.locator('.crew-header-controls').boundingBox();
-        const counts = await page.locator('#crew-tier-summary').boundingBox();
-        assert.ok(counts.x >= controls.x + controls.width, 'Counts must sit beside controls');
-        assert.ok(Math.abs(counts.y - controls.y) < 2);
-      } else await page.locator('#crew-tier-summary > summary').click();
+      const deck = await page.locator('.crew-control-deck').boundingBox();
+      for (const selector of ['.crew-header-controls', '#crew-tier-summary']) {
+        const box = await page.locator(selector).boundingBox();
+        assert.ok(box.x >= deck.x - 1 && box.x + box.width <= deck.x + deck.width + 1,
+          selector + ' stays inside the shared Crew controls');
+      }
+      if (width < 760) await page.locator('#crew-tier-summary > summary').click();
       assert.equal(Number(await page.locator('[data-crew-tier="all"] strong').innerText()), expected.active);
       for (const category of ['provisional', 'rookie']) {
         assert.equal(Number(await page.locator(`[data-crew-tier="${category}"] strong`).innerText()), expected[category]);
@@ -39,7 +42,6 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.locator('[data-crew-tier="all"]').click();
       if (width < 760) await page.locator('#crew-tier-summary > summary').click();
       await page.evaluate(() => window.scrollTo(0, 0));
-      await page.screenshot({ path:`/tmp/tlpt-crew-cards-${width}.png` });
       await page.locator('[data-crew-display="map"]').click();
       assert.equal(await page.locator('.crew-ultimate-card').count(), 0);
       assert.equal(await page.locator('.crew-map-bubble').count(), expected.ranked);
@@ -76,7 +78,6 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.locator('.crew-map-guide').filter({ hasText:'Dashed lines' }).innerText(), medianText);
       await page.locator('[data-crew-roster="active"]').click();
       await page.locator('.crew-map').scrollIntoViewIfNeeded();
-      await page.screenshot({ path:`/tmp/tlpt-crew-map-${width}.png` });
       await page.locator('#crew-player-search').fill('no-such-player');
       assert.equal(await page.locator('.crew-map-bubble').count(), 0);
       assert.match(await page.locator('.crew-search-empty').innerText(), /No established players/);

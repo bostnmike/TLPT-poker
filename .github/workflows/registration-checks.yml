@@ -1,6 +1,7 @@
 name: TLPT Registration Quality Gate
 on:
   push:
+    branches: [main]
     paths:
       - 'registration-domain/**'
       - 'templates/site/**'
@@ -39,7 +40,8 @@ permissions:
   contents: read
 jobs:
   registration:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
