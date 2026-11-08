@@ -972,3 +972,17 @@ Backup policy: weekly Monday 05:00 America/New_York. Private tooling/state and
 ciphertext remain outside Git/public packages. App Wrangler updates must retain
 D1 info/export/read-only query JSON compatibility used by private backup tooling;
 never use a production restore or extra close-out as a gate rehearsal.
+
+
+The approved November 8 ICM commercial “Good Will Chopping” uses YouTube
+`0ioNSdNGmME` and anchor `media.html#good-will-chopping`. Add it once in the
+Film Room with its exact production-v3 1920×1080 landscape cover; maintain the
+current title-only, click-to-play layout and direct YouTube fallback. The owner's
+YouTube upload is titled “ICM Chop”; the approved site title is “Good Will
+Chopping”. Production-v1/v2 are superseded. The 50-second portrait master,
+portrait poster, narration and QC remain outside the public repository under
+`output/video/tlpt-icm-good-will-chopping/production-v3/`; do not add a hosted MP4,
+force captions or alter unrelated films. Approved description for reference:
+“Norm brings Good Will Hunting and Rounders together for a tour of TLPT’s ICM
+chop calculator. No Harvard or MIT degree required.” No Gallery placement was
+requested in this handoff.
