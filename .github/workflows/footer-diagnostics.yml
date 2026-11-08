@@ -1,5 +1,8 @@
 name: Footer rendering diagnostic (manual)
 on:
+  push:
+    branches: [codex/fix-footer-rendering]
+    paths: [scripts/diagnose-footer-rendering.cjs, .github/workflows/footer-diagnostics.yml]
   workflow_dispatch:
 permissions:
   contents: read
