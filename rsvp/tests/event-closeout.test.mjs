@@ -79,6 +79,19 @@ test('a lost Cashier response resumes with its durable receipt without clearing 
  const retry=(await f.preview()).body;assert.equal(retry.cashier.alreadyClosed,true);assert.equal(retry.requestId,f.receipt.requestId);
  const result=await f.call('closeout',f.confirmation(retry));assert.equal(result.status,200);assert.equal(f.closeCalls,1);assert.deepEqual(f.current().closeouts[0],f.receipt);
 });
+test('pending close-out renews changed results and ledger proof only after fresh review, preserving its request and frozen records',async()=>{
+ const f=await fixture({closeFailure:true}),plan=(await f.preview()).body,original=f.confirmation(plan);
+ assert.equal((await f.call('closeout',original)).body.pending,true);
+ const frozen=f.current().events.find(e=>e.id==='finished'),pending=structuredClone(frozen.closeoutPending);
+ f.changeResults();f.changeLedger();
+ const stale=await f.call('closeout',original);assert.equal(stale.status,409);assert.equal(stale.body.pending,true);assert.equal(f.closeCalls,1);
+ assert.deepEqual(f.current().events.find(e=>e.id==='finished').closeoutPending,pending);
+ const reviewed=(await f.preview()).body;assert.equal(reviewed.requestId,pending.requestId);assert.equal(reviewed.cashier.historyRevision,pending.historyRevision+1);assert.notEqual(reviewed.cashier.evidence.revision,pending.resultsRevision);
+ assert.equal((await f.call('closeout',f.confirmation(reviewed))).body.pending,true);
+ const renewed=f.current().events.find(e=>e.id==='finished');assert.equal(renewed.closeoutPending.requestId,pending.requestId);assert.equal(renewed.closeoutPending.startedAt,pending.startedAt);assert.equal(renewed.closeoutPending.resultsRevision,reviewed.cashier.evidence.revision);assert.equal(renewed.closeoutPending.historyRevision,reviewed.cashier.historyRevision);assert.deepEqual(renewed.responses,frozen.responses);assert.deepEqual(renewed.coffeeOrders,frozen.coffeeOrders);assert.equal(renewed.open,false);
+ f.options.closeFailure=false;const retry=(await f.preview()).body;
+ assert.equal((await f.call('closeout',f.confirmation(retry))).status,200);assert.equal(f.receipt.requestId,pending.requestId);assert.equal(f.receipt.resultsRevision,reviewed.cashier.evidence.revision);assert.ok(!f.current().events.some(e=>e.id==='finished'));assert.ok(f.current().events.some(e=>e.id==='future'));
+});
 test('a mismatched Cashier receipt never permits RSVP finalization',async()=>{
  const f=await fixture({badReceipt:true}),plan=(await f.preview()).body;
  const result=await f.call('closeout',f.confirmation(plan));assert.equal(result.status,502);assert.equal(result.body.pending,true);assert.ok(f.current().events[0].coffeeOrders);assert.equal(f.current().closeouts,undefined);
