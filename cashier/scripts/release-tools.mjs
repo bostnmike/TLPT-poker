@@ -30,8 +30,14 @@ const repositoryRoot=fileURLToPath(new URL('../..',import.meta.url));
 export function git(...args){return execFileSync('git',args,{cwd:repositoryRoot,encoding:'utf8'}).trim();}
 export const gatewayPath=p=>p.startsWith('cashier/domain-gateway/')||p==='cashier/wrangler.gateway.jsonc';
 // Validation covers all Cashier changes; only deployable inputs upload a Worker.
-export const workerPath=p=>/^cashier\/(?:app|lib|public)\//.test(p)||/^cashier\/[^/]+\.(?:ts|tsx)$/.test(p)||['cashier/index.html','cashier/.npmrc','cashier/package.json','cashier/pnpm-lock.yaml','cashier/tsconfig.json','cashier/wrangler.production.jsonc','cashier/scripts/stamp-release.mjs'].includes(p)||p.startsWith('cashier/drizzle/');
-export const releasePath=p=>p.startsWith('cashier/')||p==='.github/workflows/cashier-checks.yml';
+export const workerPath=p=>{
+ if(!p.startsWith('cashier/')||gatewayPath(p))return false;
+ if(p==='cashier/scripts/stamp-release.mjs')return true;
+ // Unknown future build/runtime inputs publish conservatively; only known
+ // non-deployable areas, root documentation and the staging config are skipped.
+ return !/^cashier\/(?:tests|scripts|bridge|migration|private)\//.test(p)&&!/^cashier\/[^/]+\.md$/.test(p)&&p!=='cashier/wrangler.jsonc';
+};
+export const releasePath=p=>p.startsWith('cashier/')||['.github/workflows/cashier-checks.yml','.github/workflows/app-compatibility.yml','scripts/test-app-feed-contract.mjs'].includes(p);
 export function assertLatestSource(sha,{root=repositoryRoot,refresh=true}={}){
  if(!shaPattern.test(sha||''))throw Error('Missing release SHA.');
  const command=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:30000}).trim();
@@ -43,7 +49,7 @@ export function assertLatestSource(sha,{root=repositoryRoot,refresh=true}={}){
 }
 export function fingerprint(revision,select,root=repositoryRoot){
  if(!shaPattern.test(revision))throw Error('A full commit SHA is required.');
- const paths=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','cashier','.github/workflows/cashier-checks.yml'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(select).sort();
+ const paths=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','cashier','.github/workflows/cashier-checks.yml','.github/workflows/app-compatibility.yml','scripts/test-app-feed-contract.mjs'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(select).sort();
  if(!paths.length)throw Error('Release fingerprint has no source files; refusing an unverifiable deployment.');
  const hash=createHash('sha256');
  for(const path of paths){hash.update(path+'\0');hash.update(execFileSync('git',['show',`${revision}:${path}`],{cwd:root}));hash.update('\0');}
@@ -82,7 +88,7 @@ export function assertLiveBindings(settings){
  const databases=bindings.filter(b=>b.type==='d1');
  if(databases.length!==1||databases[0].name!=='DB'||databases[0].id!==DATABASE)throw Error('Published Worker database binding differs from pinned production.');
  const services=bindings.filter(b=>b.type==='service');
- if(services.length!==1||services[0].name!=='CASHIER_RSVP'||services[0].service!=='tlpt-rsvp'||services[0].entrypoint||services[0].environment)throw Error('Published Worker RSVP callback binding differs from the public RSVP service.');
+ if(services.length!==1||services[0].name!=='CASHIER_RSVP'||services[0].service!=='tlpt-rsvp'||services[0].entrypoint||(services[0].environment&&services[0].environment!=='production'))throw Error('Published Worker RSVP callback binding differs from the public RSVP service.');
  const secretNames=bindings.filter(b=>b.type==='secret_text').map(b=>b.name);
  for(const name of ['CASHIER_PASSWORD_HASH','SESSION_SECRET','IMPORT_TOKEN'])if(!secretNames.includes(name))throw Error('Published Worker is missing an existing credential binding: '+name);
  return {database:DATABASE,publicRsvpService:'tlpt-rsvp',credentialNamesVerified:true};
@@ -91,7 +97,7 @@ export function assertLiveBindings(settings){
 // Cloudflare's immutable version metadata proves the named private export is present.
 export function assertCloseoutExport(version){
  const resources=version?.resources;
- const named=resources?.script?.named_handlers?.some(h=>h.name==='EventCloseout');
+ const named=resources?.script?.named_handlers?.some(h=>h.name==='EventCloseout'&&['preview','close'].every(method=>h.handlers?.includes(method)));
  const declared=resources?.script_runtime?.exports?.EventCloseout;
  if(!named&&!(declared?.type==='worker'&&(!declared.state||declared.state==='created')))throw Error('Uploaded Worker is missing its private EventCloseout entrypoint.');
  return {entrypoint:'EventCloseout',version:version.id};

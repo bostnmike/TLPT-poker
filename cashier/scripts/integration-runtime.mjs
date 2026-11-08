@@ -42,18 +42,23 @@ export function createIntegrationRun(label){
   const port=await freePort(),base=`http://127.0.0.1:${port}`;
   const child=spawn(process.execPath,[cli,'dev','--local','--ip','127.0.0.1','--port',String(port),'--inspector-port','0','--persist-to',state,...files.flatMap(f=>['--config',f])],{cwd:root,env,stdio:['ignore','pipe','pipe']});
   children.push(child);let failure;child.once('error',e=>{failure=e;});child.stdout.on('data',append);child.stderr.on('data',append);
-  const deadline=Date.now()+45000;
-  while(Date.now()<deadline){
-   if(failure||child.exitCode!==null||child.signalCode!==null)throw Error('Local Worker exited before readiness: '+(failure?.message||output));
-   let response;try{response=await boundedFetch(base+'/__test/ready',{signal:AbortSignal.timeout(1000)});}catch{}
-   if(response){
-    if(response.status!==200)throw Error('Unexpected server on allocated test port. '+output);
-    const identity=await response.json();if(identity.runId!==runId||identity.role!==role)throw Error('Test server identity mismatch; refusing fixture writes.');
-    return {base,child};
-   }
-   await new Promise(r=>setTimeout(r,100));
-  }
-  throw Error('Local Worker readiness timed out: '+output);
+  await verifyTestServer({base,runId,role,child,failure:()=>failure,logs:()=>failure?.message||output});
+  return {base,child};
  }
  return {directory,runId,config,migrate,start,logs:()=>output,async cleanup(){await Promise.all(children.map(c=>stopChild(c)));rmSync(directory,{recursive:true,force:true});}};
+}
+
+export async function verifyTestServer({base,runId,role,child,failure=()=>null,logs=()=>'',timeoutMs=45000}){
+ const deadline=Date.now()+timeoutMs;
+ while(Date.now()<deadline){
+  if(failure()||child.exitCode!==null||child.signalCode!==null)throw Error('Local Worker exited before readiness: '+logs());
+  let response;try{response=await boundedFetch(base+'/__test/ready',{signal:AbortSignal.timeout(1000)});}catch{}
+  if(response){
+   if(response.status!==200)throw Error('Unexpected server on allocated test port. '+logs());
+   const identity=await response.json();if(identity.runId!==runId||identity.role!==role)throw Error('Test server identity mismatch; refusing fixture writes.');
+   return;
+  }
+  await new Promise(r=>setTimeout(r,100));
+ }
+ throw Error('Local Worker readiness timed out: '+logs());
 }

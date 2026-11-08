@@ -125,18 +125,30 @@ test('fresh remote head guard rejects an intervening Cashier commit but allows u
   writeFileSync(join(remote,'cashier/worker.ts'),'app');writeFileSync(join(remote,'cashier/domain-gateway/_worker.js'),'gateway');const tested=commit();
   execFileSync('git',['clone','-q',remote,checkout]);
   writeFileSync(join(remote,'unrelated.txt'),'main updated');commit();assert.doesNotThrow(()=>assertLatestSource(tested,{root:checkout}));
-  writeFileSync(join(remote,'cashier/worker.ts'),'newer app');commit();assert.throws(()=>assertLatestSource(tested,{root:checkout}),/newer Cashier change/);
+  writeFileSync(join(remote,'cashier/worker.ts'),'newer app');const updated=commit();assert.throws(()=>assertLatestSource(tested,{root:checkout}),/newer Cashier change/);
+  mkdirSync(join(remote,'.github/workflows'),{recursive:true});writeFileSync(join(remote,'.github/workflows/app-compatibility.yml'),'new safety gate');const gated=commit();
+  assert.throws(()=>assertLatestSource(updated,{root:checkout}),/newer Cashier change/);
+  mkdirSync(join(remote,'scripts'));writeFileSync(join(remote,'scripts/test-app-feed-contract.mjs'),'new contract check');commit();
+  assert.throws(()=>assertLatestSource(gated,{root:checkout}),/newer Cashier change/);
  }finally{rmSync(remote,{recursive:true,force:true});rmSync(checkout,{recursive:true,force:true});}
 });
 test('deployment inputs exclude docs/tests while retaining runtime, schema, lockfile and asset configuration',()=>{
- for(const path of ['index.html','.npmrc','app/page.tsx','lib/events.mjs','public/icon.png','worker.ts','closeout-worker.ts','drizzle/0014.sql','pnpm-lock.yaml','package.json','wrangler.production.jsonc','vite.config.ts','scripts/stamp-release.mjs'])assert.equal(workerPath('cashier/'+path),true,path);
- for(const path of ['tests/release.test.mjs','scripts/integration-runtime.mjs','README.md','DEPLOYMENT.md','domain-gateway/_worker.js','wrangler.gateway.jsonc'])assert.equal(workerPath('cashier/'+path),false,path);
+ for(const path of ['index.html','.npmrc','postcss.config.cjs','future-build-input.json','app/page.tsx','lib/events.mjs','public/icon.png','worker.ts','closeout-worker.ts','drizzle/0014.sql','pnpm-lock.yaml','package.json','wrangler.production.jsonc','vite.config.ts','scripts/stamp-release.mjs'])assert.equal(workerPath('cashier/'+path),true,path);
+ for(const path of ['wrangler.jsonc','bridge/reader.gs','migration/sites-export-route.ts','tests/release.test.mjs','scripts/integration-runtime.mjs','README.md','DEPLOYMENT.md','domain-gateway/_worker.js','wrangler.gateway.jsonc'])assert.equal(workerPath('cashier/'+path),false,path);
 });
 test('published bindings and private entrypoint are verified without invoking close-out or reading credentials',()=>{
  const settings={bindings:[{type:'d1',name:'DB',id:'9165ae68-16fa-4ce2-9b87-77019e52ef20'},{type:'service',name:'CASHIER_RSVP',service:'tlpt-rsvp'},...['SESSION_SECRET','CASHIER_PASSWORD_HASH','IMPORT_TOKEN'].map(name=>({type:'secret_text',name}))]};
  assert.equal(assertLiveBindings(settings).publicRsvpService,'tlpt-rsvp');
+ const resolved=structuredClone(settings);resolved.bindings.find(b=>b.type==='service').environment='production';assert.doesNotThrow(()=>assertLiveBindings(resolved));
+ resolved.bindings.find(b=>b.type==='service').environment='staging';assert.throws(()=>assertLiveBindings(resolved));
  for(const bad of [{bindings:settings.bindings.filter(b=>b.type!=='service')},{bindings:[...settings.bindings,{type:'service',name:'PRIVATE',service:'other'}]},{bindings:settings.bindings.map(b=>b.type==='d1'?{...b,id:'other'}:b)},{bindings:settings.bindings.filter(b=>b.name!=='SESSION_SECRET')}])assert.throws(()=>assertLiveBindings(bad));
- assert.deepEqual(assertCloseoutExport({id:'version',resources:{script:{named_handlers:[{name:'EventCloseout',handlers:[]}]}}}),{entrypoint:'EventCloseout',version:'version'});
+ assert.deepEqual(assertCloseoutExport({id:'version',resources:{script:{named_handlers:[{name:'EventCloseout',handlers:['preview','close']}]}}}),{entrypoint:'EventCloseout',version:'version'});
  assert.doesNotThrow(()=>assertCloseoutExport({resources:{script_runtime:{exports:{EventCloseout:{type:'worker',state:'created'}}}}}));
- for(const resources of [{},{script:{named_handlers:[{name:'Other'}]}},{script_runtime:{exports:{EventCloseout:{type:'durable_object'}}}}])assert.throws(()=>assertCloseoutExport({resources}));
+ for(const resources of [{},{script:{named_handlers:[{name:'EventCloseout',handlers:['preview']}]}},{script:{named_handlers:[{name:'Other'}]}},{script_runtime:{exports:{EventCloseout:{type:'durable_object'}}}}])assert.throws(()=>assertCloseoutExport({resources}));
+});
+
+test('manual staging refuses the production database before creating a deploy configuration',()=>{
+ const cli=fileURLToPath(new URL('../scripts/deploy.mjs',import.meta.url));
+ const result=spawnSync(process.execPath,[cli,'staging'],{encoding:'utf8',env:{CLOUDFLARE_ACCOUNT_ID:'4d5ea071300fa71b8fa947c06d8ba314',CASHIER_DATABASE_ID:'9165ae68-16fa-4ce2-9b87-77019e52ef20',CASHIER_FREE_PLAN_CONFIRMED:'1'}});
+ assert.notEqual(result.status,0);assert.match(result.stderr,/separate non-production database/);
 });
