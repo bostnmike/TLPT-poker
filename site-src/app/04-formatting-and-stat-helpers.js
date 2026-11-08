@@ -129,12 +129,20 @@ function sortPlayers(players, key) {
   });
 }
 
-function dashboardPlayersForMetric(players, sortKey) {
+function dashboardIncludesZero(sortKey) {
+  return getStatConfig(sortKey)?.type === "money" || sortKey === "roi";
+}
+
+function dashboardPlayersForMetric(players, sortKey, filtered = false) {
+  const includeZero = dashboardIncludesZero(sortKey);
   return (players || []).filter(player => {
-    const metricValue = Number(player?.[sortKey]);
-    return Number(player?.entries ?? 0) >= 2 &&
+    const metricValue = player?.[sortKey];
+    const participated = includeZero || filtered
+      ? Number(player?.buyIns ?? 0) > 0
+      : Number(player?.entries ?? 0) >= 2;
+    return participated &&
       Number.isFinite(metricValue) &&
-      metricValue !== 0;
+      (includeZero || metricValue !== 0);
   });
 }
 

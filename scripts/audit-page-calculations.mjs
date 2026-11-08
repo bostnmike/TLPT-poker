@@ -981,7 +981,14 @@ groupedApp.context.window.siteData = data;
 for (const name of ["syncDashboardSelector", "ensureDashboardHeadline", "renderDashboardStudioStrip", "initAnimatedCounters", "setActiveSortButton", "ensureStandingsHeadline", "renderStandingsRaceStrip", "wireMobileJumpNavCues"]) groupedApp.set(name, () => {});
 for (const metric of ["hits", "profit", "roi", "bountyNet"]) {
   groupedApp.get("renderDashboard")(metric);
-  const expected = groupedApp.get("sortPlayers")(groupedApp.get("dashboardPlayersForMetric")(data.players, metric), metric);
+  // Independent membership oracle: never derive the expected set with the
+  // production filter under test (that previously hid the zero-result defect).
+  const financial = ["profit", "roi", "bountyNet"].includes(metric);
+  const expected = data.players.filter(p => Number.isFinite(p[metric]) &&
+    (financial ? p.buyIns > 0 : p.entries >= 2 && p[metric] !== 0))
+    .sort((a,b) => b[metric] - a[metric] || a.name.localeCompare(b.name));
+  check((groupedGrid.innerHTML.match(/class="player-card player-card-rich dashboard-card /g) || []).length === expected.length,
+    `${metric}: every eligible participant must render exactly once`);
   for (const [index, player] of expected.entries()) {
     check(groupedGrid.innerHTML.includes(groupedApp.get("dashboardCardMarkup")(player, metric, index + 1)), `${metric}/${player.slug}: grouping changed Dashboard card or league rank`);
   }
@@ -991,6 +998,44 @@ for (const metric of ["hits", "profit", "roi", "bountyNet"]) {
     check(alumniStart < 0 || (player.rosterStatus === "alumni" ? cardAt > alumniStart : cardAt < alumniStart), `${metric}/${player.slug}: Dashboard membership subsection is wrong`);
   }
 }
+// Financial zero is a valid recorded result, including a player's first game.
+const sampleZero = {...data.players.find(p => p.slug === 'bostnmike'),
+  slug:'zero-first',name:'Zero First Game',buyIns:1,entries:1,
+  profit:0,roi:0,bountyNet:0,bountyPaid:0,bountyCollected:0,bountyRetained:0,bountyWinnings:0,bountiesWon:0};
+for (const metric of ['profit','roi','bountyNet','totalWinnings','tournamentProfit']) {
+  const samples = [sampleZero, {...sampleZero,slug:'never-played',buyIns:0,entries:0},
+    ...[null,undefined,'', '0', NaN, Infinity].map((value,i)=>({...sampleZero,slug:'invalid-'+i,[metric]:value}))];
+  const admitted = groupedApp.get('dashboardPlayersForMetric')(samples,metric);
+  check(admitted.length === 1 && admitted[0].slug === 'zero-first',
+    `${metric}: include first-game zero, exclude never-played/missing/non-numeric`);
+}
+groupedApp.context.window.siteData = {...data,players:[sampleZero]};
+groupedApp.get('renderDashboard')('bountyNet');
+check(groupedGrid.innerHTML.includes('Zero First Game') && groupedGrid.innerHTML.includes('data-target-value="$0"'),
+  'An all-zero bounty financial board must show played participants, including those with no bounty charges');
+check(groupedGrid.innerHTML.includes('dashboard-stat-gold neutral'), 'Financial zero must have neutral styling');
+const statsContext = vm.createContext({window:{}});
+vm.runInContext(fs.readFileSync(path.join(root,'stats-scope.js'),'utf8'),statsContext);
+const statsModel = statsContext.window.TLPTStats;
+const compactEvents = readJson('data/generated/stat-events.json').events;
+for (const format of ['all','single','mtt']) for (const bounty of ['all','with','without']) {
+  const selected = statsModel.select(compactEvents,{format,bounty});
+  const participants = new Set(selected.flatMap(e=>e.players.filter(p=>p.buyIns>0).map(p=>p.slug)));
+  const scoped = statsModel.aggregate(data.players,selected);
+  groupedApp.context.window.siteData = data;
+  groupedApp.context.window.TLPTStats = {active:()=>true,isFactual:()=>true,players:()=>scoped,selectedEvents:()=>selected};
+  for (const metric of ['profit','roi','bountyNet']) {
+    groupedApp.get('renderDashboard')(metric);
+    check((groupedGrid.innerHTML.match(/class="player-card player-card-rich dashboard-card /g)||[]).length === participants.size,
+      `${format}/${bounty}/${metric}: rendered financial membership must equal actual event participants`);
+    for (const p of scoped.filter(p=>participants.has(p.slug))) {
+      check(groupedGrid.innerHTML.includes(`href="${groupedApp.get('playerUrl')(p)}"`),
+        `${format}/${bounty}/${metric}/${p.slug}: zero-valued participants must not disappear`);
+    }
+  }
+}
+delete groupedApp.context.window.TLPTStats;
+groupedApp.context.window.siteData = data;
 groupedApp.get("renderStandings")("profit");
 check(groupedBody.innerHTML.includes('colspan="10" scope="rowgroup"'), "Standings membership headings must span the complete table");
 const standingPlayers = groupedApp.get("sortPlayers")(data.players.filter(p => Number(p.entries) >= 2), "profit");

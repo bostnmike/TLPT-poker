@@ -89,6 +89,10 @@ function dashboardMetricEmptyMarkup(sortKey) {
     icon: statIcon(sortKey)
   };
 
+  if (dashboardIncludesZero(sortKey)) {
+    return '<div class="dashboard-empty-state" role="status"><h3>No recorded results in this view</h3><p>Players need a matching tournament appearance and a numeric result. Recorded $0 and 0% results remain visible.</p></div>';
+  }
+
   return `
     <div class="dashboard-empty-state" role="status">
       <div class="dashboard-empty-state-icon" aria-hidden="true">${meta.icon}</div>

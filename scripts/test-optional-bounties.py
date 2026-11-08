@@ -240,7 +240,7 @@ class OptionalBountiesTests(unittest.TestCase):
         self.assertEqual(len(hashes), 55)
         self.assertFalse(any('fixtures' in str(path) for path in parser.production_raw_files()))
 
-    def mtt(self, mutate_rule=None, mutate_history=None):
+    def mtt(self, mutate_rule=None, mutate_history=None, mutate_summary=None):
         rule = copy.deepcopy(parser.load_json(parser.EVENT_FINANCIALS_PATH)['events']['2026-10-24'])
         if mutate_rule:
             mutate_rule(rule)
@@ -248,6 +248,8 @@ class OptionalBountiesTests(unittest.TestCase):
             directory = Path(tmp)
             summary = 'Event Report 2026-10-24.html'
             shutil.copyfile(parser.RAW_EVENTS_DIR/summary, directory/summary)
+            if mutate_summary:
+                (directory/summary).write_text(mutate_summary((directory/summary).read_text()))
             history = (parser.RAW_EVENTS_DIR/rule['detailedHistoryFile']).read_text()
             (directory/rule['detailedHistoryFile']).write_text(mutate_history(history) if mutate_history else history)
             event = parser.parse_report_file(directory/summary, self.aliases, self.metadata, 30,
@@ -260,7 +262,8 @@ class OptionalBountiesTests(unittest.TestCase):
 
     def test_mtt_confirmed_chop_reloads_and_actual_cash(self):
         for filename, digest in {
-            'Event Report 2026-10-24.html': '5913d29f95894ed10d8decce84ec890d0353770a1fef75ba9df19f5bb58077ad',
+            # Host-authorized receipt correction on November 8; see provenance in docs/optional-rebuy-bounties.md.
+            'Event Report 2026-10-24.html': 'b48ad1094725b8e3d42f3f2b0728117c418dd77debbab04e9f34fc429d7e98b9',
             'Event History 2026-10-24.txt': '02183cb6c69a651e5ba4a87884c1d23f916f5617238831140f4ea9699c2d676c',
         }.items():
             self.assertEqual(hashlib.sha256((parser.RAW_EVENTS_DIR/filename).read_bytes()).hexdigest(), digest)
@@ -272,12 +275,17 @@ class OptionalBountiesTests(unittest.TestCase):
         self.assertEqual(sum(r['bountyPaid'] for r in rows.values()), 300)
         self.assertEqual(sum(r['bountyRetained'] for r in rows.values()), 20)
         self.assertEqual(sum(r['rolloverPrize'] for r in rows.values()), 10)
-        self.assertEqual((sum(r['totalCost'] for r in rows.values()), sum(r['totalWinnings'] for r in rows.values())), (1700, 1710))
-        self.assertEqual(sum(r['profit'] for r in rows.values()), 10)
-        self.assertEqual(rows['wild-bill']['totalWinnings'], 20)
+        self.assertEqual((sum(r['totalCost'] for r in rows.values()), sum(r['totalWinnings'] for r in rows.values())), (1700, 1700))
+        self.assertEqual(sum(r['profit'] for r in rows.values()), 0)
+        self.assertNotIn('settlement', event['summary'])
+        self.assertTrue(all(r.get('settlementAdjustment', 0) == 0 for r in rows.values()))
+        receipts = {a['slug']:a['payout'] for a in event['actions'] if a['type'] == 'payout'}
+        self.assertEqual((receipts['wild-bill'], receipts['providencemike']), (10, 490))
+        self.assertTrue(all(r['adjustment'] == 0 for r in event['bountyAccounting']['reconciliation']))
+        self.assertEqual(rows['wild-bill']['totalWinnings'], 10)
         self.assertEqual((rows['wild-bill']['bountiesWon'], rows['wild-bill']['bountyCollected'],
-                          rows['wild-bill']['bountyRetained'], rows['wild-bill']['settlementAdjustment'],
-                          rows['wild-bill']['timesPlaced']), (1, 10, 0, 10, 0))
+                          rows['wild-bill']['bountyRetained'], rows['wild-bill'].get('settlementAdjustment', 0),
+                          rows['wild-bill']['timesPlaced']), (1, 10, 0, 0, 0))
         expected = {'liam-o': (370, 20, 10, 400), 'providencemike': (480, 0, 10, 490),
                     'li-fo': (220, 60, 0, 280), 'hiro': (165, 30, 0, 195),
                     'ahmed': (135, 30, 0, 165), 'nasa-al': (40, 10, 0, 50)}
@@ -323,13 +331,27 @@ class OptionalBountiesTests(unittest.TestCase):
 
     def test_mtt_requires_each_explicit_confirmation(self):
         for key, error in [('chopFinalists', 'ambiguous chops'), ('rolloverRecipient', 'recipient'),
-                           ('reloads', 'ENTRY_WHILE_ACTIVE'), ('allowOmittedZeroReceipts', 'receipt'),
-                           ('settlementAdjustmentsByPlayer', 'actual receipt'),
-                           ('sourceRolloverAllocationsByPlayer', 'reconciled')]:
+                           ('reloads', 'ENTRY_WHILE_ACTIVE'), ('allowOmittedZeroReceipts', 'receipt')]:
             with self.subTest(key=key), self.assertRaisesRegex(RuntimeError, error):
                 self.mtt(lambda r: r.pop(key))
         with self.assertRaisesRegex(RuntimeError, 'actual receipt'):
             self.mtt(lambda r: r['actualReceiptsByPlayer'].update(providencemike=480))
+        with self.assertRaisesRegex(RuntimeError, 'actual receipt'):
+            self.mtt(lambda r: r['actualReceiptsByPlayer'].update({'wild-bill':20}))
+        with self.assertRaisesRegex(RuntimeError, 'actual receipt'):
+            self.mtt(lambda r: r.update(settlementAdjustmentsByPlayer={'wild-bill':{'amount':10,'reason':'obsolete clerical error'}}))
+        with self.assertRaisesRegex(RuntimeError, 'configured source rollover mismatch'):
+            self.mtt(lambda r: r.update(sourceRolloverAllocationsByPlayer={'wild-bill':10}))
+
+    def test_mtt_rejects_reimport_of_obsolete_clerical_receipts(self):
+        with self.assertRaisesRegex(RuntimeError, 'RECEIPT_MISMATCH'):
+            self.mtt(mutate_summary=lambda t: t.replace('Wild Bill ranked 10th, received $10.00',
+                                                       'Wild Bill ranked 10th, received $20.00'))
+        with self.assertRaisesRegex(RuntimeError, 'reconciled'):
+            self.mtt(mutate_summary=lambda t: t.replace('Wild Bill ranked 10th, received $10.00',
+                                                       'Wild Bill ranked 10th, received $20.00')
+                     .replace('Providencemike ranked 1st, received $490.00',
+                              'Providencemike ranked 1st, received $480.00'))
 
     def test_mtt_undo_and_unknown_action_guards(self):
         with self.assertRaisesRegex(RuntimeError, 'UNDO_MISMATCH'):
@@ -346,7 +368,7 @@ class OptionalBountiesTests(unittest.TestCase):
         for field in ('bountiesWon', 'bountyRetained', 'timesPlaced', 'tournamentWinnings', 'settlementAdjustment'):
             changed = copy.deepcopy(event)
             bill = next(r for r in changed['players'] if r['slug'] == 'wild-bill')
-            bill[field] += 1
+            bill[field] = bill.get(field, 0) + 1
             result = Audit()
             audit_optional_event(result, changed, parser.RAW_EVENTS_DIR/'Event Report 2026-10-24.html', rule, self.metadata, parser)
             self.assertTrue(result.failures, field)

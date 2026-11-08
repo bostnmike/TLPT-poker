@@ -101,13 +101,11 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
-  const eligiblePlayers = !careerMetric && window.TLPTStats?.active()
-    ? scopedPlayers.filter(player => player.buyIns > 0 && Number.isFinite(Number(player[sortKey])) && Number(player[sortKey]) !== 0)
-    : dashboardPlayersForMetric(scopedPlayers, sortKey);
+  const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active());
   const careerNote = document.getElementById('dashboard-career-note');
   if (careerNote) careerNote.hidden = !careerMetric;
 
-  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
+  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardIncludesZero(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
     renderDashboardStudioStrip(sortKey, []);
 
     grid.innerHTML = '<p class="muted">No bounty results match these filters. Try With Bounties or Reset to All.</p>';

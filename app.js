@@ -831,12 +831,20 @@ function sortPlayers(players, key) {
   });
 }
 
-function dashboardPlayersForMetric(players, sortKey) {
+function dashboardIncludesZero(sortKey) {
+  return getStatConfig(sortKey)?.type === "money" || sortKey === "roi";
+}
+
+function dashboardPlayersForMetric(players, sortKey, filtered = false) {
+  const includeZero = dashboardIncludesZero(sortKey);
   return (players || []).filter(player => {
-    const metricValue = Number(player?.[sortKey]);
-    return Number(player?.entries ?? 0) >= 2 &&
+    const metricValue = player?.[sortKey];
+    const participated = includeZero || filtered
+      ? Number(player?.buyIns ?? 0) > 0
+      : Number(player?.entries ?? 0) >= 2;
+    return participated &&
       Number.isFinite(metricValue) &&
-      metricValue !== 0;
+      (includeZero || metricValue !== 0);
   });
 }
 
@@ -3470,13 +3478,11 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
-  const eligiblePlayers = !careerMetric && window.TLPTStats?.active()
-    ? scopedPlayers.filter(player => player.buyIns > 0 && Number.isFinite(Number(player[sortKey])) && Number(player[sortKey]) !== 0)
-    : dashboardPlayersForMetric(scopedPlayers, sortKey);
+  const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active());
   const careerNote = document.getElementById('dashboard-career-note');
   if (careerNote) careerNote.hidden = !careerMetric;
 
-  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
+  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardIncludesZero(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
     renderDashboardStudioStrip(sortKey, []);
 
     grid.innerHTML = '<p class="muted">No bounty results match these filters. Try With Bounties or Reset to All.</p>';
@@ -7100,6 +7106,10 @@ function dashboardMetricEmptyMarkup(sortKey) {
     label: formatStatLabel(sortKey),
     icon: statIcon(sortKey)
   };
+
+  if (dashboardIncludesZero(sortKey)) {
+    return '<div class="dashboard-empty-state" role="status"><h3>No recorded results in this view</h3><p>Players need a matching tournament appearance and a numeric result. Recorded $0 and 0% results remain visible.</p></div>';
+  }
 
   return `
     <div class="dashboard-empty-state" role="status">

@@ -72,9 +72,13 @@ for (const player of all) {
 }
 assert.deepEqual(plain(scope.knockoutView(events)), read('data/generated/knockouts.json'));
 assert.deepEqual(plain(scope.normalize({ format: 'bad', bounty: 'bad' })), { format: 'all', bounty: 'all' });
-// Fixed settlement fixture, not the MTT aggregate (which grows with future events).
+// Fixed host-corrected receipt fixture, not the growing MTT aggregate.
 const mtt = scope.aggregate(career.players, events.filter(event => event.eventId === '2026-10-24'));
-assert.equal(mtt.find(p => p.slug === 'wild-bill').settlementAdjustment, 10);
+assert.equal(mtt.find(p => p.slug === 'wild-bill').settlementAdjustment, 0);
+assert.equal(mtt.find(p => p.slug === 'wild-bill').totalWinnings, 10);
+assert.equal(mtt.find(p => p.slug === 'wild-bill').profit, -40);
+assert.equal(mtt.reduce((sum,p) => sum + inCents(p.totalWinnings),0), 170000);
+assert.equal(mtt.reduce((sum,p) => sum + inCents(p.totalCost),0), 170000);
 assert.equal(mtt.find(p => p.slug === 'providencemike').totalWinnings, 490);
 assert.equal(mtt.find(p => p.slug === 'ai-dave').hits, 2, 'Opt-out hands still count');
 assert.equal(mtt.find(p => p.slug === 'liam-o').buyIns, 1, 'Single-appearance players are included');

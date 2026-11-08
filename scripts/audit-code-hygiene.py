@@ -1388,16 +1388,16 @@ def audit_javascript(path: Path) -> list[str]:
                 "Dashboard metric filtering must reject missing or non-numeric values",
             ),
             (
-                "metricValue !== 0",
-                "Dashboard metric filtering must omit zero-value players",
+                "(includeZero || metricValue !== 0)",
+                "Dashboard must retain recorded financial zeroes",
             ),
         ):
             if fragment not in dashboard_metric_filter_source:
                 errors.append(message)
 
         dashboard_render_source = function_source("renderDashboard")
-        if "dashboardPlayersForMetric(scopedPlayers, sortKey)" not in dashboard_render_source or "Number(player[sortKey]) !== 0" not in dashboard_render_source:
-            errors.append("Dashboard rendering must apply the non-zero metric filter")
+        if "dashboardPlayersForMetric(scopedPlayers, sortKey," not in dashboard_render_source or "scopedPlayers.filter(" in dashboard_render_source:
+            errors.append("Dashboard must share financial participation rules across career and filtered views")
 
         metadata_source = function_source("updatePlayerProfileMetadata")
         for fragment, message in (

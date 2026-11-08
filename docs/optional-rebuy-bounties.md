@@ -209,30 +209,50 @@ This event awards Cougar his 25-Appearance Milestone card and Phattedcalf his
 
 ## October 24, 2026 confirmed production intake
 
-The original HTML is preserved byte-for-byte. `Event History 2026-10-24.txt` is
-the ordered, plain-text extraction of 176 paragraphs from the supplied Word
-history; the user's original document is unchanged. The paired import applies
-21 explicit TD undos. Kishan's registration was undone, so he did not play.
+The host authorized correcting the stored HTML receipts on November 8, 2026,
+after confirming that Wild Bill's reported $20 was a clerical error and his
+actual payment was $10. ProvidenceMike's previously confirmed payment remains
+$490. The canonical report now records those two receipts directly, so future
+builds do not need a settlement exception or a misplaced forfeiture allocation.
+No entry, purchase, knockout, timestamp, rank, or prize schedule was changed.
 
-Host confirmations: Hiro at 14:51:20 and ProvidenceMike at 17:37:24 were reloads;
-Liam O and ProvidenceMike chopped first; ProvidenceMike received the $10 forfeiture
-in addition to the exported $480 (actual $490); Wild Bill actually received $20.
-The regular prize ledger is Liam $370, ProvidenceMike $470, Li-Fo $220, Hiro $165,
-Ahmed $135, Nasa Al $40. These total the $1,400 entry pool.
+`Event History 2026-10-24.txt` remains the unchanged, ordered plain-text
+extraction of 176 paragraphs from the supplied Word history. The paired import
+applies 21 explicit TD undos. Kishan's registration was undone, so he did not play.
+Hiro at 14:51:20 and ProvidenceMike at 17:37:24 were confirmed live-stack reloads;
+Liam O and ProvidenceMike chopped first.
 
-There were 17 entrants, 18 rebuys/reloads, 31 knockouts, and 30 purchased bounties:
-27 collected ($270), two legitimately retained ($20), and one forfeited ($10).
+The regular prize ledger is Liam $370, ProvidenceMike $470, Li-Fo $220,
+Hiro $165, Ahmed $135, Nasa Al $40. These total the $1,400 entry pool.
+There were 17 entrants, 18 rebuys/reloads, 31 knockouts and 30 purchased bounties:
+27 collected ($270), two legitimately retained ($20) and one forfeited ($10).
 The forfeiture is Wild Bill's bounty, after his elimination by opted-out A.I. Dave.
-It is assigned to ProvidenceMike, never counted as Dave's bounty win or Bill's
-retained bounty. Bill earned one $10 bounty; his other $10 is a confirmed
-settlement adjustment, not a cash or a second bounty. Actual payments total
-$1,710 against $1,700 collected. Funding for that extra $10 is unconfirmed;
-the pipeline does not invent a house contribution or alter confirmed payments.
+ProvidenceMike received it as winner-only prize money: $470 regular prize +
+$10 forfeiture + $10 own bounty retained = $490. Wild Bill earned one $10 bounty
+by eliminating A.I. Dave and retained none. There is no second claim, settlement
+payment or personal/house contribution. Total collected and paid both equal
+$1,700. All receipt reconciliation adjustments are zero.
 
-The event-specific regressions replay both originals, require each confirmation,
-reject malformed undos and unknown activity, and independently detect accidental
-reclassification of the settlement as a bounty or tournament prize. The public
-player profile and Form Lab show nonzero settlement adjustments separately.
+Correction provenance (only the two receipt amounts changed):
+
+- Wild Bill: $20 → $10; ProvidenceMike: $480 → $490.
+- Original HTML SHA-256:
+  `5913d29f95894ed10d8decce84ec890d0353770a1fef75ba9df19f5bb58077ad`.
+- Corrected canonical HTML SHA-256:
+  `b48ad1094725b8e3d42f3f2b0728117c418dd77debbab04e9f34fc429d7e98b9`.
+- Unchanged history SHA-256:
+  `02183cb6c69a651e5ba4a87884c1d23f916f5617238831140f4ea9699c2d676c`.
+- The untouched original HTML remains in Git at commit
+  `260905b73901c7d0b6b313b63189b1bbe0372e5f`, path
+  `data/raw/events/Event Report 2026-10-24.html`. A separate local original-export
+  copy was retained with the November 8 data-pipeline audit evidence.
+
+Production regressions pin the corrected report and unchanged detailed history,
+verify both receipts, the $1,700 balance and absence of settlement adjustments,
+and reject reintroducing the obsolete $20 confirmation or settlement. Independent
+source replay still detects manufactured bounty retention, prizes or settlement
+payments. This specific host-authorized receipt correction does not change the
+separate fingerprinted November 7 incomplete-purchase correction contract.
 
 ## Regression evidence and publishing
 
