@@ -45,6 +45,7 @@ node scripts/test-register-page.mjs
 echo "🛟 Testing app data-load recovery..."
 node scripts/test-app-load-failure.mjs
 node scripts/test-live-rsvp-site.mjs
+node scripts/test-app-feed-contract.mjs
 node scripts/test-rsvp-guide.mjs
 
 echo "📰 Testing Felt Whispers story layout..."

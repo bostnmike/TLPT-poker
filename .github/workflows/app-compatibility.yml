@@ -1,0 +1,27 @@
+name: TLPT shared app contracts
+on:
+  workflow_call:
+permissions:
+  contents: read
+env:
+  WRANGLER_SEND_METRICS: 'false'
+  WRANGLER_WRITE_LOGS: 'false'
+jobs:
+  contracts:
+    name: Actual RSVP–Cashier and public site contracts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+        working-directory: rsvp
+      - name: Test actual producer against the site and Cashier consumers
+        run: node scripts/test-app-feed-contract.mjs
+      - name: Test named private RPC and two disposable local databases
+        run: node rsvp/scripts/test-closeout-integration.mjs

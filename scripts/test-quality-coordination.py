@@ -67,9 +67,18 @@ def coordination_errors(pipeline, quality):
             'git fetch' not in pipeline, "release checkout must not download full history")
     require("needs.build.outputs.built_sha" in pipeline, "deployment head guard must use tested generated commit")
     require("release.json?revision=$SOURCE_SHA" in pipeline, "production release must be verified")
-    require(not any(x in pipeline + quality for x in
+    require(not any(x in pipeline.split("\n  replace_superseded:")[0] + quality for x in
                     ["continue-on-error:", "always()", "|| true", "git reset --hard", "--force", "git rebase"]),
             "failures cannot be hidden and checked content cannot be rebased/replaced")
+    require("needs: [build, deploy]" in pipeline and
+            "needs.build.outputs.superseded == 'true' || needs.deploy.outputs.superseded == 'true'" in pipeline,
+            "replacement requires an explicit superseded result, never a failed test")
+    require('gh workflow run tlpt-update.yml --repo "$GITHUB_REPOSITORY" --ref main' in pipeline,
+            "superseded releases must queue current main through all original gates")
+    require("if: steps.head.outputs.current == 'true'" in pipeline,
+            "head check must explicitly authorize both deployment and verification")
+    require('".github/workflows/**"' not in pipeline + quality,
+            "app workflow changes must not invoke the full public visual gate")
     return errors
 
 
@@ -197,6 +206,28 @@ class ReleaseTests(unittest.TestCase):
         for source in (ROOT / "rsvp/scripts").glob("*.mjs"):
             self.assertNotIn("../cashier/", source.read_text(), str(source))
         self.assertIn("working-directory: rsvp", (ROOT / ".github/workflows/rsvp-checks.yml").read_text())
+
+    def test_cross_app_contract_blocks_cashier_publication(self):
+        cashier = (ROOT / '.github/workflows/cashier-checks.yml').read_text()
+        rsvp = (ROOT / '.github/workflows/rsvp-checks.yml').read_text()
+        joint = (ROOT / '.github/workflows/app-compatibility.yml').read_text()
+        for workflow in (cashier, rsvp):
+            self.assertIn('uses: ./.github/workflows/app-compatibility.yml', workflow)
+        self.assertIn('node scripts/test-app-feed-contract.mjs', (ROOT / 'scripts/run-quality-gates.sh').read_text())
+        self.assertIn('needs: [test, compatibility]', cashier)
+        self.assertIn('node rsvp/scripts/test-closeout-integration.mjs', joint)
+        self.assertIn('node scripts/test-app-feed-contract.mjs', joint)
+        self.assertIn('workflow_call:', joint)
+        self.assertIn('timeout-minutes: 10', joint)
+        self.assertNotIn('--remote', joint)
+        self.assertNotIn('secrets: inherit', cashier + rsvp + self.quality)
+        self.assertNotIn('continue-on-error', joint)
+        for workflow in (cashier, rsvp):
+            self.assertEqual(workflow.count('pnpm audit --audit-level high'), 1)
+            self.assertEqual(workflow.count('.github/workflows/app-compatibility.yml'), 3)
+        routing = (ROOT / '.github/workflows/quality-routing.yml').read_text()
+        self.assertIn('pull_request:', routing)
+        self.assertNotIn('paths:', routing, 'Cheap wiring guard must report on every PR')
 
     def test_generated_shell_uses_single_guarded_publisher(self):
         runner = (ROOT / 'scripts/run-data-build.sh').read_text()

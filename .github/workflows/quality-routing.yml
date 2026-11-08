@@ -1,0 +1,22 @@
+name: TLPT quality gate wiring
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  routing:
+    name: Quality gate routing and release safety
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: python scripts/verify-maintenance-baseline.py
+      - run: python scripts/test-quality-coordination.py

@@ -1,6 +1,7 @@
-/* Optional real-browser smoke: NODE_PATH=<playwright packages> node scripts/test-stat-scope-browser.cjs [base URL] */
+/* Required public-artifact regression: NODE_PATH=<playwright packages> node scripts/test-stat-scope-browser.cjs [base URL] */
 const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
+const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const events = require('../data/generated/stat-events.json').events;
 const mttBounty = events.filter(e => e.format === 'mtt' && e.bounty);
 const mttNoBounty = events.filter(e => e.format === 'mtt' && !e.bounty);
@@ -8,13 +9,14 @@ const mttPlayers = new Set(mttBounty.flatMap(e => e.players.filter(p => p.entrie
 const providenceCash = mttBounty.reduce((sum,e) => sum + (e.players.find(p => p.slug === 'providencemike')?.totalWinnings || 0), 0);
 const base = process.argv[2] || 'http://127.0.0.1:8766';
 (async () => {
-  const browser = await chromium.launch({ channel: 'chrome', headless: true });
+  const browser = await chromium.launch({ ...(process.env.CI ? {} : {channel:'chrome'}), headless: true });
   try {
-    for (const width of [1440, 820, 390]) {
+    for (const width of [1440, 820, 390, 320]) {
       const context = await browser.newContext({ viewport: { width, height: 950 }, reducedMotion: 'reduce' });
       // Legacy saved choices must never change the default on any page.
       await context.addInitScript(() => sessionStorage.setItem('tlpt-stat-scope', JSON.stringify({format:'mtt',bounty:'with'})));
       const page = await context.newPage();
+      await mockRsvpFeed(page);
       const errors = [];
       page.on('pageerror', e => errors.push(e.message));
       async function choose(key, value) {
@@ -34,14 +36,20 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
       for (const file of ['dashboard.html', 'standings.html', 'knockouts.html', 'player.html?name=ProvidenceMike', 'form-lab.html', 'streaks.html', 'player-movement.html']) {
         await page.goto(`${base}/${file}`);
         await page.evaluate(() => document.fonts.ready);
+        if (file.startsWith('dashboard') && width <= 700) {
+          await page.locator('#dashboard-grid .dashboard-card').first().waitFor({state:'attached'});
+          assert.equal(await page.locator('#dashboard-event-scope').isVisible(), false);
+          await page.locator('#dashboard-filter-toggle').click();
+        }
         await page.locator('#stat-format-trigger').waitFor();
         assert.match(await page.locator('#stat-format-trigger').innerText(), /All Formats/);
         assert.match(await page.locator('#stat-bounty-trigger').innerText(), /All Events/);
-        await page.locator('[data-stat-reset]').click();
-        await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} qualifying event`), events.length);
+        await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} matching event`), events.length);
+        assert.equal(await page.locator('[data-stat-reset]').getAttribute('aria-disabled'), 'true');
+        if (file.startsWith('dashboard')) assert.equal(await page.locator('[data-stat-reset]').isVisible(), false);
         await choose('format', 'mtt');
         await choose('bounty', 'with');
-        await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} qualifying event`), mttBounty.length);
+        await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} matching event`), mttBounty.length);
         if (file.startsWith('dashboard')) {
           assert.ok(await page.locator('#dashboard-grid').innerText());
           await page.locator('[data-dashboard-category="player-dna"]').click();
@@ -69,12 +77,8 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         }
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
         assert.equal(overflow, false, `${file} overflows at ${width}px`);
-        if (file.startsWith('standings')) {
-          await page.locator('[data-stat-scope]').scrollIntoViewIfNeeded();
-          await page.screenshot({ path: `/tmp/tlpt-stat-filters-${width}.png` });
-        }
         await choose('bounty', 'without');
-        await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} qualifying event`), mttNoBounty.length);
+        await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} matching event`), mttNoBounty.length);
         if (!mttNoBounty.length && file.startsWith('standings')) assert.match(await page.locator('#standings-table tbody').innerText(), /No results match/);
         if (!mttNoBounty.length && file.startsWith('form-lab')) assert.match(await page.locator('#fl-chart-subtitle').innerText(), /no results in the selected events/);
         await page.locator('[data-stat-reset]').click();
