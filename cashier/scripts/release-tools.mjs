@@ -37,19 +37,20 @@ export const workerPath=p=>{
  // non-deployable areas, root documentation and the staging config are skipped.
  return !/^cashier\/(?:tests|scripts|bridge|migration|private)\//.test(p)&&!/^cashier\/[^/]+\.md$/.test(p)&&p!=='cashier/wrangler.jsonc';
 };
-export const releasePath=p=>p.startsWith('cashier/')||['.github/workflows/cashier-checks.yml','.github/workflows/app-compatibility.yml','scripts/test-app-feed-contract.mjs'].includes(p);
+export const rsvpContractPath=p=>/^rsvp\/(?:lib|migrations|scripts)\//.test(p)||['rsvp/worker.mjs','rsvp/model.mjs','rsvp/package.json','rsvp/pnpm-lock.yaml','rsvp/wrangler.jsonc','rsvp/posters.mjs','rsvp/schedule-notices.mjs','rsvp/public/coffee-menu.mjs'].includes(p);
+export const releasePath=p=>p.startsWith('cashier/')||rsvpContractPath(p)||['.github/workflows/cashier-checks.yml','.github/workflows/app-compatibility.yml','scripts/test-app-feed-contract.mjs'].includes(p);
 export function assertLatestSource(sha,{root=repositoryRoot,refresh=true}={}){
  if(!shaPattern.test(sha||''))throw Error('Missing release SHA.');
  const command=(...args)=>execFileSync('git',args,{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe'],timeout:30000}).trim();
  // Refresh immediately before each mutation, especially version activation.
  if(refresh)command('fetch','--no-tags','origin','+refs/heads/main:refs/remotes/origin/main');
  const current=command('rev-parse','origin/main');
- if(fingerprint(sha,releasePath,root)!==fingerprint(current,releasePath,root))throw Error('A newer Cashier change is already on main. Publish the newer run instead of this stale checkout.');
+ if(fingerprint(sha,releasePath,root)!==fingerprint(current,releasePath,root))throw Error('A newer Cashier change or RSVP contract input is already on main. Publish the newer validated run instead of this stale checkout.');
  return current;
 }
 export function fingerprint(revision,select,root=repositoryRoot){
  if(!shaPattern.test(revision))throw Error('A full commit SHA is required.');
- const paths=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','cashier','.github/workflows/cashier-checks.yml','.github/workflows/app-compatibility.yml','scripts/test-app-feed-contract.mjs'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(select).sort();
+ const paths=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','cashier','rsvp','.github/workflows/cashier-checks.yml','.github/workflows/app-compatibility.yml','scripts/test-app-feed-contract.mjs'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(select).sort();
  if(!paths.length)throw Error('Release fingerprint has no source files; refusing an unverifiable deployment.');
  const hash=createHash('sha256');
  for(const path of paths){hash.update(path+'\0');hash.update(execFileSync('git',['show',`${revision}:${path}`],{cwd:root}));hash.update('\0');}

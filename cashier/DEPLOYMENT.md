@@ -274,7 +274,8 @@ quality checks without uploading an unchanged Worker. Gateway inputs remain
 separate. Before planning or mutating resources, and again immediately before
 activation, the publisher refreshes main and compares all Cashier release-source
 fingerprints, including the shared app-compatibility workflow and feed-contract
-check. Unrelated newer website/data commits are allowed; newer Cashier
+check and targeted RSVP backend/toolchain inputs used by that contract.
+Unrelated website/data commits and RSVP public UI cosmetics are allowed; newer Cashier
 changes require the newer tested run. A superseded upload remains inactive.
 
 `pnpm deploy:production` intentionally refuses to deploy: use the main GitHub

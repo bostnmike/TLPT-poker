@@ -6,7 +6,7 @@ import {join} from 'node:path';
 import {execFileSync,spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {releaseInfo} from '../lib/release.mjs';
-import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig,assertLatestSource,assertLiveBindings,assertCloseoutExport} from '../scripts/release-tools.mjs';
+import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig,assertLatestSource,assertLiveBindings,assertCloseoutExport,rsvpContractPath} from '../scripts/release-tools.mjs';
 import {verifyRelease,verifyWithRetry,PrivateDataExposed} from '../scripts/verify-release.mjs';
 const sha='a'.repeat(40),gatewayHash='b'.repeat(64);
 function transport({denied=401,revision=sha,versionId='deployed-version-id',assetRevision=sha,gateway=gatewayHash,shortcut='https://cashier.tlpt.org/',extraPrivate=false}={}){
@@ -125,6 +125,8 @@ test('fresh remote head guard rejects an intervening Cashier commit but allows u
   writeFileSync(join(remote,'cashier/worker.ts'),'app');writeFileSync(join(remote,'cashier/domain-gateway/_worker.js'),'gateway');const tested=commit();
   execFileSync('git',['clone','-q',remote,checkout]);
   writeFileSync(join(remote,'unrelated.txt'),'main updated');commit();assert.doesNotThrow(()=>assertLatestSource(tested,{root:checkout}));
+  mkdirSync(join(remote,'rsvp/public'),{recursive:true});writeFileSync(join(remote,'rsvp/public/app.js'),'cosmetic RSVP UI');commit();assert.doesNotThrow(()=>assertLatestSource(tested,{root:checkout}));
+  writeFileSync(join(remote,'rsvp/worker.mjs'),'changed producer contract');commit();assert.throws(()=>assertLatestSource(tested,{root:checkout}),/newer Cashier change/);
   writeFileSync(join(remote,'cashier/worker.ts'),'newer app');const updated=commit();assert.throws(()=>assertLatestSource(tested,{root:checkout}),/newer Cashier change/);
   mkdirSync(join(remote,'.github/workflows'),{recursive:true});writeFileSync(join(remote,'.github/workflows/app-compatibility.yml'),'new safety gate');const gated=commit();
   assert.throws(()=>assertLatestSource(updated,{root:checkout}),/newer Cashier change/);
@@ -151,4 +153,9 @@ test('manual staging refuses the production database before creating a deploy co
  const cli=fileURLToPath(new URL('../scripts/deploy.mjs',import.meta.url));
  const result=spawnSync(process.execPath,[cli,'staging'],{encoding:'utf8',env:{CLOUDFLARE_ACCOUNT_ID:'4d5ea071300fa71b8fa947c06d8ba314',CASHIER_DATABASE_ID:'9165ae68-16fa-4ce2-9b87-77019e52ef20',CASHIER_FREE_PLAN_CONFIRMED:'1'}});
  assert.notEqual(result.status,0);assert.match(result.stderr,/separate non-production database/);
+});
+
+test('RSVP backend/toolchain contract inputs invalidate a release while public UI cosmetics stay independent',()=>{
+ for(const path of ['worker.mjs','model.mjs','lib/closeout.mjs','migrations/0001.sql','scripts/test-closeout-integration.mjs','package.json','pnpm-lock.yaml','wrangler.jsonc','posters.mjs','schedule-notices.mjs','public/coffee-menu.mjs'])assert.equal(rsvpContractPath('rsvp/'+path),true,path);
+ for(const path of ['public/app.js','public/styles.css','public/icon.png','README.md'])assert.equal(rsvpContractPath('rsvp/'+path),false,path);
 });
