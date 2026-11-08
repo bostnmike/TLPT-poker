@@ -389,6 +389,7 @@ pnpm install --frozen-lockfile --ignore-scripts
 cd ..
 node --test rsvp/tests/*.test.mjs
 node rsvp/scripts/test-integration.mjs
+node rsvp/scripts/test-closeout-integration.mjs
 ```
 
 RSVP owns its pinned Wrangler installation and date parser. No Cashier
@@ -396,7 +397,22 @@ installation is needed. The offline recovery rehearsal is
 `python scripts/test-recovery.py --product rsvp`; it uses synthetic local data,
 never a production connection.
 
-The latter creates only disposable local Worker/D1 resources. Browser preview
+Both integration scripts create only disposable local Worker/D1 resources. Each
+run owns a system temporary tree, allocated loopback port and unique readiness
+identity; no generated config or state enters the checkout. Fixture configs
+allowlist only local bindings and synthetic database IDs. Child processes drop
+Cloudflare credential variables, refuse remote D1 commands and reject unexpected
+external fetches. Strict concurrent coffee and queue assertions are unchanged;
+failed responses and runtime/D1 errors now have bounded, credential-redacted
+diagnostics. Requests (including response bodies), CLI operations, startup and
+shutdown have deadlines. Shutdown is awaited before temporary files are removed.
+The original integration also checks the existing D1 export CLI argument shape
+against its local synthetic database; it does not export production data.
+
+`CASHIER_CLOSEOUT_FIXTURE_ROOT` may select another Cashier source checkout for
+coordination rehearsals. Normal checks use this repository's actual Cashier
+source. The release command deliberately ignores that override and refuses
+interactive preview mode as release proof. Browser preview
 uses `wrangler dev --local` and a separate `.wrangler/preview` state. Test keys
 must only enter that disposable local database. Do not seed production from
 preview exports. Node's SQLite adapter is a test dependency only; the Worker
@@ -421,8 +437,16 @@ Generate the Commish link through the local recovery command after publication.
 
 Deploy tested source through the account owner's existing Wrangler access:
 `node rsvp/scripts/deploy.mjs` with `RSVP_FREE_PLAN_CONFIRMED=1` after the dashboard
-check. This script requires a real separate DB ID, pins the account, runs RSVP
-unit tests and verifies the public version/feed/privacy and anonymous denials.
+check. This script pins the exact existing Worker, account and RSVP database,
+requires the installed tooling to match its exact package pin, and refuses dirty
+RSVP or actual shared contract/toolchain inputs. It freshly fetches main and
+requires those scoped inputs to match before and after strict units, actual
+Worker/D1 and actual two-app RPC integration checks. Unrelated site or Cashier
+UI cosmetic edits are allowed. `--check-only` performs these gates without
+publishing. Publication bundles a temporary snapshot of the checked Git revision,
+so ignored/untracked files or later edits cannot enter the deployment, then
+verifies the public version/feed/privacy and anonymous denials. No database
+export is involved in that source snapshot.
 It has no command to change plans, DNS, Cashier, registration or other apps.
 Do not copy personal OAuth credentials into GitHub. Future unattended RSVP
 publication requires a separately approved account-owned scoped token; the
