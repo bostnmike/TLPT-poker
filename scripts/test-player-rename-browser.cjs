@@ -27,8 +27,19 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    }
    await page.locator('#player-profile [data-player-card]').screenshot({path:'/tmp/buttonman-card-'+width+'.png'});
    await page.goto(base+'/news.html');
-   await page.locator('img[alt="ButtonMan"]').first().waitFor();
-   assert.ok(await page.locator('img[alt="ButtonMan"]').first().evaluate(i=>i.getAttribute('src').includes('li-fo.jpg')));
+   // A later weekly feature can move this player into a collapsed archive story.
+   // Open that story before verifying the same visible, loaded portrait.
+   const newsStory=page.locator('.news-post-card').filter({has:page.locator('img[alt="ButtonMan"]')}).first();
+   await newsStory.waitFor();
+   const archivedBody=newsStory.locator('details.news-post-details');
+   if(await archivedBody.count() && !await archivedBody.evaluate(e=>e.open)){
+    await archivedBody.locator('summary').click();
+   }
+   const newsAvatar=newsStory.locator('img[alt="ButtonMan"]').first();
+   await newsAvatar.waitFor();
+   await newsAvatar.scrollIntoViewIfNeeded();
+   assert.ok(await newsAvatar.evaluate(i=>i.getAttribute('src').includes('li-fo.jpg')));
+   assert.ok(await newsAvatar.evaluate(async i=>{await i.decode();return i.naturalWidth>0;}),'News portrait loads');
    for(const section of ['players','trophy-room']){
     await page.goto(base+'/'+section+'.html');
     if(section==='trophy-room'){
