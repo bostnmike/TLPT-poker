@@ -4,8 +4,11 @@ export function canClearEventHistory(event,now=Date.now()){
 }
 // Shared ambiguous receipts stay available to their other possible events.
 export const HISTORY_SCOPE="(event_id=? OR (event_id IS NULL AND json_array_length(candidate_event_ids)=1 AND EXISTS (SELECT 1 FROM json_each(candidate_event_ids) WHERE value=?)))";
-export function eventHistoryClearPlan({event,expectedRevision,confirmationDate,checked,now=Date.now(),requestId}){
- if(!canClearEventHistory(event,now))throw Error('Only a past game with uncleared history can be cleared, after 6 AM Eastern the following day.');
+export function eventHistoryClearPlan({event,expectedRevision,confirmationDate,checked,now=Date.now(),requestId,verifiedCompletedAt=NaN}){
+ // Only the private Commish RPC supplies a server-verified result finish time.
+ // The browser clear-history endpoint never forwards this optional capability.
+ const verifiedFinished=!!event&&SLOTS.includes(event.slot)&&event.id===event.slot+':'+event.date&&!event.historyClearedAt&&Number.isFinite(verifiedCompletedAt)&&verifiedCompletedAt>=easternEpoch(event.date)&&verifiedCompletedAt<=now;
+ if(!canClearEventHistory(event,now)&&!verifiedFinished)throw Error('Only a past game with uncleared history can be cleared, after 6 AM Eastern the following day.');
  if(checked!==true||confirmationDate!==event.date||!Number.isSafeInteger(expectedRevision)||expectedRevision<0)throw Error('Confirm the event date and permanent deletion before clearing history.');
  const id=event.id,values=[id,id],step=(sql,...values)=>({sql,values});
  return [

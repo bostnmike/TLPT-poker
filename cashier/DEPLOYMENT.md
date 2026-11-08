@@ -201,3 +201,40 @@ On initial live-source failure, static events are saved-history-only. A code
 rollback to the earlier static selector could show obsolete dates and invoke its
 old cleanup policy; prefer fixing forward and retain the live selector during
 recovery. No migration, database replacement, gateway or reader changes are needed.
+
+## Verified Commish event close-out
+
+See [CLOSEOUT-PROTOCOL.md](CLOSEOUT-PROTOCOL.md). Migration 0014 adds only a minimal
+completion receipt table; it never clears events on deploy. The existing D1,
+password, session secret, import token, reader, gateway and Workers Free settings
+remain in place. Publish Cashier's named `EventCloseout` export first, then the
+RSVP-owned service binding and authenticated Commish flow. There is no public
+cleanup API or additional cross-service credential. CI runs real disposable
+multi-Worker RPC and D1 tests and denies anonymous close-out-shaped HTTP requests.
+
+Commish freezes one event and saves its requestId before calling close. Cashier
+independently verifies its exact date/title, original raw report, finished parsed
+result, generated history, passing reports and published result at one canonical
+Git revision. Explicit payout, receipt-review and results confirmations permit
+this verified flow after its actual finish time, including before the legacy
+6 a.m. generic-clear boundary. Future/undated games cannot pass verification.
+
+The clear transaction retains the permanent `event_history_clears` anti-replay
+marker, saves a minimal `event_closeouts` receipt, clears exact-event working
+rows/links/batches/formats/cached lineups, and preserves other event records and
+global player aliases. A stale revision rolls everything back. Unassigned shared
+receipts retain their other candidates. Only after matching the Cashier receipt
+may Commish finalize its RSVP purge. No other event closes automatically.
+
+On a failed or timed-out close-out, keep the Commish event frozen/pending. Resume
+the saved requestId: a committed Cashier transaction returns the same receipt
+without fetching results or deleting again. A stale preview needs a fresh review;
+do not report success without a matching receipt. If RSVP finalization fails,
+resume it from the persisted pending state and receipt. Never restore/open the
+RSVP event after Cashier has committed its close-out.
+
+Code rollback must retain migrations 0012/0014, all closed-event markers and
+completion receipts. Earlier code cannot provide the private RPC; leave Commish
+pending and fix forward or restore a compatible Cashier release. Do not replay
+mail, reset reader seen IDs, remove markers or restore a payment DB backup to
+undo an intentional close-out. Canonical raw/parsed results remain unchanged.
