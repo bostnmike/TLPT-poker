@@ -27,14 +27,14 @@ jobs:
       - run: python scripts/build-site-shell.py
       - run: python scripts/package-site.py
       - run: python scripts/browser-ci.py prepare
-      - name: Compare layout experiments against unchanged footer references
+      - name: Stress the fixed footer against unchanged references
         run: |
           python - <<'PY'
           import importlib.util, subprocess
           spec = importlib.util.spec_from_file_location('browser_ci', 'scripts/browser-ci.py')
           ci = importlib.util.module_from_spec(spec)
           spec.loader.exec_module(ci)
-          raise SystemExit(subprocess.call(ci.container_command(ci.environment(), ['node', 'scripts/diagnose-footer-rendering.cjs'])))
+          raise SystemExit(subprocess.call(ci.container_command(ci.environment(), ['node', 'node_modules/playwright/cli.js', 'test', '--config', 'tests/visual/playwright.config.cjs', '--grep', 'shared navigation expanded and footer', '--repeat-each', '6'])))
           PY
       - uses: actions/upload-artifact@v7.0.2
         if: always()

@@ -121,6 +121,11 @@ The required suite covers 1440/820/390/320-pixel layouts, dropdown anchoring and
 occlusion, filters/reset, empty states, keyboard focus, mobile density, and
 Norm's inline audio/help interactions (including short landscape screens).
 The preview binds only to localhost and closes when the tests finish.
+The shared-footer visual case requires three captures in independent Chromium
+processes at each viewport, all against the same reviewed reference. Preserve
+the compact footer text nodes; formatting whitespace around the inline link
+previously exposed a variable subpixel advance. Every capture must pass, without
+retrying assertions or relaxing the comparison limits.
 
 General browser checks use the reviewed public RSVP fixture from
 `scripts/browser-rsvp-fixture.cjs`, shared with the visual gate. This keeps remote

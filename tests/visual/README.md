@@ -245,3 +245,17 @@ local avatar areas were copied into the references, preserving every surrounding
 pixel. No fixture, comparison tolerance, mask, layout or test configuration
 changed. The shared metadata and story references use the exact approved PNG at
 a content-based URL; the legacy JPEG renders the same approved composition.
+
+On 2026-11-08 footer diagnostics reproduced the intermittent 204-pixel link
+mismatch in the unchanged pinned environment. The failed link origin was
+0.296875px left of the reference while its width, computed font, color and
+focus state matched. Controlled whitespace variants retained the reference
+position; forcing normal font kerning still reproduced the failure. The shared
+footer template now uses one explicit space before the link and no formatting
+whitespace inside its text. Its wording, wrapping, 44px touch target, font,
+color and reviewed references are preserved.
+
+Each shared-footer scenario now makes three independent captures in fresh
+Chromium processes. Every capture must pass the same footer.png comparison;
+a later success does not erase an earlier soft failure. This is additional
+regression coverage, with no assertion retries or reference updates.
