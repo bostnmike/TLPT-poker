@@ -100,7 +100,7 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
   requireValue(!e.closeoutPending,'This game is being closed out.',409);
   requireValue(admin||e.open,'RSVPs are closed. Contact The Commish.',409);
   requireValue(['yes','maybe','no','tbd'].includes(op.answer),'Choose In, Maybe or Out.');
-  requireValue(slug!==HOST||op.answer==='yes','No Bostn, No Party. The host is always In.',409);
+  requireValue(slug!==HOST||op.answer==='yes','The host’s response stays In.',409);
   const old=e.responses[slug];e.responses[slug]={answer:op.answer,order:op.answer==='yes'&&old?.answer==='yes'?old.order:++state.sequence,updatedAt:now};
  }else{
   requireValue(admin,'Commish sign-in required.',403);

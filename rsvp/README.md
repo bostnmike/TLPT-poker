@@ -223,7 +223,7 @@ fake event, RSVP, payment or history entry is created. Shared notice styling is
 mirrored in `schedule-notices.css` and `rsvp/public/schedule-notices.css`, with a
 parity test. Notice refresh must not depend only on the event-data revision.
 
-BostnMike always holds the first confirmed host seat: **No Bostn, No Party**.
+BostnMike is automatically confirmed for each game.
 This is enforced on reads for legacy events and persisted on every successful
 save; even Commish cannot set the host to Maybe, Out or unanswered.
 Other In requests get first-come priority. Atomic revision-checked saves serialize competing
