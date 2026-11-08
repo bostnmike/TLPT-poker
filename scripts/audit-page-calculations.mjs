@@ -978,6 +978,9 @@ const groupedTable = { dataset: {}, querySelector: () => groupedBody, querySelec
 const hosts = { "dashboard-grid": groupedGrid, "standings-table": groupedTable, "players-grid": crewGrid, "players-visual": crewVisual };
 groupedApp.context.document.getElementById = id => hosts[id] || null;
 groupedApp.context.window.siteData = data;
+const compactEvents = readJson('data/generated/stat-events.json').events;
+const bountyParticipants = new Set(compactEvents.filter(e=>e.bounty).flatMap(e=>e.players.filter(p=>p.buyIns>0).map(p=>p.slug)));
+groupedApp.context.window.TLPTStats = {active:()=>false,isFactual:()=>true,players:p=>p,selectedEvents:()=>compactEvents};
 for (const name of ["syncDashboardSelector", "ensureDashboardHeadline", "renderDashboardStudioStrip", "initAnimatedCounters", "setActiveSortButton", "ensureStandingsHeadline", "renderStandingsRaceStrip", "wireMobileJumpNavCues"]) groupedApp.set(name, () => {});
 for (const metric of ["hits", "profit", "roi", "bountyNet"]) {
   groupedApp.get("renderDashboard")(metric);
@@ -985,7 +988,8 @@ for (const metric of ["hits", "profit", "roi", "bountyNet"]) {
   // production filter under test (that previously hid the zero-result defect).
   const financial = ["profit", "roi", "bountyNet"].includes(metric);
   const expected = data.players.filter(p => Number.isFinite(p[metric]) &&
-    (financial ? p.buyIns > 0 : p.entries >= 2 && p[metric] !== 0))
+    (financial ? p.buyIns > 0 : p.entries >= 2 && p[metric] !== 0) &&
+    (metric !== 'bountyNet' || bountyParticipants.has(p.slug)))
     .sort((a,b) => b[metric] - a[metric] || a.name.localeCompare(b.name));
   check((groupedGrid.innerHTML.match(/class="player-card player-card-rich dashboard-card /g) || []).length === expected.length,
     `${metric}: every eligible participant must render exactly once`);
@@ -1005,19 +1009,30 @@ const sampleZero = {...data.players.find(p => p.slug === 'bostnmike'),
 for (const metric of ['profit','roi','bountyNet','totalWinnings','tournamentProfit']) {
   const samples = [sampleZero, {...sampleZero,slug:'never-played',buyIns:0,entries:0},
     ...[null,undefined,'', '0', NaN, Infinity].map((value,i)=>({...sampleZero,slug:'invalid-'+i,[metric]:value}))];
-  const admitted = groupedApp.get('dashboardPlayersForMetric')(samples,metric);
+  const admitted = groupedApp.get('dashboardPlayersForMetric')(samples,metric,false,[{bounty:true,players:samples}]);
   check(admitted.length === 1 && admitted[0].slug === 'zero-first',
     `${metric}: include first-game zero, exclude never-played/missing/non-numeric`);
 }
 groupedApp.context.window.siteData = {...data,players:[sampleZero]};
+groupedApp.context.window.TLPTStats.selectedEvents = () => [{bounty:true,players:[sampleZero]}];
 groupedApp.get('renderDashboard')('bountyNet');
 check(groupedGrid.innerHTML.includes('Zero First Game') && groupedGrid.innerHTML.includes('data-target-value="$0"'),
-  'An all-zero bounty financial board must show played participants, including those with no bounty charges');
+  'An all-zero bounty board must show bounty-game participants, including opt-outs with no bounty charges');
 check(groupedGrid.innerHTML.includes('dashboard-stat-gold neutral'), 'Financial zero must have neutral styling');
+const nonBountyOnly = {...sampleZero,slug:'non-bounty-only',name:'Non Bounty Only'};
+const mixedEvents = [{bounty:true,players:[sampleZero]},{bounty:false,players:[nonBountyOnly]}];
+for (const filtered of [false,true]) {
+  const admitted = groupedApp.get('dashboardPlayersForMetric')([sampleZero,nonBountyOnly],'bountyNet',filtered,mixedEvents);
+  check(admitted.length === 1 && admitted[0].slug === sampleZero.slug,
+    `${filtered}: bounty zero requires a bounty-game appearance, not merely any game or a positive bounty charge`);
+}
+groupedApp.context.window.TLPTStats.selectedEvents = () => [{bounty:false,players:[sampleZero]}];
+groupedApp.get('renderDashboard')('bountyNet');
+check(!groupedGrid.innerHTML.includes('dashboard-card ') && groupedGrid.innerHTML.includes('No bounty results in this view'),
+  'Without-bounty events cannot produce artificial $0 bounty cards');
 const statsContext = vm.createContext({window:{}});
 vm.runInContext(fs.readFileSync(path.join(root,'stats-scope.js'),'utf8'),statsContext);
 const statsModel = statsContext.window.TLPTStats;
-const compactEvents = readJson('data/generated/stat-events.json').events;
 for (const format of ['all','single','mtt']) for (const bounty of ['all','with','without']) {
   const selected = statsModel.select(compactEvents,{format,bounty});
   const participants = new Set(selected.flatMap(e=>e.players.filter(p=>p.buyIns>0).map(p=>p.slug)));
@@ -1025,10 +1040,13 @@ for (const format of ['all','single','mtt']) for (const bounty of ['all','with',
   groupedApp.context.window.siteData = data;
   groupedApp.context.window.TLPTStats = {active:()=>true,isFactual:()=>true,players:()=>scoped,selectedEvents:()=>selected};
   for (const metric of ['profit','roi','bountyNet']) {
+    const metricParticipants = metric === 'bountyNet'
+      ? new Set(selected.filter(e=>e.bounty).flatMap(e=>e.players.filter(p=>p.buyIns>0).map(p=>p.slug)))
+      : participants;
     groupedApp.get('renderDashboard')(metric);
-    check((groupedGrid.innerHTML.match(/class="player-card player-card-rich dashboard-card /g)||[]).length === participants.size,
-      `${format}/${bounty}/${metric}: rendered financial membership must equal actual event participants`);
-    for (const p of scoped.filter(p=>participants.has(p.slug))) {
+    check((groupedGrid.innerHTML.match(/class="player-card player-card-rich dashboard-card /g)||[]).length === metricParticipants.size,
+      `${format}/${bounty}/${metric}: rendered membership must equal actual participants in applicable events`);
+    for (const p of scoped.filter(p=>metricParticipants.has(p.slug))) {
       check(groupedGrid.innerHTML.includes(`href="${groupedApp.get('playerUrl')(p)}"`),
         `${format}/${bounty}/${metric}/${p.slug}: zero-valued participants must not disappear`);
     }

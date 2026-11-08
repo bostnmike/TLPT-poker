@@ -1398,6 +1398,8 @@ def audit_javascript(path: Path) -> list[str]:
         dashboard_render_source = function_source("renderDashboard")
         if "dashboardPlayersForMetric(scopedPlayers, sortKey," not in dashboard_render_source or "scopedPlayers.filter(" in dashboard_render_source:
             errors.append("Dashboard must share financial participation rules across career and filtered views")
+        if 'bountyParticipants.has(player.slug)' not in dashboard_metric_filter_source or 'window.TLPTStats?.selectedEvents()' not in dashboard_render_source:
+            errors.append("Bounty financial eligibility must require a matching bounty-game appearance")
 
         metadata_source = function_source("updatePlayerProfileMetadata")
         for fragment, message in (

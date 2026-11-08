@@ -101,7 +101,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
-  const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active());
+  const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active(), window.TLPTStats?.selectedEvents() || []);
   const careerNote = document.getElementById('dashboard-career-note');
   if (careerNote) careerNote.hidden = !careerMetric;
 

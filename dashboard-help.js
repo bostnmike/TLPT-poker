@@ -90,7 +90,9 @@
     const keepZero = dashboardIncludesZero(selected.key);
     add('p', 'Players are ordered from highest value to lowest, with alphabetical tie-breaks. Higher is not always better—for example, bubbles. ' + (keepZero ? 'Recorded $0 and 0% results remain visible, between positive and negative results.' : 'Zero values are omitted; negative financial results remain visible.'));
     const scoped = category !== 'player-dna' && window.TLPTStats?.active();
-    add('p', keepZero
+    add('p', selected.key === 'bountyNet'
+      ? 'Bounty profit / loss includes players with a recorded appearance in a bounty-enabled event within this view, including first-time players and recorded $0 results. Players who have not played a matching bounty game are excluded.'
+      : keepZero
       ? 'Financial rankings include everyone with a recorded tournament appearance in this view, including first-time players and players with a zero result. Never-played players and missing results are excluded.'
       : scoped
       ? 'This filtered view includes players with a matching tournament appearance and a non-zero value for the selected metric.'
@@ -98,7 +100,7 @@
     add('p', 'Active players and alumni are grouped separately, but their league-wide ranks are retained. Select any player card for their profile.');
     if (category !== 'player-dna') {
       add('h3', 'What the event filters do');
-      add('p', 'Event format selects single-table / Sit & Go, multi-table, or both. Bounties selects events with bounties, without bounties, or both—not whether an individual player opted in. Everyone at a matching event is included.');
+      add('p', 'Event format selects single-table / Sit & Go, multi-table, or both. Bounties selects events with bounties, without bounties, or both—not whether an individual player opted in. ' + (selected.key === 'bountyNet' ? 'This bounty ranking requires a matching bounty-game appearance, including opt-outs. Without Bounties has no bounty results.' : 'Everyone at a matching event is included.'));
       add('p', 'Filters start at All. Reset clears only event filters, not your chosen stat. Career ratings, cards and awards never change. Small samples deserve caution, even when they make you look terrific.');
     }
     priorOverflow = document.body.style.overflow;

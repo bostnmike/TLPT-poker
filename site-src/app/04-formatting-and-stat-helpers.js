@@ -133,14 +133,19 @@ function dashboardIncludesZero(sortKey) {
   return getStatConfig(sortKey)?.type === "money" || sortKey === "roi";
 }
 
-function dashboardPlayersForMetric(players, sortKey, filtered = false) {
+function dashboardPlayersForMetric(players, sortKey, filtered = false, events = []) {
   const includeZero = dashboardIncludesZero(sortKey);
+  const bountyParticipants = sortKey === "bountyNet"
+    ? new Set(events.filter(event => event.bounty).flatMap(event =>
+      event.players.filter(player => player.buyIns > 0).map(player => player.slug)))
+    : null;
   return (players || []).filter(player => {
     const metricValue = player?.[sortKey];
     const participated = includeZero || filtered
       ? Number(player?.buyIns ?? 0) > 0
       : Number(player?.entries ?? 0) >= 2;
     return participated &&
+      (!bountyParticipants || bountyParticipants.has(player.slug)) &&
       Number.isFinite(metricValue) &&
       (includeZero || metricValue !== 0);
   });

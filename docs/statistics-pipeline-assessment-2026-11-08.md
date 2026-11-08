@@ -11,8 +11,12 @@ the production filter to decide who should appear.
 Financial Dashboard views now include everyone with an actual appearance and a
 finite numeric result, including first appearances, $0 and 0% ROI. Missing, null,
 string and nonfinite values do not masquerade as zero. Both scope paths use one
-eligibility helper. An all-zero bounty-net view is valid even when selected
-events had no bounties. Independent participant-set assertions cover all nine
+eligibility helper. As clarified by the host after the initial release, bounty
+profit/loss additionally requires an appearance in a bounty-enabled event within
+the selected scope. BostnMike qualifies at $0; BuffaloMike has no bounty-game
+appearance and is excluded. Opt-outs qualify by participation, without requiring
+a positive bounty purchase. Without Bounties shows an explicit empty state.
+Independent participant-set assertions cover all nine
 format/bounty scopes. Global numerical ranks remain intact within active/alumni
 sections. Existing nonfinancial thresholds and career Standings qualification
 remain unchanged.
@@ -64,7 +68,7 @@ with the local audit evidence. October 24 correctly transfers $10 from bounties
 to tournament prizes: bounty net alone is -$10, tournament net +$10, combined
 player net $0. Requiring both subledgers individually to be zero would be wrong.
 
-The required suite completed 62,988 source-to-page checks, including 36,270
+The required suite completed 62,842 source-to-page checks, including 36,124
 rendered calculation checks, zero validation errors and all 55 preexisting
 historical financial baselines. A second canonical build was byte-identical
 across 119 generated/source assets. Financial browser regressions exercise all
