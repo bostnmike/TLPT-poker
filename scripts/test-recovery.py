@@ -37,6 +37,9 @@ def rehearse(product):
             original.execute("INSERT INTO cashier_batches VALUES('batch','mtt:2026-10-24','fake-hash','{}','2026-10-24')")
             original.execute("INSERT INTO cashier_batch_checks VALUES('check','batch',1)")
             original.execute("INSERT INTO event_history_clears VALUES('friday:2026-10-23','2026-10-24')")
+            original.execute("""INSERT INTO event_closeouts VALUES(
+                'friday:2026-10-23','synthetic-rsvp','synthetic-request',?,?,?,'2026-10-24')""",
+                ("a" * 40, "b" * 64, "c" * 64))
             # Exercise every table so an incomplete export cannot pass on empty tables.
             for name, rows in snapshot(original).items():
                 if rows:
@@ -70,6 +73,10 @@ def rehearse(product):
         assert restored.execute("PRAGMA foreign_key_check").fetchall() == []
         if product == "cashier":
             assert restored.execute("SELECT SUM(cents) FROM receipt_links").fetchone()[0] == 5000
+            assert restored.execute("""SELECT COUNT(*) FROM event_closeouts c
+                JOIN event_history_clears h ON h.event_id=c.event_id
+                WHERE c.rsvp_event_id='synthetic-rsvp'""").fetchone()[0] == 1, \
+                "Close-out completion evidence or its anti-replay marker was lost"
             try:
                 restored.execute("UPDATE payments SET event_id='friday:2026-10-23' WHERE id='manual'")
             except sqlite3.IntegrityError as exc:

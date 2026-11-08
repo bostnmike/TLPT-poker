@@ -62,20 +62,29 @@ No production Sunday is seeded or opened by this release. Open/close/reopen,
 receipt routing, retained payments and red/iPad layouts are tested only in
 isolated fixtures. Sunday remains a regular game, separate from the MTT slot.
 
-## Clear past-game ledgers
+## Close out a finished game
 
-Select a saved event, open **Event settings → Clear game history** (or **Clear MTT
-history**), and export first if wanted. The control is available after 6 AM Eastern
-the morning following the game. Type its exact date and acknowledge permanent
-deletion. The confirmation includes the full record count and collected total.
-A changed ledger invalidates the confirmation without deleting anything.
+Open **Event settings → Close out in Commish** to review the selected game.
+Commish verifies its canonical raw report, finished parsed results, passing data
+checks and published results, and asks you to confirm payouts, reviewed receipts
+and final results. Only an explicit confirmation closes a game; deployment or
+publishing another date never clears anything automatically.
 
-Clearing removes only that event’s payments, receipt links, audit entries,
-deleted-source identifiers and batch results atomically. Shared ambiguous emails
-retain their other candidates. Other ledgers, player identities, remembered names,
-event configuration and website RSVPs remain intact. An event-ID/timestamp marker
-prevents re-import and stale submissions. No refunds are sent. Deploying code
-never itself clears any records; publishing a new date does not clear old games.
+Commish first freezes the event. Cashier then atomically clears its payments,
+receipt links, audit entries, deleted-source identifiers, batch results, payment
+format and cached lineup. A changed ledger or result revision invalidates the
+confirmation. Shared ambiguous emails retain their other event candidates.
+Other ledgers, global player identities and remembered Venmo names remain intact.
+Only a matching Cashier completion receipt lets Commish finalize the RSVP purge.
+No refund or payout is sent by close-out. The canonical reports/results remain.
+
+An event marker prevents late emails and stale forms from recreating cleared
+payments, including for a zero-payment event. A pending close-out stays visibly
+closed and can resume with the same saved request ID after an interruption.
+This verified flow can run after the actual published finish time; the older
+private generic clear-history API retains its next-morning 6 a.m. restriction.
+See [CLOSEOUT-PROTOCOL.md](CLOSEOUT-PROTOCOL.md) and [DEPLOYMENT.md](DEPLOYMENT.md)
+for the private service binding, recovery and rollback rules.
 
 ## Architecture
 
@@ -472,5 +481,5 @@ processed; only server-acknowledged IDs are.
 
 Recovery of a previous game's missed messages is a separate reconciliation task.
 Do not blindly replay messages into a newly selected event, untrash emails, clear
-processed IDs, or reconstruct a replaced event's ledger. A date replacement may
-already have cleared the old ledger under the owner's configured retention rule.
+processed IDs, or reconstruct a closed event's ledger. An explicit close-out may
+already have cleared its working data and permanently blocked further imports.
