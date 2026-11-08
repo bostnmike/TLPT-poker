@@ -102,6 +102,12 @@ a:hover{
   margin:0 auto;
 }
 
+/* Keep the breakable word space out of the preceding text's shaping run.
+   Kerning this invisible separator can vary its advance by 0.296875px. */
+.site-footer-gap{
+  font-kerning:none;
+}
+
 .site-footer p{
   margin:0;
   color:var(--muted);

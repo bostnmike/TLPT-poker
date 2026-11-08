@@ -129,9 +129,12 @@ test('shared navigation expanded and footer', async ({page}) => {
       await snapshot(footerPage.locator('.site-footer'), 'footer.png', footerPage);
       await test.info().attach('footer-render-state-' + (capture + 1), {contentType:'application/json', body:JSON.stringify(await footerPage.locator('.site-footer a').evaluate(link => {
         const box = link.getBoundingClientRect(), style = getComputedStyle(link);
+          const gap = document.createRange(); gap.selectNodeContents(link.previousElementSibling);
+          const gapBox = gap.getBoundingClientRect();
         return {x:box.x, y:box.y, width:box.width, height:box.height, font:style.font, color:style.color,
           hovered:link.matches(':hover'), focused:document.activeElement === link,
-          fonts:document.fonts.status, deviceScaleFactor:devicePixelRatio};
+          fonts:document.fonts.status, deviceScaleFactor:devicePixelRatio,
+            gapWidth:gapBox.width, gapKerning:getComputedStyle(link.previousElementSibling).fontKerning};
       }))});
     } finally {
       await footerBrowser.close();

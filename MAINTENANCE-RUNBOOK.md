@@ -123,8 +123,8 @@ Norm's inline audio/help interactions (including short landscape screens).
 The preview binds only to localhost and closes when the tests finish.
 The shared-footer visual case requires three captures in independent Chromium
 processes at each viewport, all against the same reviewed reference. Preserve
-the compact footer text nodes; formatting whitespace around the inline link
-previously exposed a variable subpixel advance. Every capture must pass, without
+the isolated, breakable `.site-footer-gap` separator; its independent shaping
+prevents the preceding text from changing the link's subpixel position. Every capture must pass, without
 retrying assertions or relaxing the comparison limits.
 
 General browser checks use the reviewed public RSVP fixture from

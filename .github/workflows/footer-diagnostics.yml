@@ -1,0 +1,44 @@
+name: Footer rendering diagnostic (manual)
+on:
+  push:
+    branches: [codex/fix-footer-rendering]
+    paths: [scripts/diagnose-footer-rendering.cjs, .github/workflows/footer-diagnostics.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: python scripts/build-site-shell.py
+      - run: python scripts/package-site.py
+      - run: python scripts/browser-ci.py prepare
+      - name: Stress the fixed footer against unchanged references
+        run: |
+          python - <<'PY'
+          import importlib.util, subprocess
+          spec = importlib.util.spec_from_file_location('browser_ci', 'scripts/browser-ci.py')
+          ci = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(ci)
+          raise SystemExit(subprocess.call(ci.container_command(ci.environment(), ['node', 'node_modules/playwright/cli.js', 'test', '--config', 'tests/visual/playwright.config.cjs', '--grep', 'shared navigation expanded and footer', '--repeat-each', '10'])))
+          PY
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: footer-diagnostics-${{ github.run_id }}
+          path: browser-results/
+          retention-days: 7
