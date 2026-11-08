@@ -42,6 +42,7 @@ BOUNTY_KEYS = (
     "bountyWinnings",
     "bountyNet",
 )
+MONEY_KEYS = {'profit', 'totalCost', 'totalWinnings', 'settlementAdjustment', *BOUNTY_KEYS} - {'bountiesWon'}
 NORMALIZED_KEYS = ("roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw")
 CARD_MILESTONES = (10, 25, 50, 75, 100)
 CREW_ELIGIBLE_MIN = 3
@@ -143,12 +144,17 @@ class Audit:
         self.warnings.append({"section": section, "message": message})
 
 
+def money_number(value):
+    return int(value) if value == int(value) else float(value)
+
+
 def tournament_breakdown(record):
     # Recompute the prize-only ledger from combined totals independently.
-    cost = record.get("totalCost", 0) - record.get("bountyPaid", 0)
-    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0) - record.get("settlementAdjustment", 0)
-    return {"tournamentCost": cost, "tournamentWinnings": winnings,
-            "tournamentProfit": winnings - cost}
+    cost = Decimal(str(record.get('totalCost', 0))) - Decimal(str(record.get('bountyPaid', 0)))
+    winnings = (Decimal(str(record.get('totalWinnings', 0))) - Decimal(str(record.get('bountyWinnings', 0)))
+                - Decimal(str(record.get('settlementAdjustment', 0))))
+    return {"tournamentCost": money_number(cost), "tournamentWinnings": money_number(winnings),
+            "tournamentProfit": money_number(winnings - cost)}
 
 
 def empty_player(meta):
@@ -918,7 +924,9 @@ def aggregate_players(metadata, events):
             if slug not in totals:
                 continue
             for key in (*CORE_KEYS, *BOUNTY_KEYS):
-                totals[slug][key] += row.get(key, 0) or 0
+                value = row.get(key, 0) or 0
+                totals[slug][key] = (money_number(Decimal(str(totals[slug][key])) + Decimal(str(value)))
+                                     if key in MONEY_KEYS else totals[slug][key] + value)
     records = list(totals.values())
     finalize_career_metrics(records)
     return records
@@ -1036,7 +1044,9 @@ def build_checkpoints(metadata, events):
                 continue
             player = cumulative[row["slug"]]
             for key in (*CORE_KEYS, *BOUNTY_KEYS):
-                player[key] += row.get(key, 0) or 0
+                value = row.get(key, 0) or 0
+                player[key] = (money_number(Decimal(str(player[key])) + Decimal(str(value)))
+                               if key in MONEY_KEYS else player[key] + value)
         # Independently enforce the historical replay contract: metadata-only
         # players cannot influence snapshots earned before their first game.
         metrics = finalize_metrics([

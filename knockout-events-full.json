@@ -3342,5 +3342,70 @@
       "killerEntry": 1,
       "bountyAmount": 10
     }
+  ],
+  "2026-11-07": [
+    {
+      "victim": "phattedcalf",
+      "killer": "cougar",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Cougar",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "cougar",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Cougar",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "hiro",
+      "killer": "cougar",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Cougar",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "providencemike",
+      "killer": "cougar",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Cougar",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "ahmed",
+      "killer": "phattedcalf",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "PhattedCalf",
+      "victimEntry": 1,
+      "killerEntry": 3,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "cougar",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Cougar",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "nasa-al",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Nasa Al",
+      "victimEntry": 3,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    }
   ]
 }

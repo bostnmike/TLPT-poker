@@ -154,6 +154,12 @@ are mandatory. Forfeitures are winner-only prize money, never collected bounties
 The shared quality runner exercises production regressions and locks all 55
 preexisting event financial results. Practice fixtures must never enter live history.
 
+If an export omitted actual bounty charges, follow the fingerprinted
+host-confirmation contract in that same document. November 7, 2026 is the
+production example: retain original evidence, confirm every final receipt,
+and record corrections in that event's configuration. Never infer missing
+charges from the Tournament Director fee profile or copy exceptions to other events.
+
 The shared-site validation suite is owned only by:
 
 `bash scripts/run-quality-gates.sh`

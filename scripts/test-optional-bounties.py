@@ -351,6 +351,115 @@ class OptionalBountiesTests(unittest.TestCase):
             audit_optional_event(result, changed, parser.RAW_EVENTS_DIR/'Event Report 2026-10-24.html', rule, self.metadata, parser)
             self.assertTrue(result.failures, field)
 
+    def november(self, mutate_rule=None):
+        rule = copy.deepcopy(parser.load_json(parser.EVENT_FINANCIALS_PATH)['events']['2026-11-07'])
+        if mutate_rule:
+            mutate_rule(rule)
+        raw = parser.RAW_EVENTS_DIR/'Event Report 2026-11-07.html'
+        event = parser.parse_report_file(raw, self.aliases, self.metadata, 30,
+                                        {'events': {'2026-11-07': rule}})
+        return event, rule
+
+    def november_audit(self, event, rule):
+        from audit_optional_bounties import audit_optional_event
+        result = Audit()
+        audit_optional_event(result, event, parser.RAW_EVENTS_DIR/'Event Report 2026-11-07.html',
+                             rule, self.metadata, parser)
+        return result.failures
+
+    def test_november_confirmed_bounties_chop_and_source_receipts(self):
+        from decimal import Decimal
+        event, rule = self.november()
+        self.assertEqual(self.november_audit(event, rule), [])
+        rows = {r['slug']: r for r in event['players'] if r['entries']}
+        keys = ('entries', 'hits', 'bountiesWon', 'bountyPaid', 'bountyCollected',
+                'bountyRetained', 'tournamentWinnings', 'totalCost', 'totalWinnings', 'profit', 'bubbles')
+        self.assertEqual({s: tuple(r[k] for k in keys) for s, r in rows.items()}, {
+            'cougar': (1, 5, 5, 10, 50, 10, 118.54, 40, 178.54, 138.54, 0),
+            'nasa-al': (1, 1, 1, 10, 10, 10, 97.46, 40, 117.46, 77.46, 0),
+            'phattedcalf': (3, 1, 1, 30, 10, 0, 54, 120, 64, -56, 0),
+            'bostnmike': (1, 0, 0, 10, 0, 0, 0, 40, 0, -40, 1),
+            'ahmed': (1, 0, 0, 10, 0, 0, 0, 40, 0, -40, 0),
+            'hiro': (1, 0, 0, 10, 0, 0, 0, 40, 0, -40, 0),
+            'providencemike': (1, 0, 0, 10, 0, 0, 0, 40, 0, -40, 0),
+        })
+        self.assertEqual(sum(Decimal(str(r['profit'])) for r in rows.values()), 0)
+        self.assertEqual(sum(r['totalCost'] for r in rows.values()), 360)
+        self.assertEqual(sum(Decimal(str(r['totalWinnings'])) for r in rows.values()), 360)
+        bounty = event['summary']['bounty']
+        self.assertEqual((bounty['pool'], bounty['collected'], bounty['retained'], bounty['rollover']), (90, 70, 20, 0))
+        self.assertNotIn('settlement', event['summary'])
+        self.assertNotIn('rolloverRecipient', rule)
+        self.assertEqual([(w['slug'], w['rank'], w['payout']) for w in event['winners']],
+                         [('cougar', 1, 118.54), ('nasa-al', 1, 97.46), ('phattedcalf', 3, 54)])
+        self.assertEqual([(a['slug'], a['payout']) for a in event['actions'] if a['type'] == 'payout'],
+                         [('cougar', 118.54), ('nasa-al', 97.46), ('phattedcalf', 74)])
+        entries = [a for a in event['actions'] if a['type'] == 'buyin']
+        self.assertEqual(len(entries), 7)
+        self.assertTrue(all(a['bountyPosted'] == 10 and a['sourceBountyPosted'] == 0 for a in entries))
+        self.assertTrue(all(a['bountyCorrectionReason'] == rule['sourceCorrections']['reason'] for a in entries))
+        self.assertEqual(len([a for a in event['actions'] if a['type'] == 'bustout']), 7)
+        self.assertFalse(any(a['type'] == 'bustout' and a['slug'] in {'cougar','nasa-al'} for a in event['actions']))
+        ledger = event['bountyAccounting']
+        self.assertEqual(ledger['sourceCorrections'], rule['sourceCorrections'])
+        receipts = {r['slug']: r for r in ledger['reconciliation']}
+        self.assertEqual((receipts['phattedcalf']['reportedBountyReturn'], receipts['phattedcalf']['verifiedBountyWinnings'],
+                          receipts['phattedcalf']['adjustment']), (20, 10, -10))
+        self.assertEqual((receipts['cougar']['adjustment'], receipts['nasa-al']['adjustment']), (60, 20))
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            (directory/'2026-11-07.json').write_text(json.dumps(event))
+            with patch.object(knockouts, 'PARSED_EVENTS_DIR', directory):
+                archive, _ = knockouts.extract_knockout_archive_from_parsed_events()
+        claims = archive['2026-11-07']
+        self.assertEqual(len(claims), 7)
+        self.assertTrue(all(c['bountyAmount'] == 10 for c in claims))
+        self.assertTrue(all(c['disposition'] == 'collected' for c in ledger['claims']))
+        self.assertEqual([(c['killer'], c['victimEntry']) for c in claims if c['victim'] == 'phattedcalf'],
+                         [('cougar', 1), ('cougar', 2), ('nasa-al', 3)])
+
+    def test_november_requires_each_host_confirmation(self):
+        cases = [
+            (lambda r: r.pop('sourceCorrections'), 'initial entry'),
+            (lambda r: r['sourceCorrections'].update(reason=''), 'reason'),
+            (lambda r: r['sourceCorrections'].update(summarySha256='0'*64), 'summary fingerprint'),
+            (lambda r: r['sourceCorrections'].update(historySha256='0'*64), 'history fingerprint'),
+            (lambda r: r['sourceCorrections']['initialBountiesByPlayer'].pop('hiro'), 'initial entry'),
+            (lambda r: r['sourceCorrections']['initialBountiesByPlayer']['hiro'].update(time='2026-11-07T19:27:09'), 'omitted source'),
+            (lambda r: r['sourceCorrections']['initialBountiesByPlayer']['hiro'].update(amount=20), 'omitted source'),
+            (lambda r: r['sourceCorrections']['initialBountiesByPlayer'].update(unknown={'time':'2026-11-05T19:27:09','reportedAmount':0,'amount':10}), 'absent'),
+            (lambda r: r['sourceCorrections']['bountySummary']['won'].update(amount=10, count=1), 'reported bounty totals'),
+            (lambda r: r['sourceCorrections']['receiptsByPlayer'].update(phattedcalf=64), 'reported receipts'),
+            (lambda r: r['actualReceiptsByPlayer'].pop('hiro'), 'every entrant'),
+            (lambda r: r['actualReceiptsByPlayer'].update(phattedcalf=74), 'actual receipt'),
+            (lambda r: r.pop('chopFinalists'), 'ambiguous chops'),
+            (lambda r: r.pop('allowOmittedZeroReceipts'), 'receipt'),
+            (lambda r: r.update(settlementAdjustmentsByPlayer={'phattedcalf':{'amount':10,'reason':'invented'}}), 'settlement'),
+        ]
+        for mutation, error in cases:
+            with self.subTest(error=error), self.assertRaisesRegex(RuntimeError, error):
+                self.november(mutation)
+
+    def test_november_independent_audit_preserves_evidence_and_bounty_dispositions(self):
+        event, rule = self.november()
+        for mutation in ('receipt', 'reported-entry', 'reason', 'source-evidence', 'retention', 'claims', 'settlement'):
+            changed = copy.deepcopy(event)
+            if mutation == 'receipt':
+                next(a for a in changed['actions'] if a['type'] == 'payout')['payout'] += 10
+            elif mutation == 'reported-entry':
+                next(a for a in changed['actions'] if a['type'] == 'buyin')['sourceBountyPosted'] = 10
+            elif mutation == 'reason':
+                next(a for a in changed['actions'] if a['type'] == 'buyin')['bountyCorrectionReason'] = 'unconfirmed'
+            elif mutation == 'source-evidence':
+                changed['bountyAccounting']['sourceCorrections']['receiptsByPlayer']['phattedcalf'] = 64
+            elif mutation == 'retention':
+                next(r for r in changed['players'] if r['slug'] == 'phattedcalf')['bountyRetained'] = 20
+            elif mutation == 'claims':
+                changed['bountyAccounting']['claims'][0]['disposition'] = 'winner_rollover'
+            else:
+                next(r for r in changed['players'] if r['slug'] == 'phattedcalf')['settlementAdjustment'] = 10
+            self.assertTrue(self.november_audit(changed, rule), mutation)
+
     def test_historical_guard_allows_registration_but_not_phantom_results(self):
         event = {'players': [{'name': 'Original', 'slug': 'original', 'entries': 1, 'profit': -30}],
                  'winners': [], 'summary': {'entries': 1, 'totalPot': 30}}

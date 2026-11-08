@@ -37,6 +37,74 @@ def stamp(value):
         raise RuntimeError('Optional bounties: invalid history timestamp') from exc
 
 
+def confirmed_initial_bounties(path, actions, config):
+    """Apply only fingerprinted, individually confirmed omitted initial charges.
+
+    Raw text is never changed. Keep the reported amount on each annotated entry.
+    No correction is inferred from a profile, receipt or another event's policy.
+    """
+    correction = config.get('sourceCorrections')
+    if correction is None:
+        return
+    require(isinstance(correction, dict) and set(correction) == {
+        'reason', 'summarySha256', 'historySha256', 'initialBountiesByPlayer',
+        'bountySummary', 'receiptsByPlayer'}, 'invalid source correction contract')
+    require(isinstance(correction['reason'], str) and bool(correction['reason'].strip()),
+            'source corrections require a host-confirmed reason')
+    require(correction['historySha256'] == sha256(path.read_bytes()).hexdigest(),
+            'source correction history fingerprint mismatch')
+    entries = correction['initialBountiesByPlayer']
+    require(isinstance(entries, dict) and bool(entries), 'explicit initial bounty corrections required')
+    used = set()
+    for action in actions:
+        slug = action.get('slug')
+        if action['type'] != 'buyin' or slug not in entries:
+            continue
+        item = entries[slug]
+        require(isinstance(item, dict) and set(item) == {'time', 'reportedAmount', 'amount'},
+                'invalid initial bounty correction')
+        require(slug not in used and item['time'] == stamp(action['time_raw'])
+                and money(item['reportedAmount']) == money(action['bountyPosted']) == 0
+                and money(item['amount']) == money(config['bounty']['amount']) > 0,
+                'initial bounty correction does not match the omitted source charge')
+        action.update(sourceBountyPosted=action['bountyPosted'], bountyPosted=item['amount'],
+                      bountyCorrectionReason=correction['reason'])
+        used.add(slug)
+    require(used == set(entries), 'configured initial bounty correction absent from history')
+
+
+def verify_source_correction(path, config, receipts, bounty_table, entrants, base):
+    correction = config.get('sourceCorrections')
+    if correction is None:
+        return None
+    require(correction['summarySha256'] == sha256(path.read_bytes()).hexdigest(),
+            'source correction summary fingerprint mismatch')
+    require(correction['bountySummary'] == bounty_table,
+            'source correction reported bounty totals mismatch')
+    require(len(receipts) == len({r['slug'] for r in receipts}) and
+            correction['receiptsByPlayer'] == {r['slug']: r['payout'] for r in receipts},
+            'source correction reported receipts mismatch')
+    require(set(config.get('actualReceiptsByPlayer', {})) == entrants,
+            'source corrections require confirmed actual receipts for every entrant')
+    require(bool(config.get('regularPayoutsByPlayer')),
+            'source corrections require exact regular prizes')
+    require(not config.get('sourceRolloverAllocationsByPlayer') and
+            not config.get('settlementAdjustmentsByPlayer'),
+            'source corrections cannot imply a rollover allocation or settlement')
+    source = correction['bountySummary']
+    amount = money(config['bounty']['amount'])
+    require(set(source) == {'bought', 'won', 'kept'} and all(
+        isinstance(row, dict) and set(row) == {'amount', 'count'} and
+        type(row['count']) is int and row['count'] >= 0 and
+        money(row['amount']) == row['count'] * amount for row in source.values()),
+        'invalid reported bounty aggregates')
+    require(money(source['bought']['amount']) == money(source['won']['amount']) + money(source['kept']['amount']),
+            'reported bounty aggregates do not balance')
+    require(sum(money(r['payout']) for r in receipts) == base + money(source['bought']['amount']),
+            'source correction receipts do not balance with reported purchases')
+    return correction
+
+
 def history_actions(path, alias_map, canonicalize, config=None):
     config = config or {}
     require(path.is_file(), 'MISSING_HISTORY: paired detailed history is required')
@@ -105,6 +173,7 @@ def history_actions(path, alias_map, canonicalize, config=None):
             'one explicit winner is required; ambiguous chops need review')
     require(actions and actions[-1]['type'] == 'tournament_ended'
             and all(stamp(actions[-1]['time_raw']) == t for _, t in declared_winners), 'winner declaration must match tournament end')
+    confirmed_initial_bounties(path, actions, config)
     return actions, winners
 
 
@@ -159,7 +228,6 @@ def reconcile(path, config, actions, receipts, bounty_table, pool, paid_spots,
         require({canonicalize(s.strip(), alias_map)[1] for s in winner_text.split(',')} == set(winners),
                 'PAIR_MISMATCH: summary chop winners differ')
     recipient = config.get('rolloverRecipient', winners[0] if len(winners) == 1 else None)
-    require(recipient in winners, 'chops require an explicit finalist rollover recipient')
     def signature(action):
         return (action['type'], stamp(action['time_raw']), action.get('slug'), action.get('bySlug'))
     relevant = {'buyin', 'rebuy', 'bustout', 'tournament_started', 'tournament_ended'}
@@ -220,24 +288,37 @@ def reconcile(path, config, actions, receipts, bounty_table, pool, paid_spots,
     for winner in winners:
         values[winner]['bountyRetained'] = money(active[winner]['bountyPosted'])
     rollover = sum((money(c['amount']) for c in claims if c['disposition'] == 'winner_rollover'), Decimal(0))
-    values[recipient]['rolloverPrize'] = rollover
+    require(not rollover or recipient in winners, 'chops require an explicit finalist rollover recipient')
+    require(recipient is None or recipient in winners, 'invalid finalist rollover recipient')
+    if rollover:
+        values[recipient]['rolloverPrize'] = rollover
     paid = sum(v['bountyPaid'] for v in values.values())
     collected = sum(v['bountyCollected'] for v in values.values())
     retained = sum(v['bountyRetained'] for v in values.values())
     require(paid == collected + retained + rollover, 'bounty conservation failed')
-    for key, expected in [('bought', paid), ('won', collected), ('kept', retained + rollover)]:
-        require(money(bounty_table[key]['amount']) == expected and bounty_table[key]['count'] * amount == expected,
-                'SUMMARY_BOUNTY_MISMATCH: ' + key + ' includes personal retention plus forfeitures only for Kept')
+    correction = verify_source_correction(path, config, receipts, bounty_table, set(values), base)
+    if correction:
+        require(rollover == 0, 'source corrections with forfeited bounties require separate review')
+        reported_paid = sum(money(a.get('sourceBountyPosted', a['bountyPosted']))
+                            for a in detail if a['type'] in {'buyin', 'rebuy'})
+        require(reported_paid == money(bounty_table['bought']['amount']),
+                'reported history bounty purchases differ from summary')
+    else:
+        for key, expected in [('bought', paid), ('won', collected), ('kept', retained + rollover)]:
+            require(money(bounty_table[key]['amount']) == expected and bounty_table[key]['count'] * amount == expected,
+                    'SUMMARY_BOUNTY_MISMATCH: ' + key + ' includes personal retention plus forfeitures only for Kept')
     receipt_slugs = {r['slug'] for r in receipts}
     require(len(receipts) == len(receipt_slugs) and receipt_slugs <= set(values) and
             (receipt_slugs == set(values) or config.get('allowOmittedZeroReceipts') is True),
             'one explicit receipt (including zero) required for each entrant')
     require({r['slug'] for r in receipts if r['rank'] == 1} == set(winners), 'receipt winner differs from detailed history')
     prizes = regular_prizes(config, receipts, set(values), base, paid_spots)
-    require(sum(money(r['payout']) for r in receipts) == base + paid, 'RECEIPT_MISMATCH: source receipts do not conserve all money')
+    if not correction:
+        require(sum(money(r['payout']) for r in receipts) == base + paid, 'RECEIPT_MISMATCH: source receipts do not conserve all money')
     settlements = config.get('settlementAdjustmentsByPlayer', {})
     actual = config.get('actualReceiptsByPlayer', {})
-    require(set(settlements) <= receipt_slugs and set(actual) <= receipt_slugs, 'settlement player has no source receipt')
+    require(set(settlements) <= receipt_slugs and set(actual) <= (set(values) if correction else receipt_slugs),
+            'settlement player has no source receipt')
     for slug, adjustment in settlements.items():
         require(money(adjustment['amount']) > 0 and bool(adjustment.get('reason')) and slug in actual,
                 'settlement requires an amount, reason and confirmed actual receipt')
@@ -253,10 +334,11 @@ def reconcile(path, config, actions, receipts, bounty_table, pool, paid_spots,
     for r in receipts + [dict(slug=s, payout=0) for s in missing]:
         slug, v = r['slug'], values[r['slug']]
         gross = v['bountyCollected'] + v['bountyRetained']
-        exported_extra = money(r['payout']) - prizes[slug] - gross
-        require(exported_extra >= 0 and (prizes[slug] > 0 or exported_extra == 0 or
-                (slug in source_extras and exported_extra == money(source_extras[slug]))),
-                'source receipt cannot be reconciled to regular prizes and verified bounties')
+        exported_extra = Decimal(0) if correction else money(r['payout']) - prizes[slug] - gross
+        if not correction:
+            require(exported_extra >= 0 and (prizes[slug] > 0 or exported_extra == 0 or
+                    (slug in source_extras and exported_extra == money(source_extras[slug]))),
+                    'source receipt cannot be reconciled to regular prizes and verified bounties')
         if slug in source_extras:
             require(exported_extra == money(source_extras[slug]), 'configured source rollover mismatch')
         settlement = money(settlements.get(slug, {}).get('amount', 0))
@@ -266,6 +348,12 @@ def reconcile(path, config, actions, receipts, bounty_table, pool, paid_spots,
         reconciliation.append(dict(slug=slug, reportedReceipt=r['payout'], regularPrize=number(prizes[slug]),
                                    exportedRolloverAllocation=number(exported_extra), rolloverPrize=number(v['rolloverPrize']),
                                    correctedReceipt=number(corrected), adjustment=number(corrected-money(r['payout']))))
+        if correction:
+            reported_return = money(r['payout']) - prizes[slug]
+            require(reported_return >= 0, 'reported receipt is below the confirmed regular prize')
+            reconciliation[-1].update(reportedBountyReturn=number(reported_return),
+                                      verifiedBountyWinnings=number(gross),
+                                      sourceCorrectionReason=correction['reason'])
         if settlement:
             reconciliation[-1].update(settlementAdjustment=number(settlement), settlementReason=settlements[slug]['reason'])
         if prizes[slug] or v['rolloverPrize']:
@@ -278,10 +366,13 @@ def reconcile(path, config, actions, receipts, bounty_table, pool, paid_spots,
             v[key] = number(value)
     require(sum(money(r['exportedRolloverAllocation']) for r in reconciliation) == rollover,
             'exported rollover allocations do not reconcile')
-    ledger = dict(amount=number(amount), bought=bounty_table['bought'], won=bounty_table['won'],
+    ledger = dict(amount=number(amount), bought={'amount': number(paid), 'count': int(paid / amount)},
+                  won={'amount': number(collected), 'count': int(collected / amount)},
                   kept={'amount': number(retained), 'count': int(retained / amount)}, players=values,
                   rollover=number(rollover), claims=claims, reconciliation=reconciliation,
                   historyFile=filename, historySha256=sha256(history.read_bytes()).hexdigest())
+    if correction:
+        ledger['sourceCorrections'] = correction
     annotated = defaultdict(deque)
     for a in detail:
         annotated[signature(a)].append(a)

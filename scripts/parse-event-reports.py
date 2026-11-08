@@ -926,6 +926,8 @@ def parse_report_file(
                                   rollover=bounty_ledger["rollover"], winnerOnlyRollover=True)
         event["bountyAccounting"] = {key: bounty_ledger[key] for key in
             ("historyFile", "historySha256", "claims", "reconciliation")}
+        if "sourceCorrections" in bounty_ledger:
+            event["bountyAccounting"]["sourceCorrections"] = bounty_ledger["sourceCorrections"]
         settlement = sum(p.get("settlementAdjustment", 0) for p in event["players"])
         if settlement:
             summary["settlement"] = {

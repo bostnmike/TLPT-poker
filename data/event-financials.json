@@ -57,6 +57,100 @@
         "winnerOnlyRollover": true,
         "retainIfUnbusted": true
       }
+    },
+    "2026-11-07": {
+      "entryAmount": 30,
+      "detailedHistoryFile": "Event History 2026-11-07.txt",
+      "regularPayoutsByPlayer": {
+        "cougar": 118.54,
+        "nasa-al": 97.46,
+        "phattedcalf": 54,
+        "bostnmike": 0,
+        "ahmed": 0,
+        "hiro": 0,
+        "providencemike": 0
+      },
+      "chopFinalists": [
+        "cougar",
+        "nasa-al"
+      ],
+      "allowOmittedZeroReceipts": true,
+      "actualReceiptsByPlayer": {
+        "cougar": 178.54,
+        "nasa-al": 117.46,
+        "phattedcalf": 64,
+        "bostnmike": 0,
+        "ahmed": 0,
+        "hiro": 0,
+        "providencemike": 0
+      },
+      "bounty": {
+        "amount": 10,
+        "mode": "optional-rebuy",
+        "winnerOnlyRollover": true,
+        "retainIfUnbusted": true
+      },
+      "sourceCorrections": {
+        "reason": "Commish confirmed November 7 became a bounty game: every initial entry and rebuy cost $30 plus $10 bounty, with no opt-outs. The seven initial bounty charges and corresponding wins/retentions were omitted or misclassified in Tournament Director. Commish confirmed actual take-home Cougar $178.54, Nasa Al $117.46, Phattedcalf $64. Original reports remain unchanged.",
+        "summarySha256": "a71ace0f0b005787ac6e890002fdc0bdd7b5797197124d11accff1e9f0ded2a8",
+        "historySha256": "90325f237d8314d516914c6805085327a6b2b1d68c6dadd646d1c4eda4f1f604",
+        "initialBountiesByPlayer": {
+          "cougar": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          },
+          "nasa-al": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          },
+          "phattedcalf": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          },
+          "bostnmike": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          },
+          "ahmed": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          },
+          "hiro": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          },
+          "providencemike": {
+            "time": "2026-11-05T19:27:09",
+            "reportedAmount": 0,
+            "amount": 10
+          }
+        },
+        "bountySummary": {
+          "bought": {
+            "amount": 20,
+            "count": 2
+          },
+          "won": {
+            "amount": 0,
+            "count": 0
+          },
+          "kept": {
+            "amount": 20,
+            "count": 2
+          }
+        },
+        "receiptsByPlayer": {
+          "cougar": 118.54,
+          "nasa-al": 97.46,
+          "phattedcalf": 74
+        }
+      }
     }
   }
 }

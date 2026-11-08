@@ -30,6 +30,8 @@ for (const event of history) {
 const totalKeys = ['entries', 'buyIns', 'rebuys', 'hits', 'timesPlaced', 'bubbles', 'profit',
   'totalCost', 'totalWinnings', 'bountiesWon', 'bountyPaid', 'bountyCollected', 'bountyRetained',
   'bountyWinnings', 'bountyNet', 'settlementAdjustment'];
+const monetaryKeys = new Set(totalKeys.filter(key => !['entries','buyIns','rebuys','hits','timesPlaced','bubbles','bountiesWon'].includes(key)));
+const inCents = value => Math.round(Number(value || 0) * 100);
 const ratingKeys = ['trueSkillScore', 'luckIndex', 'clutchIndex', 'aggressionIndex', 'survivorIndex',
   'tiltIndex', 'expectedProfit', 'tier', 'cardForm', 'cardCollection', 'featuredCardEdition', 'rosterStatus'];
 let combinations = 0;
@@ -42,14 +44,19 @@ for (const format of ['all', 'single', 'mtt']) for (const bounty of ['all', 'wit
   for (const player of players) {
     const original = career.players.find(p => p.slug === player.slug);
     const rows = expected.flatMap(e => e.players.filter(p => p.slug === player.slug && p.entries > 0));
-    for (const key of totalKeys) assert.equal(player[key], rows.reduce((sum, r) => sum + Number(r[key] || 0), 0), `${format}/${bounty} ${player.slug} ${key}`);
+    for (const key of totalKeys) {
+      const expectedTotal = monetaryKeys.has(key)
+        ? rows.reduce((sum, r) => sum + inCents(r[key]), 0) / 100
+        : rows.reduce((sum, r) => sum + Number(r[key] || 0), 0);
+      assert.equal(player[key], expectedTotal, `${format}/${bounty} ${player.slug} ${key}`);
+    }
     for (const key of ratingKeys) assert.deepEqual(plain(player[key] ?? null), original[key] ?? null, `Career ${key} changed`);
     assert.equal(player.roi, player.totalCost ? player.profit / player.totalCost : 0);
     assert.equal(player.hitRate, player.entries ? player.hits / player.entries : 0);
     assert.equal(player.cashRate, player.buyIns ? player.timesPlaced / player.buyIns : 0);
     assert.equal(player.bubbleRate, player.buyIns ? player.bubbles / player.buyIns : 0);
-    assert.equal(player.totalWinnings, player.tournamentWinnings + player.bountyWinnings + player.settlementAdjustment);
-    assert.equal(player.tournamentProfit, player.tournamentWinnings - player.tournamentCost);
+    assert.equal(inCents(player.totalWinnings), inCents(player.tournamentWinnings) + inCents(player.bountyWinnings) + inCents(player.settlementAdjustment));
+    assert.equal(inCents(player.tournamentProfit), inCents(player.tournamentWinnings) - inCents(player.tournamentCost));
   }
   const kills = scope.knockoutView(selected);
   assert.equal(Object.values(kills.byKiller).flatMap(Object.values).reduce((a,b) => a+b,0), players.reduce((sum,p) => sum+p.hits,0));
@@ -71,6 +78,17 @@ assert.equal(mtt.find(p => p.slug === 'wild-bill').settlementAdjustment, 10);
 assert.equal(mtt.find(p => p.slug === 'providencemike').totalWinnings, 490);
 assert.equal(mtt.find(p => p.slug === 'ai-dave').hits, 2, 'Opt-out hands still count');
 assert.equal(mtt.find(p => p.slug === 'liam-o').buyIns, 1, 'Single-appearance players are included');
+const november = scope.aggregate(career.players, events.filter(event => event.eventId === '2026-11-07'));
+assert.equal(november.find(p => p.slug === 'cougar').totalWinnings, 178.54);
+assert.equal(november.find(p => p.slug === 'nasa-al').profit, 77.46);
+assert.equal(november.find(p => p.slug === 'phattedcalf').bountiesWon, 1);
+const centEvents = [0.01, 0.02, 0.03].map(amount => ({players:[{slug:'cent-test',entries:1,buyIns:1,
+  totalCost:0.10,totalWinnings:amount,profit:Math.round((amount-0.10)*100)/100}]}));
+const centPlayer = scope.aggregate([{slug:'cent-test'}],centEvents)[0];
+assert.equal(centPlayer.totalCost,0.30);
+assert.equal(centPlayer.totalWinnings,0.06);
+assert.equal(centPlayer.profit,-0.24);
+assert.equal(centPlayer.tournamentProfit,-0.24);
 for (const page of ['dashboard','standings','player','knockouts','form-lab','streaks','player-movement']) {
   const html = fs.readFileSync(new URL(`../${page}.html`, import.meta.url), 'utf8');
   assert.equal((html.match(/data-stat-scope /g) || []).length, 1, `${page}: shared controls`);

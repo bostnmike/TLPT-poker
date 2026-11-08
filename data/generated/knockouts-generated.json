@@ -10,7 +10,7 @@
       "hiro": 4,
       "li-fo": 9,
       "nasa-al": 2,
-      "phattedcalf": 1,
+      "phattedcalf": 2,
       "providencemike": 4,
       "red": 5,
       "wild-bill": 1
@@ -47,7 +47,7 @@
       "alex-c": 3,
       "buffalomike": 1,
       "chris-o": 1,
-      "cougar": 4,
+      "cougar": 5,
       "dan-k": 1,
       "griffin": 1,
       "hiro": 3,
@@ -126,7 +126,7 @@
       "bostnmike": 10,
       "brad-r": 1,
       "chris-f": 1,
-      "cougar": 1,
+      "cougar": 2,
       "gilmore": 1,
       "li-fo": 7,
       "nasa-al": 7,
@@ -216,8 +216,9 @@
       "ai-dave": 1,
       "bostnmike": 4,
       "chris-o": 2,
+      "cougar": 2,
       "hiro": 2,
-      "nasa-al": 1,
+      "nasa-al": 2,
       "providencemike": 1,
       "red": 1,
       "vish": 1
@@ -232,7 +233,7 @@
       "buffalomike": 1,
       "chris-f": 2,
       "chris-o": 3,
-      "cougar": 2,
+      "cougar": 3,
       "gilmore": 1,
       "griffin": 2,
       "hiro": 1,
@@ -416,14 +417,15 @@
     "cougar": {
       "ahmed": 1,
       "ai-dave": 2,
-      "bostnmike": 4,
+      "bostnmike": 5,
       "chris-f": 1,
       "dan-k": 1,
-      "hiro": 1,
+      "hiro": 2,
       "li-fo": 4,
       "nasa-al": 1,
       "nitro": 1,
-      "providencemike": 2,
+      "phattedcalf": 2,
+      "providencemike": 3,
       "red": 1,
       "vish": 1
     },
@@ -517,7 +519,7 @@
       "jeff-t": 2,
       "li-fo": 2,
       "nitro": 1,
-      "phattedcalf": 1,
+      "phattedcalf": 2,
       "providencemike": 1,
       "red": 1,
       "vic": 1
@@ -533,7 +535,7 @@
       "red": 1
     },
     "phattedcalf": {
-      "ahmed": 1,
+      "ahmed": 2,
       "ai-dave": 1,
       "hiro": 1,
       "nasa-al": 1,
@@ -675,7 +677,8 @@
     "2026-10-03",
     "2026-10-09",
     "2026-10-17",
-    "2026-10-24"
+    "2026-10-24",
+    "2026-11-07"
   ],
   "bounties": {
     "claims": [
@@ -924,11 +927,68 @@
         "amount": 10,
         "victimEntry": 2,
         "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "cougar",
+        "victim": "phattedcalf",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "cougar",
+        "victim": "phattedcalf",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "cougar",
+        "victim": "hiro",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "cougar",
+        "victim": "providencemike",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "phattedcalf",
+        "victim": "ahmed",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 3
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "cougar",
+        "victim": "bostnmike",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-07",
+        "killer": "nasa-al",
+        "victim": "phattedcalf",
+        "amount": 10,
+        "victimEntry": 3,
+        "killerEntry": 1
       }
     ],
     "eventsProcessed": [
       "2026-10-17",
-      "2026-10-24"
+      "2026-10-24",
+      "2026-11-07"
     ]
   }
 }
