@@ -1,0 +1,52 @@
+07:27:09 pm 11/05/2026: Ahmed bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+07:27:09 pm 11/05/2026: Bostnmike bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+07:27:09 pm 11/05/2026: Cougar bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+07:27:09 pm 11/05/2026: Hiro bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+07:27:09 pm 11/05/2026: Nasa Al bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+07:27:09 pm 11/05/2026: Phattedcalf bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+07:27:09 pm 11/05/2026: Providencemike bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL Buy-In)
+01:49:44 pm 11/07/2026: Start of pre-tournament countdown
+07:13:13 pm 11/07/2026: End of pre-tournament countdown
+07:13:17 pm 11/07/2026: Featured, Seat 1: Ahmed
+07:13:17 pm 11/07/2026: Tournament started
+07:13:17 pm 11/07/2026: Featured, Seat 2: Hiro
+07:13:17 pm 11/07/2026: Featured, Seat 3: Providencemike
+07:13:17 pm 11/07/2026: Featured, Seat 4: Nasa Al
+07:13:17 pm 11/07/2026: Featured, Seat 5: Bostnmike
+07:13:17 pm 11/07/2026: Start of round 1
+07:13:17 pm 11/07/2026: Featured, Seat 6: Cougar
+07:13:17 pm 11/07/2026: Featured, Seat 7: Phattedcalf
+07:33:17 pm 11/07/2026: End of round 1
+07:33:21 pm 11/07/2026: Start of round 2
+07:53:21 pm 11/07/2026: End of round 2
+07:53:25 pm 11/07/2026: Start of round 3
+08:13:25 pm 11/07/2026: End of round 3
+08:13:29 pm 11/07/2026: Start of round 4
+08:33:29 pm 11/07/2026: End of round 4
+08:33:33 pm 11/07/2026: Start of break 1
+08:43:33 pm 11/07/2026: End of break 1
+08:43:37 pm 11/07/2026: Start of round 5
+08:55:59 pm 11/07/2026: Phattedcalf busted out of the tournament (Featured, Seat 7) by Cougar (Featured, Seat 6)
+08:56:51 pm 11/07/2026: Phattedcalf rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+09:04:56 pm 11/07/2026: End of round 5
+09:05:00 pm 11/07/2026: Start of round 6
+09:25:00 pm 11/07/2026: End of round 6
+09:25:04 pm 11/07/2026: Start of round 7
+09:35:29 pm 11/07/2026: Phattedcalf busted out of the tournament (Featured, Seat 7) by Cougar (Featured, Seat 6)
+09:36:00 pm 11/07/2026: Phattedcalf rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+09:47:25 pm 11/07/2026: End of round 7
+09:47:29 pm 11/07/2026: Start of break 2
+09:57:29 pm 11/07/2026: End of break 2
+09:57:33 pm 11/07/2026: Start of round 8
+10:06:38 pm 11/07/2026: Hiro busted out of the tournament (Featured, Seat 2) by Cougar (Featured, Seat 6)
+10:17:32 pm 11/07/2026: Providencemike busted out of the tournament (Featured, Seat 3) by Cougar (Featured, Seat 6)
+10:18:25 pm 11/07/2026: End of round 8
+10:18:29 pm 11/07/2026: Start of round 9
+10:30:34 pm 11/07/2026: Ahmed busted out of the tournament (Featured, Seat 1) by Phattedcalf (Featured, Seat 7)
+10:38:29 pm 11/07/2026: End of round 9
+10:38:33 pm 11/07/2026: Start of round 10
+10:46:09 pm 11/07/2026: Bostnmike busted out of the tournament (Featured, Seat 5) by Cougar (Featured, Seat 6)
+10:48:46 pm 11/07/2026: Phattedcalf busted out of the tournament (Featured, Seat 7) by Nasa Al (Featured, Seat 4)
+11:04:25 pm 11/07/2026: Cougar chopped for 1st place
+11:04:25 pm 11/07/2026: Nasa Al chopped for 1st place
+11:04:25 pm 11/07/2026: Tournament ended

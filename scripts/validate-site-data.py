@@ -2,6 +2,7 @@
 
 import json
 import re
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -60,16 +61,31 @@ def validate_player(p):
     if not isinstance(p.get("totalCost"), (int, float)) or p.get("totalCost", 0) < 0:
         errors.append("totalCost must be a nonnegative number")
 
-    expected_profit = p.get("totalWinnings", 0) - p.get("totalCost", 0)
-    if p.get("profit", 0) != expected_profit:
+    money_keys = ('totalCost', 'totalWinnings', 'profit', 'tournamentCost',
+                  'tournamentWinnings', 'tournamentProfit', 'bountyPaid', 'bountyCollected',
+                  'bountyRetained', 'bountyWinnings', 'bountyNet', 'settlementAdjustment')
+    amounts = {}
+    for key in money_keys:
+        try:
+            value = p.get(key, 0)
+            number = Decimal(str(value))
+            if isinstance(value, bool) or not number.is_finite() or number != number.quantize(Decimal('.01')):
+                raise InvalidOperation
+            amounts[key] = number
+        except (InvalidOperation, ValueError, TypeError):
+            errors.append(f'{key} must use finite exact cents')
+    if len(amounts) != len(money_keys):
+        return errors
+    expected_profit = amounts['totalWinnings'] - amounts['totalCost']
+    if amounts['profit'] != expected_profit:
         errors.append(f"profit mismatch: {p.get('profit')} != {expected_profit}")
 
     for key, expected in {
-        "tournamentCost": p.get("totalCost", 0) - p.get("bountyPaid", 0),
-        "tournamentWinnings": p.get("totalWinnings", 0) - p.get("bountyWinnings", 0) - p.get("settlementAdjustment", 0),
-        "tournamentProfit": p.get("profit", 0) - p.get("bountyNet", 0) - p.get("settlementAdjustment", 0),
+        "tournamentCost": amounts['totalCost'] - amounts['bountyPaid'],
+        "tournamentWinnings": amounts['totalWinnings'] - amounts['bountyWinnings'] - amounts['settlementAdjustment'],
+        "tournamentProfit": amounts['profit'] - amounts['bountyNet'] - amounts['settlementAdjustment'],
     }.items():
-        if p.get(key) != expected:
+        if key not in p or amounts[key] != expected:
             errors.append(f"{key} mismatch")
 
     expected_roi = safe_div(p.get("profit", 0), p.get("totalCost", 0))

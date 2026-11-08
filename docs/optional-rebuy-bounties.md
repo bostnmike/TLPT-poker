@@ -118,6 +118,95 @@ knockout with killer/victim entry ordinals and disposition. The public knockout
 archive carries those ordinals so repeated claims involving the same pair are
 not collapsed into one. Only collected claims appear in Bounty Hunters.
 
+## Host-confirmed incomplete bounty exports
+
+Never infer missing bounty purchases from fee profiles, configured defaults or
+payout gaps. When the host confirms that a specific export omitted actual
+initial bounty charges, `sourceCorrections` records the reason, SHA-256 of both
+originals, every affected initial entry by slug and exact ISO timestamp, its
+reported zero and confirmed charge, the complete reported bounty aggregates,
+and each original receipt. It requires exact regular prizes and confirmed
+`actualReceiptsByPlayer` for **every entrant**, including zero receipts. The
+existing omitted-zero-receipt flag remains mandatory when the export lacks them.
+
+This narrowly supported correction handles omitted **initial** charges only;
+it does not authorize arbitrary purchase changes, unknown actions, live reloads,
+forfeiture reallocation, or settlement adjustments. Any changed source hash,
+unmatched entry, missing confirmation or actual-payout mismatch fails intake.
+The corrected entry keeps `sourceBountyPosted` and `bountyCorrectionReason`;
+the original combined receipt actions and both raw files remain untouched.
+The reconciliation separately shows reported bounty returns, verified bounty
+winnings, the corrected receipt and its difference. A purchase/receipt export
+error is not a house contribution or a settlement payment. The independent
+source audit checks the evidence, annotations, ledger and confirmed receipts.
+
+With a chop, `rolloverRecipient` is required only if an eligible victim's bounty
+was actually forfeited. No recipient or extra award is invented when rollover
+is zero. Every surviving eligible finalist still retains their own bounty.
+
+## November 7, 2026 confirmed production intake
+
+**Full Metal Stack-It | 9-Max** was a single-table 500K event. There were seven
+players and two rebuys, both by Phattedcalf: nine purchases at $30 regular entry
+plus $10 bounty each. The Commish confirmed that the game became a bounty game
+and no one opted out. He also confirmed the final take-home amounts below.
+The regular pool is $270; the $90 bounty pool splits into seven collected claims
+($70) and two retained personal bounties ($20). There are no forfeitures,
+settlement adjustments or unexplained funds. Total collected and paid: $360.
+
+| Player | Regular prize | Bounty wins | Own bounty retained | Take-home | Cost | Net | Hits |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Cougar | $118.54 | $50 | $10 | $178.54 | $40 | +$138.54 | 5 |
+| Nasa Al | $97.46 | $10 | $10 | $117.46 | $40 | +$77.46 | 1 |
+| Phattedcalf | $54 | $10 | $0 | $64 | $120 | -$56 | 1 |
+| BostnMike | $0 | $0 | $0 | $0 | $40 | -$40 | 0 |
+| Ahmed | $0 | $0 | $0 | $0 | $40 | -$40 | 0 |
+| ProvidenceMike | $0 | $0 | $0 | $0 | $40 | -$40 | 0 |
+| Hiro | $0 | $0 | $0 | $0 | $40 | -$40 | 0 |
+
+Cougar and Nasa Al chopped first. Phattedcalf finished third; BostnMike fourth
+and on the bubble; Ahmed fifth; ProvidenceMike sixth; Hiro seventh and first
+permanently out. Phattedcalf's earlier two eliminations followed by rebuys are
+real hits and bounty claims. The two uncredited terminal summary eliminations
+at the chop are artifacts and are excluded. Play ran 19:13:17–23:04:25 Eastern
+on November 7 (3h 51m 08s). Initial registrations were recorded November 5;
+preserve those timestamps instead of changing the event date or inventing play.
+
+The source summary reports only $20 bought, $0 won, $20 kept and receipts of
+$118.54/$97.46/$74 for Cougar/Nasa Al/Phattedcalf. The detailed history omits
+all seven initial bounty charges but records both $10 rebuy charges. Preserve
+these originals. The configured correction restores the seven confirmed charges
+and derives all claims from the actual elimination sequence. Phattedcalf's
+reported $20 "kept" is not personal retention: all three of his entries busted.
+His correct bounty return is the $10 won by eliminating Ahmed.
+
+Source provenance:
+
+- HTML SHA-256: `a71ace0f0b005787ac6e890002fdc0bdd7b5797197124d11accff1e9f0ded2a8`.
+- History TXT SHA-256: `90325f237d8314d516914c6805085327a6b2b1d68c6dadd646d1c4eda4f1f604`.
+- The TXT is the complete ordered extraction of 52 paragraphs from the user's
+  `11-07-26Full event history.docx` (SHA-256
+  `cfcbd83c5011f2b8aa5f96a88447db6b0945b4c6128e61d64ff472c95165a7b7`).
+  The original Word file remains unchanged in the supplied zip; it was not
+  copied into raw storage. The original `.tdt` save remains in that zip too.
+  Its 52 history actions agree, with only same-timestamp seating/start controls
+  ordered differently; all purchase and knockout sequences match.
+
+Production regressions check the corrected original pair, exact cents and
+receipts, every missing/mismatched confirmation, evidence fingerprints,
+preservation of raw receipt actions and corrected-entry annotations, independent
+audit failures for manufactured retention/settlements, and all three separate
+Phattedcalf entry claims. The existing 55 historical financial baselines and
+October 24 production accounting remain protected.
+
+The cent-based chop also exercises career/form aggregation. Python monetary
+totals use decimal arithmetic, browser filter totals add integer cents, and
+validation compares exact cents (including rejection of a one-cent error or
+sub-cent value). Rates and rating formulas are unchanged. All older parsed
+results and every previously earned collectible snapshot remain unchanged.
+This event awards Cougar his 25-Appearance Milestone card and Phattedcalf his
+10-Appearance Milestone card; no additional special card was earned.
+
 ## October 24, 2026 confirmed production intake
 
 The original HTML is preserved byte-for-byte. `Event History 2026-10-24.txt` is

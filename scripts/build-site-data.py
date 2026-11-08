@@ -3,6 +3,7 @@
 import json
 import math
 from datetime import datetime, timezone
+from decimal import Decimal
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -59,15 +60,21 @@ BOUNTY_KEYS = (
     "bountyNet",
 )
 ACCOUNTING_KEYS = (*BOUNTY_KEYS, "settlementAdjustment")
+MONEY_KEYS = {'profit', 'totalCost', 'totalWinnings', *ACCOUNTING_KEYS} - {'bountiesWon'}
+
+
+def sum_money(*values):
+    total = sum((Decimal(str(value)) for value in values), Decimal(0))
+    return int(total) if total == int(total) else float(total)
 
 
 def tournament_breakdown(record):
-    cost = record.get("totalCost", 0) - record.get("bountyPaid", 0)
-    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0) - record.get("settlementAdjustment", 0)
+    cost = sum_money(record.get("totalCost", 0), -record.get("bountyPaid", 0))
+    winnings = sum_money(record.get("totalWinnings", 0), -record.get("bountyWinnings", 0), -record.get("settlementAdjustment", 0))
     return {
         "tournamentCost": cost,
         "tournamentWinnings": winnings,
-        "tournamentProfit": winnings - cost,
+        "tournamentProfit": sum_money(winnings, -cost),
     }
 
 
@@ -509,7 +516,8 @@ def aggregate_card_form_window(player_meta, event_rows):
             "bubbles", "profit", "totalCost", "totalWinnings",
             *ACCOUNTING_KEYS,
         ]:
-            metrics[key] += row.get(key, 0) or 0
+            value = row.get(key, 0) or 0
+            metrics[key] = sum_money(metrics[key], value) if key in MONEY_KEYS else metrics[key] + value
 
     metrics.update(tournament_breakdown(metrics))
     return {
@@ -985,7 +993,8 @@ def build_historical_card_collections(players, parsed_events):
                 "bubbles", "profit", "totalCost", "totalWinnings",
                 *ACCOUNTING_KEYS
             ]:
-                player[key] += row.get(key, 0) or 0
+                value = row.get(key, 0) or 0
+                player[key] = sum_money(player[key], value) if key in MONEY_KEYS else player[key] + value
 
             streak = streaks[slug]
             if (row.get("timesPlaced", 0) or 0) > 0:
@@ -1265,7 +1274,8 @@ def main():
                 "timesPlaced", "bubbles", "profit",
                 "totalCost", "totalWinnings", *ACCOUNTING_KEYS,
             ]:
-                p[key] += ep.get(key, 0)
+                value = ep.get(key, 0)
+                p[key] = sum_money(p[key], value) if key in MONEY_KEYS else p[key] + value
 
     players = list(players_by_slug.values())
     finalize_career_metrics(players)

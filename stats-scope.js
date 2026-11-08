@@ -7,6 +7,9 @@
     'bountyRetained', 'bountyWinnings', 'bountyNet', 'settlementAdjustment'];
   const factualKeys = new Set([...totals, 'roi', 'cashRate', 'bubbleRate', 'hitRate',
     'tournamentCost', 'tournamentWinnings', 'tournamentProfit']);
+  const moneyKeys = new Set(['profit', 'totalCost', 'totalWinnings', 'bountyPaid', 'bountyCollected',
+    'bountyRetained', 'bountyWinnings', 'bountyNet', 'settlementAdjustment']);
+  const cents = value => Math.round(Number(value || 0) * 100);
   let state = { format: 'all', bounty: 'all' };
   let events = [];
   let ready;
@@ -27,12 +30,14 @@
       if (!(result.entries > 0)) continue;
       const row = rows.get(result.slug);
       if (!row) throw new Error(`Unknown player in statistical history: ${result.slug}`);
-      for (const key of totals) row[key] += Number(result[key] || 0);
+      // Keep monetary accumulators in integer cents until aggregation is complete.
+      for (const key of totals) row[key] += moneyKeys.has(key) ? cents(result[key]) : Number(result[key] || 0);
     }
     for (const row of rows.values()) {
-      row.tournamentCost = row.totalCost - row.bountyPaid;
-      row.tournamentWinnings = row.totalWinnings - row.bountyWinnings - row.settlementAdjustment;
-      row.tournamentProfit = row.tournamentWinnings - row.tournamentCost;
+      row.tournamentCost = (row.totalCost - row.bountyPaid) / 100;
+      row.tournamentWinnings = (row.totalWinnings - row.bountyWinnings - row.settlementAdjustment) / 100;
+      row.tournamentProfit = (row.profit - row.bountyNet - row.settlementAdjustment) / 100;
+      for (const key of moneyKeys) row[key] /= 100;
       row.roi = row.totalCost ? row.profit / row.totalCost : 0;
       row.cashRate = row.buyIns ? row.timesPlaced / row.buyIns : 0;
       row.bubbleRate = row.buyIns ? row.bubbles / row.buyIns : 0;

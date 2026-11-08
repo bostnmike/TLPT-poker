@@ -37,7 +37,8 @@ def _audit(event, raw_path, rule, metadata, helper, check):
     detailed_path = raw_path.parent / rule['detailedHistoryFile']
     detail, winners = history_actions(detailed_path, alias_map, helper.canonicalize_player_name, rule)
     recipient = rule.get('rolloverRecipient', winners[0] if len(winners) == 1 else None)
-    check(recipient in winners, 'unconfirmed chop rollover recipient')
+    check(recipient is None or recipient in winners, 'invalid chop rollover recipient')
+    correction = rule.get('sourceCorrections')
     if len(winners) > 1:
         # The summary emits artificial uncredited busts when ending a chop.
         # Only terminal, uncredited finalist actions may be removed.
@@ -99,9 +100,15 @@ def _audit(event, raw_path, rule, metadata, helper, check):
                           a.get('isReload', False), a.get('activeEntryOrdinal'))
                          for a in event['actions'] if a['type'] in ('buyin', 'rebuy')]
     check(Counter(published_entries) == Counter(expected_entries), 'published entry choices/ordinals differ from raw history')
+    source_annotations = lambda actions: [(sig(a), a.get('sourceBountyPosted'), a.get('bountyCorrectionReason'))
+        for a in actions if a['type'] in {'buyin', 'rebuy'}]
+    check(Counter(source_annotations(event['actions'])) == Counter(source_annotations(detail)),
+          'reported bounty amounts or correction reasons were modified')
     for winner in winners:
         totals[winner]['bountyRetained'] = state[winner][1]
-    totals[recipient]['rolloverPrize'] = rollover
+    check(not rollover or recipient in winners, 'unconfirmed chop rollover recipient')
+    if rollover:
+        totals[recipient]['rolloverPrize'] = rollover
     base = Decimal(str(helper.extract_total_pot(html)))
     paid_spots = helper.extract_paid_spots(html)
     prizes = regular_prizes(rule, receipts, set(totals), base, paid_spots)
@@ -153,9 +160,26 @@ def _audit(event, raw_path, rule, metadata, helper, check):
     check(summary['bounty'] == expected_summary, 'bounty summary (including Kept/rollover classification) mismatch')
     for key, expected in [('Bought:', take), ('Won:', collected), ('Kept:', retained+rollover)]:
         raw = helper.extract_table_money_count(html, 'Bounties', key)
-        check(raw['amount'] == expected and raw['count'] * amount == expected, 'raw bounty aggregate mismatch: '+key)
+        if correction:
+            field = {'Bought:': 'bought', 'Won:': 'won', 'Kept:': 'kept'}[key]
+            check(raw == correction['bountySummary'][field], 'corrected source bounty aggregate mismatch: '+key)
+            check(raw['amount'] == raw['count'] * amount, 'reported bounty count/money mismatch: '+key)
+        else:
+            check(raw['amount'] == expected and raw['count'] * amount == expected, 'raw bounty aggregate mismatch: '+key)
     check(take == collected + retained + rollover, 'bounty conservation failed')
-    check(sum(Decimal(str(r['payout'])) for r in receipts) == base + take, 'source receipts do not balance')
+    reported_take = sum(Decimal(str(a.get('sourceBountyPosted', a['bountyPosted'])))
+                        for a in detail if a['type'] in {'buyin', 'rebuy'})
+    if correction:
+        check(correction['summarySha256'] == sha256(raw_path.read_bytes()).hexdigest(), 'summary correction fingerprint mismatch')
+        check(correction['receiptsByPlayer'] == {r['slug']: r['payout'] for r in receipts}, 'corrected source receipts mismatch')
+        check(set(rule.get('actualReceiptsByPlayer', {})) == set(counts), 'actual receipt confirmations must cover all entrants')
+        check(not rollover and not rule.get('sourceRolloverAllocationsByPlayer') and
+              not rule.get('settlementAdjustmentsByPlayer'), 'source correction cannot manufacture forfeitures or settlements')
+        check(reported_take == correction['bountySummary']['bought']['amount'], 'reported entry bounty charges differ from source summary')
+        check(correction['bountySummary']['bought']['amount'] == correction['bountySummary']['won']['amount'] +
+              correction['bountySummary']['kept']['amount'], 'reported bounty summary does not conserve money')
+    check(sum(Decimal(str(r['payout'])) for r in receipts) == base + (reported_take if correction else take),
+          'source receipts do not balance')
     settlement_total = sum(t['settlementAdjustment'] for t in totals.values())
     check(sum(t['profit'] for t in totals.values()) == settlement_total, 'corrected receipts do not balance with confirmed settlement')
     if settlement_total:
@@ -163,11 +187,12 @@ def _audit(event, raw_path, rule, metadata, helper, check):
         check(settlement.get('adjustment') == settlement_total and settlement.get('cashCollected') == base + take
               and settlement.get('cashPaid') == base + take + settlement_total, 'settlement summary mismatch')
     for slug, amount_paid in rule.get('actualReceiptsByPlayer', {}).items():
-        check(totals[slug]['totalWinnings'] == amount_paid, 'actual payout differs from host confirmation')
+        check(totals[slug]['totalWinnings'] == Decimal(str(amount_paid)), 'actual payout differs from host confirmation')
     expected_winners = [dict(name=r['player'], slug=r['slug'], rank=r['rank'],
                             payout=totals[r['slug']]['tournamentWinnings']) for r in receipts if r['slug'] in cashers]
     check(event['winners'] == normalized(expected_winners), 'winner-only tournament payout mismatch')
     ledger = event['bountyAccounting']
+    check(ledger.get('sourceCorrections') == correction, 'source correction evidence differs from host configuration')
     check(ledger['claims'] == claims, 'entry-qualified claim ledger mismatch')
     check(ledger['historyFile'] == rule['detailedHistoryFile'] and ledger['historySha256'] == sha256(detailed_path.read_bytes()).hexdigest(), 'history source fingerprint mismatch')
     actual_busts = [a for a in event['actions'] if a['type'] == 'bustout']
@@ -181,7 +206,7 @@ def _audit(event, raw_path, rule, metadata, helper, check):
         check(totals[slug]['totalWinnings'] == 0, 'omitted receipt has earnings')
     for r in receipts + [dict(slug=s, payout=0) for s in missing]:
         t = totals[r['slug']]
-        extra = Decimal(str(r['payout'])) - t['regularPrize'] - t['bountyWinnings']
+        extra = Decimal(0) if correction else Decimal(str(r['payout'])) - t['regularPrize'] - t['bountyWinnings']
         source_extra = rule.get('sourceRolloverAllocationsByPlayer', {}).get(r['slug'])
         check(extra >= 0 and (t['regularPrize'] > 0 or extra == 0 or extra == source_extra), 'invalid exported rollover allocation')
         if source_extra is not None:
@@ -189,6 +214,11 @@ def _audit(event, raw_path, rule, metadata, helper, check):
         expected_reconciliation.append(dict(slug=r['slug'], reportedReceipt=r['payout'], regularPrize=t['regularPrize'],
             exportedRolloverAllocation=extra, rolloverPrize=t['rolloverPrize'], correctedReceipt=t['totalWinnings'],
             adjustment=t['totalWinnings']-Decimal(str(r['payout']))))
+        if correction:
+            reported_return = Decimal(str(r['payout'])) - t['regularPrize']
+            check(reported_return >= 0, 'reported receipt is below the confirmed regular prize')
+            expected_reconciliation[-1].update(reportedBountyReturn=reported_return,
+                verifiedBountyWinnings=t['bountyWinnings'], sourceCorrectionReason=correction['reason'])
         if t['settlementAdjustment']:
             expected_reconciliation[-1].update(settlementAdjustment=t['settlementAdjustment'],
                 settlementReason=rule['settlementAdjustmentsByPlayer'][r['slug']]['reason'])

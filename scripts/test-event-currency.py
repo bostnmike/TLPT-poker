@@ -22,6 +22,8 @@ def load_script(name):
 parser = load_script("parse-event-reports")
 integrity = load_script("audit-site-integrity")
 knockouts = load_script("build-knockouts")
+builder = load_script('build-site-data')
+validator = load_script('validate-site-data')
 
 
 class RecordingAudit:
@@ -34,6 +36,32 @@ class RecordingAudit:
 
 
 class EventCurrencyTests(unittest.TestCase):
+    def test_career_and_form_sums_keep_exact_cents(self):
+        self.assertEqual(builder.sum_money(65, 77.46), 142.46)
+        self.assertEqual(builder.sum_money(0.01, 0.02, 0.03), 0.06)
+        self.assertEqual(builder.tournament_breakdown({'totalCost':1030,'bountyPaid':50,
+            'totalWinnings':1172.46,'bountyWinnings':85}),
+            {'tournamentCost':980,'tournamentWinnings':1087.46,'tournamentProfit':107.46})
+        meta = {'slug':'cent-test','name':'Cent Test','image':''}
+        rows = [{'date':str(i),'title':'Synthetic cents','row':{'entries':1,'buyIns':1,
+                 'totalCost':0.10,'totalWinnings':amount,'profit':profit}}
+                for i,(amount,profit) in enumerate([(0.01,-0.09),(0.02,-0.08),(0.03,-0.07)])]
+        form = builder.aggregate_card_form_window(meta,rows)['metrics']
+        self.assertEqual((form['totalCost'],form['totalWinnings'],form['profit'],form['tournamentProfit']),
+                         (0.30,0.06,-0.24,-0.24))
+
+    def test_player_currency_validation_is_exact_to_the_cent(self):
+        player = copy.deepcopy(parser.load_json(builder.OUTPUT_PATH)['players'][0])
+        player.update(totalCost=1030,totalWinnings=1172.46,profit=142.46,bountyPaid=50,
+                      bountyCollected=85,bountyRetained=0,bountyWinnings=85,bountyNet=35,
+                      settlementAdjustment=0,roi=142.46/1030)
+        player.update(builder.tournament_breakdown(player))
+        self.assertEqual(validator.validate_player(player), [])
+        changed = copy.deepcopy(player);changed['profit'] = 142.47
+        self.assertTrue(any('profit mismatch' in e for e in validator.validate_player(changed)))
+        changed = copy.deepcopy(player);changed['profit'] = 142.461
+        self.assertTrue(any('exact cents' in e for e in validator.validate_player(changed)))
+
     def setUp(self):
         self.metadata = parser.load_json(parser.METADATA_PATH)["players"]
         self.config = parser.load_json(parser.CONFIG_PATH)
