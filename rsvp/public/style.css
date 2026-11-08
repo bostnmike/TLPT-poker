@@ -289,3 +289,12 @@ input:disabled,select:disabled { opacity:.65; }
 @media(max-width:500px) { .coffee-invite { align-items:stretch; flex-direction:column; } }
 
 #coffee-status { color:var(--gold-soft); }
+
+#closeout-dialog { max-height:90dvh; overflow:auto; }
+#closeout-fields { border:1px solid var(--line); border-radius:12px; padding:14px; margin:16px 0; }
+#closeout-fields legend { color:var(--gold-soft); padding:0 5px; }
+#closeout-fields label { display:flex; align-items:flex-start; gap:8px; line-height:1.5; margin:16px 0; }
+#closeout-fields input { flex-shrink:0; margin-top:0; }
+
+#closeout-dialog p { font-size:14px; line-height:1.5; margin:10px 0; }
+#closeout-fields label { margin:12px 0; }

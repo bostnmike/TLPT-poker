@@ -189,14 +189,13 @@ duplicate live slot/date is rejected. Create a new event each week. Initial IDs 
 original date; new IDs are UUIDs. The undated Next MTT remains `Date TBD`, closed,
 and has its own placeholder ID. Once its date is known, set its date and deliberately open RSVPs. Never invent a date to make an event payable.
 
-Cashier retains its existing audited `data/events.json` and financial feed for
-payment-event selection, receipt windows, prices and cleanup. A separate
-`live_rsvp_state` cache overlays attendance for **exact slot + date matches**.
-Attendance changes never invoke payment cleanup, schedule normalization or event
-rollover. A live-only event is not automatically a payable event: the existing
-site/financial configuration must publish that date through the ordinary reviewed
-workflow before Cashier offers it. This is a deliberate financial safety limit.
-The Commish can create/manage RSVP events without assigning financial policy.
+Cashier selects the next/current qualifying open Friday and Saturday from the
+live RSVP feed; dated open Sunday and MTT games are included when scheduled.
+Prices and bounty policy use its financial configuration and event-specific
+choices. Saved payment events keep their original slot + date identities,
+amounts, allocations and receipt windows when a live game closes or rolls over.
+The separate `live_rsvp_state` cache overlays lineup data for exact slot + date
+matches. RSVP changes do not invoke payment deletion or move financial records.
 Cancelled/deleted/archived/missing live events show no current confirmed lineup for a retained
 payment event; they do not delete its payments. Refresh failure retains only the
 last verified runtime lineup, labels it stale and displays its check time. With
@@ -531,3 +530,56 @@ State changes and Commish outbox jobs commit atomically. Public event feeds omit
 coffee data. `/api/coffee` reads/updates a selected player's order, while
 `/api/coffee-orders` requires a current Commish session. No schema migration,
 new signing key, service or paid plan is required.
+
+
+## Close out a finished game
+
+Commish can click **Close out event** on a current/past dated game's Upcoming
+lineups card or in Create / edit event. Cashier's **Event settings** link may open
+`/?commish=1&closeout=slot:YYYY-MM-DD`, which selects the exact event for review.
+Future and undated games cannot be closed out. There is no automatic close-out.
+Publishing this feature does not clear any event.
+
+The preview is authenticated and read-only. Cashier independently verifies the
+matching canonical raw report, parsed result, generated event history, passing
+validation/integrity reports and published parsed file at one pinned Git revision.
+Date and title must match; only a trailing 9-Max/18-Max display suffix is ignored.
+The actual canonical finish time must be in the past. A verified, explicitly
+finished game can close before the legacy next-day 6 a.m. receipt boundary.
+
+The screen shows RSVP/waitlist/coffee counts and Cashier payment/review counts.
+Commish must explicitly confirm that payouts are complete, Cashier payments and
+receipts have been reviewed, and the published final results are correct. This
+permanently clears the game's RSVP event, responses, waitlist and coffee orders,
+plus its Cashier working payment/receipt/batch data. Canonical original reports,
+processed results and pipeline evidence stay intact. This is not the reversible
+Close RSVPs, Cancel, Delete or legacy Archive operation, and cannot be restored
+through RSVP. Only a small completion receipt remains in each app for retry safety.
+
+RSVP first freezes the exact event/date/title/state revision and durably saves a
+request UUID plus the confirmed Cashier/results revisions. Responses, coffee,
+metadata and cancellation/restoration changes are blocked while close-out is
+pending. The public game is closed to new RSVPs before the private Cashier RPC
+runs. Cashier atomically clears only the selected working ledger, stores its
+anti-replay marker and a stable completion receipt, and blocks late receipt
+re-insertion. Shared ambiguous receipts retain their other event candidates.
+Unrelated/future events and amounts are preserved. Existing cancellation markers
+remain separate and cannot be removed by this flow.
+
+Only a matching Cashier receipt permits RSVP's final compare-and-swap purge,
+which also removes queued pushes for that event in the same transaction. A failed
+or lost reply leaves the game closed/pending with **Resume close-out** visible;
+retrying the same UUID returns the original Cashier receipt without clearing
+again, even if result services are offline or canonical main has advanced.
+A stale preview requires renewed review. Pending close-outs must never be
+silently reopened. Generic `/api/action` calls cannot invoke the internal
+prepare/finalize operations.
+
+`CASHIER_CLOSEOUT` is a private same-account service binding to the existing
+`tlpt-cashier-staging` Worker's named `EventCloseout` entrypoint. Deploy Cashier's
+export and additive schema first, then RSVP. No public destructive Cashier route
+or new shared secret is introduced. See `cashier/CLOSEOUT-PROTOCOL.md` for the
+versioned protocol. The real two-Worker/two-D1 regression is
+`node rsvp/scripts/test-closeout-integration.mjs`; it uses synthetic evidence and
+disposable databases, never production data. RSVP's existing 100-event working
+limit is reclaimed by final close-out; minimal retry receipts are bounded to 500.

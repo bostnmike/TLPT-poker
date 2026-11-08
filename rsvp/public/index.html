@@ -14,15 +14,16 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=20261026-2">
   <link rel="apple-touch-icon" sizes="180x180" href="/rsvp-icon-180.png?v=20261026-2">
   <link rel="manifest" href="/manifest.webmanifest?v=20261026-2">
-  <link rel="stylesheet" href="/style.css?v=20261107-5">
+  <link rel="stylesheet" href="/style.css?v=20261108-1">
   <link rel="stylesheet" href="/schedule-notices.css?v=20261026-2">
-  <script src="/app.js?v=20261107-5" defer></script>
+  <script src="/app.js?v=20261108-1" defer></script>
   <script type="module" src="/commish.mjs?v=20261026-3"></script>
   <script type="module" src="/broadcasts.mjs?v=20261101-2"></script>
   <script type="module" src="/notifications.mjs?v=20261101-2"></script>
   <script type="module" src="/install.mjs?v=20261025-1"></script>
   <script type="module" src="/player-adoption.mjs?v=20261106-1"></script>
-  <script type="module" src="/coffee.mjs?v=20261107-5"></script>
+  <script type="module" src="/coffee.mjs?v=20261108-1"></script>
+  <script type="module" src="/closeout.mjs?v=20261108-1"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -114,6 +115,22 @@
     <p class="footer-links"><a href="/?commish=1">Commish view</a><span aria-hidden="true">·</span><a href="https://tlpt.org">Back to TLPT</a><button id="installation-help" type="button" class="text-button">Installation</button><button id="logout" hidden class="text-button">Sign out</button></p>
   </footer>
 </main>
+<dialog id="closeout-dialog" aria-labelledby="closeout-title">
+  <h2 id="closeout-title">Close out event</h2>
+  <p id="closeout-game"></p><p id="closeout-status" role="status" aria-live="polite"></p>
+  <div id="closeout-preview" hidden><p id="closeout-results"></p><p id="closeout-counts"></p>
+    <p>This permanently clears this game’s RSVPs, waitlist and coffee orders, plus its Cashier working payment, receipt and batch records. Original tournament reports and published final results are kept. This cannot be undone.</p>
+    <form id="closeout-form">
+      <fieldset id="closeout-fields"><legend>Confirm before clearing</legend>
+        <label><input type="checkbox" name="payoutsConfirmed" required>The game is finished and all payouts are complete.</label>
+        <label><input type="checkbox" name="receiptsReviewed" required>I have checked the Cashier payments and receipts.</label>
+        <label><input type="checkbox" name="resultsConfirmed" required>The published results shown above are final.</label>
+        <button type="submit" class="primary">Close out event</button>
+      </fieldset>
+    </form>
+  </div>
+  <button type="button" id="closeout-dismiss">Back to games</button>
+</dialog>
 <dialog id="coffee-dialog" aria-labelledby="coffee-title">
   <form method="dialog"><div class="coffee-dialog-heading"><h2 id="coffee-title">Coffee pre-order</h2><button type="submit" aria-label="Close coffee order">Close</button></div></form>
   <p id="coffee-for"></p><p>Your coffee. Your call.</p>

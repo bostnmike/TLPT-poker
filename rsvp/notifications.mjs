@@ -55,7 +55,7 @@ export async function subscriptionAction(db,state,b,hash,commish=false,actor=nul
 const relevant=(payload,event,slug,today,recipient)=>payload.kind==='announcement'?(payload.commish?slug===recipient&&payload.recipient===recipient:!slug.startsWith('@commish:')&&payload.recipient===slug):!!event?.rsvpOpen&&event.date!=='Date TBD'&&event.date>=today&&(payload.kind==='response'?slug===recipient&&payload.recipient===recipient&&(event.requestedIn.includes(payload.responseSlug)?'yes':event.rsvps[payload.responseSlug])===payload.answer:!slug.startsWith('@commish:')&&(payload.kind==='game-open'||payload.kind==='seat'&&payload.slug===slug&&event.rsvps[slug]==='yes'));
 function coffeeRelevant(payload,state,slug,today){
  const event=state.events.find(e=>e.id===payload.eventId);
- return slug===commishRecipient(state)&&payload.recipient===slug&&!!event&&liveEvent(event)&&event.metadata.date!=='Date TBD'&&event.metadata.date>=today&&event.coffeeOrders?.[payload.coffeeSlug]?.[payload.coffeeOrderId]?.version===payload.orderVersion;
+ return slug===commishRecipient(state)&&payload.recipient===slug&&!!event&&liveEvent(event)&&!event.closeoutPending&&event.metadata.date!=='Date TBD'&&event.metadata.date>=today&&event.coffeeOrders?.[payload.coffeeSlug]?.[payload.coffeeOrderId]?.version===payload.orderVersion;
 }
 export function notificationStillRelevant(payload,state,slug,now=new Date()){return payload.kind==='coffee'?coffeeRelevant(payload,state,slug,day(now)):relevant(payload,publicFeed(state).events.find(e=>e.id===payload.eventId),slug,day(now),commishRecipient(state));}
 export async function drainNotifications(env,send=fetch,now=Date.now()){

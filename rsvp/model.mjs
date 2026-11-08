@@ -1,3 +1,4 @@
+import {canCloseOutEvent, validCloseoutRequestId} from './lib/event-closeout.mjs';
 import {coffeeDrinks, coffeeCaffeine} from './public/coffee-menu.mjs';
 import {eventPoster,validPosterFile} from './posters.mjs';
 export {eventPoster} from './posters.mjs';
@@ -18,7 +19,7 @@ export function comparePlayers(a,b){const rank=p=>p.slug===HOST?-1:p.rosterStatu
 export function eventResponses(state,event){const responses={...event.responses};if(state.players.some(p=>p.slug===HOST))responses[HOST]={...(responses[HOST]||{}),answer:'yes',order:0};return responses;}
 export function publicFeed(state, now = new Date(), posters=[]){
  const players=[...state.players].sort(comparePlayers);
-  return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,noGameDays:noGameDays(state.events,now),players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).sort(compareEvents).map(e=>{
+  return {schemaVersion:1,revision:state.revision,updatedAt:state.updatedAt,noGameDays:noGameDays([...state.events,...(state.closeouts||[]).map(receipt=>({metadata:{date:receipt.eventId.slice(-10)}}))],now),players:players.map(publicPlayer),cancelledEvents:state.events.filter(e=>e.cancelled&&!e.deletedAt).map(e=>({id:e.id,title:e.metadata.title,date:e.metadata.date})),events:state.events.filter(liveEvent).sort(compareEvents).map(e=>{
   const responses=eventResponses(state,e);
   const queue=Object.entries(responses).filter(([,r])=>r.answer==='yes').sort((a,b)=>a[0]===HOST?-1:b[0]===HOST?1:a[1].order-b[1].order||a[0].localeCompare(b[0]));
   const confirmed=new Set(queue.slice(0,e.capacity).map(([s])=>s));
@@ -40,6 +41,7 @@ export function coffeeEvent(state, eventId, now = new Date().toISOString(), requ
  const event = state.events.find(e => e.id === eventId);
  const today = new Intl.DateTimeFormat('en-CA', {timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit'}).format(new Date(now));
  requireValue(event && liveEvent(event) && event.metadata.date !== 'Date TBD' && event.metadata.date >= today, 'This game is unavailable for coffee orders.', 409);
+ requireValue(!event.closeoutPending, 'This game is being closed out.', 409);
  requireValue(!requireOpen || event.open, 'Coffee pre-orders are closed for this game.', 409);
  return event;
 }
@@ -95,23 +97,40 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
   requireValue(admin||!op.slug||op.slug===actor.slug,'This link belongs to another player.',403);
   requireValue(state.players.some(p=>p.slug===slug),'Unknown player.');
   const e=state.events.find(e=>e.id===op.eventId);requireValue(e&&liveEvent(e),'Event unavailable.',404);
+  requireValue(!e.closeoutPending,'This game is being closed out.',409);
   requireValue(admin||e.open,'RSVPs are closed. Contact The Commish.',409);
   requireValue(['yes','maybe','no','tbd'].includes(op.answer),'Choose In, Maybe or Out.');
   requireValue(slug!==HOST||op.answer==='yes','No Bostn, No Party. The host is always In.',409);
   const old=e.responses[slug];e.responses[slug]={answer:op.answer,order:op.answer==='yes'&&old?.answer==='yes'?old.order:++state.sequence,updatedAt:now};
  }else{
   requireValue(admin,'Commish sign-in required.',403);
-  if(op.type==='link'){
+  if(op.type==='closeout-prepare'){
+   const e=state.events.find(e=>e.id===op.eventId);
+   if(!e&&state.closeouts?.some(receipt=>receipt.rsvpEventId===op.eventId&&receipt.requestId===op.requestId))return state;
+   requireValue(e&&canCloseOutEvent(e,now),'Event cannot be closed out.',409);
+   requireValue(e.metadata.date===op.confirmationDate&&e.metadata.slot===op.slot&&e.metadata.title===op.title,'Event details changed. Review the preview again.',409);
+   requireValue(validCloseoutRequestId(op.requestId)&&op.payoutsConfirmed===true&&op.receiptsReviewed===true&&op.resultsConfirmed===true&&/^[a-f0-9]{40}$/.test(op.resultsRevision||'')&&Number.isSafeInteger(op.historyRevision)&&op.historyRevision>=0,'Invalid close-out preparation.');
+   requireValue(e.closeoutPending?e.closeoutPending.requestId===op.requestId:state.revision===op.expectedStateRevision,'Event changed or another close-out is pending. Review the preview again.',409);
+   if(e.closeoutPending?.requestId===op.requestId&&e.closeoutPending.historyRevision===op.historyRevision&&e.closeoutPending.resultsRevision===op.resultsRevision)return state;
+   e.closeoutPending={requestId:op.requestId,historyRevision:op.historyRevision,resultsRevision:op.resultsRevision,evidence:op.evidence,startedAt:e.closeoutPending?.startedAt||now,payoutsConfirmed:true,receiptsReviewed:true,resultsConfirmed:true};e.open=false;
+  }else if(op.type==='closeout-finalize'){
+   if(state.closeouts?.some(receipt=>receipt.rsvpEventId===op.eventId&&receipt.requestId===op.requestId))return state;
+   const e=state.events.find(e=>e.id===op.eventId),pending=e?.closeoutPending,r=op.receipt;
+   requireValue(e&&pending&&pending.requestId===op.requestId&&r?.protocol===1&&r.closed===true&&r.eventId===e.metadata.slot+':'+e.metadata.date&&r.rsvpEventId===e.id&&r.requestId===pending.requestId&&r.receiptId===pending.requestId&&r.resultsRevision===pending.resultsRevision&&typeof r.closedAt==='string'&&Number.isFinite(Date.parse(r.closedAt)),'Cashier completion receipt did not match the pending game.',409);
+   const receipt={protocol:1,eventId:r.eventId,rsvpEventId:r.rsvpEventId,requestId:r.requestId,closed:true,receiptId:r.receiptId,closedAt:r.closedAt,resultsRevision:r.resultsRevision};
+   state.closeouts=[...(state.closeouts||[]),receipt].slice(-500);state.events=state.events.filter(item=>item.id!==e.id);
+  }else if(op.type==='link'){
    const p=state.players.find(p=>p.slug===op.slug);requireValue(p,'Unknown player.');p.linkHash=op.hash;p.generation++;
   }else if(op.type==='event'){
    requireValue(Number.isInteger(op.capacity)&&op.capacity>=1&&op.capacity<=90,'Capacity must be 1–90.');
    requireValue(typeof op.open==='boolean','Choose open or closed.');
    const metadata=validateMetadata(op.metadata);
+   requireValue(!(state.closeouts||[]).some(receipt=>receipt.eventId===metadata.slot+':'+metadata.date),'This dated game was permanently closed out. Choose a new date.',409);
    requireValue(metadata.slot!=='sunday'||op.capacity<=9,'Sunday is a single table with up to 9 seats.');
    requireValue(metadata.date!=='Date TBD'||!op.open,'Keep undated events closed until a date is confirmed.');
    let e=state.events.find(e=>e.id===op.eventId);
    if(e){
-    requireValue(liveEvent(e),'Restore this event before editing it.',409);
+    requireValue(liveEvent(e),'Restore this event before editing it.',409);requireValue(!e.closeoutPending,'Resume this event’s pending close-out first.',409);
     requireValue(!state.events.some(other=>other!==e&&liveEvent(other)&&other.metadata.slot===metadata.slot&&other.metadata.date===metadata.date),'This event type and date already exist.',409);
     e.metadata={...e.metadata,...metadata};if(metadata.slot!=='sunday'){delete e.metadata.startingStack;delete e.metadata.blindStructure;}e.capacity=op.capacity;e.open=op.open;
    }else{
@@ -120,8 +139,9 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
     state.events.push({id:op.newId,metadata,responses:{},capacity:op.capacity,open:op.open,archived:false});
    }
   }else if(['archive','cancel','delete','restore'].includes(op.type)){
-   const e=state.events.find(e=>e.id===op.eventId);requireValue(e,'Unknown event.');
+   const e=state.events.find(e=>e.id===op.eventId);requireValue(e,'Unknown event.');requireValue(!e.closeoutPending,'Resume this event’s pending close-out first.',409);
    const restoring=op.type==='restore'||op.type==='archive'&&e.archived;
+   requireValue(!restoring||!(state.closeouts||[]).some(receipt=>receipt.eventId===e.metadata.slot+':'+e.metadata.date),'This dated game was permanently closed out.',409);
    requireValue(!restoring||!state.events.some(other=>other!==e&&liveEvent(other)&&other.metadata.slot===e.metadata.slot&&other.metadata.date===e.metadata.date),'Another event already uses this date and type.',409);
    if(restoring){e.archived=false;e.cancelled=false;e.deletedAt=null;}
    else if(op.type==='cancel'){requireValue(!e.deletedAt,'Restore this event first.',409);e.cancelled=true;e.cancelledAt=now;}
@@ -129,12 +149,12 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
    else e.archived=true;
    e.open=false;
   }else if(op.type==='promote'){
-   const e=state.events.find(e=>e.id===op.eventId);requireValue(e&&liveEvent(e)&&e.responses[op.slug]?.answer==='yes','Player must request In.');
+   const e=state.events.find(e=>e.id===op.eventId);requireValue(e&&liveEvent(e)&&!e.closeoutPending&&e.responses[op.slug]?.answer==='yes','Player must request In.');
    const orders=Object.values(e.responses).filter(r=>r.answer==='yes').map(r=>r.order);e.responses[op.slug].order=Math.min(0,...orders)-1;
   }else throw new Rejected('Unknown operation.');
  }
  // Host reservation is enforced on every successful save, including legacy records.
- if(state.players.some(p=>p.slug===HOST))for(const e of state.events.filter(liveEvent))e.responses[HOST]={...(e.responses[HOST]||{}),answer:'yes',order:0,updatedAt:e.responses[HOST]?.answer==='yes'?e.responses[HOST].updatedAt:now};
+ if(state.players.some(p=>p.slug===HOST))for(const e of state.events.filter(e=>liveEvent(e)&&!e.closeoutPending))e.responses[HOST]={...(e.responses[HOST]||{}),answer:'yes',order:0,updatedAt:e.responses[HOST]?.answer==='yes'?e.responses[HOST].updatedAt:now};
  state.revision++;state.updatedAt=now;
  state.audit.push({at:now,actor:admin?'commish':actor.role==='shared'?'shared:'+actor.slug:actor.slug,type:op.type,eventId:op.eventId||null,slug:op.slug||actor.slug||null});state.audit=state.audit.slice(-500);
  return state;

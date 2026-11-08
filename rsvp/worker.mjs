@@ -1,3 +1,5 @@
+import {closeoutPreview, finishCloseout} from './closeout.mjs';
+import {canCloseOutEvent} from './lib/event-closeout.mjs';
 import {coffeeQueue} from './coffee.mjs';
 import {broadcastOverview,publicPolls,sendBroadcast,vote,closePoll} from './broadcasts.mjs';
 import {galleryCatalog} from './posters.mjs';
@@ -13,7 +15,7 @@ async function update(db,actor,op){
  for(let i=0;i<10;i++){
   const state=await read(db),revision=state.revision;requireValue(actor.role==='shared'?state.players.some(p=>p.slug===actor.slug):actor.role==='admin'?actor.generation===state.adminGeneration:state.players.some(p=>p.slug===actor.slug&&p.generation===actor.generation),'Your private link was replaced. Ask The Commish for the new link.',401);
   const before=structuredClone(state);applyOperation(state,actor,op);
-  const result=await db.batch([db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision),enqueueStatement(db,notificationTransitions(before,state,new Date(),actor,op),state.revision,Date.now())]);if(result[0].meta.changes)return state;
+  const statements=[db.prepare('UPDATE rsvp_state SET revision=?,body=? WHERE id=1 AND revision=?').bind(state.revision,JSON.stringify(state),revision)];if(op.type==='closeout-finalize')statements.push(db.prepare("DELETE FROM push_jobs WHERE changes()>0 AND json_extract(payload,'$.eventId')=?").bind(op.eventId));statements.push(enqueueStatement(db,notificationTransitions(before,state,new Date(),actor,op),state.revision,Date.now()));const result=await db.batch(statements);if(result[0].meta.changes)return state;
  }
  throw new Rejected('Busy saving other responses. Please try again.',409);
 }
@@ -93,6 +95,12 @@ export default {async fetch(req,env,ctx){
    return json({role:admin?'admin':'player'},200,{'Set-Cookie':`tlpt_rsvp=${token}; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=604800`});
   }
   const actor=await identity(req,env,state);
+  if(path==='/api/closeout'){
+   requireValue(actor.role==='admin','Commish only.',403);
+   if(req.method==='GET')return json(await closeoutPreview(env,state,url.searchParams.get('eventId')));
+   const result=await finishCloseout(env,state,await body(req),op=>update(env.DB,actor,op));
+   return json(result,result.ok?200:result.status||503);
+  }
   if(path==='/api/coffee-orders'&&req.method==='GET'){
    requireValue(actor.role==='admin','Commish only.',403);
    return json(coffeeQueue(state));
@@ -120,13 +128,13 @@ export default {async fetch(req,env,ctx){
    requireValue(pushConfiguration(env),'Notifications are not available right now.',503);
    const result=await sendBroadcast(env.DB,state,b);scheduleNotifications(ctx,env);return json(result);
   }
-  if(path==='/api/me'&&req.method==='GET'){const {posters}=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state,new Date(),posters).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug,posters)});}
+  if(path==='/api/me'&&req.method==='GET'){const {posters}=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state,new Date(),posters).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,closeoutAvailable:canCloseOutEvent(e),closeoutPending:!!e.closeoutPending,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug,posters)});}
   if(path==='/api/logout'&&req.method==='POST'){
    await env.DB.prepare('DELETE FROM sessions WHERE hash=?').bind(actor.hash).run();return json({ok:true},200,{'Set-Cookie':'tlpt_rsvp=; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});
   }
   if(path==='/api/backup'&&req.method==='GET'){requireValue(actor.role==='admin','Commish only.',403);return json({...state,adminHash:undefined,players:state.players.map(publicPlayer)},200,{'Content-Disposition':'attachment; filename="tlpt-rsvp-backup.json"'});}
   if(path==='/api/action'&&req.method==='POST'){
-   const b=await body(req);requireValue(b.type!=='link'||actor.role==='admin','Commish only.',403);
+   const b=await body(req);requireValue(!String(b?.type||'').startsWith('closeout-'),'Use the verified Commish close-out flow.',403);requireValue(b.type!=='link'||actor.role==='admin','Commish only.',403);
    const key=b.type==='link'&&!b.revoke?random():null;
    // These values can only be generated server-side, never from caller input.
    const op={...b,newId:crypto.randomUUID(),hash:key?await hash(key):null};
