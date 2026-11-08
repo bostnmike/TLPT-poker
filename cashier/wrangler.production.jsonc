@@ -40,6 +40,9 @@
     }
   ],
   "account_id": "4d5ea071300fa71b8fa947c06d8ba314",
+  "services": [
+    {"binding":"CASHIER_RSVP","service":"tlpt-rsvp"}
+  ],
   "keep_vars": true,
   "version_metadata": {
     "binding": "CASHIER_VERSION"

@@ -10,6 +10,7 @@ globalThis.fetch=async(input:RequestInfo|URL,init?:RequestInit)=>{
  const url=typeof input==='string'?input:input instanceof URL?input.href:input.url;
  if(url.startsWith('https://api.github.com/')||url.startsWith('https://raw.githubusercontent.com/')||url.startsWith('https://tlpt.org/')||url.startsWith('https://tlpt-rsvp.')){
   new Request(url,init); // Exercise workerd's actual request-option validation.
+  if(url.startsWith('https://tlpt-rsvp.'))return new Response('Public callback blocked',{status:403});
   if(offline)throw Error('Synthetic results outage');
   return closeoutEvidence({feed:{schemaVersion:1,revision:open?1:2,events:[{id:'stable-mtt',slot:'mtt',date:'2020-01-01',rsvpOpen:open}]}}).fetch(url);
  }

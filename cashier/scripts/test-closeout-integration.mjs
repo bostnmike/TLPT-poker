@@ -7,7 +7,7 @@ const state='.wrangler/closeout-integration-'+Date.now(),client='wrangler.closeo
 const env={...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false',CI:'true'};
 let child,output='';
 try{
- writeFileSync(service,JSON.stringify({name:'cashier-closeout-fixture',main:'tests/fixtures/closeout-service.ts',compatibility_date:'2026-05-15',compatibility_flags:['nodejs_compat'],vars:{CASHIER_ENV:'local'},d1_databases:[{binding:'DB',database_name:'closeout-fixture',database_id:'00000000-0000-4000-8000-000000000014',migrations_dir:'drizzle'}]}));
+ writeFileSync(service,JSON.stringify({name:'cashier-closeout-fixture',main:'tests/fixtures/closeout-service.ts',compatibility_date:'2026-05-15',compatibility_flags:['nodejs_compat'],vars:{CASHIER_ENV:'local'},services:[{binding:'CASHIER_RSVP',service:'cashier-closeout-client'}],d1_databases:[{binding:'DB',database_name:'closeout-fixture',database_id:'00000000-0000-4000-8000-000000000014',migrations_dir:'drizzle'}]}));
  writeFileSync(client,JSON.stringify({name:'cashier-closeout-client',main:'tests/fixtures/closeout-client.mjs',compatibility_date:'2026-05-15',services:[{binding:'CLOSEOUT',service:'cashier-closeout-fixture',entrypoint:'EventCloseout'},{binding:'INSPECT',service:'cashier-closeout-fixture'}]}));
  const migrations=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js','d1','migrations','apply','DB','--local','--config',service,'--persist-to',state],{env,encoding:'utf8'});assert.equal(migrations.status,0,migrations.stderr);
  child=spawn(process.execPath,['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8794','--inspector-port','0','--persist-to',state,'--config',client,'--config',service],{env,stdio:['ignore','pipe','pipe']});
@@ -25,7 +25,7 @@ try{
  assert.equal((await fetch(base+'/late')).status,409,'Actual D1 trigger must block stale intake');
  await call('/offline');const replay=await call('/close',close);assert.equal(replay.alreadyClosed,true);assert.deepEqual(replay.receipt,closed.receipt);
  const previewAgain=await call('/preview',input);assert.equal(previewAgain.alreadyClosed,true);assert.deepEqual(previewAgain.receipt,closed.receipt);
- console.log('PASS: actual private Worker RPC and disposable D1 — read-only preview, open/stale denial, verified pre-6am closure, exact-event clearing, future ledger unchanged, database replay guard, and stable lost-response recovery while results are offline.');
+ console.log('PASS: actual private Worker RPC and disposable D1 — bound public-feed callback despite HTTP403, read-only preview, open/stale denial, verified pre-6am closure, exact-event clearing, future ledger unchanged, database replay guard, and stable lost-response recovery while results are offline.');
 }finally{
  if(child&&!child.killed){child.kill('SIGTERM');await new Promise(r=>child.once('exit',r));}
  rmSync(client,{force:true});rmSync(service,{force:true});rmSync(state,{recursive:true,force:true});

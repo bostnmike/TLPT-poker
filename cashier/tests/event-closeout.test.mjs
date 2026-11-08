@@ -87,3 +87,7 @@ test('title matching accepts only the known table-capacity suffix, never another
  assert.equal((await verifyCloseoutResults(event,closeoutEvidence({title:'Close-out test | 9-Max'}).fetch,now)).title,'Close-out test | 9-Max');
  await assert.rejects(()=>verifyCloseoutResults(event,closeoutEvidence({title:'Another Close-out test | 9-Max'}).fetch,now),/do not match/);
 });
+test('an unavailable proof identifies its resource and status without leaking its response',async t=>{
+ const db=database(t);const result=await previewEventCloseout(db,input,async()=>new Response('private debug response',{status:403}),now);
+ assert.equal(result.code,'results-unavailable');assert.match(result.error,/canonical revision \(HTTP 403\)/);assert.ok(!JSON.stringify(result).includes('private debug'));
+});

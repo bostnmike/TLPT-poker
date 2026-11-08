@@ -75,7 +75,7 @@ test('source fingerprints use repository-root paths from the cashier working dir
 test('production validation rejects staging, another database, credential overrides and route changes',()=>{
  const config=JSON.parse(readFileSync(new URL('../wrangler.production.jsonc',import.meta.url)));
  assert.equal(validateProduction(config),config);
- for(const mutate of [c=>c.name='tlpt-cashier-test',c=>c.d1_databases[0].database_id='other',c=>c.vars.AUTH_MODE='access',c=>c.vars.SESSION_SECRET='replacement',c=>c.routes=['*'],c=>c.vars.LOCAL_OWNER_EMAIL='owner']){
+ for(const mutate of [c=>c.name='tlpt-cashier-test',c=>c.d1_databases[0].database_id='other',c=>c.vars.AUTH_MODE='access',c=>c.vars.SESSION_SECRET='replacement',c=>c.routes=['*'],c=>c.vars.LOCAL_OWNER_EMAIL='owner',c=>c.services=[],c=>c.services[0].service='another-service',c=>c.services[0].entrypoint='PrivateAdmin']){
   const changed=structuredClone(config);mutate(changed);assert.throws(()=>validateProduction(changed));
  }
 });

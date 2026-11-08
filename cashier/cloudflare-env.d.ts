@@ -1,6 +1,7 @@
 declare namespace Cloudflare {
  interface Env {
   DB:D1Database;
+  CASHIER_RSVP?:Fetcher;
   ASSETS:Fetcher;
   CASHIER_ENV:'local'|'staging'|'production';
   OWNER_EMAIL:string;

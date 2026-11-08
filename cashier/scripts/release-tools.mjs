@@ -42,6 +42,7 @@ export function validateProduction(config){
  if(config.name!==WORKER||config.account_id!==ACCOUNT||config.vars?.CASHIER_ENV!=='production'||config.vars?.AUTH_MODE!=='password'||config.vars?.OWNER_EMAIL!=='blanchettemr@gmail.com')throw Error('Production identity/authentication differs from the existing cashier.');
  if(config.d1_databases?.length!==1||config.d1_databases[0].database_id!==DATABASE||config.d1_databases[0].binding!=='DB'||config.d1_databases[0].database_name!=='tlpt-cashier')throw Error('Production must use the existing cashier database.');
  if(config.env||config.routes||config.route||config.vars.LOCAL_OWNER_EMAIL||config.vars.SESSION_SECRET||config.vars.CASHIER_PASSWORD_HASH||config.vars.IMPORT_TOKEN)throw Error('Routes, alternate environments, local identities and credential overrides are forbidden.');
+ if(config.services?.length!==1||config.services[0].binding!=='CASHIER_RSVP'||config.services[0].service!=='tlpt-rsvp'||config.services[0].entrypoint||config.services[0].environment)throw Error('Production RSVP lookup must use only the existing public RSVP service.');
  if(config.assets?.binding!=='ASSETS'||config.version_metadata?.binding!=='CASHIER_VERSION'||config.observability?.enabled!==false)throw Error('Unexpected production asset/version/log configuration.');
  return config;
 }

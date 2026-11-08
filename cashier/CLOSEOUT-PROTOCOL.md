@@ -80,6 +80,15 @@ revision, confirmations and public closed state, then clears one ledger and
 creates its permanent anti-replay marker and minimal close-out receipt in one D1
 transaction. Even zero-payment events receive the marker.
 
+Production reads that same anonymous public GET through `CASHIER_RSVP`, a service
+binding to the existing `tlpt-rsvp` default fetch handler. This avoids depending
+on a public HTTP callback from RSVP → Cashier → RSVP. The helper accepts only the
+exact public-feed URL and GET, and creates a new request without cookies or keys.
+No private RSVP endpoint or arbitrary method/path is forwarded. Local/staging
+fixtures without the binding may use the existing public transport. External
+proof failures identify only the resource category and HTTP status, never the
+response body. Latest-main canonical revision/raw/parsed/PASS/hash guards remain.
+
 Success from `close(args)`:
 
 ```json
