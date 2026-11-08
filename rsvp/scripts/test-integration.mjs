@@ -1,23 +1,38 @@
 // Disposable actual Cloudflare Worker + D1. Never uses a remote DB.
 import assert from 'node:assert/strict';
-import {spawn,spawnSync} from 'node:child_process';
-import {writeFileSync,rmSync} from 'node:fs';
+import {writeFileSync,readFileSync} from 'node:fs';
+import {resolve,join} from 'node:path';
+import {localHarness} from './lib/local-harness.mjs';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
-const wrangler='node_modules/wrangler/bin/wrangler.js',state='.wrangler/test-'+Date.now(),base='http://127.0.0.1:8794',env={...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},key='c'.repeat(64),h=createHash('sha256').update(key).digest('hex');let server,output='';
-function run(args){const r=spawnSync(process.execPath,[wrangler,...args],{env,encoding:'utf8'});assert.equal(r.status,0,r.stderr+'\n'+r.stdout);return r.stdout;}
+const wrangler=resolve('node_modules/wrangler/bin/wrangler.js');
+const production=JSON.parse(readFileSync('wrangler.jsonc','utf8'));
+const harness=await localHarness({prefix:'tlpt-rsvp-integration-',wrangler}),state=join(harness.temp,'.wrangler','state'),base=harness.base,configPath=join(harness.temp,'wrangler.json');
+const key='c'.repeat(64),h=createHash('sha256').update(key).digest('hex');
+const fetch=(...args)=>harness.fetch(...args);
+const run=args=>harness.run([...args,'--config',configPath,...(args[1]==='export'?[]:['--persist-to',state])]);
+const config={name:'rsvp-integration-fixture',main:join(harness.temp,'entry.mjs'),compatibility_date:production.compatibility_date,
+ ...(production.compatibility_flags?{compatibility_flags:production.compatibility_flags}:{}),
+ assets:{directory:resolve('public'),binding:'ASSETS',run_worker_first:true},
+ d1_databases:[{binding:'DB',database_name:'rsvp-integration-fixture',database_id:'00000000-0000-4000-8000-000000000040',migrations_dir:resolve('migrations')}],
+ vars:{REVISION:harness.runId},observability:{enabled:false}};
 const notificationToken='d'.repeat(64),notificationId=createHash('sha256').update(notificationToken).digest('hex'),commishNotificationToken='e'.repeat(64),commishNotificationId='commish:'+createHash('sha256').update(commishNotificationToken).digest('hex');
 const fixture={revision:1,sequence:0,updatedAt:new Date().toISOString(),adminHash:h,adminGeneration:1,players:['bostnmike','red'].map(slug=>({slug,name:slug,linkHash:null,generation:0,rosterStatus:slug==='red'?'alumni':'active'})),events:[{id:'fixture-event',capacity:1,open:true,archived:false,metadata:{title:'Disposable QA',date:'2030-10-25',slot:'friday',day:'Friday',format:'40K',structure:'Test',time:'7:00 PM',endTime:'11:30 PM',location:'Room',address:'Cary'},responses:{}}],audit:[]};
 try{
- run(['d1','migrations','apply','DB','--local','--config','wrangler.jsonc','--persist-to',state]);
- writeFileSync('integration.local.sql',`INSERT INTO rsvp_state VALUES(1,1,'${JSON.stringify(fixture)}'); INSERT INTO push_subscriptions VALUES('${notificationId}','https://fcm.googleapis.com/disposable-never-sent','{}','red','fixture',1); INSERT INTO commish_push_subscriptions VALUES('${commishNotificationId}','https://fcm.googleapis.com/commish-never-sent','{}','@commish:1','fixture',1);`);run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--file','integration.local.sql']);
+ writeFileSync(configPath,JSON.stringify(config));
+ run(['d1','migrations','apply','DB','--local']);
+ const seed=join(harness.temp,'seed.sql');writeFileSync(seed,`INSERT INTO rsvp_state VALUES(1,1,'${JSON.stringify(fixture)}'); INSERT INTO push_subscriptions VALUES('${notificationId}','https://fcm.googleapis.com/disposable-never-sent','{}','red','fixture',1); INSERT INTO commish_push_subscriptions VALUES('${commishNotificationId}','https://fcm.googleapis.com/commish-never-sent','{}','@commish:1','fixture',1);`);run(['d1','execute','DB','--local','--file',seed]);
  // Exercise the actual Workers Request constructor with a synthetic encrypted
  // push. Node accepts redirect:'error'; Workers rejects it before any network I/O.
  // This generated route exists only in this disposable integration entry point.
- writeFileSync('integration.local.mjs',`import worker from './worker.mjs';
- import {encryptedPush,b64url} from './web-push.mjs';
+ writeFileSync(config.main,`import worker from ${JSON.stringify(resolve('worker.mjs'))};
+ import {encryptedPush,b64url} from ${JSON.stringify(resolve('web-push.mjs'))};
+ import {diagnosticDb} from ${JSON.stringify(resolve('scripts/lib/diagnostics.mjs'))};
+ let unexpectedNetwork=0;globalThis.fetch=async()=>{unexpectedNetwork++;throw Error('Unexpected external request in local fixture');};
  export default {...worker,async fetch(request,env,ctx){
+ if(new URL(request.url).pathname==='/__harness/ready')return Response.json({runId:${JSON.stringify(harness.runId)},unexpectedNetwork});
+ env={...env,DB:diagnosticDb(env.DB)};
  if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,{...env,...(new URL(request.url).pathname==='/api/broadcasts'?{VAPID_PRIVATE_JWK:JSON.stringify({kty:'EC',crv:'P-256',d:'disposable-invalid-key',x:'AA',y:'AA'})}:{}),GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw30-10-25.jpg','fw30-11-03.png']})},ctx);
  const receiver=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
  const jwk=await crypto.subtle.exportKey('jwk',(await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify'])).privateKey);
@@ -26,8 +41,10 @@ try{
  const pushRequest=new Request(subscription.endpoint,init);
  return Response.json({method:pushRequest.method,redirect:pushRequest.redirect,encoding:pushRequest.headers.get('Content-Encoding'),bytes:(await pushRequest.arrayBuffer()).byteLength});
  }};`);
- server=spawn(process.execPath,[wrangler,'dev','integration.local.mjs','--local','--config','wrangler.jsonc','--persist-to',state,'--port','8794','--inspector-port','0'],{env,stdio:['ignore','pipe','pipe']});server.stdout.on('data',d=>output+=d);server.stderr.on('data',d=>output+=d);
- let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/api/version')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output);
+ // Exercise the existing backup CLI argument shape against disposable local data.
+ const exported=join(harness.temp,'backup.sql');run(['d1','export','DB','--local','--output',exported]);
+ assert.match(readFileSync(exported,'utf8'),/CREATE TABLE[^;]*rsvp_state/i);
+ await harness.start(['dev','--local','--config',configPath,'--persist-to',state]);
  const pushRuntime=await fetch(base+'/__push-runtime-test');assert.equal(pushRuntime.status,200);const pushRequest=await pushRuntime.json();assert.equal(pushRequest.method,'POST');assert.equal(pushRequest.redirect,'manual');assert.equal(pushRequest.encoding,'aes128gcm');assert.ok(pushRequest.bytes>86);
  const post=(path,b,cookie,origin=base)=>fetch(base+'/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(cookie?{Cookie:cookie}:{})},body:JSON.stringify(b)});
  const playerHtml=await(await fetch(base+'/')).text(),commishHtml=await(await fetch(base+'/?commish=1')).text();
@@ -41,7 +58,7 @@ try{
  let r=await post('exchange',{key});assert.equal(r.status,200);const admin=r.headers.get('set-cookie').split(';')[0];assert.match(r.headers.get('set-cookie'),/HttpOnly; SameSite=Strict/);
  r=await post('action',{type:'link',slug:'red'},admin);const link=(await r.json()).privateLink;const privateKey=new URL(link).hash.slice(5);r=await post('exchange',{key:privateKey});const red=r.headers.get('set-cookie').split(';')[0];
  assert.equal((await post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},red)).status,403);
- await Promise.all([post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},admin),post('respond',{type:'delete',eventId:'fixture-event',slug:'red',answer:'yes'})]);
+ const responses=await Promise.all([post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},admin),post('respond',{type:'delete',eventId:'fixture-event',slug:'red',answer:'yes'})]);assert.deepEqual(responses.map(response=>response.status),[200,200]);
  let feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events[0].waitlist.length,1);assert.equal(Object.values(feed.events[0].rsvps).filter(x=>x==='yes').length,1);assert.ok(!JSON.stringify(feed).includes(privateKey));
  assert.equal(feed.events[0].rsvps.bostnmike,'yes');
  assert.deepEqual(await(await post('notifications',{action:'status',token:notificationToken})).json(),{enabled:true,slug:'red'});
@@ -59,7 +76,7 @@ try{
  assert.deepEqual(await(await adoption(admin)).json(),{players:[{name:'red',installed:true,alertDevices:1}]});
  const edit={type:'event',eventId:'fixture-event',metadata:fixture.events[0].metadata,capacity:2,open:true};
  assert.equal((await post('action',edit,admin)).status,200);
- const query=sql=>JSON.parse(run(['d1','execute','DB','--local','--config','wrangler.jsonc','--persist-to',state,'--command',sql,'--json']))[0].results;
+ const query=sql=>JSON.parse(run(['d1','execute','DB','--local','--command',sql,'--json']))[0].results;
  // Ordinary RSVP requests have no VAPID key in this disposable Worker and never
  // contact a push provider. Inspect the real D1 transaction's durable outbox instead.
  let queued=query("SELECT payload FROM push_jobs WHERE json_extract(payload,'$.kind')!='response'");assert.equal(queued.length,1);assert.equal(JSON.parse(queued[0].payload).kind,'seat');
@@ -116,5 +133,7 @@ try{
  sunday=(await(await fetch(base+'/api/public/events')).json()).events.find(e=>e.slot==='sunday');assert.equal(sunday.rsvpOpen,false);assert.equal(sunday.rsvps.red,'yes');assert.equal(sunday.rsvps.bostnmike,'yes');
  await post('action',{type:'link',slug:'red',revoke:true},admin);assert.equal((await fetch(base+'/api/me',{headers:{Cookie:red}})).status,401);assert.equal((await post('exchange',{key:privateKey})).status,401);
  assert.equal((await fetch(base+'/api/backup')).status,401);assert.equal((await fetch(base+'/')).status,200);assert.equal((await fetch(base+'/style.css')).status,200);
+ assert.equal((await(await fetch(base+'/__harness/ready')).json()).unexpectedNetwork,0);
  console.log('PASS: actual local Worker/D1 — encrypted push Request compatibility without provider contact, shared RSVP, player/Commish notification audience isolation and outbox atomicity, game-opening deduplication, private device opt-out, announcement/poll authorization, atomic send deduplication, editable voting and closing, secure Commish exchange, host lock, last-seat concurrency, cancel/delete/restore, revocation, privacy and CSRF.');
-}finally{server?.kill('SIGTERM');rmSync('integration.local.sql',{force:true});rmSync('integration.local.mjs',{force:true});setTimeout(()=>rmSync(state,{recursive:true,force:true}),1500);}
+}catch(error){throw Error(harness.diagnostics(error));}
+finally{await harness.close();}
