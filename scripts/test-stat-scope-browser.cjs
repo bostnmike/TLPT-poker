@@ -36,6 +36,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
       async function assertFinancialParticipants(selected, metric) {
         const participants = new Map();
         for (const event of selected) for (const row of event.players) {
+          if (metric === 'bountyNet' && !event.bounty) continue;
           if (!(row.buyIns > 0)) continue;
           const total = participants.get(row.name) || {profit:0, cost:0, bountyNet:0};
           total.profit += Math.round(row.profit * 100);
@@ -50,6 +51,13 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
           neutral:el.querySelector('.dashboard-card-value').classList.contains('neutral')
         })));
         assert.deepEqual(cards.map(c => c.name).sort(), [...participants.keys()].sort(), `${metric}: every participant, including zero and first appearances`);
+        if (metric === 'bountyNet') {
+          if (!participants.has('BuffaloMike')) assert.equal(cards.some(c => c.name === 'BuffaloMike'), false, 'No bounty-game appearance: exclude BuffaloMike');
+          if (selected.length === events.length && participants.get('BostnMike')?.bountyNet === 0) {
+            assert.equal(cards.find(c => c.name === 'BostnMike')?.value, '$0', 'BostnMike played bounty games and broke even');
+          }
+          if (!participants.size) assert.match(await page.locator('#dashboard-grid').innerText(), /No bounty results in this view/);
+        }
         const actualByRank = [...cards].sort((a,b) => a.rank-b.rank);
         const valueFor = name => {
           const p = participants.get(name);

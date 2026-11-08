@@ -89,6 +89,10 @@ function dashboardMetricEmptyMarkup(sortKey) {
     icon: statIcon(sortKey)
   };
 
+  if (sortKey === "bountyNet") {
+    return '<div class="dashboard-empty-state" role="status"><h3>No bounty results in this view</h3><p>Players need a matching bounty-game appearance and a numeric result. Recorded $0 results remain visible for those players. Try With Bounties or Reset to All.</p></div>';
+  }
+
   if (dashboardIncludesZero(sortKey)) {
     return '<div class="dashboard-empty-state" role="status"><h3>No recorded results in this view</h3><p>Players need a matching tournament appearance and a numeric result. Recorded $0 and 0% results remain visible.</p></div>';
   }

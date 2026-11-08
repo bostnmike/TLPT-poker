@@ -57,7 +57,10 @@ Financial Dashboard metrics include every actual participant with a finite numer
 result, including $0, 0% ROI and first appearances. Never infer zero from missing
 data or hide a participant because their financial result is zero. Check rendered
 membership against selected event participants, independently of the production
-eligibility helper. An all-zero bounty-net view is valid for non-bounty events.
+eligibility helper. Bounty profit/loss additionally requires an appearance in a
+bounty-enabled event within the selected scope, even when the result is $0.
+Use event participation, not bounty purchases: opted-out players still qualify.
+Without Bounties has no eligible bounty results, rather than artificial $0 cards.
 Nonfinancial ranking thresholds and career Standings qualification remain separate.
 
 `stats-scope.js` shares two filters across Dashboard, Standings, player statistics,
