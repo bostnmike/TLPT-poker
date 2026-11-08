@@ -16,7 +16,7 @@ test('lineup actions are Commish-only; dated closed games can open while undated
  const event={id:'game',slot:'sunday',day:'Sunday',title:'Sunday',date:'2030-01-06',time:'7 PM',endTime:'11 PM',format:'50K',location:'Room',capacity:9,rsvpOpen:false,rsvps:{bostnmike:'yes'},waitlist:[]};
  assert.match(context.card(event),/data-open-event="game"[^>]*>Open RSVPs/);assert.match(context.card({...event,rsvpOpen:true}),/>Close RSVPs<\/button>/);
  assert.match(context.card({...event,date:'Date TBD'}),/data-open-event="game" disabled/);
- assert.ok(!context.card(event).includes('data-closeout-event'));assert.match(context.card({...event,closeoutAvailable:true}),/data-closeout-event="game"[^>]*>Close out event/);
+ assert.match(context.card(event),/data-closeout-event="game" disabled/);assert.match(context.card({...event,date:'Date TBD'}),/data-closeout-event="game" disabled/);const available=context.card({...event,closeoutAvailable:true});assert.match(available,/data-closeout-event="game"[^>]*>Close out event/);assert.ok(!available.includes('data-closeout-event="game" disabled'));
  const pending=context.card({...event,closeoutAvailable:true,closeoutPending:true});assert.match(pending,/Resume close-out/);assert.ok(!pending.includes('data-open-event'));assert.ok(!pending.includes('data-edit-event'));assert.ok(!pending.includes('data-manage-event'));
  context.viewer=null;assert.ok(!context.card(event).includes('data-open-event'));assert.ok(!context.card(event).includes('data-edit-event'));assert.ok(!context.card(event).includes('data-manage-event'));assert.ok(!context.card({...event,closeoutAvailable:true}).includes('data-closeout-event'));
 });
