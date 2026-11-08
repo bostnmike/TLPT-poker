@@ -14,11 +14,142 @@
   },
   "weeks": [
 {
+      "id": "week-11-07-2026",
+      "date": "11/07/2026",
+      "eventName": "Full Metal Stack-It | 9-Max",
+      "title": "Full Metal Stack-It | 9-Max",
+      "featured": true,
+      "dek": "The App Works. The Commissioner Doesn’t.",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "🏆 The Big Winner",
+          "player": "Cougar / NASA Al",
+          "value": "Shared first",
+          "copy": "An agreed ICM chop; both finalists kept their original bounties.",
+          "avatars": [
+            {
+              "src": "images/players/cougar.jpg",
+              "slug": "cougar",
+              "alt": "Cougar",
+              "fallback": "CO"
+            },
+            {
+              "src": "images/players/nasa-al-415effa3f03e46f5.png",
+              "slug": "nasa-al",
+              "alt": "Nasa Al",
+              "fallback": "NA"
+            }
+          ]
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killer",
+          "player": "Cougar",
+          "value": "5 knockouts · 5 bounties",
+          "copy": "Two exits for Nat, followed by Hiro, ProvidenceMike and the Commissioner.",
+          "avatar": "images/players/cougar.jpg",
+          "fallback": "CO"
+        },
+        {
+          "tone": "purple",
+          "label": "♻️ Repeat Customer",
+          "player": "Nat “The PhattedCalf”",
+          "value": "Both rebuys · Third place",
+          "copy": "The night’s entire rebuy department belonged to one player.",
+          "avatar": "images/players/phattedcalf.jpg",
+          "fallback": "PC"
+        },
+        {
+          "tone": "blue",
+          "label": "🫧 The Bubble",
+          "player": "BostnMike",
+          "value": "League-leading 10th",
+          "copy": "Cougar’s aces put the Commissioner one spot outside the payouts.",
+          "avatar": "images/players/bostnmike.jpg",
+          "fallback": "BM"
+        }
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "9"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "2"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$270"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "3h 51m"
+        }
+      ],
+      "summary": {
+        "startTime": "7:13:17 pm 11/07/2026",
+        "endTime": "11:04:25 pm 11/07/2026",
+        "durationLabel": "3h 51m",
+        "buyIns": 7,
+        "rebuys": 2,
+        "entries": 9,
+        "totalPot": 270,
+        "paidSpots": 3,
+        "winner": "Cougar, NASA Al",
+        "firstOut": "Phattedcalf",
+        "firstPermanentOut": "Hiro"
+      },
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-11-07.jpg\" alt=\"Poster for the 11/07/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The TLPT app is officially a hit. RSVPs tracked. Coffee orders organized. If it still isn’t on your phone, seriously, what are you waiting for? Some of you will commit forty dollars to a hand you barely understand but apparently need a congressional hearing before adding an app to your home screen. Once assembled, the group decided the evening needed a $10 bounty on every entry and rebuy. The technology was bringing people together. The financial incentive to remove them arrived shortly afterward.</p><p><strong>Pocket Aces: Results May Vary.</strong> Nat discovered that his came with considerably less protection than advertised. Cougar’s worked beautifully, particularly when the Commissioner ran into them and received the strongest possible instruction to stop participating. Fourth place. Bubble number TEN. BostnMike now leads Ahmed outright in the league’s least desirable counting exercise, and he is taking this achievement with all the enthusiasm of a man discovering his medical deductible has reset. The app can faithfully document his progress. Unfortunately, the progress is toward more of this.</p><p>Nat supplied both of the night’s rebuys, with Cougar collecting his first two exits. The PhattedCalf eventually found somebody else to put through the register, eliminating Ahmed before NASA Al ended Nat’s third attempt. Third place secured, $56 lost overall. That is an impressively expensive way to establish that four other people technically finished behind you. Nat made the money; his money, meanwhile, had already made several other arrangements.</p><p>Cougar and NASA Al then agreed to an ICM chop and put the Commissioner to work calculating it. Having been denied a payout, Mike was still available to provide the payout department. His AI wizardry handled the arithmetic, leaving the finalists to collect while the host enjoyed the professional satisfaction of being useful. He’ll probably find a way to put the calculator in the app next. At this rate, the league will have fully automated every part of poker except finding someone willing to listen to Mike explain why he bubbled.</p>",
+      "spotlight": {
+        "player": "Cougar / NASA Al / Nat “The PhattedCalf”",
+        "fallback": "CNP",
+        "pills": [
+          "Cougar: 5 Knockouts",
+          "NASA Al: 1 Knockout",
+          "Nat: 1 Knockout",
+          "Both Finalists: No Rebuys"
+        ],
+        "avatars": [
+          {
+            "src": "images/players/cougar.jpg",
+            "slug": "cougar",
+            "alt": "Cougar",
+            "fallback": "CO"
+          },
+          {
+            "src": "images/players/nasa-al-415effa3f03e46f5.png",
+            "slug": "nasa-al",
+            "alt": "Nasa Al",
+            "fallback": "NA"
+          },
+          {
+            "src": "images/players/phattedcalf.jpg",
+            "slug": "phattedcalf",
+            "alt": "PhattedCalf",
+            "fallback": "PC"
+          }
+        ]
+      },
+      "numbersThatMatter": [
+        "Seven players, two rebuys, nine total purchases. Play ran from 7:13 pm to 11:04 pm—about 3h 51m.",
+        "$270 regular prize pool and $90 in bounties. Seven bounties paid $70; the two finalists retained their own $10 bounties.",
+        "Total take-home: Cougar $178.54, NASA Al $117.46, Nat $64.",
+        "Two Milestone Edition Ultimate Player Cards: Cougar reached 25 appearances and Nat reached 10 appearances. The collectibles department recognizes attendance, even when the cashier has reservations."
+      ],
+      "roastHtml": "<p>The Commissioner recorded zero knockouts. For someone hosting Full Metal Stack-It, that is a remarkably gentle contribution. The title promised a war movie; the host delivered a mandatory workplace safety video.</p>"
+    },
+    {
       "id": "week-10-24-2026",
       "date": "10/24/2026",
       "eventName": "Re-Buy Hard: A TLPT Muti-Table Event",
       "title": "Re-Buy Hard: A TLPT Multi-Table Event",
-      "featured": true,
+      "featured": false,
       "dek": "Welcome to TLPT. Please Keep Your Payment App Open.",
       "summaryCards": [
         {
