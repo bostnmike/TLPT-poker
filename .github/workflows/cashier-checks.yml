@@ -1,9 +1,10 @@
 name: TLPT Cashier Quality Gate
 on:
   push:
-    paths: ["cashier/**", "scripts/test-recovery.py", ".github/workflows/cashier-checks.yml"]
+    branches: [main]
+    paths: ["cashier/**", "scripts/test-recovery.py", ".github/workflows/cashier-checks.yml", ".github/workflows/app-compatibility.yml", "scripts/test-app-feed-contract.mjs", "rsvp/worker.mjs", "rsvp/model.mjs", "rsvp/lib/**", "rsvp/migrations/**", "rsvp/scripts/**", "rsvp/package.json", "rsvp/pnpm-lock.yaml", "rsvp/wrangler.jsonc", "rsvp/posters.mjs", "rsvp/schedule-notices.mjs", "rsvp/public/coffee-menu.mjs"]
   pull_request:
-    paths: ["cashier/**", "scripts/test-recovery.py", ".github/workflows/cashier-checks.yml"]
+    paths: ["cashier/**", "scripts/test-recovery.py", ".github/workflows/cashier-checks.yml", ".github/workflows/app-compatibility.yml", "scripts/test-app-feed-contract.mjs", "rsvp/worker.mjs", "rsvp/model.mjs", "rsvp/lib/**", "rsvp/migrations/**", "rsvp/scripts/**", "rsvp/package.json", "rsvp/pnpm-lock.yaml", "rsvp/wrangler.jsonc", "rsvp/posters.mjs", "rsvp/schedule-notices.mjs", "rsvp/public/coffee-menu.mjs"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,6 +12,8 @@ env:
   WRANGLER_SEND_METRICS: "false"
   WRANGLER_WRITE_LOGS: "false"
 jobs:
+  compatibility:
+    uses: ./.github/workflows/app-compatibility.yml
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -33,8 +36,12 @@ jobs:
       - name: Rehearse isolated database recovery
         working-directory: .
         run: python scripts/test-recovery.py --product cashier
+      - name: Reject high and critical dependency advisories
+        run: pnpm audit --audit-level high
       - run: pnpm check
       - run: pnpm test:integration
+      - name: Read-only live public-source contract smoke
+        run: pnpm check:live-sources
       - name: Stamp the tested interface artifact
         run: node scripts/stamp-release.mjs "$RELEASE_SHA"
         env:
@@ -51,7 +58,7 @@ jobs:
           if-no-files-found: error
   deploy:
     name: Publish and verify production
-    needs: test
+    needs: [test, compatibility]
     if: github.repository == 'bostnmike/TLPT-poker' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     timeout-minutes: 15

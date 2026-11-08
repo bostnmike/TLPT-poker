@@ -1,10 +1,9 @@
 import {appendFileSync} from 'node:fs';
-import {git,fingerprint,gatewayPath,workerPath,shaPattern,ORIGIN,requireTrustedCI,receipt} from './release-tools.mjs';
+import {git,fingerprint,gatewayPath,workerPath,shaPattern,ORIGIN,requireTrustedCI,receipt,assertLatestSource} from './release-tools.mjs';
 requireTrustedCI();
 const sha=process.env.GITHUB_SHA;
 if(!shaPattern.test(sha||''))throw Error('Missing release SHA.');
-const current=git('rev-parse','origin/main');
-if(fingerprint(sha,workerPath)!==fingerprint(current,workerPath)||fingerprint(sha,gatewayPath)!==fingerprint(current,gatewayPath))throw Error('A newer Cashier change is already on main. Publish the newer run instead of this stale checkout.');
+assertLatestSource(sha);
 let live,liveGateway;
 try{
  const r=await fetch(ORIGIN+'/api/version',{headers:{'Cache-Control':'no-cache'},signal:AbortSignal.timeout(15000)});

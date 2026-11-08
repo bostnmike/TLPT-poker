@@ -143,7 +143,8 @@ def main() -> int:
                     f"filters, found {actual} occurrence(s)"
                 )
         for command in contract.get("requiredCommands", []):
-            actual = workflow_text.count(command)
+            # `pnpm check:live-sources` does not replace or duplicate `pnpm check`.
+            actual = len(re.findall(re.escape(command) + r"(?![A-Za-z0-9_:-])", workflow_text))
             if actual != 1:
                 errors.append(
                     f"{workflow_rel}: expected command `{command}` exactly once, "

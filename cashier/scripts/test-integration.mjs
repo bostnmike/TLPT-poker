@@ -1,20 +1,19 @@
 import assert from 'node:assert/strict';
-import {spawn,spawnSync} from 'node:child_process';
-import {readFileSync,writeFileSync,rmSync} from 'node:fs';
+import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
 import {pbkdf2Sync,randomBytes} from 'node:crypto';
+import {createIntegrationRun,boundedFetch as fetch} from './integration-runtime.mjs';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
-const state='.wrangler/integration-'+Date.now(),base='http://127.0.0.1:8788',secret='local-test-import-token-not-for-deployment';
-let output='';const children=[];
-function start(args){const child=spawn(process.execPath,args,{env:{...process.env,CASHIER_LOCAL_STATE:state,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},stdio:['ignore','pipe','pipe']});children.push(child);child.stdout.on('data',d=>output+=d);child.stderr.on('data',d=>output+=d);return child;}
-async function ready(url){for(let i=0;i<100;i++){try{const r=await fetch(url);if(r.status<500)return;}catch{}await new Promise(r=>setTimeout(r,200));}throw Error('Local Worker did not start: '+output.slice(-3000));}
+const run=createIntegrationRun('payments'),state=join(run.directory,'state'),secret='local-test-import-token-not-for-deployment';
+const template={name:'tlpt-cashier-integration',main:'tests/fixtures/integration-worker.ts',compatibility_date:'2026-05-15',compatibility_flags:['nodejs_compat'],assets:{directory:'./dist',binding:'ASSETS',run_worker_first:['/__test/*']},vars:{CASHIER_ENV:'local',OWNER_EMAIL:'blanchettemr@gmail.com',LOCAL_OWNER_EMAIL:'blanchettemr@gmail.com',IMPORT_TOKEN:secret},d1_databases:[{binding:'DB',database_name:'integration',database_id:'00000000-0000-4000-8000-000000000000',migrations_dir:'drizzle'}]};
+let base;
 async function get(eventId,etag){const r=await fetch(base+'/api/register'+(eventId?'?eventId='+encodeURIComponent(eventId):''),{headers:etag?{'If-None-Match':etag}:{}});return {r,data:r.status===304?null:await r.json()};}
-async function workerFetch(url,options){for(let n=0;;n++){const response=await fetch(url,options);if(n>=3||response.status!==503||!(await response.clone().text()).startsWith('Your worker restarted mid-request.'))return response;await new Promise(r=>setTimeout(r,250));}}
-async function post(body,expected=200,origin=base){const r=await workerFetch(base+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(body)});const j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;}
+async function post(body,expected=200,origin=base){const r=await fetch(base+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(body)});const j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;}
 async function intake(messages,mode='live'){const r=await fetch(base+'/api/import',{method:'POST',headers:{'Content-Type':'application/json','X-Register-Token':secret},body:JSON.stringify({messages,mode,readerMode:'rolling'})});const j=await r.json();assert.equal(r.status,200,JSON.stringify(j));return j;}
 try{
- start(['scripts/local-dev.mjs','--api-only']);await ready(base+'/api/health');
- const first=await get();assert.equal(first.r.status,200,JSON.stringify(first.data));assert.equal(first.data.scheduleError,'','The live schedule, including Date TBD placeholders, must refresh successfully');const event=first.data.events.find(e=>e.rules.entry>0&&e.rules.food>0);assert.ok(event,'A real TLPT event is required for this integration check');
+ const primary=run.config('register',template);run.migrate(primary,state);({base}=await run.start([primary],{state}));
+ const first=await get();assert.equal(first.r.status,200,JSON.stringify(first.data));assert.equal(first.data.scheduleError,'','The fixture schedule, including Date TBD placeholders, must refresh successfully');const event=first.data.events.find(e=>e.rules.entry>0&&e.rules.food>0);assert.ok(event,'The fixed payable schedule must load');
  assert.equal(first.data.totals.collected,0);const unchanged=await get(first.data.selectedEventId,first.r.headers.get('ETag'));assert.equal(unchanged.r.status,304,'Unchanged polling should avoid rereading the ledger');
  const originFailure=await post({action:'format',eventId:event.id,mode:'standard',bountyCents:500},403,'https://attacker.example');assert.ok(originFailure.error);
  const cents=event.rules.entry+event.rules.food,requestId=crypto.randomUUID();
@@ -35,7 +34,7 @@ try{
  stateNow=(await get(event.id)).data;const latest=stateNow.payments.find(p=>p.id===recorded.id);await post({action:'delete',eventId:event.id,id:latest.id,expectedUpdatedAt:latest.updated_at,checked:true});
  await intake([m1]);stateNow=(await get(event.id)).data;assert.equal(stateNow.totals.collected,0);assert.equal(stateNow.payments.some(p=>p.source_id==='gmail:'+m1.id),false,'Deleted receipts must not reappear');
  const players=await (await fetch(base+'/api/players')).json();assert.ok(players.players.some(p=>p.venmoUsername==='dmichaelson'),'Central Venmo identities should survive the migration');
- console.log('PASS: real local Cloudflare Worker/D1 — current TLPT events, ETags, origin protection, combined allocations, idempotent manual entry, receipt dry run, duplicate suppression, link, confirm, void, delete, and public player mappings.');
+ console.log('PASS: real local Cloudflare Worker/D1 — fixed TLPT schedule contracts, ETags, origin protection, combined allocations, idempotent manual entry, receipt dry run, duplicate suppression, link, confirm, void, delete, and public player mappings.');
  { // Batch processing uses only this disposable local database.
  const batchEvent=first.data.events.find(e=>e.slot==='mtt')||event;
  const allocation=(player,items=['entry'],method='venmo')=>({id:crypto.randomUUID(),player,items,method,cents:items.reduce((n,k)=>n+batchEvent.rules[k],0)});
@@ -82,12 +81,11 @@ try{
  console.log('PASS: actual Worker/D1 batch — five mixed-method players, three food allocations, atomic concurrent retries, changed-payload rejection, shared receipts, multi-target and partial late matches, over-coverage rejection, stale protection, shared-receipt deletion suppression and bulk voids.');
  }
  { // Permanent clearing runs only against this separate disposable database.
- const historyState=state+'-history',historyBase='http://127.0.0.1:8792',mttId='mtt:2020-01-01';
- const historyConfig=JSON.parse(readFileSync('wrangler.local.json','utf8'));historyConfig.name='tlpt-cashier-history-test';historyConfig.main='tests/fixtures/history-worker.ts';writeFileSync('wrangler.history.local.json',JSON.stringify(historyConfig));
- const migration=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js','d1','migrations','apply','DB','--local','--config','wrangler.history.local.json','--persist-to',historyState],{encoding:'utf8',env:{...process.env,CI:'true',WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'}});assert.equal(migration.status,0,migration.stderr);
- start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8792','--config','wrangler.history.local.json','--persist-to',historyState,'--inspector-port','0']);await ready(historyBase+'/api/health');
+ const historyState=join(run.directory,'history'),mttId='mtt:2020-01-01';
+ const historyConfig=run.config('history',{...template,name:'tlpt-cashier-history-test',main:'tests/fixtures/history-worker.ts'});
+ run.migrate(historyConfig,historyState);const {base:historyBase}=await run.start([historyConfig],{state:historyState});
  const hget=async(id=mttId)=>await (await fetch(historyBase+'/api/register?eventId='+encodeURIComponent(id))).json();
- const hpost=async(body,expected=200)=>{const r=await workerFetch(historyBase+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:historyBase},body:JSON.stringify(body)}),j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;};
+ const hpost=async(body,expected=200)=>{const r=await fetch(historyBase+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:historyBase},body:JSON.stringify(body)}),j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;};
  const hintake=async(messages,mode='live')=>{const r=await fetch(historyBase+'/api/import',{method:'POST',headers:{'Content-Type':'application/json','X-Register-Token':secret},body:JSON.stringify({messages,mode,readerMode:'rolling'})});assert.equal(r.status,200);return r.json();};
  const entry=(eventId,items=['entry'])=>({action:'manual',eventId,items,player:'History test player',method:'venmo',cents:items.includes('food')?6500:eventId===mttId?5000:3000,checked:true,requestId:crypto.randomUUID()});
  for(const id of [mttId,'friday:2099-01-02','saturday:2099-01-03'])await hpost(entry(id));
@@ -124,17 +122,17 @@ try{
  assert.equal((await hintake([canceledMail])).ignoredIds.length,1);
  console.log('PASS: isolated Worker/D1 history clearing — finished MTT only, exact-date confirmation, stale-ledger rollback, receipt cleanup, zero totals, other events preserved, reader exclusion and no stale manual/batch or email resurrection.');
  }
- const config=JSON.parse(readFileSync('wrangler.local.json','utf8'));config.name='tlpt-cashier-locked-test';config.vars={...config.vars,CASHIER_ENV:'staging',CF_ACCESS_TEAM_DOMAIN:'https://tlpt-test.cloudflareaccess.com',CF_ACCESS_AUD:'test-audience'};writeFileSync('wrangler.locked.local.json',JSON.stringify(config));
- start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8789','--config','wrangler.locked.local.json','--persist-to',state,'--inspector-port','0']);await ready('http://127.0.0.1:8789/api/health');
- for(const headers of [{},{'oai-authenticated-user-id':'fake'},{'x-tlpt-authenticated-user-id':'fake'},{'Cf-Access-Jwt-Assertion':'fake.jwt.value'}])assert.equal((await fetch('http://127.0.0.1:8789/api/register',{headers})).status,401);
- assert.equal((await fetch('http://127.0.0.1:8789/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:'{"messages":[]}'})).status,401);
- assert.equal((await fetch('http://127.0.0.1:8789/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:'http://127.0.0.1:8789','x-tlpt-authenticated-user-id':'fake'},body:JSON.stringify({action:'batch',groups:[]})})).status,401);
- assert.equal((await fetch('http://127.0.0.1:8789/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:'http://127.0.0.1:8789'},body:JSON.stringify({action:'clear-history',eventId:'mtt:2020-01-01',checked:true,confirmationDate:'2020-01-01',expectedRevision:0})})).status,401);
+ const config=structuredClone(template);config.name='tlpt-cashier-locked-test';config.vars={...config.vars,CASHIER_ENV:'staging',CF_ACCESS_TEAM_DOMAIN:'https://tlpt-test.cloudflareaccess.com',CF_ACCESS_AUD:'test-audience'};
+ const lockedConfig=run.config('locked',config),{base:lockedBase}=await run.start([lockedConfig],{state});
+ for(const headers of [{},{'oai-authenticated-user-id':'fake'},{'x-tlpt-authenticated-user-id':'fake'},{'Cf-Access-Jwt-Assertion':'fake.jwt.value'}])assert.equal((await fetch(lockedBase+'/api/register',{headers})).status,401);
+ assert.equal((await fetch(lockedBase+'/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:'{"messages":[]}'})).status,401);
+ assert.equal((await fetch(lockedBase+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:lockedBase,'x-tlpt-authenticated-user-id':'fake'},body:JSON.stringify({action:'batch',groups:[]})})).status,401);
+ assert.equal((await fetch(lockedBase+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:lockedBase},body:JSON.stringify({action:'clear-history',eventId:'mtt:2020-01-01',checked:true,confirmationDate:'2020-01-01',expectedRevision:0})})).status,401);
  console.log('PASS: deployed-mode Worker rejects anonymous access, spoofed identity headers, forged Access JWTs, and unauthenticated import requests; loopback development identity cannot bypass staging auth.');
  const password='disposable integration password',salt=randomBytes(16);config.name='tlpt-cashier-password-test';config.vars={...config.vars,AUTH_MODE:'password',CASHIER_PASSWORD_HASH:`v1:100000:${salt.toString('base64url')}:${pbkdf2Sync(password,salt,100000,32,'sha256').toString('base64url')}`,SESSION_SECRET:randomBytes(32).toString('base64url')};
  config.assets.run_worker_first=JSON.parse(readFileSync('wrangler.jsonc','utf8')).assets.run_worker_first;
- writeFileSync('wrangler.password.local.json',JSON.stringify(config));const passwordBase='http://127.0.0.1:8791';
- start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8791','--config','wrangler.password.local.json','--persist-to',state,'--inspector-port','0']);await ready(passwordBase+'/auth/login');
+ config.assets.run_worker_first.push('/__test/*');
+ const passwordConfig=run.config('password',config),{base:passwordBase}=await run.start([passwordConfig],{state});
  const version=await fetch(passwordBase+'/api/version');assert.equal(version.status,200);assert.deepEqual(Object.keys(await version.json()).sort(),['app','revision','versionId']);
  const landing=await fetch(passwordBase+'/');assert.equal(landing.status,200,'Public sign-in page must permit Home Screen metadata lookup');assert.match(await landing.text(),/apple-touch-icon[^>]+cashier-home-chip-180/);
  const install=await fetch(passwordBase+'/install.html');assert.equal(install.status,200);assert.match(install.headers.get('Content-Type'),/text\/html/);assert.match(await install.text(),/Add to Home Screen/);
@@ -145,7 +143,7 @@ try{
  const webclipPage=await fetch(passwordBase+'/webclip.html');assert.equal(webclipPage.status,200);assert.match(await webclipPage.text(),/Download TLPT Cashier setup/);
  const profile=await fetch(passwordBase+'/TLPT-Cashier.mobileconfig');assert.equal(profile.status,200);assert.equal(profile.headers.get('Content-Type'),'application/x-apple-aspen-config');assert.match(profile.headers.get('Content-Disposition'),/attachment; filename="TLPT-Cashier.mobileconfig"/);assert.equal(profile.headers.get('Cache-Control'),'no-store');assert.equal(profile.headers.get('X-Content-Type-Options'),'nosniff');assert.deepEqual(Buffer.from(await profile.arrayBuffer()),readFileSync('public/TLPT-Cashier.mobileconfig'));
  console.log('PASS: exact one-Web-Clip iPad profile is anonymously downloadable with Apple MIME type, filename, no-store and nosniff headers; no private data is included.');
- const logIn=(value,origin=passwordBase)=>workerFetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
+ const logIn=(value,origin=passwordBase)=>fetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
  assert.equal((await fetch(passwordBase+'/api/register')).status,401);
  assert.equal((await fetch(passwordBase+'/api/reader-setup')).status,401,'Reader credentials must require owner sign-in');
  assert.equal((await fetch(passwordBase+'/auth/login')).headers.get('Referrer-Policy'),'same-origin','Native sign-in forms must preserve their same-origin Origin header');
@@ -160,11 +158,4 @@ try{
  assert.equal((await fetch(passwordBase+'/auth/logout')).status,405);
  const loggedOut=await fetch(passwordBase+'/auth/logout',{method:'POST',redirect:'manual',headers:{Origin:passwordBase,Cookie:cookie}});assert.equal(loggedOut.status,303);assert.ok(loggedOut.headers.get('Set-Cookie').includes('Max-Age=0'));
  console.log('PASS: actual Worker password hashing, secure session login, protected ledger, forged-cookie rejection, same-origin checks, D1 failed-login limits, and logout.');
-}catch(error){console.error(output.slice(-4000));throw error;}finally{
- for(const child of children)child.kill('SIGTERM');
- await Promise.all(children.map(c=>c.exitCode===null?new Promise(resolve=>{c.once('exit',resolve);setTimeout(()=>{c.kill('SIGKILL');resolve();},3000).unref();}):Promise.resolve()));
- rmSync(state,{recursive:true,force:true});
- rmSync(state+'-history',{recursive:true,force:true});
- rmSync('wrangler.history.local.json',{force:true});
- rmSync('wrangler.password.local.json',{force:true});
-}
+}catch(error){console.error(run.logs());throw error;}finally{await run.cleanup();}

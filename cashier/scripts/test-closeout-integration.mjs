@@ -1,18 +1,13 @@
 import assert from 'node:assert/strict';
-import {spawn,spawnSync} from 'node:child_process';
-import {writeFileSync,rmSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
+import {createIntegrationRun,boundedFetch as fetch} from './integration-runtime.mjs';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
-const state='.wrangler/closeout-integration-'+Date.now(),client='wrangler.closeout-client.local.json',service='wrangler.closeout-service.local.json',base='http://127.0.0.1:8794';
-const env={...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false',CI:'true'};
-let child,output='';
+const run=createIntegrationRun('closeout'),state=join(run.directory,'state');
 try{
- writeFileSync(service,JSON.stringify({name:'cashier-closeout-fixture',main:'tests/fixtures/closeout-service.ts',compatibility_date:'2026-05-15',compatibility_flags:['nodejs_compat'],vars:{CASHIER_ENV:'local'},services:[{binding:'CASHIER_RSVP',service:'cashier-closeout-client'}],d1_databases:[{binding:'DB',database_name:'closeout-fixture',database_id:'00000000-0000-4000-8000-000000000014',migrations_dir:'drizzle'}]}));
- writeFileSync(client,JSON.stringify({name:'cashier-closeout-client',main:'tests/fixtures/closeout-client.mjs',compatibility_date:'2026-05-15',services:[{binding:'CLOSEOUT',service:'cashier-closeout-fixture',entrypoint:'EventCloseout'},{binding:'INSPECT',service:'cashier-closeout-fixture'}]}));
- const migrations=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js','d1','migrations','apply','DB','--local','--config',service,'--persist-to',state],{env,encoding:'utf8'});assert.equal(migrations.status,0,migrations.stderr);
- child=spawn(process.execPath,['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8794','--inspector-port','0','--persist-to',state,'--config',client,'--config',service],{env,stdio:['ignore','pipe','pipe']});
- child.stdout.on('data',d=>output+=d);child.stderr.on('data',d=>output+=d);
- let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base+'/health')).ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,200));}assert.ok(ready,output.slice(-4000));
+ const service=run.config('service',{name:'cashier-closeout-fixture',main:'tests/fixtures/closeout-service.ts',compatibility_date:'2026-05-15',compatibility_flags:['nodejs_compat'],vars:{CASHIER_ENV:'local'},services:[{binding:'CASHIER_RSVP',service:'cashier-closeout-client'}],d1_databases:[{binding:'DB',database_name:'closeout-fixture',database_id:'00000000-0000-4000-8000-000000000014',migrations_dir:'drizzle'}]});
+ const client=run.config('client',{name:'cashier-closeout-client',main:'tests/fixtures/closeout-client.mjs',compatibility_date:'2026-05-15',services:[{binding:'CLOSEOUT',service:'cashier-closeout-fixture',entrypoint:'EventCloseout'},{binding:'INSPECT',service:'cashier-closeout-fixture'}]});
+ run.migrate(service,state);const {base}=await run.start([client,service],{state,role:'closeout'});
  const call=async(path,input)=>await(await fetch(base+path,input?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(input)}:{})).json();
  await call('/seed');const before=await call('/state');
  const input={protocol:1,eventId:'mtt:2020-01-01',rsvpEventId:'stable-mtt',title:'Close-out test',confirmationDate:'2020-01-01',payoutsConfirmed:false,receiptsReviewed:false,resultsConfirmed:false};
@@ -26,7 +21,4 @@ try{
  await call('/offline');const replay=await call('/close',close);assert.equal(replay.alreadyClosed,true);assert.deepEqual(replay.receipt,closed.receipt);
  const previewAgain=await call('/preview',input);assert.equal(previewAgain.alreadyClosed,true);assert.deepEqual(previewAgain.receipt,closed.receipt);
  console.log('PASS: actual private Worker RPC and disposable D1 — bound public-feed callback despite HTTP403, read-only preview, open/stale denial, verified pre-6am closure, exact-event clearing, future ledger unchanged, database replay guard, and stable lost-response recovery while results are offline.');
-}finally{
- if(child&&!child.killed){child.kill('SIGTERM');await new Promise(r=>child.once('exit',r));}
- rmSync(client,{force:true});rmSync(service,{force:true});rmSync(state,{recursive:true,force:true});
-}
+}catch(error){console.error(run.logs());throw error;}finally{await run.cleanup();}

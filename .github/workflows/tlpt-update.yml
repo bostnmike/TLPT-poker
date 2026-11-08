@@ -36,7 +36,9 @@ on:
       - "data/event-formats.json"
       - "data/marchand-*.json"
       - "data/raw/events/**"
-      - ".github/workflows/**"
+      - ".github/workflows/site-quality.yml"
+      - ".github/workflows/tlpt-update.yml"
+      - ".github/workflows/quality-routing.yml"
       - "requirements-quality.txt"
       - "package.json"
       - "pnpm-lock.yaml"
@@ -62,6 +64,7 @@ jobs:
     outputs:
       built_sha: ${{ steps.publish.outputs.built_sha }}
       ready: ${{ steps.publish.outputs.ready }}
+      superseded: ${{ steps.publish.outputs.superseded }}
     steps:
       - name: Checkout exact source revision
         uses: actions/checkout@v7
@@ -97,6 +100,9 @@ jobs:
         id: node_deps
         timeout-minutes: 3
         run: pnpm install --frozen-lockfile --ignore-scripts --prefer-offline --store-dir .pnpm-store
+      - name: Reject high and critical dependency advisories
+        timeout-minutes: 2
+        run: pnpm audit --audit-level high
       - name: Prepare pinned browser environment (download retries only)
         id: browser_environment
         timeout-minutes: 11
@@ -143,6 +149,7 @@ jobs:
           if [ "$CURRENT_SHA" != "$SOURCE_SHA" ]; then
             echo "A newer source revision exists; this obsolete release will not publish." >> "$GITHUB_STEP_SUMMARY"
             echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "superseded=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -159,7 +166,16 @@ jobs:
           python -c 'import subprocess; from scripts.site_components import PAGES; subprocess.run(["git", "add", "--", *PAGES], check=True)'
           if ! git diff --cached --quiet; then
             git commit -m "Rebuild tested TLPT data and gallery"
-            git push origin HEAD:main
+            if ! git push origin HEAD:main; then
+              CURRENT_SHA=$(git ls-remote --exit-code origin refs/heads/main | cut -f1)
+              if [ "$CURRENT_SHA" != "$SOURCE_SHA" ]; then
+                echo "A concurrent update defeated the fast-forward push; checked output is retained locally and not deployed." >> "$GITHUB_STEP_SUMMARY"
+                echo "ready=false" >> "$GITHUB_OUTPUT"
+                echo "superseded=true" >> "$GITHUB_OUTPUT"
+                exit 0
+              fi
+              exit 1
+            fi
           fi
           echo "built_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "ready=true" >> "$GITHUB_OUTPUT"
@@ -179,21 +195,32 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    outputs:
+      superseded: ${{ steps.head.outputs.superseded }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Reject an obsolete release before deployment
+        id: head
         env:
           GH_TOKEN: ${{ github.token }}
           EXPECTED_SHA: ${{ needs.build.outputs.built_sha }}
         run: |
           CURRENT_SHA=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)
+          if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
+            echo "A newer commit superseded this checked artifact; it will not deploy." >> "$GITHUB_STEP_SUMMARY"
+            echo "superseded=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           test "$CURRENT_SHA" = "$EXPECTED_SHA"
+          echo "current=true" >> "$GITHUB_OUTPUT"
       - name: Deploy only the checked artifact
         id: deployment
+        if: steps.head.outputs.current == 'true'
         uses: actions/deploy-pages@v5
       - name: Verify public release receipt
+        if: steps.head.outputs.current == 'true'
         env:
           SOURCE_SHA: ${{ github.sha }}
         run: |
@@ -206,3 +233,20 @@ jobs:
           done
           echo "Public release verification failed" >&2
           exit 1
+
+  replace_superseded:
+    name: Queue current main after a superseded release
+    needs: [build, deploy]
+    if: ${{ always() && (needs.build.outputs.superseded == 'true' || needs.deploy.outputs.superseded == 'true') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    permissions:
+      actions: write
+      contents: read
+    steps:
+      - name: Request a fully checked replacement on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run tlpt-update.yml --repo "$GITHUB_REPOSITORY" --ref main
+          echo "Queued current main through the complete build, functional and visual gates. No failed test is retried and no obsolete artifact is published." >> "$GITHUB_STEP_SUMMARY"

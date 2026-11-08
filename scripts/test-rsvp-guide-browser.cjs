@@ -4,7 +4,7 @@ const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
 (async () => {
-  const browser = await chromium.launch({ channel:'chrome', headless:true });
+  const browser = await chromium.launch({ ...(process.env.CI ? {} : {channel:'chrome'}), headless:true });
   try {
     for (const width of [1440, 1024, 820, 768, 390, 320]) {
       const page = await browser.newPage({ viewport:{ width, height:950 }, reducedMotion:'reduce' });

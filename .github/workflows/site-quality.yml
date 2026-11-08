@@ -33,7 +33,9 @@ on:
       - "data/event-formats.json"
       - "data/marchand-*.json"
       - "data/raw/events/**"
-      - ".github/workflows/**"
+      - ".github/workflows/site-quality.yml"
+      - ".github/workflows/tlpt-update.yml"
+      - ".github/workflows/quality-routing.yml"
       - "requirements-quality.txt"
       - "package.json"
       - "pnpm-lock.yaml"
@@ -105,6 +107,9 @@ jobs:
         id: node_deps
         timeout-minutes: 3
         run: pnpm install --frozen-lockfile --ignore-scripts --prefer-offline --store-dir .pnpm-store
+      - name: Reject high and critical dependency advisories
+        timeout-minutes: 2
+        run: pnpm audit --audit-level high
       - name: Prepare pinned browser environment (download retries only)
         id: browser_environment
         timeout-minutes: 11

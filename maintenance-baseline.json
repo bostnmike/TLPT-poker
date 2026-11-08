@@ -85,7 +85,8 @@
     "scripts/validate-site-data.py",
     "scripts/audit-site-integrity.py",
     "scripts/audit-page-calculations.mjs",
-    "lily-site/check_site.py"
+    "lily-site/check_site.py",
+    "scripts/test-app-feed-contract.mjs"
   ],
   "satelliteQualityGates": {
     "registration": {
@@ -120,14 +121,30 @@
       "triggerPaths": [
         "cashier/**",
         "scripts/test-recovery.py",
-        ".github/workflows/cashier-checks.yml"
+        ".github/workflows/cashier-checks.yml",
+        ".github/workflows/app-compatibility.yml",
+        "scripts/test-app-feed-contract.mjs",
+        "rsvp/worker.mjs",
+        "rsvp/model.mjs",
+        "rsvp/lib/**",
+        "rsvp/migrations/**",
+        "rsvp/scripts/**",
+        "rsvp/package.json",
+        "rsvp/pnpm-lock.yaml",
+        "rsvp/wrangler.jsonc",
+        "rsvp/posters.mjs",
+        "rsvp/schedule-notices.mjs",
+        "rsvp/public/coffee-menu.mjs"
       ],
       "requiredCommands": [
         "pnpm install --frozen-lockfile --ignore-scripts",
         "pnpm check",
         "pnpm test:integration",
         "python scripts/test-recovery.py --product cashier",
-        "pnpm exec wrangler deploy --dry-run --env=\"\" --outdir .wrangler/dry-run"
+        "pnpm exec wrangler deploy --dry-run --env=\"\" --outdir .wrangler/dry-run",
+        "pnpm audit --audit-level high",
+        "uses: ./.github/workflows/app-compatibility.yml",
+        "pnpm check:live-sources"
       ]
     },
     "rsvp": {
@@ -135,14 +152,27 @@
       "triggerPaths": [
         "rsvp/**",
         "scripts/test-recovery.py",
-        ".github/workflows/rsvp-checks.yml"
+        ".github/workflows/rsvp-checks.yml",
+        ".github/workflows/app-compatibility.yml",
+        "scripts/test-app-feed-contract.mjs"
       ],
       "requiredCommands": [
         "pnpm install --frozen-lockfile --ignore-scripts",
         "node --test rsvp/tests/*.test.mjs",
         "node rsvp/scripts/test-integration.mjs",
         "python scripts/test-recovery.py --product rsvp",
-        "node rsvp/node_modules/wrangler/bin/wrangler.js deploy --dry-run --config rsvp/wrangler.jsonc"
+        "node rsvp/node_modules/wrangler/bin/wrangler.js deploy --dry-run --config rsvp/wrangler.jsonc",
+        "pnpm audit --audit-level high",
+        "uses: ./.github/workflows/app-compatibility.yml"
+      ]
+    },
+    "appCompatibility": {
+      "workflow": ".github/workflows/app-compatibility.yml",
+      "triggerPaths": [],
+      "requiredCommands": [
+        "node scripts/test-app-feed-contract.mjs",
+        "node rsvp/scripts/test-closeout-integration.mjs",
+        "timeout-minutes: 10"
       ]
     }
   }

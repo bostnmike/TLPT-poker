@@ -247,3 +247,44 @@ public HTTP callback to return 403 and verifies the bound callback still checks
 the frozen state before clearing. If an external proof fails, the visible error
 includes its resource category/status; preserve the pending request and resume
 after repair, with a fresh preview and renewed proof for the same request ID.
+
+## Quality-gate isolation and toolchain upkeep
+
+Payment integration uses fixed public-source fixtures, isolated temporary
+configuration/database directories and allocated loopback ports. Every server
+must return the run's unique readiness identity before any test writes. Requests
+have deadlines, process logs are bounded, and cleanup handles already-exited or
+unresponsive children. Fixture configurations reject real database IDs and
+production entrypoints. Tests do not use the interactive local-dev configuration
+or live player/event data. No money, authentication, privacy or close-out assertion
+is retried away. `pnpm check:live-sources` separately checks the live read-only
+RSVP, financial and player contracts; zero currently payable events is valid.
+A source outage is reported separately from deterministic payment failures.
+
+Use `pnpm audit --prod` for runtime dependencies and `pnpm audit` for the entire
+build/deployment toolchain. Both must be triaged; development-tool advisories are
+not automatically exempt. The November 2026 pinned-tool upgrade was validated
+with type checks, all unit tests, production UI build, actual local D1/Worker
+money and RPC tests, both deployment dry runs, and the real RSVP–Cashier contract
+rehearsal. Future upgrades must retain these checks and the frozen lockfile.
+
+Only deployable app/library/public/schema/build/configuration inputs contribute
+to the Worker publication fingerprint. Docs and test-only changes still run their
+quality checks without uploading an unchanged Worker. Gateway inputs remain
+separate. Before planning or mutating resources, and again immediately before
+activation, the publisher refreshes main and compares all Cashier release-source
+fingerprints, including the shared app-compatibility workflow and feed-contract
+check and targeted RSVP backend/toolchain inputs used by that contract.
+Unrelated website/data commits and RSVP public UI cosmetics are allowed; newer Cashier
+changes require the newer tested run. A superseded upload remains inactive.
+
+`pnpm deploy:production` intentionally refuses to deploy: use the main GitHub
+workflow so artifacts, credentials, resource pins and verification cannot be
+bypassed accidentally. `pnpm deploy:staging` remains a separate manual path.
+The production publisher reads immutable uploaded-version metadata to verify the
+named private `EventCloseout` export and its bindings before activation, then
+checks the live pinned database, public-only RSVP callback and credential names.
+This is read-only evidence: it never invokes cleanup or reads secret values.
+Missing metadata/bindings fail the release and appear in the existing Actions
+summary/receipt. Use the recovery and rollback steps above; do not rotate secrets,
+replace D1, replay mail or close a real event to test deployment.
