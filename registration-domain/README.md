@@ -24,6 +24,16 @@ The publisher reads the exact source commit recorded in `source-revision.txt`,
 validates it again, and deploys it. The main workflow waits until both public
 registration addresses and the shared form CSS/JS match the source. A failed or
 stale publication fails the workflow; a successful push alone is not completion.
+The displayed contact address uses Cloudflare's documented per-address
+`<!--email_off-->` exemption so the root domain does not inject an email link
+and decoder script. Verification accepts the exact canonical root HTML or that
+same HTML with only the exemption's two comments consumed by Cloudflare.
+Every other byte, the contact address, form action and shared assets remain
+compared exactly. The registration subdomain and revision marker keep their
+original byte-exact checks. Never expand this into general HTML normalization
+or disable the zone-wide security setting.
+See https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/.
+
 Publication starts automatically after checks and normally takes a few minutes.
 
 The main repository's `REGISTRATION_PUBLISH_SSH_KEY` Actions secret holds a
@@ -48,7 +58,7 @@ password protected, and retains its no-index metadata and restrictive robots.txt
 
 Checks:
 
-    node --test registration-domain/tests/pages.test.mjs
+    node --test registration-domain/tests/*.test.mjs
     node scripts/test-register-page.mjs
 
 Build into an empty output directory:

@@ -16,6 +16,12 @@ test("canonical rendering is deterministic and never mutates root HTML", async (
   assert.match(source, /TLPT GENERATED HEADER/);
 });
 
+test("canonical contact email has one narrowly scoped Cloudflare exemption", () => {
+  assert.match(source, /<span><!--email_off-->blanchettemr@gmail\.com<!--\/email_off--><\/span>/);
+  assert.equal((source.match(/<!--email_off-->/g) || []).length, 1);
+  assert.equal((source.match(/<!--\/email_off-->/g) || []).length, 1);
+});
+
 test("static registration preserves the form, attachments, privacy and branded return URL", () => {
   const html = registrationPage(source);
   assert.match(html, /<base href="https:\/\/tlpt\.org\/"/);
