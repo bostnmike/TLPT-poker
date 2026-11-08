@@ -1,6 +1,7 @@
 import {readFile} from 'node:fs/promises';
 import {setTimeout as delay} from 'node:timers/promises';
 import {registrationPage, canonicalSource} from './build.mjs';
+import {matchesPublishedContent} from './published-content.mjs';
 
 const revision = process.argv[2];
 if (!/^[a-f0-9]{40}$/.test(revision ?? '')) {
@@ -11,7 +12,7 @@ const checks = [
   ['https://register.tlpt.org/source-revision.txt', `${revision}\n`],
   ['https://register.tlpt.org/', registrationPage(source)],
   ['https://register.tlpt.org/register.html', registrationPage(source)],
-  ['https://tlpt.org/register.html', source],
+  ['https://tlpt.org/register.html', source, true],
   ...await Promise.all(['register.css', 'register.js'].map(async name => [
     `https://tlpt.org/${name}`, await readFile(new URL(`../${name}`, import.meta.url), 'utf8'),
   ])),
@@ -24,13 +25,13 @@ let previous = '';
 let attempt = 0;
 while (true) {
   attempt++;
-  const pending = (await Promise.all(checks.map(async ([address, expected]) => {
+  const pending = (await Promise.all(checks.map(async ([address, expected, allowEmailMarkerRemoval]) => {
     const url = new URL(address);
     url.searchParams.set('release', revision);
     url.searchParams.set('check', String(attempt));
     try {
       const response = await fetch(url, {signal: AbortSignal.timeout(15_000), cache: 'no-store'});
-      return response.ok && await response.text() === expected ? null : address;
+      return response.ok && matchesPublishedContent(await response.text(), expected, allowEmailMarkerRemoval) ? null : address;
     } catch {
       return address;
     }
