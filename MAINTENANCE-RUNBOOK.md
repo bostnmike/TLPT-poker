@@ -423,9 +423,9 @@ production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
 “Friday’s Comeback Falls Short” is the TLPT Sports Desk segment using
-`_QEYzoGj0j0` and `media.html#sports-desk-friday-no-go`. Its approved landscape
+`U84vXruMyZg` and `media.html#sports-desk-friday-no-go`. Its approved landscape
 and portrait covers come from
-`output/video/tlpt-sports-desk-friday-no-go/updated-vo-v3/`, which also
+`output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
 
 “Going Once…” uses YouTube `liEHKJxCHV0` and anchor

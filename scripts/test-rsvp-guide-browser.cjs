@@ -128,7 +128,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       for (const [id, youtubeId] of [
-        ['sports-desk-friday-no-go','_QEYzoGj0j0'],
+        ['sports-desk-friday-no-go','U84vXruMyZg'],
         ['going-once','liEHKJxCHV0'],
         ['the-big-board','iEn7eMbXt4M'],
         ['decision-desk','50vy0wDMhHU'],

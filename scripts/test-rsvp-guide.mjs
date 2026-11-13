@@ -183,7 +183,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
-  ['sports-desk-friday-no-go','_QEYzoGj0j0'],
+  ['sports-desk-friday-no-go','U84vXruMyZg'],
   ['going-once','liEHKJxCHV0'],
   ['the-big-board','iEn7eMbXt4M'],
   ['decision-desk','50vy0wDMhHU'],
