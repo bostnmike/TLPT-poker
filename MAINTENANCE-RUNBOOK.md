@@ -575,7 +575,7 @@ Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner
 is added to the homepage. No YouTube media is loaded by the Gallery itself.
 
-`data/gallery-norm.json` owns the 34 approved 9:16 portrait covers in
+`data/gallery-norm.json` owns the approved 9:16 portrait covers in
 `images/norm-gallery/`. The original wide group image was removed from this wing
 on November 7. The five rotating Family Portraits remain above the poster grid.
 “Two Seats Remain” uses the exact approved portrait PNG from
@@ -589,11 +589,13 @@ returns focus to the triggering image. Load failures have a retry control.
 
 `docs/norm-gallery-sources.json` records exact production source provenance and
 SHA-256 hashes. Do not use auto-selected video frames or guess the newest export.
-For additions, copy approved portrait bytes, add the title/film anchor/hash to the
-manifest and extend the collection count in its test. The shared static and browser
+When adding a Norm film to the Film Room, include its approved portrait cover in
+the Norm Wing in the same release. Copy the original portrait bytes, add the
+title, Film Room anchor, YouTube ID and hash to the gallery manifest, and record
+the source in the provenance file. The shared static and browser
 runners include `test-norm-gallery.mjs` and `test-norm-gallery-browser.cjs`:
-all cover hashes, correct film IDs, uncropped aspect ratios,
-seven desktop/tablet/mobile/short-screen viewports, all 34 viewer captions, wing switching, focus, viewer
+all cover hashes, complete Film Room coverage, correct film IDs, uncropped aspect ratios,
+seven desktop/tablet/mobile/short-screen viewports, all viewer captions, wing switching, focus, viewer
 bounds, direct links, lazy loading and failure recovery. Do not regenerate visual
 baselines just to clear a failure.
 

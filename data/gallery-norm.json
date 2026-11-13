@@ -10,6 +10,46 @@
   },
   "posters": [
     {
+      "id": "the-big-board",
+      "src": "images/norm-gallery/the-big-board.jpg",
+      "sha256": "df64425928e52099505209d22d89194b5e30376d5662bb11dec1d67bb61cac52",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Big Board",
+      "filmHref": "media.html#the-big-board",
+      "youtubeId": "iEn7eMbXt4M"
+    },
+    {
+      "id": "decision-desk",
+      "src": "images/norm-gallery/decision-desk.jpg",
+      "sha256": "4b01c202f4c0685c577bf2d0f1fa200e26f00e6a51ae75b84631d783f5ba58e5",
+      "width": 1080,
+      "height": 1920,
+      "title": "TLPT Decision Desk",
+      "filmHref": "media.html#decision-desk",
+      "youtubeId": "50vy0wDMhHU"
+    },
+    {
+      "id": "out-of-office",
+      "src": "images/norm-gallery/out-of-office.png",
+      "sha256": "ee7223b1978abb3110838101063e42c1859d4fb3724348150070b2d53dafcbcd",
+      "width": 1080,
+      "height": 1920,
+      "title": "Out of Office. Out of Excuses.",
+      "filmHref": "media.html#out-of-office",
+      "youtubeId": "B_7DZjLXC4I"
+    },
+    {
+      "id": "good-will-chopping",
+      "src": "images/norm-gallery/good-will-chopping.png",
+      "sha256": "75d1edc87b0e5ac13ef394318c8375183d44b19657c93e3367d6276e60b331b3",
+      "width": 1080,
+      "height": 1920,
+      "title": "Good Will Chopping",
+      "filmHref": "media.html#good-will-chopping",
+      "youtubeId": "0ioNSdNGmME"
+    },
+    {
       "id": "now-serving-decaf",
       "src": "images/norm-gallery/now-serving-decaf.png",
       "sha256": "7a3a006aa70213e2a349c422374434474315c213d8defcd1ebaba88cabf11e4f",

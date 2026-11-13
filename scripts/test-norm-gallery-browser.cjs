@@ -1,5 +1,6 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
+const {posters}=require('../data/gallery-norm.json');
 const base=process.argv[2]||'http://127.0.0.1:8776';
 const fit=async(page,selector,width,height)=>{
   const box=await page.locator(selector).boundingBox();
@@ -174,8 +175,8 @@ async function checkFamilyPortraitRotation(browser, viewport){
       assert.equal(await page.locator('#gallery-poster-wing').isVisible(),false);
       assert.equal(await page.locator('#gallery-year-field').isVisible(),false);
       assert.equal(await normButton.getAttribute('aria-pressed'),'true');
-      assert.equal(await page.locator('.gallery-norm-card').count(),35);
-      assert.match(await page.locator('#gallery-filter-status').innerText(),/35 portrait covers/);
+      assert.equal(await page.locator('.gallery-norm-card').count(),posters.length);
+      assert.match(await page.locator('#gallery-filter-status').innerText(),new RegExp(posters.length+' portrait covers'));
       assert.equal(await page.locator('.gallery-norm-banner').count(),0,'Original group picture is removed');
       assert.ok(!normRequests.some(url=>url.includes('/many-faces-of-norm.jpg')),'Original group picture is never requested');
       const portrait=page.locator('.gallery-norm-card').first();
@@ -193,24 +194,18 @@ async function checkFamilyPortraitRotation(browser, viewport){
       await page.screenshot({path:'/tmp/norm-gallery-'+width+'x'+height+'.png'});
       const portraitButton=portrait.locator('button');
       await portraitButton.click();
-      await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
       assert.equal(await page.locator('#gallery-lightbox-prev').isDisabled(),true);
-      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Now Serving DeCaf');
-      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#now-serving-decaf');
-      assert.match(await page.locator('#gallery-lightbox-image').getAttribute('src'),/images\/norm-gallery\/now-serving-decaf[.]png[?]v=/);
-      for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
-      await page.screenshot({path:'/tmp/norm-gallery-coffee-viewer-'+width+'x'+height+'.png'});
-      await page.keyboard.press('ArrowRight');
-      await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
-      assert.equal(await page.locator('#gallery-lightbox-title').innerText(),'Coffee Pre-orders — How d’ya like them lattes?');
-      assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),'media.html#coffee-preorders');
-      for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
-      await page.screenshot({path:'/tmp/norm-gallery-portrait-viewer-'+width+'x'+height+'.png'});
-      // Every title must fit, including the longest cancellation captions.
-      for(let posterIndex=2;posterIndex<=34;posterIndex++){
-        await page.keyboard.press('ArrowRight');
-        await page.locator('#gallery-lightbox-image').evaluate(img=>img.decode());
+      // Check every artwork and link at each viewport, including the longest titles.
+      for(const [index, artwork] of posters.entries()){
+        if(index>0) await page.keyboard.press('ArrowRight');
+        const viewerImage=page.locator('#gallery-lightbox-image');
+        await viewerImage.evaluate(img=>img.decode());
+        assert.equal(await page.locator('#gallery-lightbox-title').innerText(),artwork.title);
+        assert.equal(await page.locator('#gallery-lightbox-film').getAttribute('href'),artwork.filmHref);
+        assert.equal((await viewerImage.getAttribute('src')).split('?v=')[0],artwork.src);
         for(const selector of ['.gallery-lightbox-frame','.gallery-lightbox-meta','.gallery-lightbox-controls']) await fit(page,selector,width,height);
+        if(artwork.id==='now-serving-decaf') await page.screenshot({path:'/tmp/norm-gallery-coffee-viewer-'+width+'x'+height+'.png'});
+        if(artwork.id==='coffee-preorders') await page.screenshot({path:'/tmp/norm-gallery-portrait-viewer-'+width+'x'+height+'.png'});
       }
       assert.equal(await page.locator('#gallery-lightbox-next').isDisabled(),true);
       await page.keyboard.press('ArrowLeft');
@@ -239,7 +234,7 @@ async function checkFamilyPortraitRotation(browser, viewport){
     await page.locator('[data-norm-gallery-retry]').waitFor();
     fail=false;await page.locator('[data-norm-gallery-retry]').click();
     await page.locator('.gallery-norm-card').last().waitFor();
-    assert.equal(await page.locator('.gallery-norm-card').count(),35,'Failed request can recover');
+    assert.equal(await page.locator('.gallery-norm-card').count(),posters.length,'Failed request can recover');
     console.log('PASS Norm Gallery retry recovery');
   }finally{await browser.close();}
 })().catch(error=>{console.error(error);process.exitCode=1;});

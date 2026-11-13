@@ -10,6 +10,38 @@
       "height": 800
     },
     {
+      "id": "the-big-board",
+      "source": "output/video/tlpt-decision-desk-big-board/production-v2/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/the-big-board.jpg",
+      "sha256": "df64425928e52099505209d22d89194b5e30376d5662bb11dec1d67bb61cac52",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "decision-desk",
+      "source": "output/video/tlpt-decision-desk/production-v1/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/decision-desk.jpg",
+      "sha256": "4b01c202f4c0685c577bf2d0f1fa200e26f00e6a51ae75b84631d783f5ba58e5",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "out-of-office",
+      "source": "output/video/tlpt-out-of-office-phoenix/production-v3/thumbnail-portrait.png",
+      "src": "images/norm-gallery/out-of-office.png",
+      "sha256": "ee7223b1978abb3110838101063e42c1859d4fb3724348150070b2d53dafcbcd",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "good-will-chopping",
+      "source": "output/video/tlpt-icm-good-will-chopping/production-v3/thumbnail-portrait.png",
+      "src": "images/norm-gallery/good-will-chopping.png",
+      "sha256": "75d1edc87b0e5ac13ef394318c8375183d44b19657c93e3367d6276e60b331b3",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "now-serving-decaf",
       "source": "output/video/tlpt-coffee-preorders/decaf-regular-v2/thumbnail-portrait.png",
       "src": "images/norm-gallery/now-serving-decaf.png",
