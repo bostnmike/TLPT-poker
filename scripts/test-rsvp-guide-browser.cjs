@@ -69,7 +69,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       await page.screenshot({path:'/tmp/home-without-norm-' + width + '.png'});
       await page.goto(base + '/media.html');
-      assert.equal(await page.locator('.media-video-facade').count(), 46, 'Film Room ready without autoplay');
+      assert.equal(await page.locator('.media-video-facade').count(), 47, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
@@ -121,13 +121,14 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 47, 'Retain nine original films and all thirty-eight RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 48, 'Retain nine original films and all thirty-nine RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
-      assert.equal(await page.locator('.media-video-facade').count(), 46, 'All forty-six YouTube covers retained');
+      assert.equal(await page.locator('.media-video-facade').count(), 47, 'All forty-seven YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       for (const [id, youtubeId] of [
+        ['the-big-board','iEn7eMbXt4M'],
         ['decision-desk','50vy0wDMhHU'],
         ['out-of-office','B_7DZjLXC4I'],
         ['good-will-chopping','0ioNSdNGmME'],
@@ -153,7 +154,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         ['rsvp-roadshow','MvwsaPIq9-8'],
         ['final-boarding-call','elGvMvI4z98'],['rsvp-main-event','inTd_p7otyE'],['the-kids','AYTCCtyBTqQ'],['call-your-play','GY4uQaUwsbU'],['day-to-day','rzKNK2yiu-I'],['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
         const card = page.locator('#' + id), cover = card.locator('.media-video-facade'), player = card.locator('iframe');
-        if (['decision-desk','out-of-office','good-will-chopping','now-serving-decaf','coffee-preorders'].includes(id)) {
+        if (['the-big-board','decision-desk','out-of-office','good-will-chopping','now-serving-decaf','coffee-preorders'].includes(id)) {
           const fallback = card.getByRole('link', {name:'Watch on YouTube ↗'});
           assert.equal(await fallback.getAttribute('href'),'https://www.youtube.com/watch?v='+youtubeId);
           assert.equal(await fallback.getAttribute('target'),'_blank');
@@ -187,7 +188,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
         assert.notEqual(params.get('cc_load_policy'), '1', 'Captions are optional, never forced on');
       }
       assert.deepEqual(errors, []);
-      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-eight Film Room RSVP YouTube mappings');
+      console.log('PASS ' + width + 'px: setup embed activation/layout, navigation, and all thirty-nine Film Room RSVP YouTube mappings');
       await page.close();
     }
   } finally { await browser.close(); }
