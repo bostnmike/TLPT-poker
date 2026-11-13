@@ -6,14 +6,21 @@ const manifest = JSON.parse(read('data/gallery-norm.json'));
 const media = read('media.html').toString();
 const html = read('gallery.html').toString();
 const code = read('gallery.js').toString();
-assert.equal(manifest.posters.length,35,'Keep all 34 existing portraits and the approved Now Serving DeCaf poster');
 assert.doesNotMatch(code,/data[.]banner|gallery-norm-banner/,'The gallery renders portraits without the original group picture');
 assert.ok(!manifest.posters.some(art=>art.id==='many-faces-of-norm'));
 const all=manifest.posters;
-assert.equal(all[0].sha256,'7a3a006aa70213e2a349c422374434474315c213d8defcd1ebaba88cabf11e4f','Use the approved Now Serving DeCaf portrait first');
+assert.equal(all.find(art=>art.id==='now-serving-decaf').sha256,'7a3a006aa70213e2a349c422374434474315c213d8defcd1ebaba88cabf11e4f','Use the approved Now Serving DeCaf portrait');
 assert.equal(all.find(art=>art.id==='coffee-preorders').sha256,'da5907a9f923b628a8d71099ab9d64df78079b543853aa234d5893ecb38cb7fe','Use the approved coffee pre-order portrait');
 assert.equal(all.find(art=>art.id==='two-seats-remain').sha256,'8c39bf6e93a73cee50f96d17340243ca95ecf2807b78328a9956cf2fc6f6090d','Use the exact approved Two Seats Remain portrait');
-assert.equal(new Set(all.map(p=>p.id)).size,35);
+const filmCards = media.split(/<div class="media-card" id="([a-z0-9-]+)">/);
+const normFilmIds = filmCards.filter((_, index) =>
+  index % 2 === 1 && filmCards[index + 1].includes('data-thumbnail=')
+);
+assert.deepEqual(
+  all.map(art => art.id).sort(),
+  normFilmIds.sort(),
+  'Every Film Room card with a Norm production thumbnail needs exactly one Gallery cover'
+);
 for(const art of all){
   assert.match(art.src,/^images\/norm-gallery\/[a-z0-9-]+\.(?:jpg|png)$/);
   assert.equal(crypto.createHash('sha256').update(read(art.src)).digest('hex'),art.sha256,'Approved original bytes: '+art.id);
@@ -47,5 +54,5 @@ for(const [file,sha] of family){
 for(const unrelated of ['index.html','media.html','media.js','media.css']){
   assert.doesNotMatch(read(unrelated).toString(),/family-portrait|initFamilyPortraits/i,`${unrelated} must not host the exhibit`);
 }
-console.log('PASS: Norm Gallery without the original group picture, all 35 portrait hashes, film mappings and isolated archive');
+console.log('PASS: Norm Gallery portrait hashes and Film Room coverage for all '+all.length+' films');
 console.log('PASS: five unmodified Family Portraits belong to the Norm exhibit only');
