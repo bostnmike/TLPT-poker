@@ -410,7 +410,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-one RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -422,6 +422,12 @@ restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
+“Friday’s Comeback Falls Short” is the TLPT Sports Desk segment using
+`_QEYzoGj0j0` and `media.html#sports-desk-friday-no-go`. Its approved landscape
+and portrait covers come from
+`output/video/tlpt-sports-desk-friday-no-go/updated-vo-v3/`, which also
+holds the 65-second production master.
+
 “Going Once…” uses YouTube `liEHKJxCHV0` and anchor
 `media.html#going-once`. The approved 16.8-second Cougar-and-gavel master stays
 in `output/video/tlpt-going-once/cougar-gavel-v4/`. The Film Room and Norm Wing

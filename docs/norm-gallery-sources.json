@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "sports-desk-friday-no-go",
+      "source": "output/video/tlpt-sports-desk-friday-no-go/updated-vo-v3/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/sports-desk-friday-no-go.jpg",
+      "sha256": "78b562709efa803c2370f3323c9016defb13a8e97961ed5b5eceb55a5bf59f71",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "going-once",
       "source": "output/video/tlpt-going-once/cougar-gavel-v4/release-art/poster.jpg",
       "src": "images/norm-gallery/going-once.jpg",
