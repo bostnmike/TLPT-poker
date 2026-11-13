@@ -410,7 +410,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has thirty-five RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -422,11 +422,16 @@ restore superseded `ltIT_DGiEEs`) and the exact approved landscape
 production folder on 2026-10-29. Keep its card title-only, click-to-play, and
 captions optional. The 28-second source video remains in its production folder;
 do not add a duplicate native player or publish the production notes.
+“Going Once…” uses YouTube `liEHKJxCHV0` and anchor
+`media.html#going-once`. The approved 16.8-second Cougar-and-gavel master stays
+in `output/video/tlpt-going-once/cougar-gavel-v4/`. The Film Room and Norm Wing
+use the approved landscape and portrait files from its `release-art/` folder.
+
 “Now Serving DeCaf” uses YouTube `WFy0mP9u0Bw` and anchor
 `media.html#now-serving-decaf`. Add it alongside the original coffee commercial.
 Its exact approved landscape cover, portrait PNG and optional SRT/VTT captions
 come from `output/video/tlpt-coffee-preorders/decaf-regular-v2/`.
-The portrait appears first in the Norm Gallery. Keep the 48.4-second master
+The matching portrait appears in the Norm Gallery. Keep the 48.4-second master
 outside the repository and public package. Use the existing click-to-play embed
 and direct YouTube fallback link.
 

@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "going-once",
+      "src": "images/norm-gallery/going-once.jpg",
+      "sha256": "83bc7fd869c8ababec29c85978024723abdbf9bc2ba10f3cf614efd8877e3ff0",
+      "width": 1080,
+      "height": 1920,
+      "title": "Going Once…",
+      "filmHref": "media.html#going-once",
+      "youtubeId": "liEHKJxCHV0"
+    },
+    {
       "id": "the-big-board",
       "src": "images/norm-gallery/the-big-board.jpg",
       "sha256": "df64425928e52099505209d22d89194b5e30376d5662bb11dec1d67bb61cac52",

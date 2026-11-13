@@ -10,6 +10,14 @@
       "height": 800
     },
     {
+      "id": "going-once",
+      "source": "output/video/tlpt-going-once/cougar-gavel-v4/release-art/poster.jpg",
+      "src": "images/norm-gallery/going-once.jpg",
+      "sha256": "83bc7fd869c8ababec29c85978024723abdbf9bc2ba10f3cf614efd8877e3ff0",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "the-big-board",
       "source": "output/video/tlpt-decision-desk-big-board/production-v2/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/the-big-board.jpg",
