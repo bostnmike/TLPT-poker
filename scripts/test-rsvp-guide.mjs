@@ -68,6 +68,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'going-once-thumbnail.jpg':'a1f92379d75b5469f22a73b3352808ba3791160133770075ccf651b4f240961b',
   'the-big-board-thumbnail.jpg':'21c88728ba0f4953f804d7e4d9d2507ba4fd6aca7dd4c6ca2bfe68bf2467ea89',
   'decision-desk-thumbnail.jpg':'3f8ed3a5adb371ccedc48cac48ee224b238d4fe44631e821de0416af757dd525',
   'out-of-office-thumbnail.jpg':'ab89106912b51727c09bbca6f6f1f64375e339d5e73d7e1dd68e45a08b75fbab',
@@ -126,6 +127,7 @@ assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 assert.match(filmRoom, /class="media-youtube-fallback" href="https:\/\/www.youtube.com\/watch\?v=JKbeghbGcAM" target="_blank" rel="noopener">Watch on YouTube ↗<\/a>/);
 
 for (const [id, title] of [
+  ['going-once', '🔨 Going Once…'],
   ['the-big-board', 'The Big Board'],
   ['decision-desk', 'TLPT Decision Desk'],
   ['out-of-office', 'Out of Office. Out of Excuses.'],
@@ -179,6 +181,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['going-once','liEHKJxCHV0'],
   ['the-big-board','iEn7eMbXt4M'],
   ['decision-desk','50vy0wDMhHU'],
   ['out-of-office','B_7DZjLXC4I'],
@@ -239,7 +242,7 @@ for (const match of notificationTimes) {
   assert.ok(start >= previous && end > start && end <= 40);
   previous = end;
 }
-assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 47, 'Thirty-nine RSVP YouTube films plus all eight original embeds');
+assert.equal((filmRoom.match(/<iframe\b/g) || []).length, 48, 'Forty RSVP YouTube films plus all eight original embeds');
 for (const id of ['gnI9KnFmrgE','hVs41qBEIHo','RPCM5CLNBjk','F_UJsj1uC5s','4pB0mVtyt7Q','OB-hhe60nKs','KA3Nq_AMuY4','A5LBbTMEYCY'])
   assert.ok(filmRoom.includes('https://www.youtube.com/embed/'+id), 'Retain original film: '+id);
 assert.ok(filmRoom.includes('https://x.com/i/status/2011230641132835019'));
