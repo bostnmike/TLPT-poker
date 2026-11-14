@@ -31,12 +31,37 @@ function PosterLinks({event}:{event:Event}){
  const options=[['Buy-in only','entry',event.rules.entryPrize],['Buy-in + bounty','entry',event.rules.entryPrize+bounty],['Rebuy','rebuy',event.rules.rebuy],['Food','food',event.rules.food]] as const;
  return <details className="poster-links"><summary>Reusable poster links</summary><p>Print once for payments on the event day, through 6 AM the next morning (Eastern). The note identifies {slots[event.slot]}; the receipt time identifies the scheduled date. Match the poster’s amount to this event’s payment format.</p><div className="poster-link-list">{options.map(([label,kind,cents])=><div key={label}><a href={reusableCheckoutUrl(event.slot,kind,cents)} target="_blank" rel="noreferrer">{label} · {money(cents)} ↗</a><code>TLPT {event.slot} {kind}</code></div>)}</div><p>These links go directly to Venmo. Players do not need a register login.</p></details>;
 }
+const SIT_AND_GO_BOUNTY_CENTS=1000;
+
 function PaymentFormat({event,busy,onSave}:{event:Event;busy:boolean;onSave:(event:Event,mode:string,bountyCents:number)=>Promise<void>}){
  const saved=event.bountyOption||event.scheduledBounty||500;
  const [bounty,setBounty]=useState(String(saved/100));
  useEffect(()=>setBounty(String(saved/100)),[event.id,saved]);
- const value=Number(bounty)*100,cents=Math.round(value),valid=bounty.trim()!==''&&Number.isFinite(value)&&cents>=1&&cents<=100000&&Math.abs(cents-value)<1e-7;
- return <section className="payment-format" aria-label="Payment format"><div><h2>Payment format</h2><p>For {slots[event.slot]} · {event.dateLabel}</p></div><div className="format-options" role="group" aria-label="Choose payment format"><button aria-pressed={event.paymentFormat==='standard'} disabled={busy||!valid} onClick={()=>onSave(event,'standard',cents)}>Buy-in only <b>{money(event.rules.entryPrize)}</b></button><button aria-pressed={event.paymentFormat==='bounty'} disabled={busy||!valid} onClick={()=>onSave(event,'bounty',cents)}>Buy-in + bounty <b>{money(event.rules.entryPrize+(valid?cents:saved))}</b></button></div><label>Bounty amount ($)<input type="number" min="0.01" max="1000" step="0.01" value={bounty} disabled={busy} onChange={e=>setBounty(e.target.value)}/></label>{cents!==saved&&<button disabled={busy||!valid} onClick={()=>onSave(event,event.paymentFormat,cents)}>Save bounty</button>}{event.formatOverride&&<button className="scheduled-format" disabled={busy} onClick={()=>onSave(event,'scheduled',saved)}>Use scheduled format</button>}<p className="format-note">Bounty applies to the first entry only. Rebuys stay {money(event.rules.rebuy)}. Existing payments keep their original breakdown.{event.rules.bounty>0&&<> Use the updated Venmo link for the full {money(event.rules.entry)} entry; fixed-amount printed codes must match.</>}</p><PosterLinks event={event}/></section>;
+ const value=Number(bounty)*100;
+ const cents=Math.round(value);
+ const valid=bounty.trim()!==''&&Number.isFinite(value)&&cents>=1&&cents<=100000&&Math.abs(cents-value)<1e-7;
+ const showSitAndGoPreset=event.slot!=='mtt'&&event.tables===1&&event.rules.entryPrize===3000;
+ const sitAndGoPresetActive=showSitAndGoPreset&&event.rules.bounty===SIT_AND_GO_BOUNTY_CENTS;
+
+ return <section className="payment-format" aria-label="Payment format">
+  <div><h2>Payment format</h2><p>For {slots[event.slot]} · {event.dateLabel}</p></div>
+  <div className="format-options" role="group" aria-label="Choose payment format">
+   <button aria-pressed={event.paymentFormat==='standard'} disabled={busy||!valid} onClick={()=>onSave(event,'standard',cents)}>
+    Buy-in only <b>{money(event.rules.entryPrize)}</b>
+   </button>
+   {showSitAndGoPreset&&<button aria-pressed={sitAndGoPresetActive} disabled={busy} onClick={()=>onSave(event,'bounty',SIT_AND_GO_BOUNTY_CENTS)}>
+    $30 + $10 bounty <b>{money(event.rules.entryPrize+SIT_AND_GO_BOUNTY_CENTS)}</b>
+   </button>}
+   <button aria-pressed={event.paymentFormat==='bounty'&&!sitAndGoPresetActive} disabled={busy||!valid} onClick={()=>onSave(event,'bounty',cents)}>
+    {showSitAndGoPreset?'Custom bounty':'Buy-in + bounty'} <b>{money(event.rules.entryPrize+(valid?cents:saved))}</b>
+   </button>
+  </div>
+  <label>Bounty amount ($)<input type="number" min="0.01" max="1000" step="0.01" value={bounty} disabled={busy} onChange={e=>setBounty(e.target.value)}/></label>
+  {cents!==saved&&<button disabled={busy||!valid} onClick={()=>onSave(event,event.paymentFormat,cents)}>Save bounty</button>}
+  {event.formatOverride&&<button className="scheduled-format" disabled={busy} onClick={()=>onSave(event,'scheduled',saved)}>Use scheduled format</button>}
+  <p className="format-note">Bounty applies to the first entry only. Rebuys stay {money(event.rules.rebuy)}. Existing payments keep their original breakdown.{event.rules.bounty>0&&<> Use the updated Venmo link for the full {money(event.rules.entry)} entry; fixed-amount printed codes must match.</>}</p>
+  <PosterLinks event={event}/>
+ </section>;
 }
 function pendingBatchEvent(){try{return JSON.parse(sessionStorage.getItem('tlpt:pending-batch')||'null')?.eventId||'';}catch{return '';}}
 export default function Register(){
