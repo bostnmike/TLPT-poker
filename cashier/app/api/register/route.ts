@@ -44,6 +44,7 @@ export async function POST(req:Request){const denied=browserAuth(req,true);if(de
  }
  if(input.action==='select'){await db().prepare('INSERT INTO sync_state (id,last_check,matched,rejected,active_event_id) VALUES (?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET active_event_id=excluded.active_event_id').bind('venmo','',0,0,event.id).run();return json({ok:true,eventId:event.id});}
  if(input.action==='format'){
+  if(event.rsvpBountyCents!=null)return json({error:'This game’s bounty is set in the Commish RSVP event editor.'},409);
   if(!['standard','bounty','scheduled'].includes(input.mode))return json({error:'Choose a payment format.'},400);
   if(input.mode==='scheduled')await db().prepare('DELETE FROM event_payment_formats WHERE event_id=?').bind(event.id).run();
   else{

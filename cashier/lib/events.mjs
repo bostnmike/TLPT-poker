@@ -47,6 +47,10 @@ export function paymentSelection(event,items){
 }
 export function applyPaymentFormat(event,override){
  const scheduledBounty=event.rules.bounty;
+ if(event.rsvpBountyCents!=null){
+  const bounty=event.rsvpBountyCents;
+  return {...event,rules:{...event.rules,entry:event.rules.entryPrize+bounty,bounty},paymentFormat:bounty?'bounty':'standard',formatOverride:false,scheduledBounty};
+ }
  if(!override)return {...event,paymentFormat:scheduledBounty?'bounty':'standard',formatOverride:false,scheduledBounty};
  if(!['standard','bounty'].includes(override.mode)||!Number.isSafeInteger(override.bounty_cents)||override.bounty_cents<1||override.bounty_cents>100000)throw Error('Invalid bounty settings');
  const bounty=override.mode==='bounty'?override.bounty_cents:0;

@@ -75,7 +75,13 @@ try{
  assert.deepEqual(installs.map(response=>response.status),[200,200]);
  assert.deepEqual(await(await adoption(admin)).json(),{players:[{name:'red',installed:true,alertDevices:1}]});
  const edit={type:'event',eventId:'fixture-event',metadata:fixture.events[0].metadata,capacity:2,open:true};
+ const bountyEdit={...edit,metadata:{...edit.metadata,rsvpBountyCents:1000}};
+ assert.equal((await post('action',bountyEdit,red)).status,403);
+ assert.equal((await post('action',{...bountyEdit,metadata:{...edit.metadata,rsvpBountyCents:1000.5}},admin)).status,400);
+ assert.equal((await post('action',bountyEdit,admin)).status,200);
+ assert.equal((await (await fetch(base+'/api/public/events')).json()).events[0].rsvpBountyCents,1000);
  assert.equal((await post('action',edit,admin)).status,200);
+ assert.equal((await (await fetch(base+'/api/public/events')).json()).events[0].rsvpBountyCents,1000);
  const query=sql=>JSON.parse(run(['d1','execute','DB','--local','--command',sql,'--json']))[0].results;
  // Ordinary RSVP requests have no VAPID key in this disposable Worker and never
  // contact a push provider. Inspect the real D1 transaction's durable outbox instead.
