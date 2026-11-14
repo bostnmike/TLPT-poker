@@ -70,7 +70,7 @@ h2 { font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
 .payment-format { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 18px 0; padding: 18px 20px; border: 1px solid rgba(255,184,28,.18); border-radius: var(--radius-card); background: var(--surface-raised); box-shadow: var(--shadow); }
 .payment-format h2 { margin: 0 0 6px; }
 .payment-format p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
-.format-options { display: flex; gap: 8px; margin-left: auto; }
+.format-options { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
 .format-options button { display: flex; flex-direction: column; align-items: flex-start; min-width: 145px; }
 .format-options b { margin-top: 4px; font-size: 21px; }
 .payment-format label { color: var(--muted); font-size: 12px; }
@@ -287,7 +287,7 @@ footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wr
   .payment-format { padding: 16px; gap: 12px; }
   .event-settings>summary span { display: block; margin: 8px 0 0 15px; }
   .format-options { width: 100%; }
-  .format-options button { min-width: 0; flex: 1; }
+  .format-options button { min-width: 0; flex: 1 1 110px; }
   .statusbar { gap: 9px; }
   .statusbar button { margin-left: 0; }
   .stats { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
