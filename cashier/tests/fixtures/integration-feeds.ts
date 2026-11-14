@@ -4,7 +4,7 @@ export function playerFeed(){return Response.json({players:players.map(p=>({...p
 export function fixedFeed(input:RequestInfo|URL){
  const url=typeof input==='string'?input:input instanceof URL?input.href:input.url;
  if(url==='https://tlpt.org/data/player-metadata.json')return playerFeed();
- if(url==='https://tlpt.org/data/event-financials.json')return Response.json({events:{}});
+ if(url.split('?')[0]==='https://tlpt.org/data/event-financials.json')return Response.json({events:{}});
  if(url==='https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events')return Response.json({schemaVersion:1,revision:1,events:[
   {id:'integration-friday',slot:'friday',title:'Fixture Friday',date:'2026-11-13',rsvpOpen:true,rsvps:{},waitlist:[]},
   {id:'integration-saturday',slot:'saturday',title:'Fixture Saturday',date:'2026-11-14',rsvpOpen:true,rsvps:{},waitlist:[]},

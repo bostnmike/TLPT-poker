@@ -12,7 +12,10 @@ async function get(eventId,etag){const r=await fetch(base+'/api/register'+(event
 async function post(body,expected=200,origin=base){const r=await fetch(base+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(body)});const j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;}
 async function intake(messages,mode='live'){const r=await fetch(base+'/api/import',{method:'POST',headers:{'Content-Type':'application/json','X-Register-Token':secret},body:JSON.stringify({messages,mode,readerMode:'rolling'})});const j=await r.json();assert.equal(r.status,200,JSON.stringify(j));return j;}
 try{
- const primary=run.config('register',template);run.migrate(primary,state);({base}=await run.start([primary],{state}));
+ const primary=run.config('register',{...template,services:[{binding:'CASHIER_RSVP',service:'cashier-integration-rsvp'}]});
+ const rsvp=run.config('rsvp',{name:'cashier-integration-rsvp',main:'tests/fixtures/integration-rsvp.ts',compatibility_date:template.compatibility_date});
+ run.migrate(primary,state);
+ ({base}=await run.start([primary,rsvp],{state}));
  const first=await get();assert.equal(first.r.status,200,JSON.stringify(first.data));assert.equal(first.data.scheduleError,'','The fixture schedule, including Date TBD placeholders, must refresh successfully');const event=first.data.events.find(e=>e.rules.entry>0&&e.rules.food>0);assert.ok(event,'The fixed payable schedule must load');
  assert.equal(first.data.totals.collected,0);const unchanged=await get(first.data.selectedEventId,first.r.headers.get('ETag'));assert.equal(unchanged.r.status,304,'Unchanged polling should avoid rereading the ledger');
  const originFailure=await post({action:'format',eventId:event.id,mode:'standard',bountyCents:500},403,'https://attacker.example');assert.ok(originFailure.error);
@@ -34,7 +37,7 @@ try{
  stateNow=(await get(event.id)).data;const latest=stateNow.payments.find(p=>p.id===recorded.id);await post({action:'delete',eventId:event.id,id:latest.id,expectedUpdatedAt:latest.updated_at,checked:true});
  await intake([m1]);stateNow=(await get(event.id)).data;assert.equal(stateNow.totals.collected,0);assert.equal(stateNow.payments.some(p=>p.source_id==='gmail:'+m1.id),false,'Deleted receipts must not reappear');
  const players=await (await fetch(base+'/api/players')).json();assert.ok(players.players.some(p=>p.venmoUsername==='dmichaelson'),'Central Venmo identities should survive the migration');
- console.log('PASS: real local Cloudflare Worker/D1 — fixed TLPT schedule contracts, ETags, origin protection, combined allocations, idempotent manual entry, receipt dry run, duplicate suppression, link, confirm, void, delete, and public player mappings.');
+ console.log('PASS: real local Cloudflare Worker/D1 — bound TLPT schedule despite HTTP 403, ETags, origin protection, combined allocations, idempotent manual entry, receipt dry run, duplicate suppression, link, confirm, void, delete, and public player mappings.');
  { // Use the same format action as the Sit & Go preset against disposable D1.
   const sitAndGo=first.data.events.find(e=>e.slot==='friday');
   const eventId=sitAndGo.id;
@@ -128,6 +131,25 @@ try{
  assert.equal((await hintake([sundayMail])).ignoredIds.length,1);assert.ok(!(await hintake([],'config')).events.some(e=>e.id===sundayId));
  await fetch(historyBase+'/__test/open-sunday');sundayState=await hget(sundayId);assert.ok(!sundayState.events.find(e=>e.id===sundayId).savedOnly);assert.equal(JSON.stringify(sundayState.payments),sundayOriginal);
  await hintake([sundayMail]);sundayState=await hget(sundayId);const sundayReceipt=sundayState.payments.find(p=>p.source_id==='gmail:'+sundayMail.id);assert.equal(sundayReceipt.kind,'entry');assert.equal(sundayReceipt.status,'review');assert.equal(sundayState.totals.collected,3000);
+ const refreshUrl=historyBase+'/api/register?refresh=events&eventId='+encodeURIComponent(sundayId);
+ const cached=await fetch(historyBase+'/api/register?eventId='+encodeURIComponent(sundayId));
+ const prior=await cached.json();
+ await fetch(historyBase+'/__test/close-sunday-in-feed');
+ assert.equal((await hget(sundayId)).events.find(e=>e.id===sundayId).savedOnly,false,'Normal polling still uses the cached schedule');
+ await fetch(historyBase+'/__test/financials-offline');
+ const unavailable=await (await fetch(refreshUrl)).json();
+ assert.match(unavailable.scheduleError,/Schedule refresh unavailable/);
+ assert.deepEqual(unavailable.events,prior.events);
+ assert.deepEqual(unavailable.payments,prior.payments);
+ await fetch(historyBase+'/__test/financials-online');
+ const refreshed=await fetch(refreshUrl,{headers:{'If-None-Match':cached.headers.get('ETag')}});
+ assert.equal(refreshed.status,200);
+ const updated=await refreshed.json();
+ assert.equal(updated.scheduleError,'');
+ assert.equal(updated.selectedEventId,sundayId);
+ assert.equal(updated.events.find(e=>e.id===sundayId).savedOnly,true);
+ assert.deepEqual(updated.payments,prior.payments);
+ console.log('PASS: forced schedule refresh bypasses the cached view, preserves the selected ledger during outages, and sees feed edits immediately.');
  console.log('PASS: isolated Sunday switch — closed-by-default feed, open/close/reopen, 50K single-table regular pricing, stable identity, unchanged saved allocations, new-sale and intake denial while closed, reader configuration, display links and Sunday receipt parsing.');
  const mail={id:'CLEAR_'+crypto.randomUUID().replaceAll('-',''),from:'Venmo <venmo@venmo.com>',authenticationResults:'mx.google.com; dkim=pass header.i=@venmo.com',subject:'Test Payer paid you $50.00',body:'TLPT mtt 2020-01-01 entry',internalDate:String(Date.parse('2020-01-01T18:00:00Z'))};
  await hintake([mail]);let h=await hget();
@@ -172,6 +194,7 @@ try{
  console.log('PASS: exact one-Web-Clip iPad profile is anonymously downloadable with Apple MIME type, filename, no-store and nosniff headers; no private data is included.');
  const logIn=(value,origin=passwordBase)=>fetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
  assert.equal((await fetch(passwordBase+'/api/register')).status,401);
+ assert.equal((await fetch(passwordBase+'/api/register?refresh=events')).status,401);
  assert.equal((await fetch(passwordBase+'/api/reader-setup')).status,401,'Reader credentials must require owner sign-in');
  assert.equal((await fetch(passwordBase+'/auth/login')).headers.get('Referrer-Policy'),'same-origin','Native sign-in forms must preserve their same-origin Origin header');
  assert.equal((await logIn(password,'https://attacker.example')).status,403);

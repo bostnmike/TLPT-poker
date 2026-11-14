@@ -90,6 +90,8 @@ h2 { font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
 .statusbar>span.connected { color: #86efac; }
 .statusbar>span.connected i { background: var(--green); }
 .statusbar button { margin-left: auto; font-size: 12px; }
+.statusbar .event-refresh-message { flex-basis: 100%; }
+.statusbar .event-refresh-message:empty { display: none; }
 .stats { display: grid; grid-template-columns: 1.35fr 1fr 1fr 1fr; gap: 12px; }
 .stats article { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--surface-raised); box-shadow: var(--shadow); }
 .stats .total { border-color: rgba(255,184,28,.3); background: radial-gradient(circle at top right,rgba(255,184,28,.1),transparent 55%),var(--surface-raised); }

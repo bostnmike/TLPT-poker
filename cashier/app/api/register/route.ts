@@ -12,13 +12,15 @@ import {resolvePlayer} from '@/lib/players.mjs';
 import {rememberPayerPlan} from '@/lib/venmo-aliases.mjs';
 export const dynamic='force-dynamic';
 export async function GET(req:Request){const denied=browserAuth(req);if(denied)return denied;try{
- const schedule=await getSchedule(),asked=new URL(req.url).searchParams.get('eventId');
+ const params=new URL(req.url).searchParams;
+ const refreshEvents=params.get('refresh')==='events';
+ const schedule=await getSchedule(refreshEvents),asked=params.get('eventId');
  const state:any=await db().prepare('SELECT * FROM sync_state WHERE id=?').bind('venmo').first();
- const following=new URL(req.url).searchParams.get('follow')==='true';
+ const following=params.get('follow')==='true';
  const selected=schedule.events.find((e:any)=>e.id===(following?state?.active_event_id:asked))||schedule.events.filter((e:any)=>!e.savedOnly).sort((a:any,b:any)=>a.date.localeCompare(b.date))[0]||schedule.events.filter((e:any)=>e.savedOnly).sort((a:any,b:any)=>b.date.localeCompare(a.date))[0]||null;
  const revision:any=await db().prepare('SELECT revision,history_revision FROM register_revision WHERE id=1').first();
  const etag=JSON.stringify(String(revision?.revision||0)+'-'+(selected?.id||'none'));
- if(req.headers.get('If-None-Match')===etag)return new Response(null,{status:304,headers:{ETag:etag,'Cache-Control':'private, no-store'}});
+ if(!refreshEvents&&req.headers.get('If-None-Match')===etag)return new Response(null,{status:304,headers:{ETag:etag,'Cache-Control':'private, no-store'}});
  const rows=selected?(await db().prepare('SELECT * FROM payments WHERE event_id=? OR event_id IS NULL ORDER BY received_at DESC,created_at DESC LIMIT 2000').bind(selected.id).all()).results:[];
  const venmoAliases=(await db().prepare('SELECT payer_key,payer_name,player_slug,player_name,updated_at FROM venmo_player_aliases ORDER BY payer_name').all()).results;
  const receiptLinks=(await db().prepare('SELECT l.* FROM receipt_links l JOIN payments p ON p.id=l.payment_id WHERE p.event_id=?').bind(selected?.id||'').all()).results;
