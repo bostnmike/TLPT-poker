@@ -7,7 +7,7 @@ export function fixedFeed(input:RequestInfo|URL){
  if(url.split('?')[0]==='https://tlpt.org/data/event-financials.json')return Response.json({events:{}});
  if(url==='https://tlpt-rsvp.tlpt-bostnmike.workers.dev/api/public/events')return Response.json({schemaVersion:1,revision:1,events:[
   {id:'integration-friday',slot:'friday',title:'Fixture Friday',date:'2026-11-13',rsvpOpen:true,rsvps:{},waitlist:[]},
-  {id:'integration-saturday',slot:'saturday',title:'Fixture Saturday',date:'2026-11-14',rsvpOpen:true,rsvps:{},waitlist:[]},
+  {id:'integration-saturday',slot:'saturday',title:'Fixture Saturday',date:'2026-11-14',rsvpOpen:true,rsvpBuyInCents:3200,rsvpRebuyCents:3100,rsvpBountyCents:1000,rsvpBountyOnRebuy:true,rsvps:{},waitlist:[]},
   {id:'integration-mtt',slot:'mtt',title:'Fixture MTT',date:'2026-11-14',tables:2,rsvpOpen:true,rsvps:{},waitlist:[]},
   {id:'integration-pending',slot:'sunday',title:'Fixture pending',date:'TBD',rsvpOpen:false,rsvps:{},waitlist:[]}
  ]});

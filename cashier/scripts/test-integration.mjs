@@ -38,32 +38,27 @@ try{
  await intake([m1]);stateNow=(await get(event.id)).data;assert.equal(stateNow.totals.collected,0);assert.equal(stateNow.payments.some(p=>p.source_id==='gmail:'+m1.id),false,'Deleted receipts must not reappear');
  const players=await (await fetch(base+'/api/players')).json();assert.ok(players.players.some(p=>p.venmoUsername==='dmichaelson'),'Central Venmo identities should survive the migration');
  console.log('PASS: real local Cloudflare Worker/D1 — bound TLPT schedule despite HTTP 403, ETags, origin protection, combined allocations, idempotent manual entry, receipt dry run, duplicate suppression, link, confirm, void, delete, and public player mappings.');
- { // Use the same format action as the Sit & Go preset against disposable D1.
-  const sitAndGo=first.data.events.find(e=>e.slot==='friday');
-  const eventId=sitAndGo.id;
-  const format={action:'format',eventId};
-  const manualEntry={action:'manual',eventId,player:'Fixture Sit & Go Player',items:['entry'],method:'cash',checked:true};
-  await post({...manualEntry,cents:3000,requestId:crypto.randomUUID()});
-  const before=await get(eventId);
-  await post({...format,mode:'bounty',bountyCents:1000});
-  const withBounty=(await get(eventId,before.r.headers.get('ETag'))).data;
-  const priced=withBounty.events.find(e=>e.id===eventId);
-  assert.deepEqual(priced.rules,{...sitAndGo.rules,entry:4000,bounty:1000});
-  assert.deepEqual(withBounty.payments,before.data.payments,'Changing the price must preserve recorded allocations');
-  assert.deepEqual(withBounty.events.find(e=>e.slot==='saturday').rules,first.data.events.find(e=>e.slot==='saturday').rules);
-
-  const id='SNG_'+crypto.randomUUID().replaceAll('-','');
-  await intake([{id,from:'Venmo <venmo@venmo.com>',authenticationResults:'mx.google.com; dkim=pass header.i=@venmo.com',subject:'Fixture Payer paid you $40.00',body:'TLPT friday entry',internalDate:String(Date.now())}]);
+ { // RSVP owns prices for the scheduled event.
+  const friday=first.data.events.find(e=>e.slot==='friday');
+  const saturday=first.data.events.find(e=>e.slot==='saturday');
+  assert.equal(friday.rules.entry,3000);
+  assert.deepEqual(saturday.rules,{entry:4200,rebuy:4100,food:1500,entryPrize:3200,bounty:1000,rebuyBounty:1000});
+  const eventId=saturday.id;
+  const rejected=await post({action:'format',eventId,mode:'standard',bountyCents:500},409);
+  assert.match(rejected.error,/Commish RSVP/);
+  const id='RSVP_REBUY_'+crypto.randomUUID().replaceAll('-','');
+  await intake([{id,from:'Venmo <venmo@venmo.com>',authenticationResults:'mx.google.com; dkim=pass header.i=@venmo.com',subject:'Fixture Payer paid you $41.00',body:'TLPT saturday 2026-11-14 rebuy',internalDate:String(Date.parse('2026-11-15T00:00:00Z'))}]);
   const imported=(await get(eventId)).data.payments.find(p=>p.source_id==='gmail:'+id);
-  assert.equal(imported.kind,'entry');
+  assert.equal(imported.kind,'rebuy');
   assert.equal(imported.status,'review');
-  await post({action:'confirm',eventId,id:imported.id,player:'Fixture Bounty Player',items:['entry'],cents:4000,checked:true,requestId:crypto.randomUUID()});
-  const confirmed=(await get(eventId)).data.payments.find(p=>p.id===imported.id);
-  assert.equal(confirmed.prize_cents,3000);
+  await post({action:'confirm',eventId,id:imported.id,player:'Fixture Bounty Player',items:['rebuy'],cents:4100,checked:true,requestId:crypto.randomUUID()});
+  const ledger=(await get(eventId)).data;
+  const confirmed=ledger.payments.find(p=>p.id===imported.id);
+  assert.equal(confirmed.prize_cents,3100);
   assert.equal(confirmed.bounty_cents,1000);
-  await post({...format,mode:'scheduled'});
-  assert.equal((await get(eventId)).data.events.find(e=>e.id===eventId).rules.entry,3000);
-  console.log('PASS: $30 + $10 Sit & Go format, $40 receipt and allocation, event isolation, and scheduled reset.');
+  assert.deepEqual(JSON.parse(confirmed.item_cents),{rebuy:4100});
+  assert.deepEqual(ledger.events.find(e=>e.id===friday.id).rules,friday.rules);
+  console.log('PASS: RSVP-owned buy-in and rebuy prices, rebuy receipt allocation, event isolation, and Cashier edit denial.');
  }
  { // Batch processing uses only this disposable local database.
  const batchEvent=first.data.events.find(e=>e.slot==='mtt')||event;

@@ -8,6 +8,10 @@ export function validateLiveRsvps(feed){
   const identity=e.slot+':'+e.date;
   if(identities.has(identity)||typeof e.id!=='string'||!SLOTS.includes(e.slot)||typeof e.date!=='string'||!e.rsvps||Array.isArray(e.rsvps)||Object.values(e.rsvps).some(a=>!['yes','no','maybe','tbd'].includes(a))||!Array.isArray(e.waitlist))throw Error('Invalid live RSVP event');
   if(e.slot==='sunday'&&((e.tables!==undefined&&e.tables!==1)||(e.capacity!==undefined&&(!Number.isSafeInteger(e.capacity)||e.capacity<1||e.capacity>9))))throw Error('Invalid single-table Sunday');
+  for(const key of ['rsvpBuyInCents','rsvpRebuyCents']){
+   const amount=e[key];
+   if(amount!=null&&(!Number.isSafeInteger(amount)||amount<1||amount>100000))throw Error('Invalid RSVP base price');
+  }
   if(e.rsvpBountyCents!=null&&(!Number.isSafeInteger(e.rsvpBountyCents)||e.rsvpBountyCents<0||e.rsvpBountyCents>100000))throw Error('Invalid RSVP bounty');
   if(e.rsvpBountyOnRebuy!==undefined&&(typeof e.rsvpBountyOnRebuy!=='boolean'||(e.rsvpBountyOnRebuy&&!(e.rsvpBountyCents>0))))throw Error('Invalid RSVP rebuy bounty');
   identities.add(identity);
