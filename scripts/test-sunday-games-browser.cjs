@@ -14,7 +14,8 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
   title:'Sunday Test Game', format:'50K Format', structure:'50/100 opening blinds · 20-minute levels',
   tables:1, capacity:9, startingStack:50000, blindStructure:'40k', time:'6:30 PM', endTime:'11:30 PM',
   location:'Test table', address:'', rsvp_url:'https://tlpt-rsvp.tlpt-bostnmike.workers.dev/',
-  rsvps:{bostnmike:'yes',red:'yes',ahmed:'maybe'}, waitlist:[], rsvpOpen:false};
+  rsvps:{bostnmike:'yes',red:'yes',ahmed:'maybe'}, waitlist:[], rsvpOpen:false,
+  rsvpBuyInCents:3000, rsvpBountyCents:1000};
 
 (async () => {
   const browser = await chromium.launch({...(process.env.CI ? {} : {channel:'chrome'}), headless:true});
@@ -33,6 +34,7 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           if (mode === 'offline') return route.abort();
           return route.fulfill({json:{schemaVersion:1, revision,
             events:[...regular, ...(mode === 'absent' ? [] : [{...sunday, capacity:mode === 'small' ? 5 : 9,
+              rsvpBountyCents:mode === 'small' ? 0 : sunday.rsvpBountyCents,
               rsvpOpen:mode === 'open' || mode === 'small'}])],
             noGameDays:[{date:'2099-01-04',day:'Sunday',label:'NO GAME THIS SUNDAY'}]}});
         });
@@ -100,6 +102,10 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           assert.equal(await sundayCards.count(), 1);
           if (name === 'index') await page.locator('.home-event-rotator-panel.is-active [data-home-event-slot="sunday"]').click();
           const card = sundayCards.first();
+          assert.equal(await card.locator('.event-format-title').textContent(), sunday.format);
+          const pricing = card.locator('.event-format-title + .event-pricing');
+          assert.equal(await pricing.innerText(), '$30 buy-in + $10 bounty');
+          assert.equal(await page.locator('[data-event-slot="friday"] .event-pricing').count(), 0, 'Unset pricing stays hidden');
           assert.equal(await card.locator('.schedule-day-pill').textContent(), 'Sunday');
           assert.match(await card.getAttribute('class'), /schedule-event-card-sunday/);
           assert.equal(await card.locator('.event-rsvp-table').count(), 1);
@@ -116,6 +122,7 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           await page.mouse.move(1,1);
           await page.screenshot({path:'/tmp/sunday-'+name+'-'+width+'.png', animations:'disabled'});
           await refresh('small');
+          assert.equal(await pricing.innerText(), '$30 buy-in · no bounty', 'Pricing follows live feed refresh');
           assert.equal(await sundayCards.locator('.event-rsvp-seat-player,.event-empty-seat').count(), 5, 'Capacity-limited Sunday does not advertise extra chairs');
           await refresh('closed'); await checkHidden();
           await refresh('open');
@@ -124,6 +131,7 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           await page.clock.runFor(60050);
           await page.waitForFunction(() => window.siteData?.rsvpUnavailable === true);
           await checkHidden();
+          assert.equal(await page.locator('.event-pricing').count(), 0, 'Outages hide unverified prices');
           await refresh('open');
         }
         assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth > innerWidth + 1), false, name+': no horizontal overflow');

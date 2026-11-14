@@ -14,6 +14,7 @@ function renderSchedule(data) {
       <div class="event-layout-grid">
         <div class="event-details-col">
           <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
+          ${buildEventPricingMarkup(event)}
           <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
           <h3>${escapeHtmlAttr(event.date)}</h3>
           <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>

@@ -1743,6 +1743,21 @@ function badgesMarkup(player, data, comparisonPlayers = null) {
   `;
 }
 
+function buildEventPricingMarkup(event) {
+  const { rsvpBuyInCents: buyIn, rsvpBountyCents: bounty } = event;
+  const parts = [];
+  if (Number.isSafeInteger(buyIn) && buyIn > 0) {
+    parts.push(`${fmtMoney(buyIn / 100)} buy-in`);
+  }
+  if (Number.isSafeInteger(bounty) && bounty > 0) {
+    parts.push(`${fmtMoney(bounty / 100)} bounty`);
+  } else if (bounty === 0) {
+    parts.push("no bounty");
+  }
+  const separator = bounty === 0 ? " · " : " + ";
+  return parts.length ? `<p class="event-pricing muted">${parts.join(separator)}</p>` : "";
+}
+
 function getRsvpCounts(event) {
   const statuses = Object.values(event?.rsvps || {}).map(value =>
     String(value || "tbd").toLowerCase()
@@ -2256,6 +2271,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
       <div class="event-layout-grid">
         <div class="event-details-col">
           <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
+          ${buildEventPricingMarkup(event)}
           <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
           <h3>${escapeHtmlAttr(event.date)}</h3>
           <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>
@@ -6271,6 +6287,7 @@ function renderSchedule(data) {
       <div class="event-layout-grid">
         <div class="event-details-col">
           <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
+          ${buildEventPricingMarkup(event)}
           <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
           <h3>${escapeHtmlAttr(event.date)}</h3>
           <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>

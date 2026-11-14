@@ -1,3 +1,18 @@
+function buildEventPricingMarkup(event) {
+  const { rsvpBuyInCents: buyIn, rsvpBountyCents: bounty } = event;
+  const parts = [];
+  if (Number.isSafeInteger(buyIn) && buyIn > 0) {
+    parts.push(`${fmtMoney(buyIn / 100)} buy-in`);
+  }
+  if (Number.isSafeInteger(bounty) && bounty > 0) {
+    parts.push(`${fmtMoney(bounty / 100)} bounty`);
+  } else if (bounty === 0) {
+    parts.push("no bounty");
+  }
+  const separator = bounty === 0 ? " · " : " + ";
+  return parts.length ? `<p class="event-pricing muted">${parts.join(separator)}</p>` : "";
+}
+
 function getRsvpCounts(event) {
   const statuses = Object.values(event?.rsvps || {}).map(value =>
     String(value || "tbd").toLowerCase()

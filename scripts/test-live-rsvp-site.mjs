@@ -24,7 +24,7 @@ statusContext.renderLiveRsvpStatus(true);
 assert.match(notice.textContent,/Live schedule unavailable/);
 statusContext.renderLiveRsvpStatus(false);
 assert.match(notice.textContent,/Games open for RSVPs/,'Schedule notice recovers when the feed returns');
-const functions=['loadLiveRsvpEvents','getRsvpCounts','getRsvpPlayersByStatus','buildEventRsvpButtonMarkup','buildRsvpSummaryMarkup','getEventDateKey','getCurrentEvents','getHomeEvents'];
+const functions=['fmtMoney','buildEventPricingMarkup','loadLiveRsvpEvents','getRsvpCounts','getRsvpPlayersByStatus','buildEventRsvpButtonMarkup','buildRsvpSummaryMarkup','getEventDateKey','getCurrentEvents','getHomeEvents'];
 let liveFunctions=functions.map(name=>source.match(new RegExp('^(?:async )?function '+name+'\\([^]*?^}', 'm'))?.[0]).join('\n');
 assert.equal(functions.filter(n=>liveFunctions.includes('function '+n)).length,functions.length);
 const feed={schemaVersion:1,events:[{id:'friday-2026-10-30',slot:'friday',date:'2026-10-30',rsvp_url:'https://tlpt-rsvp.tlpt-bostnmike.workers.dev/',rsvps:{bostnmike:'yes',red:'maybe',ahmed:'maybe'},waitlist:[{slug:'red',position:1}]}]};
@@ -70,3 +70,14 @@ assert.equal(noGameTarget.innerHTML,'','Optional Sunday never receives routine n
 noGameContext.renderNoGameNotices({noGameDays:[]});assert.equal(noGameTarget.innerHTML,'');
 assert.match(source,/JSON\.stringify\(live.noGameDays\) === JSON\.stringify\(data.noGameDays\)/,'Midnight notice changes must bypass unchanged revision optimization');
 console.log('PASS: dated no-game notices, empty-state cleanup, outage suppression and revision-independent rollover.');
+
+const pricing = a.buildEventPricingMarkup;
+assert.match(pricing({rsvpBuyInCents:3000,rsvpBountyCents:1000}), /\$30 buy-in \+ \$10 bounty/);
+assert.match(pricing({rsvpBuyInCents:3025,rsvpBountyCents:0}), /\$30\.25 buy-in · no bounty/);
+assert.match(pricing({rsvpBuyInCents:3000,rsvpBountyCents:null}), />\$30 buy-in</);
+assert.match(pricing({rsvpBuyInCents:null,rsvpBountyCents:1000}), />\$10 bounty</);
+assert.match(pricing({rsvpBountyCents:0}), />no bounty</);
+assert.equal(pricing({rsvpBuyInCents:null,rsvpBountyCents:null}), '');
+assert.equal(pricing({}), '');
+assert.equal(pricing({rsvpBuyInCents:'3000',rsvpBountyCents:-100}), '');
+console.log('PASS: event pricing displays only explicit valid RSVP amounts and distinguishes no bounty from an unset bounty.');
