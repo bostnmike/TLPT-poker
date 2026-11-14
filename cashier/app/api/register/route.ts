@@ -29,6 +29,7 @@ export async function GET(req:Request){const denied=browserAuth(req);if(denied)r
  }catch{return json({error:'Could not load the register or live schedule. Saved records remain intact.'},503);}}
 export async function POST(req:Request){const denied=browserAuth(req,true);if(denied)return denied;try{
  const input=await body(req),now=new Date().toISOString(),actor=req.headers.get('x-tlpt-authenticated-user-id')!,schedule=await getSchedule();
+ if(input.action==='format')return json({error:'Set payment prices in the Commish RSVP event editor.'},409);
  const event=schedule.events.find((e:any)=>e.id===input.eventId);if(!event)return json({error:'This event has been replaced in the schedule. Reopen the current tab.'},409);
  if(input.action==='clear-history'){
   let plan;try{plan=eventHistoryClearPlan({event,expectedRevision:input.expectedRevision,confirmationDate:input.confirmationDate,checked:input.checked,requestId:crypto.randomUUID()});}catch(error){return json({error:error instanceof Error?error.message:'Confirm the past MTT to clear.'},400);}
@@ -36,23 +37,13 @@ export async function POST(req:Request){const denied=browserAuth(req,true);if(de
   return json({ok:true,eventId:event.id,historyCleared:true});
  }
  if(event.historyClearedAt&& !['select','forget-alias'].includes(input.action))return json({error:'History for this event has been cleared and the event is closed. Use a newly dated event for new payments.'},409);
- if(event.savedOnly&&(input.action==='manual'||input.action==='format'||(input.action==='batch'&&input.groups?.some((g:any)=>g.action==='manual'))))return json({error:'This is saved payment history, not an active game. Choose a current game to record new payments.'},409);
+ if(event.savedOnly&&(input.action==='manual'||(input.action==='batch'&&input.groups?.some((g:any)=>g.action==='manual'))))return json({error:'This is saved payment history, not an active game. Choose a current game to record new payments.'},409);
  if(input.action==='batch')return processBatch(input,event,actor,now);
  if(input.action==='forget-alias'){
   if(typeof input.payerKey!=='string'||!input.payerKey||input.payerKey.length>200)return json({error:'Choose a remembered Venmo name.'},400);
   await db().prepare('DELETE FROM venmo_player_aliases WHERE payer_key=?').bind(input.payerKey).run();return json({ok:true});
  }
  if(input.action==='select'){await db().prepare('INSERT INTO sync_state (id,last_check,matched,rejected,active_event_id) VALUES (?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET active_event_id=excluded.active_event_id').bind('venmo','',0,0,event.id).run();return json({ok:true,eventId:event.id});}
- if(input.action==='format'){
-  if(event.rsvpBountyCents!=null)return json({error:'This game’s bounty is set in the Commish RSVP event editor.'},409);
-  if(!['standard','bounty','scheduled'].includes(input.mode))return json({error:'Choose a payment format.'},400);
-  if(input.mode==='scheduled')await db().prepare('DELETE FROM event_payment_formats WHERE event_id=?').bind(event.id).run();
-  else{
-   if(!Number.isSafeInteger(input.bountyCents)||input.bountyCents<1||input.bountyCents>100000)return json({error:'Enter a bounty between $0.01 and $1,000.'},400);
-   await db().prepare('INSERT INTO event_payment_formats (event_id,mode,bounty_cents,updated_at,actor) VALUES (?,?,?,?,?) ON CONFLICT(event_id) DO UPDATE SET mode=excluded.mode,bounty_cents=excluded.bounty_cents,updated_at=excluded.updated_at,actor=excluded.actor').bind(event.id,input.mode,input.bountyCents,now,actor).run();
-  }
-  return json({ok:true,eventId:event.id});
- }
  if(input.action==='delete'){
   if(!input.checked||typeof input.id!=='string'||typeof input.expectedUpdatedAt!=='string')return json({error:'Confirm the transaction you want to permanently delete.'},400);
   const p:any=await db().prepare('SELECT * FROM payments WHERE id=?').bind(input.id).first();

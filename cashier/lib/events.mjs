@@ -56,15 +56,16 @@ export function paymentSelection(event,items){
 }
 export function applyPaymentFormat(event,override){
  const scheduledBounty=event.rules.bounty;
- if(event.rsvpBountyCents!=null){
-  const bounty=event.rsvpBountyCents;
-  const rebuyBounty=event.rsvpBountyOnRebuy?bounty:0;
-  return {...event,rules:{...event.rules,entry:event.rules.entryPrize+bounty,bounty,rebuy:event.rules.rebuy+rebuyBounty,rebuyBounty},paymentFormat:bounty?'bounty':'standard',formatOverride:false,scheduledBounty};
- }
- if(!override)return {...event,paymentFormat:scheduledBounty?'bounty':'standard',formatOverride:false,scheduledBounty};
- if(!['standard','bounty'].includes(override.mode)||!Number.isSafeInteger(override.bounty_cents)||override.bounty_cents<1||override.bounty_cents>100000)throw Error('Invalid bounty settings');
- const bounty=override.mode==='bounty'?override.bounty_cents:0;
- return {...event,rules:{...event.rules,entry:event.rules.entryPrize+bounty,bounty},paymentFormat:override.mode,formatOverride:true,scheduledBounty,bountyOption:override.bounty_cents};
+ const fromRsvp=event.rsvpBountyCents!=null;
+ const legacyOverride=fromRsvp?null:override;
+ if(legacyOverride&&(!['standard','bounty'].includes(legacyOverride.mode)||!Number.isSafeInteger(legacyOverride.bounty_cents)||legacyOverride.bounty_cents<1||legacyOverride.bounty_cents>100000))throw Error('Invalid bounty settings');
+ const legacyBounty=legacyOverride?(legacyOverride.mode==='bounty'?legacyOverride.bounty_cents:0):scheduledBounty;
+ const bounty=event.rsvpBountyCents??legacyBounty;
+ const entryPrize=event.rsvpBuyInCents??event.rules.entryPrize;
+ const rebuyBounty=fromRsvp&&event.rsvpBountyOnRebuy?bounty:0;
+ const rules={...event.rules,entryPrize,entry:entryPrize+bounty,bounty,rebuy:(event.rsvpRebuyCents??event.rules.rebuy)+rebuyBounty};
+ if(fromRsvp)rules.rebuyBounty=rebuyBounty;
+ return {...event,rules,paymentFormat:bounty?'bounty':'standard',formatOverride:!!legacyOverride,scheduledBounty,...(legacyOverride?{bountyOption:legacyOverride.bounty_cents}:{})};
 }
 export function checkoutNote(event,kind){return `TLPT ${event.slot} ${event.date} ${kind}`;}
 export function checkoutUrl(event,kind){return 'https://venmo.com/BostnMike?'+new URLSearchParams({txn:'pay',amount:(event.rules[kind]/100).toFixed(2),note:checkoutNote(event,kind)});}

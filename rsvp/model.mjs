@@ -35,6 +35,12 @@ export function validateMetadata(raw){
  requireValue(m.date==='Date TBD'||/^\d{4}-\d{2}-\d{2}$/.test(m.date)&&Number.isFinite(Date.parse(m.date+'T12:00:00Z'))&&new Date(m.date+'T12:00:00Z').toISOString().slice(0,10)===m.date,'Choose a calendar date or Date TBD.');
  requireValue(/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.time)&&/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.endTime),'Use times such as 7:00 PM.');
  const poster=raw.poster||'auto';requireValue(poster==='auto'||poster==='none'||validPosterFile(poster),'Choose a poster from the TLPT gallery.');
+ for(const [key,label] of [['rsvpBuyInCents','buy-in'],['rsvpRebuyCents','rebuy']]){
+  const amount=raw[key];
+  if(amount===undefined)continue;
+  requireValue(amount===null||(Number.isSafeInteger(amount)&&amount>=1&&amount<=100000),'Enter a '+label+' between $0.01 and $1,000.');
+  m[key]=amount;
+ }
  if(raw.rsvpBountyCents!==undefined){
   const bounty=raw.rsvpBountyCents;
   requireValue(bounty===null||(Number.isSafeInteger(bounty)&&bounty>=0&&bounty<=100000),'Enter a bounty between $0.01 and $1,000, or choose No bounty.');
