@@ -27,8 +27,8 @@ const slots:Record<string,string>={friday:'Friday',saturday:'Saturday',sunday:'S
 const playerName=(s:string)=>({'bostnmike':'BostnMike','providencemike':'ProvidenceMike','ai-dave':'AI Dave','nasa-al':'NASA Al','li-fo':'ButtonMan'}[s]||s.split('-').map(x=>x[0]?.toUpperCase()+x.slice(1)).join(' '));
 const time=(s:string)=>new Date(s).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'});
 function PosterLinks({event}:{event:Event}){
- const bounty=event.bountyOption||event.scheduledBounty||500;
- const options=[['Buy-in only','entry',event.rules.entryPrize],['Buy-in + bounty','entry',event.rules.entryPrize+bounty],['Rebuy','rebuy',event.rules.rebuy],['Food','food',event.rules.food]] as const;
+ const bounty=event.rules.bounty||event.bountyOption||event.scheduledBounty||500;
+ const options=[['Buy-in only','entry',event.rules.entryPrize],['Buy-in + bounty','entry',event.rules.entryPrize+bounty],[event.rules.rebuyBounty?'Rebuy + bounty':'Rebuy','rebuy',event.rules.rebuy],['Food','food',event.rules.food]] as const;
  return <details className="poster-links"><summary>Reusable poster links</summary><p>Print once for payments on the event day, through 6 AM the next morning (Eastern). The note identifies {slots[event.slot]}; the receipt time identifies the scheduled date. Match the poster’s amount to this event’s payment format.</p><div className="poster-link-list">{options.map(([label,kind,cents])=><div key={label}><a href={reusableCheckoutUrl(event.slot,kind,cents)} target="_blank" rel="noreferrer">{label} · {money(cents)} ↗</a><code>TLPT {event.slot} {kind}</code></div>)}</div><p>These links go directly to Venmo. Players do not need a register login.</p></details>;
 }
 const SIT_AND_GO_BOUNTY_CENTS=1000;
@@ -42,6 +42,15 @@ function PaymentFormat({event,busy,onSave}:{event:Event;busy:boolean;onSave:(eve
  const valid=bounty.trim()!==''&&Number.isFinite(value)&&cents>=1&&cents<=100000&&Math.abs(cents-value)<1e-7;
  const showSitAndGoPreset=event.slot!=='mtt'&&event.tables===1&&event.rules.entryPrize===3000;
  const sitAndGoPresetActive=showSitAndGoPreset&&event.rules.bounty===SIT_AND_GO_BOUNTY_CENTS;
+
+ if(event.rsvpBountyCents!=null)return <section className="payment-format" aria-label="Payment format">
+  <h2>Payment format</h2>
+  <p>{event.rules.bounty>0
+   ? <><b>{money(event.rules.entry)}</b> first entry ({money(event.rules.entryPrize)} buy-in + {money(event.rules.bounty)} bounty)</>
+   : <><b>{money(event.rules.entry)}</b> buy-in only</>}</p>
+  <p className="format-note">Set in the Commish RSVP event editor. Rebuys are {money(event.rules.rebuy)}{event.rules.rebuyBounty?' including bounty':''}.{event.rules.bounty>0&&<> Use the updated Venmo link for the full entry.</>}</p>
+  <PosterLinks event={event}/>
+ </section>;
 
  return <section className="payment-format" aria-label="Payment format">
   <div><h2>Payment format</h2><p>For {slots[event.slot]} · {event.dateLabel}</p></div>

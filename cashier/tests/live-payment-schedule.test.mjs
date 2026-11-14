@@ -1,7 +1,10 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {livePaymentSchedule,receiptSchedule} from '../lib/live-payment-schedule.mjs';
-import {normalizeSchedule} from '../lib/events.mjs';
+import {applyPaymentFormat,normalizeSchedule,paymentSelection} from '../lib/events.mjs';
+import {applyOperation,publicFeed} from '../../rsvp/model.mjs';
+import {routeReceipt} from '../lib/receipt.mjs';
+import {paymentItemAmounts,paymentPortion} from '../lib/payment-portions.mjs';
 const now=Date.parse('2026-10-31T17:00:00Z'),financials={events:{}};
 const game=(id,slot,date,extra={})=>({id,slot,date,title:id,rsvpOpen:true,rsvps:{bostnmike:'yes'},waitlist:[],...extra});
 const feed={schemaVersion:1,revision:140,cancelledEvents:[{id:'friday-2026-10-30',date:'2026-10-30'}],events:[game('fri-new','friday','2026-11-06'),game('sat-new','saturday','2026-11-07'),game('later','friday','2026-11-13',{rsvpOpen:false}),game('saturday-2026-10-31','friday','2026-12-11',{rsvpOpen:false}),game('mtt-pending','mtt','Date TBD',{rsvpOpen:false})]};
@@ -26,4 +29,43 @@ test('RSVP-only edits keep payment identity and prices; published financials and
 test('an unavailable or invalid live feed cannot fall back to old static active dates',()=>{
  assert.throws(()=>livePaymentSchedule({},financials,previous,[],now));
  const empty=livePaymentSchedule({...feed,events:[]},financials,previous,[previous[2].id],now);assert.equal(empty.length,1);assert.ok(empty[0].savedOnly);
+});
+test('Commish bounty controls first entry for this event, including zero and returning control to Cashier',()=>{
+ const metadata={slot:'saturday',date:'2026-11-07',title:'Fixture Saturday',format:'500K',day:'Saturday',time:'7:00 PM',endTime:'11:30 PM',location:'Room',address:'Cary',structure:'Test'};
+ const state={revision:1,sequence:1,audit:[],players:[{slug:'bostnmike',name:'Host'},{slug:'red',name:'Red'}],events:[{
+  id:'sat-new',metadata,capacity:9,open:true,responses:{red:{answer:'yes',order:1}}
+ }]};
+ const oldOverride={mode:'bounty',bounty_cents:500};
+ const edit = (value,includeRebuy=false) => applyOperation(state,{role:'admin'},{type:'event',eventId:'sat-new',capacity:9,open:true,metadata:{...metadata,rsvpBountyCents:value,rsvpBountyOnRebuy:includeRebuy}});
+ const getEvent = () => livePaymentSchedule(publicFeed(state,new Date(now)),financials,[],[],now)[0];
+ const priced = () => applyPaymentFormat(getEvent(),oldOverride);
+ assert.equal(priced().rules.entry,3500);
+ assert.throws(()=>edit(1000.5),/Enter a bounty/);
+ assert.throws(()=>edit(-1),/Enter a bounty/);
+ assert.throws(()=>edit(100001),/Enter a bounty/);
+ edit(1000);
+ assert.deepEqual(paymentSelection(priced(),['entry']),{items:['entry'],kind:'entry',cents:4000,prize:3000,bounty:1000,food:0});
+ assert.deepEqual(paymentSelection(priced(),['rebuy']),{items:['rebuy'],kind:'rebuy',cents:3000,prize:3000,bounty:0,food:0});
+ edit(1000,true);
+ const bountyEvent=priced();
+ assert.deepEqual(paymentSelection(bountyEvent,['rebuy']),{items:['rebuy'],kind:'rebuy',cents:4000,prize:3000,bounty:1000,food:0});
+ const combo=paymentSelection(bountyEvent,['rebuy','food']);
+ assert.equal(combo.cents,5500);
+ assert.equal(combo.bounty,1000);
+ assert.equal(paymentPortion({kind:combo.kind,cents:combo.cents,item_cents:JSON.stringify(paymentItemAmounts(bountyEvent,combo.items))},'rebuy'),4000);
+ const receipt={note:'TLPT saturday 2026-11-07 rebuy',receivedAt:'2026-11-08T01:00:00Z',cents:4000};
+ assert.equal(routeReceipt(receipt,[bountyEvent]).kind,'rebuy');
+ assert.equal(routeReceipt({...receipt,cents:3000},[bountyEvent]).kind,'unknown');
+ assert.equal(priced().id,'saturday:2026-11-07');
+ assert.equal(state.events[0].responses.red.answer,'yes');
+ const active=getEvent();
+ edit(0);
+ assert.equal(priced().rules.entry,3000);
+ assert.equal(priced().paymentFormat,'standard');
+ const later={schemaVersion:1,revision:state.revision,events:[]};
+ const retained=livePaymentSchedule(later,financials,[active],[active.id],now)[0];
+ assert.equal(applyPaymentFormat(retained,oldOverride).rules.entry,4000);
+ assert.equal(applyPaymentFormat(retained,oldOverride).rules.rebuy,4000);
+ edit(null);
+ assert.equal(priced().rules.entry,3500);
 });

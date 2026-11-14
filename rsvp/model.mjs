@@ -3,7 +3,7 @@ import {coffeeDrinks, coffeeCaffeine} from './public/coffee-menu.mjs';
 import {eventPoster,validPosterFile} from './posters.mjs';
 export {eventPoster} from './posters.mjs';
 import {noGameDays} from './schedule-notices.mjs';
-// No contact, financial, or historical result data belongs in this service.
+// RSVP may publish a scheduled bounty amount. Cashier owns payment records.
 export class Rejected extends Error { constructor(message,status=400){super(message);this.status=status;} }
 export function requireValue(ok,message,status=400){if(!ok)throw new Rejected(message,status);}
 export const HOST='bostnmike';
@@ -35,6 +35,13 @@ export function validateMetadata(raw){
  requireValue(m.date==='Date TBD'||/^\d{4}-\d{2}-\d{2}$/.test(m.date)&&Number.isFinite(Date.parse(m.date+'T12:00:00Z'))&&new Date(m.date+'T12:00:00Z').toISOString().slice(0,10)===m.date,'Choose a calendar date or Date TBD.');
  requireValue(/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.time)&&/^(?:1[0-2]|[1-9]):[0-5]\d [AP]M$/.test(m.endTime),'Use times such as 7:00 PM.');
  const poster=raw.poster||'auto';requireValue(poster==='auto'||poster==='none'||validPosterFile(poster),'Choose a poster from the TLPT gallery.');
+ if(raw.rsvpBountyCents!==undefined){
+  const bounty=raw.rsvpBountyCents;
+  requireValue(bounty===null||(Number.isSafeInteger(bounty)&&bounty>=0&&bounty<=100000),'Enter a bounty between $0.01 and $1,000, or choose No bounty.');
+  m.rsvpBountyCents=bounty;
+  requireValue(raw.rsvpBountyOnRebuy===undefined||typeof raw.rsvpBountyOnRebuy==='boolean','Choose whether rebuys include the bounty.');
+  if(raw.rsvpBountyOnRebuy!==undefined||!bounty)m.rsvpBountyOnRebuy=!!bounty&&raw.rsvpBountyOnRebuy===true;
+ }
  m.poster=poster;m.tables=m.slot==='mtt'?2:1;if(m.slot==='sunday'){m.startingStack=50000;m.blindStructure='40k';}return m;
 }
 export function coffeeEvent(state, eventId, now = new Date().toISOString(), requireOpen = true) {
