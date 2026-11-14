@@ -39,6 +39,8 @@ export function validateMetadata(raw){
   const bounty=raw.rsvpBountyCents;
   requireValue(bounty===null||(Number.isSafeInteger(bounty)&&bounty>=0&&bounty<=100000),'Enter a bounty between $0.01 and $1,000, or choose No bounty.');
   m.rsvpBountyCents=bounty;
+  requireValue(raw.rsvpBountyOnRebuy===undefined||typeof raw.rsvpBountyOnRebuy==='boolean','Choose whether rebuys include the bounty.');
+  if(raw.rsvpBountyOnRebuy!==undefined||!bounty)m.rsvpBountyOnRebuy=!!bounty&&raw.rsvpBountyOnRebuy===true;
  }
  m.poster=poster;m.tables=m.slot==='mtt'?2:1;if(m.slot==='sunday'){m.startingStack=50000;m.blindStructure='40k';}return m;
 }

@@ -36,7 +36,16 @@ export function refreshScheduleAttendance(events,source){
   return raw?{...event,...eventAttendance(raw)}:event;
  });
 }
-export function allocation(event,kind){const r=event.rules;if(kind==='entry')return {prize:r.entryPrize,bounty:r.bounty,food:0};if(kind==='rebuy')return {prize:r.rebuy,bounty:0,food:0};if(kind==='food')return {prize:0,bounty:0,food:r.food};throw Error('Unknown payment type');}
+export function allocation(event,kind){
+ const r=event.rules;
+ if(kind==='entry')return {prize:r.entryPrize,bounty:r.bounty,food:0};
+ if(kind==='rebuy'){
+  const bounty=r.rebuyBounty??0;
+  return {prize:r.rebuy-bounty,bounty,food:0};
+ }
+ if(kind==='food')return {prize:0,bounty:0,food:r.food};
+ throw Error('Unknown payment type');
+}
 export const PAYMENT_KINDS=['entry','rebuy','food'];
 export function paymentKinds(kind){const items=String(kind||'').split('+');return items.length<=3&&new Set(items).size===items.length&&items.every(k=>PAYMENT_KINDS.includes(k))?PAYMENT_KINDS.filter(k=>items.includes(k)):[];}
 export function paymentSelection(event,items){
@@ -49,7 +58,8 @@ export function applyPaymentFormat(event,override){
  const scheduledBounty=event.rules.bounty;
  if(event.rsvpBountyCents!=null){
   const bounty=event.rsvpBountyCents;
-  return {...event,rules:{...event.rules,entry:event.rules.entryPrize+bounty,bounty},paymentFormat:bounty?'bounty':'standard',formatOverride:false,scheduledBounty};
+  const rebuyBounty=event.rsvpBountyOnRebuy?bounty:0;
+  return {...event,rules:{...event.rules,entry:event.rules.entryPrize+bounty,bounty,rebuy:event.rules.rebuy+rebuyBounty,rebuyBounty},paymentFormat:bounty?'bounty':'standard',formatOverride:false,scheduledBounty};
  }
  if(!override)return {...event,paymentFormat:scheduledBounty?'bounty':'standard',formatOverride:false,scheduledBounty};
  if(!['standard','bounty'].includes(override.mode)||!Number.isSafeInteger(override.bounty_cents)||override.bounty_cents<1||override.bounty_cents>100000)throw Error('Invalid bounty settings');
