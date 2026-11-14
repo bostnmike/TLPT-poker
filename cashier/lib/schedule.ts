@@ -1,19 +1,27 @@
+import {env} from 'cloudflare:workers';
 import {db} from './api';
+import {publicRsvpFetch} from './public-rsvp-fetch.mjs';
 import {getLiveAttendance,LIVE_RSVP_URL,validateLiveRsvps} from './live-rsvp.mjs';
 import {livePaymentSchedule} from './live-payment-schedule.mjs';
 import {applyPaymentFormat,FINANCIALS_URL} from './events.mjs';
 export async function getSchedule(force=false):Promise<any>{
- const schedule=await getBaseSchedule(force);
+ const fetchRsvp=publicRsvpFetch(env.CASHIER_RSVP);
+ const schedule=await getBaseSchedule(force,fetchRsvp);
  const overrides=(await db().prepare('SELECT event_id,mode,bounty_cents FROM event_payment_formats').all()).results;
  const cleared=(await db().prepare('SELECT event_id,cleared_at FROM event_history_clears').all()).results;
- return {...schedule,events:(await getLiveAttendance(db(),schedule.events)).map((e:any)=>({...applyPaymentFormat(e,overrides.find((o:any)=>o.event_id===e.id)),historyClearedAt:cleared.find((c:any)=>c.event_id===e.id)?.cleared_at||null}))};
+ return {...schedule,events:(await getLiveAttendance(db(),schedule.events,fetchRsvp)).map((e:any)=>({...applyPaymentFormat(e,overrides.find((o:any)=>o.event_id===e.id)),historyClearedAt:cleared.find((c:any)=>c.event_id===e.id)?.cleared_at||null}))};
 }
-async function getBaseSchedule(force=false):Promise<any>{
+async function getBaseSchedule(force:boolean,fetchRsvp:typeof fetch):Promise<any>{
  const state:any=await db().prepare('SELECT * FROM schedule_state WHERE id=?').bind('schedule').first();
  const now=Date.now();
  if(!force&&state&&(state.source_hash.startsWith('live-v1:')||state.error)&&now-Date.parse(state.attempted_at)<60000)return {events:JSON.parse(state.events_json).map((e:any)=>state.source_hash.startsWith('live-v1:')?e:{...e,savedOnly:true}),checkedAt:state.fetched_at,error:state.error};
  try{
-  const responses=await Promise.all([fetch(LIVE_RSVP_URL,{cache:'no-store',signal:AbortSignal.timeout(8000)}),fetch(FINANCIALS_URL,{cache:'no-store',signal:AbortSignal.timeout(8000)})]);
+  // A forced pull also bypasses the published site's shared response cache.
+  const financialsUrl=force?FINANCIALS_URL+'?cashierRefresh='+now:FINANCIALS_URL;
+  const responses=await Promise.all([
+   fetchRsvp(LIVE_RSVP_URL,{cache:'no-store',signal:AbortSignal.timeout(8000)}),
+   fetch(financialsUrl,{cache:'no-store',signal:AbortSignal.timeout(8000)})
+  ]);
   if(responses.some(r=>!r.ok))throw Error('Schedule source unavailable');
   const bodies=await Promise.all(responses.map(r=>r.text()));if(bodies.some(s=>s.length>500000))throw Error('Schedule source too large');
   const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(bodies.join('\n'))))).map(x=>x.toString(16).padStart(2,'0')).join('');

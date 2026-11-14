@@ -1,6 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
-import {Plus,Download,Settings2,Volume2,VolumeX,Trash2,Layers} from 'lucide-react';
+import {Plus,Download,Settings2,Volume2,VolumeX,Trash2,Layers,RefreshCw} from 'lucide-react';
 import BrandHeader from './brand-header';
 import BatchWorkspace,{type ReceiptLink} from './batch-workspace';
 import {remainingCoverage} from '@/lib/batch-payments.mjs';
@@ -78,6 +78,8 @@ export default function Register(){
  const identity=(p:Payment)=>{const profile=resolvePaymentPlayer(p,players,data?.venmoAliases||[]);return {name:profile?.name||p.player||p.payer,image:profile?.image};};
  const [data,setData]=useState<Data|null>(null),[error,setError]=useState(''),[loadedAt,setLoadedAt]=useState(0),[clock,setClock]=useState(Date.now()),[form,setForm]=useState<Payment|'manual'|null>(null),[formEventId,setFormEventId]=useState(''),[player,setPlayer]=useState(''),[items,setItems]=useState<string[]>(['entry']),[method,setMethod]=useState('venmo'),[checked,setChecked]=useState(false),[busy,setBusy]=useState(false),[notice,setNotice]=useState(''),[filter,setFilter]=useState('all'),[setup,setSetup]=useState(false),[linkId,setLinkId]=useState(''),[settings,setSettings]=useState(false);
  const [rememberName,setRememberName]=useState(true);
+ const [refreshingEvents,setRefreshingEvents]=useState(false);
+ const [eventRefreshMessage,setEventRefreshMessage]=useState('');
  const [deleting,setDeleting]=useState<Payment|null>(null),[deletingEventId,setDeletingEventId]=useState(''),[deleteError,setDeleteError]=useState('');
  const deletingNow=useRef(false);
  const [soundEnabled,setSoundEnabled]=useState(true),[soundPlaying,setSoundPlaying]=useState(false),[soundError,setSoundError]=useState('');
@@ -89,8 +91,66 @@ export default function Register(){
  },[]);
  function toggleSound(){const enabled=!soundEnabled;setSoundEnabled(enabled);saleSound.current?.setEnabled(enabled);try{localStorage.setItem('tlpt:confirmation-sound',enabled?'on':'off');}catch{}if(enabled)saleSound.current?.prepare();}
  const requestId=useRef(''),registerETag=useRef(''),viewKey=useRef(''),inFlight=useRef(false),epoch=useRef(0),selection=useRef('');
- async function refresh(chosen?:string,force=false){if(inFlight.current&&!force)return;inFlight.current=true;const seq=++epoch.current;const id=chosen??selection.current;try{const q=new URLSearchParams();if(id)q.set('eventId',id);const r=await fetch('/api/register?'+q,{cache:'no-store',headers:!force&&registerETag.current?{'If-None-Match':registerETag.current}:{}});if(r.status===401){if(batchActive.current){setError('Session expired. Keep this batch open and sign in in another tab.');return;}location.assign('/auth/login');return;}if(r.status===304){if(seq===epoch.current){setLoadedAt(Date.now());setError('');}return;}const j:any=await r.json();if(!r.ok)throw new Error(j.error||'Connection lost');if(seq!==epoch.current)return;registerETag.current=r.headers.get('ETag')||'';selection.current=j.selectedEventId||'';const nextKey=registerViewKey(j);if(nextKey!==viewKey.current){viewKey.current=nextKey;setData(j);}setLoadedAt(Date.now());setError('');}catch(e){if(seq===epoch.current)setError(e instanceof Error?e.message:'Connection lost');}finally{if(seq===epoch.current)inFlight.current=false;}}
- useEffect(()=>{selection.current=pendingBatchEvent()||new URLSearchParams(location.search).get('eventId')||'';refresh();const timer=setInterval(()=>{setClock(Date.now());if(document.visibilityState==='visible')refresh();},3000);const visible=()=>{if(document.visibilityState==='visible')refresh();};document.addEventListener('visibilitychange',visible);return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',visible);};},[]);
+ async function refresh(chosen?:string,force=false,refreshSchedule=false){
+  if(inFlight.current&&!force)return;
+  inFlight.current=true;
+  const seq=++epoch.current;
+  const id=chosen??selection.current;
+  try{
+   const q=new URLSearchParams();
+   if(id)q.set('eventId',id);
+   if(refreshSchedule)q.set('refresh','events');
+   const response=await fetch('/api/register?'+q,{
+    cache:'no-store',
+    headers:!force&&registerETag.current?{'If-None-Match':registerETag.current}:{}
+   });
+   if(response.status===401){
+    if(batchActive.current)setError('Session expired. Keep this batch open and sign in in another tab.');
+    else location.assign('/auth/login');
+    return;
+   }
+   if(seq!==epoch.current)return;
+   if(response.status===304){
+    setLoadedAt(Date.now());
+    setError('');
+    return;
+   }
+   const next=await response.json() as Data & {error?:string};
+   if(!response.ok)throw Error(next.error||'Connection lost');
+   if(seq!==epoch.current)return;
+   registerETag.current=response.headers.get('ETag')||'';
+   selection.current=next.selectedEventId||'';
+   const nextKey=registerViewKey(next);
+   if(nextKey!==viewKey.current){
+    viewKey.current=nextKey;
+    setData(next);
+   }
+   setLoadedAt(Date.now());
+   setError('');
+   return next;
+  }catch(error){
+   if(seq===epoch.current)setError(error instanceof Error?error.message:'Connection lost');
+  }finally{
+   if(seq===epoch.current)inFlight.current=false;
+  }
+ }
+ useEffect(()=>{
+  const pendingEvent=pendingBatchEvent();
+  selection.current=pendingEvent||new URLSearchParams(location.search).get('eventId')||'';
+  void refresh(undefined,true,!pendingEvent);const timer=setInterval(()=>{setClock(Date.now());if(document.visibilityState==='visible')refresh();},3000);const visible=()=>{if(document.visibilityState==='visible')refresh();};document.addEventListener('visibilitychange',visible);return()=>{clearInterval(timer);document.removeEventListener('visibilitychange',visible);};},[]);
+ async function refreshEvents(){
+  if(busy||batchOpen||form||deleting)return;
+  setBusy(true);
+  setRefreshingEvents(true);
+  setEventRefreshMessage('');
+  try{
+   const next=await refresh(undefined,true,true);
+   if(next&&!next.scheduleError)setEventRefreshMessage('Events refreshed.');
+  }finally{
+   setRefreshingEvents(false);
+   setBusy(false);
+  }
+ }
  async function select(event:Event){if(busy)return;setForm(null);setDeleting(null);selection.current=event.id;setFilter('all');viewKey.current='';setData(null);setNotice('');setSettings(false);setSetup(false);history.replaceState(null,'','/?eventId='+encodeURIComponent(event.id));await refresh(event.id,true);}
  async function saveFormat(chosen:Event,mode:string,bountyCents:number){if(busy)return;setBusy(true);setNotice('');try{const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'format',eventId:chosen.id,mode,bountyCents})});const j:any=await r.json();if(!r.ok)throw Error(j.error||'Could not save payment format.');await refresh(chosen.id,true);setNotice('Payment format saved for '+slots[chosen.slot]+'.');}catch(e){setNotice(e instanceof Error?e.message:'Could not save payment format.');}finally{setBusy(false);}}
 
@@ -145,7 +205,7 @@ export default function Register(){
  {event?.historyClearedAt&&<p className="banner" role="status">This event’s history has been cleared. The event is closed; choose a current game for new payments.</p>}
  {event?.schedulePending&&!event.historyClearedAt&&<p className="banner" role="status">The next {slots[event.slot]} date is TBD. Showing the previous event and its saved payments until a new date is published.</p>}
  {event&&<section className="event-detail"><div><p className="eyebrow">{slots[event.slot]} · {event.dateLabel}</p><h2>{event.title}</h2>{event.slot==='sunday'&&event.format&&<p className="event-format-label">{event.format} · single table</p>}</div><span>{event.time} · {event.capacity}-max</span></section>}
- <section className="statusbar"><span className={importerActive?'connected':''}><i/>{importerActive?'Email reader connected':rolling&&armed?'Default reader armed':armed?'Reader awaiting default-process update':'Email reader not connected'}</span><span>{lastCheck?'Mailbox checked '+time(data!.sync!.last_check):'Waiting for next mailbox check'} · Updates every 3 seconds</span></section>
+ <section className="statusbar"><span className={importerActive?'connected':''}><i/>{importerActive?'Email reader connected':rolling&&armed?'Default reader armed':armed?'Reader awaiting default-process update':'Email reader not connected'}</span><span>{lastCheck?'Mailbox checked '+time(data!.sync!.last_check):'Waiting for next mailbox check'} · Updates every 3 seconds</span><button type="button" disabled={busy||batchOpen||!!form||!!deleting} onClick={()=>void refreshEvents()}><RefreshCw aria-hidden="true"/>{refreshingEvents?'Refreshing events…':'Refresh events'}</button><span className="event-refresh-message" role="status">{eventRefreshMessage}</span></section>
  <section className="stats"><article className="total"><p>CONFIRMED COLLECTIONS</p><strong>{data?money(data.totals.collected):'—'}</strong><span>{data?.totals.entries||0} entries · {data?.totals.rebuys||0} rebuys · {data?.totals.pizzas||0} food payments</span></article><article><p>PRIZE POOL</p><strong>{data?money(data.totals.prizePool):'—'}</strong><span>{event?money(event.rules.entryPrize)+' per entry · '+money(event.rules.rebuy)+' per rebuy':'Choose an event'}</span></article><article><p>BOUNTIES</p><strong>{data?money(data.totals.bounty):'—'}</strong><span>{event?.rules.bounty?money(event.rules.bounty)+' on initial entry':'No bounty for this event'}</span></article><article><p>FOOD</p><strong>{data?money(data.totals.food):'—'}</strong><span>{event?money(event.rules.food)+' per payment':'Choose an event'}</span></article></section>
  {!batchOpen&&<><section className="cashier"><div><h2>At the register</h2><p>{pending.length?pending.length+' payment'+(pending.length===1?'':'s')+' waiting for your check.':'Review Venmo receipts or record a payment here.'}</p></div><button className="primary" disabled={!event||!!event.historyClearedAt||!!event.savedOnly} onClick={()=>open('manual')}><Plus aria-hidden="true"/>Record payment</button><button disabled={!event} aria-expanded={settings} aria-controls="event-settings-panel" onClick={()=>setSettings(!settings)}><Settings2 aria-hidden="true"/>Event settings</button><button disabled={!event||!!event.historyClearedAt||!!event.savedOnly} onClick={()=>openBatch()}><Layers aria-hidden="true"/>Batch payments</button></section>
  {settings&&event&&<section className="event-settings" id="event-settings-panel" aria-label="Event settings">{!event.historyClearedAt&&!event.savedOnly&&<PaymentFormat event={event} busy={busy} onSave={saveFormat}/>}<section className="sound-settings" aria-label="Confirmation sound"><div><h2>Confirmation sound</h2><p>“Pay that man his money.” · Rounders</p></div><button aria-pressed={soundEnabled} onClick={toggleSound}>{soundEnabled?<Volume2 aria-hidden="true"/>:<VolumeX aria-hidden="true"/>}{soundEnabled?'Sound on':'Sound off'}</button><button disabled={!soundEnabled} onClick={()=>void saleSound.current?.test()}>Test sound</button><p className="sound-help" role="status">{soundPlaying?'Playing confirmation sound…':soundEnabled?'Plays once after a payment or batch is confirmed. This iPad remembers your sound setting.':'Confirmation sound is muted on this iPad.'}</p>{soundError&&<p role="alert" className="banner error">{soundError}</p>}</section><section className="remembered-names" aria-label="Remembered Venmo names"><h2>Remembered Venmo names</h2><p>{players.filter(p=>p.venmoNames?.length||p.venmoUsername).length} players linked in the <a href="https://github.com/bostnmike/TLPT-poker/blob/main/data/player-metadata.json" target="_blank" rel="noreferrer">TLPT player directory</a>. These matches apply across events.</p><p>Additional private matches appear below. Forgetting a name leaves existing payments intact.</p>{data?.venmoAliases?.length?<div>{data.venmoAliases.map(alias=><div className="remembered-name" key={alias.payer_key}><span><b>{alias.payer_name}</b><small>→ {players.find(p=>p.slug===alias.player_slug)?.name||alias.player_name}</small></span><button disabled={busy} aria-label={'Forget Venmo name '+alias.payer_name} onClick={()=>void forgetAlias(alias)}>Forget</button></div>)}</div>:<p>No additional private matches. New names can be remembered when you confirm a receipt.</p>}</section><div className="settings-tools"><button onClick={download}><Download aria-hidden="true"/>Export this event</button><button aria-expanded={setup} onClick={()=>setSetup(!setup)}>Process details</button><span>Export before replacing the event if you want to keep its records.</span></div>
@@ -159,7 +219,7 @@ export default function Register(){
  {!data?<div className="empty">Loading the live schedule and register…</div>:!event?<div className="empty"><h3>No event in this slot.</h3><p>Open a dated game in the Commish schedule. The register will pick it up automatically.</p></div>:event.historyClearedAt?<div className="empty"><h3>Event history cleared.</h3><p>Payments and totals have been cleared. Choose a current game to open its register.</p></div>:feed.length===0?<div className="empty"><span className="coin">$</span><h3>Ready for the first payment.</h3><p>{event.title}<br/>{event.rules.bounty?'Printed codes must match the full entry amount.':'Use your printed Venmo codes.'}</p><div className="prices">{['entry','rebuy','food'].map(k=><span key={k}>{labels[k].toUpperCase()}<b>{money(amount(k))}</b></span>)}</div></div>:<div>{feed.slice(0,100).map(p=><div className="payment-swipe-row" key={p.id}><article className={'payment '+(p.status==='review'?'pending':'')}><PlayerAvatar {...identity(p)}/><div className="paymentname"><h3>{identity(p).name}</h3><p>{p.event_id?filteredLabel(p):'Choose event'} · {p.method==='cash'?'Cash':'Venmo'} · {time(p.received_at)}</p>{receiptMatchLabel(p)&&<small className="receipt-match-status">{receiptMatchLabel(p)}</small>}</div><div className="amount"><strong>{paymentPortion(p,filter)===null?'Needs split':money(paymentPortion(p,filter)!)}</strong>{filter!=='all'&&paymentKinds(p.kind).length>1&&<span className="portion-note">of {money(p.cents)} payment</span>}<span className={p.status}>{p.status==='confirmed'?'CONFIRMED':p.status==='review'?'NEEDS CHECK':p.status==='void'?'VOIDED':p.status.toUpperCase()}</span></div><button disabled={busy} onClick={()=>open(p)}>{p.status==='review'?'Review':p.status==='confirmed'?'Correct':'Options'}</button></article><button className="swipe-delete" disabled={busy} aria-label={'Delete '+(p.player||p.payer)+' '+money(p.cents)+' transaction'} onClick={()=>startDelete(p)}><Trash2 aria-hidden="true"/><span>Delete</span></button></div>)}</div>}</section>
  <aside aria-label="Needs confirmation"><div className="sectionhead"><h2>Needs confirmation</h2>{pending.length>0&&<button onClick={()=>openBatch(pending)}>Review multiple</button>}<span className="badge">{pending.length}</span></div><p className="asidecopy">Open receipts · Newest first. Review each payment before it counts toward totals.</p>{pending.length?<div className="confirmation-ledger">{pending.map(p=><article className="queue" key={p.id}><PlayerAvatar {...identity(p)}/><div className="queue-details"><h3>{identity(p).name}</h3><p>{p.event_id?paymentLabel(p):'Choose event'}</p><p>{p.method==='cash'?'Cash':'Venmo'} · {time(p.received_at)}</p>{p.payer!==identity(p).name&&<p>Paid by {p.payer}</p>}{p.note&&<p className="queue-note">{p.note}</p>}</div><b>{money(p.cents)}</b><button disabled={busy} aria-label={'Review '+identity(p).name+' '+money(p.cents)+' payment'} onClick={()=>open(p)}>Review</button></article>)}</div>:<div className="asideempty"><span>✓</span><h3>All caught up.</h3><p>No payments waiting for a check.</p></div>}</aside></div>
  </>}
- {batchOpen&&event&&!event.historyClearedAt&&<BatchWorkspace key={event.id} event={event} payments={ordered} links={data?.receiptLinks||[]} players={players} aliases={data?.venmoAliases||[]} initialPayments={batchSeed} onClose={()=>{setBatchOpen(false);setBatchSeed([]);}} onRefresh={()=>refresh(undefined,true)} onSaved={batchSaved} onPrepare={()=>{saleSound.current?.prepare();}}/>}
+ {batchOpen&&event&&!event.historyClearedAt&&<BatchWorkspace key={event.id} event={event} payments={ordered} links={data?.receiptLinks||[]} players={players} aliases={data?.venmoAliases||[]} initialPayments={batchSeed} onClose={()=>{setBatchOpen(false);setBatchSeed([]);}} onRefresh={async()=>{await refresh(undefined,true);}} onSaved={batchSaved} onPrepare={()=>{saleSound.current?.prepare();}}/>}
  <footer><span>TLPT is a BostnMike Production.</span><span><a href="https://tlpt.org/" target="_blank" rel="noreferrer">TLPT.org ↗</a> · Cash Register · Times in Eastern</span></footer>
  {form&&<div className="overlay"><section className="modal" role="dialog" aria-modal="true" aria-labelledby="formtitle"><button className="close" onClick={()=>!busy&&setForm(null)} aria-label="Close">×</button><p className="eyebrow">CASHIER</p><h2 id="formtitle">{form==='manual'?'Record a payment':form.status==='confirmed'?'Correct a record':form.status==='review'?'Check this receipt':'Transaction options'}</h2>{form!=='manual'&&<p className="receiptinfo">{form.payer} · {money(form.cents)} · {time(form.received_at)}<br/>{form.note||'No recognized payment note'}</p>}
  <div className="form-fields"><label>Event<select value={formEventId} disabled={form==='manual'||!!form.event_id||busy} onChange={e=>{setFormEventId(e.target.value);setLinkId('');setChecked(false);setItems(['entry']);}}>{data?.events.filter(e=>form==='manual'||form.event_id||JSON.parse(form.candidate_event_ids||'[]').includes(e.id)).map(e=><option key={e.id} value={e.id}>{slots[e.slot]} · {e.dateLabel}</option>)}</select></label>
