@@ -3042,6 +3042,45 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-self:flex-start;
 }
 
+.event-details-col .event-format-details{
+  display:grid;
+  gap:5px;
+  margin-bottom:6px;
+}
+
+.event-format-summary{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:3px 14px;
+  font-size:.9375rem;
+  line-height:1.35;
+}
+
+#home-events-list .event-format-summary .event-format-title,
+#schedule-list .event-format-summary .event-format-title{
+  display:block;
+  min-height:0;
+  margin:0;
+  padding:0;
+  font-weight:700;
+  line-height:inherit;
+  white-space:normal;
+}
+
+.event-format-summary .event-pricing{
+  font-weight:600;
+  color:#f1f5f9;
+  font-variant-numeric:tabular-nums;
+}
+
+.event-format-details .event-structure{
+  margin:0;
+  font-size:.875rem;
+  color:#cbd5e1;
+  line-height:1.4;
+}
+
 .event-details-col p strong{
   color:#fff;
 }

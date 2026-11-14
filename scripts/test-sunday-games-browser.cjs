@@ -105,6 +105,17 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
           assert.equal(await card.locator('.event-format-title').textContent(), sunday.format);
           const pricing = card.locator('.event-format-title + .event-pricing');
           assert.equal(await pricing.innerText(), '$30 buy-in + $10 bounty');
+          const formatDetails = card.locator('.event-format-details');
+          assert.deepEqual(await formatDetails.evaluate(group => {
+            const title = group.querySelector('.event-format-title');
+            const price = group.querySelector('.event-pricing');
+            const blinds = group.querySelector('.event-structure');
+            return {
+              aligned: title.getBoundingClientRect().left === blinds.getBoundingClientRect().left,
+              sameSize: getComputedStyle(title).fontSize === getComputedStyle(price).fontSize,
+              fits: price.getBoundingClientRect().right <= group.getBoundingClientRect().right + 1
+            };
+          }), {aligned:true, sameSize:true, fits:true}, 'Game format and pricing share typography and fit beside the blinds');
           assert.equal(await page.locator('[data-event-slot="friday"] .event-pricing').count(), 0, 'Unset pricing stays hidden');
           assert.equal(await card.locator('.schedule-day-pill').textContent(), 'Sunday');
           assert.match(await card.getAttribute('class'), /schedule-event-card-sunday/);
