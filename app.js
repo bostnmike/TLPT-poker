@@ -1755,7 +1755,19 @@ function buildEventPricingMarkup(event) {
     parts.push("no bounty");
   }
   const separator = bounty === 0 ? " · " : " + ";
-  return parts.length ? `<p class="event-pricing muted">${parts.join(separator)}</p>` : "";
+  return parts.length ? `<span class="event-pricing">${parts.join(separator)}</span>` : "";
+}
+
+function buildEventFormatMarkup(event) {
+  const format = `<div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>`;
+  const structure = `<div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>`;
+  const pricing = buildEventPricingMarkup(event);
+  if (!pricing) return format + structure;
+
+  return `<div class="event-format-details">
+    <div class="event-format-summary">${format}${pricing}</div>
+    ${structure}
+  </div>`;
 }
 
 function getRsvpCounts(event) {
@@ -2270,9 +2282,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
 
       <div class="event-layout-grid">
         <div class="event-details-col">
-          <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
-          ${buildEventPricingMarkup(event)}
-          <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
+          ${buildEventFormatMarkup(event)}
           <h3>${escapeHtmlAttr(event.date)}</h3>
           <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>
           <p class="muted"><strong>Estimated End:</strong> ${escapeHtmlAttr(event.endTime || "")}</p>
@@ -6286,9 +6296,7 @@ function renderSchedule(data) {
 
       <div class="event-layout-grid">
         <div class="event-details-col">
-          <div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>
-          ${buildEventPricingMarkup(event)}
-          <div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>
+          ${buildEventFormatMarkup(event)}
           <h3>${escapeHtmlAttr(event.date)}</h3>
           <p class="muted"><strong>Start:</strong> ${escapeHtmlAttr(event.time)}</p>
           <p class="muted"><strong>Estimated End:</strong> ${escapeHtmlAttr(event.endTime || "")}</p>
