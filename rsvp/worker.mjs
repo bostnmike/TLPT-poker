@@ -101,9 +101,12 @@ export default {async fetch(req,env,ctx){
    const result=await finishCloseout(env,state,await body(req),op=>update(env.DB,actor,op));
    return json(result,result.ok?200:result.status||503);
   }
-  if(path==='/api/coffee-orders'&&req.method==='GET'){
+  if(path==='/api/coffee-orders'){
    requireValue(actor.role==='admin','Commish only.',403);
-   return json(coffeeQueue(state));
+   if(req.method==='GET')return json(coffeeQueue(state));
+   const input=await body(req);
+   requireValue(input?.type==='coffee-complete'||input?.type==='coffee-clear','Choose a coffee queue action.');
+   return json(coffeeQueue(await update(env.DB,actor,input)));
   }
   if(path==='/api/player-adoption'&&req.method==='GET'){
    requireValue(actor.role==='admin','Commish only.',403);

@@ -65,6 +65,36 @@ export function publicCoffeeOrder(order) {
  return {drink, temperature, caffeine: order.caffeine ?? 'high-octane', milk, stevia, extraShot, status, version, createdAt, updatedAt};
 }
 
+export function coffeeOrderEntries(event) {
+ return Object.entries(event.coffeeOrders || {}).flatMap(([slug, orders]) =>
+  Object.entries(orders).map(([orderId, order]) => ({slug, orderId, order})));
+}
+
+function manageCoffeeOrders(state, actor, op, now) {
+ requireValue(actor.role === 'admin', 'Commish only.', 403);
+ const event = state.events.find(event => event.id === op.eventId && !event.archived && !event.deletedAt);
+ requireValue(event && event.metadata.date === op.date && !event.closeoutPending, 'This game changed. Refresh the coffee queue.', 409);
+ const active = coffeeOrderEntries(event).filter(({order}) => order.status === 'active');
+ let selected;
+ if (op.type === 'coffee-complete') {
+  selected = active.filter(({slug, orderId, order}) =>
+   slug === op.slug && orderId === op.orderId && order.version === op.expectedVersion);
+  requireValue(selected.length === 1, 'This order changed. Refresh the coffee queue.', 409);
+ } else {
+  const reviewed = Array.isArray(op.orders) ? new Set(op.orders.map(row => JSON.stringify(row))) : new Set();
+  requireValue(active.length > 0 && active.length === reviewed.size && active.every(({slug, orderId, order}) =>
+   reviewed.has(JSON.stringify([slug, orderId, order.version]))), 'Pending orders changed. Review the refreshed queue before clearing.', 409);
+  selected = active;
+ }
+ const status = op.type === 'coffee-complete' ? 'completed' : 'cancelled';
+ for (const {order} of selected) {
+  order.status = status;
+  order.version++;
+  order.updatedAt = now;
+  delete order.requestId;
+ }
+}
+
 function applyCoffeeOrder(state, actor, op, now) {
  const slug = actor.role === 'admin' ? op.slug : actor.slug;
  requireValue(!op.slug || op.slug === slug, 'Choose your player name.', 403);
@@ -75,6 +105,8 @@ function applyCoffeeOrder(state, actor, op, now) {
  const event = coffeeEvent(state, op.eventId, now, op.action !== 'cancel');
  requireValue(typeof op.orderId === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/.test(op.orderId), 'Reopen the coffee form and try again.');
  const old = event.coffeeOrders?.[slug]?.[op.orderId];
+ requireValue(!Object.values(event.coffeeOrders?.[slug] || {}).some(order => order.status === 'completed'),
+  'The Commish has already completed your coffee order for this game.', 409);
  let options;
  if (op.action === 'save') {
   const raw = op.order;
@@ -105,6 +137,8 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
  const admin=actor.role==='admin';
  if(op.type==='coffee'){
   if (!applyCoffeeOrder(state, actor, op, now)) return state;
+ }else if(op.type==='coffee-complete'||op.type==='coffee-clear'){
+  manageCoffeeOrders(state, actor, op, now);
  }else if(op.type==='respond'){
   const slug=admin?op.slug:actor.slug;
   requireValue(admin||!op.slug||op.slug===actor.slug,'This link belongs to another player.',403);

@@ -58,12 +58,49 @@ test('updates, retries, cancellations and reorders produce one version and one a
   const closed=structuredClone(first.after);closed.events[0].open=false;
   assert.equal(change(closed,operation({action:'cancel',expectedVersion:1})).after.events[0].coffeeOrders.red[orderId].status,'cancelled');
 });
-test('Commish queue includes closed-game orders, uses current display names, and excludes old or removed games', () => {
+test('Commish queue retains orders for postponed and past games until removal or close-out', () => {
   const s=change(fixture(),operation({slug:'li-fo'}),{role:'shared',slug:'li-fo'}).after;
   s.events[0].open=false;
   const queue=coffeeQueue(s,new Date(now)); assert.equal(queue.orders[0].name,'ButtonMan'); assert.equal(queue.events[0].open,false);
   assert.ok(!JSON.stringify(queue).includes('requestId'));
-  for (const edit of [e=>e.cancelled=true,e=>e.metadata.date='2029-12-31',e=>e.metadata.date='Date TBD']) { const copy=structuredClone(s);edit(copy.events[0]);assert.deepEqual(coffeeQueue(copy,new Date(now)).orders,[]); }
+  for (const edit of [e=>e.cancelled=true,e=>e.metadata.date='2029-12-31',e=>e.metadata.date='Date TBD']) {
+    const copy=structuredClone(s);edit(copy.events[0]);assert.equal(coffeeQueue(copy,new Date(now)).orders.length,1);
+  }
+  for (const edit of [e=>e.archived=true,e=>e.deletedAt=now]) {
+    const copy=structuredClone(s);edit(copy.events[0]);assert.deepEqual(coffeeQueue(copy,new Date(now)).orders,[]);
+  }
+});
+test('Commish coffee actions preserve served drinks, reject stale clears, and allow reordering after a postponement', () => {
+  const admin={role:'admin'}, game={eventId:'e1',date:'2030-01-04'};
+  const first=change(fixture()).after;
+  const second=operation({slug:'li-fo',orderId:crypto.randomUUID()});
+  const state=change(first,second,{role:'shared',slug:'li-fo'}).after;
+  const complete={...game,type:'coffee-complete',slug:'red',orderId,expectedVersion:1};
+  assert.throws(()=>change(state,complete),/Commish only/);
+  assert.throws(()=>change(state,{...complete,date:'2030-01-11'},admin),/game changed/);
+  const served=change(state,complete,admin);
+  assert.equal(served.jobs.length,0);
+  assert.equal(served.after.events[0].coffeeOrders.red[orderId].status,'completed');
+  assert.equal(served.after.events[0].coffeeOrders.red[orderId].version,2);
+  assert.throws(()=>change(served.after,operation({orderId:crypto.randomUUID()})),/already completed/);
+  const clear={...game,type:'coffee-clear',orders:[['li-fo',second.orderId,1]]};
+  const otherEvent={...fixture().events[0],id:'other',coffeeOrders:structuredClone(state.events[0].coffeeOrders)};
+  served.after.events.push(otherEvent);
+  const postponed=structuredClone(served.after);
+  postponed.events[0].metadata.date='Date TBD';
+  postponed.events[0].open=false;
+  assert.throws(()=>change(postponed,clear,admin),/game changed/);
+  const saved=change(postponed,{...clear,date:'Date TBD'},admin);
+  assert.equal(saved.jobs.length,0);
+  assert.equal(saved.after.events[0].coffeeOrders.red[orderId].status,'completed');
+  assert.equal(saved.after.events[0].coffeeOrders['li-fo'][second.orderId].status,'cancelled');
+  assert.deepEqual(saved.after.events[1].coffeeOrders,otherEvent.coffeeOrders);
+  assert.deepEqual(saved.after.events[0].responses,state.events[0].responses);
+  saved.after.events[0].metadata.date='2030-01-11';
+  saved.after.events[0].open=true;
+  const reordered=change(saved.after,{...second,expectedVersion:2},{role:'shared',slug:'li-fo'}).after;
+  assert.equal(reordered.events[0].coffeeOrders['li-fo'][second.orderId].status,'active');
+  assert.throws(()=>change(reordered,{...clear,date:'2030-01-11'},admin),/Pending orders changed/);
 });
 test('coffee alerts are scoped to current Commish devices, versioned and dropped if superseded or revoked', () => {
   const first=change(fixture()), payload=first.jobs[0];

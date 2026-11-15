@@ -107,6 +107,22 @@ try{
  assert.equal((await post('coffee',{...coffee,requestId:crypto.randomUUID(),expectedVersion:1,action:'cancel'})).status,200);
  coffeeOrder=(await(await fetch(base+'/api/coffee?slug=red&eventId=fixture-event')).json()).orders[0];assert.equal(coffeeOrder.version,2);assert.equal(coffeeOrder.status,'cancelled');
  const coffeeQueue=await(await fetch(base+'/api/coffee-orders',{headers:{Cookie:admin}})).json();assert.equal(coffeeQueue.orders[0].status,'cancelled');assert.equal(coffeeQueue.orders[0].caffeine,'decaf');
+ const coffeeGame={eventId:'fixture-event',date:fixture.events[0].metadata.date};
+ const resubmit={...coffee,requestId:crypto.randomUUID(),expectedVersion:2};
+ assert.equal((await post('coffee',resubmit)).status,200);
+ const clearCoffee={...coffeeGame,type:'coffee-clear',orders:[['red',coffee.orderId,3]]};
+ assert.equal((await post('coffee-orders',clearCoffee)).status,401);
+ assert.equal((await post('coffee-orders',clearCoffee,red)).status,403);
+ assert.equal((await post('coffee-orders',clearCoffee,admin,'https://evil.test')).status,403);
+ let coffeeSave=await post('coffee-orders',clearCoffee,admin);
+ assert.equal(coffeeSave.status,200);
+ assert.equal((await coffeeSave.json()).orders[0].status,'cancelled');
+ assert.equal((await post('coffee',{...resubmit,requestId:crypto.randomUUID(),expectedVersion:4})).status,200);
+ assert.equal((await post('coffee-orders',clearCoffee,admin)).status,409);
+ coffeeSave=await post('coffee-orders',{...coffeeGame,type:'coffee-complete',slug:'red',orderId:coffee.orderId,expectedVersion:5},admin);
+ assert.equal(coffeeSave.status,200);
+ assert.equal((await coffeeSave.json()).orders[0].status,'completed');
+ assert.equal((await (await fetch(base+'/api/coffee?slug=red&eventId=fixture-event')).json()).orders[0].status,'completed');
  feed=await(await fetch(base+'/api/public/events')).json();assert.ok(!JSON.stringify(feed).includes('coffeeOrders'));assert.equal(feed.events[0].waitlist[0].slug,'red');
  // Synthetic subscription bodies are {}, so encryption fails before any provider
  // request. The generated wrapper supplies an invalid test-only VAPID key solely

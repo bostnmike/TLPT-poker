@@ -539,11 +539,16 @@ espresso shot. Latte, Cappuccino and Macchiato include milk. Orders can be edite
 each player has one editable pre-order per game. Ordering does not change an RSVP or reserve a seat. The shared-name trust model
 also applies to coffee orders.
 
-The **Coffee orders** Commish tab groups active orders by game and retains
-cancelled orders separately. Current Commish notification devices receive new,
+The **Coffee orders** Commish tab shows pending, completed and cancelled orders.
+Use **Mark complete** when a drink is served. The player can see the completed
+order in their pre-order form. For a postponed game, select the game and use
+**Clear pending orders**. This cancels only its pending orders, preserves served
+drinks, and lets affected players order again when RSVPs are open. Games with
+orders remain available in the queue before close-out, even if the date is TBD
+or the game has already passed. Current Commish notification devices receive new,
 changed and cancelled order alerts using the existing opt-in, retries and numbered
 badges. Players need no notification permission to order. The queue remains usable
-if push is off. No payment or preparation-status workflow is implied.
+if push is off. Commish completion and clear actions do not send push alerts.
 
 Orders are additive fields on the existing event state, included in backups.
 Regular is the default; older orders without a caffeine choice display as
