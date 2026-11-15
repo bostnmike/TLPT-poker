@@ -49,12 +49,22 @@
   transform:rotate(-14deg);
 }
 
-.coffee-icon-cup::after{
+.coffee-icon-cup::before{
   content:"";
   position:absolute;
   inset:33% 18% 8%;
   background:var(--gold);
   clip-path:polygon(0 0, 100% 0, 84% 100%, 16% 100%);
+}
+
+.coffee-icon-cup::after{
+  content:"♣";
+  position:absolute;
+  inset:42% 0 auto;
+  color:var(--panel);
+  font:700 .29em/1 Arial,sans-serif;
+  font-variant-emoji:text;
+  text-align:center;
 }
 
 .tlpt-player-snapshot-stat .coffee-icon{
