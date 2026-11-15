@@ -127,6 +127,7 @@ for (const [file, expected] of Object.entries({
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 assert.match(filmRoom, /class="media-youtube-fallback" href="https:\/\/www.youtube.com\/watch\?v=JKbeghbGcAM" target="_blank" rel="noopener">Watch on YouTube ↗<\/a>/);
 
+const coffeeIcon = '<img class="coffee-icon" src="images/site/coffee-icon.jpg" width="32" height="32" alt="" aria-hidden="true">';
 for (const [id, title] of [
   ['sports-desk-friday-no-go', '🏆 Friday’s Comeback Falls Short'],
   ['going-once', '🔨 Going Once…'],
@@ -134,9 +135,9 @@ for (const [id, title] of [
   ['decision-desk', 'TLPT Decision Desk'],
   ['out-of-office', 'Out of Office. Out of Excuses.'],
   ['good-will-chopping', 'Good Will Chopping'],
-  ['now-serving-decaf', '☕ Now Serving DeCaf'],
-  ['coffee-preorders', '☕ Coffee Pre-orders — How d’ya like them lattes?'],
-  ['two-seats-remain', '☕ Two Seats Remain'],
+  ['now-serving-decaf', `${coffeeIcon} Now Serving DeCaf`],
+  ['coffee-preorders', `${coffeeIcon} Coffee Pre-orders — How d’ya like them lattes?`],
+  ['two-seats-remain', `${coffeeIcon} Two Seats Remain`],
   ['one-seat-available', '🪑 One Seat Available'],
   ['the-courtesy-fold', '🃏 The Courtesy Fold'],
   ['earlier-start', '⏰ Earlier Start'],

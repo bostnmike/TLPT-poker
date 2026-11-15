@@ -34,7 +34,7 @@ const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
     { key: "survivorIndex", icon: "🛟", label: "Survivor" },
     { key: "tiltIndex", icon: "🧊", label: "Composure" }
   ]),
-  coffee: Object.freeze([{ key: "coffeeConsumed", icon: "☕", label: "Coffee Consumed" }])
+  coffee: Object.freeze([{ key: "coffeeConsumed", label: "Coffee Consumed" }])
 });
 const DASHBOARD_BOUNTY_SORTS = new Set(["bountiesWon", "bountyNet"]);
 const DASHBOARD_BOUNTY_DATA_KEYS = [

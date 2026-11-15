@@ -15,7 +15,8 @@ async function main() {
   renderHomePage(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
-  renderDashboard(DEFAULT_DASHBOARD_SORT);
+  const dashboardView = new URLSearchParams(window.location.search).get("view");
+  renderDashboard(dashboardView === "coffee" ? DASHBOARD_CATEGORY_DEFAULTS.coffee : DEFAULT_DASHBOARD_SORT);
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);

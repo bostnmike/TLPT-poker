@@ -495,18 +495,16 @@ function renderLeagueSnapshot(data) {
       href:"dashboard.html"
     },
     {
-      icon:"☕",
+      icon:coffeeIconMarkup(),
       label:"Coffee Consumed",
       value:totalCoffeeConsumed(data),
-      className:"snapshot-blue"
+      className:"snapshot-blue",
+      href:"dashboard.html?view=coffee"
     }
   ];
 
-  container.innerHTML = cards.map(card => {
-    const tag = card.href ? "a" : "div";
-    const href = card.href ? ` href="${card.href}"` : "";
-    return `
-      <${tag} class="snapshot-card ${card.className}"${href}>
+  container.innerHTML = cards.map(card => `
+      <a class="snapshot-card ${card.className}" href="${card.href}">
         <div class="snapshot-icon">${card.icon}</div>
         <div
           class="snapshot-value${card.valueClass ? ` ${card.valueClass}` : ""}"
@@ -516,10 +514,9 @@ function renderLeagueSnapshot(data) {
           ${card.value}
         </div>
         <div class="snapshot-label">${card.label}</div>
-        ${card.href ? '<div class="snapshot-cta">Go deeper →</div>' : ""}
-      </${tag}>
-    `;
-  }).join("");
+        <div class="snapshot-cta">Go deeper →</div>
+      </a>
+    `).join("");
 
   if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
