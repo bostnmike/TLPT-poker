@@ -29,8 +29,7 @@
   inline-size:1em;
   block-size:1em;
   object-fit:contain;
-  clip-path:circle(41.5%);
-  transform:scale(1.18);
+  clip-path:circle(48%);
   vertical-align:-.12em;
   flex:none;
 }
