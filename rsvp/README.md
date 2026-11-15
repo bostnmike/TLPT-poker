@@ -66,11 +66,10 @@ Platform references checked October 25, 2026:
 ## Optional player notifications
 
 After choosing their name, players can tap **Enable notifications**, then approve
-one native permission prompt. There are only two automatic alerts: a newly
-created/opened/reopened game, and a player's actual waitlist-to-confirmed-seat
-transition (including a capacity increase or Commish priority change). Routine
-metadata edits, ordinary In responses, closed games and past dates produce no
-alerts. Enabling notifications does not send a backlog or alter an RSVP.
+one native permission prompt. Automatic alerts cover newly opened games,
+waitlist-to-confirmed-seat transitions (including a capacity increase or
+Commish priority change), and coffee orders marked complete by the Commish.
+Enabling notifications does not send a backlog or alter an RSVP.
 On iOS/iPadOS 16.4+, enable from the installed Home Screen app. Unsupported or
 blocked browsers get plain instructions; RSVP remains usable without permission.
 The yellow TLPT chip identifies notifications; tapping opens that event in Player
@@ -534,28 +533,30 @@ include these, while the existing sanitized RSVP-only backup format stays unchan
 
 Players pick their existing roster name, then **Coffee pre-order** on an open,
 dated upcoming game. The preorder form offers Hot/Iced Coffee, Latte, Cappuccino or
-Macchiato, DeCaf/Regular, Black/With milk for coffee, optional Stevia in the Raw and an extra
+Macchiato, DeCaf/Regular, Black/With milk for coffee, a Stevia in the Raw packet count and an extra
 espresso shot. Latte, Cappuccino and Macchiato include milk. Orders can be edited or cancelled;
 each player has one editable pre-order per game. Ordering does not change an RSVP or reserve a seat. The shared-name trust model
 also applies to coffee orders.
 
 The **Coffee orders** Commish tab shows pending, completed and cancelled orders.
-Use **Mark complete** when a drink is served. The player can see the completed
-order in their pre-order form. For a postponed game, select the game and use
+Use **Mark complete** when the drink is ready. The ordering player sees the
+completed order in their pre-order form and receives “Your Coffee Awaits.
+See you soon.” on devices with player notifications enabled. For a postponed game, select the game and use
 **Clear pending orders**. This cancels only its pending orders, preserves served
 drinks, and lets affected players order again when RSVPs are open. Games with
 orders remain available in the queue before close-out, even if the date is TBD
 or the game has already passed. Current Commish notification devices receive new,
 changed and cancelled order alerts using the existing opt-in, retries and numbered
 badges. Players need no notification permission to order. The queue remains usable
-if push is off. Commish completion and clear actions do not send push alerts.
+if push is off.
 
 Orders are additive fields on the existing event state, included in backups.
 Regular is the default; older orders without a caffeine choice display as
 Regular. Edits from an older cached form preserve a saved DeCaf choice.
-The chosen caffeine option appears in summaries, the queue and Commish alerts.
+The caffeine option and Stevia packet count appear in summaries, the queue and
+Commish alerts. The previous checked Stevia option is treated as one packet.
 Version checks prevent stale-device overwrites; request IDs suppress retry alerts.
-State changes and Commish outbox jobs commit atomically. Public event feeds omit
+State changes and notification outbox jobs commit atomically. Public event feeds omit
 coffee data. `/api/coffee` reads/updates a selected player's order, while
 `/api/coffee-orders` requires a current Commish session. No schema migration,
 new signing key, service or paid plan is required.

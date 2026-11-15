@@ -106,7 +106,9 @@ export default {async fetch(req,env,ctx){
    if(req.method==='GET')return json(coffeeQueue(state));
    const input=await body(req);
    requireValue(input?.type==='coffee-complete'||input?.type==='coffee-clear','Choose a coffee queue action.');
-   return json(coffeeQueue(await update(env.DB,actor,input)));
+   const saved=await update(env.DB,actor,input);
+   if(input.type==='coffee-complete')scheduleNotifications(ctx,env);
+   return json(coffeeQueue(saved));
   }
   if(path==='/api/player-adoption'&&req.method==='GET'){
    requireValue(actor.role==='admin','Commish only.',403);

@@ -24,6 +24,16 @@ export function notificationTransitions(before,after,now=new Date(),actor=null,o
    result.push({kind:'coffee',recipient:commishRecipient(after),eventId:event.id,coffeeSlug:slug,coffeeOrderId:op.orderId,orderVersion:order.version,title:cancelled?`${name} cancelled their coffee`:old?.status==='active'?`${name} changed their coffee`:`Coffee order from ${name}`,body:`${coffeeDescription(order)} · ${event.metadata.title} · ${eventDate(event.metadata)}.`,url:'/?commish=1&activity=coffee&event='+encodeURIComponent(event.id)});
   }
  }
+ if(op?.type==='coffee-complete'&&actor?.role==='admin'){
+  const {slug, orderId}=op;
+  const event=after.events.find(e=>e.id===op.eventId);
+  const order=event?.coffeeOrders?.[slug]?.[orderId];
+  const old=before.events.find(e=>e.id===op.eventId)?.coffeeOrders?.[slug]?.[orderId];
+  if(old?.status==='active'&&order?.status==='completed'&&after.players.some(p=>p.slug===slug&&p.slug!==HOST)&&liveEvent(event)&&event.metadata.date!=='Date TBD'){
+   result.push({kind:'coffee-ready', slug, eventId:event.id, eventDate:event.metadata.date, coffeeOrderId:orderId, orderVersion:order.version,
+    title:'Your Coffee Awaits.', body:'See you soon.', url:'/?event='+encodeURIComponent(event.id)});
+  }
+ }
  return result;
 }
 // A single INSERT follows the state UPDATE in the SAME D1 transaction. changes()
@@ -57,7 +67,20 @@ function coffeeRelevant(payload,state,slug,today){
  const event=state.events.find(e=>e.id===payload.eventId);
  return slug===commishRecipient(state)&&payload.recipient===slug&&!!event&&liveEvent(event)&&!event.closeoutPending&&event.metadata.date!=='Date TBD'&&event.metadata.date>=today&&event.coffeeOrders?.[payload.coffeeSlug]?.[payload.coffeeOrderId]?.version===payload.orderVersion;
 }
-export function notificationStillRelevant(payload,state,slug,now=new Date()){return payload.kind==='coffee'?coffeeRelevant(payload,state,slug,day(now)):relevant(payload,publicFeed(state).events.find(e=>e.id===payload.eventId),slug,day(now),commishRecipient(state));}
+function notificationRelevant(payload,state,slug,today,events){
+ if(payload.kind==='coffee')return coffeeRelevant(payload,state,slug,today);
+ if(payload.kind==='coffee-ready'){
+  const event=state.events.find(e=>e.id===payload.eventId);
+  const order=event?.coffeeOrders?.[slug]?.[payload.coffeeOrderId];
+  return payload.slug===slug&&state.players.some(p=>p.slug===slug&&p.slug!==HOST)&&!!event&&
+   liveEvent(event)&&!event.closeoutPending&&event.metadata.date===payload.eventDate&&
+   order?.status==='completed'&&order.version===payload.orderVersion;
+ }
+ return relevant(payload,(events||publicFeed(state).events).find(e=>e.id===payload.eventId),slug,today,commishRecipient(state));
+}
+export function notificationStillRelevant(payload,state,slug,now=new Date()){
+ return notificationRelevant(payload,state,slug,day(now));
+}
 export async function drainNotifications(env,send=fetch,now=Date.now()){
  const config=pushConfiguration(env);if(!config)return;
  // Lease each small batch atomically so request/cron overlap cannot double-send.
@@ -70,7 +93,7 @@ export async function drainNotifications(env,send=fetch,now=Date.now()){
  const {results:broadcasts}=broadcastIds.length?await env.DB.prepare('SELECT id,kind,closed FROM broadcasts WHERE id IN (SELECT value FROM json_each(?))').bind(JSON.stringify(broadcastIds)).all():{results:[]};
  const statements=[];let cursor=0;
  async function work(){while(cursor<jobs.length){const job=jobs[cursor++],s=subscriptions.find(s=>s.id===job.subscription_id);let done=!s||s.binding!==job.binding||!state||now-job.created_at>3600000||job.attempts>=5,expired=false;
-  if(!done){const payload=JSON.parse(job.payload),broadcast=payload.kind==='announcement'?broadcasts.find(b=>b.id===payload.announcementId):null;done=payload.kind==='announcement'&&(!broadcast||broadcast.kind==='poll'&&broadcast.closed||!payload.commish&&!state.players.some(p=>p.slug===s.slug&&p.slug!==HOST))||!(payload.kind==='coffee'?coffeeRelevant(payload,state,s.slug,today):relevant(payload,events.find(e=>e.id===payload.eventId),s.slug,today,commishRecipient(state)));
+  if(!done){const payload=JSON.parse(job.payload),broadcast=payload.kind==='announcement'?broadcasts.find(b=>b.id===payload.announcementId):null;done=payload.kind==='announcement'&&(!broadcast||broadcast.kind==='poll'&&broadcast.closed||!payload.commish&&!state.players.some(p=>p.slug===s.slug&&p.slug!==HOST))||!notificationRelevant(payload,state,s.slug,today,events);
    if(!done)try{const response=await send(s.endpoint,await encryptedPush(JSON.parse(s.subscription),{...payload,notificationId:job.id,tag:`${payload.kind}:${payload.announcementId||payload.eventId}${payload.kind==='response'?':'+payload.responseSlug:payload.kind==='coffee'?':'+payload.coffeeSlug+':'+payload.coffeeOrderId+':'+payload.orderVersion:''}`},config.jwk,now));console.info('Notification provider result.',new URL(s.endpoint).hostname,response.status);expired=[404,410].includes(response.status);done=response.ok||expired||response.status>=300&&response.status<500&&![408,429].includes(response.status);}catch(error){console.warn('Notification delivery will retry.',error instanceof Error?error.name:'Error');/* Never log private endpoints, keys, payloads or raw error messages. */}
   }
   if(expired)statements.push(env.DB.prepare(`DELETE FROM ${s.id.startsWith('commish:')?'commish_push_subscriptions':'push_subscriptions'} WHERE id=? AND binding=?`).bind(s.id,s.binding));
