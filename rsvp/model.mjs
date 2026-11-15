@@ -1,5 +1,5 @@
 import {canCloseOutEvent, validCloseoutRequestId} from './lib/event-closeout.mjs';
-import {coffeeDrinks, coffeeCaffeine, steviaPacketCount} from './public/coffee-menu.mjs';
+import {coffeeDrinks, coffeeCaffeine, steviaPacketCount, espressoShotCount} from './public/coffee-menu.mjs';
 import {eventPoster,validPosterFile} from './posters.mjs';
 export {eventPoster} from './posters.mjs';
 import {noGameDays} from './schedule-notices.mjs';
@@ -61,9 +61,10 @@ export function coffeeEvent(state, eventId, now = new Date().toISOString(), requ
 
 export function publicCoffeeOrder(order) {
  if (!order) return null;
- const {drink, temperature, milk, extraShot, status, version, createdAt, updatedAt} = order;
+ const {drink, temperature, milk, status, version, createdAt, updatedAt} = order;
  const steviaPackets = steviaPacketCount(order);
- return {drink, temperature, caffeine: order.caffeine ?? 'high-octane', milk, stevia: steviaPackets > 0, steviaPackets, extraShot, status, version, createdAt, updatedAt};
+ const extraShots = espressoShotCount(order);
+ return {drink, temperature, caffeine: order.caffeine ?? 'high-octane', milk, stevia: steviaPackets > 0, steviaPackets, extraShot: extraShots > 0, extraShots, status, version, createdAt, updatedAt};
 }
 
 export function coffeeOrderEntries(event) {
@@ -112,17 +113,21 @@ function applyCoffeeOrder(state, actor, op, now) {
  if (op.action === 'save') {
   const raw = op.order;
   requireValue(raw && Object.hasOwn(coffeeDrinks, raw.drink) && ['hot', 'iced'].includes(raw.temperature), 'Choose your drink and Hot or Iced.');
-  requireValue(['milk', 'extraShot'].every(key => typeof raw[key] === 'boolean'), 'Choose your coffee extras.');
+  requireValue(typeof raw.milk === 'boolean', 'Choose your coffee extras.');
   // Cached forms still send a checkbox. Keep any saved count if it stays checked.
   const packets = raw.steviaPackets !== undefined ? raw.steviaPackets :
    typeof raw.stevia === 'boolean' ? (raw.stevia ? Math.max(1, steviaPacketCount(old)) : 0) : NaN;
   requireValue(Number.isSafeInteger(packets) && packets >= 0, 'Enter a whole number of Stevia packets, or 0 for none.');
+  const shots = raw.extraShots !== undefined ? raw.extraShots :
+   typeof raw.extraShot === 'boolean' ? (raw.extraShot ? Math.max(1, espressoShotCount(old)) : 0) : NaN;
+  requireValue(Number.isSafeInteger(shots) && shots >= 0, 'Enter a whole number of extra espresso shots, or 0 for none.');
   requireValue(raw.caffeine === undefined || Object.hasOwn(coffeeCaffeine, raw.caffeine), 'Choose DeCaf or Regular.');
-  options = {drink: raw.drink, temperature: raw.temperature, caffeine: raw.caffeine ?? old?.caffeine ?? 'high-octane', milk: raw.drink === 'coffee' ? raw.milk : true, stevia: packets > 0, steviaPackets: packets, extraShot: raw.extraShot};
+  options = {drink: raw.drink, temperature: raw.temperature, caffeine: raw.caffeine ?? old?.caffeine ?? 'high-octane', milk: raw.drink === 'coffee' ? raw.milk : true, stevia: packets > 0, steviaPackets: packets, extraShot: shots > 0, extraShots: shots};
  } else {
   requireValue(old, 'There is no coffee order to cancel.', 409);
   const packets = steviaPacketCount(old);
-  options = {drink: old.drink, temperature: old.temperature, caffeine: old.caffeine ?? 'high-octane', milk: old.milk, stevia: packets > 0, steviaPackets: packets, extraShot: old.extraShot};
+  const shots = espressoShotCount(old);
+  options = {drink: old.drink, temperature: old.temperature, caffeine: old.caffeine ?? 'high-octane', milk: old.milk, stevia: packets > 0, steviaPackets: packets, extraShot: shots > 0, extraShots: shots};
  }
  const status = op.action === 'cancel' ? 'cancelled' : 'active';
  const previous = publicCoffeeOrder(old);

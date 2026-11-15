@@ -96,7 +96,7 @@ try{
  assert.deepEqual(await(await post('commish-notifications',{action:'status',token:commishNotificationToken})).json(),{enabled:true,slug:'@commish'});
  let adminJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='response'");assert.equal(adminJobs.length,2);assert.ok(adminJobs.every(j=>j.subscription_id===commishNotificationId));
  // Coffee edits use the actual state CAS and only enqueue Commish devices.
- const coffee={slug:'red',orderId:crypto.randomUUID(),eventId:'fixture-event',action:'save',requestId:crypto.randomUUID(),expectedVersion:0,order:{drink:'latte',temperature:'iced',caffeine:'decaf',milk:true,steviaPackets:3,extraShot:true}};
+ const coffee={slug:'red',orderId:crypto.randomUUID(),eventId:'fixture-event',action:'save',requestId:crypto.randomUUID(),expectedVersion:0,order:{drink:'latte',temperature:'iced',caffeine:'decaf',milk:true,steviaPackets:3,extraShots:2}};
  assert.equal((await fetch(base+'/api/coffee-orders')).status,401);
  assert.equal((await fetch(base+'/api/coffee-orders',{headers:{Cookie:red}})).status,403);
  assert.equal((await post('coffee',coffee,null,'https://evil.test')).status,403);
@@ -125,7 +125,7 @@ try{
  coffeeSave=await post('coffee-orders',completeCoffee,admin);
  assert.equal(coffeeSave.status,200);
  const completed=(await coffeeSave.json()).orders[0];
- assert.equal(completed.status,'completed');assert.equal(completed.steviaPackets,3);
+ assert.equal(completed.status,'completed');assert.equal(completed.steviaPackets,3);assert.equal(completed.extraShots,2);
  assert.equal((await (await fetch(base+'/api/coffee?slug=red&eventId=fixture-event')).json()).orders[0].status,'completed');
  assert.equal((await post('coffee-orders',completeCoffee,admin)).status,409);
  const readyJobs=query("SELECT payload,subscription_id FROM push_jobs WHERE json_extract(payload,'$.kind')='coffee-ready'");
