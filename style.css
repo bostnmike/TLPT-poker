@@ -25,46 +25,46 @@
 }
 
 .coffee-icon{
-  --coffee-cup:#a23a09;
   position:relative;
   display:inline-block;
   inline-size:1em;
   block-size:1em;
   font-size:clamp(1.25rem, 1.2em, 2.75rem);
   border-radius:50%;
-  background:#fff;
+  background:var(--white);
   vertical-align:-.24em;
   flex:none;
 }
 
-.coffee-icon::before{
-  content:"";
-  position:absolute;
-  inset:42% auto auto 60%;
-  inline-size:25%;
-  block-size:29%;
-  border:.085em solid var(--coffee-cup);
-  border-radius:0 .18em .18em 0;
-}
-
-.coffee-icon::after{
-  content:"";
-  position:absolute;
-  inset:14% auto auto 40%;
-  inline-size:.16em;
-  block-size:.19em;
-  border-inline-start:.07em solid var(--coffee-cup);
-  border-radius:50%;
-  transform:rotate(18deg);
-}
-
 .coffee-icon-cup{
   position:absolute;
-  inset:37% auto auto 20%;
-  inline-size:49%;
-  block-size:45%;
-  border-radius:.04em .04em .15em .15em;
-  background:var(--coffee-cup);
+  inset:15% auto auto 22%;
+  inline-size:56%;
+  block-size:70%;
+  background:var(--panel);
+  clip-path:polygon(
+    12% 0, 88% 0, 88% 10%, 100% 10%, 100% 27%, 92% 27%,
+    79% 100%, 21% 100%, 8% 27%, 0 27%, 0 10%, 12% 10%
+  );
+  transform:rotate(-14deg);
+}
+
+.coffee-icon-cup::before{
+  content:"";
+  position:absolute;
+  inset:33% 18% 8%;
+  background:var(--gold);
+  clip-path:polygon(0 0, 100% 0, 84% 100%, 16% 100%);
+}
+
+.coffee-icon-cup::after{
+  content:"♣";
+  position:absolute;
+  inset:42% 0 auto;
+  color:var(--panel);
+  font:700 .29em/1 Arial,sans-serif;
+  font-variant-emoji:text;
+  text-align:center;
 }
 
 .tlpt-player-snapshot-stat .coffee-icon{
