@@ -125,7 +125,7 @@ for (const guide of Object.values(guideContext.window.TLPTStatsGuides)) {
     assert.equal(recording.subarray(0,3).toString(),'ID3','Enabled narration is an MP3');
   }
 }
-for (const category of ['results', 'bankroll', 'rates', 'player-dna']) {
+for (const category of ['results', 'bankroll', 'rates', 'player-dna', 'coffee']) {
   const recording = fs.readFileSync(new URL(`../media/norm-narrates/norm-dashboard-${category}.mp3`, import.meta.url));
   assert.ok(recording.length > 1000, `${category}: narration asset is present`);
   assert.equal(recording.subarray(0, 3).toString(), 'ID3', `${category}: narration is an MP3`);

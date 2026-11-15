@@ -1,9 +1,9 @@
 const {chromium}=require('playwright');
 const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert=require('node:assert/strict');
-const dashboard=[['results',40.91],['bankroll',41.95],['rates',43.55],['player-dna',47.96]];
+const dashboard=[['results',40.91],['bankroll',41.95],['rates',43.55],['player-dna',47.96],['coffee',19.15]];
 const guides={standings:['standings',50.83],'form-lab':['form-lab',53.24],'player-movement':['heater-meter',52.85],streaks:['streaks',51.80],knockouts:['knockouts',50.44],bounties:['bounty-hunters',60.53],players:['meet-the-crew',52.35],player:['player-profile',58.51]};
-const characters={results:'referee',bankroll:'hotline',rates:'classic','player-dna':'detective',standings:'classic','form-lab':'detective','player-movement':'weather',streaks:'clock',knockouts:'hockey',bounties:'explorer',players:'explorer',player:'host'};
+const characters={results:'referee',bankroll:'hotline',rates:'classic','player-dna':'detective',coffee:'classic',standings:'classic','form-lab':'detective','player-movement':'weather',streaks:'clock',knockouts:'hockey',bounties:'explorer',players:'explorer',player:'host'};
 module.exports=async function run(kind,base){
  const browser=await chromium.launch({...(process.env.CI?{}:{channel:'chrome'}),headless:true});
  const isDashboard=kind==='dashboard',pages=isDashboard?['dashboard']:Object.keys(guides).filter(k=>k!=='bounties');
