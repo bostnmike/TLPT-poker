@@ -871,7 +871,7 @@ body.news-page{
 
 .news-story-photo{
   clear:both;
-  width:min(100%, 22rem);
+  width:min(100%, 14rem);
   margin:16px auto;
 }
 
