@@ -1,4 +1,4 @@
-import {coffeeDescription, steviaPacketCount, espressoShotCount} from './coffee-menu.mjs?v=20261115-3';
+import {coffeeDescription, steviaPacketCount, espressoShotCount} from './coffee-menu.mjs?v=20261115-4';
 
 const $ = selector => document.querySelector(selector);
 const dialog = $('#coffee-dialog'), form = $('#coffee-form'), fields = $('#coffee-fields');

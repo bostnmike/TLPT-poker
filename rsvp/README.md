@@ -533,8 +533,8 @@ include these, while the existing sanitized RSVP-only backup format stays unchan
 
 Players pick their existing roster name, then **Coffee pre-order** on an open,
 dated upcoming game. The preorder form offers Hot/Iced Coffee, Latte, Cappuccino or
-Macchiato, DeCaf/Regular, Black/With milk for coffee, and counts for Stevia in the Raw packets and
-extra espresso shots. Latte, Cappuccino and Macchiato include milk. Orders can be edited or cancelled;
+Macchiato, DeCaf/Regular, Black/With Oat Milk for coffee, and counts for Stevia in the Raw packets and
+extra espresso shots. Latte, Cappuccino and Macchiato include oat milk. Orders can be edited or cancelled;
 each player has one editable pre-order per game. Ordering does not change an RSVP or reserve a seat. The shared-name trust model
 also applies to coffee orders.
 
