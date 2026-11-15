@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const source = readFileSync(new URL('../app.js', import.meta.url), 'utf8');
-const functions = ['playerProfileStreakMeta', 'playerProfileSnapshotMarkup', 'renderLeagueSnapshot']
+const functions = ['totalCoffeeConsumed', 'playerProfileStreakMeta', 'playerProfileSnapshotMarkup', 'renderLeagueSnapshot']
   .map(name => source.match(new RegExp('^function ' + name + '\\([^]*?^}', 'm'))[0]);
 const snapshot = { innerHTML: '' };
 const context = vm.createContext({

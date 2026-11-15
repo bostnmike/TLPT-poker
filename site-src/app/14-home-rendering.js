@@ -469,7 +469,6 @@ function renderLeagueSnapshot(data) {
   const players = data?.players || [];
 
   const totalEntries = players.reduce((sum, p) => sum + (Number(p.entries) || 0), 0);
-  const totalCoffee = Object.values(data?.coffeeConsumption || {}).reduce((sum, count) => sum + count, 0);
   const totalEntryFees = players.reduce((sum, p) => sum + (Number(p.totalCost) || 0), 0);
 
   const cards = [
@@ -498,7 +497,7 @@ function renderLeagueSnapshot(data) {
     {
       icon:"☕",
       label:"Coffee Consumed",
-      value:totalCoffee,
+      value:totalCoffeeConsumed(data),
       className:"snapshot-blue"
     }
   ];

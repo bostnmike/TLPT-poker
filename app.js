@@ -724,6 +724,10 @@ function fmtMoney(n) {
   })}`;
 }
 
+function totalCoffeeConsumed(data) {
+  return Object.values(data?.coffeeConsumption || {}).reduce((sum, count) => sum + count, 0);
+}
+
 function fmtPct(n) {
   return `${(Number(n ?? 0) * 100).toFixed(1)}%`;
 }
@@ -3348,7 +3352,6 @@ function renderLeagueSnapshot(data) {
   const players = data?.players || [];
 
   const totalEntries = players.reduce((sum, p) => sum + (Number(p.entries) || 0), 0);
-  const totalCoffee = Object.values(data?.coffeeConsumption || {}).reduce((sum, count) => sum + count, 0);
   const totalEntryFees = players.reduce((sum, p) => sum + (Number(p.totalCost) || 0), 0);
 
   const cards = [
@@ -3377,7 +3380,7 @@ function renderLeagueSnapshot(data) {
     {
       icon:"☕",
       label:"Coffee Consumed",
-      value:totalCoffee,
+      value:totalCoffeeConsumed(data),
       className:"snapshot-blue"
     }
   ];
@@ -3509,6 +3512,12 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
+
+  const coffeeCounter = document.getElementById("dashboard-coffee-counter");
+  if (coffeeCounter && window.siteData.coffeeConsumption) {
+    coffeeCounter.querySelector("strong").textContent = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
+    coffeeCounter.hidden = false;
+  }
 
   const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);

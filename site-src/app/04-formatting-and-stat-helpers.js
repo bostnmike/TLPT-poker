@@ -22,6 +22,10 @@ function fmtMoney(n) {
   })}`;
 }
 
+function totalCoffeeConsumed(data) {
+  return Object.values(data?.coffeeConsumption || {}).reduce((sum, count) => sum + count, 0);
+}
+
 function fmtPct(n) {
   return `${(Number(n ?? 0) * 100).toFixed(1)}%`;
 }
