@@ -79,9 +79,14 @@ body .dashboard-controls-compact .dashboard-summary-row .dashboard-studio-strip 
     grid-template-columns: repeat(6,minmax(0,1fr));
     gap: 8px;
   }
-  body .dashboard-controls-compact .dashboard-category-tab { grid-column: span 2; overflow-wrap: anywhere; }
+  body .dashboard-controls-compact .dashboard-category-tab { grid-column: span 2; }
   body .dashboard-controls-compact .dashboard-category-tab:nth-child(-n+2) { grid-column: span 3; }
-  body .dashboard-controls-compact .dashboard-category-tab { padding: 10px 8px; }
+  body .dashboard-controls-compact .dashboard-category-tab {
+    padding: 9px 4px;
+    font-size: .75rem;
+    letter-spacing: .02em;
+  }
+  body .dashboard-controls-compact .dashboard-category-tab > span[aria-hidden="true"] { display: none; }
   body .dashboard-controls-compact .stat-scope { padding: 10px 0 4px; }
   body .dashboard-controls-compact .stat-scope-controls { gap: 12px; }
   body .dashboard-controls-compact .stat-scope-help { margin-left: 0; }
