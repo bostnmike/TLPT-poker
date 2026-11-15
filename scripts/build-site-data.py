@@ -2,7 +2,7 @@
 
 import json
 import math
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from decimal import Decimal
 from pathlib import Path
 
@@ -15,6 +15,7 @@ METADATA_PATH = DATA_DIR / "player-metadata.json"
 CONFIG_PATH = DATA_DIR / "league-config.json"
 EVENTS_PATH = DATA_DIR / "events.json"
 FEATURED_CARDS_PATH = DATA_DIR / "featured-cards.json"
+COFFEE_CONSUMPTION_PATH = DATA_DIR / "coffee-consumption.json"
 OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 
 CARD_FORM_WINDOW = 5
@@ -86,6 +87,45 @@ def hall_minimum_appearances(event_count):
 def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def build_coffee_consumption(ledger, player_slugs):
+    """Sum manually recorded cups served independently of event results."""
+    if not isinstance(ledger, dict) or ledger.get("version") != 1 or not isinstance(ledger.get("batches"), list):
+        raise ValueError("coffee-consumption.json requires version 1 and a batch list")
+
+    seen = set()
+    totals = {}
+    for batch in ledger["batches"]:
+        if not isinstance(batch, dict):
+            raise ValueError("Coffee batches must be JSON objects")
+        batch_id = batch.get("id")
+        batch_date = batch.get("date", "")
+        if not isinstance(batch_date, str) or date.fromisoformat(batch_date).isoformat() != batch_date:
+            raise ValueError(f"Invalid coffee batch date in {batch_id!r}")
+
+        source = batch.get("source")
+        if source == "owner-tally":
+            prefix = "opening-tally-" if batch_id == "opening-tally-2026-11-15" else "weekly-tally-"
+            expected_id = prefix + batch_date
+        elif source == "historical-rsvp-credit":
+            expected_id = "rsvp-credit-" + batch_date
+        else:
+            raise ValueError(f"Unknown coffee batch source in {batch_id!r}")
+        if batch_id != expected_id:
+            raise ValueError(f"Coffee batch ID must be {expected_id!r}")
+        if batch_id in seen:
+            raise ValueError(f"Duplicate coffee batch {batch_id!r}")
+        seen.add(batch_id)
+
+        counts = batch.get("counts")
+        if not isinstance(counts, dict) or not counts:
+            raise ValueError(f"Coffee batch {batch_id!r} requires player counts")
+        for slug, count in counts.items():
+            if slug not in player_slugs or type(count) is not int or count <= 0:
+                raise ValueError(f"Invalid coffee count for {slug!r} in {batch_id!r}")
+            totals[slug] = totals.get(slug, 0) + count
+    return totals
 
 
 def apply_featured_card_policy(players, featured_card_policy):
@@ -1331,6 +1371,7 @@ def main():
         "sourceMode": "event_reports",
         "events": events["events"],
         "honors": honors,
+        "coffeeConsumption": build_coffee_consumption(load_json(COFFEE_CONSUMPTION_PATH), roster_status),
         "records": records,
         "players": players,
         "streaks": streaks,

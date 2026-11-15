@@ -41,7 +41,8 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
     { label: "Cashes", value: String(player?.timesPlaced ?? 0) },
     { label: "Knockouts", value: String(player?.hits ?? 0) },
     { label: "Bounties Won", value: String(player?.bountiesWon ?? 0) },
-    { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") }
+    { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") },
+    { label: "Coffee Consumed", value: String(data?.coffeeConsumption?.[player?.slug] ?? 0) }
   ];
 
   return `

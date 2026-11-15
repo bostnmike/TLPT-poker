@@ -28,6 +28,8 @@ echo "🔗 Testing rebuild and quality-gate coordination..."
 
 echo "💵 Testing event currency precision..."
 "$PYTHON_BIN" scripts/test-event-currency.py
+"$PYTHON_BIN" scripts/test-coffee-consumption.py
+node scripts/test-coffee-profile.mjs
 
 echo "🏷️ Testing optional rebuy bounties and historical financial parity..."
 "$PYTHON_BIN" scripts/test-optional-bounties.py

@@ -99,6 +99,12 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
 
+  const coffeeCounter = document.getElementById("dashboard-coffee-counter");
+  if (coffeeCounter && window.siteData.coffeeConsumption) {
+    coffeeCounter.querySelector("strong").textContent = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
+    coffeeCounter.hidden = false;
+  }
+
   const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
   const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active(), window.TLPTStats?.selectedEvents() || []);

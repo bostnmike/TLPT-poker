@@ -724,6 +724,10 @@ function fmtMoney(n) {
   })}`;
 }
 
+function totalCoffeeConsumed(data) {
+  return Object.values(data?.coffeeConsumption || {}).reduce((sum, count) => sum + count, 0);
+}
+
 function fmtPct(n) {
   return `${(Number(n ?? 0) * 100).toFixed(1)}%`;
 }
@@ -3348,7 +3352,6 @@ function renderLeagueSnapshot(data) {
   const players = data?.players || [];
 
   const totalEntries = players.reduce((sum, p) => sum + (Number(p.entries) || 0), 0);
-  const totalRebuys = players.reduce((sum, p) => sum + (Number(p.rebuys) || 0), 0);
   const totalEntryFees = players.reduce((sum, p) => sum + (Number(p.totalCost) || 0), 0);
 
   const cards = [
@@ -3375,30 +3378,33 @@ function renderLeagueSnapshot(data) {
       href:"dashboard.html"
     },
     {
-      icon:"♻️",
-      label:"Rebuys",
-      value:totalRebuys,
-      className:"snapshot-blue",
-      href:"dashboard.html"
+      icon:"☕",
+      label:"Coffee Consumed",
+      value:totalCoffeeConsumed(data),
+      className:"snapshot-blue"
     }
   ];
 
-container.innerHTML = cards.map(card => `
-  <a class="snapshot-card ${card.className}" href="${card.href}">
-    <div class="snapshot-icon">${card.icon}</div>
-    <div
-      class="snapshot-value${card.valueClass ? ` ${card.valueClass}` : ""}"
-      data-animate-count="true"
-      data-target-value="${card.value}"
-    >
-      ${card.value}
-    </div>
-    <div class="snapshot-label">${card.label}</div>
-    <div class="snapshot-cta">Go deeper →</div>
-  </a>
-`).join("");
-  
-    if (featuredContainer) {
+  container.innerHTML = cards.map(card => {
+    const tag = card.href ? "a" : "div";
+    const href = card.href ? ` href="${card.href}"` : "";
+    return `
+      <${tag} class="snapshot-card ${card.className}"${href}>
+        <div class="snapshot-icon">${card.icon}</div>
+        <div
+          class="snapshot-value${card.valueClass ? ` ${card.valueClass}` : ""}"
+          data-animate-count="true"
+          data-target-value="${card.value}"
+        >
+          ${card.value}
+        </div>
+        <div class="snapshot-label">${card.label}</div>
+        ${card.href ? '<div class="snapshot-cta">Go deeper →</div>' : ""}
+      </${tag}>
+    `;
+  }).join("");
+
+  if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
     featuredContainer.innerHTML = buildFeaturedPlayerCard(featuredPlayer, data);
   }
@@ -3506,6 +3512,12 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
+
+  const coffeeCounter = document.getElementById("dashboard-coffee-counter");
+  if (coffeeCounter && window.siteData.coffeeConsumption) {
+    coffeeCounter.querySelector("strong").textContent = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
+    coffeeCounter.hidden = false;
+  }
 
   const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
@@ -6026,7 +6038,8 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
     { label: "Cashes", value: String(player?.timesPlaced ?? 0) },
     { label: "Knockouts", value: String(player?.hits ?? 0) },
     { label: "Bounties Won", value: String(player?.bountiesWon ?? 0) },
-    { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") }
+    { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") },
+    { label: "Coffee Consumed", value: String(data?.coffeeConsumption?.[player?.slug] ?? 0) }
   ];
 
   return `

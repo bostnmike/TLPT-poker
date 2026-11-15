@@ -32,6 +32,7 @@ on:
       - "data/featured-cards.json"
       - "data/player-metadata.json"
       - "data/events.json"
+      - "data/coffee-consumption.json"
       - "data/event-financials.json"
       - "data/event-formats.json"
       - "data/marchand-*.json"

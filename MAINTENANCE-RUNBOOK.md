@@ -635,6 +635,16 @@ the superseded `WnWQ9UaJ4LY` ID. YouTube uses the matching approved portrait cov
 `youtube-cover-1080x1920.jpg` from that production folder; the site retains its
 separate 16:9 landscape cover. Changing the upload must preserve both treatments.
 
+## Coffee Consumed on player profiles
+
+Append confirmed cups served to `data/coffee-consumption.json` using canonical
+slugs from `data/player-metadata.json`. Use one owner tally per reporting week,
+with ID `weekly-tally-YYYY-MM-DD` and the same date in the batch. Preserve the
+original reporting date when replaying a handoff. Historical RSVP credits use
+`rsvp-credit-YYYY-MM-DD` for the date played, with the source in `reference`.
+The build rejects repeated IDs and adds each accepted batch to the career total.
+Leave pre-orders out until the owner confirms they were served.
+
 ## Player membership: Active and Alumni
 
 ### Player display renames
