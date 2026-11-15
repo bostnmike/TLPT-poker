@@ -5,7 +5,8 @@ export const espressoShotCount = order => order?.extraShots ?? (order?.extraShot
 
 export function coffeeDescription(order) {
   const parts = [order.temperature === 'iced' ? 'Iced' : 'Hot', coffeeDrinks[order.drink], coffeeCaffeine[order.caffeine || 'high-octane']];
-  if (order.drink === 'coffee') parts.push(order.milk ? 'Milk' : 'Black');
+  if (order.milk) parts.push('Oat Milk');
+  else if (order.drink === 'coffee') parts.push('Black');
   const packets = steviaPacketCount(order);
   if (packets) parts.push(`Stevia in the Raw: ${packets} ${packets === 1 ? 'packet' : 'packets'}`);
   const shots = espressoShotCount(order);
