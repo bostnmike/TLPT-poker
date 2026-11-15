@@ -50,7 +50,7 @@
       }
     },
     coffee: {
-      title: 'Coffee Consumed', portrait: 'classic',
+      title: 'Coffee Consumed', portrait: 'classic', description: 'How the coffee tally works.',
       intro: 'See how many confirmed cups each player has had.',
       tip: 'Select a player card to open their career snapshot.',
       metrics: { coffeeConsumed: 'Cups served from the league’s dated coffee tallies.' }
@@ -60,7 +60,7 @@
   const syncNarration = window.TLPTGuide.mount(opener, () => {
     const category = currentCategory();
     const view = views[category] || views.results;
-    return {title:view.title, portrait:view.portrait, audio: category === 'coffee' ? '' : 'media/norm-narrates/norm-dashboard-' + category + '.mp3', description: category === 'coffee' ? 'How the coffee tally works.' : undefined};
+    return {title:view.title, portrait:view.portrait, description:view.description, audio:'media/norm-narrates/norm-dashboard-' + category + '.mp3'};
   });
   const panel = document.getElementById('dashboard-metric-panel');
   if (panel) new MutationObserver(syncNarration).observe(panel, {attributes:true,attributeFilter:['data-dashboard-metric-group']});
