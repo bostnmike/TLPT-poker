@@ -3038,6 +3038,15 @@
     font-size:2.15rem;
   }
 
+  .player-page .tlpt-player-snapshot-stat{
+    padding:12px 10px;
+  }
+
+  .player-page .tlpt-player-snapshot-stat > span{
+    display:block;
+    overflow-wrap:anywhere;
+  }
+
   .player-page .tlpt-player-snapshot-stat > strong{
     font-size:1.2rem;
   }

@@ -57,13 +57,6 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(videoRequests.length, 0, 'No site-hosted installation MP4 is fetched');
       await page.goto(base + '/index.html');
       await page.waitForFunction(() => document.querySelector('#home-snapshot-grid')?.children.length > 0);
-      const homeMetrics = page.locator('#home-snapshot-grid .snapshot-card');
-      assert.equal(await homeMetrics.count(), 4);
-      assert.equal(await homeMetrics.nth(3).locator('.snapshot-label').textContent(), 'Coffee Consumed');
-      assert.equal(await homeMetrics.getByText('Rebuys', {exact:true}).count(), 0);
-      const totalCoffee = Object.values(require('../data/generated/site-data.json').coffeeConsumption)
-        .reduce((sum, count) => sum + count, 0);
-      assert.equal(await homeMetrics.nth(3).locator('.snapshot-value').getAttribute('data-target-value'), String(totalCoffee));
       await page.evaluate(() => document.fonts.ready);
       assert.equal(await page.locator('.home-norm-banner').count(), 0, 'Homepage banner stays removed');
       assert.equal(await page.locator('.home-promo-row, .home-rebuy-teaser').count(), 0);

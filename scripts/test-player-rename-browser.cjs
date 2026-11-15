@@ -35,7 +35,7 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    assert.equal(await tiles.nth(7).locator('span').textContent(),'Bounty Net');
    assert.equal(await coffee.locator('span').textContent(),'Coffee Consumed');
    assert.equal(await coffee.locator('strong').textContent(),String(siteData.coffeeConsumption.hiro));
-   assert.ok(await coffee.locator('span').evaluate(el=>el.getBoundingClientRect().right<=el.parentElement.getBoundingClientRect().right+1),'Coffee label fits the tile');
+   assert.ok(await coffee.locator('span').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return range.getBoundingClientRect().right<=el.parentElement.getBoundingClientRect().right+1;}),'Coffee label fits the tile');
    if(width===1440){
     const bounty=await tiles.nth(7).boundingBox();
     const cups=await coffee.boundingBox();
@@ -43,6 +43,16 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    }
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
 
+   await page.goto(base+'/index.html');
+   const homeMetrics=page.locator('#home-snapshot-grid .snapshot-card');
+   const counter=homeMetrics.nth(3);
+   await counter.waitFor({state:'visible'});
+   assert.equal(await homeMetrics.count(),4);
+   assert.equal(await counter.locator('.snapshot-label').textContent(),'Coffee Consumed');
+   assert.equal(await homeMetrics.getByText('Rebuys',{exact:true}).count(),0);
+   const totalCoffee=Object.values(siteData.coffeeConsumption).reduce((sum,count)=>sum+count,0);
+   assert.equal(await counter.locator('.snapshot-value').getAttribute('data-target-value'),String(totalCoffee));
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    await page.goto(base+'/news.html');
    // A later weekly feature can move this player into a collapsed archive story.
    // Open that story before verifying the same visible, loaded portrait.
