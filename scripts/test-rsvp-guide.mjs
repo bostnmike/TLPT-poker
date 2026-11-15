@@ -127,7 +127,7 @@ for (const [file, expected] of Object.entries({
 assert.doesNotMatch(filmRoom, /media-film-description|media-film-duration/);
 assert.match(filmRoom, /class="media-youtube-fallback" href="https:\/\/www.youtube.com\/watch\?v=JKbeghbGcAM" target="_blank" rel="noopener">Watch on YouTube ↗<\/a>/);
 
-const coffeeIcon = '<img class="coffee-icon" src="images/site/coffee-icon.webp" width="32" height="32" alt="" aria-hidden="true">';
+const coffeeIcon = '<i class="coffee-icon" aria-hidden="true"><i class="coffee-icon-cup"></i></i>';
 for (const [id, title] of [
   ['sports-desk-friday-no-go', '🏆 Friday’s Comeback Falls Short'],
   ['going-once', '🔨 Going Once…'],

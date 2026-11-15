@@ -25,13 +25,60 @@
 }
 
 .coffee-icon{
+  --coffee-rim:#fff0c9;
+  --coffee-felt:#114131;
+  --coffee-cup:#ffa846;
+  position:relative;
   display:inline-block;
   inline-size:1em;
   block-size:1em;
-  object-fit:contain;
-  clip-path:circle(48%);
-  vertical-align:-.12em;
+  font-size:clamp(1.25rem, 1.2em, 2.75rem);
+  border:.055em solid var(--coffee-rim);
+  border-radius:50%;
+  background:
+    radial-gradient(circle, var(--coffee-felt) 60%, transparent 61%),
+    repeating-conic-gradient(from -12deg, var(--coffee-rim) 0deg 24deg, #238059 24deg 90deg);
+  vertical-align:-.24em;
   flex:none;
+}
+
+.coffee-icon::before{
+  content:"";
+  position:absolute;
+  inset:43% auto auto 58%;
+  inline-size:24%;
+  block-size:25%;
+  border:.065em solid var(--coffee-cup);
+  border-radius:0 .18em .18em 0;
+}
+
+.coffee-icon::after{
+  content:"";
+  position:absolute;
+  inset:15% auto auto 44%;
+  inline-size:.14em;
+  block-size:.19em;
+  border-inline-start:.06em solid var(--coffee-rim);
+  border-radius:50%;
+  transform:rotate(18deg);
+}
+
+.coffee-icon-cup{
+  position:absolute;
+  inset:39% auto auto 24%;
+  display:grid;
+  place-items:center;
+  inline-size:43%;
+  block-size:38%;
+  border-radius:.045em .045em .13em .13em;
+  background:var(--coffee-cup);
+}
+
+.coffee-icon-cup::after{
+  content:"♠";
+  color:#173b2d;
+  font:800 .34em/1 Arial,sans-serif;
+  font-variant-emoji:text;
 }
 
 .tlpt-player-snapshot-stat .coffee-icon{
