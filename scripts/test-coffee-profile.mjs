@@ -31,5 +31,5 @@ assert.match(snapshot.innerHTML, /data-target-value="31"[^>]*>\s*31\s*<\/div>\s*
 context.renderLeagueSnapshot({ coffeeConsumption: { hiro: 13, others: 21 } });
 assert.match(snapshot.innerHTML, /data-target-value="34"[^>]*>\s*34\s*<\/div>\s*<div[^>]*>Coffee Consumed/);
 assert.match(snapshot.innerHTML, /href="dashboard.html\?view=coffee">[\s\S]*?coffee-icon[\s\S]*?Go deeper/);
-assert.match(render({}), /src="images\/site\/coffee-icon.jpg"[^>]*>Coffee Consumed/);
+assert.match(render({}), /src="images\/site\/coffee-icon.webp"[^>]*>Coffee Consumed/);
 console.log('PASS: Home uses the shared tally and links directly to the Dashboard coffee ranking.');

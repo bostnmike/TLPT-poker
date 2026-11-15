@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T06:58:13.676912Z",
+  "generatedAt": "2026-11-15T16:10:43.330659Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -205,9 +205,9 @@
   ],
   "coffeeConsumption": {
     "hiro": 13,
-    "ahmed": 5,
-    "li-fo": 4,
-    "nasa-al": 2,
+    "ahmed": 6,
+    "li-fo": 6,
+    "nasa-al": 3,
     "providencemike": 1,
     "red": 2,
     "p": 1,

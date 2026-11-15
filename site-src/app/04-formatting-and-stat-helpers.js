@@ -23,7 +23,7 @@ function fmtMoney(n) {
 }
 
 function coffeeIconMarkup() {
-  return '<img class="coffee-icon" src="images/site/coffee-icon.jpg" width="32" height="32" alt="" aria-hidden="true">';
+  return '<img class="coffee-icon" src="images/site/coffee-icon.webp" width="32" height="32" alt="" aria-hidden="true">';
 }
 
 function totalCoffeeConsumed(data) {

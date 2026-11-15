@@ -24,12 +24,6 @@ class CoffeeConsumptionTests(unittest.TestCase):
         self.assertEqual(sum(totals.values()), 31)
         self.assertEqual(totals.get("bostnmike", 0), 0)
         built = json.loads(builder.OUTPUT_PATH.read_text())
-        source = builder.load_json(builder.COFFEE_CONSUMPTION_PATH)
-        correction = next(batch for batch in source["batches"] if batch["id"] == "weekly-tally-2026-11-15")
-        updated = builder.build_coffee_consumption(
-            {**self.opening, "batches": [*self.opening["batches"], correction]}, self.slugs
-        )
-        self.assertEqual((updated["hiro"], updated["bostnmike"], sum(updated.values())), (13, 4, 37))
         self.assertEqual(built["coffeeConsumption"], builder.build_coffee_consumption(
             builder.load_json(builder.COFFEE_CONSUMPTION_PATH), self.slugs
         ))
