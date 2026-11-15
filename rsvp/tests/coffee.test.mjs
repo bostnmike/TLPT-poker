@@ -79,7 +79,19 @@ test('Commish coffee actions preserve served drinks, reject stale clears, and al
   assert.throws(()=>change(state,complete),/Commish only/);
   assert.throws(()=>change(state,{...complete,date:'2030-01-11'},admin),/game changed/);
   const served=change(state,complete,admin);
-  assert.equal(served.jobs.length,0);
+  assert.equal(served.jobs.length,1);
+  const ready=served.jobs[0];
+  assert.deepEqual([ready.kind,ready.slug,ready.title,ready.body,ready.url],
+    ['coffee-ready','red','Your Coffee Awaits.','See you soon.','/?event=e1']);
+  assert.equal(notificationStillRelevant(ready,served.after,'red',new Date(now)),true);
+  assert.equal(notificationStillRelevant(ready,served.after,'li-fo',new Date(now)),false);
+  assert.equal(notificationStillRelevant(ready,served.after,'@commish:1',new Date(now)),false);
+  const closed=structuredClone(served.after);
+  closed.events[0].open=false;
+  assert.equal(notificationStillRelevant(ready,closed,'red',new Date(now)),true);
+  closed.events[0].metadata.date='2030-01-11';
+  assert.equal(notificationStillRelevant(ready,closed,'red',new Date(now)),false);
+  assert.throws(()=>change(served.after,complete,admin),/order changed/);
   assert.equal(served.after.events[0].coffeeOrders.red[orderId].status,'completed');
   assert.equal(served.after.events[0].coffeeOrders.red[orderId].version,2);
   assert.throws(()=>change(served.after,operation({orderId:crypto.randomUUID()})),/already completed/);
@@ -102,6 +114,23 @@ test('Commish coffee actions preserve served drinks, reject stale clears, and al
   assert.equal(reordered.events[0].coffeeOrders['li-fo'][second.orderId].status,'active');
   assert.throws(()=>change(reordered,{...clear,date:'2030-01-11'},admin),/Pending orders changed/);
 });
+test('Stevia packet counts survive order edits and cancellation, including cached checkbox forms',()=>{
+  const legacy=change(fixture()).after;
+  delete legacy.events[0].coffeeOrders.red[orderId].steviaPackets;
+  assert.match(coffeeDescription(coffeeQueue(legacy,new Date(now)).orders[0]),/Stevia in the Raw: 1 packet(?: ·|$)/);
+  const {stevia,...otherOptions}=options;
+  for(const count of [-1,1.2,'3',null]){
+    assert.throws(()=>change(legacy,operation({expectedVersion:1,order:{...otherOptions,steviaPackets:count}})),/whole number/);
+  }
+  const three=change(legacy,operation({expectedVersion:1,order:{...otherOptions,steviaPackets:3}}));
+  assert.match(three.jobs[0].body,/Stevia in the Raw: 3 packets/);
+  const cached=change(three.after,operation({expectedVersion:2,order:{...options,temperature:'hot'}})).after;
+  assert.equal(cached.events[0].coffeeOrders.red[orderId].steviaPackets,3);
+  const cancelled=change(cached,operation({action:'cancel',expectedVersion:3})).after;
+  assert.equal(coffeeQueue(cancelled,new Date(now)).orders[0].steviaPackets,3);
+  const none=change(cancelled,operation({expectedVersion:4,order:{...otherOptions,steviaPackets:0}})).after;
+  assert.doesNotMatch(coffeeDescription(coffeeQueue(none,new Date(now)).orders[0]),/Stevia/);
+});
 test('coffee alerts are scoped to current Commish devices, versioned and dropped if superseded or revoked', () => {
   const first=change(fixture()), payload=first.jobs[0];
   assert.equal(payload.recipient,'@commish:1');assert.match(payload.url,/activity=coffee/);
@@ -123,7 +152,7 @@ test('coffee transaction only enqueues Commish devices, preserves atomicity and 
   db.sql.exec('DROP TABLE push_jobs');assert.throws(()=>commit(db,next.after,updated.after,updated.jobs));
   assert.equal(db.sql.prepare('SELECT revision FROM rsvp_state').get().revision,next.after.revision);
 });
-test('coffee drain delivers current changes to Commish and consumes superseded jobs without sending', async () => {
+test('coffee drain sends order changes to Commish and completion only to the ordering player', async () => {
   const db=database(), before=fixture(), first=change(before);
   const receiver=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
   const jwk=await crypto.subtle.exportKey('jwk',(await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify'])).privateKey);
@@ -134,6 +163,18 @@ test('coffee drain delivers current changes to Commish and consumes superseded j
   const second=change(first.after,operation({expectedVersion:1,order:{...options,drink:'latte'}}));commit(db,first.after,second.after,second.jobs);
   let sends=0;await drainNotifications({DB:db,VAPID_PRIVATE_JWK:JSON.stringify(jwk)},async()=>{sends++;return new Response('',{status:201});},Date.parse(now));
   assert.equal(sends,1);assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_jobs').get().n,0);
+  const player={...subscription,endpoint:'https://fcm.googleapis.com/ordering-player'};
+  db.sql.prepare('INSERT INTO push_subscriptions VALUES(?,?,?,?,?,1)').run('red-phone',player.endpoint,JSON.stringify(player),'red','binding');
+  db.sql.prepare('INSERT INTO push_subscriptions VALUES(?,?,?,?,?,1)').run('other-phone','https://fcm.googleapis.com/different-player',JSON.stringify(subscription),'li-fo','binding');
+  const served=change(second.after,{type:'coffee-complete',slug:'red',orderId,expectedVersion:2,eventId:'e1',date:'2030-01-04'},{role:'admin'});
+  commit(db,second.after,served.after,served.jobs);
+  const recipients=[];
+  await drainNotifications({DB:db,VAPID_PRIVATE_JWK:JSON.stringify(jwk)},async endpoint=>{
+    recipients.push(endpoint);
+    return new Response('',{status:201});
+  },Date.parse(now));
+  assert.deepEqual(recipients,[player.endpoint]);
+  assert.equal(db.sql.prepare('SELECT COUNT(*) n FROM push_jobs').get().n,0);
 });
 test('shared coffee API validates origin and canonical names; queue requires current Commish sign-in', async () => {
   const db=database(),s=fixture(),origin='https://coffee.test';db.sql.prepare('INSERT INTO rsvp_state VALUES(1,1,?)').run(JSON.stringify(s));
