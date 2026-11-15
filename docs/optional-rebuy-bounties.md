@@ -60,8 +60,10 @@ Do not combine optional-mode regular prizes with the legacy
 chops keep using those fields unchanged. An unchopped optional-bounty export must
 identify one actual winner and one surviving entry; tied/chopped exports fail
 closed unless the explicit `chopFinalists` match the history and summary, exact
-regular prizes are supplied, and `rolloverRecipient` identifies a surviving
-finalist. Every unbusted finalist retains their eligible bounty. The pipeline
+regular prizes are supplied, and positive rollover is assigned to a surviving
+finalist with `rolloverRecipient` or to the confirmed chop finalists through
+`rolloverPayoutsByPlayer`. Shared amounts must total the verified forfeitures and
+include every finalist. Every unbusted finalist retains their eligible bounty. The pipeline
 never decides who gets the winner-only bonus by alphabetical order or payout size.
 
 ## Per-entry rules
@@ -143,6 +145,52 @@ source audit checks the evidence, annotations, ledger and confirmed receipts.
 With a chop, `rolloverRecipient` is required only if an eligible victim's bounty
 was actually forfeited. No recipient or extra award is invented when rollover
 is zero. Every surviving eligible finalist still retains their own bounty.
+
+## November 14, 2026 confirmed production intake
+
+**Fatal Action | 9-Max** was a single-table 500K event with 8 players, 7 valid
+rebuys, and 12 knockouts. Play ran 19:10:01 to 23:55:22 Eastern (4h 45m 21s).
+The Word history was extracted in order (69 paragraphs) and matches the original
+summary after Hiro's rebuy undo and the three terminal chop markers are applied.
+The original HTML and extracted history remain unchanged. Hiro's replacement
+rebuy and A.I. Dave's rebuy were both without a bounty.
+
+Fifteen $30 entries funded $450 of regular prizes. Thirteen $10 bounty
+purchases funded $130: six wins ($60), two personal chips retained ($20),
+and five forfeitures from Dave's knockouts ($50). The confirmed $490 ICM
+chop includes $40 of those forfeitures. The host confirmed the other $10
+went to BostnMike, bringing total tournament awards to $500.
+
+The screenshot lists 3,200,000 chips for BostnMike, 1,100,020 for ButtonMan,
+and 3,260,000 for A.I. Dave. The site calculator reproduces the screenshot
+to the cent with a $265/$135/$90 prize ladder. Removing $40 from first
+place gives a $225/$135/$90 regular ladder and a baseline ICM split of
+$164.83/$119.41/$165.76 in that same player order. The difference assigns
+the $40 embedded in the chop. The separate $10 to BostnMike is recorded
+as additional prize rollover.
+
+| Player | Tournament award | Bounty wins | Retained | Cost | Take-home | Hits |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| A.I. Dave | $183.01 | $0 | $0 | $70 | $183.01 | 5 |
+| BostnMike | $191.76 | $10 | $10 | $40 | $211.76 | 1 |
+| ButtonMan | $125.23 | $10 | $10 | $80 | $145.23 | 1 |
+| Ahmed | $0 | $0 | $0 | $80 | $0 | 0 |
+| Liam O | $0 | $20 | $0 | $80 | $20 | 3 |
+| Cougar | $0 | $10 | $0 | $120 | $10 | 1 |
+| Hiro | $0 | $10 | $0 | $70 | $10 | 1 |
+| ProvidenceMike | $0 | $0 | $0 | $40 | $0 | 0 |
+
+The original HTML bounty counts agree with the history, but its receipt
+rows total $620. The confirmed take-home amounts instead total $580, which
+equals collected fees and bounties. The fingerprinted `reportedReceiptExcess`
+correction requires both original source hashes, every source receipt, and
+every confirmed actual receipt. The original receipt actions remain in the
+event record. The parser still matches all bounty aggregates to the replay
+and verifies every corrected receipt and the total forfeiture split.
+
+Hiro earned his 50-Appearance Milestone card. Ahmed bubbled, ProvidenceMike
+was first permanently out, and Cougar and Hiro were eliminated at the
+same recorded second.
 
 ## November 7, 2026 confirmed production intake
 

@@ -144,6 +144,76 @@
           "phattedcalf": 74
         }
       }
+    },
+    "2026-11-14": {
+      "entryAmount": 30,
+      "detailedHistoryFile": "Event History 2026-11-14.txt",
+      "regularPayoutsByPlayer": {
+        "ai-dave": 165.76,
+        "bostnmike": 164.83,
+        "li-fo": 119.41,
+        "ahmed": 0,
+        "liam-o": 0,
+        "cougar": 0,
+        "hiro": 0,
+        "providencemike": 0
+      },
+      "chopFinalists": [
+        "ai-dave",
+        "bostnmike",
+        "li-fo"
+      ],
+      "rolloverPayoutsByPlayer": {
+        "ai-dave": 17.25,
+        "bostnmike": 26.93,
+        "li-fo": 5.82
+      },
+      "allowOmittedZeroReceipts": true,
+      "actualReceiptsByPlayer": {
+        "ai-dave": 183.01,
+        "bostnmike": 211.76,
+        "li-fo": 145.23,
+        "ahmed": 0,
+        "liam-o": 20,
+        "cougar": 10,
+        "hiro": 10,
+        "providencemike": 0
+      },
+      "bounty": {
+        "amount": 10,
+        "mode": "optional-rebuy",
+        "winnerOnlyRollover": true,
+        "retainIfUnbusted": true
+      },
+      "sourceCorrections": {
+        "reason": "The detailed history records Hiro's 21:09:51 replacement rebuy without a bounty after the earlier bounty rebuy was undone. A.I. Dave also opted out. The HTML bounty counts match the entry replay. The HTML receipts total $620 and overstate the actual $580; the confirmed ICM and cashout ledger is authoritative.",
+        "summarySha256": "93cd6a72e16cc0a6eae279c6ab83d1d621253800832aa30356885c7ce6a3eda5",
+        "historySha256": "156b7f6a2fca54330746c5823aafd350e95db656c0ee9e0208a7706a5c32260d",
+        "reportedReceiptExcess": 40,
+        "bountySummary": {
+          "bought": {
+            "amount": 130,
+            "count": 13
+          },
+          "won": {
+            "amount": 60,
+            "count": 6
+          },
+          "kept": {
+            "amount": 70,
+            "count": 7
+          }
+        },
+        "receiptsByPlayer": {
+          "ai-dave": 183.01,
+          "bostnmike": 201.76,
+          "li-fo": 145.23,
+          "ahmed": 20,
+          "liam-o": 30,
+          "cougar": 30,
+          "hiro": 10
+        }
+      }
     }
   }
 }

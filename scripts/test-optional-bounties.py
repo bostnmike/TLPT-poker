@@ -323,11 +323,57 @@ class OptionalBountiesTests(unittest.TestCase):
                 self.assertEqual(len(result.failures), 1)
                 self.assertIn('complete date', result.failures[0])
         result = Audit()
-        integrity.audit_event_financial_config(result, financials, {'events': [{'slot': 'mtt', 'date': 'Saturday, November 14, 2026'}]})
+        unconfigured = {'version': financials['version'], 'events': {}}
+        integrity.audit_event_financial_config(result, unconfigured, {'events': [{'slot': 'mtt', 'date': 'Saturday, November 14, 2026'}]})
         self.assertEqual(result.failures, ['Scheduled MTT is missing an event-financial rule'])
         result = Audit()
         integrity.audit_event_financial_config(result, financials, {'events': [{'slot': 'mtt', 'date': 'Saturday, October 24, 2026'}]})
         self.assertEqual(result.failures, [])
+
+    def test_chop_shares_verified_rollover_between_finalists(self):
+        def share(rule):
+            rule.pop('rolloverRecipient')
+            rule['rolloverPayoutsByPlayer'] = {'liam-o': 3.25, 'providencemike': 6.75}
+            rule['actualReceiptsByPlayer'].update({'liam-o': 403.25, 'providencemike': 486.75})
+
+        event = self.mtt(share)
+        rows = {row['slug']: row for row in event['players']}
+        self.assertEqual((rows['liam-o']['rolloverPrize'], rows['providencemike']['rolloverPrize']), (3.25, 6.75))
+        self.assertEqual(event['summary']['bounty']['rollover'], 10)
+
+        for allocation in ({'liam-o': 3.25, 'providencemike': 6.74},
+                           {'liam-o': 3.25, 'wild-bill': 6.75}):
+            def invalid(rule):
+                share(rule)
+                rule['rolloverPayoutsByPlayer'] = allocation
+            with self.subTest(allocation=allocation), self.assertRaisesRegex(RuntimeError, 'shared rollover'):
+                self.mtt(invalid)
+
+    def test_fatal_action_chop_balances_actual_receipts_and_preserves_export(self):
+        date = '2026-11-14'
+        financials = parser.load_json(parser.EVENT_FINANCIALS_PATH)
+        raw = parser.RAW_EVENTS_DIR / f'Event Report {date}.html'
+        event = parser.parse_report_file(raw, self.aliases, self.metadata, 30, financials)
+        rows = {r['slug']: r for r in event['players'] if r['entries']}
+        self.assertEqual({s: (r['totalCost'], r['totalWinnings'], r['hits'], r['bountiesWon']) for s, r in rows.items()}, {
+            'ai-dave': (70, 183.01, 5, 0), 'bostnmike': (40, 211.76, 1, 1), 'li-fo': (80, 145.23, 1, 1),
+            'liam-o': (80, 20, 3, 2), 'ahmed': (80, 0, 0, 0), 'hiro': (70, 10, 1, 1),
+            'cougar': (120, 10, 1, 1), 'providencemike': (40, 0, 0, 0),
+        })
+        self.assertEqual(event['summary']['totalPot'], 500)
+        self.assertEqual(event['summary']['bounty']['rollover'], 50)
+        self.assertEqual(rows['bostnmike']['tournamentWinnings'], 191.76)
+        self.assertEqual(rows['ahmed']['bubbles'], 1)
+        self.assertEqual({a['slug']: a['payout'] for a in event['actions'] if a['type'] == 'payout'},
+                         financials['events'][date]['sourceCorrections']['receiptsByPlayer'])
+        bad_rule = financials['events'][date]
+        bad_rule['sourceCorrections']['reportedReceiptExcess'] = 30
+        with self.assertRaisesRegex(RuntimeError, 'source correction receipts do not balance'):
+            parser.parse_report_file(raw, self.aliases, self.metadata, 30, financials)
+        bad_rule['sourceCorrections']['reportedReceiptExcess'] = 40
+        bad_rule['actualReceiptsByPlayer']['bostnmike'] = 201.76
+        with self.assertRaisesRegex(RuntimeError, 'confirmed actual receipt'):
+            parser.parse_report_file(raw, self.aliases, self.metadata, 30, financials)
 
     def test_mtt_requires_each_explicit_confirmation(self):
         for key, error in [('chopFinalists', 'ambiguous chops'), ('rolloverRecipient', 'recipient'),

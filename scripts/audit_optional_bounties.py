@@ -38,7 +38,9 @@ def _audit(event, raw_path, rule, metadata, helper, check):
     detail, winners = history_actions(detailed_path, alias_map, helper.canonicalize_player_name, rule)
     recipient = rule.get('rolloverRecipient', winners[0] if len(winners) == 1 else None)
     check(recipient is None or recipient in winners, 'invalid chop rollover recipient')
+    shared_rollover = rule.get('rolloverPayoutsByPlayer')
     correction = rule.get('sourceCorrections')
+    receipt_correction = correction is not None and 'reportedReceiptExcess' in correction
     if len(winners) > 1:
         # The summary emits artificial uncredited busts when ending a chop.
         # Only terminal, uncredited finalist actions may be removed.
@@ -106,16 +108,26 @@ def _audit(event, raw_path, rule, metadata, helper, check):
           'reported bounty amounts or correction reasons were modified')
     for winner in winners:
         totals[winner]['bountyRetained'] = state[winner][1]
-    check(not rollover or recipient in winners, 'unconfirmed chop rollover recipient')
-    if rollover:
-        totals[recipient]['rolloverPrize'] = rollover
+    if shared_rollover is not None:
+        allocations = {slug: Decimal(str(value)) for slug, value in shared_rollover.items()}
+        check(len(winners) > 1 and 'rolloverRecipient' not in rule and set(allocations) == set(winners),
+              'invalid shared chop rollover recipients')
+        check(rollover > 0 and all(value >= 0 and value == value.quantize(Decimal('.01'))
+                                  for value in allocations.values()) and sum(allocations.values()) == rollover,
+              'shared chop rollover differs from verified forfeitures')
+        for slug in winners:
+            totals[slug]['rolloverPrize'] = allocations.get(slug, Decimal(0))
+    else:
+        check(not rollover or recipient in winners, 'unconfirmed chop rollover recipient')
+        if rollover and recipient in winners:
+            totals[recipient]['rolloverPrize'] = rollover
     base = Decimal(str(helper.extract_total_pot(html)))
     paid_spots = helper.extract_paid_spots(html)
     prizes = regular_prizes(rule, receipts, set(totals), base, paid_spots)
     check(sum(counts.values()) * fee == base, 'regular pool differs from entries')
     published_rows = {r['slug']: r for r in event['players']}
     check(set(published_rows) == {p['slug'] for p in metadata} and len(published_rows) == len(event['players']), 'player row set mismatch')
-    cashers = {s for s, p in prizes.items() if p > 0} | ({recipient} if rollover else set())
+    cashers = {slug for slug, prize in prizes.items() if prize > 0 or totals[slug]['rolloverPrize'] > 0}
     # Last permanent noncash exit, accounting for later reentries.
     final_exits = [s for s in exits if s not in cashers and s not in state]
     bubble = final_exits[-1] if final_exits else None
@@ -164,7 +176,7 @@ def _audit(event, raw_path, rule, metadata, helper, check):
             field = {'Bought:': 'bought', 'Won:': 'won', 'Kept:': 'kept'}[key]
             check(raw == correction['bountySummary'][field], 'corrected source bounty aggregate mismatch: '+key)
             check(raw['amount'] == raw['count'] * amount, 'reported bounty count/money mismatch: '+key)
-        else:
+        if not correction or receipt_correction:
             check(raw['amount'] == expected and raw['count'] * amount == expected, 'raw bounty aggregate mismatch: '+key)
     check(take == collected + retained + rollover, 'bounty conservation failed')
     reported_take = sum(Decimal(str(a.get('sourceBountyPosted', a['bountyPosted'])))
@@ -173,13 +185,16 @@ def _audit(event, raw_path, rule, metadata, helper, check):
         check(correction['summarySha256'] == sha256(raw_path.read_bytes()).hexdigest(), 'summary correction fingerprint mismatch')
         check(correction['receiptsByPlayer'] == {r['slug']: r['payout'] for r in receipts}, 'corrected source receipts mismatch')
         check(set(rule.get('actualReceiptsByPlayer', {})) == set(counts), 'actual receipt confirmations must cover all entrants')
-        check(not rollover and not rule.get('sourceRolloverAllocationsByPlayer') and
+        check((not rollover or receipt_correction) and not rule.get('sourceRolloverAllocationsByPlayer') and
               not rule.get('settlementAdjustmentsByPlayer'), 'source correction cannot manufacture forfeitures or settlements')
-        check(reported_take == correction['bountySummary']['bought']['amount'], 'reported entry bounty charges differ from source summary')
+        check((take if receipt_correction else reported_take) == correction['bountySummary']['bought']['amount'],
+              'bounty charges differ from source summary')
         check(correction['bountySummary']['bought']['amount'] == correction['bountySummary']['won']['amount'] +
               correction['bountySummary']['kept']['amount'], 'reported bounty summary does not conserve money')
-    check(sum(Decimal(str(r['payout'])) for r in receipts) == base + (reported_take if correction else take),
-          'source receipts do not balance')
+    source_take = reported_take if correction and not receipt_correction else take
+    excess = Decimal(str(correction.get('reportedReceiptExcess', 0))) if correction else Decimal(0)
+    check(sum(Decimal(str(r['payout'])) for r in receipts) == base + source_take + excess,
+          'source receipts do not balance with the documented excess')
     settlement_total = sum(t['settlementAdjustment'] for t in totals.values())
     check(sum(t['profit'] for t in totals.values()) == settlement_total, 'corrected receipts do not balance with confirmed settlement')
     if settlement_total:
@@ -214,14 +229,18 @@ def _audit(event, raw_path, rule, metadata, helper, check):
         expected_reconciliation.append(dict(slug=r['slug'], reportedReceipt=r['payout'], regularPrize=t['regularPrize'],
             exportedRolloverAllocation=extra, rolloverPrize=t['rolloverPrize'], correctedReceipt=t['totalWinnings'],
             adjustment=t['totalWinnings']-Decimal(str(r['payout']))))
-        if correction:
+        if correction and not receipt_correction:
             reported_return = Decimal(str(r['payout'])) - t['regularPrize']
             check(reported_return >= 0, 'reported receipt is below the confirmed regular prize')
             expected_reconciliation[-1].update(reportedBountyReturn=reported_return,
                 verifiedBountyWinnings=t['bountyWinnings'], sourceCorrectionReason=correction['reason'])
+        if receipt_correction:
+            expected_reconciliation[-1].update(sourceCorrectionReason=correction['reason'],
+                verifiedBountyWinnings=t['bountyWinnings'])
         if t['settlementAdjustment']:
             expected_reconciliation[-1].update(settlementAdjustment=t['settlementAdjustment'],
                 settlementReason=rule['settlementAdjustmentsByPlayer'][r['slug']]['reason'])
     check(ledger['reconciliation'] == normalized(expected_reconciliation), 'receipt reconciliation mismatch')
-    check(sum(r['exportedRolloverAllocation'] for r in expected_reconciliation) == rollover,
-          'source rollover allocations do not reconcile')
+    if not receipt_correction:
+        check(sum(r['exportedRolloverAllocation'] for r in expected_reconciliation) == rollover,
+              'source rollover allocations do not reconcile')

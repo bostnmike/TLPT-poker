@@ -1,7 +1,7 @@
 {
   "byVictim": {
     "ahmed": {
-      "ai-dave": 2,
+      "ai-dave": 4,
       "bostnmike": 4,
       "chris-f": 2,
       "chris-o": 1,
@@ -23,7 +23,7 @@
       "hiro": 4,
       "jeff-t": 1,
       "li-fo": 3,
-      "liam-o": 1,
+      "liam-o": 2,
       "nasa-al": 3,
       "nitro": 1,
       "phattedcalf": 1,
@@ -83,12 +83,13 @@
     },
     "cougar": {
       "ahmed": 5,
-      "ai-dave": 2,
+      "ai-dave": 4,
       "bostnmike": 2,
       "chris-o": 1,
       "hayden-d": 1,
       "hiro": 1,
       "li-fo": 4,
+      "liam-o": 1,
       "nitro": 1,
       "providencemike": 3,
       "red": 1,
@@ -128,7 +129,8 @@
       "chris-f": 1,
       "cougar": 2,
       "gilmore": 1,
-      "li-fo": 7,
+      "li-fo": 8,
+      "liam-o": 1,
       "nasa-al": 7,
       "nitro": 1,
       "phattedcalf": 1,
@@ -158,7 +160,7 @@
       "ahmed": 10,
       "ai-dave": 1,
       "big-tim": 1,
-      "bostnmike": 9,
+      "bostnmike": 10,
       "chris-f": 1,
       "chris-o": 4,
       "cougar": 4,
@@ -175,7 +177,9 @@
       "yann": 1
     },
     "liam-o": {
-      "ahmed": 1
+      "ahmed": 1,
+      "ai-dave": 1,
+      "hiro": 1
     },
     "nasa-al": {
       "ahmed": 3,
@@ -233,7 +237,7 @@
       "buffalomike": 1,
       "chris-f": 2,
       "chris-o": 3,
-      "cougar": 3,
+      "cougar": 4,
       "gilmore": 1,
       "griffin": 2,
       "hiro": 1,
@@ -335,13 +339,14 @@
       "the-architect": 1
     },
     "ai-dave": {
-      "ahmed": 2,
+      "ahmed": 4,
       "big-tim": 1,
       "bostnmike": 2,
       "chris-o": 1,
-      "cougar": 2,
+      "cougar": 4,
       "hiro": 4,
       "li-fo": 1,
+      "liam-o": 1,
       "nasa-al": 1,
       "phattedcalf": 1,
       "providencemike": 3,
@@ -370,7 +375,7 @@
       "hiro": 10,
       "jeff-t": 1,
       "kishan": 1,
-      "li-fo": 9,
+      "li-fo": 10,
       "nasa-al": 3,
       "nitro": 2,
       "phattedcalf": 4,
@@ -425,7 +430,7 @@
       "nasa-al": 1,
       "nitro": 1,
       "phattedcalf": 2,
-      "providencemike": 3,
+      "providencemike": 4,
       "red": 1,
       "vish": 1
     },
@@ -460,6 +465,7 @@
       "dan-k": 2,
       "jeff-t": 1,
       "li-fo": 9,
+      "liam-o": 1,
       "nasa-al": 3,
       "p": 2,
       "phattedcalf": 2,
@@ -490,7 +496,7 @@
       "cougar": 4,
       "gilmore": 1,
       "griffin": 1,
-      "hiro": 7,
+      "hiro": 8,
       "jeff-t": 3,
       "nasa-al": 4,
       "nitro": 2,
@@ -503,8 +509,10 @@
       "wild-bill": 1
     },
     "liam-o": {
-      "ai-dave": 1,
+      "ai-dave": 2,
       "alex-c": 1,
+      "cougar": 1,
+      "hiro": 1,
       "li-fo": 1
     },
     "nasa-al": {
@@ -678,7 +686,8 @@
     "2026-10-09",
     "2026-10-17",
     "2026-10-24",
-    "2026-11-07"
+    "2026-11-07",
+    "2026-11-14"
   ],
   "bounties": {
     "claims": [
@@ -983,12 +992,61 @@
         "amount": 10,
         "victimEntry": 3,
         "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-14",
+        "killer": "bostnmike",
+        "victim": "li-fo",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-14",
+        "killer": "hiro",
+        "victim": "liam-o",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-14",
+        "killer": "li-fo",
+        "victim": "hiro",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-11-14",
+        "killer": "liam-o",
+        "victim": "ai-dave",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-11-14",
+        "killer": "cougar",
+        "victim": "providencemike",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 3
+      },
+      {
+        "eventId": "2026-11-14",
+        "killer": "liam-o",
+        "victim": "cougar",
+        "amount": 10,
+        "victimEntry": 3,
+        "killerEntry": 2
       }
     ],
     "eventsProcessed": [
       "2026-10-17",
       "2026-10-24",
-      "2026-11-07"
+      "2026-11-07",
+      "2026-11-14"
     ]
   }
 }

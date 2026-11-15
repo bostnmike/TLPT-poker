@@ -3407,5 +3407,109 @@
       "killerEntry": 1,
       "bountyAmount": 10
     }
+  ],
+  "2026-11-14": [
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "ButtonMan",
+      "sourceKiller": "BostnMike",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "liam-o",
+      "killer": "hiro",
+      "sourceVictim": "Liam O",
+      "sourceKiller": "Hiro",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "ButtonMan",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "liam-o",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Liam O",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "cougar",
+      "killer": "ai-dave",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 1,
+      "killerEntry": 2
+    },
+    {
+      "victim": "ahmed",
+      "killer": "ai-dave",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 1,
+      "killerEntry": 2
+    },
+    {
+      "victim": "cougar",
+      "killer": "ai-dave",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 2,
+      "killerEntry": 2
+    },
+    {
+      "victim": "providencemike",
+      "killer": "cougar",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Cougar",
+      "victimEntry": 1,
+      "killerEntry": 3,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "cougar",
+      "killer": "liam-o",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Liam O",
+      "victimEntry": 3,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "hiro",
+      "killer": "liam-o",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Liam O",
+      "victimEntry": 2,
+      "killerEntry": 2
+    },
+    {
+      "victim": "liam-o",
+      "killer": "ai-dave",
+      "sourceVictim": "Liam O",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 2,
+      "killerEntry": 2
+    },
+    {
+      "victim": "ahmed",
+      "killer": "ai-dave",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 2,
+      "killerEntry": 2
+    }
   ]
 }

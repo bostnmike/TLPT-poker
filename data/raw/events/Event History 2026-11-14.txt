@@ -1,0 +1,69 @@
+01:04:04 pm 11/14/2026: Ahmed bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+01:04:04 pm 11/14/2026: Ai-Dave bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+01:04:04 pm 11/14/2026: Bostnmike bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+01:04:04 pm 11/14/2026: Buttonman bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+01:04:04 pm 11/14/2026: Cougar bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+01:04:04 pm 11/14/2026: Hiro bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+01:04:04 pm 11/14/2026: Liam O bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+06:19:15 pm 11/14/2026: Providencemike bought-in (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+07:10:01 pm 11/14/2026: Featured, Seat 1: Hiro
+07:10:01 pm 11/14/2026: Tournament started
+07:10:01 pm 11/14/2026: Featured, Seat 2: Buttonman
+07:10:01 pm 11/14/2026: Featured, Seat 3: Ahmed
+07:10:01 pm 11/14/2026: Featured, Seat 4: Liam O
+07:10:01 pm 11/14/2026: Featured, Seat 5: Bostnmike
+07:10:01 pm 11/14/2026: Featured, Seat 6: Ai-Dave
+07:10:01 pm 11/14/2026: Featured, Seat 7: Providencemike
+07:10:01 pm 11/14/2026: Featured, Seat 8: Cougar
+07:19:10 pm 11/14/2026: Buttonman busted out of the tournament (Featured, Seat 2) by Bostnmike (Featured, Seat 5)
+07:19:17 pm 11/14/2026: Buttonman rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+07:30:01 pm 11/14/2026: End of round 1
+07:30:05 pm 11/14/2026: Start of round 2
+07:50:05 pm 11/14/2026: End of round 2
+07:50:09 pm 11/14/2026: Start of round 3
+07:57:03 pm 11/14/2026: Liam O busted out of the tournament (Featured, Seat 4) by Hiro (Featured, Seat 1)
+07:57:07 pm 11/14/2026: Liam O rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+08:10:09 pm 11/14/2026: End of round 3
+08:10:13 pm 11/14/2026: Start of round 4
+08:30:13 pm 11/14/2026: End of round 4
+08:30:17 pm 11/14/2026: Start of break 1
+08:40:17 pm 11/14/2026: End of break 1
+08:40:21 pm 11/14/2026: Start of round 5
+08:46:15 pm 11/14/2026: Hiro busted out of the tournament (Featured, Seat 1) by Buttonman (Featured, Seat 2)
+08:46:37 pm 11/14/2026: Hiro rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+09:04:16 pm 11/14/2026: Ai-Dave busted out of the tournament (Featured, Seat 6) by Liam O (Featured, Seat 4)
+09:04:27 pm 11/14/2026: End of round 5
+09:04:31 pm 11/14/2026: Start of round 6
+09:05:00 pm 11/14/2026: Ai-Dave rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+09:09:39 pm 11/14/2026: Undo of latest rebuy for Hiro (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+09:09:51 pm 11/14/2026: Hiro rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+09:24:31 pm 11/14/2026: End of round 6
+09:24:35 pm 11/14/2026: Start of round 7
+09:39:05 pm 11/14/2026: Cougar busted out of the tournament (Featured, Seat 8) by Ai-Dave (Featured, Seat 6)
+09:40:26 pm 11/14/2026: Cougar rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+09:44:35 pm 11/14/2026: End of round 7
+09:44:39 pm 11/14/2026: Start of break 2
+09:46:11 pm 11/14/2026: Ahmed busted out of the tournament (Featured, Seat 3) by Ai-Dave (Featured, Seat 6)
+09:46:11 pm 11/14/2026: Cougar busted out of the tournament (Featured, Seat 8) by Ai-Dave (Featured, Seat 6)
+09:46:31 pm 11/14/2026: Ahmed rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+09:46:31 pm 11/14/2026: Cougar rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 500,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+10:05:23 pm 11/14/2026: End of break 2
+10:05:27 pm 11/14/2026: Start of round 8
+10:25:27 pm 11/14/2026: End of round 8
+10:25:31 pm 11/14/2026: Start of round 9
+10:26:09 pm 11/14/2026: Providencemike busted out of the tournament (Featured, Seat 7) by Cougar (Featured, Seat 8)
+10:45:31 pm 11/14/2026: End of round 9
+10:45:35 pm 11/14/2026: Start of round 10
+10:49:04 pm 11/14/2026: Cougar busted out of the tournament (Featured, Seat 8) by Liam O (Featured, Seat 4)
+10:49:04 pm 11/14/2026: Hiro busted out of the tournament (Featured, Seat 9) by Liam O (Featured, Seat 4)
+11:12:00 pm 11/14/2026: End of round 10
+11:12:05 pm 11/14/2026: Start of break 3
+11:28:48 pm 11/14/2026: End of break 3
+11:28:52 pm 11/14/2026: Start of round 11
+11:31:07 pm 11/14/2026: Liam O busted out of the tournament (Featured, Seat 4) by Ai-Dave (Featured, Seat 6)
+11:48:52 pm 11/14/2026: End of round 11
+11:50:07 pm 11/14/2026: Ahmed busted out of the tournament (Featured, Seat 3) by Ai-Dave (Featured, Seat 6)
+11:55:22 pm 11/14/2026: Ai-Dave chopped for 1st place
+11:55:22 pm 11/14/2026: Bostnmike chopped for 1st place
+11:55:22 pm 11/14/2026: Buttonman chopped for 1st place
+11:55:22 pm 11/14/2026: Tournament ended
