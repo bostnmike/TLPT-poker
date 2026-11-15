@@ -1,4 +1,4 @@
-import {coffeeDescription, steviaPacketCount} from './coffee-menu.mjs?v=20261115-2';
+import {coffeeDescription, steviaPacketCount, espressoShotCount} from './coffee-menu.mjs?v=20261115-3';
 
 const $ = selector => document.querySelector(selector);
 const dialog = $('#coffee-dialog'), form = $('#coffee-form'), fields = $('#coffee-fields');
@@ -59,7 +59,7 @@ async function openOrder(button) {
       form.elements.caffeine.value = order.caffeine || 'high-octane';
       form.elements.milk.value = order.milk ? 'milk' : 'black';
       form.elements.steviaPackets.value = steviaPacketCount(order);
-      form.elements.extraShot.checked = order.extraShot;
+      form.elements.extraShots.value = espressoShotCount(order);
     }
     milkChoice(); fields.disabled = false; cancel.hidden = order?.status !== 'active';
     status.textContent = order?.status === 'active'
@@ -76,7 +76,7 @@ async function saveOrder(action) {
   if (action === 'save') data.order = {
     drink: form.elements.drink.value, temperature: form.elements.temperature.value, caffeine: form.elements.caffeine.value,
     milk: form.elements.drink.value !== 'coffee' || form.elements.milk.value === 'milk',
-    steviaPackets: form.elements.steviaPackets.valueAsNumber, extraShot: form.elements.extraShot.checked
+    steviaPackets: form.elements.steviaPackets.valueAsNumber, extraShots: form.elements.extraShots.valueAsNumber
   };
   const fingerprint = JSON.stringify(data);
   // Reuse this ID after an uncertain network response, preventing duplicate alerts.

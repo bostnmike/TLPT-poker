@@ -141,6 +141,22 @@ test('coffee alerts are scoped to current Commish devices, versioned and dropped
     const copy=structuredClone(first.after);edit(copy);assert.equal(notificationStillRelevant(payload,copy,'@commish:1',new Date(now)),false);
   }
 });
+test('espresso shot quantities survive legacy forms and cancelled orders', () => {
+  const legacy = change(fixture(), operation({order:{...options, extraShot:true}})).after;
+  delete legacy.events[0].coffeeOrders.red[orderId].extraShots;
+  assert.equal(coffeeQueue(legacy,new Date(now)).orders[0].extraShots,1);
+  const {extraShot,...extras} = options;
+  for (const extraShots of [-1,1.5,'3',null]) {
+    assert.throws(() => change(legacy,operation({expectedVersion:1,order:{...extras,extraShots}})),/whole number/);
+  }
+  const updated = change(legacy,operation({expectedVersion:1,order:{...extras,extraShots:3}}));
+  assert.match(updated.jobs[0].body,/\+3 espresso shots/);
+  const edited = change(updated.after,operation({expectedVersion:2,order:{...options,extraShot:true,temperature:'hot'}})).after;
+  const cancelled = change(edited,operation({expectedVersion:3,action:'cancel'})).after;
+  assert.equal(coffeeQueue(cancelled,new Date(now)).orders[0].extraShots,3);
+  const none = change(cancelled,operation({expectedVersion:4,order:{...extras,extraShots:0}})).after;
+  assert.doesNotMatch(coffeeDescription(coffeeQueue(none,new Date(now)).orders[0]),/espresso shot/);
+});
 test('coffee transaction only enqueues Commish devices, preserves atomicity and cannot duplicate retries', () => {
   const db=database(), before=fixture(), next=change(before);
   db.sql.prepare('INSERT INTO rsvp_state VALUES(1,1,?)').run(JSON.stringify(before));
