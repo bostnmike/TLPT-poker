@@ -869,6 +869,27 @@ body.news-page{
   object-fit:cover;
 }
 
+.news-story-photo{
+  clear:both;
+  width:min(100%, 22rem);
+  margin:16px auto;
+}
+
+.news-story-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:12px;
+}
+
+.news-story-photo figcaption{
+  margin-top:6px;
+  color:#e4ebf3;
+  font-size:.9rem;
+  font-style:italic;
+  text-align:center;
+}
+
 .news-post-body::after{
   content:"";
   display:block;

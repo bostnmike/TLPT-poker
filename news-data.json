@@ -14,11 +14,166 @@
   },
   "weeks": [
 {
+      "id": "week-11-14-2026",
+      "date": "11/14/2026",
+      "eventName": "Fatal Action | 9-Max",
+      "title": "Fatal Action | 9-Max",
+      "featured": true,
+      "dek": "The Airman Bob Memorial",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "🏆 The Big Winner",
+          "player": "A.I. Dave / BostnMike / ButtonMan",
+          "value": "Shared first",
+          "copy": "The TLPT RSVP App handled its first live ICM deal.",
+          "avatars": [
+            {
+              "src": "images/players/ai-dave.jpg",
+              "slug": "ai-dave",
+              "alt": "A.I. Dave",
+              "fallback": "AD"
+            },
+            {
+              "src": "images/players/bostnmike.jpg",
+              "slug": "bostnmike",
+              "alt": "BostnMike",
+              "fallback": "BM"
+            },
+            {
+              "src": "images/players/li-fo.jpg",
+              "slug": "li-fo",
+              "alt": "ButtonMan",
+              "fallback": "BT"
+            }
+          ]
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killer",
+          "player": "A.I. Dave",
+          "value": "5 knockouts",
+          "copy": "No bounty on his second entry and no bounty wins.",
+          "avatars": [
+            {
+              "src": "images/players/ai-dave.jpg",
+              "slug": "ai-dave",
+              "alt": "A.I. Dave",
+              "fallback": "AD"
+            }
+          ]
+        },
+        {
+          "tone": "purple",
+          "label": "🫧 The Bubble",
+          "player": "Ahmed",
+          "value": "Fourth place",
+          "copy": "The samosas were a hit. The catchphrase was a little too accurate.",
+          "avatars": [
+            {
+              "src": "images/players/ahmed.jpg",
+              "slug": "ahmed",
+              "alt": "Ahmed",
+              "fallback": "AH"
+            }
+          ]
+        },
+        {
+          "tone": "blue",
+          "label": "🏅 Appearance Milestone",
+          "player": "Hiro",
+          "value": "50 games",
+          "copy": "Hiro joined the 50-Appearance Club.",
+          "avatars": [
+            {
+              "src": "images/players/hiro.jpg",
+              "slug": "hiro",
+              "alt": "Hiro",
+              "fallback": "HI"
+            }
+          ]
+        }
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "15"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "7"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$500"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "4h 45m"
+        }
+      ],
+      "summary": {
+        "startTime": "7:10:01 pm 11/14/2026",
+        "endTime": "11:55:22 pm 11/14/2026",
+        "durationLabel": "4h 45m",
+        "buyIns": 8,
+        "rebuys": 7,
+        "entries": 15,
+        "totalPot": 500,
+        "paidSpots": 3,
+        "winner": "A.I. Dave, BostnMike, ButtonMan",
+        "firstOut": "ButtonMan",
+        "firstPermanentOut": "ProvidenceMike"
+      },
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-11-14.jpg\" alt=\"Poster for the 11/14/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Fatal Action was the name on the poster, but pocket aces held in seven of eight showdowns. TLPT Alum Emeritus Airman Bob would have lost his mind and surely been the 8th of 8.  &quot;I hate dem things&quot;. <a href=\"https://www.youtube.com/watch?v=4pB0mVtyt7Q&amp;t=1s\">Watch Airman Bob lose with aces</a>. The best of the bunch had BostnMike flop a set of aces while Tony, now playing under ButtonMan, flopped a set of sevens. Liam would’ve turned a set of jacks had he stayed in. For once, the turn showed a man exactly how much money he’d saved by minding his own business. ProvidenceMike, meanwhile, was the surprise eighth-place finisher of the FAA Meltdown. First permanently grounded. We thank him for his patronage.</p><p>A.I. Dave busted, tilt-rebought without a bounty, and promptly knocked out five people. His reward for all that work: zero bounty wins. Then he got a share of the forfeited money through the three-way ICM chop anyway. <strong>Major Meta Poker Shenanigans. Well played, A.I. Dave.</strong> ButtonMan took a different route to the same deal. The Commissioner busted him first, he rebought seven seconds later, and by 11:55 he was chopping first with the guy who’d sent him to the cashier.</p><p>Ahmed once again brought samosas, for which the table was genuinely grateful. Later he coined <strong>“Bubble or Double.”</strong> It was the former. You have to admire a man who caters the evening and still volunteers to demonstrate the worst possible outcome.</p><figure class=\"news-story-photo\"><img src=\"images/fw/story/2026-11-14-ahmed-stack.jpg\" alt=\"Ahmed’s stack of poker chips topped with a red bounty plaque\" width=\"960\" height=\"1280\" loading=\"lazy\" decoding=\"async\"><figcaption>Bubble or Double: the before photo.</figcaption></figure><p>With Ahmed out fourth, Dave, BostnMike and ButtonMan agreed to a chop, and the ICM calculator in the TLPT RSVP App got its first live win. It split the money to the cent, which is considerably more precision than Dave brought to his second buy-in. The coffee was flowing, too. We’re counting cups going forward. Until now, the league only tracked what you lost after drinking them.</p>",
+      "spotlight": {
+        "player": "A.I. Dave / BostnMike / ButtonMan",
+        "fallback": "ABB",
+        "pills": [
+          "Dave: Five knockouts on his second entry",
+          "BostnMike: The only finalist who didn’t rebuy",
+          "ButtonMan: First out, back in seven seconds",
+          "Finish: Three-way ICM chop"
+        ],
+        "avatars": [
+          {
+            "src": "images/players/ai-dave.jpg",
+            "slug": "ai-dave",
+            "alt": "A.I. Dave",
+            "fallback": "AD"
+          },
+          {
+            "src": "images/players/bostnmike.jpg",
+            "slug": "bostnmike",
+            "alt": "BostnMike",
+            "fallback": "BM"
+          },
+          {
+            "src": "images/players/li-fo.jpg",
+            "slug": "li-fo",
+            "alt": "ButtonMan",
+            "fallback": "BT"
+          }
+        ]
+      },
+      "numbersThatMatter": [
+        "8 players, 7 rebuys, 15 total entries. Play ran from 7:10 to 11:55 p.m., about 4 hours 45 minutes.",
+        "$450 regular prize pool and $130 in bounties. The night produced 12 knockouts and six paid bounty wins.",
+        "Final take-home: BostnMike $211.76, A.I. Dave $183.01, ButtonMan $145.23.",
+        "Hiro earned his 50-Appearance Milestone Edition Ultimate Player Card. Fifty games at the TLPT table. Congrats, Hiro."
+      ],
+      "roastHtml": "<p>The Commissioner made first-team All-Star in pit stops after surgically removing a cut card from The DeckMate in record time. The table was relieved. Mike was even more relieved to discover a sport where nobody can check-raise him.</p>"
+    },
+    {
       "id": "week-11-07-2026",
       "date": "11/07/2026",
       "eventName": "Full Metal Stack-It | 9-Max",
       "title": "Full Metal Stack-It | 9-Max",
-      "featured": true,
+      "featured": false,
       "dek": "The App Works. The Commissioner Doesn’t.",
       "summaryCards": [
         {
