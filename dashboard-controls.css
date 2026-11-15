@@ -18,6 +18,14 @@ body .dashboard-controls-compact.tlpt-control-deck .dashboard-category-tabs {
   grid-template-columns: repeat(5,minmax(0,1fr));
 }
 body .dashboard-controls-compact .dashboard-category-tab { padding: 12px; }
+body .dashboard-controls-compact #dashboard-category-coffee > span[aria-hidden="true"] {
+  inline-size:auto;
+  min-inline-size:0;
+  block-size:auto;
+  border:0;
+  background:none;
+}
+body .dashboard-controls-compact #dashboard-category-coffee .coffee-icon { font-size:1.5rem; }
 body .dashboard-controls-compact .dashboard-metric-selector { max-width: none; }
 body .dashboard-controls-compact .dashboard-metric-select-wrap { display: block; }
 [data-dashboard-metric-group="coffee"] { min-height: 0; }
@@ -88,18 +96,14 @@ body .dashboard-controls-compact .dashboard-summary-row .dashboard-studio-strip 
     letter-spacing: .02em;
   }
   body .dashboard-controls-compact .dashboard-category-tab > span[aria-hidden="true"] { display: none; }
-  body .dashboard-controls-compact #dashboard-category-coffee { position: relative; padding-inline: 10px; }
+  body .dashboard-controls-compact #dashboard-category-coffee {
+    flex-direction:column;
+    gap:4px;
+    padding:6px 4px;
+    line-height:1.15;
+  }
   body .dashboard-controls-compact #dashboard-category-coffee > span[aria-hidden="true"] {
-    display: flex;
-    position: absolute;
-    inset-block-start: 3px;
-    inset-inline-end: 3px;
-    inline-size: auto;
-    min-width: 0;
-    block-size: auto;
-    border: 0;
-    background: none;
-    font-size: 10px;
+    display:flex;
   }
   body .dashboard-controls-compact .stat-scope { padding: 10px 0 4px; }
   body .dashboard-controls-compact .stat-scope-controls { gap: 12px; }

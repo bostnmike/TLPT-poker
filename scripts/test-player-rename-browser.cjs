@@ -58,7 +58,10 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    await coffeeTab.waitFor({state:'visible'});
    await page.waitForFunction(()=>document.getElementById('dashboard-category-coffee').getAttribute('aria-selected')==='true');
    assert.equal(await page.locator('#dashboard-grid .dashboard-card').count(),Object.keys(siteData.coffeeConsumption).length);
-   await coffeeTab.locator('img.coffee-icon').evaluate(img=>img.decode());
+   const icon = await coffeeTab.locator('.coffee-icon').boundingBox();
+   const label = await coffeeTab.locator('span').last().boundingBox();
+   assert.ok(icon.width >= 24 && icon.height >= 24, 'Coffee icon stays legible at each width');
+   assert.ok(icon.y + icon.height <= label.y || icon.x + icon.width <= label.x, 'Coffee icon and label have separate space');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    await page.goto(base+'/news.html');
    // A later weekly feature can move this player into a collapsed archive story.
