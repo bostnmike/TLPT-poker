@@ -33,6 +33,12 @@
       "source": "historical-rsvp-credit",
       "reference": "Fatal Action, surviving RSVP record",
       "counts": { "hiro": 1 }
+    },
+    {
+      "id": "weekly-tally-2026-11-15",
+      "date": "2026-11-15",
+      "source": "owner-tally",
+      "counts": { "bostnmike": 4, "hiro": 2 }
     }
   ]
 }

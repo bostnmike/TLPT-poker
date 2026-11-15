@@ -76,6 +76,14 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   const strip = document.getElementById("dashboard-studio-strip");
   if (!strip) return;
 
+  strip.setAttribute("role", "status");
+  strip.setAttribute("aria-live", "polite");
+  if (sortKey === "coffeeConsumed") {
+    const cups = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
+    strip.textContent = `${cups} cups recorded across the league.`;
+    return;
+  }
+
   const count = sortedPlayers.length;
   const career = !window.TLPTStats?.isFactual(sortKey);
   const eventCount = window.TLPTStats?.selectedEvents().length || 0;
@@ -85,8 +93,6 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
     ? `Ranking ${count} player${count === 1 ? "" : "s"} by ${metric} ${context}.`
     : `No players to rank by ${metric} ${context}.`;
   if (!career && eventCount > 0 && eventCount < 5) strip.textContent += " Small sample—brag responsibly.";
-  strip.setAttribute("role", "status");
-  strip.setAttribute("aria-live", "polite");
 }
 
 function ensureDashboardHeadline(sortKey) {
@@ -108,8 +114,8 @@ function ensureDashboardHeadline(sortKey) {
 
   const meta = DASHBOARD_META[sortKey] || {
     label: formatStatLabel(sortKey),
-    icon: statIcon(sortKey),
-    formula: ""
+    icon: sortKey === "coffeeConsumed" ? "☕" : statIcon(sortKey),
+    formula: STAT_FORMULAS[sortKey] || ""
   };
 
   headline.innerHTML = `

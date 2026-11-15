@@ -48,13 +48,19 @@
         survivorIndex: 'A normalized blend of cash rate, bubble avoidance and knockout rate.',
         tiltIndex: 'A score rewarding fewer rebuys and bubble finishes, with small samples softened toward the middle. It does not measure actual mood.'
       }
+    },
+    coffee: {
+      title: 'Coffee Consumed', portrait: 'classic',
+      intro: 'See how many confirmed cups each player has had.',
+      tip: 'Select a player card to open their career snapshot.',
+      metrics: { coffeeConsumed: 'Cups served from the league’s dated coffee tallies.' }
     }
   };
   const currentCategory = () => document.getElementById('dashboard-metric-panel')?.dataset.dashboardMetricGroup || 'results';
   const syncNarration = window.TLPTGuide.mount(opener, () => {
     const category = currentCategory();
     const view = views[category] || views.results;
-    return {title:view.title, portrait:view.portrait, audio:'media/norm-narrates/norm-dashboard-' + category + '.mp3'};
+    return {title:view.title, portrait:view.portrait, audio: category === 'coffee' ? '' : 'media/norm-narrates/norm-dashboard-' + category + '.mp3', description: category === 'coffee' ? 'How the coffee tally works.' : undefined};
   });
   const panel = document.getElementById('dashboard-metric-panel');
   if (panel) new MutationObserver(syncNarration).observe(panel, {attributes:true,attributeFilter:['data-dashboard-metric-group']});
@@ -88,17 +94,24 @@
     add('p', STAT_FORMULAS[selected.key] || 'See the metric definition above.', calculation);
     add('h3', 'Reading the ranking');
     const keepZero = dashboardIncludesZero(selected.key);
-    add('p', 'Players are ordered from highest value to lowest, with alphabetical tie-breaks. Higher is not always better—for example, bubbles. ' + (keepZero ? 'Recorded $0 and 0% results remain visible, between positive and negative results.' : 'Zero values are omitted; negative financial results remain visible.'));
-    const scoped = category !== 'player-dna' && window.TLPTStats?.active();
-    add('p', selected.key === 'bountyNet'
+    add('p', category === 'coffee'
+      ? 'Players are ranked by cups served, with alphabetical tie-breaks.'
+      : 'Players are ordered from highest value to lowest, with alphabetical tie-breaks. Higher is not always better—for example, bubbles. ' + (keepZero ? 'Recorded $0 and 0% results remain visible, between positive and negative results.' : 'Zero values are omitted; negative financial results remain visible.'));
+    const eventRanked = category !== 'player-dna' && category !== 'coffee';
+    const scoped = eventRanked && window.TLPTStats?.active();
+    add('p', category === 'coffee'
+      ? 'Players enter this ranking when they have at least one recorded cup.'
+      : selected.key === 'bountyNet'
       ? 'Bounty profit / loss includes players with a recorded appearance in a bounty-enabled event within this view, including first-time players and recorded $0 results. Players who have not played a matching bounty game are excluded.'
       : keepZero
       ? 'Financial rankings include everyone with a recorded tournament appearance in this view, including first-time players and players with a zero result. Never-played players and missing results are excluded.'
       : scoped
       ? 'This filtered view includes players with a matching tournament appearance and a non-zero value for the selected metric.'
       : 'This view includes players with at least two career entries (initial buy-ins plus rebuys) and a non-zero value for the selected metric.');
-    add('p', 'Active players and alumni are grouped separately, but their league-wide ranks are retained. Select any player card for their profile.');
-    if (category !== 'player-dna') {
+    if (category !== 'coffee') {
+      add('p', 'Active players and alumni are grouped separately, but their league-wide ranks are retained. Select any player card for their profile.');
+    }
+    if (eventRanked) {
       add('h3', 'What the event filters do');
       add('p', 'Event format selects single-table / Sit & Go, multi-table, or both. Bounties selects events with bounties, without bounties, or both—not whether an individual player opted in. ' + (selected.key === 'bountyNet' ? 'This bounty ranking requires a matching bounty-game appearance, including opt-outs. Without Bounties has no bounty results.' : 'Everyone at a matching event is included.'));
       add('p', 'Filters start at All. Reset clears only event filters, not your chosen stat. Career ratings, cards and awards never change. Small samples deserve caution, even when they make you look terrific.');

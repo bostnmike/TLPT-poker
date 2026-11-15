@@ -76,7 +76,7 @@
       const view = currentView();
       syncPortrait(view.portrait);
       section.setAttribute('aria-label', 'Norm Narrates: ' + view.title);
-      description.textContent = view.audio ? 'Norm’s take on ' + view.title + '.' : 'The recording is on the way. Open the Read-me guide.';
+      description.textContent = view.description ?? (view.audio ? 'Norm’s take on ' + view.title + '.' : 'The recording is on the way. Open the Read-me guide.');
       audio.setAttribute('aria-label', 'Listen to Norm explain ' + view.title);
       opener.setAttribute('aria-label', 'Read-me guide: ' + view.title);
       audio.hidden = !view.audio;

@@ -99,17 +99,15 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
 
-  const coffeeCounter = document.getElementById("dashboard-coffee-counter");
-  if (coffeeCounter && window.siteData.coffeeConsumption) {
-    coffeeCounter.querySelector("strong").textContent = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
-    coffeeCounter.hidden = false;
-  }
-
-  const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
+  const coffeeMetric = sortKey === "coffeeConsumed";
+  const careerMetric = coffeeMetric || (window.TLPTStats && !window.TLPTStats.isFactual(sortKey));
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
-  const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active(), window.TLPTStats?.selectedEvents() || []);
+  const eligiblePlayers = coffeeMetric
+    ? scopedPlayers.map(player => ({ ...player, coffeeConsumed: window.siteData.coffeeConsumption?.[player.slug] ?? 0 }))
+      .filter(player => player.coffeeConsumed > 0)
+    : dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active(), window.TLPTStats?.selectedEvents() || []);
   const careerNote = document.getElementById('dashboard-career-note');
-  if (careerNote) careerNote.hidden = !careerMetric;
+  if (careerNote) careerNote.hidden = !careerMetric || coffeeMetric;
 
   if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardIncludesZero(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
     renderDashboardStudioStrip(sortKey, []);
@@ -129,7 +127,10 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
     return;
   }
 
-  grid.innerHTML = window.TLPTRoster.sections(sorted, (player, index) => dashboardCardMarkup(player, sortKey, index + 1), { ranked: true });
+  const renderCard = (player, index) => dashboardCardMarkup(player, sortKey, index + 1);
+  grid.innerHTML = coffeeMetric
+    ? sorted.map(renderCard).join("")
+    : window.TLPTRoster.sections(sorted, renderCard, { ranked: true });
   initAnimatedCounters(grid);
   setActiveSortButton("dashboard", sortKey);
 }

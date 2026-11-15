@@ -3709,13 +3709,13 @@ def main() -> int:
                 if record["attrs"].get("data-dashboard-category")
             ]
             if [attrs.get("data-dashboard-category") for attrs in category_tabs] != [
-                "results", "bankroll", "rates", "player-dna"
+                "results", "bankroll", "rates", "player-dna", "coffee"
             ]:
-                parser.errors.append("Dashboard categories must remain Results, Bankroll, Rates, Player DNA")
+                parser.errors.append("Dashboard categories must end with Coffee Consumed after Player DNA")
             elif any(attrs.get("aria-controls") != "dashboard-metric-panel" for attrs in category_tabs):
                 parser.errors.append("Dashboard categories must control the contextual metric panel")
             elif [attrs.get("aria-selected") for attrs in category_tabs] != [
-                "true", "false", "false", "false"
+                "true", "false", "false", "false", "false"
             ]:
                 parser.errors.append("Dashboard categories must default to Results")
 
