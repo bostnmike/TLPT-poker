@@ -25,14 +25,13 @@
 }
 
 .coffee-icon{
-  --coffee-cup:#a23a09;
   position:relative;
   display:inline-block;
   inline-size:1em;
   block-size:1em;
   font-size:clamp(1.25rem, 1.2em, 2.75rem);
   border-radius:50%;
-  background:#fff;
+  background:var(--white);
   vertical-align:-.24em;
   flex:none;
 }
@@ -43,7 +42,7 @@
   inset:42% auto auto 60%;
   inline-size:25%;
   block-size:29%;
-  border:.085em solid var(--coffee-cup);
+  border:.085em solid var(--panel);
   border-radius:0 .18em .18em 0;
 }
 
@@ -53,7 +52,7 @@
   inset:14% auto auto 40%;
   inline-size:.16em;
   block-size:.19em;
-  border-inline-start:.07em solid var(--coffee-cup);
+  border-inline-start:.07em solid var(--panel);
   border-radius:50%;
   transform:rotate(18deg);
 }
@@ -63,8 +62,9 @@
   inset:37% auto auto 20%;
   inline-size:49%;
   block-size:45%;
+  border:.075em solid var(--panel);
   border-radius:.04em .04em .15em .15em;
-  background:var(--coffee-cup);
+  background:var(--gold);
 }
 
 .tlpt-player-snapshot-stat .coffee-icon{
