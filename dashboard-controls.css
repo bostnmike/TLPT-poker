@@ -88,6 +88,19 @@ body .dashboard-controls-compact .dashboard-summary-row .dashboard-studio-strip 
     letter-spacing: .02em;
   }
   body .dashboard-controls-compact .dashboard-category-tab > span[aria-hidden="true"] { display: none; }
+  body .dashboard-controls-compact #dashboard-category-coffee { position: relative; padding-inline: 10px; }
+  body .dashboard-controls-compact #dashboard-category-coffee > span[aria-hidden="true"] {
+    display: flex;
+    position: absolute;
+    inset-block-start: 3px;
+    inset-inline-end: 3px;
+    inline-size: auto;
+    min-width: 0;
+    block-size: auto;
+    border: 0;
+    background: none;
+    font-size: 10px;
+  }
   body .dashboard-controls-compact .stat-scope { padding: 10px 0 4px; }
   body .dashboard-controls-compact .stat-scope-controls { gap: 12px; }
   body .dashboard-controls-compact .stat-scope-help { margin-left: 0; }

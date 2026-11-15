@@ -24,6 +24,21 @@
   box-sizing:border-box;
 }
 
+.coffee-icon{
+  display:inline-block;
+  inline-size:1em;
+  block-size:1em;
+  object-fit:contain;
+  clip-path:circle(41.5%);
+  transform:scale(1.18);
+  vertical-align:-.12em;
+  flex:none;
+}
+
+.tlpt-player-snapshot-stat .coffee-icon{
+  margin-inline-end:.35em;
+}
+
 /* Preserve the HTML hidden-state contract against component display rules. */
 [hidden]{
   display:none !important;

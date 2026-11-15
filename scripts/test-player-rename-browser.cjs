@@ -52,6 +52,13 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    assert.equal(await homeMetrics.getByText('Rebuys',{exact:true}).count(),0);
    const totalCoffee=Object.values(siteData.coffeeConsumption).reduce((sum,count)=>sum+count,0);
    assert.equal(await counter.locator('.snapshot-value').getAttribute('data-target-value'),String(totalCoffee));
+   await counter.locator('.snapshot-cta').click();
+   await page.waitForURL('**/dashboard.html?view=coffee');
+   const coffeeTab=page.getByRole('tab',{name:'Coffee Consumed'});
+   await coffeeTab.waitFor({state:'visible'});
+   await page.waitForFunction(()=>document.getElementById('dashboard-category-coffee').getAttribute('aria-selected')==='true');
+   assert.equal(await page.locator('#dashboard-grid .dashboard-card').count(),Object.keys(siteData.coffeeConsumption).length);
+   await coffeeTab.locator('img.coffee-icon').evaluate(img=>img.decode());
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    await page.goto(base+'/news.html');
    // A later weekly feature can move this player into a collapsed archive story.

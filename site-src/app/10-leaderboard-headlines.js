@@ -114,7 +114,7 @@ function ensureDashboardHeadline(sortKey) {
 
   const meta = DASHBOARD_META[sortKey] || {
     label: formatStatLabel(sortKey),
-    icon: sortKey === "coffeeConsumed" ? "☕" : statIcon(sortKey),
+    icon: sortKey === "coffeeConsumed" ? coffeeIconMarkup() : statIcon(sortKey),
     formula: STAT_FORMULAS[sortKey] || ""
   };
 

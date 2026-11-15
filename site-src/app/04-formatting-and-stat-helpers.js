@@ -22,6 +22,10 @@ function fmtMoney(n) {
   })}`;
 }
 
+function coffeeIconMarkup() {
+  return '<img class="coffee-icon" src="images/site/coffee-icon.jpg" width="32" height="32" alt="" aria-hidden="true">';
+}
+
 function totalCoffeeConsumed(data) {
   return Object.values(data?.coffeeConsumption || {}).reduce((sum, count) => sum + count, 0);
 }

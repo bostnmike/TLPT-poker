@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
 
 const source = readFileSync(new URL('../app.js', import.meta.url), 'utf8');
-const functions = ['totalCoffeeConsumed', 'playerProfileStreakMeta', 'playerProfileSnapshotMarkup', 'renderLeagueSnapshot']
+const functions = ['coffeeIconMarkup', 'totalCoffeeConsumed', 'playerProfileStreakMeta', 'playerProfileSnapshotMarkup', 'renderLeagueSnapshot']
   .map(name => source.match(new RegExp('^function ' + name + '\\([^]*?^}', 'm'))[0]);
 const snapshot = { innerHTML: '' };
 const context = vm.createContext({
@@ -30,4 +30,6 @@ context.renderLeagueSnapshot({ coffeeConsumption: { hiro: 11, others: 20 } });
 assert.match(snapshot.innerHTML, /data-target-value="31"[^>]*>\s*31\s*<\/div>\s*<div[^>]*>Coffee Consumed/);
 context.renderLeagueSnapshot({ coffeeConsumption: { hiro: 13, others: 21 } });
 assert.match(snapshot.innerHTML, /data-target-value="34"[^>]*>\s*34\s*<\/div>\s*<div[^>]*>Coffee Consumed/);
-console.log('PASS: The homepage counter sums the same career tallies and reflects weekly additions.');
+assert.match(snapshot.innerHTML, /href="dashboard.html\?view=coffee">[\s\S]*?coffee-icon[\s\S]*?Go deeper/);
+assert.match(render({}), /src="images\/site\/coffee-icon.jpg"[^>]*>Coffee Consumed/);
+console.log('PASS: Home uses the shared tally and links directly to the Dashboard coffee ranking.');

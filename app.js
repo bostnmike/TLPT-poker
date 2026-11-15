@@ -145,7 +145,7 @@ const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
     { key: "survivorIndex", icon: "🛟", label: "Survivor" },
     { key: "tiltIndex", icon: "🧊", label: "Composure" }
   ]),
-  coffee: Object.freeze([{ key: "coffeeConsumed", icon: "☕", label: "Coffee Consumed" }])
+  coffee: Object.freeze([{ key: "coffeeConsumed", label: "Coffee Consumed" }])
 });
 const DASHBOARD_BOUNTY_SORTS = new Set(["bountiesWon", "bountyNet"]);
 const DASHBOARD_BOUNTY_DATA_KEYS = [
@@ -725,6 +725,10 @@ function fmtMoney(n) {
     minimumFractionDigits: Number.isInteger(num) ? 0 : 2,
     maximumFractionDigits: 2
   })}`;
+}
+
+function coffeeIconMarkup() {
+  return '<img class="coffee-icon" src="images/site/coffee-icon.jpg" width="32" height="32" alt="" aria-hidden="true">';
 }
 
 function totalCoffeeConsumed(data) {
@@ -2457,7 +2461,7 @@ function ensureDashboardHeadline(sortKey) {
 
   const meta = DASHBOARD_META[sortKey] || {
     label: formatStatLabel(sortKey),
-    icon: sortKey === "coffeeConsumed" ? "☕" : statIcon(sortKey),
+    icon: sortKey === "coffeeConsumed" ? coffeeIconMarkup() : statIcon(sortKey),
     formula: STAT_FORMULAS[sortKey] || ""
   };
 
@@ -3387,18 +3391,16 @@ function renderLeagueSnapshot(data) {
       href:"dashboard.html"
     },
     {
-      icon:"☕",
+      icon:coffeeIconMarkup(),
       label:"Coffee Consumed",
       value:totalCoffeeConsumed(data),
-      className:"snapshot-blue"
+      className:"snapshot-blue",
+      href:"dashboard.html?view=coffee"
     }
   ];
 
-  container.innerHTML = cards.map(card => {
-    const tag = card.href ? "a" : "div";
-    const href = card.href ? ` href="${card.href}"` : "";
-    return `
-      <${tag} class="snapshot-card ${card.className}"${href}>
+  container.innerHTML = cards.map(card => `
+      <a class="snapshot-card ${card.className}" href="${card.href}">
         <div class="snapshot-icon">${card.icon}</div>
         <div
           class="snapshot-value${card.valueClass ? ` ${card.valueClass}` : ""}"
@@ -3408,10 +3410,9 @@ function renderLeagueSnapshot(data) {
           ${card.value}
         </div>
         <div class="snapshot-label">${card.label}</div>
-        ${card.href ? '<div class="snapshot-cta">Go deeper →</div>' : ""}
-      </${tag}>
-    `;
-  }).join("");
+        <div class="snapshot-cta">Go deeper →</div>
+      </a>
+    `).join("");
 
   if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
@@ -6049,7 +6050,7 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
     { label: "Knockouts", value: String(player?.hits ?? 0) },
     { label: "Bounties Won", value: String(player?.bountiesWon ?? 0) },
     { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") },
-    { label: "Coffee Consumed", value: String(data?.coffeeConsumption?.[player?.slug] ?? 0) }
+    { label: "Coffee Consumed", icon: coffeeIconMarkup(), value: String(data?.coffeeConsumption?.[player?.slug] ?? 0) }
   ];
 
   return `
@@ -6087,7 +6088,7 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
       <div class="tlpt-player-snapshot-grid" aria-label="Career snapshot">
         ${snapshotStats.map(stat => `
           <div class="tlpt-player-snapshot-stat">
-            <span>${stat.label}</span>
+            <span>${stat.icon || ""}${stat.label}</span>
             <strong class="${stat.className || ""}">${stat.value}</strong>
           </div>
         `).join("")}
@@ -7392,7 +7393,8 @@ async function main() {
   renderHomePage(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
-  renderDashboard(DEFAULT_DASHBOARD_SORT);
+  const dashboardView = new URLSearchParams(window.location.search).get("view");
+  renderDashboard(dashboardView === "coffee" ? DASHBOARD_CATEGORY_DEFAULTS.coffee : DEFAULT_DASHBOARD_SORT);
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);

@@ -42,7 +42,7 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
     { label: "Knockouts", value: String(player?.hits ?? 0) },
     { label: "Bounties Won", value: String(player?.bountiesWon ?? 0) },
     { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") },
-    { label: "Coffee Consumed", value: String(data?.coffeeConsumption?.[player?.slug] ?? 0) }
+    { label: "Coffee Consumed", icon: coffeeIconMarkup(), value: String(data?.coffeeConsumption?.[player?.slug] ?? 0) }
   ];
 
   return `
@@ -80,7 +80,7 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
       <div class="tlpt-player-snapshot-grid" aria-label="Career snapshot">
         ${snapshotStats.map(stat => `
           <div class="tlpt-player-snapshot-stat">
-            <span>${stat.label}</span>
+            <span>${stat.icon || ""}${stat.label}</span>
             <strong class="${stat.className || ""}">${stat.value}</strong>
           </div>
         `).join("")}
