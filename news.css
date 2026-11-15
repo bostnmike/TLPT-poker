@@ -869,10 +869,19 @@ body.news-page{
   object-fit:cover;
 }
 
-.news-story-photo{
+.news-story-photo-wrap{
   clear:both;
-  width:min(100%, 14rem);
-  margin:16px auto;
+  display:flow-root;
+}
+
+.news-story-photo{
+  float:left;
+  width:min(38%, 14rem);
+  margin:2px clamp(10px, 2vw, 18px) 10px 0;
+}
+
+.news-story-photo-wrap > p:first-of-type{
+  margin-top:0;
 }
 
 .news-story-photo img{
