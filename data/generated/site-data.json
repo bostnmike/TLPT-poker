@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T05:38:44.652417Z",
+  "generatedAt": "2026-11-15T05:59:09.445275Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -203,6 +203,20 @@
       "note": "Most bubble finishes so far."
     }
   ],
+  "coffeeConsumption": {
+    "hiro": 11,
+    "ahmed": 5,
+    "li-fo": 4,
+    "nasa-al": 2,
+    "providencemike": 1,
+    "red": 2,
+    "p": 1,
+    "liam-o": 1,
+    "griffin": 1,
+    "ai-dave": 1,
+    "nitro": 1,
+    "rob-f": 1
+  },
   "records": [
     {
       "label": "Highest Profit",

@@ -23,7 +23,7 @@ def coordination_errors(pipeline, quality):
     require("cancel-in-progress: false" in pipeline, "release order must be serialized")
     paths = lambda text: set(re.findall(r'^      - "([^"]+)"$', text, re.M))
     require(paths(pipeline) == paths(quality), "main and PR path coverage must match")
-    for path in ["images/**", "media/**", "audio/**", "fonts/**", "data/events.json", "pnpm-lock.yaml", "templates/site/**", "site-src/**"]:
+    for path in ["images/**", "media/**", "audio/**", "fonts/**", "data/events.json", "data/coffee-consumption.json", "pnpm-lock.yaml", "templates/site/**", "site-src/**"]:
         require(path in paths(pipeline), f"missing release input: {path}")
     require('!images/fw/gallery-manifest.json' in paths(pipeline),
             "generated manifest must not trigger a publication loop")

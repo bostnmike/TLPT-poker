@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "batches": [
+    {
+      "id": "opening-tally-2026-11-15",
+      "date": "2026-11-15",
+      "source": "owner-tally",
+      "counts": {
+        "hiro": 9,
+        "ahmed": 5,
+        "li-fo": 4,
+        "nasa-al": 2,
+        "providencemike": 1,
+        "red": 2,
+        "p": 1,
+        "liam-o": 1,
+        "griffin": 1,
+        "ai-dave": 1,
+        "nitro": 1,
+        "rob-f": 1
+      }
+    },
+    {
+      "id": "rsvp-credit-2026-11-07",
+      "date": "2026-11-07",
+      "source": "historical-rsvp-credit",
+      "reference": "Full Metal Stack-It, verified November 8 backup from before close-out",
+      "counts": { "hiro": 1 }
+    },
+    {
+      "id": "rsvp-credit-2026-11-14",
+      "date": "2026-11-14",
+      "source": "historical-rsvp-credit",
+      "reference": "Fatal Action, surviving RSVP record",
+      "counts": { "hiro": 1 }
+    }
+  ]
+}
