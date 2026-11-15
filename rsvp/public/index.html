@@ -22,7 +22,7 @@
   <script type="module" src="/notifications.mjs?v=20261101-2"></script>
   <script type="module" src="/install.mjs?v=20261025-1"></script>
   <script type="module" src="/player-adoption.mjs?v=20261106-1"></script>
-  <script type="module" src="/coffee.mjs?v=20261108-1"></script>
+  <script type="module" src="/coffee.mjs?v=20261115-1"></script>
   <script type="module" src="/closeout.mjs?v=20261108-1"></script>
 </head>
 <body>
@@ -102,8 +102,8 @@
   <section id="results-panel" class="admin-panel" role="tabpanel" aria-labelledby="tab-results" hidden><h2>Results & sent</h2><p>Recent announcements and polls. Open a poll’s voter list to see who picked what.</p><p id="results-status" role="status" aria-live="polite"></p><div id="broadcast-history"></div></section>
   <section id="coffee-panel" class="admin-panel" role="tabpanel" aria-labelledby="tab-coffee" hidden>
     <h2>Coffee orders</h2><p>The table runs on questionable reads and decent coffee.</p>
-    <label>Game<select id="coffee-filter"><option value="">All upcoming games</option></select></label>
-    <button id="coffee-refresh" type="button">Refresh orders</button>
+    <label>Game<select id="coffee-filter"><option value="">All games</option></select></label>
+    <div class="toolbar"><button id="coffee-refresh" type="button">Refresh orders</button><button id="coffee-clear" type="button" hidden>Clear pending orders</button></div>
     <p id="coffee-queue-status" role="status" aria-live="polite"></p><div id="coffee-queue"></div>
   </section>
   <section id="polls" aria-label="Polls from The Commish" hidden></section>

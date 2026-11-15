@@ -4,9 +4,11 @@ const $ = selector => document.querySelector(selector);
 const dialog = $('#coffee-dialog'), form = $('#coffee-form'), fields = $('#coffee-fields');
 const status = $('#coffee-status'), cancel = $('#coffee-cancel');
 const filter = $('#coffee-filter'), queue = $('#coffee-queue'), queueStatus = $('#coffee-queue-status');
+const clearOrders = $('#coffee-clear'), refreshOrders = $('#coffee-refresh');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 let context = null, saving = false, pending = null, loadingQueue = false, queueData = null;
 let activeCommish = false;
+let managingQueue = false;
 let selected = {slug: '', name: '', commishEntry: new URLSearchParams(location.search).has('commish')};
 filter.value = '';
 let initialEvent = new URLSearchParams(location.search).get('event');
@@ -43,7 +45,13 @@ async function openOrder(button) {
   try {
     const {orders} = await request('coffee?' + new URLSearchParams({slug: target.slug, eventId: target.eventId}));
     if (context !== target || !dialog.open) return;
-    const order = orders.find(order => order.status === 'active') || orders.at(-1);
+    const order = orders.find(order => order.status === 'completed') ||
+      orders.find(order => order.status === 'active') || orders.at(-1);
+    if (order?.status === 'completed') {
+      form.hidden = true;
+      status.textContent = 'Order completed: ' + coffeeDescription(order) + '.';
+      return;
+    }
     if (order) {
       target.orderId = order.orderId; target.version = order.version;
       form.elements.drink.value = order.drink;
@@ -86,34 +94,67 @@ async function saveOrder(action) {
     if (context === target && dialog.open) fields.disabled = false;
   }
 }
-function renderQueue() {
+function renderQueue(message = '', showCompleted = false) {
   if (!queueData) return;
   const orders = queueData.orders.filter(order => !filter.value || order.eventId === filter.value);
-  const active = orders.filter(order => order.status === 'active'), cancelled = orders.filter(order => order.status === 'cancelled');
+  const active = orders.filter(order => order.status === 'active');
+  const completed = orders.filter(order => order.status === 'completed');
+  const cancelled = orders.filter(order => order.status === 'cancelled');
   const cards = rows => rows.map(order => {
     const event = queueData.events.find(event => event.id === order.eventId);
-    return `<article class="coffee-order"><h3>${esc(order.name)}</h3><p class="coffee-order-drink">${esc(coffeeDescription(order))}</p><p>${esc(event.title)} · ${esc(event.date)}${event.open ? '' : ' · Game closed'}</p></article>`;
+    const eventStatus = event.cancelled ? ' · Game cancelled' : event.open ? '' : ' · RSVPs closed';
+    const completeButton = order.status === 'active' && !event.closeoutPending
+      ? `<button type="button" data-complete-order="${esc(order.orderId)}" data-event-id="${esc(event.id)}" data-player-slug="${esc(order.slug)}" aria-label="Mark ${esc(order.name)}’s coffee complete">Mark complete</button>` : '';
+    return `<article class="coffee-order"><h3>${esc(order.name)}</h3><p class="coffee-order-drink">${esc(coffeeDescription(order))}</p><p>${esc(event.title)} · ${esc(event.date)}${eventStatus}</p>${completeButton}</article>`;
   }).join('');
-  queue.replaceChildren();
-  queue.innerHTML = (active.length ? cards(active) : '<p>No coffee orders yet.</p>') +
+  clearOrders.hidden = !filter.value || !active.length || queueData.events.some(event =>
+    event.id === filter.value && event.closeoutPending);
+  queue.innerHTML = (active.length ? cards(active) : '<p>No pending coffee orders.</p>') +
+    (completed.length ? `<details${showCompleted ? ' open' : ''}><summary>Completed orders (${completed.length})</summary>${cards(completed)}</details>` : '') +
     (cancelled.length ? `<details><summary>Cancelled orders (${cancelled.length})</summary>${cards(cancelled)}</details>` : '');
-  queueStatus.textContent = `${active.length} ${active.length === 1 ? 'drink' : 'drinks'} ordered · Checked ${new Date().toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'})}`;
+  queueStatus.textContent = [message, `${active.length} pending · ${completed.length} completed`].filter(Boolean).join(' ');
+}
+function showQueue(data, message, showCompleted) {
+  queueData = data;
+  const previous = initialEvent || filter.value;
+  initialEvent = null;
+  filter.innerHTML = '<option value="">All games</option>' + data.events.map(event =>
+    `<option value="${esc(event.id)}">${esc(event.title)} · ${esc(event.date)}</option>`).join('');
+  filter.value = data.events.some(event => event.id === previous) ? previous : '';
+  renderQueue(message, showCompleted);
 }
 async function loadQueue() {
-  if (!activeCommish || loadingQueue) return;
+  if (!activeCommish || loadingQueue || managingQueue) return;
   loadingQueue = true; queueStatus.textContent = 'Checking coffee orders…';
   try {
     const data = await request('coffee-orders');
     if (!activeCommish) return;
-    queueData = data;
-    const previous = initialEvent || filter.value; initialEvent = null;
-    filter.innerHTML = '<option value="">All upcoming games</option>' + data.events.map(event => `<option value="${esc(event.id)}">${esc(event.title)} · ${esc(event.date)}</option>`).join('');
-    filter.value = data.events.some(event => event.id === previous) ? previous : '';
-    renderQueue();
+    showQueue(data);
   } catch (error) {
     queueStatus.textContent = error.message + ' Refresh orders to retry.';
+    queueData = null;
+    clearOrders.hidden = true;
     queue.replaceChildren();
   } finally { loadingQueue = false; }
+}
+async function manageQueue(operation, message) {
+  if (!activeCommish || !queueData || loadingQueue || managingQueue) return;
+  managingQueue = true;
+  filter.disabled = refreshOrders.disabled = clearOrders.disabled = true;
+  queue.querySelectorAll('button').forEach(button => { button.disabled = true; });
+  try {
+    const data = await request('coffee-orders', operation);
+    if (activeCommish) showQueue(data, message, operation.type === 'coffee-complete');
+  } catch (error) {
+    queueData = null;
+    clearOrders.hidden = true;
+    queue.replaceChildren();
+    queueStatus.textContent = error.message + ' Select Refresh orders to check the latest queue.';
+  } finally {
+    managingQueue = false;
+    filter.disabled = refreshOrders.disabled = clearOrders.disabled = false;
+    queue.querySelectorAll('button').forEach(button => { button.disabled = false; });
+  }
 }
 form.addEventListener('change', milkChoice);
 form.addEventListener('submit', event => {event.preventDefault(); saveOrder('save');});
@@ -121,8 +162,27 @@ cancel.addEventListener('click', () => saveOrder('cancel'));
 dialog.addEventListener('cancel', event => {if (saving) event.preventDefault();});
 dialog.querySelector('form[method="dialog"]').addEventListener('submit', event => {if (saving) event.preventDefault();});
 dialog.addEventListener('close', () => {context = null; pending = null;});
-filter.addEventListener('change', renderQueue);
-$('#coffee-refresh').addEventListener('click', loadQueue);
+filter.addEventListener('change', () => renderQueue());
+refreshOrders.addEventListener('click', loadQueue);
+queue.addEventListener('click', event => {
+  const button = event.target.closest('[data-complete-order]');
+  if (!button || button.disabled || !queueData) return;
+  const order = queueData.orders.find(order => order.orderId === button.dataset.completeOrder &&
+    order.eventId === button.dataset.eventId && order.slug === button.dataset.playerSlug);
+  if (!order || order.status !== 'active') return;
+  const game = queueData.events.find(game => game.id === order.eventId);
+  manageQueue({type:'coffee-complete', eventId:game.id, date:game.date, slug:order.slug,
+    orderId:order.orderId, expectedVersion:order.version}, 'Order marked complete.');
+});
+clearOrders.addEventListener('click', () => {
+  if (!activeCommish || !queueData || loadingQueue || managingQueue) return;
+  const game = queueData.events.find(game => game.id === filter.value);
+  if (!game || game.closeoutPending) return;
+  const orders = queueData.orders.filter(order => order.eventId === game.id && order.status === 'active')
+    .map(({slug, orderId, version}) => [slug, orderId, version]);
+  if (!orders.length || !confirm(`Cancel all ${orders.length} pending coffee orders for ${game.title} (${game.date})? Completed orders stay on the list.`)) return;
+  manageQueue({type:'coffee-clear', eventId:game.id, date:game.date, orders}, 'Pending orders cleared.');
+});
 document.addEventListener('click', event => {
   const button = event.target.closest('[data-coffee-event]');
   if (button && !button.disabled) openOrder(button);
