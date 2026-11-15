@@ -117,7 +117,8 @@ const DASHBOARD_CATEGORY_DEFAULTS = Object.freeze({
   results: "hits",
   bankroll: "profit",
   rates: "roi",
-  "player-dna": "trueSkillScore"
+  "player-dna": "trueSkillScore",
+  coffee: "coffeeConsumed"
 });
 const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
   results: Object.freeze([
@@ -143,7 +144,8 @@ const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
     { key: "aggressionIndex", icon: "⚡", label: "Aggression" },
     { key: "survivorIndex", icon: "🛟", label: "Survivor" },
     { key: "tiltIndex", icon: "🧊", label: "Composure" }
-  ])
+  ]),
+  coffee: Object.freeze([{ key: "coffeeConsumed", icon: "☕", label: "Coffee Consumed" }])
 });
 const DASHBOARD_BOUNTY_SORTS = new Set(["bountiesWon", "bountyNet"]);
 const DASHBOARD_BOUNTY_DATA_KEYS = [
@@ -255,6 +257,7 @@ const STAT_FORMULAS = {
   hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
   entries: "Entries: Buy-ins + Rebuys",
   buyIns: "Buy-ins: Total number of initial tournament entries purchased",
+  coffeeConsumed: "Confirmed cups served across all dated tallies.",
   rebuys: "Rebuys: Re-entry purchases after busting plus permitted live-stack reloads; reloads are not knockouts",
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
@@ -2416,6 +2419,14 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   const strip = document.getElementById("dashboard-studio-strip");
   if (!strip) return;
 
+  strip.setAttribute("role", "status");
+  strip.setAttribute("aria-live", "polite");
+  if (sortKey === "coffeeConsumed") {
+    const cups = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
+    strip.textContent = `${cups} cups recorded across the league.`;
+    return;
+  }
+
   const count = sortedPlayers.length;
   const career = !window.TLPTStats?.isFactual(sortKey);
   const eventCount = window.TLPTStats?.selectedEvents().length || 0;
@@ -2425,8 +2436,6 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
     ? `Ranking ${count} player${count === 1 ? "" : "s"} by ${metric} ${context}.`
     : `No players to rank by ${metric} ${context}.`;
   if (!career && eventCount > 0 && eventCount < 5) strip.textContent += " Small sample—brag responsibly.";
-  strip.setAttribute("role", "status");
-  strip.setAttribute("aria-live", "polite");
 }
 
 function ensureDashboardHeadline(sortKey) {
@@ -2448,8 +2457,8 @@ function ensureDashboardHeadline(sortKey) {
 
   const meta = DASHBOARD_META[sortKey] || {
     label: formatStatLabel(sortKey),
-    icon: statIcon(sortKey),
-    formula: ""
+    icon: sortKey === "coffeeConsumed" ? "☕" : statIcon(sortKey),
+    formula: STAT_FORMULAS[sortKey] || ""
   };
 
   headline.innerHTML = `
@@ -3513,17 +3522,15 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
 
-  const coffeeCounter = document.getElementById("dashboard-coffee-counter");
-  if (coffeeCounter && window.siteData.coffeeConsumption) {
-    coffeeCounter.querySelector("strong").textContent = totalCoffeeConsumed(window.siteData).toLocaleString("en-US");
-    coffeeCounter.hidden = false;
-  }
-
-  const careerMetric = window.TLPTStats && !window.TLPTStats.isFactual(sortKey);
+  const coffeeMetric = sortKey === "coffeeConsumed";
+  const careerMetric = coffeeMetric || (window.TLPTStats && !window.TLPTStats.isFactual(sortKey));
   const scopedPlayers = careerMetric ? window.siteData.players : (window.TLPTStats?.players(window.siteData.players) || window.siteData.players);
-  const eligiblePlayers = dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active(), window.TLPTStats?.selectedEvents() || []);
+  const eligiblePlayers = coffeeMetric
+    ? scopedPlayers.map(player => ({ ...player, coffeeConsumed: window.siteData.coffeeConsumption?.[player.slug] ?? 0 }))
+      .filter(player => player.coffeeConsumed > 0)
+    : dashboardPlayersForMetric(scopedPlayers, sortKey, !careerMetric && !!window.TLPTStats?.active(), window.TLPTStats?.selectedEvents() || []);
   const careerNote = document.getElementById('dashboard-career-note');
-  if (careerNote) careerNote.hidden = !careerMetric;
+  if (careerNote) careerNote.hidden = !careerMetric || coffeeMetric;
 
   if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardIncludesZero(sortKey) && !dashboardHasBountyData(scopedPlayers)) {
     renderDashboardStudioStrip(sortKey, []);
@@ -3543,7 +3550,10 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
     return;
   }
 
-  grid.innerHTML = window.TLPTRoster.sections(sorted, (player, index) => dashboardCardMarkup(player, sortKey, index + 1), { ranked: true });
+  const renderCard = (player, index) => dashboardCardMarkup(player, sortKey, index + 1);
+  grid.innerHTML = coffeeMetric
+    ? sorted.map(renderCard).join("")
+    : window.TLPTRoster.sections(sorted, renderCard, { ranked: true });
   initAnimatedCounters(grid);
   setActiveSortButton("dashboard", sortKey);
 }
@@ -7145,6 +7155,10 @@ function dashboardBountyEmptyMarkup() {
 }
 
 function dashboardMetricEmptyMarkup(sortKey) {
+  if (sortKey === "coffeeConsumed") {
+    return '<div class="dashboard-empty-state" role="status"><h3>No coffee recorded yet</h3></div>';
+  }
+
   const meta = DASHBOARD_META[sortKey] || {
     label: formatStatLabel(sortKey),
     icon: statIcon(sortKey)

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T05:59:09.445275Z",
+  "generatedAt": "2026-11-15T06:58:13.676912Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -204,7 +204,7 @@
     }
   ],
   "coffeeConsumption": {
-    "hiro": 11,
+    "hiro": 13,
     "ahmed": 5,
     "li-fo": 4,
     "nasa-al": 2,
@@ -215,7 +215,8 @@
     "griffin": 1,
     "ai-dave": 1,
     "nitro": 1,
-    "rob-f": 1
+    "rob-f": 1,
+    "bostnmike": 4
   },
   "records": [
     {

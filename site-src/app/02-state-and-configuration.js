@@ -6,7 +6,8 @@ const DASHBOARD_CATEGORY_DEFAULTS = Object.freeze({
   results: "hits",
   bankroll: "profit",
   rates: "roi",
-  "player-dna": "trueSkillScore"
+  "player-dna": "trueSkillScore",
+  coffee: "coffeeConsumed"
 });
 const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
   results: Object.freeze([
@@ -32,7 +33,8 @@ const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
     { key: "aggressionIndex", icon: "⚡", label: "Aggression" },
     { key: "survivorIndex", icon: "🛟", label: "Survivor" },
     { key: "tiltIndex", icon: "🧊", label: "Composure" }
-  ])
+  ]),
+  coffee: Object.freeze([{ key: "coffeeConsumed", icon: "☕", label: "Coffee Consumed" }])
 });
 const DASHBOARD_BOUNTY_SORTS = new Set(["bountiesWon", "bountyNet"]);
 const DASHBOARD_BOUNTY_DATA_KEYS = [
@@ -144,6 +146,7 @@ const STAT_FORMULAS = {
   hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
   entries: "Entries: Buy-ins + Rebuys",
   buyIns: "Buy-ins: Total number of initial tournament entries purchased",
+  coffeeConsumed: "Confirmed cups served across all dated tallies.",
   rebuys: "Rebuys: Re-entry purchases after busting plus permitted live-stack reloads; reloads are not knockouts",
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",

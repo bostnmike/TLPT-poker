@@ -84,6 +84,10 @@ function dashboardBountyEmptyMarkup() {
 }
 
 function dashboardMetricEmptyMarkup(sortKey) {
+  if (sortKey === "coffeeConsumed") {
+    return '<div class="dashboard-empty-state" role="status"><h3>No coffee recorded yet</h3></div>';
+  }
+
   const meta = DASHBOARD_META[sortKey] || {
     label: formatStatLabel(sortKey),
     icon: statIcon(sortKey)

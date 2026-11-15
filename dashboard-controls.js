@@ -8,7 +8,7 @@
   const filters = host.closest('.dashboard-event-filters');
   let expanded = false;
   const layout = () => {
-    const career = panel?.dataset.dashboardMetricGroup === 'player-dna';
+    const career = ['player-dna', 'coffee'].includes(panel?.dataset.dashboardMetricGroup);
     filters.hidden = career;
     toggle.hidden = career || !mobile.matches;
     host.hidden = career || (mobile.matches && !expanded);

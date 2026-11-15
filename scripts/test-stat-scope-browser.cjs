@@ -3,8 +3,10 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const events = require('../data/generated/stat-events.json').events;
-const coffeeTotal = Object.values(require('../data/generated/site-data.json').coffeeConsumption)
-  .reduce((sum, count) => sum + count, 0).toLocaleString('en-US');
+const siteData = require('../data/generated/site-data.json');
+const coffeePlayers = siteData.players
+  .filter(player => siteData.coffeeConsumption[player.slug] > 0)
+  .sort((a, b) => siteData.coffeeConsumption[b.slug] - siteData.coffeeConsumption[a.slug] || a.name.localeCompare(b.name));
 const mttBounty = events.filter(e => e.format === 'mtt' && e.bounty);
 const mttNoBounty = events.filter(e => e.format === 'mtt' && !e.bounty);
 const mttPlayers = new Set(mttBounty.flatMap(e => e.players.filter(p => p.entries > 0).map(p => p.slug)));
@@ -90,14 +92,6 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         assert.equal(await page.locator('[data-stat-reset]').getAttribute('aria-disabled'), 'true');
         if (file.startsWith('dashboard')) assert.equal(await page.locator('[data-stat-reset]').isVisible(), false);
         if (file.startsWith('dashboard')) {
-          const coffee = page.locator('#dashboard-coffee-counter');
-          assert.equal(await coffee.isVisible(), true);
-          assert.equal(await coffee.locator('strong').textContent(), coffeeTotal);
-          const placement = await coffee.evaluate(el => {
-            const row = el.closest('.dashboard-summary-row');
-            return row.lastElementChild === el && Math.abs(row.getBoundingClientRect().right - el.getBoundingClientRect().right) < 1;
-          });
-          assert.equal(placement, true, 'Coffee counter sits at the far right of the summary');
           for (const format of ['all','single','mtt']) for (const bounty of ['all','with','without']) {
             await choose('format', format);
             await choose('bounty', bounty);
@@ -118,8 +112,24 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
         await page.waitForFunction(count => document.querySelector('[data-stat-scope-summary]').textContent.includes(`${count} matching event`), mttBounty.length);
         if (file.startsWith('dashboard')) {
           assert.ok(await page.locator('#dashboard-grid').innerText());
-          assert.equal(await page.locator('#dashboard-coffee-counter strong').textContent(), coffeeTotal, 'Event filters leave career coffee totals intact');
-          await page.locator('[data-dashboard-category="player-dna"]').click();
+          const dnaTab = page.getByRole('tab', {name:'Player DNA'});
+          await dnaTab.click();
+          await dnaTab.press('ArrowRight');
+          const coffee = page.getByRole('tab', {name:'Coffee Consumed'});
+          assert.equal(await coffee.getAttribute('aria-selected'), 'true');
+          const dnaBox = await dnaTab.boundingBox(), coffeeBox = await coffee.boundingBox();
+          assert.ok(coffeeBox.x > dnaBox.x && Math.abs(coffeeBox.y - dnaBox.y) < 1, 'Coffee is to the right of Player DNA');
+          assert.equal(await page.locator('.dashboard-event-filters').isVisible(), false);
+          assert.equal(await page.locator('#dashboard-metric-select-trigger').isVisible(), false, 'Coffee opens the ranking directly');
+          const cards = page.locator('#dashboard-grid .dashboard-card');
+          assert.equal(await cards.count(), coffeePlayers.length);
+          assert.deepEqual(await cards.evaluateAll(items => items.map(item => [
+            new URL(item.href).searchParams.get('name'),
+            Number(item.querySelector('.dashboard-card-value').dataset.targetValue),
+            Number(item.querySelector('.dashboard-list-rank').textContent)
+          ])), coffeePlayers.map((player, index) => [player.name, siteData.coffeeConsumption[player.slug], index + 1]),
+          'Coffee ranks active and alumni with positive counts across all events');
+          await dnaTab.click();
           assert.equal(await page.locator('#dashboard-career-note').isVisible(), true);
           await page.locator('[data-dashboard-category="results"]').click();
         }
