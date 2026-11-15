@@ -117,8 +117,15 @@ const base = process.argv[2] || 'http://127.0.0.1:8766';
           await dnaTab.press('ArrowRight');
           const coffee = page.getByRole('tab', {name:'Coffee Consumed'});
           assert.equal(await coffee.getAttribute('aria-selected'), 'true');
-          const dnaBox = await dnaTab.boundingBox(), coffeeBox = await coffee.boundingBox();
-          assert.ok(coffeeBox.x > dnaBox.x && Math.abs(coffeeBox.y - dnaBox.y) < 1, 'Coffee is to the right of Player DNA');
+          const placement = await coffee.evaluate(tab => {
+            const dna = tab.previousElementSibling;
+            return {
+              afterDNA: dna.id === 'dashboard-category-player-dna',
+              toRight: tab.offsetLeft > dna.offsetLeft,
+              sameRow: tab.offsetTop === dna.offsetTop
+            };
+          });
+          assert.deepEqual(placement, {afterDNA:true,toRight:true,sameRow:true}, 'Coffee sits to the right of Player DNA');
           assert.equal(await page.locator('.dashboard-event-filters').isVisible(), false);
           assert.equal(await page.locator('#dashboard-metric-select-trigger').isVisible(), false, 'Coffee opens the ranking directly');
           const cards = page.locator('#dashboard-grid .dashboard-card');
