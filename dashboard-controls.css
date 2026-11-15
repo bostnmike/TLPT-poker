@@ -20,6 +20,7 @@ body .dashboard-controls-compact.tlpt-control-deck .dashboard-category-tabs {
 body .dashboard-controls-compact .dashboard-category-tab { padding: 12px; }
 body .dashboard-controls-compact .dashboard-metric-selector { max-width: none; }
 body .dashboard-controls-compact .dashboard-metric-select-wrap { display: block; }
+[data-dashboard-metric-group="coffee"] { min-height: 0; }
 body .dashboard-controls-compact [data-dashboard-metric-group="coffee"] > label,
 body .dashboard-controls-compact [data-dashboard-metric-group="coffee"] .dashboard-metric-select-wrap { display: none; }
 body .dashboard-controls-compact .dashboard-metric-icon { display: none; }
