@@ -3,6 +3,7 @@ const { chromium } = require('playwright');
 const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
+const expectedYouTubeCovers = 50;
 (async () => {
   const browser = await chromium.launch({ ...(process.env.CI ? {} : {channel:'chrome'}), headless:true });
   try {
@@ -69,7 +70,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       await page.screenshot({path:'/tmp/home-without-norm-' + width + '.png'});
       await page.goto(base + '/media.html');
-      assert.equal(await page.locator('.media-video-facade').count(), 49, 'Film Room ready without autoplay');
+      assert.equal(await page.locator('.media-video-facade').count(), expectedYouTubeCovers, 'Film Room ready without autoplay');
       await page.goto(base + '/schedule.html');
       assert.equal(await page.locator('.schedule-app-promo a').getAttribute('href'), 'rsvp-app.html');
       await page.locator('.schedule-app-promo img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
@@ -124,7 +125,7 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       assert.equal(await page.locator('.media-card').count(), 51, 'Retain nine original films and all forty-two RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
-      assert.equal(await page.locator('.media-video-facade').count(), 50, 'All fifty YouTube covers retained');
+      assert.equal(await page.locator('.media-video-facade').count(), expectedYouTubeCovers, 'All approved YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       for (const [id, youtubeId] of [
