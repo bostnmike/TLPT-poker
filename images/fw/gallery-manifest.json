@@ -73,5 +73,11 @@
     "fw25-06-21.jpg",
     "fw25-06-14.jpg",
     "fw25-05-24.jpg"
-  ]
+  ],
+  "mttPoster": {
+    "title": "Big Trouble in Little Cary",
+    "file": "big-trouble-in-little-cary.jpg",
+    "thumbnail": "big-trouble-in-little-cary-thumb.jpg",
+    "date": null
+  }
 }
