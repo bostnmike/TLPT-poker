@@ -31,9 +31,10 @@ async function checkPosterYear(browser, viewport){
     const dates=()=>cards.locator('.gallery-card-subline').allTextContents();
     await year.locator('option[value="2027"]').waitFor({state:'attached'});
     assert.equal(await upcoming.count(),3,'All Years includes upcoming posters from both years and the pending MTT');
-    const mttCard=upcoming.filter({hasText:mttPoster.title});
+    const mttCard=upcoming.filter({has:page.getByRole('button',{name:`Open poster for ${mttPoster.title}`})});
     assert.equal(await mttCard.count(),1);
-    assert.equal(await mttCard.locator('.gallery-card-label').textContent(),'MTT');
+    assert.equal(await mttCard.locator('.gallery-card-label').textContent(),'The BostnMike Collection');
+    assert.equal(await mttCard.locator('.gallery-card-title').textContent(),'Coming Soon');
     assert.equal(await mttCard.locator('.gallery-card-subline').textContent(),'Date TBD');
     await mttCard.locator('img').evaluate(img=>img.decode());
     await mttCard.getByRole('button').click();

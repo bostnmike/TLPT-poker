@@ -571,7 +571,7 @@ function createPosterCard(poster, isLeadPoster = false) {
     </div>
     <div class="gallery-card-meta${poster.isFuture ? "" : " has-winner-badges"}">
       ${buildGalleryWinnerBadgesMarkup(poster)}
-      <div class="gallery-card-label">${poster.isMtt ? "MTT" : "The BostnMike Collection"}</div>
+      <div class="gallery-card-label">The BostnMike Collection</div>
       <h3 class="gallery-card-title">${escapeGalleryHtml(poster.collection)}</h3>
       <p class="gallery-card-subline">${escapeGalleryHtml(galleryPosterDate(poster))}</p>
     </div>
@@ -776,15 +776,16 @@ async function loadGallery() {
 
     const mtt = manifest.mttPoster;
     if (mtt) {
+      const isFuture = !mtt.date || mtt.date > todayIso;
       galleryPosters.push({
         file: mtt.file,
         date: mtt.date,
         src: `${manifestFolder}/mtt/${mtt.file}`,
         thumbnailSrc: `${manifestFolder}/mtt/${mtt.thumbnail}`,
         isMtt: true,
-        isFuture: !mtt.date || mtt.date > todayIso,
+        isFuture,
         title: mtt.title,
-        collection: mtt.title
+        collection: isFuture ? "Coming Soon" : "In the Vault"
       });
     }
 
