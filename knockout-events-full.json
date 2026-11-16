@@ -3097,7 +3097,7 @@
     {
       "victim": "p",
       "killer": "li-fo",
-      "sourceVictim": "P",
+      "sourceVictim": "Piercen",
       "sourceKiller": "ButtonMan",
       "victimEntry": 1,
       "killerEntry": 2,
@@ -3115,7 +3115,7 @@
     {
       "victim": "p",
       "killer": "hiro",
-      "sourceVictim": "P",
+      "sourceVictim": "Piercen",
       "sourceKiller": "Hiro",
       "victimEntry": 2,
       "killerEntry": 1,
@@ -3187,7 +3187,7 @@
     {
       "victim": "p",
       "killer": "li-fo",
-      "sourceVictim": "P",
+      "sourceVictim": "Piercen",
       "sourceKiller": "ButtonMan",
       "victimEntry": 3,
       "killerEntry": 2,
@@ -3205,7 +3205,7 @@
     {
       "victim": "p",
       "killer": "li-fo",
-      "sourceVictim": "P",
+      "sourceVictim": "Piercen",
       "sourceKiller": "ButtonMan",
       "victimEntry": 4,
       "killerEntry": 2,
@@ -3258,7 +3258,7 @@
     {
       "victim": "p",
       "killer": "hiro",
-      "sourceVictim": "P",
+      "sourceVictim": "Piercen",
       "sourceKiller": "Hiro",
       "victimEntry": 5,
       "killerEntry": 1,

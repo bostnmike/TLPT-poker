@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T16:37:25.836220Z",
+  "generatedAt": "2026-11-16T13:24:00.752217Z",
   "status": "PASS",
   "scope": {
     "rawEvents": 58,
@@ -26,7 +26,20 @@
     "streaks": 1
   },
   "errorCount": 0,
-  "warningCount": 0,
+  "warningCount": 3,
   "errors": [],
-  "warnings": []
+  "warnings": [
+    {
+      "section": "pageCalculations",
+      "message": "events.json saturday: RSVP key order differs from the preferred Commish/active/alumni order; the site sorts it automatically"
+    },
+    {
+      "section": "pageCalculations",
+      "message": "events.json saturday: RSVP key order differs from the preferred Commish/active/alumni order; the site sorts it automatically"
+    },
+    {
+      "section": "pageCalculations",
+      "message": "events.json mtt: RSVP key order differs from the preferred Commish/active/alumni order; the site sorts it automatically"
+    }
+  ]
 }

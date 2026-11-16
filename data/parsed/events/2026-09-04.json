@@ -604,19 +604,6 @@
       "profit": 0
     },
     {
-      "name": "P",
-      "slug": "p",
-      "buyIns": 0,
-      "rebuys": 0,
-      "entries": 0,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 0,
-      "totalCost": 0,
-      "totalWinnings": 0,
-      "profit": 0
-    },
-    {
       "name": "Pat",
       "slug": "pat",
       "buyIns": 0,
@@ -641,6 +628,19 @@
       "totalCost": 60,
       "totalWinnings": 0,
       "profit": -60
+    },
+    {
+      "name": "Piercen",
+      "slug": "p",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
     },
     {
       "name": "PittsburghBill",

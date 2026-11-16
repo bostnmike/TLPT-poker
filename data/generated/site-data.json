@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T00:21:46.208871Z",
+  "generatedAt": "2026-11-16T13:23:49.151069Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -11576,237 +11576,6 @@
       ]
     },
     {
-      "name": "P",
-      "slug": "p",
-      "image": "images/players/piercen-craig-v2.webp",
-      "notes": "Super excited to play!",
-      "entries": 5,
-      "buyIns": 1,
-      "rebuys": 4,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 0,
-      "profit": -250,
-      "roi": -1.0,
-      "cashRate": 0.0,
-      "bubbleRate": 0.0,
-      "hitRate": 0.0,
-      "totalCost": 250,
-      "totalWinnings": 0,
-      "bountiesWon": 0,
-      "bountyPaid": 50,
-      "bountyCollected": 0,
-      "bountyRetained": 0,
-      "bountyWinnings": 0,
-      "bountyNet": -50,
-      "settlementAdjustment": 0,
-      "tournamentCost": 200,
-      "tournamentWinnings": 0,
-      "tournamentProfit": -200,
-      "expectedProfit": -187.5,
-      "luckIndex": -62.5,
-      "clutchIndex": 0.0,
-      "aggressionIndex": 0.0,
-      "survivorIndex": 0.37950664136622164,
-      "tiltIndex": 21.3,
-      "trueSkillScore": 20.596430384117024,
-      "clutchRaw": 0.0,
-      "aggressionRaw": 0.0,
-      "survivorRaw": 0.25,
-      "tiltScoreDirect": 21.250000000000004,
-      "roi_norm": 0.0,
-      "luckIndex_norm": 4.353847485501602,
-      "clutchRaw_norm": 0.0,
-      "aggressionRaw_norm": 0.0,
-      "survivorRaw_norm": 0.37950664136622164,
-      "tier": "C",
-      "cardForm": {
-        "windowSize": 5,
-        "recent": {
-          "eventCount": 1,
-          "startDate": "2026-10-24",
-          "endDate": "2026-10-24",
-          "metrics": {
-            "name": "P",
-            "slug": "p",
-            "image": "images/players/piercen-craig-v2.webp",
-            "notes": "Super excited to play!",
-            "entries": 5,
-            "buyIns": 1,
-            "rebuys": 4,
-            "hits": 0,
-            "timesPlaced": 0,
-            "bubbles": 0,
-            "profit": -250,
-            "roi": -1.0,
-            "cashRate": 0.0,
-            "bubbleRate": 0.0,
-            "hitRate": 0.0,
-            "totalCost": 250,
-            "totalWinnings": 0,
-            "bountiesWon": 0,
-            "bountyPaid": 50,
-            "bountyCollected": 0,
-            "bountyRetained": 0,
-            "bountyWinnings": 0,
-            "bountyNet": -50,
-            "settlementAdjustment": 0,
-            "tournamentCost": 200,
-            "tournamentWinnings": 0,
-            "tournamentProfit": -200,
-            "expectedProfit": -174.1,
-            "luckIndex": -75.9,
-            "clutchIndex": 0.0,
-            "aggressionIndex": 0.0,
-            "survivorIndex": 5.405405405405405,
-            "tiltIndex": 21.3,
-            "trueSkillScore": 32.41576421975798,
-            "clutchRaw": 0.0,
-            "aggressionRaw": 0.0,
-            "survivorRaw": 0.25,
-            "roi_norm": 0.0,
-            "luckIndex_norm": 17.940717628705148,
-            "clutchRaw_norm": 0.0,
-            "aggressionRaw_norm": 0.0,
-            "survivorRaw_norm": 5.405405405405405
-          },
-          "events": [
-            {
-              "date": "2026-10-24",
-              "title": "Re-Buy Hard: A TLPT Muti-Table Event",
-              "entries": 5,
-              "rebuys": 4,
-              "hits": 0,
-              "timesPlaced": 0,
-              "bubbles": 0,
-              "profit": -250,
-              "totalCost": 250,
-              "totalWinnings": 0,
-              "tournamentCost": 200,
-              "tournamentWinnings": 0,
-              "tournamentProfit": -200,
-              "bountiesWon": 0,
-              "bountyPaid": 50,
-              "bountyCollected": 0,
-              "bountyRetained": 0,
-              "bountyWinnings": 0,
-              "bountyNet": -50,
-              "settlementAdjustment": 0
-            }
-          ]
-        },
-        "previous": {
-          "eventCount": 0,
-          "startDate": null,
-          "endDate": null,
-          "metrics": {
-            "name": "P",
-            "slug": "p",
-            "image": "images/players/piercen-craig-v2.webp",
-            "notes": "Super excited to play!",
-            "entries": 0,
-            "buyIns": 0,
-            "rebuys": 0,
-            "hits": 0,
-            "timesPlaced": 0,
-            "bubbles": 0,
-            "profit": 0,
-            "roi": 0.0,
-            "cashRate": 0.0,
-            "bubbleRate": 0.0,
-            "hitRate": 0.0,
-            "totalCost": 0,
-            "totalWinnings": 0,
-            "bountiesWon": 0,
-            "bountyPaid": 0,
-            "bountyCollected": 0,
-            "bountyRetained": 0,
-            "bountyWinnings": 0,
-            "bountyNet": 0,
-            "settlementAdjustment": 0,
-            "tournamentCost": 0,
-            "tournamentWinnings": 0,
-            "tournamentProfit": 0,
-            "expectedProfit": 0.0,
-            "luckIndex": 0.0,
-            "clutchIndex": 0.0,
-            "aggressionIndex": 0.0,
-            "survivorIndex": 0.0,
-            "tiltIndex": 0.0,
-            "trueSkillScore": 0.0
-          },
-          "events": []
-        }
-      },
-      "cardCollection": [
-        {
-          "id": "rookie",
-          "earnedDate": "2026-10-24",
-          "earnedEvent": "Re-Buy Hard: A TLPT Muti-Table Event",
-          "reason": "First recorded TLPT appearance at Re-Buy Hard: A TLPT Muti-Table Event. Everyone starts somewhere. The alibis come later.",
-          "priority": 0,
-          "snapshot": {
-            "overall": 65,
-            "tierCode": "RKI",
-            "tierClassName": "rookie",
-            "tierStatus": "Rookie",
-            "powerRank": null,
-            "totalRanked": 16,
-            "appearances": 1,
-            "attributes": [
-              {
-                "code": "RET",
-                "label": "Return",
-                "value": 44
-              },
-              {
-                "code": "CLT",
-                "label": "Clutch",
-                "value": 40
-              },
-              {
-                "code": "ITM",
-                "label": "In the Money",
-                "value": 40
-              },
-              {
-                "code": "AGR",
-                "label": "Aggression",
-                "value": 40
-              },
-              {
-                "code": "HIT",
-                "label": "Hit Rate",
-                "value": 40
-              },
-              {
-                "code": "SUR",
-                "label": "Survival",
-                "value": 40
-              }
-            ],
-            "metrics": {
-              "profit": -250,
-              "roi": -1.0,
-              "cashRate": 0.0,
-              "hitRate": 0.0,
-              "trueSkillScore": 20.596
-            }
-          }
-        }
-      ],
-      "rosterStatus": "active",
-      "featuredCardEdition": "base",
-      "featuredCardMode": "automatic",
-      "aliases": [
-        "p",
-        "piercen",
-        "piercen craig",
-        "piercen-craig",
-        "Pushin Craig"
-      ]
-    },
-    {
       "name": "Pat",
       "slug": "pat",
       "image": "images/players/pat.jpg",
@@ -12523,6 +12292,237 @@
         "PhattedCalf",
         "Phatted,calf",
         "phatted calf"
+      ]
+    },
+    {
+      "name": "Piercen",
+      "slug": "p",
+      "image": "images/players/piercen-craig-v2.webp",
+      "notes": "Super excited to play!",
+      "entries": 5,
+      "buyIns": 1,
+      "rebuys": 4,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "profit": -250,
+      "roi": -1.0,
+      "cashRate": 0.0,
+      "bubbleRate": 0.0,
+      "hitRate": 0.0,
+      "totalCost": 250,
+      "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 50,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": -50,
+      "settlementAdjustment": 0,
+      "tournamentCost": 200,
+      "tournamentWinnings": 0,
+      "tournamentProfit": -200,
+      "expectedProfit": -187.5,
+      "luckIndex": -62.5,
+      "clutchIndex": 0.0,
+      "aggressionIndex": 0.0,
+      "survivorIndex": 0.37950664136622164,
+      "tiltIndex": 21.3,
+      "trueSkillScore": 20.596430384117024,
+      "clutchRaw": 0.0,
+      "aggressionRaw": 0.0,
+      "survivorRaw": 0.25,
+      "tiltScoreDirect": 21.250000000000004,
+      "roi_norm": 0.0,
+      "luckIndex_norm": 4.353847485501602,
+      "clutchRaw_norm": 0.0,
+      "aggressionRaw_norm": 0.0,
+      "survivorRaw_norm": 0.37950664136622164,
+      "tier": "C",
+      "cardForm": {
+        "windowSize": 5,
+        "recent": {
+          "eventCount": 1,
+          "startDate": "2026-10-24",
+          "endDate": "2026-10-24",
+          "metrics": {
+            "name": "Piercen",
+            "slug": "p",
+            "image": "images/players/piercen-craig-v2.webp",
+            "notes": "Super excited to play!",
+            "entries": 5,
+            "buyIns": 1,
+            "rebuys": 4,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": -250,
+            "roi": -1.0,
+            "cashRate": 0.0,
+            "bubbleRate": 0.0,
+            "hitRate": 0.0,
+            "totalCost": 250,
+            "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 50,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": -50,
+            "settlementAdjustment": 0,
+            "tournamentCost": 200,
+            "tournamentWinnings": 0,
+            "tournamentProfit": -200,
+            "expectedProfit": -174.1,
+            "luckIndex": -75.9,
+            "clutchIndex": 0.0,
+            "aggressionIndex": 0.0,
+            "survivorIndex": 5.405405405405405,
+            "tiltIndex": 21.3,
+            "trueSkillScore": 32.41576421975798,
+            "clutchRaw": 0.0,
+            "aggressionRaw": 0.0,
+            "survivorRaw": 0.25,
+            "roi_norm": 0.0,
+            "luckIndex_norm": 17.940717628705148,
+            "clutchRaw_norm": 0.0,
+            "aggressionRaw_norm": 0.0,
+            "survivorRaw_norm": 5.405405405405405
+          },
+          "events": [
+            {
+              "date": "2026-10-24",
+              "title": "Re-Buy Hard: A TLPT Muti-Table Event",
+              "entries": 5,
+              "rebuys": 4,
+              "hits": 0,
+              "timesPlaced": 0,
+              "bubbles": 0,
+              "profit": -250,
+              "totalCost": 250,
+              "totalWinnings": 0,
+              "tournamentCost": 200,
+              "tournamentWinnings": 0,
+              "tournamentProfit": -200,
+              "bountiesWon": 0,
+              "bountyPaid": 50,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": -50,
+              "settlementAdjustment": 0
+            }
+          ]
+        },
+        "previous": {
+          "eventCount": 0,
+          "startDate": null,
+          "endDate": null,
+          "metrics": {
+            "name": "Piercen",
+            "slug": "p",
+            "image": "images/players/piercen-craig-v2.webp",
+            "notes": "Super excited to play!",
+            "entries": 0,
+            "buyIns": 0,
+            "rebuys": 0,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": 0,
+            "roi": 0.0,
+            "cashRate": 0.0,
+            "bubbleRate": 0.0,
+            "hitRate": 0.0,
+            "totalCost": 0,
+            "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
+            "settlementAdjustment": 0,
+            "tournamentCost": 0,
+            "tournamentWinnings": 0,
+            "tournamentProfit": 0,
+            "expectedProfit": 0.0,
+            "luckIndex": 0.0,
+            "clutchIndex": 0.0,
+            "aggressionIndex": 0.0,
+            "survivorIndex": 0.0,
+            "tiltIndex": 0.0,
+            "trueSkillScore": 0.0
+          },
+          "events": []
+        }
+      },
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-10-24",
+          "earnedEvent": "Re-Buy Hard: A TLPT Muti-Table Event",
+          "reason": "First recorded TLPT appearance at Re-Buy Hard: A TLPT Muti-Table Event. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 65,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 16,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -250,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 20.596
+            }
+          }
+        }
+      ],
+      "rosterStatus": "active",
+      "featuredCardEdition": "base",
+      "featuredCardMode": "automatic",
+      "aliases": [
+        "p",
+        "piercen",
+        "piercen craig",
+        "piercen-craig",
+        "Pushin Craig"
       ]
     },
     {
@@ -19516,14 +19516,6 @@
           ]
         }
       },
-      "p": {
-        "playedEvents": 1,
-        "eligible": false,
-        "bestCashStreak": null,
-        "currentCashStreak": null,
-        "bestDroughtStreak": null,
-        "currentDroughtStreak": null
-      },
       "pat": {
         "playedEvents": 1,
         "eligible": false,
@@ -19571,6 +19563,14 @@
             }
           ]
         },
+        "currentDroughtStreak": null
+      },
+      "p": {
+        "playedEvents": 1,
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
+        "bestDroughtStreak": null,
         "currentDroughtStreak": null
       },
       "pittsburghbill": {

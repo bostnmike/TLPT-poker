@@ -12,3 +12,15 @@ test('ButtonMan is display-only; saved RSVP identity, image and responses are pr
  assert.ok(comparePlayers(player,{slug:'cougar',name:'Cougar'})<0);
  assert.equal(JSON.stringify(state),before);
 });
+
+test('Piercen retains his saved identity, avatar and RSVP response',()=>{
+ const player={slug:'p',name:'P',image:'images/players/piercen-craig-v2.webp',rosterStatus:'active'};
+ const event={id:'game',metadata:{slot:'saturday',date:'2026-11-21'},capacity:9,open:true,responses:{p:{answer:'yes',order:1}}};
+ const state={players:[player],events:[event]};
+ const before=structuredClone(state);
+ const feed=publicFeed(state);
+ assert.deepEqual(feed.players,[{...player,name:'Piercen'}]);
+ assert.equal(feed.events[0].rsvps.p,'yes');
+ assert.deepEqual(feed.events[0].requestedIn,['p']);
+ assert.deepEqual(state,before);
+});

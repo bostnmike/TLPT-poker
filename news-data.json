@@ -340,7 +340,7 @@
         {
           "tone": "purple",
           "label": "👋 Welcome to TLPT",
-          "player": "P",
+          "player": "Piercen",
           "value": "4 rebuys",
           "copy": "A first recorded appearance, five bullets and a $250 introduction.",
           "avatar": "images/players/piercen-craig-v2.webp",
@@ -391,15 +391,15 @@
         "firstOut": "ButtonMan",
         "firstPermanentOut": "Cougar"
       },
-      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-24.jpg\" alt=\"Poster for the 10/24/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The plan anticipated nine rebuys. TLPT produced eighteen. More rebuys than original players. DONKEYS. Seventeen people assembled for Re-Buy Hard and managed to purchase admission thirty-five times, which suggests the league’s most reliable tournament strategy remains “perhaps another payment will fix this.” New arrival P embraced the culture immediately: four rebuys, $250 committed, twelfth place. Most clubs give newcomers a welcome packet. TLPT apparently gives them a routing number.</p><p>Liam O took a considerably cheaper route through his second recorded league appearance, although the cards still found time to introduce him to suffering. The quote of the night began with “I have a full house,” followed by the much less comforting “Which one?” Boat over boat brought Liam some temporary pain. Announcing a full house should inspire confidence; being asked to identify the model is generally a sign that the warranty has expired. Liam survived that little housing crisis without a rebuy, eliminated Alex C and A.I. Dave, then stopped ButtonMan in third before agreeing to chop first with ProvidenceMike. Liam took home $400. Providence collected $490 and finished $400 ahead without recording a single knockout. Apparently the secret to a bounty tournament is having other people handle the unpleasantness.</p><p>ButtonMan volunteered for plenty of that unpleasantness. Ahmed busted him first, ButtonMan rebought forty-three seconds later, and the resurrection department finally delivered something worth the invoice: seven knockouts, six paid bounties, third place and $180 profit. His late run removed Nasa Al, Ahmed and Hiro before Liam finally made the burial stick. The performance also earned ButtonMan the Bounty Hunter Ultimate Player Card. Alex C and Chris F each collected four bounties and still finished in the red, proving that even a productive afternoon of eliminating your friends can come with operating losses.</p><p>Speaking of Red: he is moving out of state, and the league will miss him—and ALL his rebuys. He contributed another two to the farewell fund, with Alex C collecting his first two exits and Ahmed handling the third. His results were only slightly less dumpster-fire-like than his beloved Manchester United, although Red at least had the decency to stop asking for money after three attempts. At least he’s got the Bills. Unless they’re playing the Pats, in which case apparently even his football teams struggle to get paid in Buffalo. We’ll miss you, Red. Your seat, your loyalty and your breathtaking willingness to fund another attempt. Whoever runs your next game is acquiring a friend; TLPT is losing a recurring revenue stream. Somebody give the cashier a minute.</p>",
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-24.jpg\" alt=\"Poster for the 10/24/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The plan anticipated nine rebuys. TLPT produced eighteen. More rebuys than original players. DONKEYS. Seventeen people assembled for Re-Buy Hard and managed to purchase admission thirty-five times, which suggests the league’s most reliable tournament strategy remains “perhaps another payment will fix this.” New arrival Piercen embraced the culture immediately: four rebuys, $250 committed, twelfth place. Most clubs give newcomers a welcome packet. TLPT apparently gives them a routing number.</p><p>Liam O took a considerably cheaper route through his second recorded league appearance, although the cards still found time to introduce him to suffering. The quote of the night began with “I have a full house,” followed by the much less comforting “Which one?” Boat over boat brought Liam some temporary pain. Announcing a full house should inspire confidence; being asked to identify the model is generally a sign that the warranty has expired. Liam survived that little housing crisis without a rebuy, eliminated Alex C and A.I. Dave, then stopped ButtonMan in third before agreeing to chop first with ProvidenceMike. Liam took home $400. Providence collected $490 and finished $400 ahead without recording a single knockout. Apparently the secret to a bounty tournament is having other people handle the unpleasantness.</p><p>ButtonMan volunteered for plenty of that unpleasantness. Ahmed busted him first, ButtonMan rebought forty-three seconds later, and the resurrection department finally delivered something worth the invoice: seven knockouts, six paid bounties, third place and $180 profit. His late run removed Nasa Al, Ahmed and Hiro before Liam finally made the burial stick. The performance also earned ButtonMan the Bounty Hunter Ultimate Player Card. Alex C and Chris F each collected four bounties and still finished in the red, proving that even a productive afternoon of eliminating your friends can come with operating losses.</p><p>Speaking of Red: he is moving out of state, and the league will miss him—and ALL his rebuys. He contributed another two to the farewell fund, with Alex C collecting his first two exits and Ahmed handling the third. His results were only slightly less dumpster-fire-like than his beloved Manchester United, although Red at least had the decency to stop asking for money after three attempts. At least he’s got the Bills. Unless they’re playing the Pats, in which case apparently even his football teams struggle to get paid in Buffalo. We’ll miss you, Red. Your seat, your loyalty and your breathtaking willingness to fund another attempt. Whoever runs your next game is acquiring a friend; TLPT is losing a recurring revenue stream. Somebody give the cashier a minute.</p>",
       "spotlight": {
-        "player": "Liam O / ProvidenceMike / P",
+        "player": "Liam O / ProvidenceMike / Piercen",
         "fallback": "LPP",
         "pills": [
           "Liam: Shared First · No Rebuy",
           "ProvidenceMike: 0 Knockouts",
           "ProvidenceMike: +$400 Net",
-          "P: Debut · 4 Rebuys"
+          "Piercen: Debut · 4 Rebuys"
         ],
         "avatars": [
           {
@@ -417,7 +417,7 @@
           {
             "src": "images/players/piercen-craig-v2.webp",
             "slug": "p",
-            "alt": "P",
+            "alt": "Piercen",
             "fallback": "P"
           }
         ]
