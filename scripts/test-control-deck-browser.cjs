@@ -2,6 +2,7 @@
 const { chromium } = require('playwright');
 const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
+const { mttPoster } = require('../images/fw/gallery-manifest.json');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
 const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-movement',
   'players','trophy-room','gallery','voice-of-god','player','structures'];
@@ -95,7 +96,7 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           await thumbnail.evaluate(image => image.decode());
           const thumbnailSrc = await thumbnail.getAttribute('src');
           const card = poster.locator('..');
-          const isMtt = await card.locator('.gallery-card-label').textContent() === 'MTT';
+          const isMtt = mttPoster && await card.getAttribute('id') === mttPoster.file.replace(/\.jpg$/, '');
           const thumbnailPattern = isMtt
             ? /^images\/fw\/mtt\/[a-z0-9-]+-thumb\.jpg$/
             : /^images\/fw\/thumbs\/fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)$/i;
