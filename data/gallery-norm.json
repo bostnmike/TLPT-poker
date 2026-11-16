@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "calendar-holdem",
+      "src": "images/norm-gallery/calendar-holdem.jpg",
+      "sha256": "41b7783d4985f83ccabcf0a3a2b6322b554a8622fdca0d1504e584d209d82bfd",
+      "width": 1080,
+      "height": 1920,
+      "title": "Calendar Hold’em",
+      "filmHref": "media.html#calendar-holdem",
+      "youtubeId": "y4LNU6UovTU"
+    },
+    {
       "id": "sports-desk-friday-no-go",
       "src": "images/norm-gallery/sports-desk-friday-no-go.jpg",
       "sha256": "78b562709efa803c2370f3323c9016defb13a8e97961ed5b5eceb55a5bf59f71",

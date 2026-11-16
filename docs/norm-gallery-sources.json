@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "calendar-holdem",
+      "source": "output/video/tlpt-calendar-holdem/table-reaction-v3/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/calendar-holdem.jpg",
+      "sha256": "41b7783d4985f83ccabcf0a3a2b6322b554a8622fdca0d1504e584d209d82bfd",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "many-faces-of-norm",
       "source": "output/imagegen/norm-complete-cast-2026-11-01/norm-all-21-reviewed-preview.jpg",
       "src": "images/norm-gallery/many-faces-of-norm.jpg",
