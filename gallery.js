@@ -486,10 +486,10 @@ function openLightboxByIndex(index) {
   image.alt = poster.title;
   image.width = poster.width || 1024;
   image.height = poster.height || 1536;
-  title.textContent = poster.isNorm || poster.isMtt ? poster.title : "The BostnMike Collection";
+  title.textContent = poster.isNorm ? poster.title : "The BostnMike Collection";
   date.textContent = poster.isNorm
     ? (poster.filmHref ? "The Norm Collection" : "21 Norms. One table.")
-    : poster.isMtt ? `MTT · ${galleryPosterDate(poster)}` : galleryPosterDate(poster);
+    : galleryPosterDate(poster);
   lightbox.classList.toggle("is-norm", Boolean(poster.isNorm));
   const filmLink = document.getElementById("gallery-lightbox-film");
   if (filmLink) {

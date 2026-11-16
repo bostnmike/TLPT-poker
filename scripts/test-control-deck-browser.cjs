@@ -107,7 +107,8 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           await original.evaluate(image => image.decode());
           const originalSrc = isMtt ? thumbnailSrc.replace(/-thumb\.jpg$/, '.jpg') : thumbnailSrc.replace('/thumbs/', '/');
           assert.equal(await original.getAttribute('src'), originalSrc, 'Viewer opens original JPG/PNG, not thumbnail');
-          assert.equal(await page.locator('#gallery-lightbox-date').textContent(), isMtt ? 'MTT · ' + caption : caption, 'Event date stays in the caption');
+          assert.equal(await page.locator('#gallery-lightbox-title').textContent(), 'The BostnMike Collection');
+          assert.equal(await page.locator('#gallery-lightbox-date').textContent(), caption, 'Event date stays in the caption');
           const bounds = await original.boundingBox();
           assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1 && bounds.y >= 0 && bounds.y + bounds.height <= 1001, 'Full poster fits the viewer');
           const frameBounds = await page.locator('.gallery-lightbox-frame').boundingBox();
