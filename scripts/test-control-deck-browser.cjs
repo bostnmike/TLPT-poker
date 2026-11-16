@@ -94,13 +94,19 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           await poster.scrollIntoViewIfNeeded();
           await thumbnail.evaluate(image => image.decode());
           const thumbnailSrc = await thumbnail.getAttribute('src');
-          assert.match(thumbnailSrc, /images\/fw\/thumbs\/fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)$/i);
-          const caption = await poster.locator('..').locator('.gallery-card-subline').textContent();
+          const card = poster.locator('..');
+          const isMtt = await card.locator('.gallery-card-label').textContent() === 'MTT';
+          const thumbnailPattern = isMtt
+            ? /^images\/fw\/mtt\/[a-z0-9-]+-thumb\.jpg$/
+            : /^images\/fw\/thumbs\/fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)$/i;
+          assert.match(thumbnailSrc, thumbnailPattern);
+          const caption = await card.locator('.gallery-card-subline').textContent();
           await poster.click();
           const original = page.locator('#gallery-lightbox-image');
           await original.evaluate(image => image.decode());
-          assert.equal(await original.getAttribute('src'), thumbnailSrc.replace('/thumbs/', '/'), 'Viewer opens original JPG/PNG, not thumbnail');
-          assert.equal(await page.locator('#gallery-lightbox-date').textContent(), caption, 'Event date stays in the caption');
+          const originalSrc = isMtt ? thumbnailSrc.replace(/-thumb\.jpg$/, '.jpg') : thumbnailSrc.replace('/thumbs/', '/');
+          assert.equal(await original.getAttribute('src'), originalSrc, 'Viewer opens original JPG/PNG, not thumbnail');
+          assert.equal(await page.locator('#gallery-lightbox-date').textContent(), isMtt ? 'MTT · ' + caption : caption, 'Event date stays in the caption');
           const bounds = await original.boundingBox();
           assert.ok(bounds.x >= 0 && bounds.x + bounds.width <= width + 1 && bounds.y >= 0 && bounds.y + bounds.height <= 1001, 'Full poster fits the viewer');
           const frameBounds = await page.locator('.gallery-lightbox-frame').boundingBox();
