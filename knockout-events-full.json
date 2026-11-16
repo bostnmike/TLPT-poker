@@ -121,7 +121,7 @@
     {
       "victim": "nasa-al",
       "killer": "hiro",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Hiro"
     },
     {
@@ -166,7 +166,7 @@
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "ai-dave",
@@ -195,7 +195,7 @@
     {
       "victim": "nasa-al",
       "killer": "li-fo",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "ButtonMan"
     },
     {
@@ -209,7 +209,7 @@
     {
       "victim": "nasa-al",
       "killer": "ai-dave",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "A.I. Dave"
     },
     {
@@ -239,7 +239,7 @@
     {
       "victim": "nasa-al",
       "killer": "hiro",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Hiro"
     }
   ],
@@ -248,38 +248,38 @@
       "victim": "chris-o",
       "killer": "nasa-al",
       "sourceVictim": "Chris O",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "chris-o",
       "killer": "nasa-al",
       "sourceVictim": "Chris O",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "ai-dave",
       "killer": "nasa-al",
       "sourceVictim": "A.I. Dave",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "bostnmike",
       "killer": "nasa-al",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     }
   ],
   "2025-10-04": [
     {
       "victim": "nasa-al",
       "killer": "bostnmike",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "BostnMike"
     },
     {
@@ -297,7 +297,7 @@
     {
       "victim": "nasa-al",
       "killer": "yann",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Yann"
     },
     {
@@ -410,12 +410,12 @@
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "nasa-al",
       "killer": "li-fo",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "ButtonMan"
     }
   ],
@@ -1082,7 +1082,7 @@
       "victim": "jeff-t",
       "killer": "nasa-al",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "providencemike",
@@ -1093,7 +1093,7 @@
     {
       "victim": "nasa-al",
       "killer": "vish",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Vish"
     }
   ],
@@ -1232,13 +1232,13 @@
       "victim": "vic",
       "killer": "nasa-al",
       "sourceVictim": "Vic",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "ai-dave",
       "killer": "nasa-al",
       "sourceVictim": "A.I. Dave",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "bostnmike",
@@ -1450,19 +1450,19 @@
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "li-fo",
       "killer": "nasa-al",
       "sourceVictim": "ButtonMan",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "bostnmike",
       "killer": "nasa-al",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "providencemike",
@@ -1504,7 +1504,7 @@
       "victim": "red",
       "killer": "nasa-al",
       "sourceVictim": "Red",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     }
   ],
   "2026-04-04": [
@@ -1612,7 +1612,7 @@
       "victim": "ahmed",
       "killer": "nasa-al",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "red",
@@ -1630,7 +1630,7 @@
       "victim": "bostnmike",
       "killer": "nasa-al",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "li-fo",
@@ -1659,7 +1659,7 @@
     {
       "victim": "nasa-al",
       "killer": "chris-o",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Chris O"
     },
     {
@@ -1995,13 +1995,13 @@
     {
       "victim": "nasa-al",
       "killer": "bostnmike",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "BostnMike"
     },
     {
       "victim": "nasa-al",
       "killer": "griffin",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Griffin"
     },
     {
@@ -2020,13 +2020,13 @@
       "victim": "griffin",
       "killer": "nasa-al",
       "sourceVictim": "Griffin",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "jeff-t",
       "killer": "nasa-al",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "griffin",
@@ -2061,7 +2061,7 @@
     {
       "victim": "nasa-al",
       "killer": "griffin",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Griffin"
     },
     {
@@ -2435,7 +2435,7 @@
     {
       "victim": "nasa-al",
       "killer": "ahmed",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Ahmed"
     },
     {
@@ -2512,7 +2512,7 @@
       "victim": "ai-dave",
       "killer": "nasa-al",
       "sourceVictim": "A.I. Dave",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "hiro",
@@ -2524,7 +2524,7 @@
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "phattedcalf",
@@ -2548,12 +2548,12 @@
       "victim": "li-fo",
       "killer": "nasa-al",
       "sourceVictim": "ButtonMan",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "nasa-al",
       "killer": "phattedcalf",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "PhattedCalf"
     },
     {
@@ -2573,20 +2573,20 @@
     {
       "victim": "nasa-al",
       "killer": "dan-k",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Dan K"
     },
     {
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "dan-k",
       "killer": "nasa-al",
       "sourceVictim": "Dan K",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "cougar",
@@ -2597,7 +2597,7 @@
     {
       "victim": "nasa-al",
       "killer": "ahmed",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Ahmed"
     }
   ],
@@ -2606,7 +2606,7 @@
       "victim": "providencemike",
       "killer": "nasa-al",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "li-fo",
@@ -2636,14 +2636,14 @@
       "victim": "nitro",
       "killer": "nasa-al",
       "sourceVictim": "Nitro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     }
   ],
   "2026-08-22": [
     {
       "victim": "nasa-al",
       "killer": "hiro",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Hiro"
     },
     {
@@ -2668,7 +2668,7 @@
       "victim": "ahmed",
       "killer": "nasa-al",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "li-fo",
@@ -2680,7 +2680,7 @@
       "victim": "hiro",
       "killer": "nasa-al",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "bostnmike",
@@ -2699,13 +2699,13 @@
     {
       "victim": "nasa-al",
       "killer": "cougar",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Cougar"
     },
     {
       "victim": "nasa-al",
       "killer": "li-fo",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "ButtonMan"
     },
     {
@@ -2717,7 +2717,7 @@
     {
       "victim": "nasa-al",
       "killer": "ahmed",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Ahmed"
     },
     {
@@ -2774,7 +2774,7 @@
       "victim": "phattedcalf",
       "killer": "nasa-al",
       "sourceVictim": "PhattedCalf",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "NASA Al"
     },
     {
       "victim": "hiro",
@@ -2791,7 +2791,7 @@
     {
       "victim": "nasa-al",
       "killer": "alex-c",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Alex C"
     },
     {
@@ -2859,7 +2859,7 @@
     {
       "victim": "nasa-al",
       "killer": "bostnmike",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "BostnMike"
     },
     {
@@ -3089,7 +3089,7 @@
       "victim": "griffin",
       "killer": "nasa-al",
       "sourceVictim": "Griffin",
-      "sourceKiller": "Nasa Al",
+      "sourceKiller": "NASA Al",
       "victimEntry": 1,
       "killerEntry": 1,
       "bountyAmount": 10
@@ -3160,7 +3160,7 @@
     {
       "victim": "nasa-al",
       "killer": "chris-f",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Chris F",
       "victimEntry": 1,
       "killerEntry": 2,
@@ -3196,7 +3196,7 @@
     {
       "victim": "nasa-al",
       "killer": "chris-f",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "Chris F",
       "victimEntry": 2,
       "killerEntry": 2,
@@ -3309,7 +3309,7 @@
     {
       "victim": "nasa-al",
       "killer": "li-fo",
-      "sourceVictim": "Nasa Al",
+      "sourceVictim": "NASA Al",
       "sourceKiller": "ButtonMan",
       "victimEntry": 3,
       "killerEntry": 2,
@@ -3402,7 +3402,7 @@
       "victim": "phattedcalf",
       "killer": "nasa-al",
       "sourceVictim": "PhattedCalf",
-      "sourceKiller": "Nasa Al",
+      "sourceKiller": "NASA Al",
       "victimEntry": 3,
       "killerEntry": 1,
       "bountyAmount": 10

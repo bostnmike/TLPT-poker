@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T13:23:49.151069Z",
+  "generatedAt": "2026-11-16T14:59:53.874017Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -10207,7 +10207,7 @@
       ]
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "image": "images/players/nasa-al-415effa3f03e46f5.png",
       "notes": "I'm running 5 minutes late.",
@@ -10258,7 +10258,7 @@
           "startDate": "2026-08-29",
           "endDate": "2026-11-07",
           "metrics": {
-            "name": "Nasa Al",
+            "name": "NASA Al",
             "slug": "nasa-al",
             "image": "images/players/nasa-al-415effa3f03e46f5.png",
             "notes": "I'm running 5 minutes late.",
@@ -10419,7 +10419,7 @@
           "startDate": "2026-07-26",
           "endDate": "2026-08-22",
           "metrics": {
-            "name": "Nasa Al",
+            "name": "NASA Al",
             "slug": "nasa-al",
             "image": "images/players/nasa-al-415effa3f03e46f5.png",
             "notes": "I'm running 5 minutes late.",
@@ -16284,7 +16284,7 @@
         ]
       },
       {
-        "player": "Nasa Al",
+        "player": "NASA Al",
         "slug": "nasa-al",
         "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "type": "cash",
@@ -17039,7 +17039,7 @@
         ]
       },
       {
-        "player": "Nasa Al",
+        "player": "NASA Al",
         "slug": "nasa-al",
         "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "type": "drought",
@@ -17432,7 +17432,7 @@
         ]
       },
       {
-        "player": "Nasa Al",
+        "player": "NASA Al",
         "slug": "nasa-al",
         "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "type": "cash",
@@ -18018,7 +18018,7 @@
         "playedEvents": 3
       },
       {
-        "name": "Nasa Al",
+        "name": "NASA Al",
         "slug": "nasa-al",
         "image": "images/players/nasa-al-415effa3f03e46f5.png",
         "playedEvents": 21
@@ -19299,7 +19299,7 @@
         "playedEvents": 21,
         "eligible": true,
         "bestCashStreak": {
-          "player": "Nasa Al",
+          "player": "NASA Al",
           "slug": "nasa-al",
           "image": "images/players/nasa-al-415effa3f03e46f5.png",
           "type": "cash",
@@ -19333,7 +19333,7 @@
           ]
         },
         "currentCashStreak": {
-          "player": "Nasa Al",
+          "player": "NASA Al",
           "slug": "nasa-al",
           "image": "images/players/nasa-al-415effa3f03e46f5.png",
           "type": "cash",
@@ -19357,7 +19357,7 @@
           ]
         },
         "bestDroughtStreak": {
-          "player": "Nasa Al",
+          "player": "NASA Al",
           "slug": "nasa-al",
           "image": "images/players/nasa-al-415effa3f03e46f5.png",
           "type": "drought",

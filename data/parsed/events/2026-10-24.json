@@ -65,7 +65,7 @@
       "payout": 135
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "rank": 6,
       "payout": 40
@@ -156,7 +156,7 @@
     {
       "time_raw": "11:45:08 pm 10/20/2026",
       "type": "buyin",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "entryFee": 40,
       "bountyPosted": 10,
@@ -276,7 +276,7 @@
       "type": "bustout",
       "player": "Griffin",
       "slug": "griffin",
-      "by": "Nasa Al",
+      "by": "NASA Al",
       "bySlug": "nasa-al",
       "victimEntry": 1,
       "killerEntry": 1,
@@ -453,7 +453,7 @@
     {
       "time_raw": "04:54:26 pm 10/24/2026",
       "type": "bustout",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "by": "Chris F",
       "bySlug": "chris-f",
@@ -465,7 +465,7 @@
     {
       "time_raw": "04:54:34 pm 10/24/2026",
       "type": "rebuy",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "entryFee": 40,
       "bountyPosted": 10,
@@ -528,7 +528,7 @@
     {
       "time_raw": "05:33:07 pm 10/24/2026",
       "type": "bustout",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "by": "Chris F",
       "bySlug": "chris-f",
@@ -540,7 +540,7 @@
     {
       "time_raw": "05:33:12 pm 10/24/2026",
       "type": "rebuy",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "entryFee": 40,
       "bountyPosted": 10,
@@ -722,7 +722,7 @@
     {
       "time_raw": "09:04:36 pm 10/24/2026",
       "type": "bustout",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "by": "ButtonMan",
       "bySlug": "li-fo",
@@ -819,7 +819,7 @@
     {
       "type": "payout",
       "time_raw": "10:20:25 pm 10/24/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "rank": 6,
       "payout": 50
@@ -1403,7 +1403,7 @@
       "rolloverPrize": 0
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "buyIns": 1,
       "rebuys": 2,

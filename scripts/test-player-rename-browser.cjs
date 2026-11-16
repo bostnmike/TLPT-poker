@@ -40,6 +40,13 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
     const coffee = page.locator('.tlpt-player-snapshot-stat').filter({hasText:'Coffee Consumed'});
     assert.equal(await coffee.locator('strong').textContent(), String(siteData.coffeeConsumption.p));
    }
+   await page.goto(base+'/player.html?name=Nasa%20Al');
+   const nasaCard = page.locator('#player-profile [data-player-card]');
+   await nasaCard.waitFor();
+   assert.equal(await nasaCard.getAttribute('data-card-player-name'), 'NASA Al');
+   assert.equal(new URL(page.url()).searchParams.get('name'), 'NASA Al');
+   const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+   assert.equal(new URL(canonical).searchParams.get('name'), 'NASA Al');
    await page.goto(base+'/player.html?name=Hiro');
    const tiles=page.locator('.tlpt-player-snapshot-grid .tlpt-player-snapshot-stat');
    const coffee=tiles.nth(8);
