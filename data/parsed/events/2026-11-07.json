@@ -41,7 +41,7 @@
       "payout": 118.54
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "rank": 1,
       "payout": 97.46
@@ -101,7 +101,7 @@
     {
       "time_raw": "07:27:09 pm 11/05/2026",
       "type": "buyin",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "entryFee": 30,
       "bountyPosted": 10,
@@ -230,7 +230,7 @@
       "type": "bustout",
       "player": "PhattedCalf",
       "slug": "phattedcalf",
-      "by": "Nasa Al",
+      "by": "NASA Al",
       "bySlug": "nasa-al",
       "victimEntry": 3,
       "killerEntry": 1,
@@ -257,7 +257,7 @@
     {
       "type": "payout",
       "time_raw": "11:04:25 pm 11/07/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "rank": 1,
       "payout": 97.46
@@ -801,7 +801,7 @@
       "rolloverPrize": 0
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "buyIns": 1,
       "rebuys": 0,

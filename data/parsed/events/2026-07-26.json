@@ -59,7 +59,7 @@
     {
       "type": "buyin",
       "time_raw": "11:20:22 am 07/26/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al"
     },
     {
@@ -93,7 +93,7 @@
     {
       "type": "rebuy",
       "time_raw": "5:09:44 pm 07/26/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al"
     },
     {
@@ -131,7 +131,7 @@
     {
       "type": "bustout",
       "time_raw": "7:45:51 pm 07/26/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "by": "Ahmed",
       "bySlug": "ahmed",
@@ -490,7 +490,7 @@
       "profit": 0
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "buyIns": 1,
       "rebuys": 1,

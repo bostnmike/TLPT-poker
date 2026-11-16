@@ -37,7 +37,7 @@ def historical_financial_payload(event, baseline_slugs):
                 raise ValueError(f"Unexpected historical activity for {player['slug']}")
     # Keep the original hash labels/order while permitting an approved display
     # rename. Stable slugs and every financial field still match the frozen hash.
-    historical_labels = {'li-fo': 'Li-Fo'}
+    historical_labels = {'li-fo': 'Li-Fo', 'nasa-al': 'Nasa Al'}
     def original_label(row):
         return {**row, 'name': historical_labels.get(row.get('slug'), row['name'])}
     return {

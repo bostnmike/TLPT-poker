@@ -77,7 +77,7 @@
     {
       "type": "buyin",
       "time_raw": "12:57:09 pm 04/18/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al"
     },
     {
@@ -101,7 +101,7 @@
       "time_raw": "8:03:38 pm 04/18/2026",
       "player": "Ahmed",
       "slug": "ahmed",
-      "by": "Nasa Al",
+      "by": "NASA Al",
       "bySlug": "nasa-al",
       "rawKillerText": "Nasa Al",
       "sharedKillerSource": false
@@ -149,7 +149,7 @@
       "time_raw": "9:24:02 pm 04/18/2026",
       "player": "BostnMike",
       "slug": "bostnmike",
-      "by": "Nasa Al",
+      "by": "NASA Al",
       "bySlug": "nasa-al",
       "rawKillerText": "Nasa Al",
       "sharedKillerSource": false
@@ -209,7 +209,7 @@
     {
       "type": "bustout",
       "time_raw": "10:15:31 pm 04/18/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "by": "Chris O",
       "bySlug": "chris-o",
@@ -578,7 +578,7 @@
       "profit": 0
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "buyIns": 1,
       "rebuys": 0,

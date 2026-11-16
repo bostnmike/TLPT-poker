@@ -25,7 +25,7 @@
       "payout": 195
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "rank": 2,
       "payout": 115
@@ -53,7 +53,7 @@
     {
       "type": "buyin",
       "time_raw": "7:01:26 pm 02/10/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al"
     },
     {
@@ -215,7 +215,7 @@
       "time_raw": "11:59:21 pm 02/13/2026",
       "player": "Jeff T",
       "slug": "jeff-t",
-      "by": "Nasa Al",
+      "by": "NASA Al",
       "bySlug": "nasa-al",
       "rawKillerText": "Nasa Al",
       "sharedKillerSource": false
@@ -233,7 +233,7 @@
     {
       "type": "bustout",
       "time_raw": "12:17:18 am 02/14/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "by": "Vish",
       "bySlug": "vish",
@@ -260,7 +260,7 @@
     {
       "type": "payout",
       "time_raw": "12:17:18 am 02/14/2026",
-      "player": "Nasa Al",
+      "player": "NASA Al",
       "slug": "nasa-al",
       "rank": 2,
       "payout": 115
@@ -562,7 +562,7 @@
       "profit": 0
     },
     {
-      "name": "Nasa Al",
+      "name": "NASA Al",
       "slug": "nasa-al",
       "buyIns": 1,
       "rebuys": 0,
