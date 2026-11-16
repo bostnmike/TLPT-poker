@@ -1773,7 +1773,6 @@ function buildEventFormatMarkup(event) {
   const format = `<div class="event-format-title">${escapeHtmlAttr(event.format || "")}</div>`;
   const structure = `<div class="event-structure">${escapeHtmlAttr(event.structure || "")}</div>`;
   const pricing = buildEventPricingMarkup(event);
-  if (!pricing) return format + structure;
 
   return `<div class="event-format-details">
     <div class="event-format-summary">${format}${pricing}</div>
