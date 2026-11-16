@@ -16,3 +16,12 @@ test('historical Li-Fo payments resolve to ButtonMan without editing receipts or
  }
  assert.equal(resolvePaymentPlayer({payer:'Tony Kosturi',method:'venmo'},players)?.slug,'li-fo');
 });
+
+test('legacy P receipts and the existing payer alias resolve to Piercen',()=>{
+ for(const payment of [{player:'P'},{player:'Piercen Craig'},{payer:'Pushin Craig',method:'venmo'}]){
+  const player=resolvePaymentPlayer(payment,players);
+  assert.equal(player?.slug,'p');
+  assert.equal(player?.name,'Piercen');
+  assert.match(player.image,/images\/players\/piercen-craig-v2\.webp$/);
+ }
+});

@@ -27,6 +27,15 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false);
    }
    await page.locator('#player-profile [data-player-card]').screenshot({path:'/tmp/buttonman-card-'+width+'.png'});
+   for (const alias of ['P', 'Piercen', 'Piercen Craig', 'Pushin Craig']) {
+    await page.goto(base+'/player.html?name='+encodeURIComponent(alias));
+    const card = page.locator('#player-profile [data-player-card]');
+    await card.waitFor();
+    assert.equal(await card.getAttribute('data-card-player-name'), 'Piercen', alias);
+    await card.locator('img[src*="images/players/piercen-craig-v2.webp"]').first().evaluate(img=>img.decode());
+    const coffee = page.locator('.tlpt-player-snapshot-stat').filter({hasText:'Coffee Consumed'});
+    assert.equal(await coffee.locator('strong').textContent(), String(siteData.coffeeConsumption.p));
+   }
    await page.goto(base+'/player.html?name=Hiro');
    const tiles=page.locator('.tlpt-player-snapshot-grid .tlpt-player-snapshot-stat');
    const coffee=tiles.nth(8);
