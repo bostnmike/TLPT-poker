@@ -97,6 +97,15 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
             assert.equal(await sundayButton.getAttribute('aria-pressed'), 'true');
           }
         } else {
+          const unpriced = page.locator('.event-card[data-event-slot="friday"]');
+          const unpricedDetails = unpriced.locator('.event-format-details');
+          assert.equal(await unpriced.locator('.event-pricing').count(), 0, 'Unset pricing stays hidden');
+          assert.equal(await unpricedDetails.locator('.event-format-summary .event-format-title').textContent(), regular[0].format);
+          assert.equal(await unpricedDetails.locator('.event-structure').textContent(), regular[0].structure);
+          assert.ok(await unpricedDetails.evaluate(group =>
+            group.querySelector('.event-format-title').getBoundingClientRect().left ===
+            group.querySelector('.event-structure').getBoundingClientRect().left
+          ), 'Format and blinds remain aligned without pricing');
           await refresh('closed'); await checkHidden();
           await refresh('open');
           assert.equal(await sundayCards.count(), 1);
@@ -116,7 +125,6 @@ const sunday = {id:'fixture-sunday', slot:'sunday', day:'Sunday', date:'2099-01-
               fits: price.getBoundingClientRect().right <= group.getBoundingClientRect().right + 1
             };
           }), {aligned:true, sameSize:true, fits:true}, 'Game format and pricing share typography and fit beside the blinds');
-          assert.equal(await page.locator('[data-event-slot="friday"] .event-pricing').count(), 0, 'Unset pricing stays hidden');
           assert.equal(await card.locator('.schedule-day-pill').textContent(), 'Sunday');
           assert.match(await card.getAttribute('class'), /schedule-event-card-sunday/);
           assert.equal(await card.locator('.event-rsvp-table').count(), 1);
