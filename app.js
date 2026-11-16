@@ -6141,7 +6141,7 @@ function renderPlayerProfile(data) {
   if (!container || !data?.players?.length) return;
 
   const params = new URLSearchParams(window.location.search);
-  let requestedName = params.get("name");
+  const requestedName = params.get("name");
 
   const players = sortPlayers(data.players, "trueSkillScore");
 
@@ -6150,17 +6150,15 @@ function renderPlayerProfile(data) {
   const defaultPlayer =
     players.find(p => normalizeName(p.name) === "bostnmike") || players[0];
 
-  if (!requestedName) {
-    requestedName = defaultPlayer.name;
-    params.set("name", requestedName);
-    const newUrl = `${window.location.pathname}?${params.toString()}`;
-    window.history.replaceState({}, "", newUrl);
-  }
+  const matchedPlayer = players.find(p => [p.name, p.slug, ...(p.aliases || [])]
+    .some(name => normalizeName(name) === normalizeName(requestedName)));
+  const player = matchedPlayer || defaultPlayer;
 
-  const player =
-    players.find(p => [p.name, p.slug, ...(p.aliases || [])]
-      .some(name => normalizeName(name) === normalizeName(requestedName))) ||
-    defaultPlayer;
+  if (requestedName !== player.name && (!requestedName || matchedPlayer)) {
+    params.set("name", player.name);
+    const newUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    window.history.replaceState(window.history.state, "", newUrl);
+  }
 
   updatePlayerProfileMetadata(player);
 
