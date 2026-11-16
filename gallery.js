@@ -29,7 +29,7 @@ let syncFamilyPortraits = () => {};
 function filteredEventPosters() {
   return galleryYearFilter === "all"
     ? galleryPosters
-    : galleryPosters.filter(poster => poster.date.slice(0, 4) === galleryYearFilter);
+    : galleryPosters.filter(poster => poster.date?.slice(0, 4) === galleryYearFilter);
 }
 
 function galleryViewerItems() {
@@ -238,6 +238,10 @@ function formatDisplayDate(isoDate) {
 
 function buildTitleFromFilename(isoDate) {
   return `Felt Whispers — ${formatDisplayDate(isoDate)}`;
+}
+
+function galleryPosterDate(poster) {
+  return poster.date ? formatDisplayDate(poster.date) : "Date TBD";
 }
 
 function escapeGalleryHtml(value) {
@@ -482,10 +486,10 @@ function openLightboxByIndex(index) {
   image.alt = poster.title;
   image.width = poster.width || 1024;
   image.height = poster.height || 1536;
-  title.textContent = poster.isNorm ? poster.title : "The BostnMike Collection";
+  title.textContent = poster.isNorm || poster.isMtt ? poster.title : "The BostnMike Collection";
   date.textContent = poster.isNorm
     ? (poster.filmHref ? "The Norm Collection" : "21 Norms. One table.")
-    : formatDisplayDate(poster.date);
+    : poster.isMtt ? `MTT · ${galleryPosterDate(poster)}` : galleryPosterDate(poster);
   lightbox.classList.toggle("is-norm", Boolean(poster.isNorm));
   const filmLink = document.getElementById("gallery-lightbox-film");
   if (filmLink) {
@@ -544,6 +548,7 @@ function closeLightbox() {
 function createPosterCard(poster, isLeadPoster = false) {
   const article = document.createElement("article");
   article.className = `gallery-card${poster.isFuture ? " gallery-card-coming" : ""}`;
+  if (poster.isMtt) article.id = poster.file.replace(/\.jpg$/, "");
 
   const button = document.createElement("button");
   button.className = "gallery-poster-button";
@@ -566,9 +571,9 @@ function createPosterCard(poster, isLeadPoster = false) {
     </div>
     <div class="gallery-card-meta${poster.isFuture ? "" : " has-winner-badges"}">
       ${buildGalleryWinnerBadgesMarkup(poster)}
-      <div class="gallery-card-label">The BostnMike Collection</div>
+      <div class="gallery-card-label">${poster.isMtt ? "MTT" : "The BostnMike Collection"}</div>
       <h3 class="gallery-card-title">${escapeGalleryHtml(poster.collection)}</h3>
-      <p class="gallery-card-subline">${escapeGalleryHtml(formatDisplayDate(poster.date))}</p>
+      <p class="gallery-card-subline">${escapeGalleryHtml(galleryPosterDate(poster))}</p>
     </div>
   `;
 
@@ -635,6 +640,7 @@ function groupPostersByYear(posters) {
   const grouped = new Map();
 
   posters.forEach(poster => {
+    if (!poster.date) return;
     const year = poster.date.slice(0, 4);
     if (!grouped.has(year)) grouped.set(year, []);
     grouped.get(year).push(poster);
@@ -766,13 +772,28 @@ async function loadGallery() {
           title: buildTitleFromFilename(isoDate),
           collection: isoDate > todayIso ? "Coming Soon" : "In the Vault"
         };
-      })
-      .sort((a, b) => {
-        if (a.isFuture !== b.isFuture) return a.isFuture ? -1 : 1;
-        return a.isFuture
-          ? new Date(a.date) - new Date(b.date)
-          : new Date(b.date) - new Date(a.date);
       });
+
+    const mtt = manifest.mttPoster;
+    if (mtt) {
+      galleryPosters.push({
+        file: mtt.file,
+        date: mtt.date,
+        src: `${manifestFolder}/mtt/${mtt.file}`,
+        thumbnailSrc: `${manifestFolder}/mtt/${mtt.thumbnail}`,
+        isMtt: true,
+        isFuture: !mtt.date || mtt.date > todayIso,
+        title: mtt.title,
+        collection: mtt.title
+      });
+    }
+
+    galleryPosters.sort((a, b) => {
+      if (a.isFuture !== b.isFuture) return a.isFuture ? -1 : 1;
+      return a.isFuture
+        ? (a.date || "").localeCompare(b.date || "")
+        : b.date.localeCompare(a.date);
+    });
 
     grid.innerHTML = "";
 
@@ -786,6 +807,8 @@ async function loadGallery() {
     galleryVisibleArchiveCount = galleryBatchSize();
     populateGalleryYearFilter();
     renderGalleryCollection();
+    const mttCard = mtt && document.getElementById(mtt.file.replace(/\.jpg$/, ""));
+    if (mttCard && location.hash === `#${mttCard.id}`) mttCard.scrollIntoView();
   } catch (err) {
     console.error("Gallery load error:", err);
     if (empty) {

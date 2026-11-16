@@ -10,7 +10,12 @@ async function checkPosterYear(browser, viewport){
   const page=await browser.newPage({viewport,timezoneId:'America/New_York'});
   try {
     const files=['fw27-01-08.jpg','fw26-12-11.jpg','fw26-10-24.jpg'];
-    await page.route('**/images/fw/gallery-manifest.json',route=>route.fulfill({json:{folder:'images/fw',files}}));
+    const mttPoster={title:'Undated Tournament',file:'undated.jpg',thumbnail:'undated-thumb.jpg',date:null};
+    await page.route('**/images/fw/gallery-manifest.json',route=>route.fulfill({json:{folder:'images/fw',files,mttPoster}}));
+    await page.route('**/images/fw/mtt/undated*.jpg',route=>route.fulfill({
+      contentType:'image/svg+xml',
+      body:'<svg xmlns="http://www.w3.org/2000/svg" width="2" height="3"/>'
+    }));
     await page.clock.setFixedTime(new Date('2026-11-06T17:00:00Z'));
     await page.goto(base+'/gallery.html');
     const year=page.locator('#gallery-year-filter');
@@ -25,7 +30,19 @@ async function checkPosterYear(browser, viewport){
     const status=page.locator('#gallery-filter-status');
     const dates=()=>cards.locator('.gallery-card-subline').allTextContents();
     await year.locator('option[value="2027"]').waitFor({state:'attached'});
-    assert.equal(await upcoming.count(),2,'All Years includes upcoming posters from both years');
+    assert.equal(await upcoming.count(),3,'All Years includes upcoming posters from both years and the pending MTT');
+    const mttCard=upcoming.filter({hasText:mttPoster.title});
+    assert.equal(await mttCard.count(),1);
+    assert.equal(await mttCard.locator('.gallery-card-label').textContent(),'MTT');
+    assert.equal(await mttCard.locator('.gallery-card-subline').textContent(),'Date TBD');
+    await mttCard.locator('img').evaluate(img=>img.decode());
+    await mttCard.getByRole('button').click();
+    assert.equal(await page.locator('#gallery-lightbox-title').textContent(),mttPoster.title);
+    assert.equal(await page.locator('#gallery-lightbox-date').textContent(),'MTT · Date TBD');
+    const image=page.locator('#gallery-lightbox-image');
+    await image.evaluate(img=>img.decode());
+    assert.equal(await image.getAttribute('src'),`images/fw/mtt/${mttPoster.file}`);
+    await page.keyboard.press('Escape');
     await trigger.click();
     assert.deepEqual(await menu.getByRole('option').allTextContents(),['All Years','2027','2026']);
     await menu.getByRole('option',{name:'2027',exact:true}).click();
@@ -40,7 +57,7 @@ async function checkPosterYear(browser, viewport){
     assert.deepEqual(await dates(),['December 11, 2026','October 24, 2026']);
     assert.equal(await status.textContent(),'1 upcoming poster · 1 archived poster on display');
     await choose('All Years');
-    assert.equal(await cards.count(),3);
+    assert.equal(await cards.count(),4);
     await page.clock.setFixedTime(new Date('2027-01-08T17:00:00Z'));
     await page.reload();
     await year.locator('option[value="2027"]').waitFor({state:'attached'});
