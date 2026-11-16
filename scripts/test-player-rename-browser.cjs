@@ -15,6 +15,7 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
     const card=page.locator('#player-profile [data-player-card]');
     await card.waitFor();
     assert.equal(await card.getAttribute('data-card-player-name'),'ButtonMan',alias);
+    assert.equal(new URL(page.url()).searchParams.get('name'), 'ButtonMan', alias);
     const image=card.locator('img[src*="images/players/li-fo.jpg"]').first();
     await image.waitFor();
     await page.waitForFunction(()=>[...document.querySelectorAll('#player-profile img')].some(i=>i.src.includes('/li-fo.jpg')&&i.complete&&i.naturalWidth>0));
@@ -28,10 +29,13 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
    }
    await page.locator('#player-profile [data-player-card]').screenshot({path:'/tmp/buttonman-card-'+width+'.png'});
    for (const alias of ['P', 'Piercen', 'Piercen Craig', 'Pushin Craig']) {
-    await page.goto(base+'/player.html?name='+encodeURIComponent(alias));
+    await page.goto(base+'/player.html?name='+encodeURIComponent(alias)+'&from=crew#player-profile');
     const card = page.locator('#player-profile [data-player-card]');
     await card.waitFor();
     assert.equal(await card.getAttribute('data-card-player-name'), 'Piercen', alias);
+    const url = new URL(page.url());
+    assert.equal(url.search, '?name=Piercen&from=crew', alias);
+    assert.equal(url.hash, '#player-profile');
     await card.locator('img[src*="images/players/piercen-craig-v2.webp"]').first().evaluate(img=>img.decode());
     const coffee = page.locator('.tlpt-player-snapshot-stat').filter({hasText:'Coffee Consumed'});
     assert.equal(await coffee.locator('strong').textContent(), String(siteData.coffeeConsumption.p));
