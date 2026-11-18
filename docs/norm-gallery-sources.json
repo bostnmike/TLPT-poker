@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "the-camel-is-in",
+      "source": "output/video/tlpt-the-camel-is-in/ferris-softer-mtt-v24/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/the-camel-is-in.jpg",
+      "sha256": "f587ee1e96e5714f537de180d761806720e16b522901511ead50a3f7942fe7b1",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "calendar-holdem",
       "source": "output/video/tlpt-calendar-holdem/table-reaction-v3/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/calendar-holdem.jpg",
