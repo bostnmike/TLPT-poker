@@ -38,10 +38,11 @@ async function checkPosterYear(browser, viewport){
     assert.equal(await mttCard.locator('.gallery-card-subline').textContent(),'Date TBD');
     await mttCard.locator('img').evaluate(img=>img.decode());
     await mttCard.getByRole('button').click();
-    assert.equal(await page.locator('#gallery-lightbox-title').textContent(),mttPoster.title);
-    assert.equal(await page.locator('#gallery-lightbox-date').textContent(),'MTT · Date TBD');
+    assert.equal(await page.locator('#gallery-lightbox-title').textContent(),'The BostnMike Collection');
+    assert.equal(await page.locator('#gallery-lightbox-date').textContent(),'Date TBD');
     const image=page.locator('#gallery-lightbox-image');
     await image.evaluate(img=>img.decode());
+    assert.equal(await image.getAttribute('alt'),mttPoster.title);
     assert.equal(await image.getAttribute('src'),`images/fw/mtt/${mttPoster.file}`);
     await page.keyboard.press('Escape');
     await trigger.click();
