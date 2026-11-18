@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "the-camel-is-in",
+      "src": "images/norm-gallery/the-camel-is-in.jpg",
+      "sha256": "f587ee1e96e5714f537de180d761806720e16b522901511ead50a3f7942fe7b1",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Camel Is In",
+      "filmHref": "media.html#the-camel-is-in",
+      "youtubeId": "V4B33P1kt8A"
+    },
+    {
       "id": "calendar-holdem",
       "src": "images/norm-gallery/calendar-holdem.jpg",
       "sha256": "41b7783d4985f83ccabcf0a3a2b6322b554a8622fdca0d1504e584d209d82bfd",

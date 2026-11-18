@@ -410,7 +410,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-one RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-three RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -428,7 +428,16 @@ and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
 
-“Going Once…” uses YouTube `liEHKJxCHV0` and anchor
+"The Camel Is In" uses YouTube `V4B33P1kt8A` and anchor
+`media.html#the-camel-is-in`. This Wednesday RSVP check-in covers the November 20
+Good Will Bluffing and November 21 The Call-Father games and closes with the
+MTT survey invitation. Its approved 43.17-second, 1080×1920/60fps v24 master
+and QC reports stay in `output/video/tlpt-the-camel-is-in/ferris-softer-mtt-v24/`
+outside the website. Copy that folder's landscape thumbnail to the Film Room
+and portrait thumbnail to the Norm Wing unchanged. Preserve the Ferris ending,
+click-to-play YouTube embed, direct fallback link and standard title-only card.
+
+"Going Once…" uses YouTube `liEHKJxCHV0` and anchor
 `media.html#going-once`. The approved 16.8-second Cougar-and-gavel master stays
 in `output/video/tlpt-going-once/cougar-gavel-v4/`. The Film Room and Norm Wing
 use the approved landscape and portrait files from its `release-art/` folder.
