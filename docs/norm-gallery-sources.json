@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "help-getting-better",
+      "source": "output/video/tlpt-beatles-help-getting-better/production-v9-split-felt/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/help-getting-better.jpg",
+      "sha256": "a874901589f2cb8f2d042f56f1cf304d883fe7ecd580b4574640768178eab3d8",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "the-camel-is-in",
       "source": "output/video/tlpt-the-camel-is-in/ferris-softer-mtt-v24/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/the-camel-is-in.jpg",

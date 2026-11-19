@@ -68,6 +68,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'help-getting-better-thumbnail.jpg':'cc9aa64944e0512e91d9c9fd5d1f4311a19b7ac385be0e3c77b8e02dbe50f759',
   'the-camel-is-in-thumbnail.jpg':'1c261cd1297e6683a0b85cd82d782e428caee18d8fd6233278bd7990bbdbec88',
   'sports-desk-friday-no-go-thumbnail.jpg':'d1e0fb1967b3bdb9bdd3aba134a9e03be144d97511ebb5928c6ec634428a59ff',
   'going-once-thumbnail.jpg':'a1f92379d75b5469f22a73b3352808ba3791160133770075ccf651b4f240961b',
@@ -185,6 +186,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['help-getting-better','o7GB-zK0F2s'],
   ['the-camel-is-in','V4B33P1kt8A'],
   ['calendar-holdem','y4LNU6UovTU'],
   ['sports-desk-friday-no-go','U84vXruMyZg'],

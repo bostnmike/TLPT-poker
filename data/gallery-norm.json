@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "help-getting-better",
+      "src": "images/norm-gallery/help-getting-better.jpg",
+      "sha256": "a874901589f2cb8f2d042f56f1cf304d883fe7ecd580b4574640768178eab3d8",
+      "width": 1080,
+      "height": 1920,
+      "title": "Help! / Getting Better",
+      "filmHref": "media.html#help-getting-better",
+      "youtubeId": "o7GB-zK0F2s"
+    },
+    {
       "id": "the-camel-is-in",
       "src": "images/norm-gallery/the-camel-is-in.jpg",
       "sha256": "f587ee1e96e5714f537de180d761806720e16b522901511ead50a3f7942fe7b1",
