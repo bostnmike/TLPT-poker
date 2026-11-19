@@ -1,15 +1,25 @@
 export const GALLERY_MANIFEST='https://tlpt.org/images/fw/gallery-manifest.json';
 export const validPosterFile=file=>typeof file==='string'&&/^fw\d{2}-\d{2}-\d{2}\.(jpg|png)$/.test(file);
-export const posterDescriptor=file=>validPosterFile(file)?{file,date:`20${file.slice(2,10)}`,url:`https://tlpt.org/images/fw/${file}`,thumbnailUrl:`https://tlpt.org/images/fw/thumbs/${file}`}:null;
+const versionQuery=value=>/^[a-f0-9]{16}$/.test(value||'')?'?v='+value:'';
+export function posterDescriptor(file,versions={}){
+ if(!validPosterFile(file))return null;
+ return {
+  file,date:`20${file.slice(2,10)}`,
+  url:`https://tlpt.org/images/fw/${file}${versionQuery(versions?.image)}`,
+  thumbnailUrl:`https://tlpt.org/images/fw/thumbs/${file}${versionQuery(versions?.thumbnail)}`
+ };
+}
 export function eventPoster(metadata,catalog=[]){
  const choice=metadata.poster||'auto';if(choice==='none')return null;
  const file=choice==='auto'?(/^\d{4}-\d{2}-\d{2}$/.test(metadata.date)?catalog.map(p=>p.file).filter(validPosterFile).sort().find(f=>f.slice(2,10)===metadata.date.slice(2)):null):choice;
  const descriptor=posterDescriptor(file);if(!descriptor)return null;
- const {date,...poster}=descriptor;return poster;
+ const {date,...poster}=descriptor;
+ const selected=catalog.find(p=>p.file===file);
+ return {...poster,url:selected?.url||poster.url,thumbnailUrl:selected?.thumbnailUrl||poster.thumbnailUrl};
 }
 export function parseGallery(gallery){
  if(gallery?.folder!=='images/fw'||!Array.isArray(gallery.files))throw Error('Gallery unavailable.');
- return [...new Set(gallery.files.filter(validPosterFile))].slice(0,500).map(posterDescriptor);
+ return [...new Set(gallery.files.filter(validPosterFile))].slice(0,500).map(file=>posterDescriptor(file,gallery.versions?.[file]));
 }
 // One bounded public-catalog read per five minutes, coalesced across requests.
 // Gallery failures never block RSVPs. Retain the last valid catalog if available;

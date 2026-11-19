@@ -301,6 +301,10 @@ poster. The server caches and coalesces catalog reads for five minutes; on failu
 it retains its last verified catalog and retries after 30 seconds. Without a
 verified catalog, automatic art is omitted; explicit saved choices still work.
 Gallery failure never blocks RSVP. Catalog reads do not write event metadata or answers.
+The catalog includes separate content versions for full-size images and thumbnails.
+The feed and Commish preview preserve these versions in image URLs so replacing
+poster artwork refreshes cached images. Older manifests without versions remain
+supported, and the original poster filenames remain valid shared links.
 
 ## Shared player entry and private Commish access
 

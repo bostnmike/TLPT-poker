@@ -244,6 +244,10 @@ function galleryPosterDate(poster) {
   return poster.date ? formatDisplayDate(poster.date) : "Date TBD";
 }
 
+function versionedGalleryPosterUrl(url, version) {
+  return /^[a-f0-9]{16}$/.test(version || "") ? `${url}?v=${version}` : url;
+}
+
 function escapeGalleryHtml(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -766,8 +770,8 @@ async function loadGallery() {
         return {
           file,
           date: isoDate,
-          src: `${manifestFolder}/${file}`,
-          thumbnailSrc: `${thumbnailFolder}/${file}`,
+          src: versionedGalleryPosterUrl(`${manifestFolder}/${file}`, manifest.versions?.[file]?.image),
+          thumbnailSrc: versionedGalleryPosterUrl(`${thumbnailFolder}/${file}`, manifest.versions?.[file]?.thumbnail),
           isFuture: isoDate > todayIso,
           title: buildTitleFromFilename(isoDate),
           collection: isoDate > todayIso ? "Coming Soon" : "In the Vault"

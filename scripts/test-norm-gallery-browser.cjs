@@ -11,7 +11,8 @@ async function checkPosterYear(browser, viewport){
   try {
     const files=['fw27-01-08.jpg','fw26-12-11.jpg','fw26-10-24.jpg'];
     const mttPoster={title:'Undated Tournament',file:'undated.jpg',thumbnail:'undated-thumb.jpg',date:null};
-    await page.route('**/images/fw/gallery-manifest.json',route=>route.fulfill({json:{folder:'images/fw',files,mttPoster}}));
+    const versions={'fw26-12-11.jpg':{image:'1111111111111111',thumbnail:'2222222222222222'}};
+    await page.route('**/images/fw/gallery-manifest.json',route=>route.fulfill({json:{folder:'images/fw',files,mttPoster,versions}}));
     await page.route('**/images/fw/mtt/undated*.jpg',route=>route.fulfill({
       contentType:'image/svg+xml',
       body:'<svg xmlns="http://www.w3.org/2000/svg" width="2" height="3"/>'
@@ -58,6 +59,11 @@ async function checkPosterYear(browser, viewport){
     await choose('2026');
     assert.deepEqual(await dates(),['December 11, 2026','October 24, 2026']);
     assert.equal(await status.textContent(),'1 upcoming poster · 1 archived poster on display');
+    const versionedCard=cards.filter({has:page.locator('img[src="images/fw/thumbs/fw26-12-11.jpg?v=2222222222222222"]')});
+    assert.equal(await versionedCard.count(),1,'The card uses the current thumbnail version');
+    await versionedCard.getByRole('button').click();
+    assert.equal(await page.locator('#gallery-lightbox-image').getAttribute('src'),'images/fw/fw26-12-11.jpg?v=1111111111111111','The viewer uses the full-size version independently');
+    await page.keyboard.press('Escape');
     await choose('All Years');
     assert.equal(await cards.count(),4);
     await page.clock.setFixedTime(new Date('2027-01-08T17:00:00Z'));

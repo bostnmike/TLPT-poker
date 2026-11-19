@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const repoRoot = process.cwd();
 const feltWhispersDir = path.join(repoRoot, "images", "fw");
@@ -63,7 +64,15 @@ if (!files.length) {
 const payload = {
   folder: "images/fw",
   thumbnailFolder: "images/fw/thumbs",
-  files
+  files,
+  versions: Object.fromEntries(files.map(file => {
+    const image = crypto.createHash("sha256").update(fs.readFileSync(path.join(feltWhispersDir, file))).digest("hex").slice(0, 16);
+    const thumbnailPath = path.join(feltWhispersDir, "thumbs", file);
+    const thumbnail = fs.existsSync(thumbnailPath)
+      ? crypto.createHash("sha256").update(fs.readFileSync(thumbnailPath)).digest("hex").slice(0, 16)
+      : undefined;
+    return [file, { image, thumbnail }];
+  }))
 };
 const mttPoster = getMttPoster();
 if (mttPoster) payload.mttPoster = mttPoster;
