@@ -410,7 +410,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-three RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-four RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -427,6 +427,14 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“Help! / Getting Better” uses YouTube `o7GB-zK0F2s` and anchor
+`media.html#help-getting-better`. The approved 55.73-second, 1080×1920/60fps
+v9 master and QC stay outside the website in
+`output/video/tlpt-beatles-help-getting-better/production-v9-split-felt/`.
+Use that folder’s exact landscape cover in the Film Room and portrait cover in
+the Norm Wing. Preserve the approved soundtrack and split hockey felt scene.
+Keep the standard title-only card and click-to-play YouTube embed.
 
 "The Camel Is In" uses YouTube `V4B33P1kt8A` and anchor
 `media.html#the-camel-is-in`. This Wednesday RSVP check-in covers the November 20
