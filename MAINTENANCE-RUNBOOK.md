@@ -590,6 +590,13 @@ YouTube and does not host additional MP4s or add schedule/registration controls.
 
 ### The Many Faces of Norm Gallery wing
 
+Event poster images and their thumbnails use independent content hashes from
+`images/fw/gallery-manifest.json` as URL versions. Replacing a dated poster file
+updates its Gallery card, full-size viewer and RSVP catalog URLs, including
+manually selected posters. The original filenames remain valid for shared links.
+Legacy manifests without versions continue to work. Rebuild the gallery manifest
+after changing poster bytes and verify the versioned image URLs on the live site.
+
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
 Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner

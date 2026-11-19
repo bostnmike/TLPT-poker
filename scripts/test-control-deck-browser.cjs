@@ -2,7 +2,7 @@
 const { chromium } = require('playwright');
 const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
-const { mttPoster } = require('../images/fw/gallery-manifest.json');
+const { mttPoster, versions = {} } = require('../images/fw/gallery-manifest.json');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
 const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-movement',
   'players','trophy-room','gallery','voice-of-god','player','structures'];
@@ -99,13 +99,15 @@ const pages = ['dashboard','standings','form-lab','knockouts','streaks','player-
           const isMtt = mttPoster && await card.getAttribute('id') === mttPoster.file.replace(/\.jpg$/, '');
           const thumbnailPattern = isMtt
             ? /^images\/fw\/mtt\/[a-z0-9-]+-thumb\.jpg$/
-            : /^images\/fw\/thumbs\/fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)$/i;
+            : /^images\/fw\/thumbs\/fw\d{2}-\d{2}-\d{2}\.(?:jpg|png)(?:\?v=[a-f0-9]{16})?$/i;
           assert.match(thumbnailSrc, thumbnailPattern);
           const caption = await card.locator('.gallery-card-subline').textContent();
           await poster.click();
           const original = page.locator('#gallery-lightbox-image');
           await original.evaluate(image => image.decode());
-          const originalSrc = isMtt ? thumbnailSrc.replace(/-thumb\.jpg$/, '.jpg') : thumbnailSrc.replace('/thumbs/', '/');
+          const filename = thumbnailSrc.split('?')[0].split('/').pop();
+          const imageVersion = versions[filename]?.image;
+          const originalSrc = isMtt ? thumbnailSrc.replace(/-thumb\.jpg$/, '.jpg') : thumbnailSrc.split('?')[0].replace('/thumbs/', '/') + (imageVersion ? '?v=' + imageVersion : '');
           assert.equal(await original.getAttribute('src'), originalSrc, 'Viewer opens original JPG/PNG, not thumbnail');
           assert.equal(await page.locator('#gallery-lightbox-title').textContent(), 'The BostnMike Collection');
           assert.equal(await page.locator('#gallery-lightbox-date').textContent(), caption, 'Event date stays in the caption');

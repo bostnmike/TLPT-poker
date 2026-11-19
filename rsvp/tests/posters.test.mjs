@@ -15,6 +15,22 @@ test('automatic and explicit PNG/JPG matching agrees in feed and Commish preview
  assert.equal(eventPoster({date:'2026-11-01'},catalog).file,'fw26-11-01.png');
  assert.equal(eventPoster({date:'2026-10-31'},catalog).file,'fw26-10-31.jpg');
 });
+test('replacing image bytes refreshes automatic and explicit posters and Commish previews',()=>{
+ const file='fw26-11-21.jpg';
+ const first=parseGallery({folder:'images/fw',files:[file],versions:{[file]:{image:'1111111111111111',thumbnail:'2222222222222222'}}});
+ const updated=parseGallery({folder:'images/fw',files:[file],versions:{[file]:{image:'3333333333333333',thumbnail:'4444444444444444'}}});
+ for(const metadata of [{date:'2026-11-21'},{date:'Date TBD',poster:file}]){
+  const poster=eventPoster(metadata,updated);
+  assert.deepEqual(preview(metadata,updated),poster);
+  assert.equal(poster.url,'https://tlpt.org/images/fw/'+file+'?v=3333333333333333');
+  assert.equal(poster.thumbnailUrl,'https://tlpt.org/images/fw/thumbs/'+file+'?v=4444444444444444');
+  assert.notEqual(poster.url,eventPoster(metadata,first).url);
+  assert.notEqual(poster.thumbnailUrl,eventPoster(metadata,first).thumbnailUrl);
+ }
+ const malformed=parseGallery({folder:'images/fw',files:[file],versions:{[file]:{image:'../private',thumbnail:'123&extra=1'}}});
+ assert.equal(eventPoster({poster:file},malformed).url,'https://tlpt.org/images/fw/'+file);
+ assert.equal(eventPoster({poster:file},malformed).thumbnailUrl,'https://tlpt.org/images/fw/thumbs/'+file);
+});
 test('none, undated automatic, missing art and empty catalog never invent an image filename',()=>{
  for(const [metadata,posters] of [[{date:'2026-11-01',poster:'none'},catalog],[{date:'Date TBD'},catalog],[{date:'2026-11-02'},catalog],[{date:'2026-11-01'},[]],[{poster:'../../private.png'},catalog]]){
   assert.equal(eventPoster(metadata,posters),null);assert.equal(preview(metadata,posters),null);
