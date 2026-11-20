@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "the-red-zone",
+      "source": "output/video/tlpt-pull-the-plug-airplane/production-v7-jeans-folded-reaction/thumbnail-portrait.png",
+      "src": "images/norm-gallery/the-red-zone.png",
+      "sha256": "4fa95c25644ba97d3b96eab07997b5f2579ab91fc21d6b56f26ec2ce27c3cc49",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "help-getting-better",
       "source": "output/video/tlpt-beatles-help-getting-better/production-v9-split-felt/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/help-getting-better.jpg",

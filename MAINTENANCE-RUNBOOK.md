@@ -410,7 +410,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-four RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-five RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -427,6 +427,17 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“The Red Zone” uses YouTube `kF0-g9NRR9s` and anchor
+`media.html#the-red-zone`, matching its YouTube title. This is the approved
+“Pull the Friday Plug / Saturday GAME ON” Airplane commercial. Its 44.8-second,
+1080×1920/60fps v7 master stays in
+`output/video/tlpt-pull-the-plug-airplane/production-v7-jeans-folded-reaction/`.
+Use that folder’s exact landscape cover in the Film Room and portrait PNG in
+the Norm Wing. The YouTube portrait was saved and verified after reloading
+before the site integration. Preserve the six-player white-zone reaction,
+blue jeans, revised pans and approved soundtrack. Use the title-only,
+click-to-play card and direct YouTube fallback.
 
 “Help! / Getting Better” uses YouTube `o7GB-zK0F2s` and anchor
 `media.html#help-getting-better`. The approved 55.73-second, 1080×1920/60fps
