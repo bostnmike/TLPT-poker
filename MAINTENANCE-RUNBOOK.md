@@ -616,6 +616,12 @@ manually selected posters. The original filenames remain valid for shared links.
 Legacy manifests without versions continue to work. Rebuild the gallery manifest
 after changing poster bytes and verify the versioned image URLs on the live site.
 
+Good Will Bluffing was postponed from November 20, 2026 to January 22, 2027.
+Its unchanged poster and thumbnail now use `fw27-01-22.jpg`, so date-derived
+site and app poster lookup follows the rescheduled game. The former January 22
+All-In Street artwork had already moved to `fw26-12-26.jpg` and remains there
+unchanged. RSVP owns the event date, closed status and retained host seat.
+
 `gallery.html#norm` opens the opt-in Norm collection. The normal entry remains
 Event Posters, preserving the dated archive, year filter, progressive loading,
 winner badges and their full-size JPG/PNG viewer. Neither this wing nor its banner

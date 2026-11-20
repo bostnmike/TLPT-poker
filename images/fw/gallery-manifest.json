@@ -2,6 +2,7 @@
   "folder": "images/fw",
   "thumbnailFolder": "images/fw/thumbs",
   "files": [
+    "fw27-01-22.jpg",
     "fw27-01-08.jpg",
     "fw26-12-26.jpg",
     "fw26-12-19.png",
@@ -13,7 +14,6 @@
     "fw26-11-28.jpg",
     "fw26-11-27.jpg",
     "fw26-11-21.jpg",
-    "fw26-11-20.jpg",
     "fw26-11-14.jpg",
     "fw26-11-07.jpg",
     "fw26-11-01.png",
@@ -75,6 +75,10 @@
     "fw25-05-24.jpg"
   ],
   "versions": {
+    "fw27-01-22.jpg": {
+      "image": "15d52b71d344ade8",
+      "thumbnail": "e517a6383bedb0e2"
+    },
     "fw27-01-08.jpg": {
       "image": "de265a61791571c0",
       "thumbnail": "0aaf268749a9a73f"
@@ -118,10 +122,6 @@
     "fw26-11-21.jpg": {
       "image": "344c5b0b5518d95b",
       "thumbnail": "2ed1cd3507910b3e"
-    },
-    "fw26-11-20.jpg": {
-      "image": "15d52b71d344ade8",
-      "thumbnail": "e517a6383bedb0e2"
     },
     "fw26-11-14.jpg": {
       "image": "47cedd8a7b26701a",
