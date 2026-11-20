@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "the-red-zone",
+      "src": "images/norm-gallery/the-red-zone.png",
+      "sha256": "4fa95c25644ba97d3b96eab07997b5f2579ab91fc21d6b56f26ec2ce27c3cc49",
+      "width": 1080,
+      "height": 1920,
+      "title": "The Red Zone",
+      "filmHref": "media.html#the-red-zone",
+      "youtubeId": "kF0-g9NRR9s"
+    },
+    {
       "id": "help-getting-better",
       "src": "images/norm-gallery/help-getting-better.jpg",
       "sha256": "a874901589f2cb8f2d042f56f1cf304d883fe7ecd580b4574640768178eab3d8",
