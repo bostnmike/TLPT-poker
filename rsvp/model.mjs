@@ -196,6 +196,15 @@ export function applyOperation(state,actor,op,now=new Date().toISOString()){
    }else{
     requireValue(!op.eventId,'Unknown event.');requireValue(state.events.length<100,'Event archive is full. Export a backup and contact maintenance.');
     requireValue(!state.events.some(e=>liveEvent(e)&&e.metadata.slot===metadata.slot&&e.metadata.date===metadata.date),'This event type and date already exist.');
+    const baseCents=metadata.slot==='mtt'?4000:3000;
+    metadata.rsvpBuyInCents??=baseCents;
+    metadata.rsvpRebuyCents??=baseCents;
+    if(metadata.rsvpBountyCents==null){
+     metadata.rsvpBountyCents=1000;
+     metadata.rsvpBountyOnRebuy=true;
+    }else if(metadata.rsvpBountyOnRebuy===undefined){
+     metadata.rsvpBountyOnRebuy=metadata.rsvpBountyCents>0;
+    }
     state.events.push({id:op.newId,metadata,responses:{},capacity:op.capacity,open:op.open,archived:false});
    }
   }else if(['archive','cancel','delete','restore'].includes(op.type)){
