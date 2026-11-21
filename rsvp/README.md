@@ -24,6 +24,24 @@ original Apple touch icon and chip image are exact copies of the canonical
 change. The app keeps its own stylesheet rather than importing the full site
 shell into the authenticated forms. Its theme is self-contained on workers.dev.
 
+### Automatic player avatars
+
+Player and Commish responses resolve avatar images by the existing canonical
+player slug from `https://tlpt.org/data/player-metadata.json`. Approved additions
+and changed filenames appear on the next feed read after the per-Worker cache
+expires (five minutes); no RSVP redeploy, database image edit or cache purge is
+needed. This also replaces a saved default or missing image for an existing
+player. Only validated relative `images/players/` raster paths are accepted.
+Names, aliases, credentials, RSVP responses and event/payment history stay in
+RSVP's existing authority; the image overlay is never written back to D1.
+
+The directory read has a 2.5-second deadline, a 100 KB response limit and a
+500-player limit. Concurrent reads share one lookup. Failure retries after 30
+seconds, retaining the last valid mapping in that Worker; a cold Worker falls
+back to each saved image. Content-versioned filenames bypass stale image URLs.
+See **Approved avatar publication and automatic app sync** in
+[the maintenance runbook](../MAINTENANCE-RUNBOOK.md) for the upstream contract.
+
 ## Installation on players’ phones
 
 The root page offers **Add to Home Screen**, with an **Installation** link in

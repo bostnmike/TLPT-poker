@@ -992,6 +992,44 @@ Do not regenerate this approved black Penguins jersey / Prince portrait.
 Historical posters and video artwork stay with their existing owners; the Avatar
 and Name Tent chat owns his PDF replacement on the Photos drive.
 
+## Approved avatar publication and automatic app sync
+
+For every approved new or replacement avatar, copy the exact source artwork to
+`images/players/` under a fresh content-hash filename. Update only that canonical
+player's image mapping in `data/player-metadata.json`; preserve the slug, names,
+aliases, history and all other player fields. Run
+`bash scripts/run-data-build.sh` to rebuild derived site data, preserve matching
+legacy derivatives where consumers still
+need them, and publish through the normal site quality gates. Verify the live
+canonical URL and image bytes after publication. Replacing only the old filename
+can leave returning visitors on cached artwork.
+
+RSVP and Cashier read this same published directory by canonical slug. Both
+refresh their in-memory directory cache after five minutes on a subsequent read;
+the new content-versioned image path bypasses the previous image cache. A newly
+supplied image also replaces a default or missing avatar for an existing roster
+identity. No per-avatar app redeploy, RSVP database image edit or cache purge is
+required. Both directory readers request `cache: 'no-store'` so the website's
+advertised ten-minute metadata cache does not add another deliberate stale
+layer. Cashier refreshes its client on mount, visibility changes and every minute
+while visible; RSVP reads again on opening and its normal visible-page refresh.
+Allow for the directory interval and next client refresh rather than promising
+instant propagation. This sync does not create players or alter RSVP/authentication,
+responses, event state, payments or history.
+
+RSVP validates same-site relative raster paths, bounds reads to 2.5 seconds,
+100 KB and 500 directory records, and retries failures after 30 seconds. It keeps
+the last valid mappings for that Worker, falling back to saved player images on
+a cold-worker failure. Cashier's existing directory reader uses a five-second
+request timeout and a 500,000-character response check; on failure it retains the
+last known directory, or its bundled fallback on a cold start, until its next
+five-minute attempt. Cashier code remains with its owner. See
+[rsvp/README.md](rsvp/README.md) and `cashier/lib/player-directory.ts`.
+
+Mike approves avatar artwork. Historical posters, video artwork, table tents
+and PDF replacements remain with their existing owners; publishing an approved
+avatar does not authorize regenerating those artifacts.
+
 ## Locked behavior
 
 Routine maintenance must not casually alter:
