@@ -33,7 +33,7 @@ try{
  export default {...worker,async fetch(request,env,ctx){
  if(new URL(request.url).pathname==='/__harness/ready')return Response.json({runId:${JSON.stringify(harness.runId)},unexpectedNetwork});
  env={...env,DB:diagnosticDb(env.DB)};
- if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,{...env,...(new URL(request.url).pathname==='/api/broadcasts'?{VAPID_PRIVATE_JWK:JSON.stringify({kty:'EC',crv:'P-256',d:'disposable-invalid-key',x:'AA',y:'AA'})}:{}),GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw30-10-25.jpg','fw30-11-03.png']})},ctx);
+ if(new URL(request.url).pathname!=='/__push-runtime-test')return worker.fetch(request,{...env,...(new URL(request.url).pathname==='/api/broadcasts'?{VAPID_PRIVATE_JWK:JSON.stringify({kty:'EC',crv:'P-256',d:'disposable-invalid-key',x:'AA',y:'AA'})}:{}),PLAYER_DIRECTORY_FETCH:async()=>Response.json({players:[{slug:'red',image:'images/players/red-canonical.png'}]}),GALLERY_FETCH:async()=>Response.json({folder:'images/fw',files:['fw30-10-25.jpg','fw30-11-03.png']})},ctx);
  const receiver=await crypto.subtle.generateKey({name:'ECDH',namedCurve:'P-256'},true,['deriveBits']);
  const jwk=await crypto.subtle.exportKey('jwk',(await crypto.subtle.generateKey({name:'ECDSA',namedCurve:'P-256'},true,['sign','verify'])).privateKey);
  const subscription={endpoint:'https://fcm.googleapis.com/disposable-never-sent',keys:{p256dh:b64url(await crypto.subtle.exportKey('raw',receiver.publicKey)),auth:b64url(crypto.getRandomValues(new Uint8Array(16)))}};
@@ -61,6 +61,10 @@ try{
  const responses=await Promise.all([post('action',{type:'respond',eventId:'fixture-event',slug:'bostnmike',answer:'yes'},admin),post('respond',{type:'delete',eventId:'fixture-event',slug:'red',answer:'yes'})]);assert.deepEqual(responses.map(response=>response.status),[200,200]);
  let feed=await (await fetch(base+'/api/public/events')).json();assert.equal(feed.events[0].waitlist.length,1);assert.equal(Object.values(feed.events[0].rsvps).filter(x=>x==='yes').length,1);assert.ok(!JSON.stringify(feed).includes(privateKey));
  assert.equal(feed.events[0].rsvps.bostnmike,'yes');
+ assert.equal(feed.players.find(p=>p.slug==='red').image,'images/players/red-canonical.png');
+ assert.equal((await (await fetch(base+'/api/me',{headers:{Cookie:admin}})).json()).players.find(p=>p.slug==='red').image,'images/players/red-canonical.png');
+ assert.equal((await (await fetch(base+'/api/me',{headers:{Cookie:red}})).json()).player.image,'images/players/red-canonical.png');
+ assert.equal(JSON.parse(run(['d1','execute','DB','--local','--command',"SELECT COUNT(*) AS count FROM rsvp_state,json_each(body,'$.players') p WHERE json_extract(p.value,'$.image') IS NOT NULL",'--json']))[0].results[0].count,0);
  assert.deepEqual(await(await post('notifications',{action:'status',token:notificationToken})).json(),{enabled:true,slug:'red'});
  assert.equal((await post('notifications',{action:'disable',token:notificationToken},null,'https://evil.test')).status,403);
  // Adoption stays private, even though installed players use the shared name picker.

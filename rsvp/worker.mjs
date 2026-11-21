@@ -3,6 +3,7 @@ import {canCloseOutEvent} from './lib/event-closeout.mjs';
 import {coffeeQueue} from './coffee.mjs';
 import {broadcastOverview,publicPolls,sendBroadcast,vote,closePoll} from './broadcasts.mjs';
 import {galleryCatalog} from './posters.mjs';
+import {playerAvatars,withPlayerAvatars} from './player-avatars.mjs';
 import {pushConfiguration,notificationTransitions,enqueueStatement,subscriptionAction,scheduleNotifications,drainNotifications} from './notifications.mjs';
 import {Rejected,requireValue,publicFeed,publicPlayer,comparePlayers,HOST,coffeeEvent,publicCoffeeOrder,playerView,applyOperation,compareEvents} from './model.mjs';
 const encoder=new TextEncoder();
@@ -39,8 +40,8 @@ export default {async fetch(req,env,ctx){
   if(path==='/api/version')return json({app:'tlpt-rsvp',revision:env.REVISION});
   if(path==='/api/public/polls'&&req.method==='GET')return json(await publicPolls(env.DB,await read(env.DB)));
   if(path==='/api/public/events'&&req.method==='GET'){
-   const [state,{posters}]=await Promise.all([read(env.DB),galleryCatalog(env.GALLERY_FETCH||fetch)]);
-   const response=json(publicFeed(state,new Date(),posters),200,{'Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=0, must-revalidate'});return response;
+   const [state,{posters},avatars]=await Promise.all([read(env.DB),galleryCatalog(env.GALLERY_FETCH||fetch),playerAvatars(env.PLAYER_DIRECTORY_FETCH||fetch)]);
+   const response=json(publicFeed(withPlayerAvatars(state,avatars),new Date(),posters),200,{'Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=0, must-revalidate'});return response;
   }
   if(path==='/api/public/posters'&&req.method==='GET'){
    const catalog=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(catalog,200,{'Cache-Control':'public, max-age='+ (catalog.unavailable?30:300)});
@@ -133,7 +134,7 @@ export default {async fetch(req,env,ctx){
    requireValue(pushConfiguration(env),'Notifications are not available right now.',503);
    const result=await sendBroadcast(env.DB,state,b);scheduleNotifications(ctx,env);return json(result);
   }
-  if(path==='/api/me'&&req.method==='GET'){const {posters}=await galleryCatalog(env.GALLERY_FETCH||fetch);return json(actor.role==='admin'?{role:'admin',players:state.players.map(publicPlayer),events:publicFeed(state,new Date(),posters).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,closeoutAvailable:canCloseOutEvent(e),closeoutPending:!!e.closeoutPending,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(state,actor.slug,posters)});}
+  if(path==='/api/me'&&req.method==='GET'){const [{posters},avatars]=await Promise.all([galleryCatalog(env.GALLERY_FETCH||fetch),playerAvatars(env.PLAYER_DIRECTORY_FETCH||fetch)]);const view=withPlayerAvatars(state,avatars);return json(actor.role==='admin'?{role:'admin',players:view.players.map(publicPlayer),events:publicFeed(view,new Date(),posters).events,allEvents:[...state.events].sort(compareEvents).map(e=>({id:e.id,archived:e.archived,closeoutAvailable:canCloseOutEvent(e),closeoutPending:!!e.closeoutPending,cancelled:!!e.cancelled,deletedAt:e.deletedAt||null,metadata:e.metadata,capacity:e.capacity,open:e.open})),revision:state.revision}:{role:'player',...playerView(view,actor.slug,posters)});}
   if(path==='/api/logout'&&req.method==='POST'){
    await env.DB.prepare('DELETE FROM sessions WHERE hash=?').bind(actor.hash).run();return json({ok:true},200,{'Set-Cookie':'tlpt_rsvp=; Secure; HttpOnly; SameSite=Strict; Path=/; Max-Age=0'});
   }
