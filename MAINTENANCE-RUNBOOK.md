@@ -978,6 +978,20 @@ for legacy consumers. Keep the approved round portrait and navy rim, including
 the younger, short-haired Bobby Orr. Use the shared data build for derived player
 records. Historical poster/video artwork and name tents have separate ownership.
 
+## Pittsburgh Bill avatar
+
+PittsburghBill (`pittsburghbill`) uses the approved November 21 lossless PNG at
+`images/players/pittsburghbill-766958ed960cb4f1.png` (1254×1254). The exact source is
+`output/avatars/pittsburgh-bill/pittsburgh-bill-v2-black-penguins-prince.png`,
+with SHA-256 `766958ed960cb4f1e7686637efb11392e6fef9fae727fe04608230940a865202`.
+Use the shared player metadata and data build to propagate the content-versioned
+filename to current profiles, cards, results and event/story views. The existing
+`images/players/pittsburghbill.jpg` is a matching full-size JPEG derivative for
+legacy consumers. Preserve his name, slug, aliases, statistics and RSVP records.
+Do not regenerate this approved black Penguins jersey / Prince portrait.
+Historical posters and video artwork stay with their existing owners; the Avatar
+and Name Tent chat owns his PDF replacement on the Photos drive.
+
 ## Locked behavior
 
 Routine maintenance must not casually alter:

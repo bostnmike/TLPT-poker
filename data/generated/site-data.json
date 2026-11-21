@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T14:59:53.874017Z",
+  "generatedAt": "2026-11-21T22:49:37.321815Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -12528,7 +12528,7 @@
     {
       "name": "PittsburghBill",
       "slug": "pittsburghbill",
-      "image": "images/players/pittsburghbill.jpg",
+      "image": "images/players/pittsburghbill-766958ed960cb4f1.png",
       "notes": "",
       "entries": 2,
       "buyIns": 1,
@@ -12579,7 +12579,7 @@
           "metrics": {
             "name": "PittsburghBill",
             "slug": "pittsburghbill",
-            "image": "images/players/pittsburghbill.jpg",
+            "image": "images/players/pittsburghbill-766958ed960cb4f1.png",
             "notes": "",
             "entries": 2,
             "buyIns": 1,
@@ -12652,7 +12652,7 @@
           "metrics": {
             "name": "PittsburghBill",
             "slug": "pittsburghbill",
-            "image": "images/players/pittsburghbill.jpg",
+            "image": "images/players/pittsburghbill-766958ed960cb4f1.png",
             "notes": "",
             "entries": 0,
             "buyIns": 0,
