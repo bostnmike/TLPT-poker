@@ -1009,7 +1009,12 @@ refresh their in-memory directory cache after five minutes on a subsequent read;
 the new content-versioned image path bypasses the previous image cache. A newly
 supplied image also replaces a default or missing avatar for an existing roster
 identity. No per-avatar app redeploy, RSVP database image edit or cache purge is
-required. This sync does not create players or alter RSVP/authentication,
+required. Both directory readers request `cache: 'no-store'` so the website's
+advertised ten-minute metadata cache does not add another deliberate stale
+layer. Cashier refreshes its client on mount, visibility changes and every minute
+while visible; RSVP reads again on opening and its normal visible-page refresh.
+Allow for the directory interval and next client refresh rather than promising
+instant propagation. This sync does not create players or alter RSVP/authentication,
 responses, event state, payments or history.
 
 RSVP validates same-site relative raster paths, bounds reads to 2.5 seconds,
