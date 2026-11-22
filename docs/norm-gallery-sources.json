@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "happy-thanksgiving",
+      "source": "output/video/tlpt-thanksgiving-check-in/production-v15-linus-chips-board/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/happy-thanksgiving.jpg",
+      "sha256": "d139e6c516b64d58eae366ff6684f77b24152d96614b1cda7f7d4349be9b0383",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "the-red-zone",
       "source": "output/video/tlpt-pull-the-plug-airplane/production-v7-jeans-folded-reaction/thumbnail-portrait.png",
       "src": "images/norm-gallery/the-red-zone.png",

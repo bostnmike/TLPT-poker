@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "happy-thanksgiving",
+      "src": "images/norm-gallery/happy-thanksgiving.jpg",
+      "sha256": "d139e6c516b64d58eae366ff6684f77b24152d96614b1cda7f7d4349be9b0383",
+      "width": 1080,
+      "height": 1920,
+      "title": "Happy Thanksgiving",
+      "filmHref": "media.html#happy-thanksgiving",
+      "youtubeId": "afXZ_Kx8ulw"
+    },
+    {
       "id": "the-red-zone",
       "src": "images/norm-gallery/the-red-zone.png",
       "sha256": "4fa95c25644ba97d3b96eab07997b5f2579ab91fc21d6b56f26ec2ce27c3cc49",

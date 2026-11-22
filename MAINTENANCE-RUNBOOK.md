@@ -417,7 +417,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-five RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-six RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -434,6 +434,14 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“Happy Thanksgiving” uses YouTube `afXZ_Kx8ulw` and anchor
+`media.html#happy-thanksgiving`. Use the exact approved v15 artwork from
+`output/video/tlpt-thanksgiving-check-in/production-v15-linus-chips-board/`:
+the landscape JPEG in the Film Room and preferred portrait JPEG in the Norm Wing.
+The 57.9-second, 1080×1920/60fps master remains outside the site. Keep the
+title-only, click-to-play card and direct YouTube fallback, with no forced
+subtitles. The video-production chat owns the YouTube thumbnail upload.
 
 “The Red Zone” uses YouTube `kF0-g9NRR9s` and anchor
 `media.html#the-red-zone`, matching its YouTube title. This is the approved
