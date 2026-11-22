@@ -3368,14 +3368,14 @@ function renderLeagueSnapshot(data) {
 
   const cards = [
     {
-      icon:"👥",
+      icon:'<span class="snapshot-emoji" aria-hidden="true"><span>👥</span></span>',
       label:"Players Recorded",
       value:players.length,
       className:"snapshot-purple",
       href:"players.html"
     },
     {
-      icon:"💰",
+      icon:'<span class="snapshot-emoji" aria-hidden="true"><span>💰</span></span>',
       label:"Total Prize & Bounty Pools",
       value:fmtMoney(totalEntryFees),
       valueClass:"money",
@@ -3383,7 +3383,7 @@ function renderLeagueSnapshot(data) {
       href:"dashboard.html"
     },
     {
-      icon:"🎟️",
+      icon:'<span class="snapshot-emoji" aria-hidden="true"><span>🎟️</span></span>',
       label:"Entries",
       value:totalEntries,
       className:"snapshot-silver",
