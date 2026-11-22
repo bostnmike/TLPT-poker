@@ -2130,6 +2130,26 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   line-height:1;
 }
 
+.home-snapshot-grid .snapshot-emoji{
+  position:relative;
+  display:inline-block;
+  inline-size:1em;
+  block-size:1em;
+  font-size:clamp(1.25rem, 1.2em, 2.75rem);
+  border-radius:50%;
+  background:var(--white);
+  vertical-align:-.24em;
+}
+
+.home-snapshot-grid .snapshot-emoji > span{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-size:.68em;
+  line-height:1;
+}
+
 /* snapshot icon colors */
 
 .snapshot-label{
