@@ -120,6 +120,44 @@ knockout with killer/victim entry ordinals and disposition. The public knockout
 archive carries those ordinals so repeated claims involving the same pair are
 not collapsed into one. Only collected claims appear in Bounty Hunters.
 
+## November 21, 2026: The CallFather
+
+The original HTML and 59-paragraph full history agree: seven players purchased
+ten $30 entries, each with a $10 bounty. ButtonMan rebought twice and
+PittsburghBill once; every entry remained bounty-eligible. Seven actual
+knockouts paid $70 and the three chop finalists retained $10 each. There
+were no forfeitures, rollover prizes, settlement adjustments or receipt
+corrections.
+
+The host reported a three-way ICM chop using the app. Subtracting replayed
+bounty wins and retained chips from the exported receipts gives the exact
+$300 tournament-prize split below; no chip stacks or original prize ladder
+were supplied or inferred.
+
+| Player | Tournament prize | Bounty wins | Own bounty retained | Take-home | Cost | Net |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| BostnMike | $103.76 | $20 | $10 | $133.76 | $40 | +$93.76 |
+| ButtonMan | $92.48 | $20 | $10 | $122.48 | $120 | +$2.48 |
+| Hiro | $103.76 | $10 | $10 | $123.76 | $40 | +$83.76 |
+| PhattedCalf | $0 | $20 | $0 | $20 | $40 | -$20 |
+| Ahmed | $0 | $0 | $0 | $0 | $40 | -$40 |
+| Cougar | $0 | $0 | $0 | $0 | $40 | -$40 |
+| PittsburghBill | $0 | $0 | $0 | $0 | $80 | -$80 |
+
+Collected and paid both total $400. Only the three finalists receive a
+tournament cash; PhattedCalf's $20 is bounty income. The summary's three
+uncredited terminal bustouts are removed by the existing chop handling.
+ButtonMan was first knocked out and recovered to cash, adding his eighth
+career Lazarus credit. All previous parsed events and frozen cards are unchanged.
+
+Original HTML SHA-256:
+`17127841dbcfcd2d89ed426acdee4692529d01e1e2f4aa9ffe0aa7c7f12fafa1`.
+Extracted history SHA-256:
+`542ac6faf038ce1e399a01ec809850ab097087d2914c8d9c708daaf5bebfbba8`.
+The original Word file remains untouched. Seven coffees are independently
+recorded in the owner-tally ledger for November 21: PittsburghBill 2,
+ButtonMan 1, Hiro 2, BostnMike 1 and Ahmed 1.
+
 ## Host-confirmed incomplete bounty exports
 
 Never infer missing bounty purchases from fee profiles, configured defaults or

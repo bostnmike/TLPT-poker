@@ -3511,5 +3511,70 @@
       "victimEntry": 2,
       "killerEntry": 2
     }
+  ],
+  "2026-11-21": [
+    {
+      "victim": "li-fo",
+      "killer": "phattedcalf",
+      "sourceVictim": "ButtonMan",
+      "sourceKiller": "PhattedCalf",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "ButtonMan",
+      "sourceKiller": "BostnMike",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "pittsburghbill",
+      "killer": "phattedcalf",
+      "sourceVictim": "PittsburghBill",
+      "sourceKiller": "PhattedCalf",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "pittsburghbill",
+      "killer": "li-fo",
+      "sourceVictim": "PittsburghBill",
+      "sourceKiller": "ButtonMan",
+      "victimEntry": 2,
+      "killerEntry": 3,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "cougar",
+      "killer": "bostnmike",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "BostnMike",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "ahmed",
+      "killer": "hiro",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Hiro",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "li-fo",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "ButtonMan",
+      "victimEntry": 1,
+      "killerEntry": 3,
+      "bountyAmount": 10
+    }
   ]
 }

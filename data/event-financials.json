@@ -214,6 +214,31 @@
           "hiro": 10
         }
       }
+    },
+    "2026-11-21": {
+      "entryAmount": 30,
+      "detailedHistoryFile": "Event History 2026-11-21.txt",
+      "regularPayoutsByPlayer": {
+        "bostnmike": 103.76,
+        "li-fo": 92.48,
+        "hiro": 103.76,
+        "phattedcalf": 0,
+        "ahmed": 0,
+        "cougar": 0,
+        "pittsburghbill": 0
+      },
+      "chopFinalists": [
+        "bostnmike",
+        "li-fo",
+        "hiro"
+      ],
+      "allowOmittedZeroReceipts": true,
+      "bounty": {
+        "amount": 10,
+        "mode": "optional-rebuy",
+        "winnerOnlyRollover": true,
+        "retainIfUnbusted": true
+      }
     }
   }
 }

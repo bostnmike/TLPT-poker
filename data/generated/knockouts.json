@@ -7,7 +7,7 @@
       "chris-o": 1,
       "cougar": 1,
       "griffin": 1,
-      "hiro": 4,
+      "hiro": 5,
       "li-fo": 9,
       "nasa-al": 2,
       "phattedcalf": 2,
@@ -84,7 +84,7 @@
     "cougar": {
       "ahmed": 5,
       "ai-dave": 4,
-      "bostnmike": 2,
+      "bostnmike": 3,
       "chris-o": 1,
       "hayden-d": 1,
       "hiro": 1,
@@ -160,7 +160,7 @@
       "ahmed": 10,
       "ai-dave": 1,
       "big-tim": 1,
-      "bostnmike": 10,
+      "bostnmike": 11,
       "chris-f": 1,
       "chris-o": 4,
       "cougar": 4,
@@ -169,6 +169,7 @@
       "kishan": 1,
       "liam-o": 1,
       "nasa-al": 2,
+      "phattedcalf": 1,
       "providencemike": 6,
       "red": 4,
       "the-architect": 1,
@@ -222,12 +223,15 @@
       "chris-o": 2,
       "cougar": 2,
       "hiro": 2,
+      "li-fo": 1,
       "nasa-al": 2,
       "providencemike": 1,
       "red": 1,
       "vish": 1
     },
     "pittsburghbill": {
+      "li-fo": 1,
+      "phattedcalf": 1,
       "red": 1
     },
     "providencemike": {
@@ -370,12 +374,12 @@
       "ahmed": 4,
       "ai-dave": 5,
       "chris-o": 2,
-      "cougar": 2,
+      "cougar": 3,
       "hayden-d": 1,
       "hiro": 10,
       "jeff-t": 1,
       "kishan": 1,
-      "li-fo": 10,
+      "li-fo": 11,
       "nasa-al": 3,
       "nitro": 2,
       "phattedcalf": 4,
@@ -457,7 +461,7 @@
       "nitro": 1
     },
     "hiro": {
-      "ahmed": 4,
+      "ahmed": 5,
       "ai-dave": 4,
       "bostnmike": 3,
       "brad-r": 1,
@@ -501,6 +505,8 @@
       "nasa-al": 4,
       "nitro": 2,
       "p": 3,
+      "phattedcalf": 1,
+      "pittsburghbill": 1,
       "providencemike": 5,
       "red": 3,
       "the-architect": 1,
@@ -546,7 +552,9 @@
       "ahmed": 2,
       "ai-dave": 1,
       "hiro": 1,
+      "li-fo": 1,
       "nasa-al": 1,
+      "pittsburghbill": 1,
       "red": 1,
       "rob-f": 1
     },
@@ -687,7 +695,8 @@
     "2026-10-17",
     "2026-10-24",
     "2026-11-07",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-21"
   ],
   "bounties": {
     "claims": [
@@ -1040,13 +1049,70 @@
         "amount": 10,
         "victimEntry": 3,
         "killerEntry": 2
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "phattedcalf",
+        "victim": "li-fo",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "bostnmike",
+        "victim": "li-fo",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "phattedcalf",
+        "victim": "pittsburghbill",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "li-fo",
+        "victim": "pittsburghbill",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 3
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "bostnmike",
+        "victim": "cougar",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "hiro",
+        "victim": "ahmed",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-11-21",
+        "killer": "li-fo",
+        "victim": "phattedcalf",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 3
       }
     ],
     "eventsProcessed": [
       "2026-10-17",
       "2026-10-24",
       "2026-11-07",
-      "2026-11-14"
+      "2026-11-14",
+      "2026-11-21"
     ]
   }
 }

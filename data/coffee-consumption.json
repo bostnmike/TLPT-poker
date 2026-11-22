@@ -39,6 +39,18 @@
       "date": "2026-11-15",
       "source": "owner-tally",
       "counts": { "bostnmike": 4, "hiro": 2, "li-fo": 2, "nasa-al": 1, "ahmed": 1 }
+    },
+    {
+      "id": "weekly-tally-2026-11-21",
+      "date": "2026-11-21",
+      "source": "owner-tally",
+      "counts": {
+        "pittsburghbill": 2,
+        "li-fo": 1,
+        "hiro": 2,
+        "bostnmike": 1,
+        "ahmed": 1
+      }
     }
   ]
 }
