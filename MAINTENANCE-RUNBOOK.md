@@ -342,6 +342,13 @@ cancelled or unavailable games stay hidden. Never seed a Sunday in events.json
 or add a second website activation switch. A closed Sunday may remain in the
 schemaVersion:1 feed without invalidating Friday, Saturday or MTT games.
 
+The approved, date-free Emergency Poker Sunday artwork is assigned to
+November 29, 2026 as `images/fw/fw26-11-29.png`, with the matching file in
+`images/fw/thumbs/`. It was moved from the previous November 1 filename;
+the full-size PNG and thumbnail bytes are unchanged. Rebuild the versioned
+gallery manifest after a date-based rename so RSVP can match the event date.
+The event’s open/closed setting remains owned by RSVP.
+
 Sunday uses `slot:sunday`, `day:Sunday`, `tables:1`, `startingStack:50000`,
 `blindStructure:40k`, `format:50K Format`, and capacity 1–9. It has a red card,
 day label, carousel button and RSVP CTA, with one capacity-limited seat preview.
