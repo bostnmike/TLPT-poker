@@ -14,11 +14,172 @@
   },
   "weeks": [
 {
+      "id": "week-11-21-2026",
+      "date": "11/21/2026",
+      "eventName": "The CallFather | 9-Max",
+      "title": "The CallFather | 9-Max",
+      "featured": true,
+      "dek": "The CallFather Part VIII: Tony Refuses to Stay Dead",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "🏆 The Big Winner",
+          "player": "BostnMike / ButtonMan / Hiro",
+          "value": "Shared first",
+          "copy": "The app handled another three-way ICM deal.",
+          "avatars": [
+            {
+              "src": "images/players/bostnmike.jpg",
+              "slug": "bostnmike",
+              "alt": "BostnMike",
+              "fallback": "BM"
+            },
+            {
+              "src": "images/players/li-fo.jpg",
+              "slug": "li-fo",
+              "alt": "ButtonMan",
+              "fallback": "BT"
+            },
+            {
+              "src": "images/players/hiro.jpg",
+              "slug": "hiro",
+              "alt": "Hiro",
+              "fallback": "HI"
+            }
+          ]
+        },
+        {
+          "tone": "purple",
+          "label": "🏛️ Hall Update",
+          "player": "ButtonMan",
+          "value": "8 Lazarus credits",
+          "copy": "First knocked out, recovered to cash once again.",
+          "avatars": [
+            {
+              "src": "images/players/li-fo.jpg",
+              "slug": "li-fo",
+              "alt": "ButtonMan",
+              "fallback": "BT"
+            }
+          ]
+        },
+        {
+          "tone": "red",
+          "label": "🃏 Four of a Kind",
+          "player": "ButtonMan / Cougar",
+          "value": "Quads twice",
+          "copy": "Tony’s Q-3 connected; Cougar’s kings found no callers.",
+          "avatars": [
+            {
+              "src": "images/players/li-fo.jpg",
+              "slug": "li-fo",
+              "alt": "ButtonMan",
+              "fallback": "BT"
+            },
+            {
+              "src": "images/players/cougar.jpg",
+              "slug": "cougar",
+              "alt": "Cougar",
+              "fallback": "CO"
+            }
+          ]
+        },
+        {
+          "tone": "blue",
+          "label": "👋 Welcome Back",
+          "player": "PittsburghBill",
+          "value": "Return appearance",
+          "copy": "Back at the table, with an updated portrait.",
+          "avatars": [
+            {
+              "src": "images/players/pittsburghbill-766958ed960cb4f1.png",
+              "slug": "pittsburghbill",
+              "alt": "PittsburghBill",
+              "fallback": "PB"
+            }
+          ]
+        }
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "10"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "3"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$300"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "4h 03m"
+        }
+      ],
+      "summary": {
+        "startTime": "7:09:44 pm 11/21/2026",
+        "endTime": "11:12:44 pm 11/21/2026",
+        "durationLabel": "4h 03m",
+        "buyIns": 7,
+        "rebuys": 3,
+        "entries": 10,
+        "totalPot": 300,
+        "paidSpots": 3,
+        "winner": "BostnMike, ButtonMan, Hiro",
+        "firstOut": "ButtonMan",
+        "firstPermanentOut": "PittsburghBill"
+      },
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-11-21.jpg\" alt=\"Poster for the 11/21/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Tony brought Q-3 to a confrontation with the Commissioner’s pocket jacks and somehow produced quads. Mike had threes full and a very expensive reason to believe he was doing well. Half his stack went to his right, leaving him to grind his way back. He did repay the favor by knocking Tony out once, because the league’s bloodiest rivalry continues to produce excellent entertainment and absolutely no evidence of personal growth.</p><p>Cougar made the more impressive quad kings and got no action. Four kings, zero customers. Tony found Commissioner funding with Q-3; Cougar couldn’t secure a donation with a royal delegation. Ahmed then supplied the evening’s educational component: <strong>“Two pair is better than no pair.”</strong> The table was agog. And aghast. If you’re not singing <em>Red &amp; Black</em> from <em>Les Misérables</em> right now, your invitation is under review. Seven players assembled for poker and somehow qualified for both remedial hand rankings and community theatre.</p><p>We also welcomed PittsburghBill back, prompting an emergency avatar update from the Commissioner. Even the welcome-back package came with urgent maintenance. Bill bought a second entry before ButtonMan made his exit permanent, earning Bill the first seat on the rail. Good to see you again, Bill. The concierge service remains appalling. Tony later removed PhattedCalf on the bubble—the same man who’d knocked him out first. Apparently eliminating ButtonMan early just puts your name on a list.</p><div class=\"news-story-photo-wrap\"><figure class=\"news-story-photo\"><img src=\"images/fw/story/2026-11-21-tony-guinness.jpg\" alt=\"Tony raises a glass of Guinness at The CallFather\" width=\"900\" height=\"1200\" loading=\"lazy\" decoding=\"async\"><figcaption>Red was here in “spirits”—Tony polished off the last of Red’s Guinnesses. Miss ya, Red!</figcaption></figure><p>The ICM chop feature continues to earn its killer-app status. At 11:12, BostnMike, Hiro and ButtonMan agreed to a three-way deal, with the app handling the split. Mike and Hiro had survived on their original entries. Tony had purchased admission three times and emerged <strong>$2.48 ahead</strong>. Shared first, after supplying the night’s first two re-loads. The man has found a way to make immortality look financially irresponsible.</p></div>",
+      "spotlight": {
+        "player": "BostnMike / ButtonMan / Hiro",
+        "fallback": "BBH",
+        "pills": [
+          "BostnMike: Two knockouts",
+          "ButtonMan: First two exits, still cashed",
+          "Hiro: No rebuy",
+          "Finish: Three-way ICM chop"
+        ],
+        "avatars": [
+          {
+            "src": "images/players/bostnmike.jpg",
+            "slug": "bostnmike",
+            "alt": "BostnMike",
+            "fallback": "BM"
+          },
+          {
+            "src": "images/players/li-fo.jpg",
+            "slug": "li-fo",
+            "alt": "ButtonMan",
+            "fallback": "BT"
+          },
+          {
+            "src": "images/players/hiro.jpg",
+            "slug": "hiro",
+            "alt": "Hiro",
+            "fallback": "HI"
+          }
+        ]
+      },
+      "numbersThatMatter": [
+        "7 players, 3 rebuys, 10 total entries. Play ran from 7:09 to 11:12 p.m., exactly 4h 03m.",
+        "$300 tournament prize pool and $100 in bounties. Seven knockout bounties paid $70; the three finalists retained their own $10 bounties.",
+        "Total take-home: BostnMike $133.76, Hiro $123.76, ButtonMan $122.48.",
+        "Tony’s eighth Lazarus credit: first knocked out, recovered to cash. He extends his Hall lead over NASA Al’s three. Busting him remains a suggestion."
+      ],
+      "roastHtml": "<p>For a man billing himself as The CallFather, BostnMike spends a suspicious amount of time doing admin. Don Corleone had a consigliere. Mike has a digital coffee queue... but hey, everyone seems to love it.</p>"
+    },
+    {
       "id": "week-11-14-2026",
       "date": "11/14/2026",
       "eventName": "Fatal Action | 9-Max",
       "title": "Fatal Action | 9-Max",
-      "featured": true,
+      "featured": false,
       "dek": "The Airman Bob Memorial",
       "summaryCards": [
         {
