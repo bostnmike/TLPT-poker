@@ -11,12 +11,12 @@
     "fw26-12-11.jpg",
     "fw26-12-05.jpg",
     "fw26-12-04.jpg",
+    "fw26-11-29.png",
     "fw26-11-28.jpg",
     "fw26-11-27.jpg",
     "fw26-11-21.jpg",
     "fw26-11-14.jpg",
     "fw26-11-07.jpg",
-    "fw26-11-01.png",
     "fw26-10-24.jpg",
     "fw26-10-17.jpg",
     "fw26-10-09.jpg",
@@ -111,6 +111,10 @@
       "image": "e67445ee2bda03a5",
       "thumbnail": "3f0065a86471135c"
     },
+    "fw26-11-29.png": {
+      "image": "bef8315749d9e961",
+      "thumbnail": "4e85fa31125327ce"
+    },
     "fw26-11-28.jpg": {
       "image": "ad4a156a9f9fb283",
       "thumbnail": "a1616c22f307cb51"
@@ -130,10 +134,6 @@
     "fw26-11-07.jpg": {
       "image": "acef5793606f6ac7",
       "thumbnail": "825c86f0d0758b9b"
-    },
-    "fw26-11-01.png": {
-      "image": "bef8315749d9e961",
-      "thumbnail": "4e85fa31125327ce"
     },
     "fw26-10-24.jpg": {
       "image": "9c0b322c149e3f71",
