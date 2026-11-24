@@ -417,7 +417,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-six RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-seven RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -434,6 +434,17 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“Amazing Discoveries (and Basic Decisions)” uses YouTube `3oYNAVmrZa8` and
+anchor `media.html#amazing-discoveries`. Use only the exact final v14 thumbnails
+from `output/video/tlpt-amazing-decisions/production-v14-audience-likenesses/`:
+landscape JPEG in the Film Room and portrait JPEG in the Norm Wing. Its
+70.9-second, 1080×1920/60fps master stays outside the repository. Preserve the
+corrected eight audience likenesses and title-only, click-to-play card with the
+direct YouTube fallback. The Film Room music-credit disclosure attributes
+“Family Home” to Carlo Espin / Stock Music Links, links its source and CC BY 4.0,
+and identifies the length edits, fades and narration mix. Keep that attribution
+and verify the matching YouTube thumbnail/description separately.
 
 “Happy Thanksgiving” uses YouTube `afXZ_Kx8ulw` and anchor
 `media.html#happy-thanksgiving`. Use the exact approved v15 artwork from
