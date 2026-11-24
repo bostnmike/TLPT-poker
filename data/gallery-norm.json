@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "amazing-discoveries",
+      "src": "images/norm-gallery/amazing-discoveries.jpg",
+      "sha256": "079e85a2884a2652fd67434b025189b51bf93bf16bdbac050eb1227bc8df54b1",
+      "width": 1080,
+      "height": 1920,
+      "title": "Amazing Discoveries (and Basic Decisions)",
+      "filmHref": "media.html#amazing-discoveries",
+      "youtubeId": "3oYNAVmrZa8"
+    },
+    {
       "id": "happy-thanksgiving",
       "src": "images/norm-gallery/happy-thanksgiving.jpg",
       "sha256": "d139e6c516b64d58eae366ff6684f77b24152d96614b1cda7f7d4349be9b0383",

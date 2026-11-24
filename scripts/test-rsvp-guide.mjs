@@ -68,6 +68,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'amazing-discoveries-thumbnail.jpg':'dadfbc593c62bb4f14636ceafe537f12c5f637db974fbd7e6846a6a2cafd3bb0',
   'happy-thanksgiving-thumbnail.jpg':'60acab0488cc6a7cb561317f2d35aa74e1038cd1637ea21d995e805678473913',
   'the-red-zone-thumbnail.jpg':'201c7eef49a6fe31edcd4cf83cf8f49ecaa25e8df75e3463f24fa8b3d88342fd',
   'help-getting-better-thumbnail.jpg':'cc9aa64944e0512e91d9c9fd5d1f4311a19b7ac385be0e3c77b8e02dbe50f759',
@@ -188,6 +189,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['amazing-discoveries','3oYNAVmrZa8'],
   ['happy-thanksgiving','afXZ_Kx8ulw'],
   ['the-red-zone','kF0-g9NRR9s'],
   ['help-getting-better','o7GB-zK0F2s'],
@@ -269,3 +271,5 @@ for (const file of fs.readdirSync(root).filter(name => name.endsWith('.html') &&
   assert.match(html, /<div class="nav-dropdown">\s*<a href="\/?schedule.html" class="nav-dropdown-parent[^"]*"[^>]*>Schedule<\/a>\s*<div class="nav-dropdown-menu">\s*<a href="\/?rsvp-app.html"[^>]*>RSVP App<\/a>/, file + ': RSVP App must be a child of Schedule');
 }
 console.log('PASS: approved RSVP videos, verified public QR, captions, player-only links and banner-free homepage.');
+
+assert.match(filmRoom, /film-room-music-credits[\s\S]*Family Home[\s\S]*Carlo Espin[\s\S]*creativecommons[.]org\/licenses\/by\/4[.]0\//, 'Required music attribution stays on the public Film Room page');

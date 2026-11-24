@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "amazing-discoveries",
+      "source": "output/video/tlpt-amazing-decisions/production-v14-audience-likenesses/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/amazing-discoveries.jpg",
+      "sha256": "079e85a2884a2652fd67434b025189b51bf93bf16bdbac050eb1227bc8df54b1",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "happy-thanksgiving",
       "source": "output/video/tlpt-thanksgiving-check-in/production-v15-linus-chips-board/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/happy-thanksgiving.jpg",
