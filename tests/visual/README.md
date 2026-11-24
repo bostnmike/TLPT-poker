@@ -261,3 +261,13 @@ Chromium processes. Every capture must pass the same footer.png comparison;
 a later success does not erase an earlier soft failure. This is additional
 regression coverage, with no assertion retries or reference updates. The attached
 render-state diagnostics include the separator width and kerning state.
+
+On 2026-11-24 Hiro’s approved full-bleed v6 avatar was reviewed from staging run
+`45427972399` (source `7775fa99`). All functional checks and 52 visual scenarios
+passed unchanged. The four actual/expected/difference comparisons show only his
+new portrait in Dashboard entrance at 1440/820 and Trophy Room entrance/dropdown
+at 1440. Only those reviewed portrait rectangles were copied into the Linux
+references; every surrounding reference pixel remains byte-identical after
+image decoding. No fixture, tolerance, mask, layout or test setting changed.
+The new portrait fills the existing circular masks without the former white
+crescent; its exact master is `images/players/hiro-99e824230355a648.png`.
