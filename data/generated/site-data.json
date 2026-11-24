@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T15:28:37.850997Z",
+  "generatedAt": "2026-11-24T15:38:09.483129Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -8158,7 +8158,7 @@
     {
       "name": "Hiro",
       "slug": "hiro",
-      "image": "images/players/hiro-613aca6cd5167a8d.png",
+      "image": "images/players/hiro-99e824230355a648.png",
       "notes": "It's 1,400 to me.. and I say.... Hmmmmmmmm.!",
       "entries": 82,
       "buyIns": 51,
@@ -8209,7 +8209,7 @@
           "metrics": {
             "name": "Hiro",
             "slug": "hiro",
-            "image": "images/players/hiro-613aca6cd5167a8d.png",
+            "image": "images/players/hiro-99e824230355a648.png",
             "notes": "It's 1,400 to me.. and I say.... Hmmmmmmmm.!",
             "entries": 7,
             "buyIns": 5,
@@ -8370,7 +8370,7 @@
           "metrics": {
             "name": "Hiro",
             "slug": "hiro",
-            "image": "images/players/hiro-613aca6cd5167a8d.png",
+            "image": "images/players/hiro-99e824230355a648.png",
             "notes": "It's 1,400 to me.. and I say.... Hmmmmmmmm.!",
             "entries": 10,
             "buyIns": 5,
@@ -16521,7 +16521,7 @@
       {
         "player": "Hiro",
         "slug": "hiro",
-        "image": "images/players/hiro-613aca6cd5167a8d.png",
+        "image": "images/players/hiro-99e824230355a648.png",
         "type": "cash",
         "length": 2,
         "startDate": "2025-11-01",
@@ -16619,7 +16619,7 @@
       {
         "player": "Hiro",
         "slug": "hiro",
-        "image": "images/players/hiro-613aca6cd5167a8d.png",
+        "image": "images/players/hiro-99e824230355a648.png",
         "type": "drought",
         "length": 10,
         "startDate": "2026-06-27",
@@ -18101,7 +18101,7 @@
       {
         "name": "Hiro",
         "slug": "hiro",
-        "image": "images/players/hiro-613aca6cd5167a8d.png",
+        "image": "images/players/hiro-99e824230355a648.png",
         "playedEvents": 51
       },
       {
@@ -19182,7 +19182,7 @@
         "bestCashStreak": {
           "player": "Hiro",
           "slug": "hiro",
-          "image": "images/players/hiro-613aca6cd5167a8d.png",
+          "image": "images/players/hiro-99e824230355a648.png",
           "type": "cash",
           "length": 2,
           "startDate": "2025-11-01",
@@ -19207,7 +19207,7 @@
         "bestDroughtStreak": {
           "player": "Hiro",
           "slug": "hiro",
-          "image": "images/players/hiro-613aca6cd5167a8d.png",
+          "image": "images/players/hiro-99e824230355a648.png",
           "type": "drought",
           "length": 10,
           "startDate": "2026-06-27",
