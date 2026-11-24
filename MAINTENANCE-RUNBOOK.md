@@ -1007,6 +1007,20 @@ Do not regenerate this approved black Penguins jersey / Prince portrait.
 Historical posters and video artwork stay with their existing owners; the Avatar
 and Name Tent chat owns his PDF replacement on the Photos drive.
 
+## Hiro avatar
+
+Hiro (`hiro`) uses the approved November 24 lossless PNG at
+`images/players/hiro-613aca6cd5167a8d.png` (1254×1254). Copy the exact v5 source
+`output/avatars/hiro/hiro-v5-prime-number-fan.png` without regenerating it;
+SHA-256 `613aca6cd5167a8d137a851dc52dd873c7c0ed153e605fb35649573720c634e7`.
+The approved portrait has his current short salt-and-pepper hair, Barcelona
+jersey, white chess king and folding fan showing 2, 3, 5, 7, 11, 13, 17, 19.
+Shared metadata and the data build propagate the content-versioned image to
+current site surfaces and the automatic RSVP/Cashier directory readers.
+`images/players/hiro.jpg` is a matching full-size JPEG for legacy consumers.
+Preserve identity, aliases and statistics. Video Production owns its separate
+video update; the Avatar and Name Tent chat owns the table-tent replacement.
+
 ## Approved avatar publication and automatic app sync
 
 For every approved new or replacement avatar, copy the exact source artwork to
