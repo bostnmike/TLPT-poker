@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "date-derby",
+      "source": "output/video/tlpt-mtt-date-derby/production-v12-sequential-runners/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/date-derby.jpg",
+      "sha256": "8b9210c2ad2be619f0e379c7a10739ac584df31d3fd4d37fc0648df309e9653f",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "amazing-discoveries",
       "source": "output/video/tlpt-amazing-decisions/production-v14-audience-likenesses/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/amazing-discoveries.jpg",

@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "date-derby",
+      "src": "images/norm-gallery/date-derby.jpg",
+      "sha256": "8b9210c2ad2be619f0e379c7a10739ac584df31d3fd4d37fc0648df309e9653f",
+      "width": 1080,
+      "height": 1920,
+      "title": "Date Derby",
+      "filmHref": "media.html#date-derby",
+      "youtubeId": "6d7UOcH82S0"
+    },
+    {
       "id": "amazing-discoveries",
       "src": "images/norm-gallery/amazing-discoveries.jpg",
       "sha256": "079e85a2884a2652fd67434b025189b51bf93bf16bdbac050eb1227bc8df54b1",

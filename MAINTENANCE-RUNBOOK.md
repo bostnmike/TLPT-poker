@@ -417,7 +417,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-seven RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-eight RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -434,6 +434,17 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“Date Derby” uses YouTube `6d7UOcH82S0` on BostnMike’s personal channel and
+anchor `media.html#date-derby`. Use only the final v12 thumbnails from
+`output/video/tlpt-mtt-date-derby/production-v12-sequential-runners/`:
+landscape JPEG in the Film Room and portrait JPEG in the Norm Wing and YouTube.
+Its 57.75-second, 1080×1920/60fps master stays outside the repository. Retain the
+title-only, click-to-play card, optional captions and direct YouTube fallback.
+The music-credit disclosure preserves Gameshow Brazz / John Bartmann (CC0),
+First Call / Call to the Post / U.S. Army Bands (public domain), and the Apple
+sample-content ambience notice. Preserve the Unlisted upload and existing
+YouTube credits/settings; do not replace an earlier film or publish another MP4.
 
 “Amazing Discoveries (and Basic Decisions)” uses YouTube `3oYNAVmrZa8` and
 anchor `media.html#amazing-discoveries`. Use only the exact final v14 thumbnails
