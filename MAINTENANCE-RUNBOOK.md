@@ -1177,10 +1177,43 @@ primary-navigation item. Keep the rest of the attribution sentence and TD link.
 The 404 footer uses `/ecosystem.html` so nested recovery URLs reach the root page.
 
 `ecosystem.css` and `ecosystem.js` own the page presentation and behavior. The
-nine stations, thirteen connections, seven journeys and 33 steps are explanatory
+nine stations, thirteen connections, seven journeys and 39 steps are explanatory
 content, with no operational API reads or private database access. Use the exact
 Winter Classic felt asset in its proportional center frame. Journey markers
 retain repeated station steps, highlight only the current step, and clear in
 overview/reset/Escape. The shared-shell builder versions its CSS/JS and footer;
 the normal quality and browser runners include its inventory and interaction
 checks. Validate graph/card layouts at 1440/820/390/320 and large text.
+
+### Run the Results workflow documentation
+
+The results journey explains the approved PC-to-Mac intake before the existing
+canonical results/release pipeline. Mike starts **Run the Results** in the
+existing PC chat, optionally including the actual event coffee tally. Validate
+the currently open, named, saved and completed Tournament Director event with
+final payouts; refuse blank/running/unfinished events and never silently select
+an archived save. Retain the original standard Event Summary HTML and complete
+UTF-8 history, settlement and coffee records, plus manifest byte lengths/SHA-256.
+Write READY last. Private OneDrive delivery may use the already authenticated
+connector fallback; no broader permissions or new service is part of this work.
+
+The Mac watcher validates completeness, hashes, canonical identity, financial
+reconciliation and duplicates before queuing the existing results processor.
+Read the actual receipt: arrival or queue acceptance is not completed processing.
+Canonical data/integrity/build/publication checks remain authoritative. Pause on
+genuine missing/conflicting financial evidence and never import duplicates.
+
+A missing optional coffee tally means unknown with empty counts and must not
+block financial results delivery. Use only Mike's actual same-event tally with
+canonical identities, never RSVP orders, examples or another event's counts.
+Felt Whispers is a separate editorial branch: reuse same-event notes, ask Mike
+for noteworthy items, and WAIT for a reply or explicit "none" before producing
+three options. Mike chooses and approves; never auto-select or publish a story.
+
+The November 26 handoff reports Windows 44/Mac 17 tests and bidirectional private
+transfer passing, a November 21 setup-regression receipt of setup-validated,
+and clean refusal of the blank current TD event. That setup test queued no
+import, publication or editorial task. A completed new-event production run is
+still the next live validation. Do not reimport November 21 or alter league
+results for this documentation release. Keep native snapshots, machine paths,
+private links, thread identifiers and queue/socket details off the public page.
