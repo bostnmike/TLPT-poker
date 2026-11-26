@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "phase": "5-ordered-source-bundles",
-  "publicPageCount": 23,
+  "publicPageCount": 24,
   "sharedCssAsset": "site-tail.css",
   "assetVersionStrategy": "sha256-content-16",
   "isolatedMarchandCssVersion": "20260826-10",
@@ -86,7 +86,8 @@
     "scripts/audit-site-integrity.py",
     "scripts/audit-page-calculations.mjs",
     "lily-site/check_site.py",
-    "scripts/test-app-feed-contract.mjs"
+    "scripts/test-app-feed-contract.mjs",
+    "scripts/test-ecosystem.mjs"
   ],
   "satelliteQualityGates": {
     "registration": {

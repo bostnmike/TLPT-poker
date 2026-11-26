@@ -40,7 +40,7 @@ class ReleaseToolsTests(unittest.TestCase):
             self.assertFalse(package.public_path(name), name)
 
     def test_public_products_and_media_stay_available(self):
-        for name in ["index.html", "register.html", "cashier.html", "lily.html",
+        for name in ["index.html", "ecosystem.html", "ecosystem.css", "ecosystem.js", "register.html", "cashier.html", "lily.html",
                      "lily-site/index.html", "lily-site/mascots/hello.svg",
                      "marchand-vault/index.html", "data/marchand-pucks.json",
                      "data/generated/site-data.json", "data/parsed/events/index.json",

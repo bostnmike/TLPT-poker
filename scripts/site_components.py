@@ -13,7 +13,7 @@ else:
 ROOT = Path(__file__).resolve().parents[1]
 # Explicit ownership: never rewrite Lily, Marchand, Cashier or the RSVP app.
 PAGES = tuple(sorted((
-    '404.html', 'champions.html', 'dashboard.html', 'form-lab.html', 'gallery.html',
+    '404.html', 'champions.html', 'dashboard.html', 'ecosystem.html', 'form-lab.html', 'gallery.html',
     'index.html', 'knockouts.html', 'media.html', 'news.html', 'player-movement.html',
     'player.html', 'players.html', 'rebuy-hard.html', 'register.html', 'rsvp-app.html',
     'rules.html', 'schedule.html', 'standings.html', 'streaks.html', 'structures.html',

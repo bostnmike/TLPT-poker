@@ -79,6 +79,15 @@ test('rules badges and avatars', async ({page}) => {
   });
   await snapshot(page.locator('#rules-money'), 'rules-money.png', page);
 });
+test('Behind the Cards journey map', async ({page}) => {
+  await ready(page, 'ecosystem');
+  await page.locator('#journey-picker-trigger').click();
+  await page.getByRole('option', {name:'Join the league', exact:true}).click();
+  await page.locator('#next').click();
+  await expect(page.locator('.journey-marker')).toHaveCount(6);
+  await expect(page.locator('.journey-marker.is-current')).toHaveText('1');
+  await snapshot(page.locator('.ecosystem-app'), 'ecosystem-journey.png', page);
+});
 test('trophy dropdown above artwork', async ({page}) => {
   await ready(page, 'trophy-room');
   await page.locator('#trophy-year-filter-trigger').click();
@@ -125,9 +134,9 @@ test('shared navigation expanded and footer', async ({page}) => {
       await ready(footerPage, 'rules');
       await footerPage.locator('.site-footer').scrollIntoViewIfNeeded();
       await footerPage.mouse.move(1, 1);
-      await expect(footerPage.locator('.site-footer a')).toHaveCSS('color', 'rgb(255, 184, 28)');
+      for (const link of await footerPage.locator('.site-footer a').all()) await expect(link).toHaveCSS('color', 'rgb(255, 184, 28)');
       await snapshot(footerPage.locator('.site-footer'), 'footer.png', footerPage);
-      await test.info().attach('footer-render-state-' + (capture + 1), {contentType:'application/json', body:JSON.stringify(await footerPage.locator('.site-footer a').evaluate(link => {
+      await test.info().attach('footer-render-state-' + (capture + 1), {contentType:'application/json', body:JSON.stringify(await footerPage.locator('.site-footer a[href="https://thetournamentdirector.net/"]').evaluate(link => {
         const box = link.getBoundingClientRect(), style = getComputedStyle(link);
           const gap = document.createRange(); gap.selectNodeContents(link.previousElementSibling);
           const gapBox = gap.getBoundingClientRect();

@@ -38,6 +38,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/",
     "https://tlpt.org/champions.html",
     "https://tlpt.org/dashboard.html",
+    "https://tlpt.org/ecosystem.html",
     "https://tlpt.org/form-lab.html",
     "https://tlpt.org/gallery.html",
     "https://tlpt.org/knockouts.html",
@@ -56,6 +57,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/voice-of-god.html",
 ]
 EXPECTED_PAGES = {
+    "ecosystem.html",
     "rsvp-app.html",
     "rebuy-hard.html",
     "404.html",
@@ -170,6 +172,7 @@ EXPECTED_NAV_CURRENT_LABEL = {
     for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
 }
 EXPECTED_PAGE_TITLES = {
+    "ecosystem.html": "Behind the Cards | TLPT Poker League",
     "rsvp-app.html": "RSVP App | TLPT.org",
     "rebuy-hard.html": "’Twas the Night Before Re-Buy Hard | TLPT.org",
     "404.html": "This Hand Went Missing | TLPT.org",
@@ -195,6 +198,7 @@ EXPECTED_PAGE_TITLES = {
     "voice-of-god.html": "The Voice of God | TLPT.org",
 }
 UNIFIED_TITLE_PAGES = {
+    "ecosystem.html": "Behind the Cards",
     "rsvp-app.html": "RSVP App",
     "rebuy-hard.html": "’Twas the Night Before Re-Buy Hard",
     "404.html": "This Hand Went Missing",
@@ -217,6 +221,7 @@ UNIFIED_TITLE_PAGES = {
     "voice-of-god.html": "The Voice of God",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
+    "ecosystem.html",
     "rsvp-app.html",
     "rebuy-hard.html",
     "404.html",
@@ -237,6 +242,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "voice-of-god.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
+    "ecosystem.html": "Explore how TLPT member registration, avatars, RSVPs, payments, official results and league stories stay connected.",
     "rsvp-app.html": "Install the TLPT RSVP app on your phone with our quick video, QR code, and simple iPhone and Android instructions.",
     "rebuy-hard.html": "Read the complete TLPT Re-Buy Hard poem, explore the room and custom chips, and download the illustrated one-page poem.",
     "404.html": "The requested TLPT Poker League page could not be found. Return home or view the upcoming schedule.",
@@ -263,6 +269,7 @@ EXPECTED_META_DESCRIPTIONS = {
 }
 SITE_ORIGIN = "https://tlpt.org"
 EXPECTED_CANONICAL_URLS = {
+    "ecosystem.html": f"{SITE_ORIGIN}/ecosystem.html",
     "rsvp-app.html": f"{SITE_ORIGIN}/rsvp-app.html",
     "rebuy-hard.html": f"{SITE_ORIGIN}/rebuy-hard.html",
     "champions.html": f"{SITE_ORIGIN}/champions.html",
@@ -285,6 +292,7 @@ EXPECTED_CANONICAL_URLS = {
     "voice-of-god.html": f"{SITE_ORIGIN}/voice-of-god.html",
 }
 EXPECTED_SOCIAL_IMAGES = {
+    "ecosystem.html": f"{SITE_ORIGIN}/images/site/chip-T-100.png",
     "rsvp-app.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
     "rebuy-hard.html": f"{SITE_ORIGIN}/images/rebuy-hard/the-felt.jpg",
     "champions.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
@@ -308,6 +316,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "voice-of-god.html": f"{SITE_ORIGIN}/images/site/chip-T-250000.png",
 }
 EXPECTED_SOCIAL_IMAGE_ALT = {
+    "ecosystem.html": "TLPT 100 tournament poker chip",
     "rsvp-app.html": "TLPT 1,000 tournament poker chip",
     "rebuy-hard.html": "Bruins hockey poker felt in the TLPT card room",
     "champions.html": "TLPT 25,000 tournament poker chip",
@@ -331,6 +340,7 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "voice-of-god.html": "TLPT 250,000 tournament poker chip",
 }
 EXPECTED_BREADCRUMB_LABELS = {
+    "ecosystem.html": "Behind the Cards",
     "rsvp-app.html": "RSVP App",
     "rebuy-hard.html": "Re-Buy Hard",
     "champions.html": "Hall of Fame",
@@ -868,6 +878,11 @@ class PageAuditParser(HTMLParser):
                     self.errors.append("nested JSON-LD script block found")
                 self.open_structured_data = []
                 self.structured_data_blocks.append(self.open_structured_data)
+            elif (self.page.name == "ecosystem.html"
+                  and attrs.get("type", "").lower() == "application/json"
+                  and attrs.get("id") == "ecosystem-data"):
+                # Inert explanatory content, validated by test-ecosystem.mjs.
+                pass
             else:
                 self.errors.append("inline <script> block found; move it to a JavaScript file")
 
@@ -3866,25 +3881,33 @@ def main() -> int:
                 "site footer must contain exactly one .site-footer-inner wrapper"
             )
 
-        footer_text = " ".join(" ".join(parser.site_footer_text).split())
+        footer_text = " ".join("".join(parser.site_footer_text).split())
         if footer_text != EXPECTED_FOOTER_TEXT:
             parser.errors.append("site footer text differs from the shared footer contract")
 
-        if len(parser.site_footer_links) != 1:
-            parser.errors.append(
-                "site footer must contain exactly one Tournament Director link"
-            )
+        # Marchand retains its independently owned shell.
+        footer_links = parser.site_footer_links
+        expected_count = 1 if page.name == "marchand.html" else 2
+        if len(footer_links) != expected_count:
+            parser.errors.append("site footer must retain its exact approved link inventory")
+        td_links = [link for link in footer_links if link.get("href") == EXPECTED_FOOTER_URL]
+        if len(td_links) != 1:
+            parser.errors.append("site footer must contain exactly one Tournament Director link")
         else:
-            footer_link = parser.site_footer_links[0]
+            footer_link = td_links[0]
             footer_rel = set(footer_link.get("rel", "").lower().split())
-            if footer_link.get("href") != EXPECTED_FOOTER_URL:
-                parser.errors.append("site footer has the wrong Tournament Director URL")
             if footer_link.get("target", "").lower() != "_blank":
-                parser.errors.append("site footer link must open in a new tab")
+                parser.errors.append("Tournament Director link must open in a new tab")
             if not {"noopener", "noreferrer"}.issubset(footer_rel):
-                parser.errors.append(
-                    'site footer link must use rel="noopener noreferrer"'
-                )
+                parser.errors.append('Tournament Director link must use rel="noopener noreferrer"')
+        if page.name != "marchand.html":
+            expected_href = "/ecosystem.html" if page.name == "404.html" else "ecosystem.html"
+            if not footer_links or footer_links[0].get("href") != expected_href:
+                parser.errors.append("BostnMike Production must link to the owned ecosystem route")
+            elif footer_links[0].get("target"):
+                parser.errors.append("Behind the Cards footer entry must stay in the same tab")
+            if not re.search(r'<a href="' + re.escape(expected_href) + r'">BostnMike Production</a>\.\.\.', page_text):
+                parser.errors.append("footer entry must use only BostnMike Production, with the ellipsis outside")
 
         duplicate_ids = sorted(item for item, count in Counter(parser.ids).items() if count > 1)
         if duplicate_ids:
@@ -3957,6 +3980,8 @@ def main() -> int:
             expected_style_prefix.append("news.css")
         elif page.name == "voice-of-god.html":
             expected_style_prefix.append("voice-of-god.css")
+        elif page.name == "ecosystem.html":
+            expected_style_prefix.append("ecosystem.css")
         if parser.stylesheets[: len(expected_style_prefix)] != expected_style_prefix:
             parser.errors.append(
                 "stylesheet ownership/order must begin with: "

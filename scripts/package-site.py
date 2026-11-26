@@ -86,7 +86,7 @@ def main():
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
         digest.update(name.encode() + b"\0" + hashlib.sha256(source.read_bytes()).digest())
-    for required in ("index.html", "register.html", "lily-site/index.html",
+    for required in ("index.html", "ecosystem.html", "ecosystem.css", "ecosystem.js", "register.html", "lily-site/index.html",
                      "marchand.html", "marchand-vault/index.html", "cashier.html",
                      "data/generated/site-data.json", "images/fw/gallery-manifest.json"):
         if not (DEST / required).is_file():

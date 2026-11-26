@@ -53,7 +53,7 @@ class SourceBundleTests(unittest.TestCase):
     def test_publisher_can_import_components_from_repository_root(self):
         result = subprocess.run([sys.executable, '-c',
             'from scripts.site_components import PAGES, asset_version; '
-            'assert len(PAGES) == 22; assert len(asset_version("style.css")) == 16'],
+            'assert len(PAGES) == 23; assert len(asset_version("style.css")) == 16'],
             cwd=ROOT, capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
 
