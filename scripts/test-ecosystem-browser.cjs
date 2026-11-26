@@ -45,6 +45,7 @@ async function bounds(page){
    assert.equal(await page.locator('#step-count').innerText(),'1 / 6');await page.getByRole('button',{name:'Pause',exact:true}).click();
    const paused=await page.locator('#step-count').innerText();await page.waitForTimeout(2850);assert.equal(await page.locator('#step-count').innerText(),paused,'Pause stops progression');assert.equal(await page.locator('#packet.visible').count(),0,'Reduced motion suppresses moving packets');
    await page.locator('#next').click();await page.locator('#previous').click();assert.equal(await page.locator('#step-count').innerText(),'1 / 6');
+   await page.locator('.journey-step[data-step="2"]').click();assert.equal(await page.locator('#step-count').innerText(),'3 / 6');assert.equal(await page.locator('.journey-marker.is-current').innerText(),'3');
    if(out){await page.locator('#main-content').screenshot({path:out+'/journey-'+width+'.png'});}
    await page.keyboard.press('Escape');assert.equal(await page.locator('.journey-marker').count(),0);assert.equal(await page.locator('#journey-picker').inputValue(),'overview');
    await page.locator('.map-node[data-id="registration"]').click();assert.equal(await page.locator('#inspector h2').innerText(),data.nodes.find(n=>n.id==='registration').title);assert.equal(await page.locator('.journey-marker').count(),0);await page.locator('#full-map').click();

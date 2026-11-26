@@ -271,3 +271,17 @@ references; every surrounding reference pixel remains byte-identical after
 image decoding. No fixture, tolerance, mask, layout or test setting changed.
 The new portrait fills the existing circular masks without the former white
 crescent; its exact master is `images/players/hiro-99e824230355a648.png`.
+
+On 2026-11-26 the owner-approved Behind the Cards integration was reviewed from
+PR run `45867516203` (source `e31a78f4`). All functional browser/registration
+checks and 52 existing visual scenarios passed unchanged. Four new journey-map
+references at 1440/820/390/320 were inspected for the actual felt, readable
+stations, numbered/repeated steps and responsive details. Four footer
+actual/expected/difference comparisons show the approved BostnMike Production
+link color and its existing 44px link treatment, including the resulting 20px
+phone footer-height increase. All three independent footer captures match at
+each width. Only those eight references are added/updated. Existing unrelated
+references, fixtures, masks, thresholds and zero-retry settings are unchanged.
+The suite now contains 60 scenarios; the focused browser gate covers all
+33 journey steps, direct step selection, keyboard use, play/pause, reset and
+large-text/card fallbacks.
