@@ -1168,3 +1168,19 @@ force captions or alter unrelated films. Approved description for reference:
 “Norm brings Good Will Hunting and Rounders together for a tour of TLPT’s ICM
 chop calculator. No Harvard or MIT degree required.” No Gallery placement was
 requested in this handoff.
+
+## Behind the Cards
+
+`ecosystem.html` is the approved interactive league explanation, reached only from
+the existing **BostnMike Production** text in the shared footer. It has no new
+primary-navigation item. Keep the rest of the attribution sentence and TD link.
+The 404 footer uses `/ecosystem.html` so nested recovery URLs reach the root page.
+
+`ecosystem.css` and `ecosystem.js` own the page presentation and behavior. The
+nine stations, thirteen connections, seven journeys and 33 steps are explanatory
+content, with no operational API reads or private database access. Use the exact
+Winter Classic felt asset in its proportional center frame. Journey markers
+retain repeated station steps, highlight only the current step, and clear in
+overview/reset/Escape. The shared-shell builder versions its CSS/JS and footer;
+the normal quality and browser runners include its inventory and interaction
+checks. Validate graph/card layouts at 1440/820/390/320 and large text.

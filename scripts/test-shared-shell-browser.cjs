@@ -8,7 +8,7 @@ const base=process.argv[2]||'http://127.0.0.1:8767';
 const mode=process.argv[3], snapshots=process.argv[4];
 const visualPages=process.argv[5]?.split(',');
 const menu=JSON.parse(fs.readFileSync(path.join(__dirname,'../templates/site/navigation.json'),'utf8'));
-const pages=['index','dashboard','form-lab','gallery','knockouts','media','news','player-movement',
+const pages=['index','dashboard','ecosystem','form-lab','gallery','knockouts','media','news','player-movement',
  'player','players','rebuy-hard','register','rsvp-app','rules','schedule','standings','streaks','structures',
  'trophy-room','voice-of-god','champions','404'];
 const expected=menu.flatMap(item=>[item,...item.children||[]]);
@@ -25,6 +25,8 @@ const expected=menu.flatMap(item=>[item,...item.children||[]]);
    const match=expected.filter(x=>x.href.split('?')[0]===page+'.html').at(-1);
    assert.deepEqual(current,match?[match.label]:[]);
    assert.equal(await native.locator('.site-footer').count(),1);
+   assert.equal(await native.locator('.site-footer a').count(),2);
+   assert.equal(await native.getByRole('link',{name:'BostnMike Production',exact:true}).getAttribute('href'),page==='404'?'/ecosystem.html':'ecosystem.html');
   }
   await native.close();
   for(const width of [1440,820,390,320]){
@@ -33,7 +35,7 @@ const expected=menu.flatMap(item=>[item,...item.children||[]]);
    // Visual comparisons isolate local markup/styles from changing external RSVP
    // responses and embeds. Dedicated feed checks cover refresh and outage behavior.
    if(mode)await page.route('https://**/*',r=>r.abort());
-   for(const name of (mode?(visualPages||pages):['index','dashboard','schedule','rules','register','404'])){
+   for(const name of (mode?(visualPages||pages):['index','dashboard','ecosystem','schedule','rules','register','404'])){
     await page.goto(`${base}/${name}.html`+(name==='player'?'?name=BostnMike':''));
     await page.evaluate(()=>document.fonts.ready);
     if(mode)await page.waitForLoadState('networkidle');

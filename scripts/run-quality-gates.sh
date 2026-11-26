@@ -39,6 +39,7 @@ echo "🧹 Auditing code hygiene..."
 
 echo "🧭 Testing shared shell image fallbacks..."
 node scripts/test-site-shell.mjs
+node scripts/test-ecosystem.mjs
 node scripts/test-mtt-guide.mjs
 
 echo "♠ Testing hidden player registration..."

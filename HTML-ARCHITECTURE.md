@@ -844,3 +844,10 @@ watermark/chip brand pair, and lower action row. The black-and-gold poem
 panel and photographic card fan remain separate below that shared header.
 `downloads/twas-the-night-before-rebuy-hard.pdf` is the approved one-page
 black-and-gold handout linked by both download buttons.
+
+## Behind the Cards footer entry
+
+`ecosystem.html` shares the canonical shell and chip hero with no active primary
+menu item. Only the existing BostnMike Production footer text links to it; the
+rest of the attribution and independent Marchand shell are retained. Its local
+CSS/JS and embedded explanatory content do not read operational services.

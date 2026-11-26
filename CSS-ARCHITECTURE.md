@@ -433,3 +433,9 @@ chip-rack panorama. Card hover/focus exposes each image, with reduced-motion sup
 Web headings and poem text inherit the shared Arial/Helvetica sans-serif
 stack; the approved PDF retains its independent print typography.
 `home.css` owns the compact Re-Buy Hard teaser below the home-page hero.
+
+## Behind the Cards
+
+`ecosystem.css` loads after `site-tail.css` and scopes the approved diagram,
+journey controls, numbered markers and responsive card fallback to
+`.ecosystem-page` / `.ecosystem-app`. It does not redefine global page styles.
