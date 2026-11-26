@@ -28,6 +28,7 @@ async function bounds(page){
    const choose=async id=>{await page.locator('#journey-picker-trigger').click();await page.locator('#journey-picker-menu [data-value="'+id+'"]').click();};
    for(const j of data.journeys){
     await choose(j.id);
+    await page.waitForTimeout(100);await bounds(page);
     assert.equal(await page.locator('.journey-marker').count(),j.steps.length);assert.equal(await page.locator('.journey-marker.is-current').count(),0);
     assert.equal(await page.locator('#step-count').innerText(),'0 / '+j.steps.length);
     for(let i=0;i<j.steps.length;i++){
@@ -51,7 +52,7 @@ async function bounds(page){
    await page.locator('.map-node[data-id="registration"]').click();assert.equal(await page.locator('#inspector h2').innerText(),data.nodes.find(n=>n.id==='registration').title);assert.equal(await page.locator('.journey-marker').count(),0);await page.locator('#full-map').click();
    await page.locator('#journey-picker-trigger').focus();await page.keyboard.press('Enter');await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter');assert.notEqual(await page.locator('#journey-picker').inputValue(),'overview');await page.keyboard.press('Escape');
    await page.evaluate(()=>document.documentElement.style.fontSize='200%');await page.waitForTimeout(200);await bounds(page);
-   assert.deepEqual(errors,[]);assert.deepEqual(operational,[]);console.log('PASS Behind the Cards '+width+'px '+layout+': all 33 steps, markers, playback/pause, reset, keyboard, large text and no operational requests');await page.close();
+   assert.deepEqual(errors,[]);assert.deepEqual(operational,[]);console.log('PASS Behind the Cards '+width+'px '+layout+': all '+data.journeys.reduce((n,j)=>n+j.steps.length,0)+' steps, markers, playback/pause, reset, keyboard, large text and no operational requests');await page.close();
   }
   // Root-absolute recovery link remains valid even for a missing nested URL.
   const page=await browser.newPage();await page.route('**/missing/nested/page',async route=>{const response=await page.request.get(base+'/404.html');await route.fulfill({response});});

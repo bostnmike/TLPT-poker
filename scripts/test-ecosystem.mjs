@@ -9,7 +9,7 @@ const blocks=[...html.matchAll(/<script id="ecosystem-data" type="application\/j
 assert.equal(blocks.length,1);
 const data=JSON.parse(blocks[0][1]);
 assert.equal(data.nodes.length,9);assert.equal(data.edges.length,13);assert.equal(data.journeys.length,7);
-assert.equal(data.journeys.reduce((n,j)=>n+j.steps.length,0),33);
+assert.equal(data.journeys.reduce((n,j)=>n+j.steps.length,0),39);
 const nodes=new Set(data.nodes.map(n=>n.id)), edges=new Map(data.edges.map(e=>[e.id,e]));
 assert.equal(nodes.size,9);assert.equal(edges.size,13);
 for(const edge of edges.values()){assert.ok(nodes.has(edge.from));assert.ok(nodes.has(edge.to));}
@@ -18,6 +18,25 @@ for(const journey of data.journeys){
  for(const id of journey.nodeIds)assert.ok(nodes.has(id));for(const id of journey.edgeIds)assert.ok(edges.has(id));
 }
 assert.ok(edges.has('registration-avatars'));assert.ok(edges.has('registration-directory'));assert.ok(edges.has('avatars-directory'));
+const results=data.journeys.find(j=>j.id==='results');
+const text=value=>JSON.stringify(value);
+assert.equal(results.title,'Run the Results');
+assert.equal(results.steps.length,8);
+assert.match(text(results.steps[0]),/existing PC chat.*actual coffee tally/);
+assert.match(text(results.steps[1]),/named, saved and completed.*final payouts.*Refuse blank, running or unfinished.*never silently choose an archived save/);
+assert.match(text(results.steps[2]),/Event Summary HTML.*complete UTF-8 detailed history.*inert and data-only.*snapshots stay private/);
+assert.match(text(results.steps[3]),/settlement and coffee records.*byte lengths and SHA-256.*READY last/);
+assert.match(text(results.steps[4]),/OneDrive.*private transfer.*authenticated connector fallback.*without broader permissions/);
+assert.match(text(results.steps[5]),/Mac watcher.*completeness, hashes, identities, financial reconciliation and duplicates.*existing results processor.*queue acceptance alone is not completed processing/);
+assert.match(text(results.steps[6]),/Never import duplicates.*genuine missing or conflicting financial evidence/);
+assert.match(text(results.steps[7]),/integrity.*visual.*actual processing receipt.*live website/);
+assert.match(results.note,/actual same-event coffee tally.*canonical identities.*unknown with empty counts and continue financial results delivery.*never use RSVP orders, examples or another event/);
+assert.match(results.note,/setup-only test imported and published no event.*completed new-event production run remains the next live validation/);
+const story=data.journeys.find(j=>j.id==='story');
+assert.match(text(story.steps[2]),/same-event notes.*wait for Mike.*reply or explicit none/);
+assert.match(text(story.steps[3]),/Only after Mike replies or explicitly says none.*three story angles/);
+assert.match(text(story.steps[4]),/Mike selects the lead.*Never automatically choose or publish a story/);
+assert.doesNotMatch(text(data),/\/Users\/|[A-Z]:\\|https?:\/\/(?:localhost|127[.]0[.]0[.]1)|[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}|OneDrive Personal.*TLPT Results Exchange/i,'Private paths, queue locations and chat identifiers stay off the public page');
 assert.doesNotMatch(js,/\b(?:fetch|XMLHttpRequest|WebSocket|sendBeacon)\s*\(/,'Explanatory page makes no operational reads or writes');
 assert.doesNotMatch(html,/<script\b[^>]*\bsrc=["']app[.]js/);
 assert.doesNotMatch(read('templates/site/navigation.json'),/ecosystem[.]html/);
@@ -26,4 +45,4 @@ const feltHash=createHash('sha256').update(fs.readFileSync(root+'images/site/win
 assert.ok(html.includes('images/site/winter-classic.png?v='+feltHash));
 assert.match(html,/<symbol id="art-website" viewBox="110 75 700 350">/);
 assert.match(html,/preserveAspectRatio="xMidYMid meet"/);
-console.log('PASS: Behind the Cards inventory, 33 journey steps, registration branches, canonical felt and footer-only entry.');
+console.log('PASS: Behind the Cards inventory, 39 journey steps, registration branches, canonical felt and footer-only entry.');
