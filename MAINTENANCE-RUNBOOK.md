@@ -444,9 +444,10 @@ captions, direct YouTube fallback and usable `https://register.tlpt.org` CTA.
 The public credit disclosure retains Gameshow Brazz / John Bartmann (CC0),
 source/license/edit details and Dmitry Fomin’s adapted CC0 King of diamonds art.
 Video Production completed the personal-channel YouTube upload, portrait cover
-and settings verification. Its portrait is for YouTube, not a new Norm Wing
-outfit: this handoff adds only the Film Room entry. Keep the MP4 and private QC
-outside the public package, and preserve every existing film and gallery entry.
+and settings verification. The supplied 1080×1920 portrait is copied unchanged
+into the Norm Wing, following the owner’s standing cross-listing instruction;
+no new outfit is generated. Keep the MP4 and private QC outside the public
+package, and preserve every existing film and gallery entry.
 
 “Norm the Magnificent” uses YouTube `Lhgxmhda6tA` and anchor
 `media.html#norm-the-magnificent`. The approved V9 covers are in

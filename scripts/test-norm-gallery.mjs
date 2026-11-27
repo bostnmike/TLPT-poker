@@ -16,14 +16,10 @@ const filmCards = media.split(/<div class="media-card" id="([a-z0-9-]+)">/);
 const normFilmIds = filmCards.filter((_, index) =>
   index % 2 === 1 && filmCards[index + 1].includes('data-thumbnail=')
 );
-// Membership Drive's approved handoff explicitly requests Film Room only and no new outfit.
-// Keep the existing one-to-one gallery coverage requirement for every other Norm film.
-assert.ok(normFilmIds.includes('membership-drive'), 'The Film Room-only membership commercial is present');
-assert.ok(!all.some(art => art.id === 'membership-drive'), 'Membership handoff preserves the existing Norm Wing collection');
 assert.deepEqual(
   all.map(art => art.id).sort(),
-  normFilmIds.filter(id => id !== 'membership-drive').sort(),
-  'Every other Film Room card with a Norm production thumbnail needs exactly one Gallery cover'
+  normFilmIds.sort(),
+  'Every Film Room card with a Norm production thumbnail needs exactly one Gallery cover'
 );
 for(const art of all){
   assert.match(art.src,/^images\/norm-gallery\/[a-z0-9-]+\.(?:jpg|png)$/);
