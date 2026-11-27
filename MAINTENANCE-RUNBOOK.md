@@ -683,6 +683,15 @@ manually selected posters. The original filenames remain valid for shared links.
 Legacy manifests without versions continue to work. Rebuild the gallery manifest
 after changing poster bytes and verify the versioned image URLs on the live site.
 
+Stealers of the Big Pot was postponed from November 27, 2026 to Saturday,
+January 23, 2027. Its already date-free full-size artwork and matching thumbnail
+are moved byte-for-byte to `fw27-01-23.jpg` in `images/fw/` and its `thumbs/`
+folder. Rebuild the canonical gallery manifest so the standard dated plate and
+automatic app poster lookup use January 23 once, with no November 27 duplicate.
+Keep the artwork date-free. RSVP owns the existing event ID, Saturday slot,
+closed responses, retained host seat and unchanged 40K format/pricing; this
+poster move does not edit app state or historical Cashier payments.
+
 Good Will Bluffing was postponed from November 20, 2026 to January 22, 2027.
 Its poster and thumbnail now use `fw27-01-22.jpg`, so date-derived
 site and app poster lookup follows the rescheduled game. The printed
