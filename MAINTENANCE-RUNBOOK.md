@@ -417,7 +417,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-nine RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has fifty RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -434,6 +434,20 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“A Few Good Fish | TLPT Membership Drive” uses YouTube `ixy9t1rWkuU`
+and anchor `media.html#membership-drive`. Its approved 1920×1080 landscape cover
+is the exact `thumbnails/thumbnail-landscape.jpg` from
+`output/video/tlpt-membership-drive/production-v1/`; the final video is V7,
+52.30 seconds, 1080×1920/60fps. Keep the title-only, click-to-play card, optional
+captions, direct YouTube fallback and usable `https://register.tlpt.org` CTA.
+The public credit disclosure retains Gameshow Brazz / John Bartmann (CC0),
+source/license/edit details and Dmitry Fomin’s adapted CC0 King of diamonds art.
+Video Production completed the personal-channel YouTube upload, portrait cover
+and settings verification. The supplied 1080×1920 portrait is copied unchanged
+into the Norm Wing, following the owner’s standing cross-listing instruction;
+no new outfit is generated. Keep the MP4 and private QC outside the public
+package, and preserve every existing film and gallery entry.
 
 “Norm the Magnificent” uses YouTube `Lhgxmhda6tA` and anchor
 `media.html#norm-the-magnificent`. The approved V9 covers are in

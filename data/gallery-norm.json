@@ -10,6 +10,16 @@
   },
   "posters": [
     {
+      "id": "membership-drive",
+      "src": "images/norm-gallery/membership-drive.jpg",
+      "sha256": "a06ffdfb0939eff50f6345490e806dbb7e53ce5cd537c8859f6b390ef0bb0648",
+      "width": 1080,
+      "height": 1920,
+      "title": "A Few Good Fish | TLPT Membership Drive",
+      "filmHref": "media.html#membership-drive",
+      "youtubeId": "ixy9t1rWkuU"
+    },
+    {
       "id": "norm-the-magnificent",
       "src": "images/norm-gallery/norm-the-magnificent.jpg",
       "sha256": "d9d481d6f7a8a90aebf48a234493abcb738ea6b179f9156043f6d71820575b07",
