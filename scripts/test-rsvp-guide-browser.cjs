@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const {mockRsvpFeed} = require('./browser-rsvp-fixture.cjs');
 const assert = require('node:assert/strict');
 const base = process.argv[2] || 'http://127.0.0.1:8767';
-const expectedYouTubeCovers = 57;
+const expectedYouTubeCovers = 58;
 (async () => {
   const browser = await chromium.launch({ ...(process.env.CI ? {} : {channel:'chrome'}), headless:true });
   try {
@@ -122,13 +122,14 @@ const expectedYouTubeCovers = 57;
       await page.goto(base + '/media.html');
       await page.evaluate(() => document.fonts.ready);
       assert.equal(filmRequests.length, 0, 'Film Room videos must not download before playback');
-      assert.equal(await page.locator('.media-card').count(), 58, 'Retain nine original films and all forty-nine RSVP films');
+      assert.equal(await page.locator('.media-card').count(), 59, 'Retain nine original films and all fifty RSVP films');
       assert.equal(await page.locator('.media-card video').count(), 0, 'No duplicate native Film Room players');
       assert.equal(await page.locator('.media-card iframe').count(), 0, 'No YouTube player loads before a click');
       assert.equal(await page.locator('.media-video-facade').count(), expectedYouTubeCovers, 'All approved YouTube covers retained');
       assert.equal(await page.locator('.media-film-description, .media-film-duration').count(),0,'Cards contain only their title and player');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
       for (const [id, youtubeId] of [
+        ['membership-drive','ixy9t1rWkuU'],
         ['norm-the-magnificent','Lhgxmhda6tA'],
         ['date-derby','6d7UOcH82S0'],
         ['amazing-discoveries','3oYNAVmrZa8'],
@@ -165,7 +166,7 @@ const expectedYouTubeCovers = 57;
         ['rsvp-roadshow','MvwsaPIq9-8'],
         ['final-boarding-call','elGvMvI4z98'],['rsvp-main-event','inTd_p7otyE'],['the-kids','AYTCCtyBTqQ'],['call-your-play','GY4uQaUwsbU'],['day-to-day','rzKNK2yiu-I'],['the-elusive-rsvp','iYLibq-VvcQ'],['rsvp-referee','sPBNdswB3Xw'],['the-games-afoot','sr4AU3WoRTA'],['bad-beat-hotline','iugKsWyLU5Y'],['weather-forecast','kFF9RmDW5sk'],['no-empty-chairs','RyPECQqsayY'],['calling-the-clock','ipI7E9GUVnQ'],['rsvp-notifications','ANC2iebFFDc'],['rsvp-commercial','I0EmodtWMV0'],['rsvp-installation','KUArnlk48KQ']]) {
         const card = page.locator('#' + id), cover = card.locator('.media-video-facade'), player = card.locator('iframe');
-        if (['norm-the-magnificent','date-derby','amazing-discoveries','happy-thanksgiving','the-red-zone','help-getting-better','the-camel-is-in','calendar-holdem','sports-desk-friday-no-go','going-once','the-big-board','decision-desk','out-of-office','good-will-chopping','now-serving-decaf','coffee-preorders'].includes(id)) {
+        if (['membership-drive','norm-the-magnificent','date-derby','amazing-discoveries','happy-thanksgiving','the-red-zone','help-getting-better','the-camel-is-in','calendar-holdem','sports-desk-friday-no-go','going-once','the-big-board','decision-desk','out-of-office','good-will-chopping','now-serving-decaf','coffee-preorders'].includes(id)) {
           const fallback = card.getByRole('link', {name:'Watch on YouTube ↗'});
           assert.equal(await fallback.getAttribute('href'),'https://www.youtube.com/watch?v='+youtubeId);
           assert.equal(await fallback.getAttribute('target'),'_blank');
@@ -177,7 +178,7 @@ const expectedYouTubeCovers = 57;
         const thumbnailSlug = ({'rsvp-notifications':'notifications','rsvp-commercial':'commercial','rsvp-installation':'install'})[id] || id;
         assert.match(await cover.locator('img').getAttribute('src'), new RegExp('^media/rsvp-film-room/'+thumbnailSlug+'-thumbnail[.]jpg[?]v=[a-f0-9]{16}$'), 'Matching approved landscape thumbnail');
         await cover.locator('img').evaluate(img => img.decode());
-        const expectedDimensions = ['norm-the-magnificent','out-of-office','good-will-chopping','now-serving-decaf','coffee-preorders','two-seats-remain'].includes(id) ? [1920, 1080] : [1280, 720];
+        const expectedDimensions = ['membership-drive','norm-the-magnificent','out-of-office','good-will-chopping','now-serving-decaf','coffee-preorders','two-seats-remain'].includes(id) ? [1920, 1080] : [1280, 720];
         assert.deepEqual(await cover.locator('img').evaluate(img => [img.naturalWidth, img.naturalHeight]), expectedDimensions, 'Approved wide cover loads without Shorts cropping');
         assert.ok(await cover.getAttribute('aria-label'), 'Accessible play button');
         const coverBox = await cover.boundingBox();
@@ -208,6 +209,15 @@ const expectedYouTubeCovers = 57;
       assert.match(await derbyCredit.innerText(), /U[.]S[.] Army Bands.*Public domain/);
       assert.match(await derbyCredit.innerText(), /Apple sample content/);
       assert.equal(await derbyCredit.locator('a').last().getAttribute('href'), 'https://commons.wikimedia.org/wiki/File:FirstCall.ogg');
+      const membershipCTA = page.locator('#membership-drive').getByRole('link', {name:'Register at register.tlpt.org ↗'});
+      assert.equal(await membershipCTA.getAttribute('href'), 'https://register.tlpt.org');
+      assert.equal(await membershipCTA.getAttribute('target'), '_blank');
+      assert.ok((await membershipCTA.boundingBox()).height >= 44, 'Registration CTA has a usable touch target');
+      const membershipCredit = credits.locator('p').filter({hasText:'A Few Good Fish | TLPT Membership Drive'});
+      assert.match(await membershipCredit.innerText(), /Gameshow Brazz.*John Bartmann/);
+      assert.match(await membershipCredit.innerText(), /CC0 1[.]0 Universal/);
+      assert.match(await membershipCredit.innerText(), /Dmitry Fomin/);
+      assert.equal(await membershipCredit.locator('a[href*="commons.wikimedia.org"]').getAttribute('href'), 'https://commons.wikimedia.org/wiki/File:English_pattern_king_of_diamonds.svg');
       const magnificentCredit = credits.locator('p').filter({hasText:'Norm the Magnificent'});
       assert.match(await magnificentCredit.innerText(), /Vadodora Chill Mix.*Kevin MacLeod/);
       assert.match(await magnificentCredit.innerText(), /Excerpted, trimmed, level-adjusted, ducked under speech and faded/);
