@@ -68,6 +68,7 @@ assert.doesNotMatch(filmRoom, /WnWQ9UaJ4LY/, 'Superseded Elusive RSVP upload mus
 assert.doesNotMatch(filmRoom, /9Cmli_tTMSg/, 'Superseded Roadshow upload must not return');
 assert.doesNotMatch(read('data/gallery-norm.json'), /9Cmli_tTMSg/, 'Gallery must reference the revised Roadshow upload');
 for (const [file, expected] of Object.entries({
+  'norm-the-magnificent-thumbnail.jpg':'3e5405ef22c372d133e1e702b5d6f6439c00de86a22c5b2d62f3775495cdba01',
   'date-derby-thumbnail.jpg':'57d7917ad11b43fe2e356fe3e18e76f2f015951bf207dc5fdb1500fc4b506eac',
   'amazing-discoveries-thumbnail.jpg':'dadfbc593c62bb4f14636ceafe537f12c5f637db974fbd7e6846a6a2cafd3bb0',
   'happy-thanksgiving-thumbnail.jpg':'60acab0488cc6a7cb561317f2d35aa74e1038cd1637ea21d995e805678473913',
@@ -190,6 +191,7 @@ for (const [slug, duration] of [['the-games-afoot',36],['bad-beat-hotline',30],[
   }
 }
 const youtubeFilms = [
+  ['norm-the-magnificent','Lhgxmhda6tA'],
   ['date-derby','6d7UOcH82S0'],
   ['amazing-discoveries','3oYNAVmrZa8'],
   ['happy-thanksgiving','afXZ_Kx8ulw'],
@@ -277,3 +279,5 @@ console.log('PASS: approved RSVP videos, verified public QR, captions, player-on
 assert.match(filmRoom, /film-room-music-credits[\s\S]*Family Home[\s\S]*Carlo Espin[\s\S]*creativecommons[.]org\/licenses\/by\/4[.]0\//, 'Required music attribution stays on the public Film Room page');
 
 assert.match(filmRoom, /Gameshow Brazz[\s\S]*John Bartmann[\s\S]*CC0 1[.]0 Universal[\s\S]*FirstCall[.]ogg[\s\S]*U[.]S[.] Army Bands[\s\S]*Public domain[\s\S]*Apple sample content/, 'Date Derby music and opening credits stay public');
+
+assert.match(filmRoom, /Norm the Magnificent[\s\S]*USUAN1400050[\s\S]*Vadodora Chill Mix[\s\S]*Kevin MacLeod[\s\S]*creativecommons[.]org\/licenses\/by\/4[.]0[\s\S]*noah0189[\s\S]*264499[\s\S]*publicdomain\/zero\/1[.]0[\s\S]*Apple Final Cut Pro sample content/, 'Magnificent music and audience attribution remains public');

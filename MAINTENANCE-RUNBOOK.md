@@ -417,7 +417,7 @@ only the 360px square at (740, 0), keeping his face and burgundy tie inside the
 existing 96/80/64px gold circle. Campaign copy, setup link, spacing and all other
 Norm portraits stay unchanged. The six-width RSVP-guide test verifies this crop.
 
-The Film Room has forty-eight RSVP YouTube embeds, plus its nine original embedded/link
+The Film Room has forty-nine RSVP YouTube embeds, plus its nine original embedded/link
 films. Its cards show only the emoji/title and thumbnail/player, with no subtitle,
 description or duration line. The four additions supplied on 2026-10-29 are
 The Game’s Afoot, Bad Beat Hotline, Weather Forecast and No Empty Chairs.
@@ -434,6 +434,22 @@ do not add a duplicate native player or publish the production notes.
 and portrait covers come from
 `output/video/tlpt-sports-desk-friday-no-go/gallery-polish-v5/`, which also
 holds the 65-second production master.
+
+“Norm the Magnificent” uses YouTube `Lhgxmhda6tA` and anchor
+`media.html#norm-the-magnificent`. The approved V9 covers are in
+`output/video/tlpt-norm-magnificent/production-v9-tony-laugh/thumbnails/`:
+1920×1080 landscape JPEG for the Film Room and exact 1080×1920 portrait JPEG
+for the Norm Wing. Preserve the final fitted oversized turban, host’s four-suit
+mic, desk/chair spacing and February 27, 2027 reveal. The final 78.30-second,
+1080×1920/60fps video uses the approved Tony-punchline audience laugh; its MP4
+and private QC stay outside the public package. The video-production chat has
+completed the YouTube upload, thumbnail and description credits; do not redo it.
+Keep the title-only, click-to-play facade, direct YouTube fallback and optional
+captions. The public credit disclosure preserves Vadodora Chill Mix / Kevin
+MacLeod / incompetech.com (CC BY 4.0), its edits/mix, noah0189’s Freesound
+reaction (CC0), and the installed Apple sample-content laughter notice.
+This is a new commercial and Norm portrait, not another copy of the dated
+Big Trouble event poster or a replacement for Date Derby.
 
 “Date Derby” uses YouTube `6d7UOcH82S0` on BostnMike’s personal channel and
 anchor `media.html#date-derby`. Use only the final v12 thumbnails from
