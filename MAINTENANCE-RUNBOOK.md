@@ -1217,3 +1217,16 @@ import, publication or editorial task. A completed new-event production run is
 still the next live validation. Do not reimport November 21 or alter league
 results for this documentation release. Keep native snapshots, machine paths,
 private links, thread identifiers and queue/socket details off the public page.
+
+## Dated next-MTT poster
+
+Big Trouble in Little Cary is assigned to February 27, 2027 in the live RSVP
+app. Its unchanged, date-free artwork is registered as `images/fw/fw27-02-27.jpg`
+and `images/fw/thumbs/fw27-02-27.jpg`, using the normal content-hash catalog
+versions. The legacy `images/fw/mtt/big-trouble-in-little-cary*.jpg` files remain
+available for existing links. Remove the undated `galleryPoster` entry once
+the artwork has a date-matching catalog entry so the gallery shows it once,
+with the regular dated plate. Keep the reusable static MTT financial placeholder
+separate; live event date, open state, seats and amounts remain owned by RSVP.
+The apps adopt the new catalog on their normal refresh; no event/database edit
+or app release is required for this poster assignment.
