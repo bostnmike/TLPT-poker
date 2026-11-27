@@ -2,6 +2,7 @@
   "folder": "images/fw",
   "thumbnailFolder": "images/fw/thumbs",
   "files": [
+    "fw27-02-27.jpg",
     "fw27-01-22.jpg",
     "fw27-01-08.jpg",
     "fw26-12-26.jpg",
@@ -75,6 +76,10 @@
     "fw25-05-24.jpg"
   ],
   "versions": {
+    "fw27-02-27.jpg": {
+      "image": "6f679b3d6670a6e3",
+      "thumbnail": "737df03cc5ccbf8e"
+    },
     "fw27-01-22.jpg": {
       "image": "18bd735dd28b042f",
       "thumbnail": "9cbdf7aa7b0eb12f"
@@ -359,11 +364,5 @@
       "image": "b15c6e26b246f761",
       "thumbnail": "6bbd49774beb132b"
     }
-  },
-  "mttPoster": {
-    "title": "Big Trouble in Little Cary",
-    "file": "big-trouble-in-little-cary.jpg",
-    "thumbnail": "big-trouble-in-little-cary-thumb.jpg",
-    "date": null
   }
 }
