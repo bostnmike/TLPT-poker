@@ -135,9 +135,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderCurrentVictims(clip);
     renderCurrentTags(clip);
 
-    const requestedSource = new URL(clip.file, document.baseURI).href;
+    const sourceUrl = new URL(clip.file, document.baseURI);
+    if (clip.audioVersion) sourceUrl.searchParams.set("v", clip.audioVersion);
+    const requestedSource = sourceUrl.href;
     if (audio.src !== requestedSource) {
-      audio.src = clip.file;
+      audio.src = requestedSource;
       audio.load();
     }
 
