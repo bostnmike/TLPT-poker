@@ -2,6 +2,14 @@
   "note": "Paths relative to the TLPT Site Design workspace. Approved production artwork copied byte-for-byte; no image edits.",
   "assets": [
     {
+      "id": "norm-the-magnificent",
+      "source": "output/video/tlpt-norm-magnificent/production-v9-tony-laugh/thumbnails/thumbnail-portrait.jpg",
+      "src": "images/norm-gallery/norm-the-magnificent.jpg",
+      "sha256": "d9d481d6f7a8a90aebf48a234493abcb738ea6b179f9156043f6d71820575b07",
+      "width": 1080,
+      "height": 1920
+    },
+    {
       "id": "date-derby",
       "source": "output/video/tlpt-mtt-date-derby/production-v12-sequential-runners/thumbnail-portrait.jpg",
       "src": "images/norm-gallery/date-derby.jpg",
