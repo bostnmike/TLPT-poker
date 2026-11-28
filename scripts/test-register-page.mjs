@@ -35,7 +35,12 @@ assert.match(page, /name="attachment"[^>]+multiple[^>]+required/);
 assert.match(page, /name="Public profile consent"[^>]+required/);
 assert.match(page, /name="AI likeness consent"[^>]+required/);
 assert.match(page, /name="League humor acknowledged"[^>]+required/);
-assert.match(page, /name="Registration packet version" value="3"/);
+assert.match(page, /name="Registration packet version" value="4"/);
+const avatarStep = page.match(/<fieldset[^>]+data-register-step="1"[\s\S]*?<\/fieldset>/)?.[0] || "";
+assert.equal((avatarStep.match(/<(?:input|textarea)\b/g) || []).length, 2, "Avatar step must contain only photo upload and one brief field");
+assert.match(avatarStep, /<textarea id="avatar-brief" name="Avatar brief"[^>]+required/);
+assert.match(avatarStep, /“Surprise me” works too/);
+assert.doesNotMatch(page, /id="(?:features-preserve|avatar-clothing|avatar-interests|avatar-props|avatar-setting|avatar-expression|avatar-must-have|avatar-avoid)"/);
 assert.match(page, /id="registration-packet" name="Registration packet JSON"/);
 assert.match(page, /ready-to-review player file/);
 assertAssetReference(page, 'register.css');
@@ -96,7 +101,9 @@ assert.match(script, /10 \* 1024 \* 1024/);
 assert.match(script, /files\.length > 4/);
 assert.match(script, /images\/players\/\$\{slug\}\.jpg/);
 assert.match(script, /query\.get\("submitted"\) === "1"/);
-assert.match(script, /schemaVersion:3/);
+assert.match(script, /schemaVersion:4/);
+assert.match(script, /brief:valueOf\("avatar-brief"\)/);
+assert.ok(script.includes('["Avatar brief", valueOf("avatar-brief")]'), "Review must show the same combined brief sent in the packet");
 assert.match(script, /firstName:valueOf|const firstName = valueOf/);
 assert.match(script, /lastName:valueOf|const lastName = valueOf/);
 assert.doesNotMatch(script, /valueOf\("pronunciation"\)|valueOf\("pronouns"\)|valueOf\("nicknames"\)/);
@@ -126,9 +133,17 @@ const mockForm = {
   querySelector:() => null,
   addEventListener:(name, handler) => formListeners.set(name, handler),
 };
+const mockFields = new Map([
+  ["registration-packet", {value:""}],
+  ["avatar-brief", {value:'Bruins jersey, a smile & Boston.\nAvoid Yankees gear; keep my glasses.'}],
+  ["avatar-photos", {
+    files:[new File(["photo-one"], "front.png", {type:"image/png"}), new File(["photo-two"], "smiling.jpg", {type:"image/jpeg"})],
+    addEventListener:() => {},
+  }],
+]);
 vm.runInNewContext(script, {
   document:{
-    getElementById:id => id === "register-form" ? mockForm : id === "registration-phone" ? mockPhone : null,
+    getElementById:id => id === "register-form" ? mockForm : id === "registration-phone" ? mockPhone : mockFields.get(id) || null,
     querySelectorAll:() => [],
     querySelector:() => null,
   },
@@ -137,6 +152,15 @@ vm.runInNewContext(script, {
   File,
   CSS:{escape:value => value},
 });
+const packet = JSON.parse(mockFields.get("registration-packet").value);
+assert.equal(packet.schemaVersion, 4);
+assert.equal(packet.status, "pending-review");
+assert.equal(packet.avatar.brief, mockFields.get("avatar-brief").value, "Preserve the whole brief, including newlines and exclusions");
+assert.deepEqual(packet.avatar.referenceFiles.map(file => file.name), ["front.png", "smiling.jpg"]);
+assert.deepEqual(Object.keys(packet.avatar).sort(), ["brief", "referenceFiles"], "Do not leave phantom questions in the new packet");
+mockFields.get("avatar-brief").value = "Surprise me";
+formListeners.get("input")();
+assert.equal(JSON.parse(mockFields.get("registration-packet").value).avatar.brief, "Surprise me", "A short brief is enough");
 
 for (const raw of ["2025550100", "202-555-0100", "(202) 555-0100", "+1 (202) 555-0100", "12025550100", "202.555.0100"]) {
   mockPhone.value = raw;

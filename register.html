@@ -160,7 +160,7 @@
       <input type="hidden" name="_captcha" value="true" />
       <input type="hidden" name="_next" value="https://tlpt.org/register.html?submitted=1" />
       <input type="hidden" name="Registration source" value="TLPT hidden registration page" />
-      <input type="hidden" name="Registration packet version" value="3" />
+      <input type="hidden" name="Registration packet version" value="4" />
       <input type="hidden" id="registration-packet" name="Registration packet JSON" value="" />
       <label class="register-honey" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
 
@@ -225,7 +225,7 @@
         <legend class="register-step-heading">
           <span>Step 2 of 3</span>
           <strong>Your avatar starter kit</strong>
-          <small>Give the artist a clear likeness and enough visual material to make the portrait unmistakably yours.</small>
+          <small>A clear photo and a few words. The Commish will handle the artistic overthinking.</small>
         </legend>
 
         <div class="register-upload-panel">
@@ -238,46 +238,10 @@
           </div>
         </div>
 
-        <div class="register-field-grid">
-          <div class="register-field register-field-wide">
-            <label for="features-preserve">Features the artist should preserve <span aria-hidden="true">*</span></label>
-            <textarea id="features-preserve" name="Features to preserve" rows="3" maxlength="500" placeholder="Hair, facial hair, glasses, expression, or anything the photos may not make obvious." required></textarea>
-          </div>
-
-          <div class="register-field">
-            <label for="avatar-clothing">Signature clothing or colors <span aria-hidden="true">*</span></label>
-            <input id="avatar-clothing" name="Avatar clothing and colors" type="text" maxlength="220" placeholder="Favorite jersey, hat, suit, colors…" required />
-          </div>
-
-          <div class="register-field">
-            <label for="avatar-interests">Teams, places, and interests <span aria-hidden="true">*</span></label>
-            <input id="avatar-interests" name="Teams places and interests" type="text" maxlength="300" placeholder="Give us at least three" required />
-          </div>
-
-          <div class="register-field">
-            <label for="avatar-props">Props or symbols <span aria-hidden="true">*</span></label>
-            <input id="avatar-props" name="Avatar props and symbols" type="text" maxlength="240" placeholder="Two or three visual clues" required />
-          </div>
-
-          <div class="register-field">
-            <label for="avatar-setting">Background or setting <span aria-hidden="true">*</span></label>
-            <input id="avatar-setting" name="Avatar background" type="text" maxlength="220" placeholder="A city, landmark, card room—or surprise me" required />
-          </div>
-
-          <div class="register-field">
-            <label for="avatar-expression">Pose or expression</label>
-            <input id="avatar-expression" name="Avatar pose and expression" type="text" maxlength="180" placeholder="Relaxed, intense, laughing, table pose…" />
-          </div>
-
-          <div class="register-field">
-            <label for="avatar-must-have">One must-have detail</label>
-            <input id="avatar-must-have" name="Avatar must-have detail" type="text" maxlength="180" placeholder="Optional" />
-          </div>
-
-          <div class="register-field register-field-wide">
-            <label for="avatar-avoid">Anything that must not appear</label>
-            <textarea id="avatar-avoid" name="Avatar exclusions" rows="3" maxlength="500" placeholder="Teams, colors, props, jokes, or physical details to avoid."></textarea>
-          </div>
+        <div class="register-field">
+          <label for="avatar-brief">Your avatar in a few words <span aria-hidden="true">*</span></label>
+          <textarea id="avatar-brief" name="Avatar brief" rows="4" maxlength="2000" placeholder="Bruins jersey, glasses, a big smile, and a Boston backdrop. No Yankees gear. Or simply: Surprise me!" aria-describedby="avatar-brief-help" required></textarea>
+          <small id="avatar-brief-help">Favorite teams, clothing, hobbies, props, a setting—or anything we should avoid. A few words are plenty. “Surprise me” works too.</small>
         </div>
 
         <div class="register-step-actions">
@@ -356,6 +320,6 @@
 <!-- END TLPT GENERATED FOOTER -->
 
 <script src="site-shell.js?v=b3d8fa495a53dd44"></script>
-<script src="register.js?v=d54940ac197216df"></script>
+<script src="register.js?v=837f563c8932a145"></script>
 </body>
 </html>

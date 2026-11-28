@@ -46,7 +46,7 @@
       ? [fullName]
       : [];
     const packet = {
-      schemaVersion:3,
+      schemaVersion:4,
       status:"pending-review",
       source:"TLPT hidden registration page",
       identity:{
@@ -70,14 +70,7 @@
           size:file.size,
           type:file.type,
         })),
-        featuresToPreserve:valueOf("features-preserve"),
-        clothingAndColors:valueOf("avatar-clothing"),
-        teamsPlacesInterests:valueOf("avatar-interests"),
-        propsAndSymbols:valueOf("avatar-props"),
-        background:valueOf("avatar-setting"),
-        poseAndExpression:valueOf("avatar-expression"),
-        mustHaveDetail:valueOf("avatar-must-have"),
-        exclusions:valueOf("avatar-avoid"),
+        brief:valueOf("avatar-brief"),
       },
       consent:{
         accuracy:checkedValue("Accuracy confirmed") === "Yes",
@@ -270,14 +263,7 @@
     ]);
     addReviewGroup("Avatar brief", [
       ["Reference photos", photoNames],
-      ["Features to preserve", valueOf("features-preserve")],
-      ["Clothing", valueOf("avatar-clothing")],
-      ["Teams & interests", valueOf("avatar-interests")],
-      ["Props", valueOf("avatar-props")],
-      ["Background", valueOf("avatar-setting")],
-      ["Pose", valueOf("avatar-expression")],
-      ["Must-have detail", valueOf("avatar-must-have")],
-      ["Avoid", valueOf("avatar-avoid")],
+      ["Avatar brief", valueOf("avatar-brief")],
     ]);
   };
 
