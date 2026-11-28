@@ -39,7 +39,9 @@ assert.match(page, /name="Registration packet version" value="4"/);
 const avatarStep = page.match(/<fieldset[^>]+data-register-step="1"[\s\S]*?<\/fieldset>/)?.[0] || "";
 assert.equal((avatarStep.match(/<(?:input|textarea)\b/g) || []).length, 2, "Avatar step must contain only photo upload and one brief field");
 assert.match(avatarStep, /<textarea id="avatar-brief" name="Avatar brief"[^>]+required/);
-assert.match(avatarStep, /“Surprise me” works too/);
+assert.match(avatarStep, /at least three details, separated by commas or new lines/);
+assert.match(avatarStep, /your hometown or city of birth/);
+assert.doesNotMatch(avatarStep, /surprise me/i);
 assert.doesNotMatch(page, /id="(?:features-preserve|avatar-clothing|avatar-interests|avatar-props|avatar-setting|avatar-expression|avatar-must-have|avatar-avoid)"/);
 assert.match(page, /id="registration-packet" name="Registration packet JSON"/);
 assert.match(page, /ready-to-review player file/);
@@ -135,12 +137,18 @@ const mockForm = {
 };
 const mockFields = new Map([
   ["registration-packet", {value:""}],
-  ["avatar-brief", {value:'Bruins jersey, a smile & Boston.\nAvoid Yankees gear; keep my glasses.'}],
+  ["avatar-brief", {
+    value:'Bruins jersey, a smile & Boston.\nAvoid Yankees gear; keep my glasses.',
+    validationMessage:"",
+    setCustomValidity(message) { this.validationMessage = message; },
+    addEventListener:(name, handler) => avatarBriefListeners.set(name, handler),
+  }],
   ["avatar-photos", {
     files:[new File(["photo-one"], "front.png", {type:"image/png"}), new File(["photo-two"], "smiling.jpg", {type:"image/jpeg"})],
     addEventListener:() => {},
   }],
 ]);
+const avatarBriefListeners = new Map();
 vm.runInNewContext(script, {
   document:{
     getElementById:id => id === "register-form" ? mockForm : id === "registration-phone" ? mockPhone : mockFields.get(id) || null,
@@ -158,9 +166,19 @@ assert.equal(packet.status, "pending-review");
 assert.equal(packet.avatar.brief, mockFields.get("avatar-brief").value, "Preserve the whole brief, including newlines and exclusions");
 assert.deepEqual(packet.avatar.referenceFiles.map(file => file.name), ["front.png", "smiling.jpg"]);
 assert.deepEqual(Object.keys(packet.avatar).sort(), ["brief", "referenceFiles"], "Do not leave phantom questions in the new packet");
-mockFields.get("avatar-brief").value = "Surprise me";
-formListeners.get("input")();
-assert.equal(JSON.parse(mockFields.get("registration-packet").value).avatar.brief, "Surprise me", "A short brief is enough");
+const briefInput = mockFields.get("avatar-brief");
+for (const answer of ["", "Surprise me", "Boston, Bruins", "Boston, boston, BOSTON", ", ;\n", "a, b, c"]) {
+  briefInput.value = answer;
+  avatarBriefListeners.get("input")();
+  assert.match(briefInput.validationMessage, /at least three different details/, `Reject an incomplete brief: ${answer}`);
+}
+for (const answer of ["Born in Boston, Bruins fan, love golf", "Boston\nBruins\nBaseball cap", "Boston; Bruins; golf", "Boston, Bruins, golf, no Yankees gear"]) {
+  briefInput.value = answer;
+  avatarBriefListeners.get("input")();
+  formListeners.get("input")();
+  assert.equal(briefInput.validationMessage, "", `Accept three or more details: ${answer}`);
+  assert.equal(JSON.parse(mockFields.get("registration-packet").value).avatar.brief, answer);
+}
 
 for (const raw of ["2025550100", "202-555-0100", "(202) 555-0100", "+1 (202) 555-0100", "12025550100", "202.555.0100"]) {
   mockPhone.value = raw;

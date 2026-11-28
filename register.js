@@ -12,6 +12,7 @@
   const fileStatus = document.getElementById("avatar-file-status");
   const emailInput = document.getElementById("registration-email");
   const phoneInput = document.getElementById("registration-phone");
+  const avatarBriefInput = document.getElementById("avatar-brief");
   const registrationPacket = document.getElementById("registration-packet");
   const submitButton = document.getElementById("register-submit");
   const confirmation = document.getElementById("register-confirmation");
@@ -201,6 +202,18 @@
     return !message;
   };
 
+  const validateAvatarBrief = () => {
+    if (!avatarBriefInput) return true;
+    const details = new Set(avatarBriefInput.value.split(/[,;\n]+/)
+      .map(detail => detail.trim().toLowerCase())
+      .filter(detail => detail.length >= 2));
+    const message = details.size < 3
+      ? "Give us at least three different details, separated by commas or new lines. Try your hometown, a favorite team, and a hobby."
+      : "";
+    avatarBriefInput.setCustomValidity(message);
+    return !message;
+  };
+
   const focusInvalidControl = control => {
     if (!control) return;
     if (control.matches("select.site-native-select")) {
@@ -217,6 +230,7 @@
     if (step.contains(fileInput)) validateFiles();
     if (step.contains(emailInput)) validateEmail();
     if (step.contains(phoneInput)) validatePhone();
+    if (step.contains(avatarBriefInput)) validateAvatarBrief();
     const invalid = step.querySelector(":invalid");
     if (!invalid) return true;
     if (status) status.textContent = "A required answer is missing or needs attention before you continue.";
@@ -282,6 +296,7 @@
   form.addEventListener("change", updateRegistrationPacket);
   fileInput?.addEventListener("change", validateFiles);
   emailInput?.addEventListener("input", validateEmail);
+  avatarBriefInput?.addEventListener("input", validateAvatarBrief);
   phoneInput?.addEventListener("input", validatePhone);
   phoneInput?.addEventListener("blur", () => {
     validatePhone();
@@ -308,6 +323,7 @@
     validateFiles();
     validateEmail();
     validatePhone();
+    validateAvatarBrief();
     const invalidStepIndex = steps.findIndex(step => step.querySelector(":invalid"));
     if (invalidStepIndex !== -1) {
       event.preventDefault();
